@@ -1,38 +1,39 @@
 ---
-title: Building and testing PowerShell
-intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
+title: PowerShell のビルドとテスト
+intro: PowerShell プロジェクトのビルドとテストのための継続的インテグレーション (CI) ワークフローを作成できます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 authors:
   - potatoqualitee
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
-This guide shows you how to use PowerShell for CI. It describes how to use Pester, install dependencies, test your module, and publish to the PowerShell Gallery.
+このガイドでは、CIのためのPowerShellの使用方法を示します。 Pesterの使い方、依存関係のインストール、モジュールのテスト、PowerShell Galleryへの公開について説明します。
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 最新のソフトウェアと、PowerShellおよびPesterのプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 
 ### 必要な環境
 
 YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
 
-We recommend that you have a basic understanding of PowerShell and Pester. 詳しい情報については、以下を参照してください。
-- [Getting started with PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
+PowerShell及びPesterの基本的な理解をしておくことをおすすめします。 詳しい情報については、以下を参照してください。
+- [PowerShellを使い始める](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
 - [Pester](https://pester.dev)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Adding a workflow for Pester
+### Pesterのワークフローの追加
 
-To automate your testing with PowerShell and Pester, you can add a workflow that runs every time a change is pushed to your repository. In the following example, `Test-Path` is used to check that a file called `resultsfile.log` is present.
+PowerShellとPesterでテストを自動化するには、変更がリポジトリにプッシュされるたびに実行されるワークフローを追加できます。 以下の例では、`resultsfile.log`というファイルがあるかをチェックするために`Test-Path`が使われます。
 
-This example workflow file must be added to your repository's `.github/workflows/` directory:
+以下の例のワークフローファイルは、リポジトリの`.github/workflows/`ディレクトリに追加しなければなりません。
 
 {% raw %}
 ```yaml

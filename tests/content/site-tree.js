@@ -24,23 +24,23 @@ describe('siteTree', () => {
   test('object order', () => {
     expect(Object.keys(siteTree)[0]).toBe('en')
     expect(Object.keys(siteTree.en)[0]).toBe(nonEnterpriseDefaultVersion)
-    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe(`/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github`)
+    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe('/en/github/getting-started-with-github')
   })
 
   test('object structure', () => {
     expect(nonEnterpriseDefaultVersion in siteTree.en).toBe(true)
     expect(`enterprise-server@${latestEnterpriseRelease}` in siteTree.en).toBe(true)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github.href`]).toBe(`/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github`)
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe('/en/github')
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.href`]).toBe('/en/github/getting-started-with-github')
   })
 
   describe('localized titles', () => {
     test('titles for categories', () => {
-      const japaneseTitle = flatTree[`ja.${nonEnterpriseDefaultVersion}.products.github.categories./ja/${nonEnterpriseDefaultVersion}/github/getting-started-with-github.title`]
+      const japaneseTitle = flatTree[`ja.${nonEnterpriseDefaultVersion}.products.github.categories./ja/github/getting-started-with-github.title`]
       expect(typeof japaneseTitle).toBe('string')
       expect(japaneseCharacters.presentIn(japaneseTitle)).toBe(true)
 
-      const englishTitle = flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github.title`]
+      const englishTitle = flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.title`]
       expect(typeof englishTitle).toBe('string')
       expect(japaneseCharacters.presentIn(englishTitle)).toBe(false)
     })

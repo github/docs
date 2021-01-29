@@ -1,8 +1,8 @@
+import escape from 'lodash/escape'
 const wordsLongerThan18Chars = /[\S]{18,}/g
 const camelCaseChars = /([a-z])([A-Z])/g
 const underscoresAfter12thChar = /([\w:]{12}[^_]*?)_/g
 const slashChars = /([/\\])/g
-const { escape } = require('lodash')
 
 // This module improves table rendering on reference pages by inserting a <wbr>
 // tag in code terms that use camelcase, slashes, or underscores, inspired by

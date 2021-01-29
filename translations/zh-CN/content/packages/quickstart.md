@@ -28,7 +28,7 @@ versions:
     ```
     {% endraw %}
 4. 初始化 npm 包。 在包初始化向导中，输入包名称：_`@YOUR-USERNAME/YOUR-REPOSITORY`_，如果您没有任何测试，请将测试脚本设置为 `exit 0`。 提交更改并推送以
-{% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_dotcom %} 上的站点。
     {% raw %}
     ```shell
     $ npm init

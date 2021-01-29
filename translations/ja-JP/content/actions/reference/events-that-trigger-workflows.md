@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフローイベントを設定する
 
@@ -80,6 +80,8 @@ versions:
 
 [crontab guru](https://crontab.guru/) を使うと、クーロン構文の生成および実行時間の確認に役立ちます。 また、クーロン構文の生成を支援するため、[crontab guru のサンプル](https://crontab.guru/examples.html)リストもあります。
 
+Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, please see "[Notifications for workflow runs](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)."
+
 ### 手動イベント
 
 ワークフローの実行を手動でトリガーできます。 リポジトリ内の特定のワークフローをトリガーするには、`workflow_dispatch` イベントを使用します。 リポジトリで複数のワークフローをトリガーし、カスタムイベントとイベントタイプを作成するには、`repository_dispatch` イベントを使用します。
@@ -108,7 +110,7 @@ on: workflow_dispatch
 
 ##### ワークフロー設定の例
 
-この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 If a <code>home` isn't provided, the default value 'The Octoverse' is printed.
+この例では、 `code`と`home`を入力として定義し、`github.event.inputs.name`及び`github.event.inputs.home`コンテキストを使用してそれらを出力します。 If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 {% raw %}
 ```yaml
@@ -143,7 +145,7 @@ jobs:
 
 {% data reusables.github-actions.branch-requirement %}
 
-{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳しい情報については、「[リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
+{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
 
 カスタム `repository_dispatch` webhook イベントをトリガーするには、{% data variables.product.product_name %} API エンドポイントに `POST` リクエストを送信して、アクティビティのタイプを説明する `event_type` 名を提供する必要があります。 ワークフローの実行をトリガーするには、`repository_dispatch` イベントを使用するようワークフローを設定する必要もあります。
 
@@ -224,7 +226,7 @@ on:
 
 #### `delete`
 
-誰かがブランチまたはタグを作成し、それによって `delete` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
+誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -414,7 +416,7 @@ on:
 
 #### `page_build`
 
-誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -512,7 +514,7 @@ on:
 
 {% note %}
 
-**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
+**注:** デフォルトでは、ワークフローが実行されるのは`pull_request` のアクティビティタイプが `opened`、`synchronize`、または `reopened` の場合だけです。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
 
 {% endnote %}
 
@@ -593,7 +595,8 @@ This event runs in the context of the base of the pull request, rather than in t
 たとえば、プルリクエストが `assigned`、`opened`、`synchronize`、または `reopened` だったときにワークフローを実行できます。
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 

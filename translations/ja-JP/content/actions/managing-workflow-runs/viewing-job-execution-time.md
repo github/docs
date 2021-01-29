@@ -6,8 +6,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 請求可能なジョブ実行時間（分）は、{% data variables.product.prodname_dotcom %} ホストランナーを使用するプライベートリポジトリで実行されるジョブに対してのみ表示されます。 パブリックリポジトリで {% data variables.product.prodname_actions %} を使用する場合、またはセルフホストランナーで実行されるジョブの場合、請求対象となる実行時間はありません。
 
@@ -19,6 +19,6 @@ versions:
 
    {% note %}
 
-   **注:** 表示される請求可能な時間には、丸めや分数の乗数は含まれません。 四捨五入や分乗数を含む {% data variables.product.prodname_actions %} の使用状況の合計を表示するには、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)」を参照してください。
+   **ノート:** 表示される請求可能な時間には、丸めや分数の乗数は含まれません。 四捨五入や分乗数を含む {% data variables.product.prodname_actions %} の使用状況の合計を表示するには、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)」を参照してください。
 
    {% endnote %}

@@ -4,6 +4,43 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `ContributionLevel` was added",
+          "Type `VerifiableDomainOrder` was added",
+          "Type `VerifiableDomainOrderField` was added",
+          "Type `VerifiableDomainConnection` was added",
+          "Type `VerifiableDomainEdge` was added",
+          "Type `VerifiableDomain` was added",
+          "Type `VerifiableDomainOwner` was added",
+          "Type `AddVerifiableDomainInput` was added",
+          "Type `AddVerifiableDomainPayload` was added",
+          "Type `DeleteVerifiableDomainInput` was added",
+          "Type `DeleteVerifiableDomainPayload` was added",
+          "Type `RegenerateVerifiableDomainTokenInput` was added",
+          "Type `RegenerateVerifiableDomainTokenPayload` was added",
+          "Type `VerifyVerifiableDomainInput` was added",
+          "Type `VerifyVerifiableDomainPayload` was added",
+          "Field `domains` was added to object type `Organization`",
+          "Field `isLatest` was added to object type `Release`",
+          "Field `latestRelease` was added to object type `Repository`",
+          "Enum value `WAITING` was added to enum `DeploymentStatusState`",
+          "Field `contributionLevel` was added to object type `ContributionCalendarDay`",
+          "Field `domains` was added to object type `EnterpriseOwnerInfo`",
+          "Field `addVerifiableDomain` was added to object type `Mutation`",
+          "Field `deleteVerifiableDomain` was added to object type `Mutation`",
+          "Field `regenerateVerifiableDomainToken` was added to object type `Mutation`",
+          "Field `verifyVerifiableDomain` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-01-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AutoMergeDisabledEvent` was added",
           "Type `AutoMergeEnabledEvent` was added",
           "Type `AutoRebaseEnabledEvent` was added",

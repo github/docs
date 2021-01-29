@@ -11,9 +11,9 @@ versions:
 
 ### Gezählte Beiträge
 
-#### Issues und Pull Requests
+#### Issues, pull requests and discussions
 
-Issues und Pull Requests werden in Deinem Beteiligungsdiagramm angezeigt, falls sie in einem eigenständigen Repository und nicht in einem Fork geöffnet wurden.
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 #### Commits
 Commits werden in Deinem Beteiligungsdiagramm angezeigt, falls sie **alle** folgenden Bedingungen erfüllen:

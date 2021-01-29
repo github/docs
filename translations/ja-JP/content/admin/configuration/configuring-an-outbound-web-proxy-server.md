@@ -21,5 +21,7 @@ versions:
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 4. **HTTP Proxy Server（HTTPプロキシサーバ）**の下に、プロキシサーバのURLを入力してください。 ![HTTP プロキシサーバーのURLを入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-field.png)
-5. オプションで、プロキシのアクセスを要しないホストがあれば**HTTP Proxy Exclusion（HTTPプロキシの除外）**の下にカンマ区切りで入力してください。 ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
+5. オプションで、プロキシのアクセスを要しないホストがあれば**HTTP Proxy Exclusion（HTTPプロキシの除外）**の下にカンマ区切りで入力してください。 To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle` ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
 {% data reusables.enterprise_management_console.save-settings %}

@@ -215,7 +215,7 @@ Du kannst Emojis einfügen, indem Du `:EMOJICODE:` eingeben.
 
 Bei der Eingabe von `:` wird eine Liste mit Vorschlägen für Emojis angezeigt. Die Liste wird während der Eingabe gefiltert. Wenn Du den gewünschten Emoji siehst, drücke die **Tabulator-** oder **Eingabetaste**, um das markierte Ergebnis zu vervollständigen.
 
-Eine komplette Liste der verfügbaren Emojis und Codes findest Du unter [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### Paragraphen
 

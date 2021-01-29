@@ -1,5 +1,6 @@
-- [最低要求](#minimum-requirements)
-- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)
+- [最低要求](#minimum-requirements){% if currentversion == "enterprise-server@2.22" %}
+- [ {% data variables.product.prodname_ghe_server %} 2.22 的测试版功能](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentversion ver_gt "enterprise-server@2.22" %}
+- [可选功能](#optional-features){% endif %}
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)
 
@@ -7,18 +8,18 @@
 
 建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} If you enable the beta for {% data variables.product.prodname_actions %}, review the following requirements and recommendations.
+{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} 如果您对 {% endif %}{% data variables.product.prodname_actions %} 启用 {% if currentVersion == "enterprise-server@2.22" %}测试版，请查看以下要求和建议。
 
 - 您必须为 {% data variables.product.prodname_actions %} 工作流程配置至少一个运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
-- 您必须配置外部 Blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
-- You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
+- 您必须配置外部 Blob 存储。 For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+- 您可能需要配置额外的 CPU 和内存资源。 需要为 {% data variables.product.prodname_actions %} 预配的额外 CPU 和内存资源取决于用户同时运行的工作流程数量，以及用户活动、自动化和集成的总体水平。
 
-    | 每分钟最大作业数 | Additional vCPUs | Additional memory |
-    |:-------- | ----------------:| -----------------:|
-    | 轻型测试     |                4 |           30.5 GB |
-    | 25       |                8 |             61 GB |
-    | 35       |               16 |            122 GB |
-    | 100      |               32 |            244 GB |
+    | 每分钟最大作业数 | 额外的 vCPU |    额外内存 |
+    |:-------- | --------:| -------:|
+    | 轻型测试     |        4 | 30.5 GB |
+    | 25       |        8 |   61 GB |
+    | 35       |       16 |  122 GB |
+    | 100      |       32 |  244 GB |
 
 {% endif %}
 
@@ -28,9 +29,9 @@
 
 您的实例需要一个独立于根磁盘的持久数据磁盘。 更多信息请参阅“[系统概述](/enterprise/admin/guides/installation/system-overview)”。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-如果您在 {% data variables.product.prodname_ghe_server %} 2.22 中启用 {% data variables.product.prodname_actions %} 的测试版，则需要配置外部 blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
+如果启用{% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %}测试版{% endif %}，则需要配置外部 Blob 存储。 For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% endif %}
 

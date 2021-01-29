@@ -27,6 +27,8 @@ versions:
 - {% data variables.product.prodname_dotcom %} 将在仓库中显示来自上传的 SARIF 文件的 {% data variables.product.prodname_code_scanning %} 警报。 如果您阻止自动上传，在准备上传结果时可以使用 `upload` 命令（更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”）。
 - 作为仓库外部构件生成结果的工具，您可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（更多信息请参阅“[上传 SARIF 文件](/rest/reference/code-scanning#upload-a-sarif-file)”）。
 
+{% data reusables.code-scanning.not-available %}
+
 ### 通过 {% data variables.product.prodname_actions %} 上传 {% data variables.product.prodname_code_scanning %} 分析
 
 要将第三方 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}，需要 {% data variables.product.prodname_actions %} 工作流程。 更多信息请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。

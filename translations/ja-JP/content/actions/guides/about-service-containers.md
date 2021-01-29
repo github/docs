@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### サービスコンテナについて
 
@@ -53,7 +54,7 @@ on: push
 jobs:
   # コンテナジョブのラベル
   container-job:
-    # コンテナはLinuxベースのオペレｰ手イングシステム内で実行する
+    # コンテナはLinuxベースのオペレーティングシステム内で実行する
     runs-on: ubuntu-latest
     # `container-job`が実行されるDocker Hubイメージ
     container: node:10.18-jessie

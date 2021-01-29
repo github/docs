@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -110,12 +111,12 @@ outputs:
 
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -186,7 +187,7 @@ runs:
 
 #### `pre-if`
 
-**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。 
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。
 
 在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
 
@@ -264,7 +265,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
@@ -279,7 +280,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -321,7 +322,7 @@ runs:
 
 ### 用于 Docker 操作的 `runs`
 
-**必要** 配置用于 Docker 操作的图像。 
+**必要** 配置用于 Docker 操作的图像。
 
 
 
@@ -330,7 +331,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -343,7 +344,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```

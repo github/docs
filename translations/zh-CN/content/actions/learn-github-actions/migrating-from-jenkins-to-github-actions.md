@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -166,7 +167,7 @@ Jenkins Pipeline
     maven-build:
     env:
       MAVEN_PATH: '/usr/local/maven'
-  
+
   ```
 
 </td>
@@ -209,7 +210,7 @@ Jenkins Pipeline
       needs: job1
     job3:
       needs: [job1, job2]
-  
+
   ```
 
 </td>

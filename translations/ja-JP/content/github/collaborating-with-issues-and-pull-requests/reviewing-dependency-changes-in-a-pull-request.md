@@ -36,7 +36,7 @@ versions:
 
    ![ファイルフィルタメニュー](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. マニフェストまたはロックファイルのヘッダの右側で、リッチ diff ボタンをクリックして依存関係のレビューを表示します。
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
@@ -69,6 +69,4 @@ versions:
    * 脆弱性の重要度。
    * 脆弱性が修正された依存関係のバージョン。 誰かのプルリクエストを確認している場合は、パッチを適用したバージョンまたはそれ以降のリリースに依存関係を更新するようにコントリビューターに依頼することができます。
 
-1. ソースの diff ボタンをクリックすると、ファイルの元のビューに戻ることができます。
-
-   ![ソース diff ボタン](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+{% data reusables.repositories.return-to-source-diff %}

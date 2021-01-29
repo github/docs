@@ -38,6 +38,8 @@ Jeder Entwickler kann ein oder mehrere Codespaces für jedes öffentliche Reposi
 
 {% data reusables.codespaces.about-personalization %} Weitere Informationen findest Du unter „[{% data variables.product.prodname_codespaces %} für Dein Konto personalisieren](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
 
+You can configure settings to add encrypted secrets, enable GPG verification, and allow codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}

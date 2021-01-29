@@ -124,7 +124,11 @@ As before, Git is showing the commit message for you to edit. You can change the
 Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
 
 ```shell
-$ git push origin master --force
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
+$ git push origin main --force
 ```
 
 {% warning %}

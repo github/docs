@@ -1,0 +1,3 @@
+1. En la lista de organizaciones, da clic en aquella que te gustaría utilizar para tu aula. Opcionalmente, puedes crear una organizción nueva. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)". ![Organización en la lista de organizaciones para crear un aula nueva](/assets/images/help/classroom/click-organization.png)
+1. Teclea el nombre de tu aula. ![Campo de texto para teclear el nombre del aula](/assets/images/help/classroom/type-classroom-name.png)
+1. Da clic en **Crear aula**. ![Campo de texto para teclear el nombre del aula](/assets/images/help/classroom/click-create-classroom-button.png)

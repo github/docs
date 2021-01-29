@@ -1,0 +1,1 @@
+1. En el lado derecho de la página, debajo de "Selecciona un nivel", revisa los niveles de patrocinio disponibles. Posteriormente, a la derecha del nivel que escojas, da clic en **Seleccionar**. ![Caja de selección de nivel](/assets/images/help/sponsors/select-a-tier-box.png)

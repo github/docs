@@ -1,0 +1,1 @@
+1. Debajo de "Editar tu plan", utiliza el menú desplegable y da clic en un nuevo plan. ![Menú desplegable listando todos los planes disponibles de la app](/assets/images/help/marketplace/marketplace-choose-new-plan.png)

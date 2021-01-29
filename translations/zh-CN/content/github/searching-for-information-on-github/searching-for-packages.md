@@ -16,8 +16,8 @@ versions:
 您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
 {% if enterpriseServerVersions contains currentVersion %}
-You can only search for packages on
-{% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
+您只能搜索
+{% data variables.product.product_name %} 上的包，而不是 {% data variables.product.prodname_dotcom_the_website %} 上的包，即使启用了 {% data variables.product.prodname_github_connect %}。
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

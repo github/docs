@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '개요'
 ---
 
 {% data reusables.actions.enterprise-beta %}

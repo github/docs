@@ -29,13 +29,14 @@ jobs:
 
       # Pushes to other repo
       - name: Push folder to another repository
-        uses: crykn/copy_folder_to_another_repo_action@abc264e1c16eb3d7b1f7763bfdb0e1699ad43120
+        uses: crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_SITEPOLICY }}
         with:
           source_folder: 'content/github/site-policy'
           destination_repo: 'github/site-policy'
-          destination_branch: 'repo-sync'
+          destination_branch: 'main'
+          destination_branch_create: 'repo-sync'
           destination_folder: 'Policies'
           user_email: 'pcihon@users.noreply.github.com'
           user_name: 'pcihon'

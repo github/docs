@@ -1,5 +1,4 @@
 const { getDOM } = require('../helpers/supertest')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -31,7 +30,7 @@ describe('sidebar', () => {
   })
 
   test('adds an `is-current-page` class to the sidebar link to the current page', async () => {
-    const url = `/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings`
+    const url = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
     const $ = await getDOM(url)
     expect($('.sidebar .is-current-page').length).toBe(1)
     expect($('.sidebar .is-current-page a').attr('href')).toContain(url)

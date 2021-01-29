@@ -46,7 +46,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 ### SAMLのメタデータ
 
-{% data variables.product.prodname_ghe_server %} インスタンスのサービスプロバイダメタデータは、`http(s)://[hostname]/saml/metadata` にあります。
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 アイデンティティプロバイダを手動で設定するなら、Assertion Consumer Service (ACS) URLは`http(s)://[hostname]/saml/consume`です。 これは`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`バインディングを利用します。
 

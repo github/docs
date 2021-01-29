@@ -1,0 +1,1 @@
+La actividad relacionada con el comentario de un informe de problemas. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[comentrios del informe de problemas](/rest/reference/issues#comments)".

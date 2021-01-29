@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -324,4 +325,3 @@ jobs:
 </table>
 
 Aktionen zur Verwendung in Deinem Workflow findest du entweder auf dem [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) oder Du kannst eigene Aktionen erstellen. For more information, see "[Creating actions](/actions/creating-actions)."
-

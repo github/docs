@@ -1,0 +1,1 @@
+Actividad relacionada con las alertas de escaneo de código en un repositorio. El tipo de actividad se especifica en la propiedad de la acción del objeto de la carga útil. Para obtener más información, consulta la sección "[Acerca del escaneo de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".

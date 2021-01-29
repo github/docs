@@ -16,5 +16,5 @@ versions:
 ### 延伸阅读
 
 - "[搜索讨论](/github/searching-for-information-on-github/searching-discussions)"
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- "[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[管理社区的讨论](/discussions/managing-discussions-for-your-community)"

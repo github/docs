@@ -8,13 +8,13 @@ versions:
   free-pro-team: '*'
 ---
 
-### About domain verification
+### 关于域验证
 
 要在 {% data variables.product.product_name %} 上验证域，您必须拥有组织中的所有者权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。 您还需要访问权限以使用您的域托管服务修改域记录。
 
 验证组织域的所有权后，将在组织的资料中显示“Verified（已验证）”徽章。 如果您的组织位于 {% data variables.product.prodname_ghe_cloud %} 上并且已同意公司服务条款，则组织所有者将能够通过查看验证域内每个成员的电子邮件地址来验证组织成员的身份。 更多信息请参阅“[关于组织的资料页面](/articles/about-your-organization-s-profile/)”和“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
 
-If your organization is owned by an enterprise account, a "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
+如果您的组织由企业帐户拥有，则“已验证”徽章将显示在组织的基本资料上，除了显示组织的任何已验证域之外，还能够显示企业帐户的任何已验证域。 For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
 
 {% data reusables.organizations.verified-domains-details %}
 
@@ -29,7 +29,7 @@ If your organization is owned by an enterprise account, a "Verified" badge will 
 5. 单击 **Add a domain（添加域）**。 ![添加域按钮](/assets/images/help/organizations/add-a-domain-button.png)
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
-1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ORGANIZATION` with the name of your organization and `example.com` with the domain you'd like to verify. 您应看到命令输出中列出的新 TXT 记录。
+1. 等待 DNS 配置更改，最多可能需要 72 小时。 您可以通过在命令行上运行 `dig` 命令来确认您的 DNS 配置已更改，将 `ORGANIZATION` 替换为您组织的名称，将 `example.com` 替换为要验证的域。 您应看到命令输出中列出的新 TXT 记录。
    ```shell
    $ dig _github-challenge-<em>ORGANIZATION</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -324,4 +325,3 @@ trabalhos:
 </table>
 
 Você pode encontrar ações que podem ser usadas em seu fluxo de trabalho em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) ou você pode criar suas próprias ações. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
-

@@ -8,7 +8,6 @@ versions:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于企业的 {% data variables.product.prodname_actions %} 权限
 

@@ -215,7 +215,7 @@ To see content attachments, you must have a {% data variables.product.prodname_g
 
 `:` を入力すると、絵文字のサジェストリストが表示されます。 このリストは、入力を進めるにつれて絞り込まれていくので、探している絵文字が見つかったら、**Tab** または **Enter** を押すと、ハイライトされているものが入力されます。
 
-利用可能な絵文字とコードの完全なリストについては、[emoji-cheat-sheet.com](http://emoji-cheat-sheet.com)を参照してください。
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### パラグラフ
 

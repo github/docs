@@ -1,0 +1,1 @@
+1. Debajo de tu nombre de organización, da clic en {% octicon "project" aria-label="The Projects icon" %}**Proyectos**. ![Pestaña de proyectos para tu organización](/assets/images/help/organizations/organization-projects-tab.png)

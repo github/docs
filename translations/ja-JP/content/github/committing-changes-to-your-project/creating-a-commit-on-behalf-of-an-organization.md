@@ -26,7 +26,17 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
 
 ### コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+
+  {% endtip %}
 
 2. コミットメッセージの次の行に、`on-behalf-of: @org <name@organization.com>` と入力して、引用符で閉じます。
 

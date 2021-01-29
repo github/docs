@@ -12,7 +12,7 @@ redirect_from:
 
 {% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
-### About domain verification
+### 关于域验证
 
 You can confirm that the websites and email addresses listed on the profiles of any organization owned by your enterprise account are controlled by your enterprise by verifying the domains. Verified domains for an enterprise account apply to every organization owned by the enterprise account, and organization owners can verify additional domains for their organizations. 更多信息请参阅“[验证组织的域](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)”。
 
@@ -34,7 +34,7 @@ To verify your enterprise account's domain, you must have access to modify domai
 1. 单击 **Add a domain（添加域）**。 ![添加域按钮](/assets/images/help/enterprises/add-a-domain-button.png)
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
-1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ENTERPRISE-ACCOUNT` with the name of your enterprise account, and `example.com` with the domain you'd like to verify. 您应看到命令输出中列出的新 TXT 记录。
+1. 等待 DNS 配置更改，最多可能需要 72 小时。 You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ENTERPRISE-ACCOUNT` with the name of your enterprise account, and `example.com` with the domain you'd like to verify. 您应看到命令输出中列出的新 TXT 记录。
    ```shell
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```

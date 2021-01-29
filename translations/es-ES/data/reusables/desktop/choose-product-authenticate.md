@@ -1,0 +1,1 @@
+1. A la derecha de "{% data variables.product.prodname_enterprise %} Server", da clic en **Iniciar sesión**. ![El botón de Iniciar sesión para GitHub Enterprise Server](/assets/images/help/desktop/sign-in-ghes.png)

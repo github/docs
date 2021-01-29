@@ -33,11 +33,11 @@ https://github.com/monalisa/hello_docker
 1. Dockerfile に以下の行を追加します。`OWNER` と `REPO` は、あなたの情報に置き換えてください。
 
  ```shell
- LABEL org.opencontainers.image.source https://github.com/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://github.com/<em>OWNER</em>/<em>REPO</em>
  ```
  たとえば、あなたのユーザ名が `monalisa` で、`my-repo` を所有している場合は、以下の行を Dockerfile に追加します。
  ```shell
- LABEL org.opencontainers.image.source https://github.com/monalisa/my-repo
+ LABEL org.opencontainers.image.source=https://github.com/monalisa/my-repo
  ```
  詳しい情報については、公式の Docker ドキュメンテーションの「[LABEL](https://docs.docker.com/engine/reference/builder/#label)」、および `opencontainers/image-spec` リポジトリの「[事前定義されたアノテーションキー](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)」を参照してください。
 

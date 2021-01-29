@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_actions %} e GitLab CI/CD compartilha
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,0 +1,1 @@
+1. Decide si quieres mantener únicamente los cambios de tu rama, mantener únicamente los cambios de las demás ramas, o hacer un cambio nuevo, el cual puede incorporar cambios de ambas ramas. Borra los marcadores de conflicto `<<<<<<<`, `=======`, `>>>>>>>` y realiza los cambios que quieras en la fusión final.

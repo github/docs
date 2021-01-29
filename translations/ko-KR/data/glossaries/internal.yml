@@ -110,7 +110,7 @@
   description: 중앙 처리 장치
 - 
   term: 자격 증명 도우미
-  description: Git 자격 증명을 저장하는 프로그램입니다.
+  description: A program that stores and fetches Git credentials.
 - 
   term: 크리올
   description: >-
@@ -739,7 +739,7 @@
 - 
   term: WYSIWYG
   description: >-
-    What You See Is What You Get. 화면에 있는 텍스트를 의미하는 약어로, 렌더링될 때와 똑같이 보입니다.
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: 가상화 플랫폼입니다.

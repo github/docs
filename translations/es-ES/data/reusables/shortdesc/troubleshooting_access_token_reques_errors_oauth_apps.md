@@ -1,0 +1,1 @@
+Cuando intercambias un código por un token de acceso, existe un conjunto de errores adicionales que pueden presentarse. El formato de estas respuestas se determina por el encabezado de aceptación que pases.
