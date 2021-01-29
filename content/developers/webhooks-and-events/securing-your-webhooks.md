@@ -42,6 +42,7 @@ When your secret token is set, {% data variables.product.product_name %} uses it
 {% note %}
 
 **Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrate using the `X-Hub-Signature-256` header.
+**Note** The payload of the webhook may contain unicode characters.
 
 {% endnote %}
 {% endif %}
