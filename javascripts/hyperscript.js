@@ -39,6 +39,6 @@ export default function h (tagName, ...children) {
 }
 
 export const tags = Object.fromEntries(
-  ['div', 'form', 'a', 'input', 'button', 'ol', 'li', 'em']
+  ['div', 'form', 'a', 'input', 'button', 'ol', 'li', 'mark']
     .map(tagName => [tagName, (...args) => h(tagName, ...args)])
 )

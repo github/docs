@@ -8,6 +8,8 @@ const productNames = require('../lib/product-names')
 const warmServer = require('../lib/warm-server')
 const featureFlags = Object.keys(require('../feature-flags'))
 const builtAssets = require('../lib/built-asset-urls')
+const searchVersions = require('../lib/search/versions')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
@@ -45,6 +47,13 @@ module.exports = async function contextualize (req, res, next) {
 
   // JS + CSS asset paths
   req.context.builtAssets = builtAssets
+
+  // Languages and versions for search
+  req.context.searchOptions = JSON.stringify({
+    languages: Object.keys(languages),
+    versions: searchVersions,
+    nonEnterpriseDefaultVersion
+  })
 
   return next()
 }

@@ -1,6 +1,7 @@
 /* global page, browser */
 const sleep = require('await-sleep')
-const querystring = require('querystring')
+const { latest } = require('../../lib/enterprise-server-releases')
+const languages = require('../../lib/languages')
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -11,7 +12,7 @@ describe('homepage', () => {
   })
 })
 
-describe('algolia browser search', () => {
+describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
   it('works on the homepage', async () => {
@@ -41,18 +42,18 @@ describe('algolia browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to algolia for Enterprise Server', async () => {
+  it('sends the correct data to search for Enterprise Server', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
       if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
-        const { version, language } = querystring.parse(interceptedRequest.url())
-        expect(version).toBe('2.22')
-        expect(language).toBe('ja')
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('2.22')
+        expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
     })
@@ -62,7 +63,7 @@ describe('algolia browser search', () => {
     await newPage.waitForSelector('.search-result')
   })
 
-  it('sends the correct data to algolia for GHAE', async () => {
+  it('sends the correct data to search for GHAE', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
@@ -71,9 +72,9 @@ describe('algolia browser search', () => {
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
       if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
-        const { version, language } = querystring.parse(interceptedRequest.url())
-        expect(version).toBe('ghae')
-        expect(language).toBe('en')
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('ghae')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
@@ -235,6 +236,17 @@ describe('card filters', () => {
     expect(shownCards.length).toBeGreaterThan(0)
   })
 
+  it('works with select input on an Enterprise version', async () => {
+    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
   it('shows more cards', async () => {
     await page.goto('http://localhost:4001/en/actions')
     const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
@@ -251,5 +263,21 @@ describe('card filters', () => {
     expect(shownCards.length).toBe(0)
     const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
     expect(noResultsClasses).not.toContain('d-none')
+  })
+})
+
+describe('language banner', () => {
+  it('directs user to the English version of the article', async () => {
+    const wipLanguageKey = Object.keys(languages).find(key => languages[key].wip)
+
+    // This kinda sucks, but if we don't have a WIP language, we currently can't
+    // run a reliable test. But hey, on the bright side, if we don't have a WIP
+    // language then this code will never run anyway!
+    if (wipLanguageKey) {
+      const res = await page.goto(`http://localhost:4001/${wipLanguageKey}/actions`)
+      expect(res.ok()).toBe(true)
+      const href = await page.$eval('a#to-english-doc', el => el.href)
+      expect(href.endsWith('/en/actions')).toBe(true)
+    }
   })
 })
