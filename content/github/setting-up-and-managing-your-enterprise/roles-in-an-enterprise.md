@@ -52,7 +52,7 @@ Billing managers only have access to your enterprise's billing settings. Billing
 - View a list of billing managers
 - Add or remove other billing managers
 
-Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
+Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
 
 ### Further reading
 
