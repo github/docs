@@ -1,4 +1,4 @@
-const github = require('../lib/github')()
+const github = require('./github')()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
 async function getCommitSha (owner, repo, ref) {

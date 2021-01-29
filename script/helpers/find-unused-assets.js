@@ -5,10 +5,10 @@ const path = require('path')
 const walk = require('walk-sync')
 const { execSync } = require('child_process')
 const assert = require('assert')
-const loadSiteData = require('./site-data')
-const { loadPages } = require('./pages')
-const patterns = require('./patterns')
-const getDataReferences = require('./get-liquid-data-references')
+const loadSiteData = require('../../lib/site-data')
+const { loadPages } = require('../../lib/pages')
+const patterns = require('../../lib/patterns')
+const getDataReferences = require('../../lib/get-liquid-data-references')
 const imagesPath = '/assets/images'
 
 // these paths should remain in the repo even if they are not referenced directly

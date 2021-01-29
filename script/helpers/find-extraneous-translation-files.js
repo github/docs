@@ -1,7 +1,7 @@
 const path = require('path')
 const { difference } = require('lodash')
 const walk = require('walk-sync').entries
-const languages = require('../lib/languages')
+const languages = require('../../lib/languages')
 
 module.exports = function findExtraneousTranslatedFiles () {
   const files = []
