@@ -80,6 +80,8 @@ versions:
 
 您可以使用 [crontab guru](https://crontab.guru/) 帮助生成计划任务语法并确认它在何时运行。 为帮助您开始，我们还提供了一系列 [crontab guru 示例](https://crontab.guru/examples.html)。
 
+Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, please see "[Notifications for workflow runs](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)."
+
 ### 手动事件
 
 您可以手动触发工作流程运行。 要触发仓库中的特定工作流程，请使用 `workflow_dispatch` 事件。 要触发仓库中的多个工作流程并创建自定义事件和事件类型，请使用 `repository_dispatch` 事件。
@@ -309,9 +311,9 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Web 挂钩事件有效负载                                              | 活动类型                                                              | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------------------------------------------- | ----------------------------------------------------------------- | ------------ | ------------ |
-| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载                                                                                 | 活动类型                                                              | `GITHUB_SHA` | `GITHUB_REF` |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------ | ------------ |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | 默认分支上的最新提交   | 默认分支         |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -576,7 +578,13 @@ on:
 
 #### `pull_request_target`
 
-此事件类似于 `pull_request`，只不过它在拉取请求的基础仓库的上下文中运行，而不是在合并提交中运行。 这意味着您可以更安全地将您的密码提供给由拉取请求触发的工作流程，因为只有在基础仓库的提交中定义的工作流程才会运行。 例如，此事件允许您根据事件有效负载的内容创建工作流程来标识和评论拉取请求。
+此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交中运行。  这样可以防止从拉取请求的头部执行不安全的工作流程代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您根据事件有效负载的内容创建工作流程来标识和评论拉取请求，等等。
+
+{% warning %}
+
+**警告：** `pull_request_target` 事件被授予读/写仓库令牌，可以访问机密，即使从复刻触发时。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存共享与基本分支相同的范围，并且为了帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。
+
+{% endwarning %}
 
 | Web 挂钩事件有效负载                                             | 活动类型                                                                                                                                                                                                                                                                                                                                                 | `GITHUB_SHA`   | `GITHUB_REF` |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -587,7 +595,8 @@ on:
 例如，您可以在拉取请求为 `assigned`、`opened`、`synchronize` 或 `reopened` 时运行工作流程。
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 
@@ -725,4 +734,4 @@ on:
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
-如果要从工作流程运行触发工作流程，您可以使用个人访问令牌触发事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 更多信息请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
+如果要从工作流程运行触发工作流程，您可以使用个人访问令牌触发事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 有关存储个人访问令牌的更多信息，请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。

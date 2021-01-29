@@ -1,20 +1,20 @@
 ---
-title: Customer experience best practices for apps
-intro: 'Guidelines for creating an app that will be easy to use and understand.'
-shortTitle: Customer experience best practice
+title: 应用程序的客户体验最佳实践
+intro: '指导您创建易于使用和理解的应用程序。'
+shortTitle: 客户体验最佳实践
 versions:
   free-pro-team: '*'
 ---
 
-If you follow these best practices it will help you to provide a good customer experience.
+遵循这些最佳实践将有助于您提供良好的客户体验。
 
-### Customer communication
+### 客户沟通
 
-- Marketing materials for the app should accurately represent the app's behavior.
-- Apps should include links to user-facing documentation that describe how to set up and use the app.
-- Customers should be able to see what type of plan they have in the billing, profile, or account settings section of the app.
-- Customers should be able to install and use your app on both a personal account and an organization account. They should be able to view and manage the app on those accounts separately.
+- 应用程序的营销材料应准确反映应用程序的行为。
+- 应用程序应包含面向用户的文档的链接，这些文档介绍如何设置和使用应用程序。
+- 客户应该能够在应用程序的帐单、配置文件或帐户设置部分看到他们在使用什么类型的计划。
+- 客户应该能够在个人帐户和组织帐户上安装和使用您的应用程序。 他们应该能够单独查看和管理这些帐户上的应用程序。
 
-### Plan management
+### 计划管理
 
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}

@@ -56,7 +56,7 @@ Para obter mais informações, consulte:
 ### Status de aluno não qualificado
 
 Você não estará qualificado para um {% data variables.product.prodname_student_pack %} se:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_dotcom %} Campus Program](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- Você está matriculado em um programa de aprendizado informal que não faz parte do [programa de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/schools) e não está matriculado em um curso superior ou técnico.
 - Tiver menos de 13 anos.
 
 Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você for aluno de uma escola de programação ou de um bootcamp, só estará qualificado para um {% data variables.product.prodname_student_pack %} se a sua instituição de ensino participar do [programa de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/schools).
@@ -64,4 +64,4 @@ Seu instrutor ainda poderá se candidatar a um desconto {% data variables.produc
 ### Leia mais
 
 - "[Candidatar-se a um pacote de desenvolvedor para estudante](/articles/applying-for-a-student-developer-pack)"
-- "[Apply for a student developer pack](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)"
+- "[Solicite um pacote de desenvolvedor para estudante](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)"

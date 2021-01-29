@@ -79,9 +79,34 @@ versions:
 
 ### 发布包
 
-您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### Publishing a package using a GitHub PAT as your API key
+
+If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+1. 创建一个新项目。
+  ```shell
+  dotnet new console --name OctocatApp
+  ```
+2. 打包项目。
+  ```shell
+  dotnet pack --configuration Release
+  ```
+
+3. Publish the package using your PAT as the API key.
+  ```shell
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  ```
 
 {% data reusables.package_registry.viewing-packages %}
+
+{% endif %}
+
+#### Publishing a package using a *nuget.config* file
+
+发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
 {% data reusables.package_registry.authenticate-step %}
 2. 创建一个新项目。
@@ -118,6 +143,8 @@ versions:
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
+
+{% data reusables.package_registry.viewing-packages %}
 
 ### 将多个包发布到同一个仓库
 

@@ -23,8 +23,8 @@ With
 {% endif %}
 
 リポジトリを使用して、作業を管理し、他のユーザと共同作業を行うことができます。
-- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 詳しい情報については、「[Issue について](/github/managing-your-work-on-github/about-issues)」を参照してください。
-- {% data reusables.discussions.you-can-use-discussions %}
+- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - プルリクエストを使用して、リポジトリへの変更を提案できます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
 - プロジェクトボードを使用して、Issue とプルリクエストを整理して優先順位を付けることができます。 詳細は「[プロジェクトボードについて](/github/managing-your-work-on-github/about-project-boards)」を参照してください。
 
