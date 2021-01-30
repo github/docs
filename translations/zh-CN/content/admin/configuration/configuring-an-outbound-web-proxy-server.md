@@ -21,5 +21,7 @@ versions:
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 4. 在 **HTTP Proxy Server** 下，输入代理服务器的 URL。 ![用于输入 HTTP 代理服务器 URL 的字段](/assets/images/enterprise/management-console/http-proxy-field.png)
-5. 或者在 **HTTP Proxy Exclusion** 下输入不需要进行代理访问的任意主机，并以逗号分隔主机。 ![输入任何 HTTP 代理排除项的字段](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
+5. 或者在 **HTTP Proxy Exclusion** 下输入不需要进行代理访问的任意主机，并以逗号分隔主机。 To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle` ![输入任何 HTTP 代理排除项的字段](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
 {% data reusables.enterprise_management_console.save-settings %}

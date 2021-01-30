@@ -46,7 +46,7 @@ versions:
 
 ### SAML 元数据
 
-您的 {% data variables.product.prodname_ghe_server %} 实例的服务提供程序元数据位于 `http(s)://[hostname]/saml/metadata` 下。
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 要手动配置您的身份提供程序，断言使用者服务 (ACS) URL 为 `http(s)://[hostname]/saml/consume`。 它使用 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` 绑定。
 

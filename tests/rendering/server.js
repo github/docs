@@ -4,6 +4,7 @@ const { get, getDOM, head } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
+const builtAssets = require('../../lib/built-asset-urls')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -51,7 +52,6 @@ describe('server', () => {
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
-    expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
@@ -329,8 +329,8 @@ describe('server', () => {
     })
 
     test('admin articles that link to Enterprise user articles have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/configuring-email-for-notifications`)
-      expect($('article a[href*="about-email-notifications-for-pushes-to-your-repository"]').length).toBe(1)
+      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/customizing-user-messages-for-your-enterprise`)
+      expect($('article a[href*="about-writing-and-formatting-on-github"]').length).toBe(1)
     })
 
     test('articles that link to external links that contain /articles/ are not rewritten', async () => {
@@ -694,7 +694,8 @@ describe('?json query param for context debugging', () => {
 
 describe('stylesheets', () => {
   it('compiles and sets the right content-type header', async () => {
-    const res = await get('/dist/index.css')
+    const stylesheetUrl = builtAssets.main.css
+    const res = await get(stylesheetUrl)
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('text/css; charset=UTF-8')
   })
@@ -703,7 +704,8 @@ describe('stylesheets', () => {
 describe('client-side JavaScript bundle', () => {
   let res
   beforeAll(async (done) => {
-    res = await get('/dist/index.js')
+    const scriptUrl = builtAssets.main.js
+    res = await get(scriptUrl)
     done()
   })
 
