@@ -2,8 +2,10 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
+const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
+  devtool: 'source-map', // this prevents webpack from using eval
   entry: './javascripts/index.js',
   output: {
     filename: 'index.js',
@@ -13,8 +15,18 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, 'react')
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: reactBabelOptions
+        }
+      },
+      {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components|react)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -27,6 +39,10 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.s[ac]ss$/i,

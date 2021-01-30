@@ -1,6 +1,7 @@
 ---
 title: 邀请用户参加您的组织
 intro: '您可以使用任何人的 {% data variables.product.product_name %} 用户名或电子邮件地址邀请其成为组织的成员。'
+permissions: 组织所有者可以邀请用户加入组织。
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
   - /articles/inviting-users-to-join-your-organization
@@ -10,10 +11,9 @@ versions:
 
 {% tip %}
 
-**Tips**:
-- 仅组织所有者才可邀请用户加入组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
+**提示**：
 - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}
-- 如果您的组织[需要成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则您邀请的用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后才可接受邀请。
+- 如果您的组织要求成员使用双重身份验证，则您邀请的用户在接受邀请之前必须启用双重身份验证。 更多信息请参阅“[在组织中要求双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)”和“[使用双重身份验证 (2FA) 保护您的帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
 
 {% endtip %}
 

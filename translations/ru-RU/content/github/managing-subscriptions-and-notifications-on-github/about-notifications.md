@@ -8,7 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
+
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
 
 ### Notifications and subscriptions
 
@@ -20,7 +25,12 @@ You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
 - CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
+{% if currentVersion == "free-pro-team@latest" %}
+- Issues, pulls requests, releases and discussions (if enabled) in a repository.
+{% endif %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - Releases in a repository.
+{% endif %}
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -44,7 +54,7 @@ To unsubscribe from conversations you're automatically subscribed to, you can ch
 
 ### Customizing notifications and subscriptions
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
 
 To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see “[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications).”
 
@@ -52,8 +62,9 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see “[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
 
-{% if currentVersion == "free-pro-team@latest" %}
-You can enable push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
+You can enable push notifications in the
+{% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 {% endif %}
 
 ### Reasons for receiving notifications
@@ -82,7 +93,7 @@ From your inbox you can also triage multiple notifications at once. For more inf
 
 ### Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ### Notification retention policy
 

@@ -1,31 +1,43 @@
 ---
 title: GitHub Enterprise を設定する
 shortTitle: GitHub Enterprise を設定する
-intro: '{% data variables.product.prodname_ghe_server %} がインストールされ設定されたら、Organization のニーズに合わせてアプライアンスを設定できます。'
+intro: "You can configure your enterprise to suit your organization's needs."
 redirect_from:
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% note %}
+
+**注釈:** Enterprise 向けに {% data variables.product.prodname_actions %} または {% data variables.product.prodname_registry %} を設定するには、「[GitHub Actions を Enterprise 向けに管理する](/admin/github-actions)」または「[GitHub Packages を Enterprise 向けに管理する](/admin/packages)」を参照してください。
+
+{% endnote %}
+{% endif %}
 
 ### 目次
 
 {% topic_link_in_list /configuring-your-enterprise %}
+    {% link_in_list /about-enterprise-configuration %}
+    {% link_in_list /initializing-github-ae %}
     {% link_in_list /accessing-the-management-console %}
     {% link_in_list /accessing-the-administrative-shell-ssh %}
+    {% link_in_list /configuring-data-encryption-for-your-enterprise %}
     {% link_in_list /enabling-and-scheduling-maintenance-mode %}
     {% link_in_list /configuring-backups-on-your-appliance %}
     {% link_in_list /site-admin-dashboard %}
     {% link_in_list /enabling-private-mode %}
+    {% link_in_list /managing-github-for-mobile-for-your-enterprise %}
+    {% link_in_list /configuring-email-for-notifications %}
     {% link_in_list /configuring-rate-limits %}
-<!-- if currentVersion ver_gt "enterprise-server@2.15" -->
     {% link_in_list /configuring-applications %}
-<!-- endif -->
     {% link_in_list /troubleshooting-ssl-errors %}
     {% link_in_list /configuring-time-synchronization %}
     {% link_in_list /command-line-utilities %}
-    {% link_in_list /configuring-github-pages-on-your-appliance %}
+    {% link_in_list /restricting-network-traffic-to-your-enterprise %}
+    {% link_in_list /configuring-github-pages-for-your-enterprise %}
 {% topic_link_in_list /configuring-network-settings %}
     {% link_in_list /configuring-the-ip-address-using-the-virtual-machine-console %}
     {% link_in_list /configuring-dns-nameservers %}
@@ -40,12 +52,9 @@ versions:
 {% topic_link_in_list /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud %}
     {% link_in_list /connecting-github-enterprise-server-to-github-enterprise-cloud %}
     {% link_in_list /enabling-unified-search-between-github-enterprise-server-and-githubcom %}
-    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %} 
-<!-- if currentVersion ver_gt "enterprise-server@2.16" -->
+    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
     {% link_in_list /enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
-<!-- endif -->
-<!-- if currentVersion ver_gt "enterprise-server@2.21" -->
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
-<!-- endif -->
+    {% link_in_list /configuring-secret-scanning-for-your-appliance %}

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 标题
@@ -170,7 +171,7 @@ git commit
 
 ### 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 This will trigger a notification and bring their attention to the conversation. 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
 `@github/support 您如何看待这些更新？`
 
@@ -188,12 +189,9 @@ git commit
 
 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 引用外部资源
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### 内容附件
 
@@ -217,7 +215,7 @@ git commit
 
 键入 `:` 将显示建议的表情符号列表。 列表将在您键入时进行过滤，因此一旦找到所需表情符号，请按 **Tab** 或 **Enter** 键以填写选中的结果。
 
-有关可用表情符号和代码的完整列表，请查看 [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com)。
+有关可用表情符号和代码的完整列表，请查看[表情符号备忘清单](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)。
 
 ### 段落
 

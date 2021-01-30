@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH キーにより、誰かがあなたのコンピュータにアクセスすると、そのキーを使用するすべてのシステムにもアクセスすることになります。 セキュリティをさらに強化するには、SSH キーにパスフレーズを追加します。 パスフレーズを安全に保存するために `ssh-agent` を使用すると、パスフレーズを再入力する必要がありません。
@@ -17,12 +18,11 @@ SSH キーにより、誰かがあなたのコンピュータにアクセスす�
 次のコマンドを入力して、鍵ペアを再生成せずに既存の秘密鍵のパスフレーズを変更できます:
 
 ```shell
-$ ssh-keygen -p
-# SSH キー作成プロセスを開始します
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -57,7 +57,7 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 ```
 
-秘密鍵がデフォルトの場所 (`~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}または`~/.ssh/id_dsa`{% endif %}) に保存されていない場合は、SSH 認証エージェントにそれがどこにあるかを指定する必要があります。 キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。
+秘密鍵がデフォルトの場所 (`~/.ssh/id_rsa` など) に保存されていない場合は、SSH 認証エージェントにその場所を指定する必要があります。 キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。
 
 {% tip %}
 
@@ -88,8 +88,7 @@ fi
 
 OS X El Capitan を介する OS X Leopard では、これらのデフォルトの秘密鍵ファイルは自動的に処理されます:
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 初めてキーを使用するときは、パスフレーズを入力するよう求められます。 キーチェーンと一緒にパスフレーズを保存することを選択した場合は、もう一度入力する必要はありません。

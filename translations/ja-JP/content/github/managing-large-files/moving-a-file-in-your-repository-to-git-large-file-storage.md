@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} をインストールして {% data variables.large_files.product_name_short %} の追跡を設定すると, Git の通常の追跡から {% data variables.large_files.product_name_short %} にファイルを移動できます。 詳しい情報については、「[{% data variables.large_files.product_name_long %}をインストールする](/github/managing-large-files/installing-git-large-file-storage)」および「[{% data variables.large_files.product_name_long %}を設定する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。

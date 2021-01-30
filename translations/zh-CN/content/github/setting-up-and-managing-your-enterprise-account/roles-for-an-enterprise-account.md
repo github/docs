@@ -1,6 +1,6 @@
 ---
 title: 企业帐户的角色
-intro: 要控制对企业帐户的设置和数据的访问权限，您可以为企业帐户中的人员提供不同的角色。
+intro: '要控制对企业帐户的设置和数据的访问权限，您可以为企业帐户中的人员提供不同的角色。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/

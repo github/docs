@@ -1,6 +1,6 @@
 ---
 title: Subversion 和 Git 有哪些区别？
-intro: Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。
+intro: 'Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。'
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -35,9 +35,9 @@ Git 项目也存储在一个目录中。 不过，Git 通过将其引用存储�
 Git 工作流程可能类似如下：
 
 * Git 仓库在 *.git* 目录中存储所有其分支和标记的完整历史记录。
-* 最新稳定发行版包含在 `master` 分支中。
+* 最新稳定发行版包含在默认分支中。
 * 活动功能工作在单独的分支中进行开发。
-* 功能完成后，该功能分支将合并到 `master` 中并删除。
+* 功能完成后，该功能分支将合并到默认分支中并删除。
 
 与 SVN 不同的是，使用 Git 时目录结构保持不变，但文件内容会根据您的分支而变化。
 

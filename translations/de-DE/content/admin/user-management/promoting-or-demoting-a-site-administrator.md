@@ -4,14 +4,14 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.
+intro: 'Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.'
 versions:
   enterprise-server: '*'
 ---
 
 {% tip %}
 
-**Hinweis:** Wenn die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) und das Attribut `Administrators group` festgelegt ist, wenn [der LDAP-Zugriff für Benutzer konfiguriert wird](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), besitzen diese Benutzer automatisch Websiteadministratorzugriff auf Ihre Instanz. In diesem Fall ist es nicht möglich, Benutzer mit den folgenden Schritten manuell hochzustufen. Sie müssen sie zur Gruppe mit den LDAP-Administratoren hinzufügen.
+**Hinweis:** Wenn die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) und das Attribut `Administrators group` festgelegt ist, wenn [der LDAP-Zugriff für Benutzer konfiguriert wird](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), besitzen diese Benutzer automatisch Websiteadministratorzugriff auf Ihre Instanz. In diesem Fall ist es nicht möglich, Benutzer mit den folgenden Schritten manuell hochzustufen. Sie müssen sie zur Gruppe mit den LDAP-Administratoren hinzufügen.
 
 {% endtip %}
 
@@ -19,8 +19,7 @@ Weitere Informationen zum Hochstufen eines Benutzers auf einen Organisationsinha
 
 ### Benutzer über die Enterprise-Einstellungen hochstufen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. Klicken Sie in der oberen rechte Ecke der Seite auf **Add owner** (Inhaber hinzufügen). ![Schaltfläche zum Hinzufügen eines Administrators](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ Weitere Informationen zum Hochstufen eines Benutzers auf einen Organisationsinha
 
 ### Websiteadministrator über die Enterprise-Einstellungen zurückstufen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. Geben Sie in der oberen linken Ecke der Seite im Suchfeld „Find an administrator“ (Administrator suchen) den Benutzernamen der Person ein, die Sie zurückstufen möchten. ![Suchfeld zum Auffinden eines Administrators](/assets/images/help/business-accounts/business-account-search-for-admin.png)

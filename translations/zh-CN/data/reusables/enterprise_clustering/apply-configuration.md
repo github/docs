@@ -1,3 +1,3 @@
-1. Apply the new configuration. {% data reusables.enterprise.use-a-multiplexer %}
+1. 应用新配置。 {% data reusables.enterprise.use-a-multiplexer %}
    
         ghe-cluster-config-apply

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_app %}s must have the `secrets` organization permission to use this endpoint.

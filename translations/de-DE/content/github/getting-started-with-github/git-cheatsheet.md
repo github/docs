@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Alle verfügbaren Git-Befehle auf einmal zu lernen ist eine Herausforderung. Halte als Referenz einen unserer [Git-Merkzettel](https://services.github.com/on-demand/resources/cheatsheets/) bereit. Der Merkzettel zur Git-Verwendung liegt in mehreren Sprachen vor. Weitere Informationen findest Du auf der [Ressourcen-Seite auf der GitHub Dienste-Website](https://services.github.com/on-demand/resources/).

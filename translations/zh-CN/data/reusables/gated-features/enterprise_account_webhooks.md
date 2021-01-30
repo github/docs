@@ -1,4 +1,4 @@
 
 {% data reusables.gated-features.enterprise-accounts %}
 
-Webhooks configured on enterprise accounts or organizations that are part of an enterprise account will include an `enterprise` account object.
+在企业帐户或企业帐户中的组织上配置的 web 挂钩将包括 `enterprise` 帐户对象。

@@ -16,7 +16,7 @@
 
 [Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown used across GitHub.
 
-This site's Markdown rendering is powered by the [`@github-docs/render-content`](https://github.com/docs/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
+This site's Markdown rendering is powered by [`/lib/render-content`](/lib/render-content), which is in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
 
 ## Callout tags
 
@@ -38,15 +38,23 @@ For information on when to use callout tags, see the [style guide](content-style
 
 To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
 
-### Usage  
-  
-\`\`\`shell  
-git init <em>YOUR_REPO</em>  
-\`\`\`
+### Usage
+
+    ```shell
+    git init <em>YOUR_REPO</em>
+    ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
 Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+
+**Copy-able code blocks**
+
+You can also add a header that includes the name of the language and a button to copy the contents of the code block:
+
+    ```js{:copy}
+    const copyMe = true
+    ```
 
 ## Octicons
 
@@ -54,9 +62,11 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 
 ### Usage
 
-`{% octicon "<name of octicon>" %}`  
-`{% octicon "plus" %}`
-`{% octicon "plus" aria-label="The plus icon"}`
+```
+{% octicon "<name of octicon>" %}
+{% octicon "plus" %}
+{% octicon "plus" aria-label="The plus icon" %}
+```
 
 ## Operating system tags
 
@@ -71,6 +81,7 @@ These instructions are pertinent to Mac users.
 
 {% endmac %}
 ```
+
 ```
 {% windows %}
 
@@ -78,6 +89,7 @@ These instructions are pertinent to Windows users.
 
 {% endwindows %}
 ```
+
 ```
 {% linux %}
 
@@ -85,16 +97,11 @@ These instructions are pertinent to Windows users.
 
 {% endlinux %}
 ```
-```
-{% all %}
 
-Though rare, these instructions are pertinent to any other operating system.
-
-{% endall %}
-```
+You can define a default platform in the frontmatter. For more information, see the [content README](../content/README.md#defaultplatform).
 
 ## Reusable and variable strings of text
 
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
-For longer strings, we use [reusables](), and for shorter strings, we use [variables](). See each linked README for usage instructions.
+For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).

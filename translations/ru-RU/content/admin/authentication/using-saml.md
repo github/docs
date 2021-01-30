@@ -29,7 +29,7 @@ Each {% data variables.product.prodname_ghe_server %} username is determined by 
 
 The `NameID` element is required even if other attributes are present.
 
-A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecyle of the user.
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
@@ -46,7 +46,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 ### SAML metadata
 
-Your {% data variables.product.prodname_ghe_server %} instances's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
@@ -54,15 +54,15 @@ To configure your identity provider manually, the Assertion Consumer Service (AC
 
 These attributes are available. You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
-| Default attribute name | Тип      | Description                                                                                                                                                                                                                                     |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default attribute name | Тип      | Description                                                                                                                                                                                                                                |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `NameID`               | Required | A persistent user identifier. Any persistent name identifier format may be used. The `NameID` element will be used for a {% data variables.product.prodname_ghe_server %} username unless one of the alternative assertions is provided. |
-| `администратор`        | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account.                                                                   |
+| `администратор`        | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account.                                                              |
 | `имя пользователя`     | Optional | The {% data variables.product.prodname_ghe_server %} username.                                                                                                                                                                           |
-| `full_name`            | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning.                                                                                                                                          |
-| `emails`               | Optional | The email addresses for the user. More than one can be specified.                                                                                                                                                                               |
-| `public_keys`          | Optional | The public SSH keys for the user. More than one can be specified.                                                                                                                                                                               |
-| `gpg_keys`             | Optional | The GPG keys for the user. More than one can be specified.                                                                                                                                                                                      |
+| `full_name`            | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning.                                                                                                                                     |
+| `emails`               | Optional | The email addresses for the user. More than one can be specified.                                                                                                                                                                          |
+| `public_keys`          | Optional | The public SSH keys for the user. More than one can be specified.                                                                                                                                                                          |
+| `gpg_keys`             | Optional | The GPG keys for the user. More than one can be specified.                                                                                                                                                                                 |
 
 ### Configuring SAML settings
 
@@ -79,10 +79,10 @@ These attributes are available. You can change the attribute names in the [manag
 
   {% endtip %}
 
-5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location_enterprise %}. ![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location_enterprise %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location_enterprise %}. ![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
-8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location_enterprise %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML method](/assets/images/enterprise/management-console/saml-method.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}. ![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}. ![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML method](/assets/images/enterprise/management-console/saml-method.png)
 9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP. ![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. Modify the SAML attribute names to match your IdP if needed, or accept the default names. ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -100,7 +100,7 @@ These attributes are available. You can change the attribute names in the [manag
 
 {% endif %}
 
-### Revoking access to {% data variables.product.product_location_enterprise %}
+### Revoking access to {% data variables.product.product_location %}
 
 If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 

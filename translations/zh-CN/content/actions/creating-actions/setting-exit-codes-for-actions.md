@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ versions:
 
 ### 在 JavaScript 操作中设置失败退出代码
 
-如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) 包来记录消息并设置失败退出代码。 例如：
+如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包来记录消息并设置失败退出代码。 例如：
 
 ```javascript
 try {

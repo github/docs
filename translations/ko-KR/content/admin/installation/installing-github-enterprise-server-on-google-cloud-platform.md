@@ -20,21 +20,20 @@ versions:
 
 ### Determining the machine type
 
-Before launching {% data variables.product.product_location_enterprise %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
+Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
 
 #### Supported machine types
 
-{% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types). |
-{% if currentVersion != "free-pro-team@latest" %}
-|  | High-memory   |
-|  | ------------- |
-|  | n1-highmem-4  |
-|  | n1-highmem-8  |
-|  | n1-highmem-16 |
-|  | n1-highmem-32 |
-|  | n1-highmem-64 |
-|  | n1-highmem-96 |
-{% endif %}
+{% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types).
+
+| High-memory   |
+| ------------- |
+| n1-highmem-4  |
+| n1-highmem-8  |
+| n1-highmem-16 |
+| n1-highmem-32 |
+| n1-highmem-64 |
+| n1-highmem-96 |
 
 #### Recommended machine types
 
@@ -55,7 +54,7 @@ Based on your user license count, we recommend these machine types.
 1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
    ```shell
    $ gcloud compute images list --project github-enterprise-public --no-standard-images
-  ```
+   ```
 
 2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
 
@@ -64,18 +63,18 @@ Based on your user license count, we recommend these machine types.
 GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
 
 1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
-  ```shell
-  $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
-  ```
+   ```shell
+   $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
+   ```
 2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
-  ```shell
-  $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
-  --network <em>NETWORK-NAME</em> \
-  --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
-  ```
-  This table identifies the required ports and what each port is used for.
+   ```shell
+   $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
+   --network <em>NETWORK-NAME</em> \
+   --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
+   ```
+   This table identifies the required ports and what each port is used for.
 
-  {% data reusables.enterprise_installation.necessary_ports %}
+   {% data reusables.enterprise_installation.necessary_ports %}
 
 ### Allocating a static IP and assigning it to the VM
 
@@ -88,21 +87,21 @@ In production High Availability configurations, both primary and replica applian
 To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
 1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
-  ```shell
-  $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
-  ```
+   ```shell
+   $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
+   ```
 
 2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
-  ```shell
-  $ gcloud compute instances create <em>INSTANCE-NAME</em> \
-  --machine-type n1-standard-8 \
-  --image <em>GITHUB-ENTERPRISE-IMAGE-NAME</em> \
-  --disk name=<em>DATA-DISK-NAME</em> \
-  --metadata serial-port-enable=1 \
-  --zone <em>ZONE</em> \
-  --network <em>NETWORK-NAME</em> \
-  --image-project github-enterprise-public
-  ```
+   ```shell
+   $ gcloud compute instances create <em>INSTANCE-NAME</em> \
+   --machine-type n1-standard-8 \
+   --image <em>GITHUB-ENTERPRISE-IMAGE-NAME</em> \
+   --disk name=<em>DATA-DISK-NAME</em> \
+   --metadata serial-port-enable=1 \
+   --zone <em>ZONE</em> \
+   --network <em>NETWORK-NAME</em> \
+   --image-project github-enterprise-public
+   ```
 
 ### Configuring the instance
 
@@ -114,4 +113,5 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 
 ### 더 읽을거리
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

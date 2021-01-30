@@ -5,16 +5,14 @@ versions:
   enterprise-server: <2.21
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.notifications.auto-watch %} 更多信息请参阅“[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)”。
-{% endif %}
 
-You can also watch and unwatch releases in a repository. 更多信息请参阅“[关注和取消关注仓库的发行版](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)”。
+还可以关注和取消关注仓库中的发行版。 更多信息请参阅“[关注和取消关注仓库的发行版](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)”。
 
 ### 关注您有推送权限的所有仓库
 
 {% data reusables.notifications.access_watching %}
-2. Click **Watching**. ![关注的仓库列表](/assets/images/help/notifications/notifications-watching-tab.png)
+2. 单击 **Watching（关注）**。 ![关注的仓库列表](/assets/images/help/notifications/notifications-watching-tab.png)
 3. 在页面右侧，选择 **Automatically watch（自动关注）**。 ![自动配置关注仓库的复选框](/assets/images/help/notifications/ent-automatically-watch-repos.png)
 
 ### 关注单个仓库
@@ -25,7 +23,7 @@ You can also watch and unwatch releases in a repository. 更多信息请参阅�
 ### 取消关注您有推送权限的所有仓库
 
 {% data reusables.notifications.access_watching %}
-2. Click **Watching**. ![关注的仓库列表](/assets/images/help/notifications/notifications-watching-tab.png)
+2. 单击 **Watching（关注）**。 ![关注的仓库列表](/assets/images/help/notifications/notifications-watching-tab.png)
 3. 在页面右侧，取消选择 **Automatically watch（自动关注）**。 ![自动配置关注仓库的复选框](/assets/images/help/notifications/ent-automatically-watch-repos.png)
 
 ### 取消关注单个仓库
@@ -35,7 +33,7 @@ You can also watch and unwatch releases in a repository. 更多信息请参阅�
 
 {% note %}
 
-**注：**您也可以选择忽略仓库。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}如果您遇到滥用并想要忽略仓库，请[联系支持人员](/contact)以便我们能提供帮助。 {% data reusables.policies.abuse %}{% endif %}
+**注：**您也可以选择忽略仓库。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}如果您发现滥用问题并且想忽略某个仓库，请联系 {% data variables.contact.contact_support %} 获取帮助。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

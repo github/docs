@@ -39,7 +39,8 @@ Para acessar as transações do {% data variables.product.prodname_marketplace %
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Selecione o {% data variables.product.prodname_github_app %} cujas transações você gostaria de ver.
+4. Selecione o
+{% data variables.product.prodname_github_app %} para o qual você gostaria de ver as transações.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Clique na aba **Transações**.
 7. Opcionalmente, selecione um período de tempo diferente, clicando no período suspenso no canto superior direito da página de transações. ![Período de tempo do Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

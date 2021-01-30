@@ -1,11 +1,12 @@
 ---
 title: Pull-Request-Merges konfigurieren
-intro: 'Du kannst Pull-Request-Merges auf {% data variables.product.product_location %} so konfigurieren, dass ein Abgleich an Deinen Workflow und Deine Voreinstellungen für die Verwaltung des Git-Verlaufs erfolgt, indem Du standardmäßige Merge-Commits, Squash-Commits oder Rebase-Commits an alle Pull Requests in Deinem Repository aktivierst, deaktivierst oder erzwingst.'
+intro: 'You can configure pull request merges on {% data variables.product.product_location %} to match your workflow and preferences for managing Git history.'
 mapTopic: true
 redirect_from:
   - /articles/configuring-pull-request-merges
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: 查看所有议题和拉取请求
-intro: 议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。
+intro: '议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。'
 redirect_from:
   - /articles/viewing-all-of-your-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您的议题和拉取请求仪表板在任何页面顶部提供。 在每个仪表板上，您可以过滤列表以查找您创建的、分配给您的或其中提及您的议题或拉取请求。 您还可以查找已要求审查的拉取请求。
@@ -15,4 +16,4 @@ versions:
 
 ### 延伸阅读
 
-- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}”[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[列出您关注的仓库](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}”[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[列出关注的仓库](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

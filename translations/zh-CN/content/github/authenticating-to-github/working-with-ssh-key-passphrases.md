@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 使用 SSH 密钥时，如果有人获得您计算机的访问权限，他们也可以使用该密钥访问每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 您可以使用 `ssh-agent` 安全地保存密码，从而不必重新输入。
@@ -17,12 +18,11 @@ versions:
 通过输入以下命令，您可以更改现有私钥的密码而无需重新生成密钥对：
 
 ```shell
-$ ssh-keygen -p
-# Start the SSH key creation process
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -73,7 +73,7 @@ fi
 unset env
 ```
 
-如果您的私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} 或 `~/.ssh/id_dsa`{% endif %}），您需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
+如果您的私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），您需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
 
 {% tip %}
 
@@ -104,8 +104,7 @@ unset env
 
 在 OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 初次使用密钥时，系统将提示您输入密码。 如果选择使用密钥链保存密码，则无需再次输入密码。

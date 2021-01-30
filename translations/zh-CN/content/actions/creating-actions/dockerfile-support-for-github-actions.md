@@ -1,13 +1,14 @@
 ---
 title: Dockerfile 对 GitHub 操作的支持
 shortTitle: Docker
-intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub 操作及操作的元数据文件交互。
+intro: '为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub 操作及操作的元数据文件交互。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,14 +61,14 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
  要将操作元数据文件中定义的 `args` 提供到在 `ENTRYPOINT` 中使用 _exec_ 形式的 Docker 容器，建议创建一个可从 `ENTRYPOINT` 指令调用、名为 `entrypoint.sh` 的 shell 脚本。
 
 ##### 示例 *Dockerfile*
-``` 
+```
 # Container image that runs your code
 FROM debian:9.5-slim
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-# Executes `entrypoint.sh` when the Docker container starts up 
+# Executes `entrypoint.sh` when the Docker container starts up
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -78,14 +79,14 @@ ENTRYPOINT ["/entrypoint.sh"]
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually 
+# `$*` expands the `args` supplied in an `array` individually
 # or splits `args` in a string separated by whitespace.
 sh -c "echo $*"
 ```
 
 您的代码必须是可执行的。 在用于工作流程之前，确保 `entrypoint.sh` 文件有 `execute` 权限。 您可以使用此命令从终端修改权限：
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 当 `ENTRYPOINT` shell 脚本不可执行时，您将收到一个类似于以下内容的错误：

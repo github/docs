@@ -6,7 +6,6 @@ redirect_from:
   - /enterprise/admin/clustering/about-clustering
   - /enterprise/admin/clustering/clustering-overview/
   - /enterprise/admin/enterprise-management/about-clustering
-  - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
 ---
@@ -24,6 +23,8 @@ Learn more about [services required for clustering](/enterprise/{{ currentVersio
 {% data variables.product.prodname_ghe_server %} requires low latency between nodes and is not intended for redundancy across geographic locations.
 
 Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
+
+{% data reusables.package_registry.packages-cluster-support %}
 
 ### How do I get access to clustering?
 

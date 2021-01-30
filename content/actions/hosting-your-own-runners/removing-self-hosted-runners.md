@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -62,18 +63,14 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% if currentVersion == "free-pro-team@latest" %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

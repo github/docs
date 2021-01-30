@@ -1,6 +1,6 @@
 ---
-title: Viewing metrics for your listing
-intro: 'The {% data variables.product.prodname_marketplace %} Insights page displays metrics for your {% data variables.product.prodname_github_app %}. You can use the metrics to track your {% data variables.product.prodname_github_app %}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
+title: 查看上架产品的指标
+intro: '{% data variables.product.prodname_marketplace %} Insights 页面显示 {% data variables.product.prodname_github_app %} 的指标。 您可以使用这些指标来跟踪 {% data variables.product.prodname_github_app %} 的表现，并就价格、计划、免费试用以及如何看待营销活动的效果做出更明智的决定。'
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
@@ -12,42 +12,43 @@ versions:
 
 
 
-You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
+您可以查看 {% data variables.product.prodname_github_app %} 在过去一天（24 小时）、一周、一月或整个上架期间的指标。
 
 {% note %}
 
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
+**注：**由于聚合数据需要时间，因此您会注意到显示的日期略有延迟。 选择时间段时，可以在页面顶部看到指标的确切日期。
 
 {% endnote %}
 
-### Performance metrics
+### 性能指标
 
-The Insights page displays these performance metrics, for the selected time period:
+Insights 页面显示选定时段的以下性能指标：
 
-* **Subscription value:** Total possible revenue (in US dollars) for subscriptions. This value represents the possible revenue if no plans or free trials are cancelled and all credit transactions are successful. The subscription value includes the full value for plans that begin with a free trial in the selected time period, even when there are no financial transactions in that time period. The subscription value also includes the full value of upgraded plans in the selected time period but does not include the prorated amount. To see and download individual transactions, see "[GitHub Marketplace transactions](/marketplace/github-marketplace-transactions/)."
-* **Visitors:** Number of people that have viewed a page in your GitHub Apps listing. This number includes both logged in and logged out visitors.
-* **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one pageview.
+* **Subscription value（订阅价值）：**订阅的可能总收入（美元）。 此值表示在没有计划或免费试用被取消并且所有信用交易都成功的情况下的可能收入。 订阅价值包括计划在选定时段内的全部价值，从免费试用开始计算，即使在该时段内没有任何财务交易。 订阅价值还包括选定时段内升级计划的全部价值，但不包括按比例分配的金额。 要查看和下载单个交易，请参阅“[GitHub Marketplace 交易](/marketplace/github-marketplace-transactions/)”。
+* **Visitors（访客数）：**查看过 GitHub 应用程序上架页面的人数。 此数字包括已登录和已注销的访客。
+* **Pageviews（网页浏览量）：**GitHub 应用程序上架页面获得的浏览次数。 单个访客可以产生多个网页浏览量。
 
 {% note %}
 
-**Note:**  Your estimated subscription value could be much higher than the transactions processed for this period.
+**注：**您估计的订阅价值可能远远高于此期间处理的交易。
 
 {% endnote %}
 
-#### Conversion performance
+#### 转化性能
 
-* **Unique visitors to landing page:** Number of people who viewed your GitHub App's landing page.
-* **Unique visitors to checkout page:** Number of people who viewed one of your GitHub App's checkout pages.
-* **Checkout page to new subscriptions:** Total number of paid subscriptions, free trials, and free subscriptions. See the "Breakdown of total subscriptions" for the specific number of each type of subscription.
+* **Unique visitors to landing page（登录页面的绝对访客数）：**查看过 GitHub 应用程序登录页面的人数。
+* **Unique visitors to checkout page（结账页面的绝对访客数）：**查看过 GitHub 应用程序结账页面的人数。
+* **Checkout page to new subscriptions（结账页面产生的新订阅数）：**付费订阅、免费试用和免费订阅的总数。 有关每种类型订阅的具体数量，请参阅“订阅总数的细分”。
 
 ![Marketplace insights](/assets/images/marketplace/marketplace_insights.png)
 
-To access {% data variables.product.prodname_marketplace %} Insights:
+要访问 {% data variables.product.prodname_marketplace %} Insights：
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+4. 选择
+您要查看其 Insights 的 {% data variables.product.prodname_github_app %}。
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Insights** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
+6. 单击 **Insights** 选项卡。
+7. （可选）通过单击 Insights 页面右上角的 Period（时段）下拉列表选择不同的时间段。 ![Marketplace 时段](/assets/images/marketplace/marketplace_insights_time_period.png)

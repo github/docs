@@ -1,4 +1,4 @@
-{% data variables.contact.enterprise_support %} 在提供解释、建议、使用说明、变通方法或向您推荐可解决问题的版本后，可能认为事件单已解决。
+{% data variables.contact.enterprise_support %} 在提供解释、建议、使用说明、 {% if currentVersion == "github-ae@latest" %}或{% endif %}变通方法{% if enterpriseServerVersions contains currentVersion %}或向您推荐可解决问题的版本{% endif %}后，可能认为事件单已解决。
 
 如果您使用自定义或不支持的插件、模块或自定义代码，{% data variables.contact.enterprise_support %} 可能要求您在尝试解决问题时删除不支持的插件、模块或代码。 如果在不受支持的插件、模块或自定义代码删除后问题得以解决，{% data variables.contact.enterprise_support %} 可能认为事件单已解决。
 

@@ -1,1 +1,1 @@
-1. In the left sidebar, click **OAuth Apps**. ![OAuth Apps section](/assets/images/settings/oauth_apps_post2dot12.png)
+1. 在左边栏中，单击 **OAuth Apps（OAuth 应用程序）**。 ![OAuth 应用程序部分](/assets/images/settings/oauth_apps_post2dot12.png)

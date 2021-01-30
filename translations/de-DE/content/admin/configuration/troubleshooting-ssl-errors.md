@@ -39,7 +39,7 @@ Andernfalls können Sie das SSL Converter-Tool verwenden, um Ihr Zertifikat in d
 
 ### Nicht antwortende Installation nach dem Hochladen eines Schlüssels
 
-Wenn {% data variables.product.product_location_enterprise %} nach dem Hochladen eines SSL-Schlüssels nicht mehr antwortet, [kontaktieren Sie den {% data variables.product.prodname_enterprise %}-Support](https://enterprise.github.com/support) mit den entsprechenden Details, einschließlich einer Kopie Ihres SSL-Zertifikats.
+Wenn {% data variables.product.product_location %} nach dem Hochladen eines SSL-Schlüssels nicht mehr antwortet, [kontaktieren Sie den {% data variables.product.prodname_enterprise %}-Support](https://enterprise.github.com/support) mit den entsprechenden Details, einschließlich einer Kopie Ihres SSL-Zertifikats.
 
 ### Zertifizierungsgültigkeitsfehler
 

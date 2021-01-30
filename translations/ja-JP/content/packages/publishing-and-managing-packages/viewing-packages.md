@@ -1,6 +1,6 @@
 ---
 title: パッケージの表示
-intro: リポジトリに公開されたパッケージの詳細を表示し、Organization またはユーザごとに結果を絞り込むことができます。
+intro: 'リポジトリに公開されたパッケージの詳細を表示し、Organization またはユーザごとに結果を絞り込むことができます。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
@@ -33,7 +33,7 @@ Organization にインストールされているすべてのパッケージを�
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 3. Organization 名の下で、クリックします
-{% octicon "package" aria-label="The package icon" %} **Packages**.
+Organization 名の下で、{% octicon "package" aria-label="The package icon" %} [**Packages**] をクリックします。
 {% data reusables.package_registry.navigate-to-packages %}
 
 ### パッケージを表示する

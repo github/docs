@@ -1,21 +1,23 @@
 ---
 title: Remover um colaborador externo em integrante da organização
-intro: 'Se desejar fornecer a um colaborador externo nos repositórios da sua organização permissões mais amplas dentro da organização, você poderá {% if currentVersion == "free-pro-team@latest" %}convidá-lo a se tornar um integrante{% else %}torná-lo um integrante{% endif %} da organização.'
+intro: 'Se você quiser conceder a um colaborador externo permissões mais amplas nos repositórios da sua organização dentro de sua organização, você pode {% if currentVersion == "free-pro-team@latest" %} convidá-los a tornar-se um integrante de{% else %}torná-los um integrante da{% endif %} organização.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: Proprietários da organização podem {% if currentVersion == "free-pro-team@latest" %}convidar usuários para juntar-se a{% else %}adicionar usuários a{% endif %} uma organização.
 ---
 
-{% tip %}
+{% if currentVersion == "free-pro-team@latest" %}
+Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)".
+{% data reusables.organizations.org-invite-expiration %}{% endif %}
 
-**Dicas**:
-- Somente proprietários da organização podem {% if currentVersion == "free-pro-team@latest" %}convidar usuários para ingressar em{% else %}adicionar usuários a{% endif %} uma organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".{% if currentVersion == "free-pro-team@latest" %}
-- Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}{% endif %}
-- Se a organização [exigir que os integrantes usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), os usuários {% if currentVersion == "free-pro-team@latest" %}que você convida deverão [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) para que possam aceitar o convite.{% else %}deverão [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) para que você possa adicioná-los à organização.{% endif %}
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+Se sua organização [requer integrantes para usar a autenticação em duas etapas](/articles/requiring-two-factor-authentication-in-your-organization), usuários
+{% if currentVersion == "free-pro-team@latest" %}você convida deve [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes que eles possam aceitar o convite.{% else %}deve [ativar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de adicioná-la à organização.{% endif %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

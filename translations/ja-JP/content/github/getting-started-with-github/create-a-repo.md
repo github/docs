@@ -7,9 +7,20 @@ intro: 'プロジェクトを {% data variables.product.product_location %} に�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+インナーソースプロジェクトを含め、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 インナーソースを使用すると、コードを共有して、より優れた、より信頼性の高いソフトウェアを作成できます。 インナーソースの詳細については、{% data variables.product.company_short %} のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
@@ -17,19 +28,23 @@ versions:
 
 {% endnote %}
 
+{% endif %}
+
 {% data reusables.repositories.create_new %}
 2. リポジトリに、短くて覚えやすい名前を入力します。 たとえば、"hello-world" といった名前です。 ![リポジトリ名を入力するフィールド](/assets/images/help/repository/create-repository-name.png)
-3. 必要な場合、リポジトリの説明を追加します。 たとえば、「{% data variables.product.product_name %} の最初のリポジトリ」などです。 ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
+3. 必要な場合、リポジトリの説明を追加します。 たとえば、「
+{% data variables.product.product_name %} の最初のリポジトリ」などです。
+  ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
 おめでとうございます。 最初のリポジトリ作成に成功し、初期設定として *README* ファイルが生成されました。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
-**Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用してリポジトリを作成することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh repo create`](https://cli.github.com/manual/gh_repo_create)」を参照してください。
 
 {% endtip %}
 {% endif %}

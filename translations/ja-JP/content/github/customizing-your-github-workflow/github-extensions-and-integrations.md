@@ -10,7 +10,7 @@ versions:
 
 ### エディタツール
 
-ワークフローをスムーズにするために、Atom、Unity、Visual Studioといったサードパーティのエディタツール内から {% data variables.product.product_name %} リポジトリに接続できます。
+Atom、Unity、Visual Studio などのサードパーティのエディタツール内で {% data variables.product.product_name %} リポジトリに接続できます。
 
 #### {% data variables.product.product_name %} for Atom
 
@@ -30,8 +30,12 @@ versions:
 
 ### プロジェクト管理ツール
 
-ワークフローをスムーズにするために、{% data variables.product.product_name %} 個人アカウントや Organization を、Jira などのサードパーティーのプロジェクト管理ツールと統合できます。
+{% data variables.product.product_name %} の個人アカウントまたは Organization を Jira や Slack などのサードパーティのプロジェクト管理ツールと統合できます。
 
 #### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
-Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
+Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、Marketplace の[Jira 統合アプリケーション](https://github.com/marketplace/jira-software-github)にアクセスしてください。
+
+#### Slack と {% data variables.product.product_name %} の統合
+
+Slack を個人アカウントまたは Organization アカウントと統合して、通知をサブスクライブし、Issue をクローズまたはオープンして、Slack を離れることなく Issue への豊富なリファレンスとプルリクエストを提供できます。 詳細については、Marketplace の[Slack 統合アプリケーション](https://github.com/marketplace/slack-github)にアクセスしてください。

@@ -1,12 +1,13 @@
 ---
 title: Searching the audit log
-intro: 'Site administrators can search an extensive list of [audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) on {% data variables.product.product_location_enterprise %}.'
+intro: 'Site administrators can search an extensive list of audited actions on the enterprise.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Search query syntax
@@ -18,7 +19,7 @@ Key            | Value
 `actor_id`     | ID of the user account that initiated the action
 `actor`        | Name of the user account that initiated the action
 `oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the [audited action](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)
+`action`       | Name of the audited action
 `user_id`      | ID of the user affected by the action
 `user`         | Name of the user affected by the action
 `repo_id`      | ID of the repository affected by the action (if applicable)
@@ -34,12 +35,11 @@ For example, to see all actions that have affected the repository `octocat/Spoon
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
+For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
 
 ### Searching the audit log
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 4. Type a search query.

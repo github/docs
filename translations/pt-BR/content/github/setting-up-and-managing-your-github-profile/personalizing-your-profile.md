@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Alterar sua imagem de perfil
@@ -40,7 +41,7 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 ### Alterar seu nome de perfil
 
-Você pode alterar o nome que é exbido em seu perfil. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}Esse nome também pode ser exibido ao lado de seus comentários em repositórios privados pertencentes a uma organização. Para obter mais informações, consulte "[Gerenciar a exibição de nomes de integrantes na organização](/articles/managing-the-display-of-member-names-in-your-organization)".{% endif %}
+Você pode alterar o nome que é exbido em seu perfil. Este nome também pode ser exibido ao lado dos comentários que você fizer em repositórios privados pertencentes a uma organização. Para obter mais informações, consulte "[Gerenciar a exibição de nomes de integrantes na organização](/articles/managing-the-display-of-member-names-in-your-organization)".
 
 {% data reusables.user_settings.access_settings %}
 2. Em "Name" (Nome), digite o nome que deseja exibir em seu perfil. ![Campo nome em configurações de perfil](/assets/images/help/profile/name-field.png)
@@ -51,7 +52,7 @@ Adicione uma bio em seu perfil para compartilhar informações sobre si mesmo co
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-Para um formulário mais longo e uma maneira mais proeminente de exibir informações personalizadas sobre você, também é possível usar um LEIAME do perfil. Para obter mais informações sobre o LEIAME do perfil, consulte "[Gerenciar o LEIAME do seu perfil](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)".
+Para um formulário mais longo e uma maneira mais proeminente de exibir informações personalizadas sobre você, também é possível usar um LEIAME do perfil. Para obter mais informações, consulte "[Gerenciar seu perfil LEIAME](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)".
 
 {% endif %}
 
@@ -101,12 +102,12 @@ Se você selecionar a opção "Busy" (Ocupado), quando as pessoas fizerem @menç
 
 Ao participar de determinados programas, {% data variables.product.prodname_dotcom %} exibe automaticamente um selo no seu perfil.
 
-| Selo                                                            | Programa                                                                  | Descrição                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Selo                                                            | Programa                                                             | Descrição                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} Colaborador** | Se você criou algum(ns) commit(s) no branch-padrão de um repositório arquivado no programa Cofre do Ártico 2020, você receberá um selo de contribuidor de {% data variables.product.prodname_arctic_vault %} no seu perfil. Para obter mais informações sobre o programa, consulte [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com). |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Integrante do programa de desenvolvedores**                             | Se você for um integrante registrado do Programa de Desenvolvedor do GitHub, ao criar um aplicativo com a API do GitHub, você receberá um selo de integrante do programa de desenvolvedor no seu perfil. Para obter mais informações sobre o Programa de Desenvolvedor do GitHub, consulte o [Desenvolvedor do GitHub](/program/).                                                 |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **Patrocinador do GitHub**                                                | Se você patrocinou um contribuidor de código aberto por meio de {% data variables.product.prodname_sponsors %}, você receberá um selo de patrocinador no seu perfil. Para obter mais informações, consulte "[Patrocinar contribuidores de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)".             |
-| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                                   | Se você usar {% data variables.product.prodname_pro %}, você receberá um selo PRO no seu perfil. Para obter mais informações sobre o {% data variables.product.prodname_pro %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)".                                           |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Integrante do programa de desenvolvedores**                        | Se você for um integrante registrado do Programa de Desenvolvedor do GitHub, ao criar um aplicativo com a API do GitHub, você receberá um selo de integrante do programa de desenvolvedor no seu perfil. Para obter mais informações sobre o Programa de Desenvolvedor do GitHub, consulte o [Desenvolvedor do GitHub](/program/).                                       |
+| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **Patrocinador do GitHub**                                           | Se você patrocinou um contribuidor de código aberto por meio de {% data variables.product.prodname_sponsors %}, você receberá um selo de patrocinador no seu perfil. Para obter mais informações, consulte "[Patrocinar contribuidores de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)".        |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                              | Se você usar {% data variables.product.prodname_pro %}, você receberá um selo PRO no seu perfil. Para obter mais informações sobre o {% data variables.product.prodname_pro %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)".                                                |
 
 ### Desabilitar selos no seu perfil
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 当第三方应用程序要通过您的 {% data variables.product.product_name %} 登录识别您时，您会看到一个页面，其中包含开发者联系信息，以及申请的特定数据列表。
@@ -31,7 +32,7 @@ versions:
 
 *范围*是应用程序可以申请访问公共及非公共数据的权限组。
 
-要使用集成了 {% data variables.product.product_name %} 的第三方应用程序时，该应用程序会让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果您要使用申请 `user:email` 范围的应用程序，则该应用程序对您的私有电子邮件地址具有只读权限。 更多信息请参阅“[关于 {% data variables.product.prodname_oauth_app %} 的范围](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)”。
+要使用集成了 {% data variables.product.product_name %} 的第三方应用程序时，该应用程序会让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果您要使用申请 `user:email` 范围的应用程序，则该应用程序对您的私有电子邮件地址具有只读权限。 更多信息请参阅“[关于 {% data variables.product.prodname_oauth_app %} 的范围](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)”。
 
 {% tip %}
 
@@ -57,7 +58,7 @@ versions:
 | 部署     | 部署状态访问权限允许应用程序根据公共和私有仓库的特定提交确定部署是否成功。 应用程序无法访问您的代码。                                                        |
 | Gist   | [Gist](https://gist.github.com) 访问权限允许应用程序读取或写入公共和机密 Gist。                                                 |
 | 挂钩     | [Web 挂钩](/webhooks)访问权限允许应用程序读取或写入您管理的仓库中的挂钩配置。                                                            |
-| 通知     | 通知访问权限允许应用程序读取您的 {% data variables.product.product_name %} 通知，如议题和拉取请求的评论。 但应用程序仍然无法访问仓库中的任何内容。       |
+| 通知     | 通知访问权限允许应用程序读取您的 {% data variables.product.product_name %} 通知，如议题和拉取请求的评论。 但应用程序仍然无法访问仓库中的任何内容。            |
 | 组织和团队  | 组织和团队访问权限允许应用程序访问并管理组织和团队成员资格。                                                                             |
 | 个人用户数据 | 用户数据包括您的用户个人资料中的信息，例如您的姓名、电子邮件地址和地点。                                                                       |
 | 仓库     | 仓库信息包括贡献者的姓名、您创建的分支以及仓库中的实际文件。 应用程序可以申请访问用户级别的公共或私有仓库。                                                     |

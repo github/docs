@@ -7,6 +7,7 @@ intro: 以下是在命令行中使用 `git rebase` 的简短教程。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在本例中，我们将涵盖所有可用的 `git rebase` 命令，`exec` 除外。
@@ -123,7 +124,11 @@ i cant' typ goods
 由于您已更改 Git 历史记录，因此通常的 `git push origin` **不起**作用。 您需要通过“强制推送”最新更改来修改命令：
 
 ```shell
-$ git push origin master --force
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
+$ git push origin main --force
 ```
 
 {% warning %}

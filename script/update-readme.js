@@ -46,6 +46,7 @@ allScripts.forEach(script => {
       if (startCommentRegex.test(cmt)) addToReadme = true
       if (endCommentRegex.test(cmt)) addToReadme = false
       if (addToReadme && !cmt.includes(startComment) && !cmt.includes(endComment)) return cmt
+      return false
     })
     // remove comment markers and clean up newlines
     .map(cmt => cmt.replace(/^(\/\/|#) ?/m, ''))

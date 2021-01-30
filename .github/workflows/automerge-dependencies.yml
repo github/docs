@@ -1,14 +1,23 @@
 name: Auto Merge Dependency Updates
 
 on:
-  - pull_request
-  - pull_request_review
+  pull_request:
+    paths:
+      - 'package*.json'
+      - 'Gemfile*'
+      - 'Dockerfile'
+      - '.github/workflows/**'
+  pull_request_review:
+    types:
+      - edited
+      - submitted
 
 jobs:
   run:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0
+      - uses: tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           allowed-actors: dependabot[bot]

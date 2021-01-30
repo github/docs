@@ -1,4 +1,5 @@
-const wordsLongerThan18Chars = /[\w:/\\]{18,}/g
+import escape from 'lodash/escape'
+const wordsLongerThan18Chars = /[\S]{18,}/g
 const camelCaseChars = /([a-z])([A-Z])/g
 const underscoresAfter12thChar = /([\w:]{12}[^_]*?)_/g
 const slashChars = /([/\\])/g
@@ -12,7 +13,7 @@ export default function () {
 
   codeTerms.forEach(node => {
     // Do the wrapping on the inner text only, so we don't modify hrefs
-    const oldText = node.textContent
+    const oldText = escape(node.textContent)
 
     const newText = oldText.replace(wordsLongerThan18Chars, (str) => {
       return str

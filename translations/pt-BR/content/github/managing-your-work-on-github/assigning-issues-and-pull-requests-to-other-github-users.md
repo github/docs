@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Qualquer pessoa com permissões de gravação em um repositório pode atribuir problemas e pull requests.
 
-Você pode atribuir até 10 pessoas a cada problema ou pull request, incluindo a si mesmo,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} qualquer pessoa que tenha comentado sobre o problema ou a pull request, {% endif %} qualquer pessoa com permissões de gravação no repositório e integrantes da organização com permissões de leitura no repositório. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+Você pode atribuir até 10 pessoas a cada problema ou pull request, incluindo a si mesmo, qualquer pessoa que comentou sobre o problema ou pull request, qualquer pessoa com permissões de gravação no repositório e integrantes da organização com permissões de leitura no repositório. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

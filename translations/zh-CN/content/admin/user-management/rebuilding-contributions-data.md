@@ -15,4 +15,5 @@ versions:
 3. 在页面的左侧，单击 **Admin**。 ![Admin 选项卡](/assets/images/enterprise/site-admin-settings/admin-tab.png)
 4. 在 **Contributions data** 下，单击 **Rebuild**。 ![Rebuild 按钮](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} 现在会开始后台作业，将提交与用户帐户重新关联。 ![已排队的重构作业](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} 现在会开始后台作业，将提交与用户帐户重新关联。
+  ![已排队的重构作业](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

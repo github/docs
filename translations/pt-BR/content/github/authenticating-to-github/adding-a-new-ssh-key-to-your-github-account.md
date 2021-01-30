@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
@@ -18,13 +19,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% mac %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -45,13 +46,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% windows %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -72,16 +73,16 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% linux %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
   $ sudo apt-get install xclip
-  # Baixa e instala xclip. Se você não tiver `apt-get`, talvez seja necessário usar outro instalador (como o `yum`)
+  # Baixa e instala xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 

@@ -1,1 +1,1 @@
-You can see each personal access token and SSH key that a member has authorized for API and Git access. Only the last several characters of each token or key are visible. If necessary, work with the member to determine which credentials you should revoke.
+Você pode ver cada token de acesso pessoal e a chave SSH que um integrante autorizou para obter acesso à API e ao Git. Somente os últimos caracteres de cada token ou chave são visíveis. Se necessário, trabalhe com o integrante para determinar quais credenciais você deve revogar.

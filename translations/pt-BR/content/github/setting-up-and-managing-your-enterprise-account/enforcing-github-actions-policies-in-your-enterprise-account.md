@@ -13,13 +13,26 @@ Por padrão, {% data variables.product.prodname_actions %} é habilitado em toda
 
 Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
-
 ### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua conta corporativa
+
+Você pode desabilitar todos os fluxos de trabalho para uma empresa ou definir uma política que configura quais ações podem ser usadas em uma organização.
+
+{% data reusables.actions.actions-use-policy-settings %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
+1. Clique em **Salvar**.
+
+### Permitir a execução de ações específicas
+
+{% data reusables.actions.allow-specific-actions-intro %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### Habilitar fluxos de trabalho para bifurcações privadas do repositório
 

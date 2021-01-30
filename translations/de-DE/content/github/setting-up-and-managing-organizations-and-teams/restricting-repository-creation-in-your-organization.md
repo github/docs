@@ -1,18 +1,19 @@
 ---
 title: Repository-Erstellung in Deiner Organisation einschränken
-intro: Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Erstellung von Repositorys innerhalb Deiner Organisation konfigurieren.
+intro: 'Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Erstellung von Repositorys innerhalb Deiner Organisation konfigurieren.'
 redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. Wenn Du Mitgliedern erlaubst, Repositories zu erstellen, kannst Du auswählen, welche Arten von Repositories Mitglieder erstellen können.{% if currentVersion == "free-pro-team@latest" %} Damit Mitglieder nur private Repositories erstellen können, muss Deine Organisation {% data variables.product.prodname_ghe_cloud %}verwenden.{% endif %} Weitere Informationen findest Du unter „[Über Repository-Sichtbarkeit](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 Organisationsinhaber können immer jede Art von Repository erstellen.
 
-{% if currentVersion == "free-pro-team@latest" %}Enterprise-Inhaber{% else %}Website-Administratoren{% endif %} können die Optionen einschränken, die Du für die Richtlinie zur Erstellung von Repositorys in Deiner Organisation zur Verfügung hast. Weitere Informationen findest Du unter {% if currentVersion == "free-pro-team@latest" %}„[Repository-Verwaltungsrichtlinie in Deinem Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}„[Repository-Erstellung auf Deiner Instanz einschränken](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Enterprise owners{% else %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}"[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
 
 {% warning %}
 
@@ -26,5 +27,5 @@ Organisationsinhaber können immer jede Art von Repository erstellen.
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Wähle unter „Repository Creation" (Repository Erstellung) {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}eine oder mehrere Optionen{% else %}eine Einstellung{% endif %} aus. ![Optionen für die Repository-Erstellung](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Under "Repository creation", select one or more options. ![Optionen für die Repository-Erstellung](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Klicke auf **Save** (Speichern).

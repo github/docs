@@ -77,7 +77,7 @@ versions:
 
 #### 外部服务和支持
 
-{% data variables.product.prodname_ghe_server %} 无需从网络访问外部服务也可以正常运行。 您可以选择集成外部服务，以提供电子邮件传送、外部监控和日志转发等功能。 更多信息请参阅“[配置电子邮件通知](/enterprise/{{ currentVersion }}/admin/user-management/configuring-email-for-notifications)”、“[设置外部监控](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)”和“[日志转发](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)”。
+{% data variables.product.prodname_ghe_server %} 无需从网络访问外部服务也可以正常运行。 您可以选择集成外部服务，以提供电子邮件传送、外部监控和日志转发等功能。 更多信息请参阅“[配置电子邮件通知](/admin/configuration/configuring-email-for-notifications)”、“[设置外部监控](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)”和“[日志转发](/admin/user-management/log-forwarding)”。
 
 您可以手动收集故障排除数据并发送至 {% data variables.contact.github_support %}。 更多信息请参阅“[向 {% data variables.contact.github_support %} 提供数据](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)”。
 
@@ -108,7 +108,7 @@ versions:
 
 #### 审核和访问日志记录
 
-{% data variables.product.prodname_ghe_server %} 存储传统的操作系统日志和应用程序日志。 应用程序还会编写详细的审核和安全日志，永久存储在 {% data variables.product.prodname_ghe_server %} 上。 您可以通过 `syslog-ng` 协议将两种类型的日志实时转发到多个目标。 更多信息请参阅“[日志转发](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)”。
+{% data variables.product.prodname_ghe_server %} 存储传统的操作系统日志和应用程序日志。 应用程序还会编写详细的审核和安全日志，永久存储在 {% data variables.product.prodname_ghe_server %} 上。 您可以通过 `syslog-ng` 协议将两种类型的日志实时转发到多个目标。 更多信息请参阅“[日志转发](/admin/user-management/log-forwarding)。”
 
 访问和审核日志包括如下信息。
 
@@ -139,4 +139,4 @@ versions:
 
 - “[设置 {% data variables.product.prodname_ghe_server %} 的试用版](/articles/setting-up-a-trial-of-github-enterprise-server)”
 - “[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
+- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})

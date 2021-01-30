@@ -9,6 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -34,15 +37,15 @@ The workflow is an automated procedure that you add to your repository. Workflow
 
 #### Events
 
-An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
 
 #### Jobs
 
-A job is a set of steps that execute on the same runner. By default, a workflow with multiple jobs will run those jobs in parallel. You can also configure a workflow to run jobs sequentially. For example, a workflow can have two sequential jobs that build and test code, where the test job is dependent on the status of the build job. If the build job fails, the test job will not run. 
+A job is a set of steps that execute on the same runner. By default, a workflow with multiple jobs will run those jobs in parallel. You can also configure a workflow to run jobs sequentially. For example, a workflow can have two sequential jobs that build and test code, where the test job is dependent on the status of the build job. If the build job fails, the test job will not run.
 
 #### Steps
 
-A step is an individual task that can run commands (known as _actions_). Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
+A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
 
 #### Actions
 
@@ -50,7 +53,7 @@ _Actions_ are standalone commands that are combined into _steps_ to create a _jo
 
 #### Runners
 
-A runner is a server that has the {% data variables.product.prodname_actions %} runner application installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
+A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
 
 {% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
@@ -146,7 +149,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each line nested under this section is a separate action.
+  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell command.
 </td>
 </tr>
 <tr>
@@ -179,7 +182,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package. 
+  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
 </td>
 </tr>
 <tr>
@@ -197,14 +200,14 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
 #### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action. Steps 1 and 2 use prebuilt community actions. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell command. Steps 1 and 2 use prebuilt community actions. Steps 3 and 4 run shell commands directly on the runner. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 
 
 ### Viewing the job's activity
 
-Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**.
@@ -213,8 +216,20 @@ Once your job has started running, you can view each step's activity on {% data 
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the job you want to see.
+   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. View the results of each step.
+    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+1. Click on the job name to see the results of each step.
+    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
+{% else %}
 1. Click on the job name to see the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
+{% endif %}
 
 ### Next steps
 

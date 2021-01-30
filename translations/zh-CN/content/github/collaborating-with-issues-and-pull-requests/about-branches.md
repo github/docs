@@ -1,36 +1,39 @@
 ---
 title: 关于分支
-intro: 使用分支隔离开发工作而不影响仓库中的其他分支。 每个仓库都有一个默认分支，也可有多个其他分支。 您可以使用拉取请求将一个分支合并到另一个分支。
+intro: '使用分支隔离开发工作而不影响仓库中的其他分支。 每个仓库都有一个默认分支，也可有多个其他分支。 您可以使用拉取请求将一个分支合并到另一个分支。'
 redirect_from:
   - /articles/working-with-protected-branches/
   - /articles/about-branches
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-### 引入分支
+### 关于分支
 
-Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+分支允许您在仓库的包含区域中开发功能、修复错误或安全地试验新的想法。
 
-始终可以从现有分支创建分支。 Typically, you might create a new branch from the default branch of your repository. 然后，您可以单独处理这个新分支，不受其他人对仓库所做更改的影响。 为构建功能而创建的分支通常称为功能分支或主题分支。 更多信息请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository/)”。
+始终可以从现有分支创建分支。 通常，您可能会从仓库的默认分支创建新的分支。 然后，您可以单独处理这个新分支，不受其他人对仓库所做更改的影响。 为构建功能而创建的分支通常称为功能分支或主题分支。 更多信息请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository/)”。
 
-也可以使用分支发布 {% data variables.product.prodname_pages %} 网站。 更多信息请参阅“[什么是 {% data variables.product.prodname_dotcom %} 页面？](/articles/what-is-github-pages)”
+也可以使用分支发布 {% data variables.product.prodname_pages %} 网站。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)”。
 
-必须对仓库有写入权限才可在拉取请求中创建分支、打开拉取请求或者删除和恢复分支。  更多信息请参阅“[{% data variables.product.product_name %} 上的访问权限](/articles/access-permissions-on-github)”。
+必须对仓库有写入权限才可在拉取请求中创建分支、打开拉取请求或者删除和恢复分支。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
-### About the default branch
+### 关于默认分支
 
-{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally out when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} 默认分支是任何人访问您的仓库时 {% data variables.product.prodname_dotcom %} 显示的分支。 默认分支也是初始分支，当有人克隆存储库时，Git 会在本地检出该分支。 {% data reusables.branches.default-branch-automatically-base-branch %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-
-By default, the default branch name is `master`, but you can set the name to anything that makes sense for your workflow. For more information on the default branch name, see "[Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)."
-
-{% endif %}
+默认情况下，{% data variables.product.product_name %} 将任何新仓库中的默认分支命名为{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %}。
 
 {% data reusables.branches.set-default-branch %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+
+{% data reusables.branches.set-default-branch %}
+
+{% endif %}
 
 ### 使用分支
 
@@ -38,7 +41,7 @@ By default, the default branch name is `master`, but you can set the name to any
 
 在拉取请求合并或关闭后，可以删除头分支，因为不再需要。 您必须对仓库具有写入权限才能删除分支。 无法删除与打开的拉取请求直接关联的分支。 更多信息请参阅“[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 下图说明了这一点。
 
@@ -71,7 +74,7 @@ By default, the default branch name is `master`, but you can set the name to any
 - 如果对分支启用了必需状态检查，则在所有必需 CI 测试通过之前，无法将更改合并到分支。 更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 - 如果对分支启用了必需拉取请求审查，则在满足拉取请求审查策略中的所有要求之前，无法将更改合并到分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
 - 如果对分支启用了代码所有者的必需审查，并且拉取请求修改具有所有者的代码，则代码所有者必须批准拉取请求后才可合并。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners)”。
-- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于必需提交签名](/articles/about-required-commit-signing)”。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - 如果您使用 {% data variables.product.prodname_dotcom %} 的冲突编辑器来解决从受保护分支创建拉取请求的冲突，{% data variables.product.prodname_dotcom %} 可帮助您为拉取请求创建一个备用分支，以解决合并冲突。 更多信息请参阅“[解决 {% data variables.product.prodname_dotcom %} 上的合并冲突](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)”。{% endif %}
 
 ### 延伸阅读

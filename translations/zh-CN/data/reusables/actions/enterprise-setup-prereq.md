@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 
-#### Using self-hosted runners on {% data variables.product.prodname_ghe_server %}
+#### 在 {% data variables.product.prodname_ghe_server %} 上使用自托管的运行器
 
-When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.prodname_ghe_server %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[Setting up the tool cache on self-hosted runners without internet access](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
+在包含自托管运行器的 {% data variables.product.prodname_ghe_server %} 上使用设置操作（例如 `actions/setup-LANGUAGE`）时，您可能需要在没有连接互联网的运行器上设置工具缓存。 更多信息请参阅“[在没有互联网连接的自托管运行器上设置工具缓存](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)”。
 
 {% endif %}

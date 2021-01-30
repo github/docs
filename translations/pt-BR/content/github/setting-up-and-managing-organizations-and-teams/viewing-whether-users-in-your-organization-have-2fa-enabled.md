@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Observação:** você pode exigir que todos os integrantes{% if currentVersion == "free-pro-team@latest" %}, inclusive proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização tenham a autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
+**Observação:** Você pode exigir que todos os integrantes{% if currentVersion == "free-pro-team@latest" %}, incluindo proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização possuem autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
 
 {% endnote %}
 

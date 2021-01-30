@@ -7,17 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果仓库中存在要用于 {% data variables.product.product_name %} 的现有文件，则需要先从仓库中删除它们，然后在本地将其添加到 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[将仓库中的文件移动到 {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)”。
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% tip %}
 
-**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的设备上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
+**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 
@@ -47,7 +48,7 @@ versions:
 5. 提交文件并将其推送到 {% data variables.product.product_name %}：
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   您会看到一些有关文件上传的诊断信息：
   ```shell
@@ -58,5 +59,5 @@ versions:
 
 ### 延伸阅读
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[与 {% data variables.large_files.product_name_long %} 协作](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- "[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Warum wurde mein Antrag auf einen Lehrer- oder Forscherrabatt nicht genehmigt?
-intro: 'Lies die generellen Gründe durch, weshalb Bewerbungen für einen Lehrer- oder Forscherrabatt nicht genehmigt werden, und die Tipps, um die erneute Bewerbung erfolgreich zu gestalten.'
+intro: Lies die generellen Gründe durch, weshalb Bewerbungen für einen Lehrer- oder Forscherrabatt nicht genehmigt werden, und die Tipps, um die erneute Bewerbung erfolgreich zu gestalten.
 redirect_from:
   - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied/
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved

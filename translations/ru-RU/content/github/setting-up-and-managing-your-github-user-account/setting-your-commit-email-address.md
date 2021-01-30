@@ -1,6 +1,6 @@
 ---
 title: Setting your commit email address
-intro: 'You can set a primary email address on {% data variables.product.product_name %} that''s associated with web-based Git operations you perform such as edits and merges.'
+intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About commit email addresses
@@ -37,7 +38,7 @@ For web-based Git operations, you can set your commit email address on {% data v
 
 You can also choose to block commits you push from the command line that expose your personal email address. For more information, see "[Blocking command line pushes that expose your personal email](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)."{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings{% endif %}.
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% if currentVersion != "github-ae@latest" %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

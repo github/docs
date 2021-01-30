@@ -1,41 +1,51 @@
 ---
-title: Securing your webhooks
-intro: 'Ensure your server is only receiving the expected {% data variables.product.prodname_dotcom %} requests for security reasons.'
+title: webhook のセキュリティ保護
+intro: 'セキュリティ上の理由から、サーバーが想定されているる {% data variables.product.prodname_dotcom %} リクエストのみを受信していることを確認する必要があります。'
 redirect_from:
   - /webhooks/securing
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-Once your server is configured to receive payloads, it'll listen for any payload sent to the endpoint you configured. For security reasons, you probably want to limit requests to those coming from GitHub. There are a few ways to go about this--for example, you could opt to allow requests from GitHub's IP address--but a far easier method is to set up a secret token and validate the information.
+ペイロードを受信するようにサーバーが設定されると、設定したエンドポイントに送信されたペイロードがリッスンされます。 セキュリティ上の理由から、GitHub からのリクエストに制限することをお勧めします。 これを行うにはいくつかの方法があります。たとえば、GitHub の IP アドレスからのリクエストを許可することですが、はるかに簡単な方法は、シークレットトークンを設定して情報を検証することです。
 
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Setting your secret token
+### シークレットトークンを設定する
 
-You'll need to set up your secret token in two places: GitHub and your server.
+シークレットトークンは、GitHub とサーバーの 2 か所に設定する必要があります。
 
-To set your token on GitHub:
+GitHub にトークンを設定するには：
 
-1. Navigate to the repository where you're setting up your webhook.
-2. Fill out the Secret textbox. Use a random string with high entropy (e.g., by taking the output of `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` at the terminal). ![Webhook secret token field](/assets/images/webhook_secret_token.png)
-3. Click **Update Webhook**.
+1. webhook を設定しているリポジトリに移動します。
+2. シークレットテキストボックスに入力します。 エントロピーの高いランダムな文字列を使用します (たとえば、`ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` を端末で取得することによって)。 ![webhook シークレットトークンフィールド](/assets/images/webhook_secret_token.png)
+3. [**Update Webhook**] をクリックします。
 
-Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
+次に、このトークンを保存する環境変数をサーバーに設定します。 通常、これは実行と同じくらい簡単です。
 
 ```shell
 $ export SECRET_TOKEN=<em>your_token</em>
 ```
 
-**Never** hardcode the token into your app!
+トークンをアプリケーションにハードコーディング**しないでください**。
 
-### Validating payloads from GitHub
+### GitHub からのペイロードを検証する
 
-When your secret token is set, GitHub uses it to create a hash signature with each payload.
+シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 このハッシュ署名は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` として各リクエストのヘッダに含まれています{% endif %}。
 
-This hash signature is passed along with each request in the headers as `X-Hub-Signature`. Suppose you have a basic server listening to webhooks that looks like this:
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% note %}
+
+**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 以下は、`X-Hub-Signature-256` ヘッダの使用例です。
+
+{% endnote %}
+{% endif %}
+
+たとえば、webhook をリッスンする基本的なサーバーがある場合、次のように設定されている可能性があります。
 
 ``` ruby
 require 'sinatra'
@@ -47,7 +57,7 @@ post '/payload' do
 end
 ```
 
-The goal is to compute a hash using your `SECRET_TOKEN`, and ensure that the hash from GitHub matches. GitHub uses an HMAC hexdigest to compute the hash, so you could change your server to look a little like this:
+目的は、`SECRET_TOKEN` を使用してハッシュを計算し、結果が {% data variables.product.product_name %} のハッシュと一致することを確認することです。 {% data variables.product.product_name %} は HMAC hex digest を使用してハッシュを計算するため、サーバーを次のように再設定できます。
 
 ``` ruby
 post '/payload' do
@@ -58,16 +68,21 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+def verify_signature(payload_body)
+  signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
+  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
+end{% elsif currentVersion ver_lt "enterprise-server@2.23" %}
 def verify_signature(payload_body)
   signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end
+end{% endif %}
 ```
 
-Obviously, your language and server implementations may differ than this code. There are a couple of very important things to point out, however:
+言語とサーバーの実装は、この例で使用したコードとは異なる場合があります。 ただし、次のようないくつかの非常に重要な事項があります。
 
-* No matter which implementation you use, the hash signature starts with `sha1=`, using the key of your secret token and your payload body.
+* どの実装を使用する場合でも、ハッシュ署名は {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %} で始まり、シークレットトークンのキーとペイロード本体を使用します。
 
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which renders it safe from certain timing attacks against regular equality operators.
+* プレーンな `==` 演算子を使用することは**お勧めしません**。 [`secure_compare`][secure_compare] のようなメソッドは、「一定時間」の文字列比較を実行します。これは、通常の等式演算子に対する特定のタイミング攻撃を軽減するのに役立ちます。
 
 [secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare

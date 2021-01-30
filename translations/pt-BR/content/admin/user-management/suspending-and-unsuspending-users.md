@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/articles/suspended-users/
   - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
-intro: 'Se um usuário sair da empresa ou mudar para outro departamento, você deve remover ou modificar a forma como ele acessa a {% data variables.product.product_location_enterprise %}.'
+intro: 'Se um usuário sair da empresa ou mudar para outro departamento, você deve remover ou modificar a forma como ele acessa a {% data variables.product.product_location %}.'
 versions:
   enterprise-server: '*'
 ---
@@ -27,7 +27,7 @@ Antes de suspender os administradores do site, você deve rebaixá-los para usu�
 
 {% tip %}
 
-**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) para a {% data variables.product.product_location_enterprise %}, os usuários serão suspensos automaticamente quando forem removidos do servidor de diretório LDAP. Quando a Sincronização LDAP estiver habilitada para a sua instância, os métodos normais de suspensão do usuário ficarão desabilitados.
+**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) para a {% data variables.product.product_location %}, os usuários serão suspensos automaticamente quando forem removidos do servidor de diretório LDAP. Quando a Sincronização LDAP estiver habilitada para a sua instância, os métodos normais de suspensão do usuário ficarão desabilitados.
 
 {% endtip %}
 
@@ -65,8 +65,7 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
 
 É possível criar uma mensagem personalizada que os usuários suspensos verão ao tentar fazer login.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 5. Clique em **Add message** (Adicionar mensagem). ![Adicionar mensagem](/assets/images/enterprise/site-admin-settings/add-message.png)
@@ -84,4 +83,4 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
   ```
 
 ### Leia mais
-- "[Suspender um usuário](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[Suspender um usuário](/rest/reference/enterprise-admin#suspend-a-user)"

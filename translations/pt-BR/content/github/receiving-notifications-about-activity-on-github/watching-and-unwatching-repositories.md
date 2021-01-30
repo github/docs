@@ -5,9 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.notifications.auto-watch %} Para obter mais informações, consulte [Sobre notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
-{% endif %}
 
 Também é possível inspecionar e cancelar versões em um repositório. Para obter mais informações, consulte "[Fazer a inspeção e cancelar a inspeção de versões para um repositório](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)".
 
@@ -35,11 +33,11 @@ Também é possível inspecionar e cancelar versões em um repositório. Para ob
 
 {% note %}
 
-**Observação:** você também pode optar por ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver sendo incomodado e quiser ignorar um repositório, [entre em contato com o suporte](/contact) para que possamos ajudá-lo. {% data reusables.policies.abuse %}{% endif %}
+**Observação:** você também pode optar por ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver passando por abuso e desejar ignorar um repositório, entre em contato com {% data variables.contact.contact_support %} para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
 ### Leia mais
 
-- "[Fazer a assinatura e cancelar a assinatura de notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
-- "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching">Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
+- "[Assinando e cancelando notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- "[Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

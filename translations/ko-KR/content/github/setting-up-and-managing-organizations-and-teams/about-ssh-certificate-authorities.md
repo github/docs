@@ -6,7 +6,8 @@ redirect_from:
   - /articles/about-ssh-certificate-authorities
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 An SSH certificate is a mechanism for one SSH key to sign another SSH key. If you use an SSH certificate authority (CA) to provide your organization members with signed SSH certificates, you can add the CA to your enterprise account or organization to allow organization members to use their certificates to access organization resources. For more information, see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)."

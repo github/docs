@@ -71,7 +71,6 @@ If a network level firewall is in place between nodes, these ports will need to 
 | 8302/UDP  | Consul                   |
 | 25827/UDP | Collectd                 |
 
-
 ### Configuring a load balancer
 
  We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:

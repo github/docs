@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
 
-**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if currentVersion != "free-pro-team@latest" %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
+**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -21,7 +22,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% tip %}
 
-**Tip:** If you're using Chrome, you can also copy-and-paste images directly into the box.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 

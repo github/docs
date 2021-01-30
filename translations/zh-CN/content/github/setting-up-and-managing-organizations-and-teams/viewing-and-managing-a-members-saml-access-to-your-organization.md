@@ -1,6 +1,6 @@
 ---
 title: 查看和管理成员对组织的 SAML 访问
-intro: 您可以查看和撤销组织成员的链接身份、活动会话和授权凭据。
+intro: '您可以查看和撤销组织成员的链接身份、活动会话和授权凭据。'
 permissions: 组织所有者可以查看和管理成员对组织的 SAML 访问。
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
@@ -19,6 +19,8 @@ versions:
 ### 查看和撤销链接的身份
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -55,4 +57,4 @@ versions:
 ### 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+- "[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"

@@ -1,1 +1,1 @@
-People with read access to the repository can perform these steps.
+Read access to the repository is required to perform these steps.

@@ -1,6 +1,6 @@
 ---
 title: Änderungen an einer Datei verfolgen
-intro: 'Du kannst die Änderungen an den einzelnen Zeilen einer Datei verfolgen und so feststellen, wie sich die Datei im Lauf der Zeit entwickelt hat.'
+intro: Du kannst die Änderungen an den einzelnen Zeilen einer Datei verfolgen und so feststellen, wie sich die Datei im Lauf der Zeit entwickelt hat.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file/
   - /articles/tracing-changes-in-a-file/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 In der Blame-Ansicht kannst Du den Revisionsverlauf einer vollständigen Datei Zeile für Zeile sehen oder durch klicken auf {% octicon "versions" aria-label="The prior blame icon" %} auch nur den Verlauf einer einzelnen Zeile anzeigen. Mit jedem Klick auf {% octicon "versions" aria-label="The prior blame icon" %} siehst Du die vorangegangene Revisionsinformation zur betreffenden Zeile, einschließlich des Committers und des Commit-Zeitpunkts der Änderung.

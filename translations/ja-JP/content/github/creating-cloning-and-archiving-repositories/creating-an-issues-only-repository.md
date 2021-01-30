@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. **private** リポジトリを作成し、プロジェクトのソースコードをホストします。

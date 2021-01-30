@@ -1,11 +1,12 @@
 ---
 title: Organization ダッシュボードについて
-intro: Organization のメンバーは、直近のアクティビティの更新情報を常時受け取り、作業中の Issue やプルリクエストを追跡したり、Organization をフォローしたりするために、Organization のダッシュボードにアクセスできます。
+intro: 'Organization のメンバーは、直近のアクティビティの更新情報を常時受け取り、作業中の Issue やプルリクエストを追跡したり、Organization をフォローしたりするために、Organization のダッシュボードにアクセスできます。'
 redirect_from:
   - /articles/about-your-organization-dashboard
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Organization ダッシュボードへのアクセス
@@ -28,7 +29,7 @@ versions:
 
 ニュースフィードの [All activity] セクションでは、Organization 内の他の Team やリポジトリからの更新情報を見ることができます。
 
-[All activity] セクションは、Organization 内のすべての最近のアクティビティを表示します。これにはあなたがサブスクライブしていないリポジトリでのアクティビティや、フォローしていない人々のアクティビティも含まれます。 詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「通知について」(/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[リポジトリの Watch と Watch 解除](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」および「[人をフォローする](/articles/following-people)」を参照してください。
+[All activity] セクションは、Organization 内のすべての最近のアクティビティを表示します。これにはあなたがサブスクライブしていないリポジトリでのアクティビティや、フォローしていない人々のアクティビティも含まれます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
 
 たとえば Organization のニュースフィードは Organization 内の誰かが以下のようなことをしたときに 更新情報を知らせます:
  - 新しいブランチを作成する
@@ -36,8 +37,8 @@ versions:
  - プルリクエストのレビューコメントをサブミットする
  - リポジトリをフォーク
  - ウィキページを作成
- - コミットをプッシュ
- - パブリックリポジトリを作成
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### さらなる情報
 

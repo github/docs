@@ -1,1 +1,3 @@
-Add the email address to your {% data variables.product.product_name %} account by [setting your commit email address](/articles/setting-your-commit-email-address), so that your commits are attributed to you and appear in your contributions graph.
+{% if currentVersion != "github-ae@latest" %}
+Add the email address to your account on {% data variables.product.product_name %}, so that your commits are attributed to you and appear in your contributions graph. For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."
+{% endif %}

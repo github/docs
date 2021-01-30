@@ -1,0 +1,1 @@
+Cuando buscas una fecha, puedes utilizar los calificadores de mayor qué, menor qué y rango para filtrar aún más los resultados. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/github/searching-for-information-on-github/understanding-the-search-syntax)".

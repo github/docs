@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントでリポジトリ管理ポリシーを施行する
-intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のリポジトリの管理ポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。
+intro: 'Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のリポジトリの管理ポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/

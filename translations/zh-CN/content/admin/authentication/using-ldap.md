@@ -35,7 +35,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 在 {% data variables.product.product_location_enterprise %} 上配置 LDAP
+### 在 {% data variables.product.product_location %} 上配置 LDAP
 
 在您配置 LDAP 后，用户将能够使用他们的 LDAP 凭据登录您的实例。 在用户首次登录时，他们个人资料中的姓名、电子邮件地址和 SSH 密钥将使用您的目录中的 LDAP 属性进行设置。
 
@@ -43,7 +43,7 @@ versions:
 
 {% warning %}
 
-**警告**：在 {% data variables.product.product_location_enterprise %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
+**警告**：在 {% data variables.product.product_location %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
 
 {% endwarning %}
 
@@ -55,26 +55,26 @@ versions:
 5. 添加您的配置设置。
 
 ### LDAP 属性
-使用以下属性完成 {% data variables.product.product_location_enterprise %} 的 LDAP 配置。
+使用以下属性完成 {% data variables.product.product_location %} 的 LDAP 配置。
 
-| 属性名称                                             | 类型 | 描述                                                                                                                                                                                                               |
-| ------------------------------------------------ | -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location_enterprise %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                               |
-| `端口`                                             | 必选 | 主机的 LDAP 服务侦听的端口。 示例包括：389 和 636（适用于 LDAPS）。                                                                                                                                                                     |
-| `Encryption`                                     | 必选 | 用于确保与 LDAP 服务器之间的通信安全的加密方法。 示例包括明文（无加密）、SSL/LDAPS（从一开始就加密）和 StartTLS（在连接后升级为加密通信）。                                                                                                                               |
-| `Domain search user`                             | 可选 | 执行用户查询，在其他用户登录时对其进行身份验证的 LDAP 用户。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，您还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。       |
-| `Domain search password`                         | 可选 | 域搜索用户的密码。                                                                                                                                                                                                        |
-| `Administrators group`                           | 可选 | 登录您的设备后，此组中的用户将被升级为站点管理员。 如果您不配置 LDAP 管理员组，则登录您的设备的第一个 LDAP 用户帐户将被自动升级为站点管理员。                                                                                                                                    |
-| `Domain base`                                    | 必选 | 您想要搜索用户和组的 LDAP 子树的完全限定 `Distinguished Name` (DN)。 您可以添加任意数量的组；不过，每个组和它所包含的用户都必须在相同的基础域中定义。 如果您指定受限的用户组，那么只有属于这些组的用户将在作用域内。 我们建议您将 LDAP 目录树的顶级指定为您的基础域，并使用受限的用户组来控制权限。                                           |
+| 属性名称                                             | 类型 | 描述                                                                                                                                                                                                          |
+| ------------------------------------------------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                                            |
+| `端口`                                             | 必选 | 主机的 LDAP 服务侦听的端口。 示例包括：389 和 636（适用于 LDAPS）。                                                                                                                                                                |
+| `Encryption`                                     | 必选 | 用于确保与 LDAP 服务器之间的通信安全的加密方法。 示例包括明文（无加密）、SSL/LDAPS（从一开始就加密）和 StartTLS（在连接后升级为加密通信）。                                                                                                                          |
+| `Domain search user`                             | 可选 | 执行用户查询，在其他用户登录时对其进行身份验证的 LDAP 用户。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，您还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。  |
+| `Domain search password`                         | 可选 | 域搜索用户的密码。                                                                                                                                                                                                   |
+| `Administrators group`                           | 可选 | 登录您的设备后，此组中的用户将被升级为站点管理员。 如果您不配置 LDAP 管理员组，则登录您的设备的第一个 LDAP 用户帐户将被自动升级为站点管理员。                                                                                                                               |
+| `Domain base`                                    | 必选 | 您想要搜索用户和组的 LDAP 子树的完全限定 `Distinguished Name` (DN)。 您可以添加任意数量的组；不过，每个组和它所包含的用户都必须在相同的基础域中定义。 如果您指定受限的用户组，那么只有属于这些组的用户将在作用域内。 我们建议您将 LDAP 目录树的顶级指定为您的基础域，并使用受限的用户组来控制权限。                                      |
 | `Restricted user groups`                         | 可选 | 如果指定，将仅允许这些组中的用户登录。 您只需要指定组的常用名 (CN)，您可以添加任意数量的组。 如果未指定组，则指定基础域作用域中的*所有*用户都将可以登录您的 {% data variables.product.prodname_ghe_server %} 实例。                                                                   |
 | `User ID`                                        | 必选 | 标识尝试身份验证的 LDAP 用户的 LDAP 属性。 建立映射后，用户可以更改他们的 {% data variables.product.prodname_ghe_server %} 用户名。 对于大多数 Active Directory 安装来说，此字段应为 `sAMAccountName`，但对其他 LDAP 解决方案（例如 OpenLDAP）来说，可能是 `uid`。 默认值为 `uid`。 |
 | `Profile name`                                   | 可选 | 将在用户的 {% data variables.product.prodname_ghe_server %} 个人资料页面上显示的姓名。 除非启用 LDAP 同步，否则用户可以更改他们的个人资料姓名。                                                                                                      |
 | `Emails`                                         | 可选 | 用户的 {% data variables.product.prodname_ghe_server %} 帐户的电子邮件地址。                                                                                                                                           |
 | `SSH keys`                                       | 可选 | 连接到用户的 {% data variables.product.prodname_ghe_server %} 帐户的 SSH 公钥。 密钥必须采用 OpenSSH 格式。                                                                                                                    |
 | `GPG keys`                                       | 可选 | 连接到用户的 {% data variables.product.prodname_ghe_server %} 帐户的 GPG 密钥。                                                                                                                                       |
-| `Disable LDAP authentication for Git operations` | 可选 | 如果选择，将[禁止](#disabling-password-authentication-for-git-operations)用户使用 LDAP 密码对 Git 操作进行身份验证。                                                                                                                     |
-| `Enable LDAP certificate verification`           | 可选 | 如果选择，将[启用](#enabling-ldap-certificate-verification) LDAP 证书验证。                                                                                                                                                   |
-| `Synchronization`                                | 可选 | 如果选择，将[启用](#enabling-ldap-sync) LDAP 同步。                                                                                                                                                                         |
+| `Disable LDAP authentication for Git operations` | 可选 | 如果选择，将[禁止](#disabling-password-authentication-for-git-operations)用户使用 LDAP 密码对 Git 操作进行身份验证。                                                                                                                |
+| `Enable LDAP certificate verification`           | 可选 | 如果选择，将[启用](#enabling-ldap-certificate-verification) LDAP 证书验证。                                                                                                                                              |
+| `Synchronization`                                | 可选 | 如果选择，将[启用](#enabling-ldap-sync) LDAP 同步。                                                                                                                                                                    |
 
 #### 为 Git 操作禁用密码身份验证
 
@@ -96,6 +96,12 @@ versions:
 - 证书由受信任的证书颁发机构 (CA) 签名。
 
 #### 启用 LDAP 同步
+
+{% note %}
+
+要启用 LDAP 同步，请在您的 LDAP 设置中选择 **Synchronize Emails（同步电子邮件）**、**Synchronize SSH Keys（同步 SSH 密钥）**或 **Synchronize GPG Keys（同步 GPG 密钥）**。
+
+{% endnote %}
 
 借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 更多信息请参阅“[创建团队](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
 
@@ -184,7 +190,7 @@ versions:
 
 您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
 
-### 撤销 {% data variables.product.product_location_enterprise %} 的权限
+### 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 

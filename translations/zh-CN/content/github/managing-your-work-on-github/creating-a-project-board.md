@@ -1,12 +1,13 @@
 ---
 title: 创建项目板
-intro: 项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。
+intro: '项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。'
 redirect_from:
   - /articles/creating-a-project/
   - /articles/creating-a-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -24,12 +25,13 @@ versions:
 ### 创建用户拥有的项目板
 
 {% data reusables.profile.access_profile %}
-2. On the top of your profile page, in the main navigation, click
-{% octicon "project" aria-label="The project board icon" %} **Projects**.
+2. 在个人资料页面顶部的主导航中，单击
+{% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。
 ![项目选项卡](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -49,6 +51,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -63,8 +66,8 @@ versions:
 ### 创建仓库项目板
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under your repository name, click
-{% octicon "project" aria-label="The project board icon" %} **Projects**.
+2. 在仓库名称下，单击
+{% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。
 ![项目选项卡](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -82,7 +85,7 @@ versions:
 ### 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- “[编辑项目板](/articles/editing-a-project-board)”{% if currentVersion == "free-pro-team@latest" %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”

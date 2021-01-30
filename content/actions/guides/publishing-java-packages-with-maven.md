@@ -7,6 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Packaging'
+  - 'Publishing'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,7 +52,7 @@ In this workflow, you can use the `setup-java` action. This action installs the 
 For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _pom.xml_ could specify a distribution management repository with the `id` of `ossrh`.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,7 +72,7 @@ In the deploy step, you’ll need to set the environment variables to the userna
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -84,7 +90,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -112,7 +118,7 @@ For a Maven-based project, you can make use of these settings by creating a dist
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _pom.xml_ would look similar to the below example.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -129,7 +135,7 @@ For example, if your organization is named "octocat" and your repository is name
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by making use of the automatically generated _settings.xml_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -143,7 +149,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -154,7 +160,7 @@ This workflow performs the following steps:
 1. Checks out a copy of project's repository.
 1. Sets up the Java JDK, and also automatically configures the Maven _settings.xml_ file to add authentication for the `github` Maven repository to use the `GITHUB_TOKEN` environment variable.
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
- 
+
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ### Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
@@ -164,7 +170,7 @@ You can publish your packages to both the Maven Central Repository and {% data v
 Ensure your _pom.xml_ file includes a distribution management repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider. For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `id` set to `ossrh`, and you might want to specify {% data variables.product.prodname_registry %} in a distribution management repository with the `id` set to `github`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
@@ -182,7 +188,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -191,7 +197,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

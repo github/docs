@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_oauth_app %}が {% data variables.product.product_name %}アカウントであなたを識別したい場合、そのアプリケーションの開発者の連絡先情報と、リクエストされている情報のリストのページが表示されます。
@@ -37,7 +38,7 @@ versions:
 
 *スコープ*は、{% data variables.product.prodname_oauth_app %}がパブリックおよび非パブリックのデータにアクセスするためにリクエストできる権限の名前付きグループです。
 
-{% data variables.product.product_name %}と統合される {% data variables.product.prodname_oauth_app %}を使用したい場合、そのアプリケーションはデータに対してどういった種類のアクセスが必要になるのかを知らせてきます。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば `user:email` スコープをリクエストするアプリケーションを使用したい場合、そのアプリケーションはあなたのプライベートのメールアドレスに対してリードオンリーのアクセスを持つことになります。 詳しい情報については 、「[{% data variables.product.prodname_oauth_app %} のスコープについて](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)」を参照してください。
+{% data variables.product.product_name %}と統合される {% data variables.product.prodname_oauth_app %}を使用したい場合、そのアプリケーションはデータに対してどういった種類のアクセスが必要になるのかを知らせてきます。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば `user:email` スコープをリクエストするアプリケーションを使用したい場合、そのアプリケーションはあなたのプライベートのメールアドレスに対してリードオンリーのアクセスを持つことになります。 詳しい情報については 、「[{% data variables.product.prodname_oauth_app %} のスコープについて](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)」を参照してください。
 
 {% tip %}
 
@@ -55,7 +56,7 @@ versions:
 | デプロイメント               | デプロイメントのステータスへアクセスできれば、アプリケーションはパブリック及びプライベートのリポジトリの特定のコミットに対してデプロイメントが成功したかを判断できます。 アプリケーションはコードにはアクセスできません。                                                |
 | Gist                  | [Gist](https://gist.github.com) アクセスがあれば、アプリケーションはあなたのパブリックおよびシークレット Gist の双方を読み書きできます。                                                                      |
 | フック                   | [webhook](/webhooks) アクセスがあれば、アプリケーションはあなたが管理するリポジトリ上のフックの設定を読み書きできます。                                                                                       |
-| 通知                    | 通知アクセスがあれば、アプリケーションは Issue やプルリクエストへのコメントなど、あなたの {% data variables.product.product_name %}通知を読むことができます。 しかし、アプリケーションはリポジトリ内へはアクセスできないままです。              |
+| 通知                    | 通知アクセスがあれば、アプリケーションは Issue やプルリクエストへのコメントなど、あなたの {% data variables.product.product_name %}通知を読むことができます。 しかし、アプリケーションはリポジトリ内へはアクセスできないままです。                   |
 | Organization および Team | Organization および Team のアクセスがあれば、アプリケーションは Organization および Team のメンバー構成へのアクセスと管理ができます。                                                                       |
 | 個人ユーザデータ              | ユーザデータには、名前、メールアドレス、所在地など、ユーザプロファイル内の情報が含まれます。                                                                                                               |
 | リポジトリ                 | リポジトリ情報には、コントリビュータの名前、あなたが作成したブランチ、リポジトリ内の実際のファイルなどが含まれます。 アプリケーションはユーザ単位のレベルでパブリックあるいはプライベートリポジトリへのアクセスをリクエストできます。                                          |

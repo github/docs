@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Action development'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -31,12 +34,12 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   ```
 
 2. In the `hello-world-composite-run-steps-action` repository, create a new file called `goodbye.sh`, and add the following example code:
-  
+
   ```bash
   echo "Goodbye"
   ```
 
-1. From your terminal, make `goodbye.sh` executable and check it into your repository.
+3. From your terminal, make `goodbye.sh` executable.
 
   ```shell
   chmod +x goodbye.sh
@@ -64,12 +67,12 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -81,18 +84,30 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
     {% endraw %}
   This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. It also tells the runner how to execute the composite run steps action.
 
-  For more information about managing outputs, see "[`outputs` for a composite run steps](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions)". 
+  For more information about managing outputs, see "[`outputs` for a composite run steps](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions)".
 
   For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. Create a new label. This example uses a label called `v1` for the main branch. For more information, see "[Creating a label
-](/github/managing-your-work-on-github/creating-a-label)."
+1. From your terminal, check in your `action.yml` file.
+
+  ```shell
+  git add action.yml
+  git commit -m "Add action"
+  git push
+  ```
+
+1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+
+  ```shell
+  git tag -a -m "Description of this release" v1
+  git push --follow-tags
+  ```
 
 ### Testing out your action in a workflow
 
 The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and label you created. You can also replace the `who-to-greet` input with your name.
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -109,7 +124,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

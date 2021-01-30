@@ -1,12 +1,13 @@
 ---
 title: コメントを扱う
-intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
+intro: 'REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。'
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -96,8 +97,8 @@ end
 [commit comment]: https://github.com/octocat/Spoon-Knife/commit/cbc28e7c8caee26febc8c013b0adfb97a4edd96e#commitcomment-4049848
 [sample PR]: https://github.com/octocat/Spoon-Knife/pull/1176
 [platform-samples]: https://github.com/github/platform-samples/tree/master/api/ruby/working-with-comments
-[issues]: /v3/issues/comments/
+[issues]: /rest/reference/issues#comments
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[PR Review API]: /v3/pulls/comments/
-[commit comment API]: /v3/repos/comments/#get-a-commit-comment
+[PR Review API]: /rest/reference/pulls#comments
+[commit comment API]: /rest/reference/repos#get-a-commit-comment

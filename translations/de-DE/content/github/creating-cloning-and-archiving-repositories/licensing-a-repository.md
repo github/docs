@@ -17,7 +17,7 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 {% note %}
 
-**Hinweis:** Wenn Du Deinen Quellcode in einem öffentlichen Repository auf GitHub veröffentlichst, haben {% if currentVersion == "free-pro-team@latest" %}gemäß den [Nutzungsbedingungen](/articles/github-terms-of-service) {% endif %}andere GitHub-Benutzer das Recht, Dein Repository innerhalb der GitHub-Website anzuzeigen und zu forken. Wenn Du bereits ein öffentliches Repository erstellt hast und nicht mehr möchtest, dass andere Benutzer darauf zugreifen, kannst Du festlegen, dass Dein Repository privat ist. Wenn Du ein öffentliches Repository in ein privates umwandelst, bleiben vorhandene Forks oder lokale Kopien bestehen, die andere Benutzer erstellt haben. Weitere Informationen findest Du unter „[Ein öffentliches Repository in ein privates umwandeln](/articles/making-a-public-repository-private).“
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
 
 {% endnote %}
 
@@ -49,6 +49,7 @@ Du kannst Repositorys basierend auf ihrer Lizenz oder Lizenzfamilie filtern. Ver
 |        | WTFPL-Lizenz (Do What The F*ck You Want To Public License) | `wtfpl`                          |
 |        | Educational Community License v2.0 | `ecl-2.0`                                                |
 |        | Eclipse Public License 1.0 | `epl-1.0`                                                        |
+|        | Eclipse Public License 2.0 | `epl-2.0`                                                        |
 |        | European Union Public License 1.1 | `eupl-1.1`                                                |
 |        | GNU Affero General Public License v3.0 | `agpl-3.0`                                           |
 |        | GNU General Public License (GPL)-Lizenzfamilie | `gpl`                                        |
@@ -73,7 +74,7 @@ Wenn Du nach einer Lizenz einer Familie suchst, enthalten die Suchergebnisse all
 
 ### Eine Lizenz erkennen
 
-[Das Open-Source-Ruby-Gem Licensee](https://github.com/benbalter/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/v3/licenses/) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[Das Open-Source-Ruby-Gem Licensee](https://github.com/licensee/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/rest/reference/licenses) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Wenn Dein Repository eine Lizenz verwendet, die auf der Website „Choose a License“ (Wähle eine Lizenz) aufgeführt ist, und die Lizenz nicht deutlich sichtbar oben auf der Repository-Seite angezeigt wird, enthält das Repository möglicherweise mehrere Lizenzen oder es liegt eine andere Komplexität vor. Damit Deine Lizenz erkannt wird, vereinfache Deine *LICENSE*-Datei und notiere die Komplexität an anderer Stelle, beispielsweise in der *README*-Datei Deines Repositorys.
 
@@ -89,5 +90,5 @@ Das Ziel der Bemühungen von GitHub zur Open-Source-Lizenzierung ist es, Dir ein
 
 ### Weiterführende Informationen
 
-- Der Abschnitt „[The Legal Side of Open Source](https://opensource.guide/legal/)“ (Die rechtlichen Aspekte von Open Source) in den Open-Source-Leitfäden{% if currentVersion == "free-pro-team@latest" %}
+- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

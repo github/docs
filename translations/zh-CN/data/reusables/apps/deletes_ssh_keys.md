@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning**: Revoking all permission from an {% data variables.product.prodname_oauth_app %} deletes any SSH keys the application generated on behalf of the user, including [deploy keys](/v3/guides/managing-deploy-keys/#deploy-keys).
+**警告**: 从 {% data variables.product.prodname_oauth_app %} 撤销所有权限将会删除应用程序代表用户生成的 SSH 密钥，包括[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)。
 
 {% endwarning %}

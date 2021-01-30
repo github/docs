@@ -40,7 +40,9 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.save-custom-domain %}
-5. お使いの DNS プロバイダにアクセスし、サブドメインがサイトのデフォルトドメインを指す `CNAME` レコードを作成します。 たとえば、サイトで `www.example.com` というサブドメインを使いたい場合、`www.example.com` が `<user>.github.io` を指す`CNAME` レコードを作成します。 If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` file should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %}{% data reusables.pages.default-domain-information %}
+5. お使いの DNS プロバイダにアクセスし、サブドメインがサイトのデフォルトドメインを指す `CNAME` レコードを作成します。 たとえば、サイトで `www.example.com` というサブドメインを使いたい場合、`www.example.com` が `<user>.github.io` を指す`CNAME` レコードを作成します。 If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+
+{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. DNS レコードが正しくセットアップされたことを確認するには、 `dig` コマンドを使います。_WWW.EXAMPLE.COM_ は、お使いのサブドメインに置き換えてください。
 ```shell
@@ -71,6 +73,8 @@ Apex ドメイン、たとえば`example.com` を設定するには、{% data va
       185.199.110.153
       185.199.111.153
       ```
+
+{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. DNS レコードが正しく設定されたことを確認するには、 `dig` コマンドを使います。_EXAMPLE.COM_ は、お使いの Apex ドメインに置き換えてください。 結果が、上記の {% data variables.product.prodname_pages %} の IP アドレスに一致することを確認します。
   ```shell

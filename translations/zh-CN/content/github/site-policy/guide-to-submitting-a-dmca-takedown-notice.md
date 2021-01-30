@@ -10,13 +10,13 @@ versions:
 
 本指南介绍 GitHub 处理 DMCA 删除请求所需的信息。 如果您对 DMCA 的概念或 GitHub 处理 DMCA 删除请求的方式有更多一般性疑问，请参阅我们的 [DMCA 删除政策](/articles/dmca-takedown-policy)。
 
-鉴于 GitHub 托管内容的类型（主要是软件代码）以及管理内容的方式（使用 Git），我们需要投诉内容尽可能具体。 这些指南旨在尽可能简单明了地处理指控侵权的通告。 下述通告形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 Copyright Office's official website: <https://www.copyright.gov>.
+鉴于 GitHub 托管内容的类型（主要是软件代码）以及管理内容的方式（使用 Git），我们需要投诉内容尽可能具体。 这些指南旨在尽可能简单明了地处理指控侵权的通告。 下述通告形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 版权局官方网站：<https://www.copyright.gov>。
 
 与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
 ### 开始前
 
-***说实话。***DMCA 要求您对版权投诉中陈述的事实宣誓，捏造事实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。 DMCA 本身就针对任何故意捏造材料或活动侵权事实的人[规定了赔偿条款](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)。
+***说实话。***DMCA 要求您对版权投诉中陈述的事实宣誓，捏造事实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 （*请参阅* [美国 法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。 DMCA 本身就针对任何故意捏造材料或活动侵权事实的人[规定了赔偿条款](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)。
 
 ***调查。***数以百万计的用户为自己在 GitHub 上创建和参与的项目倾注了心血。 针对此类项目提出 DMCA 投诉是一种严重的法律指控，会对项目背后真实的人造成真正的后果。 因此，我们要求您在提交删除通知之前进行彻底的调查并咨询律师，以确保您投诉的确实是不允许的使用。
 

@@ -1,5 +1,6 @@
 ---
 title: 新しい GitHub アカウントへのサインアップ
+shortTitle: 新しい GitHub アカウントへのサインアップ
 intro: '{% data variables.product.product_name %} は、人々が協力して作業するチームのために個人および Organization のユーザアカウントを提供します。'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
@@ -9,9 +10,8 @@ versions:
 
 アカウントの種類と製品の詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」および「[{% data variables.product.product_name %} の製品](/articles/github-s-products)」を参照してください。
 
-1. {% data variables.product.product_name %} の[価格]({% data variables.product.pricing_url %})ページに移動してください。
-2. {% data variables.product.product_name %} が提供するさまざまな製品およびサブスクリプションの情報をお読みいただき、選択したいプランの下にある [Upgrade] ボタンをクリックしてください。
-3. プロンプトに従って、個人アカウントまたは Organization を作成してください。
+{% data reusables.accounts.create-account %}
+1. プロンプトに従って、個人アカウントまたは Organization を作成してください。
 
 ### 次のステップ
 

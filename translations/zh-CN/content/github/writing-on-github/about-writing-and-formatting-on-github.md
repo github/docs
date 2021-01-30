@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 [Markdown](http://daringfireball.net/projects/markdown/) 是一种易于阅读和编写的语法，用于格式化纯文本。

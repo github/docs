@@ -1,7 +1,7 @@
 ---
-title: Installing and configuring GitHub Desktop
+title: GitHub Desktop のインストールと設定
 shortTitle: インストールと設定
-intro: 'Get {% data variables.product.prodname_desktop %} set up to manage your project work. Authenticate to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_enterprise %}, keep the app up-to-date, and review your preferred settings.'
+intro: '{% data variables.product.prodname_desktop %} を設定して、プロジェクトの作業を管理します。 {% data variables.product.prodname_dotcom_the_website %} または {% data variables.product.prodname_enterprise %} に対して認証を行って、アプリケーションを最新の状態に保ち、お好みの設定を確認します。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:

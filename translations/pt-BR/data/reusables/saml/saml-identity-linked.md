@@ -1,1 +1,1 @@
-1. In the left sidebar, click **SAML identity linked**. ![SAML identity linked](/assets/images/help/saml/saml-identity-linked.png)
+1. Na barra lateral esquerda, clique em **Identidade do SAML vinculada**. ![Identidade do SAML vinculada](/assets/images/help/saml/saml-identity-linked.png)

@@ -1,1 +1,1 @@
-Scopes let you specify exactly what type of access you need. Scopes _limit_ access for OAuth tokens. They do not grant any additional permission beyond that which the user already has.
+通过作用域，您可以准确指定所需的访问权限类型。 作用域_限制_ OAuth 令牌的访问权限。 它们不会授予超出用户权限范围的任何额外权限。

@@ -1,10 +1,11 @@
 ---
 title: Code-Review-Zuweisung für Dein Team verwalten
-intro: 'Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.'
+intro: Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Team-Betreuer und Organisationsinhaber können Code-Review-Zuweisungen konfigurieren.
@@ -17,7 +18,7 @@ Wenn Codeinhaber automatisch zum Review aufgefordert werden, wird das Team trotz
 
 ### Routing-Algorithmen
 
-Code-Review-Zuweisungen wählen und weisen Prüfer automatisch aufgrund einem von zwei möglichen Algorithmen zu.
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 Der Round-Robin-Algorithmus wählt die Prüfer basierend auf den Empfängern der letzten Review-Anforderungen aus, und fokussiert auf der abwechselnden Auswahl der Mitarbeiter des Teams, unabhängig von der Anzahl ausstehenden Reviews, die die Teammitglieder momentan haben.
 

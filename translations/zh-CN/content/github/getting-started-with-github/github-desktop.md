@@ -4,13 +4,14 @@ intro: '{% data variables.product.prodname_desktop %} 使用可视界面扩展�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_desktop %}
 
 {% data reusables.desktop.about-github-desktop %}
 
-For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
+有关 {% data variables.product.prodname_desktop %} 的更多信息，请参阅 {% data variables.product.prodname_desktop %} 文档中的“[安装和配置 {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)”。
 
 ### 分享反馈
 

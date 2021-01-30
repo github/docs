@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH アクセスにより、{% data variables.product.prodname_ghe_server %} のコマンドラインユーティリティを実行でき、トラブルシューティング、バックアップの実行、およびレプリケーションの設定に役立ちます。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
 ---
@@ -46,7 +46,7 @@ admin@github-example-com:~$ █
 
 #### SSH 接続問題のトラブルシューティング
 
-SSH 経由で {% data variables.product.product_location_enterprise %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
+SSH 経由で {% data variables.product.product_location %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
 
 コマンドラインでプライベートな SSH キーを指定するには、`-i` 引数を付けて `ssh` を実行します。
 

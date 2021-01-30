@@ -11,7 +11,6 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ### About container image deletion
 
@@ -32,13 +31,9 @@ Under special circumstances, such as for legal reasons or to conform with GDPR s
 
 {% else %}
 
-At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %} does not support deleting public packages.
+At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
 
 {% endif %}
-
-### Reserved package versions and names
-
-{% data reusables.package_registry.package-immutability %}
 
 ### Deleting a version of a private package on {% data variables.product.product_name %}
 

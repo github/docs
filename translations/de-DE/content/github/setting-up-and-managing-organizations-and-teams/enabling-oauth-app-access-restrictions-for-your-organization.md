@@ -14,7 +14,7 @@ versions:
 
 **Warnings**:
 - Durch die Aktivierung der {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen wird allen zuvor autorisierten {% data variables.product.prodname_oauth_app %}s und SSH-Schlüsseln der Zugriff auf die Organisation entzogen. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_oauth_app %}-Zugriffsbeschränkungen](/articles/about-oauth-app-access-restrictions).“
-- Wenn Du die {% data variables.product.prodname_oauth_app %}-Zugriffsbeschränkungen eingerichtet hast, stelle sicher, dass Du alle {% data variables.product.prodname_oauth_app %}s erneut autorisierst, die regelmäßig Zugriff auf die privaten Daten der Organisation benötigen. Alle Organisationsmitglieder müssen neue SSH-Schlüssel erstellen, und die Organisation muss nach Bedarf neue Deployment-Schlüssel erstellen.
+- Wenn Sie die {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen eingerichtet haben, stellen Sie sicher, dass Sie alle {% data variables.product.prodname_oauth_app %}s erneut autorisieren, die regelmäßig Zugriff auf die privaten Daten der Organisation benötigen. Alle Organisationsmitglieder müssen neue SSH-Schlüssel erstellen, und die Organisation muss nach Bedarf neue Deployment-Schlüssel erstellen.
 - Wenn {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen aktiviert sind, können Anwendungen mit einem OAuth-Token auf Informationen zu {% data variables.product.prodname_marketplace %}-Transaktionen zugreifen.
 
 {% endwarning %}

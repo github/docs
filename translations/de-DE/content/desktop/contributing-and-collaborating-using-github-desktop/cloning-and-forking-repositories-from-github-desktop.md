@@ -19,8 +19,8 @@ Darüber hinaus kannst Du ein Repository direkt über {% data variables.product.
   ![Menüoption zum Klonen in der Mac-App](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Standort-Registerkarten im Menü „Clone a repository“ (Repository klonen)](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-![Repository-Liste klonen](/assets/images/help/desktop/clone-a-repository-list-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Repository-Liste klonen](/assets/images/help/desktop/clone-a-repository-list-mac.png)
 4. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Finder-Fensters zu einem lokalen Pfad, wo Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen)](/assets/images/help/desktop/clone-choose-button-mac.png)
 5. Klicke auf **Clone** (Klonen). ![Die Schaltfläche „clone“ (Klonen)](/assets/images/help/desktop/clone-button-mac.png)
 
@@ -32,8 +32,8 @@ Darüber hinaus kannst Du ein Repository direkt über {% data variables.product.
   ![Menüoption zum Klonen in der Windows-App](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Standort-Registerkarten im Menü „Clone a repository“ (Repository klonen)](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-![Repository-Liste klonen](/assets/images/help/desktop/clone-a-repository-list-win.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Repository-Liste klonen](/assets/images/help/desktop/clone-a-repository-list-win.png)
 4. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Windows-Explorers zu einem lokalen Pfad, wohin Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen)](/assets/images/help/desktop/clone-choose-button-win.png)
 5. Klicke auf **Clone** (Klonen). ![Die Schaltfläche „clone“ (Klonen)](/assets/images/help/desktop/clone-button-win.png)
 

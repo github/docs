@@ -8,10 +8,11 @@ redirect_from:
   - /articles/managing-an-organization-s-settings/
   - /articles/accessing-your-organization-s-settings
   - /articles/accessing-your-organizations-settings
-intro: 组织帐户设置页面提供几种管理帐户的方式，如帐单、团队成员资格和仓库设置。
+intro: '组织帐户设置页面提供几种管理帐户的方式，如帐单、团队成员资格和仓库设置。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

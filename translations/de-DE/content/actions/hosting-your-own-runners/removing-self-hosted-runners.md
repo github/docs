@@ -1,12 +1,13 @@
 ---
 title: Selbst-gehostete Runner entfernen
-intro: 'Du kannst einen selbst-gehosteten Runner dauerhaft von {% data variables.product.prodname_actions %} entfernen.'
+intro: 'Du kannst einen selbst-gehosteten Runner dauerhaft von {{ site.data.variables.product.prodname_actions }} entfernen.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -62,18 +63,15 @@ Um einen selbst-gehosteten Runner aus einer Organisation zu entfernen, musst Du 
 
 {% if currentVersion == "free-pro-team@latest" %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-Um einen selbst-gehosteten Runner aus einer Organisation zu entfernen, musst Du ein Organisationsinhaber sein. We recommend that you also have access to the self-hosted runner machine.
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
+To remove a self-hosted runner at the enterprise level of
+{% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

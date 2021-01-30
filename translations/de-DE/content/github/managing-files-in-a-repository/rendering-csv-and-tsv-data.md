@@ -5,19 +5,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHub unterstützt das Rendering von Tabellendaten in den Formaten *.csv* (kommagetrennt) und *.tsv* (tabulatorgetrennt).
 
 ![Beispiel für eine gerenderte CSV-Datei](/assets/images/help/repository/rendered_csv.png)
 
-In der Anzeige wird jede _.csv_- oder _.tsv_-Datei, die in einem {% data variables.product.product_name %}-Repository freigegeben ist, automatisch als interaktive Tabelle mit Kopfzeile und Zeilennummerierung wiedergegeben. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
+In der Anzeige wird jede _CSV_- oder _TSV_-Datei, die in einem {% data variables.product.product_name %}-Repository festgeschrieben ist, automatisch als interaktive Tabelle mit Kopfzeile und Zeilennummerierung wiedergegeben. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
 
 Durch Klicken auf die Zeilennummer kannst Du eine bestimmte Zeile verknüpfen, oder durch drücken der Umschalttaste mehrere Zeilen auswählen. Kopiere einfach die URL, und sende sie einem anderen Benutzer.
 
 ### Daten durchsuchen
 
-Wenn Du in Deinem Datensatz einen bestimmten Wert suchst, gib einfach den Anfang des gesuchten Werts in die Suchleiste über der Datei ein. Die Zeilen werden daraufhin automatisch gefiltert:
+Wenn Du in Deinem Datensatz einen bestimmten Wert suchst, gib einfach den Anfang des gesuchten Werts in die Suchleiste über der Datei ein. The rows will filter automatically:
 
 ![Suche nach Werten](/assets/images/help/repository/searching_csvs.gif)
 

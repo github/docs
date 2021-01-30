@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Your site administrator must enable
-Dein Website-Administrator muss Sicherheitsmeldungen für angreifbare Abhängigkeiten für {% data variables.product.product_location_enterprise %} aktivieren, bevor Du diese Funktion nutzen kannst. Weitere Informationen findest Du unter „[Sicherheitsmeldungen für angreifbare Abhängigkeiten auf {% data variables.product.prodname_ghe_server %} aktivieren](/enterprise/{{ currentVersion }}/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server)“.
+{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 {% endif %}

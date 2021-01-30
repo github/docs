@@ -1,16 +1,17 @@
 ---
 title: Pull Requests nach Review-Status filtern
-intro: 'Mit Filtern kannst Du Pull Requests nach Review-Status auflisten und Pull Requests suchen, die Du überprüft hast oder um deren Review Du von anderen gebeten wurdest.'
+intro: Mit Filtern kannst Du Pull Requests nach Review-Status auflisten und Pull Requests suchen, die Du überprüft hast oder um deren Review Du von anderen gebeten wurdest.
 redirect_from:
   - /articles/filtering-pull-requests-by-review-status
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst die Pull-Request-Liste eines Repositorys filtern, um folgende Pull Requests zu finden:
 - Pull Requests, deren [Review](/articles/about-pull-request-reviews) noch aussteht
-- Pull Requests, für die vor dem Merge [ein Review erforderlich ist](/articles/about-required-reviews-for-pull-requests)
+- Pull Requests, für die vor dem Merge [ein Review erforderlich ist](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
 - Pull Requests, die ein Reviewer genehmigt hat
 - Pull Requests, bei denen ein Reviewer um Änderungen gebeten hat
 - Pull Requests, die Du überprüft hast

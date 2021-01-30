@@ -11,7 +11,7 @@ versions:
 
 删除用户帐户会移除帐户所拥有的所有仓库、私有仓库分支、wiki、议题、拉取请求和页面。 {% if currentVersion == "free-pro-team@latest" %} 在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除，而是与我们的[Ghost 用户](https://github.com/ghost)关联。{% else %}在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %} 其他人也可以在新帐户中使用该帐户名称，我们会停止向您收费。 与该帐户关联的电子邮件地址可用于不同的 {% data variables.product.product_name %} 帐户。 {% endif %}
+{% if currentVersion == "free-pro-team@latest" %} 其他人也可以在新帐户中使用该帐户名称，我们会停止向您收费。 与该账户关联的电子邮件地址可用于不同的 {% data variables.product.product_name %} 帐户。 {% endif %}
 
 如果您是组织的唯一所有者，则必须先将所有权转让给其他人或删除该组织，然后才能删除您的用户帐户。 如果组织中有其他所有者，则必须先从组织中删除自己，然后才能删除用户帐户。
 

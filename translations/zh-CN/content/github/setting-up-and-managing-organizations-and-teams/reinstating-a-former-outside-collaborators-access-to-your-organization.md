@@ -1,15 +1,16 @@
 ---
 title: 恢复前外部协作者对组织的访问权限
-intro: 如果您的组织中需要双因素身份验证，并且已从组织中删除了未启用 2FA 的外部协作者，则可以恢复前外部协作者对组织仓库、复刻和设置的访问权限。
+intro: "您可以恢复前外部协作者对组织仓库、复刻和设置的访问权限。"
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-如果由于您[要求成员和外部协作者启用双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)而删除了外部协作者对您组织私有仓库的访问权限，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion == "free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
+当外部协作者对组织私有仓库的权限被删除时，该用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion == "free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -24,9 +25,9 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**提示**：
  - 只有组织所有者才能恢复外部协作者对组织的访问权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
- - 恢复 {% data variables.product.product_location %} 上的成员流量可以使用术语“成员”来描述恢复外部协作者，但如果您恢复此人员并保留其以前的权限，则他们将只拥有以前的[外部协作者权限](/articles/permission-levels-for-an-organization/#outside-collaborators)。{% if currentVersion == "free-pro-team@latest" %}
+ - {% data variables.product.product_location %} 上的恢复成员流程可能使用术语“成员”来描述恢复外部协作者，但如果您恢复此人员并保留其以前的权限，则他们将只拥有以前的[外部协作者权限](/articles/permission-levels-for-an-organization/#outside-collaborators)。{% if currentVersion == "free-pro-team@latest" %}
  - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。{% endif %}
 
 {% endtip %}

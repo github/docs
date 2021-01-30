@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Du kannst auch die verrechenbaren Auftrags-Ausführungsminuten für eine einzelne Workflow-Ausführung anzeigen. Weitere Informationen findest Du unter „[Eine Workflow-Ausführung verwalten](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-billable-job-execution-minutes).“
+Du kannst auch die verrechenbaren Auftrags-Ausführungsminuten für eine einzelne Workflow-Ausführung anzeigen. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
 
 ### {% data variables.product.prodname_actions %}-Nutzung für Dein Benutzerkonto anzeigen
 
@@ -43,6 +43,8 @@ Enterprise-Inhaber und Abrechnungsmanager können die Nutzung von {% data variab
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Unter „{% data variables.product.prodname_actions %}" siehst Du die Details der Nutzung der Datenübertragung für jede Organisation in Deinem Enterprise-Konto. ![Details der Nutzung von Minuten](/assets/images/help/billing/actions-minutes-enterprise.png)
+1. Under "
+{% data variables.product.prodname_actions %}", view details of usage of data transfer by each organization in your enterprise account.
+  ![Details der Nutzung von Minuten](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

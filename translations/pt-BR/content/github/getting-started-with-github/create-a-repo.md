@@ -7,9 +7,20 @@ intro: 'Para colocar seu projeto no {% data variables.product.product_location %
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 Você pode armazenar vários projetos nos repositórios do {% data variables.product.product_name %}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis.
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+Você pode armazenar uma série de projetos em repositórios de {% data variables.product.product_name %}, incluindo projetos de innersource. Com o innersource, você pode compartilhar código para criar um software melhor e mais confiável. Para obter mais informações sobre innersource, consulte o whitepaper de {% data variables.product.company_short %}"[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
@@ -17,16 +28,20 @@ Você pode armazenar vários projetos nos repositórios do {% data variables.pro
 
 {% endnote %}
 
+{% endif %}
+
 {% data reusables.repositories.create_new %}
 2. Digite um nome curto e fácil de memorizar para seu repositório. Por exemplo, "olá mundo". ![Campo para inserir um nome de repositório](/assets/images/help/repository/create-repository-name.png)
-3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no {% data variables.product.product_name %}". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
+3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no
+{% data variables.product.product_name %}."
+  ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
 Parabéns! Você criou com êxito seu primeiro repositório e o inicializou com um arquivo *LEIAME*.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Dica**: Você também pode criar repositórios usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.prodname_cli %}.

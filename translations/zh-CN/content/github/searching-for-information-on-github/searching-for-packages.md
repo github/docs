@@ -6,6 +6,7 @@ permissions: 任何人都可以搜索他们有权访问的包。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -14,8 +15,9 @@ versions:
 
 您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
-{% if currentVersion != "free-pro-team@latest" %}
-要查找特定用户或组织拥有的包，请使用 `user` 或 `org` 限定符。
+{% if enterpriseServerVersions contains currentVersion %}
+您只能搜索
+{% data variables.product.product_name %} 上的包，而不是 {% data variables.product.prodname_dotcom_the_website %} 上的包，即使启用了 {% data variables.product.prodname_github_connect %}。
 {% endif %}
 
 {% data reusables.search.syntax_tips %}
@@ -24,9 +26,9 @@ versions:
 
 要查找特定用户或组织拥有的包，请使用 `user` 或 `org` 限定符。
 
-| 限定符                       | 示例                                                                                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) 匹配 @codertocat 拥有的包                               |
+| 限定符                       | 示例                                                                                                                                      |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) 匹配 @codertocat 拥有的包                          |
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) 匹配 {% data variables.product.prodname_dotcom %} 组织拥有的包 |
 
 ### 按包可见性过滤

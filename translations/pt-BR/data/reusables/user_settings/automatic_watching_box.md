@@ -1,1 +1,1 @@
-1. Under "Automatic watching,"
+1. Em "Inspeção automática"

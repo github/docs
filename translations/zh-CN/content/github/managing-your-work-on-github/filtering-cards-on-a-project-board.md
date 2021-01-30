@@ -6,22 +6,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-在卡上可以单击任何受理人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、里程碑{% endif %}或标签来按限定条件过滤项目板。 要清除搜索，可再次单击同一个受理人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、里程碑{% endif %}或标签。
+在卡上，您可以单击任意受理人、里程碑或标签，以便按该限定符过滤项目板。 要清除搜索，您可以再次单击相同的受理人、里程碑或标签。
 
 也可使用每个项目板顶部的“Filter cards（过滤卡）”搜索栏来搜索卡。 您可以使用以下搜索限定符的任意组合来过滤卡，或者直接输入您要搜索的某些文本。
 
 - 使用 `author:USERNAME` 按作者过滤卡
 - 使用 `assignee:USERNAME` 或 `no:assignee` 按受理人过滤卡
-- 使用 `label:LABEL`、`label:"MULTI-WORD LABEL NAME"` 或 `no:label`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} 按标签过滤卡
-- 使用 `milestone:MY-MILESTONE`{% endif %} 按里程碑过滤
+- 使用 `label:LABEL`、`label:"MULTI-WORD LABEL NAME"` 或 `no:label`，按标签过滤卡。
+- 使用 `milestone:MY-MILESTONE` 按里程碑过滤
 - 使用 `state:open`、`state:closed` 或 `state:merged` 按状态过滤卡
 - 使用 `review:none`、`review:required`、`review:approved` 或 `review:changes_requested` 按审查状态过滤
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- 使用 `linked:pr`，按通过结束引用链接到拉取请求的议题过滤卡。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
 
 1. 导航到包含要过滤的卡的项目板。

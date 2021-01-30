@@ -8,7 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**注意：** 我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。
+
+{% endnote %}
+
 {% data reusables.enterprise_installation.open-vm-console-start %}
 3. 选择配置 `IPv4` 或 `IPv6` 协议。 ![用于选择 IPv4 或 IPv6 协议的选项](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
 4. 配置所选协议的选项。 ![含 IP 协议选项的菜单](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
+
+

@@ -1,11 +1,12 @@
 ---
 title: プルリクエストのベースブランチを変更する
-intro: プルリクエストがオープンされた後は、ベースブランチを変更し、プルリクエストの変更を他のブランチと比較できます。
+intro: 'プルリクエストがオープンされた後は、ベースブランチを変更し、プルリクエストの変更を他のブランチと比較できます。'
 redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -19,6 +20,12 @@ versions:
 3. プルリクエストのタイトルの隣にある [**Edit**] をクリックします。 ![プルリクエスト編集ボタン](/assets/images/help/pull_requests/pull-request-edit.png)
 4. ベースブランチのドロップダウンメニューで、 [変更の比較対象](/github/committing-changes-to-your-project/comparing-commits#comparing-branches)にするベースブランチを選択します。 ![ベースブランチのドロップダウンメニュー ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
 5. ベースブランチの変更に関する情報を読み、[**Change base**] をクリックします。 ![ベースブランチの変更確認ボタン ](/assets/images/help/pull_requests/pull-request-base-branch-confirm.png)
+
+{% tip %}
+
+**参考:** プルリクエストを開くと、{% data variables.product.product_name %} はそのブランチが参照するコミットにベースを設定します。 ブランチが今後更新される場合、{% data variables.product.product_name %} はベースブランチのコミットを更新しません。
+
+{% endtip %}
 
 ### 参考リンク
 

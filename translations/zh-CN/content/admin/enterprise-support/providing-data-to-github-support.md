@@ -59,7 +59,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `configuration-logs/ghe-config.log`：{% data variables.product.prodname_ghe_server %} 配置日志
 - `collectd/logs/collectd.log`：Collectd 日志
 - `mail-logs/mail.log`：SMTP 电子邮件交付日志
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`：Web 挂钩交付错误
+{% endif %}
 
 更多信息请参阅“[审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)”。
 
@@ -85,7 +87,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 #### 使用 SSH 创建支持包
 
-如果您可以通过 SSH 访问 {% data variables.product.prodname_ghe_server %} 设备并具有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
+如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并且拥有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -99,9 +101,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 #### 使用您的企业帐户上传支持包
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![企业帐户设置侧边栏中的"Enterprise licensing（企业许可）"选项卡](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. 在“{% data variables.product.prodname_enterprise %} 帮助”下，单击 **Upload a support bundle（上传支持包）**。 ![上传支持包链接](/assets/images/enterprise/support/upload-support-bundle.png)
 5. 在“Select an enterprise account（选择企业帐户）”下，从下拉菜单选择支持包的相关帐户。 ![选择支持包的企业帐户](/assets/images/enterprise/support/support-bundle-account.png)
 6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择您的支持包，单击 **Choose file（选择文件）**，或将您的支持包文件拖到 **Choose file（选择文件）**上。 ![上传支持包文件](/assets/images/enterprise/support/choose-support-bundle-file.png)
@@ -110,8 +112,8 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 #### 使用 SSH 直接上传支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
-- 您可以通过 SSH 访问 {% data variables.product.prodname_ghe_server %} 设备。
-- 允许从 {% data variables.product.prodname_ghe_server %} 设备通过 TCP 端口 443 建立出站 HTTPS 连接。
+- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
+- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
 
 1. 将包上传到我们的支持包服务器：
   ```shell
@@ -126,7 +128,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 #### 使用 SSH 创建扩展支持包
 
-如果您可以通过 SSH 访问 {% data variables.product.prodname_ghe_server %} 设备并具有出站互联网访问权限，则可以使用下列步骤来创建和共享扩展支持包。
+如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并有拥有出站互联网访问权限，则可以使用下列步骤来创建和共享扩展支持包。
 
 1. 要通过 SSH 下载扩展支持包，可将 `-x` 标记添加到 `ghe-support-bundle` 命令中：
   ```shell
@@ -138,8 +140,8 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 #### 使用 SSH 直接上传扩展支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
-- 您可以通过 SSH 访问 {% data variables.product.prodname_ghe_server %} 设备。
-- 允许从 {% data variables.product.prodname_ghe_server %} 设备通过 TCP 端口 443 建立出站 HTTPS 连接。
+- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
+- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
 
 1. 将包上传到我们的支持包服务器：
   ```shell

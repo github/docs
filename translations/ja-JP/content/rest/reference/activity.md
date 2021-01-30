@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -15,7 +16,7 @@ versions:
 
 イベント API は、{% data variables.product.prodname_dotcom %} イベントへの読み取り専用 API です。 これらのイベントは、サイト上のさまざまなアクティビティストリームを強化します。
 
-イベント API は、{% data variables.product.product_name %} でのアクティビティによってトリガーされるさまざまなタイプのイベントを返すことができます。 The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." 詳しい情報については、「[Issue イベント API](/rest/reference/issues#events)」を参照してください。
+イベント API は、{% data variables.product.product_name %} でのアクティビティによってトリガーされるさまざまなタイプのイベントを返すことができます。 The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{{ site.data.variables.product.prodname_dotcom }} Event types](/developers/webhooks-and-events/github-event-types)." 詳しい情報については、「[Issue イベント API](/rest/reference/issues#events)」を参照してください。
 
 イベントは「ETag」ヘッダでポーリングするために最適化されています。 新しいイベントがトリガーされていない場合は、「304 Not Modified」というレスポンスが表示され、現在のレート制限は変更されません。 また、ポーリングを許可する頻度（秒単位）を指定する「X-Poll-Interval」ヘッダもあります。 サーバー負荷が高い場合、長時間かかることがあります。 ヘッダに従ってください。
 
@@ -138,19 +139,19 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 
 通知を受け取る `reason`（理由）には、次のようなものがあります。
 
-| 理由名                | 説明                                                                                                                                                                          |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | Issue に割り当てられた。                                                                                                                                                             |
-| `作者`               | スレッドを作成した。                                                                                                                                                                  |
-| `コメント`             | スレッドにコメントした。                                                                                                                                                                |
-| `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                                 |
-| `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                       |
-| `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                                    |
+| 理由名                | 説明                                                                                                                                                                     |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assign`           | Issue に割り当てられた。                                                                                                                                                        |
+| `作者`               | スレッドを作成した。                                                                                                                                                             |
+| `コメント`             | スレッドにコメントした。                                                                                                                                                           |
+| `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
+| `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
+| `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
 | `review_requested` | 自分、または自分が所属している Team が、プルリクエストのレビューを求められた。{% if currentVersion == "free-pro-team@latest" %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} が、リポジトリに[セキュリティの脆弱性](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を発見した。{% endif %}
-| `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                         |
-| `subscribed`       | リポジトリを Watch している。                                                                                                                                                          |
-| `team_mention`     | メンションされた Team に所属していた。                                                                                                                                                      |
+| `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                    |
+| `subscribed`       | リポジトリを Watch している。                                                                                                                                                     |
+| `team_mention`     | メンションされた Team に所属していた。                                                                                                                                                 |
 
 `reason` はスレッドごとに変更され、後の通知の `reason` が異なる場合は変更される可能性があることに注意してください。
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -14,7 +15,7 @@ versions:
 
 {% note %}
 
-**Hinweis:** Bevor Du einen neuen GPG-Schlüssel erzeugst, musst Du unbedingt Deine E-Mail-Adresse verifizieren. Wenn Du Deine E-Mail-Adresse noch nicht verifiziert hast, kannst Du keine Commits und Tags mit GPG signieren.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.{% endif %}
+**Hinweis:** Bevor Du einen neuen GPG-Schlüssel erzeugst, musst Du unbedingt Deine E-Mail-Adresse verifizieren. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
 
 {% endnote %}
 
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. Lege bei der Eingabeaufforderung die Art des Schlüssels fest, den Du willst, oder drücke `Enter` (Eingabetaste), um die Standardeinstellung `RAS and DSA` zu akzeptieren.
+4. Legen Sie bei der Eingabeaufforderung die gewünschte Schlüsselart fest, oder drücken Sie die **Eingabetaste**, um die Standardeinstellung `RSA and RSA` (RSA und RSA) zu akzeptieren.
 5. Gib die gewünschte Schlüsselgröße ein. Den Schlüssel muss mindestens `4096` Bits sein.
 6. Gib die Zeitdauer für die Gültigkeit des Schlüssels ein. Drücke `Enter` (Eingabetaste), um die Standardeinstellung festzulegen, die vorgibt, dass der Schlüssel nicht abläuft.
 7. Überprüfe, dass Deine Einstellungen korrekt sind.
@@ -37,7 +38,7 @@ versions:
 
   {% note %}
 
-  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Deine E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“ und „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
+  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
 
   {% endnote %}
 

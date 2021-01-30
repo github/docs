@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -14,10 +15,6 @@ versions:
 **警告**：这些步骤将从您的计算机和 {% data variables.product.product_location %} 上的仓库中永久删除文件。 如果文件很重要，请在仓库外部的目录中创建本地备份副本。
 
 {% endwarning %}
-
-### 删除之前提交中添加的文件
-
-如果在之前的提交中添加了文件，则需要将其从仓库历史记录中删除。 要从仓库历史记录中删除文件，可以使用 BFG Repo-Cleaner 或 `git filter-branch` 命令。 更多信息请参阅“[从仓库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。
 
 ### 删除在最近未推送的提交中添加的文件
 
@@ -42,3 +39,7 @@ versions:
   $ git push
   # Push our rewritten, smaller commit
   ```
+
+### 删除之前提交中添加的文件
+
+如果在之前的提交中添加了文件，则需要将其从仓库历史记录中删除。 要从仓库历史记录中删除文件，可以使用 BFG Repo-Cleaner 或 `git filter-branch` 命令。 更多信息请参阅“[从仓库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。

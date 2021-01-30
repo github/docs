@@ -4,28 +4,29 @@ intro: '您可以根据身份验证位置使用不同的凭据，向 {% data var
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_dotcom %} 向验证身份
 
-为确保帐户安全，必须先进行身份验证，然后才能访问 {% data variables.product.product_name %}。 向 {% data variables.product.product_name %} 验证时，您提供或确认您唯一的凭据，以证明您就是声明者。
+为确保帐户安全，必须先进行身份验证，然后才能访问 {% data variables.product.product_name %} 上的{% if currentVersion != "github-ae@latest" %}某些{% endif %}资源。 向 {% data variables.product.product_name %} 验证时，您提供或确认您唯一的凭据，以证明您就是声明者。
 
 您可以通过多种方式访问 {% data variables.product.product_name %} 中的资源：浏览器中、通过 {% data variables.product.prodname_desktop %} 或其他桌面应用程序、使用 API 或通过命令行。 每种访问 {% data variables.product.product_name %} 的方式都支持不同的身份验证模式。
 
-- 用于双重身份验证的用户名和密码
+- {% if currentversion == "github-ae@latest" %}您的身份提供程序 (IdP){% else %}使用双重身份验证的用户名和密码{% endif %}
 - 个人访问令牌
 - SSH 密钥
 
-
 ### 在浏览器中进行身份验证
 
-您可以在浏览器中以不同方式向 {% data variables.product.product_name %} 验证。
+您可以 {% if currentVersion == "github-ae@latest" %}使用 IdP 在浏览器中向 {% data variables.product.product_name %} 验证。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”{% else %}。
 
 - **仅用户名和密码**
     - 在 {% data variables.product.product_name %} 上创建用户帐户时，您将创建一个密码。 我们建议您使用密码管理器生成随机且唯一的密码。 更多信息请参阅“[创建强式密码](/github/authenticating-to-github/creating-a-strong-password)”。
 - **双重身份验证 (2FA)**（推荐）
     - 如果您启用 2FA，我们还将提示您提供应用程序在移动设备上生成的代码，或在您成功输入用户名和密码后以短信 (SMS) 方式发送的代码。 更多信息请参阅“[使用双重身份验证访问 {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)”。
     - 除了使用移动应用程序或短信进行身份验证外，您还可以选择使用 WebAuthn 添加采用安全密钥的辅助身份验证方法。 更多信息请参阅“[使用安全密钥配置双重身份验证](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
+{% endif %}
 
 ### 向 {% data variables.product.prodname_desktop %} 验证身份
 
@@ -33,7 +34,7 @@ versions:
 
 ### 使用 API 验证身份
 
-您可以使用 {% data variables.product.product_name %} API 以不同方式进行身份验证。
+您可以通过不同方式使用 API 进行身份验证。
 
 - **个人访问令牌**
     - 在有限的情况（如测试）下可以使用个人访问令牌访问 API。 使用个人访问令牌可让您随时撤销访问。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。

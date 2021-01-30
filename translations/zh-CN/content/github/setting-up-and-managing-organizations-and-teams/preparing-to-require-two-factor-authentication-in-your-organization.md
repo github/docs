@@ -1,6 +1,6 @@
 ---
 title: 准备在组织中要求双重身份验证
-intro: 在要求双重身份验证 (2FA) 之前，您可以向用户通知即将发生的更改，并验证谁已使用 2FA。
+intro: '在要求双重身份验证 (2FA) 之前，您可以向用户通知即将发生的更改，并验证谁已使用 2FA。'
 redirect_from:
   - /articles/preparing-to-require-two-factor-authentication-in-your-organization
 versions:

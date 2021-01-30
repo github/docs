@@ -12,7 +12,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - Sie müssen über Windows Server 2008 bis Windows Server 2016 mit Hyper-V-Unterstützung verfügen.
-- Die meisten Aktionen, die zum Erstellen Ihrer virtuellen Maschine (VM) erforderlich sind, können auch mit dem [Hyper-V-Manager](https://docs.microsoft.com/de-de/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts) ausgeführt werden. Zur Ersteinrichtung sollten Sie jedoch die Windows PowerShell-Befehlszeilenshell verwenden. Im Folgenden finden Sie Beispiele zur Verwendung der PowerShell. Weitere Informationen finden Sie im Microsoft-Leitfaden unter „[Erste Schritte mit Windows PowerShell](https://docs.microsoft.com/de-de/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)“.
+- Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). Zur Ersteinrichtung sollten Sie jedoch die Windows PowerShell-Befehlszeilenshell verwenden. Im Folgenden finden Sie Beispiele zur Verwendung der PowerShell. For more information, see the Microsoft guide "[Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)."
 
 ### Grundlegendes zur Hardware
 
@@ -30,23 +30,23 @@ versions:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Erstelle in PowerShell eine neue virtuelle Maschine der 1. Generation, konfiguriere die Größe anhand der Anzahl Deiner verfügbaren Benutzerlizenzen, und hänge das von Dir heruntergeladene {% data variables.product.prodname_ghe_server %}-Image an. Weitere Informationen finden Sie unter „[New-VM](https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vm?view=win10-ps)“ in der Microsoft-Dokumentation.
+1. Erstelle in PowerShell eine neue virtuelle Maschine der 1. Generation, konfiguriere die Größe anhand der Anzahl Deiner verfügbaren Benutzerlizenzen, und hänge das von Dir heruntergeladene {% data variables.product.prodname_ghe_server %}-Image an. Weitere Informationen finden Sie unter „[New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps)“ in der Microsoft-Dokumentation.
   ```shell
   PS C:\> New-VM -Generation 1 -Name <em>VM_NAME</em> -MemoryStartupBytes <em>MEMORY_SIZE</em> -BootDevice VHD -VHDPath <em>PATH_TO_VHD</em>  
   ```
-{% data reusables.enterprise_installation.create-attached-storage-volume %} Ersetzen Sie `PATH_TO_DATA_DISK` durch den Verzeichnispfad, an dem Sie die Disk erstellen. Weitere Informationen finden Sie unter „[New-VHD](https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vhd?view=win10-ps)“ in der Microsoft-Dokumentation.
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Ersetzen Sie `PATH_TO_DATA_DISK` durch den Verzeichnispfad, an dem Sie die Disk erstellen. Weitere Informationen finden Sie unter „[New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)“ in der Microsoft-Dokumentation.
   ```shell
   PS C:\> New-VHD -Path <em>PATH_TO_DATA_DISK</em> -SizeBytes <em>DISK_SIZE</em>
   ```
-3. Hängen Sie die Daten-Disk an Ihre Instanz an. Weitere Informationen finden Sie unter „[Add-VMHardDiskDrive](https://docs.microsoft.com/en-us/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)“ in der Microsoft-Dokumentation.
+3. Hängen Sie die Daten-Disk an Ihre Instanz an. Weitere Informationen finden Sie unter „[Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)“ in der Microsoft-Dokumentation.
   ```shell
   PS C:\> Add-VMHardDiskDrive -VMName <em>VM_NAME</em> -Path <em>PATH_TO_DATA_DISK</em>
   ```
-4. Starten Sie die VM. Weitere Informationen finden Sie unter „[Start-VM](https://docs.microsoft.com/en-us/powershell/module/hyper-v/start-vm?view=win10-ps)“ in der Microsoft-Dokumentation.
+4. Starten Sie die VM. Weitere Informationen finden Sie unter „[Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps)“ in der Microsoft-Dokumentation.
   ```shell
   PS C:\> Start-VM -Name <em>VM_NAME</em>
   ```
-5. Rufen Sie die IP-Adresse Ihrer VM ab. Weitere Informationen finden Sie unter „[Get-VMNetworkAdapter](https://docs.microsoft.com/en-us/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)“ in der Microsoft-Dokumentation.
+5. Rufen Sie die IP-Adresse Ihrer VM ab. Weitere Informationen finden Sie unter „[Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)“ in der Microsoft-Dokumentation.
   ```shell
   PS C:\> (Get-VMNetworkAdapter -VMName <em>VM_NAME</em>).IpAddresses
   ```
@@ -62,4 +62,5 @@ versions:
 
 ### Weiterführende Informationen
 
- - „[Systemübersicht](/enterprise/admin/guides/installation/system-overview)“
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

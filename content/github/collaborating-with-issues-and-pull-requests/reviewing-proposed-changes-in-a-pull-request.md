@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About reviewing pull requests
@@ -28,6 +29,20 @@ You can review changes in a pull request one file at a time. While reviewing the
 Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Reviewing dependency changes
+
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
 
 ### Marking a file as viewed
 
@@ -55,8 +70,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ### Further reading
 
-- "[About pull request reviews](/articles/about-pull-request-reviews)"
-- "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
-- "[Approving a pull request with required reviews](/articles/approving-a-pull-request-with-required-reviews)"
-- "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
-- "[Filtering pull requests by review status](/articles/filtering-pull-requests-by-review-status)"
+- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

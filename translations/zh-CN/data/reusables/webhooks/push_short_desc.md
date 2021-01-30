@@ -1,1 +1,1 @@
-One or more commits are pushed to a repository branch or tag.
+一个或多个提交被推送到仓库分支或标记。

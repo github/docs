@@ -1,6 +1,6 @@
 ---
 title: Saving repositories with stars
-intro: 'You can star repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %} and topics{% endif %} to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.'

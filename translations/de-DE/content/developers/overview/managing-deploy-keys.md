@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 You can manage SSH keys on your servers when automating deployment scripts using SSH agent forwarding, HTTPS with OAuth tokens, deploy keys, or machine users.
@@ -43,7 +43,9 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * Users don't have to change their local SSH settings.
 * Multiple tokens (one for each user) are not needed; one token per server is enough.
 * A token can be revoked at any time, turning it essentially into a one-use password.
+{% if enterpriseServerVersions contains currentVersion %}
 * Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+{% endif %}
 
 ##### Cons
 
@@ -81,6 +83,32 @@ See [our guide on Git automation with tokens][git-automation].
 6. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
+
+##### Using multiple repositories on one server
+
+If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
+
+In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. Ein Beispiel:
+
+```bash
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+```
+
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. Ein Beispiel:
+
+```bash
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+```
 
 ### Machine users
 

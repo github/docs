@@ -1,6 +1,6 @@
 ---
 title: Sponsorenschaltfläche in Deinem Repository anzeigen
-intro: 'Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.'
+intro: Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.
 redirect_from:
   - /github/building-a-strong-community/displaying-a-sponsor-button-in-your-repository
   - /articles/displaying-a-sponsor-button-in-your-repository
@@ -14,18 +14,18 @@ Du kannst Deine Sponsorenschaltfläche konfigurieren, indem Du die Datei _FUNDIN
 
 Du kannst einen Benutzernamen, Paketnamen oder Projektnamen pro externer Finanzierungsplattform und bis zu vier benutzerdefinierte URLs hinzufügen. Du kannst bis zu vier unterstützten Entwickler oder Organisationen in {% data variables.product.prodname_sponsors %} hinzufügen. Füge jede Plattform auf einer neuen Zeile hinzu, und verwende dabei die folgende Syntax:
 
-| Plattform                                                                          | Syntax                                                                     |
-| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: PROJECT-NAME`                                           |
+| Plattform                                                                     | Syntax                                                                     |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                           |
 | [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` oder `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: USERNAME`                                                      |
-| [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: USERNAME`                                                          |
-| [Liberapay](https://en.liberapay.com/)                                             | `liberapay: USERNAME`                                                      |
-| [Open Collective](https://opencollective.com/)                                     | `open_collective: USERNAME`                                                |
-| [Otechie](https://otechie.com/)                                                    | `otechie: USERNAME`                                                        |
-| [Patreon](https://www.patreon.com/)                                                | `patreon: USERNAME`                                                        |
-| [Tidelift](https://tidelift.com/)                                                  | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                     |
-| Benutzerdefinierte URL                                                             | `custom: LINK1` oder `custom: [LINK1, LINK2, LINK3, LINK4]`                |
+| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                      |
+| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                          |
+| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                      |
+| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                                |
+| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                        |
+| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                        |
+| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                     |
+| Benutzerdefinierte URL                                                        | `custom: LINK1` oder `custom: [LINK1, LINK2, LINK3, LINK4]`                |
 
 Verwende bei Tidelift die Syntax `platform-name/package-name` mit den folgenden Plattform-Namen:
 

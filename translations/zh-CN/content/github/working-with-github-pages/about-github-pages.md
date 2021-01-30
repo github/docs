@@ -1,6 +1,6 @@
 ---
-title: 关于 GitHub Pages
-intro: '您可以使用 {% data variables.product.prodname_pages %} 直接从 {% data variables.product.product_name %} 仓库托管关于自己、您的组织或您的项目的站点。'
+title: About GitHub Pages
+intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a {% data variables.product.product_name %} repository.'
 redirect_from:
   - /articles/what-are-github-pages/
   - /articles/what-is-github-pages/
@@ -13,136 +13,137 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### 关于 {% data variables.product.prodname_pages %}
+### About {% data variables.product.prodname_pages %}
 
-{% data variables.product.prodname_pages %} 是一项静态站点托管服务，它直接从 {% data variables.product.product_name %} 上的仓库获取 HTML、CSS 和 JavaScript 文件，（可选）通过构建过程运行文件，然后发布网站。 您可以在 [{% data variables.product.prodname_pages %} 示例集合](https://github.com/collections/github-pages-examples)中查看 {% data variables.product.prodname_pages %} 站点的示例。
+{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on {% data variables.product.product_name %}, optionally runs the files through a build process, and publishes a website. You can see examples of {% data variables.product.prodname_pages %} sites in the [{% data variables.product.prodname_pages %} examples collection](https://github.com/collections/github-pages-examples).
 
 {% if currentVersion == "free-pro-team@latest" %}
-您可以在 {% data variables.product.prodname_dotcom %} 的 `github.io` 域或自己的自定义域上托管站点。 更多信息请参阅“[对 {% data variables.product.prodname_pages %} 使用自定义域](/articles/using-a-custom-domain-with-github-pages)”。
+You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. For more information, see "[Using a custom domain with {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)."
 {% endif %}
 
-要开始使用，请参阅“[创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site)”。
+To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
-### {% data variables.product.prodname_pages %} 站点的类型
+### Types of {% data variables.product.prodname_pages %} sites
 
-有三种类型的 {% data variables.product.prodname_pages %} 站点：项目、用户和组织。 项目站点连接到 {% data variables.product.product_name %} 上托管的特定项目，例如 JavaScript 库或配方集合。 用户和组织站点连接到特定的 {% data variables.product.product_name %} 帐户。
+There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific {% data variables.product.product_name %} account.
 
-要发布用户站点，必须创建名为 {% if currentVersion == "free-pro-team@latest" %}`<user>.github.io`{% else %}`<user>.<hostname>`{% endif %} 的用户帐户所拥有的仓库。 要发布组织站点，必须创建名为 {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %} 的组织所拥有的仓库。 {% if currentVersion == "free-pro-team@latest" %}除非您使用自定义域，否则用户和组织站点位于 `http(s)://<username>.github.io` 或 `http(s)://<organization>.github.io`。{% endif %}
+To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-项目站点的源文件与其项目存储在同一个仓库中。 {% if currentVersion == "free-pro-team@latest" %}除非您使用自定义域，否则项目站点位于 `http(s)://<user>.github.io/<repository>` 或 `http(s)://<organization>.github.io/<repository>`。{% endif %}
+The source files for a project site are stored in the same repository as their project. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-有关自定义域如何影响站点 URL 的更多详细，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”。
+For more information about how custom domains affect the URL for your site, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)."
 {% endif %}
 
-您只能为每个 {% data variables.product.product_name %} 帐户创建一个用户或组织站点。 项目站点（无论是组织还是用户帐户拥有）没有限制。
+You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a user account, are unlimited.
 
-{% if currentVersion != "free-pro-team@latest" %}
-您的站点可用的 URL 取决于是否为 {% data variables.product.product_location %} 启用了子域隔离。
+{% if enterpriseServerVersions contains currentVersion %}
+The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.product.product_location %}.
 
-| 站点类型 | 子域隔离已启用 | 子域隔离已禁用 |
-| ---- | ------- | ------- |
-|      |         |         |
- 用户 | 
+| Type of site | Subdomain isolation enabled | Subdomain isolation disabled |
+| ------------ | --------------------------- | ---------------------------- |
+User | `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` |
+Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` |
+Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
+Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-`http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` | 组织 | `http(s)://pages.<hostname>/<organization>/<repository>/` | `http(s)://<hostname>/pages/<organization>/<repository>/` | 用户帐户拥有的项目站点 | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` 组织帐户拥有的项目站点 | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
-
-更多信息请参阅“[启用子域隔离](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)”或联系您的站点管理员。
+For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**注：**使用旧版 `<user>.github.com` 命名方案的仓库仍将发布，但访问者将从 `http(s)://<username>.github.com` 重定向到 `http(s)://<username>.github.io`。 如果 `<user>.github.com` 和 `<user>.github.io` 仓库均存在，将仅发布 `<user>.github.io` 仓库。
+**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. If both a `<username>.github.com` and `<username>.github.io` repository exist, only the `<username>.github.io` repository will be published.
 
 {% endnote %}
 {% endif %}
 
-### {% data variables.product.prodname_pages %} 站点的发布来源
+### Publishing sources for {% data variables.product.prodname_pages %} sites
 
 The publishing source for your {% data variables.product.prodname_pages %} site is the branch and folder where the source files for your site are stored.
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 If the default publishing source exists in your repository, {% data variables.product.prodname_pages %} will automatically publish a site from that source. The default publishing source for user and organization sites is the root of the default branch for the repository. The default publishing source for project sites is the root of the `gh-pages` branch.
 
-If you want to keep the source files for your site in a different location, you can change the publishing source for your site. You can publish your site from any branch in the repository, either from the root of the repository on that branch, `/`, or from the `/docs` folder on that branch. 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 站点的发布来源](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。
+If you want to keep the source files for your site in a different location, you can change the publishing source for your site. You can publish your site from any branch in the repository, either from the root of the repository on that branch, `/`, or from the `/docs` folder on that branch. For more information, see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)."
 
-If you choose the `/docs` folder of any branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. 有关 _CNAME_ 文件的更多信息，请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}
+If you choose the `/docs` folder of any branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. For more information about _CNAME_ files, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
 
 {% else %}
 
-用户和组织站点的默认发布来源是 `master` 分支。 如果用户和组织站点的仓库是 `master` 分支，您的站点将从该分支自动发布。 您无法为用户或组织站点选择不同的发布来源。
+The default publishing source for user and organization sites is the `master` branch. If the repository for your user or organization site has a `master` branch, your site will publish automatically from that branch. You cannot choose a different publishing source for user or organization sites.
 
-项目站点的默认发布来源是 `gh-pages` 分支。 如果项目站点的仓库有 `gh-pages` 分支，您的站点将从该分支自动发布。
+The default publishing source for a project site is the `gh-pages` branch. If the repository for your project site has a `gh-pages` branch, your site will publish automatically from that branch.
 
-项目站点也可以从 `master` 分支或 `master` 分支上的 `/docs` 文件夹发布。 要从这些来源之一发布站点，您必须配置不同的发布来源。 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 站点的发布来源](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。
+Project sites can also be published from the `master` branch or a `/docs` folder on the `master` branch. To publish your site from one of these sources, you must configure a different publishing source. For more information, see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)."
 
- 如果选择 `master` 分支的 `/docs` 文件夹作为您的发布来源，{% data variables.product.prodname_pages %} 将读取 `/docs` 文件夹中的所有内容以发布您的站点{% if currentVersion == "free-pro-team@latest" %}（包括 _CNAME_ 文件）{% endif %}。{% if currentVersion == "free-pro-team@latest" %}例如，当您通过 {% data variables.product.prodname_pages %} 设置编辑自定义域时，该自定义域将写入 `/docs/CNAME`。 有关 _CNAME_ 文件的更多信息，请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}
+ If you choose the `/docs` folder of the `master` branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. For more information about _CNAME_ files, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
 
- 您不能从任何其他分支发布项目站点，即使默认分支不是 `master` 或 `gh-pages`。
+ You cannot publish your project site from any other branch, even if the default branch is not `master` or `gh-pages`.
 
 {% endif %}
 
-### 静态站点生成器
+### Static site generators
 
-{% data variables.product.prodname_pages %} 会发布您推送到仓库的任何静态文件。 您可以创建自己的静态文件或使用静态站点生成器为您构建站点。 您还可以在本地或其他服务器上自定义自己的构建过程。 我们建议使用 Jekyll，它是一个静态站点生成器，内置 {% data variables.product.prodname_pages %} 支持和简化的构建流程。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll)”。
+{% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server. We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
 
-默认情况下，{% data variables.product.prodname_pages %} 将使用 Jekyll 来构建您的站点。 如果您想使用除 Jekyll 以外的静态站点生成器，通过在发布来源的根目录中创建一个名为 `.nojekyll` 的空文件来禁用 Jekyll 构建过程，然后按照静态站点生成器的说明在 本地构建站点。
+{% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
 
-{% data variables.product.prodname_pages %} 不支持服务器端语言，例如 PHP、Ruby 或 Python。
+{% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
 
-### 使用 {% data variables.product.prodname_pages %} 的指南
+### Guidelines for using {% data variables.product.prodname_pages %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- 2016 年 6 月 15 日后创建并使用 `github.io` 域的 {% data variables.product.prodname_pages %} 站点通过 HTTPS 提供服务。 如果您在 2016 年 6 月 15 日之前创建站点，您可以为站点的流量启用 HTTPS 支持。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %}](/articles/securing-your-github-pages-site-with-https)”。
+- {% data variables.product.prodname_pages %} sites created after June 15, 2016 and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 - {% data reusables.pages.no_sensitive_data_pages %}
-- 您对 {% data variables.product.prodname_pages %} 的使用受 [GitHub 服务条款](/articles/github-terms-of-service/)的约束，包括禁止转售。
+- Your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/articles/github-terms-of-service/), including the prohibition on reselling.
 
-#### 使用限制
+#### Usage limits
 {% endif %}
-{% data variables.product.prodname_pages %} 站点受到以下使用限制的约束：
+{% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
-  - {% data variables.product.prodname_pages %} 源仓库建议的限制为 1GB。{% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[我的磁盘配额是多少？](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)”{% endif %}
-  - 发布的 {% data variables.product.prodname_pages %} 站点不得超过 1 GB。
+  - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1GB.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[What is my disk quota?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
+  - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
 {% if currentVersion == "free-pro-team@latest" %}
-  - {% data variables.product.prodname_pages %} 站点的*软*带宽限制为每月 100GB。
-  - {% data variables.product.prodname_pages %} 站点的*软*限制为每小时 10 次构建。
+  - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100GB per month.
+  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.
 
-如果您的站点超出这些使用配额，我们可能无法为您的站点提供服务；或者您可能收到来自 {% data variables.contact.contact_support %} 的礼貌电子邮件，建议降低站点对服务器影响的策略，包括将第三方内容分发网络 (CDN) 置于您的站点前，利用其他 {% data variables.product.prodname_dotcom %} 功能（如发行版）或转用可能更符合您需求的其他托管服务。
+If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
-#### 禁止使用
+#### Prohibited uses
 
-{% data variables.product.prodname_pages %} 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。
+{% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS).
 
-此外，{% data variables.product.prodname_pages %} 站点必须避免：
+Additionally, {% data variables.product.prodname_pages %} sites must refrain from:
 
-  - 非法或者我们的[服务条款](/articles/github-terms-of-service/)或[社区指导方针](/articles/github-community-guidelines/)禁止的内容或活动
-  - 暴力或有威胁的内容或活动
-  - 过多的自动批量活动（例如，垃圾邮件）
-  - 危害 GitHub 用户或 GitHub 服务的活动
-  - 快速致富计划
-  - 性淫秽内容
-  - 歪曲您的身份或站点目的的内容
+  - Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/articles/github-terms-of-service/) or [Community Guidelines](/articles/github-community-guidelines/)
+  - Violent or threatening content or activity
+  - Excessive automated bulk activity (for example, spamming)
+  - Activity that compromises GitHub users or GitHub services
+  - Get-rich-quick schemes
+  - Sexually obscene content
+  - Content that misrepresents your identity or site purpose
 
-如果您对用途或预期用途是否归入这些类别有疑问，请联系 {% data variables.contact.contact_support %}。
+If you have questions about whether your use or intended use falls into these categories, please contact {% data variables.contact.contact_support %}.
 {% endif %}
 
-### {% data variables.product.prodname_pages %} 上的 MIME 类型
+### MIME types on {% data variables.product.prodname_pages %}
 
-MIME 类型是服务器发送到浏览器的标头，提供有关浏览器所请求文件性质和格式的信息。 {% data variables.product.prodname_pages %} 支持数千种文件扩展名中 750 多种 MIME 类型。 支持的 MIME 类型列表从 [mime-db project](https://github.com/jshttp/mime-db) 生成。
+A MIME type is a header that a server sends to a browser, providing information about the nature and format of the files the browser requested. {% data variables.product.prodname_pages %} supports more than 750 MIME types across thousands of file extensions. The list of supported MIME types is generated from the [mime-db project](https://github.com/jshttp/mime-db).
 
-虽然无法基于每个文件或每个仓库指定自定义 MIME 类型，但您可以添加或修改 MIME 类型以在 {% data variables.product.prodname_pages %} 上使用。 更多信息请参阅 [mime-db 参与指南](https://github.com/jshttp/mime-db#adding-custom-media-types)。
+While you can't specify custom MIME types on a per-file or per-repository basis, you can add or modify MIME types for use on {% data variables.product.prodname_pages %}. For more information, see [the mime-db contributing guidelines](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
-### 延伸阅读
+### Further reading
 
-- {% data variables.product.prodname_learning %} 上的 [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages)
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) on {% data variables.product.prodname_learning %}
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

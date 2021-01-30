@@ -4,17 +4,18 @@ redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
   - /articles/opting-into-the-public-beta-for-a-new-dashboard/
   - /articles/about-your-personal-dashboard
-intro: 您可以访问个人仪表板，以跟踪您参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解您订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。
+intro: '您可以访问个人仪表板，以跟踪您参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解您订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问个人仪表板
 
 个人仪表板是登录 {% data variables.product.product_name %} 时显示的第一页。
 
-登录后要访问个人仪表板，请单击 {% data variables.product.product_url %} 上任何页面左上角的 {% octicon "mark-github" aria-label="The github octocat logo" %}。
+登录后要访问个人仪表板，请单击 {% data variables.product.product_name %} 上任何页面左上角的 {% octicon "mark-github" aria-label="The github octocat logo" %}。
 
 ### 查找近期活动
 
@@ -28,6 +29,8 @@ versions:
 
 ![不同组织中的仓库和团队列表](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
+常用仓库列表自动生成，可以包括您与之交互的任何仓库，无论它是否由您的帐户直接拥有。 交互包括提交和打开或评论议题和拉取请求。 常用仓库列表无法编辑，但其中的仓库将在您最后一次与之交互 4 个月后从列表中删除。
+
 您也可以点击 {% data variables.product.product_name %} 上任何页面顶部的搜索栏，查找近期访问过的仓库、团队及项目板列表。
 
 ### 了解社区中活动的最新信息
@@ -36,11 +39,11 @@ versions:
 
 当您关注的用户执行以下操作时，您会在消息馈送中看到更新：
 - 对仓库标星。
-- 关注另一用户。
-- 创建公共仓库。
+- 关注其他用户。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- 创建公共仓库。{% endif %}
 - 在您关注的仓库上打开具有“需要帮助”或“良好的第一个议题”标签的议题或拉取请求。
-- 推送提交到您关注的仓库。
-- 对公共仓库复刻。
+- 向您关注的仓库推送提交。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- 复刻公共仓库。{% endif %}
 
 有关对仓库标星和关注人员的更多信息，请参阅“[使用星标保存仓库](/articles/saving-repositories-with-stars/)" and "[关注人员](/articles/following-people)”。
 

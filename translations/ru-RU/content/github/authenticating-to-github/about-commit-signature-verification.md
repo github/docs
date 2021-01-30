@@ -1,6 +1,6 @@
 ---
 title: About commit signature verification
-intro: 'Using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can trust that the changes come from a trusted source.'
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can trust that the changes come from a trusted source.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About commit signature verification
@@ -18,11 +19,13 @@ You can sign commits and tags locally, so other people can verify that your work
 
 If a commit or tag has a signature that cannot be verified, {% data variables.product.product_name %} marks the commit or tag as unverified.
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About required commit signing](/articles/about-required-commit-signing)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
 
 You can check the verification status of your signed commits or tags on {% data variables.product.product_name %} and view why your commit signatures might be unverified. For more information, see "[Checking your commit and tag signature verification status](/articles/checking-your-commit-and-tag-signature-verification-status)."
 
-{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+{% endif %}
 
 ### GPG commit signature verification
 
@@ -59,8 +62,9 @@ You don't need to upload your public key to {% data variables.product.product_na
 ### Signature verification for bots
 
 Organizations and {% data variables.product.prodname_github_app %}s that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
+Signature verification for bots will only work if the request is verified and authenticated as the
 
-Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
+{% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
 ### Дополнительная литература

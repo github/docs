@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Weitere Informationen zu erforderlichen Reviews findest Du unter „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests).“
+For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-Du kannst Pull Requests kommentieren, die Änderungen genehmigen oder vor der Genehmigung Verbesserungen anfordern. Weitere Informationen findest Du unter „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests)“ und „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“
+Du kannst Pull Requests kommentieren, die Änderungen genehmigen oder vor der Genehmigung Verbesserungen anfordern. Weitere Informationen findest Du unter „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“
 
 {% data reusables.search.requested_reviews_search %}
 
@@ -33,6 +34,5 @@ Du kannst Pull Requests kommentieren, die Änderungen genehmigen oder vor der Ge
 
 ### Weiterführende Informationen
 
-- „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests)“
 - „[Vorgeschlagene Änderungen in einem Pull Request prüfen](/articles/reviewing-proposed-changes-in-a-pull-request)“
 - „[Einen Pull Request kommentieren](/articles/commenting-on-a-pull-request)“

@@ -1,14 +1,15 @@
 ---
 title: Benutzer durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du Benutzer durchsuchen und die Suchergebnisse mit den nachfolgenden Qualifizierern der Benutzersuche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie Benutzer durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Benutzersuche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst auf {% data variables.product.product_name %} global nach Benutzern suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können auf {% data variables.product.product_name %} global nach Benutzern suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% data reusables.search.syntax_tips %}
 

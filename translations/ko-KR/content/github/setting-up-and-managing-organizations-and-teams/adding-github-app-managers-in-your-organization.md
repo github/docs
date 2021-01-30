@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
@@ -24,7 +25,9 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to add a {% data variables.product.prodname_github_app %} manager for. ![Select {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
+1. Under "
+{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to add a {% data variables.product.prodname_github_app %} manager for.
+![Select {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", type the username of the person you want to designate as a GitHub App manager for the app, and click **Grant**. ![Add a {% data variables.product.prodname_github_app %} manager for a specific app](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 

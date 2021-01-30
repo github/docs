@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O {% data variables.product.product_name %} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.

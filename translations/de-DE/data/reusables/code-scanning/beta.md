@@ -1,5 +1,9 @@
+{% if currentVersion == "enterprise-server@2.22" %}
+
 {% note %}
 
-**Hinweis:** {% data variables.product.prodname_code_scanning_capc %} befindet sich derzeit in der Beta-Version und kann sich jederzeit verändern. Um Zugriff auf die Beta-Version zu erhalten, [tritt der Warteliste bei](https://github.com/features/security/advanced-security/signup).
+**Note:** {% data variables.product.prodname_code_scanning_capc %} is in beta in {% data variables.product.prodname_ghe_server %} 2.22. For the generally available release of code scanning, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
+
+{% endif %}

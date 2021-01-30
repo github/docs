@@ -1,6 +1,6 @@
 ---
 title: Unterschiede zwischen Subversion und Git
-intro: SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.
+intro: 'SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.'
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -35,9 +35,9 @@ Git-Projekte werden zudem in einem einzelnen Verzeichnis gespeichert. Git verbir
 Ein Git-Workflow sieht wie folgt aus:
 
 * Ein Git-Repository speichert den vollständigen Verlauf all seiner Branches und Tags im *.git*-Verzeichnis.
-* Der `master`-Branch enthält die neueste stabile Veröffentlichung.
+* The latest stable release is contained within the default branch.
 * Aktive Funktionsarbeiten werden auf separaten Branches entwickelt.
-* Nach Abschluss einer Funktion wird der Feature-Branch in `master` überführt und gelöscht.
+* When a feature is finished, the feature branch is merged into the default branch and deleted.
 
 Im Gegensatz zu SVN bleibt die Verzeichnisstruktur mit Git identisch. Basierend auf Deinem Branch ändern sich jedoch die Dateiinhalte.
 

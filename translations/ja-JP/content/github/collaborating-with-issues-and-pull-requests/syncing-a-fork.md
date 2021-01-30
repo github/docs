@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/articles/configuring-a-remote-for-a-fork)をする必要があります。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `master` へのコミットは、ローカルブランチ `upstream/master` に保管されます。
+3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `BRANCHNAME` へのコミットは、ローカルブランチ `upstream/BRANCHNAME` に保存されます。
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -20,16 +21,16 @@ versions:
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
-  >  * [new branch]      master     -> upstream/master
+  >  * [new branch]      main     -> upstream/main
   ```
-4. フォークのローカル `master` ブランチをチェックアウトします。
+4. フォークのローカルのデフォルトブランチを確認してください。この場合は、`main` を使用します。
   ```shell
-  $ git checkout master
-  > Switched to branch 'master'
+  $ git checkout main
+  > Switched to branch 'main'
   ```
-5. `upstream/master` からローカル `master` ブランチに変更をマージします。 これによって、ローカルの変更を失うことなく、フォークの `master` ブランチを上流リポジトリと同期します。
+5. 上流のデフォルトブランチ (この場合は `upstream/main`) からの変更をローカルのデフォルトブランチにマージします。 これにより、ローカルの変更を失うことなく、フォークのデフォルトブランチが上流リポジトリと同期されます。
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating a422352..5fdff0f
   > Fast-forward
   >  README                    |    9 -------
@@ -39,7 +40,7 @@ versions:
   >  create mode 100644 README.md
   ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating 34e91da..16c56ad
   > Fast-forward
   >  README.md                 |    5 +++--

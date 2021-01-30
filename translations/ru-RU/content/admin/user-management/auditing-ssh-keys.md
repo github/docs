@@ -4,9 +4,9 @@ intro: Site administrators can initiate an instance-wide audit of SSH keys.
 redirect_from:
   - /enterprise/admin/articles/auditing-ssh-keys/
   - /enterprise/admin/user-management/auditing-ssh-keys
-  - /enterprise/admin/user-management/auditing-ssh-keys
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.

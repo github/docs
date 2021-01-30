@@ -1,5 +1,5 @@
 ---
-title: Rate limits for GitHub Apps
+title: GitHub 应用程序的速率限制
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits/
@@ -9,15 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Server-to-server requests
+### 服务器到服务器请求
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Different server-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
+如果应用程序安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，则不同的服务器到服务器请求速率限制适用于 {% data variables.product.prodname_github_app %}。
 
-#### Normal server-to-server rate limits
+#### 标准的服务器到服务器速率限制
 
 {% endif %}
 
@@ -25,34 +26,32 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
+#### {% data variables.product.prodname_ghe_cloud %} 服务器到服务器速率限制
 
-{% data variables.product.prodname_github_app %}s that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_app %} 安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，发送服务器到服务器请求的速率限制为每小时 15,000 个请求。
 
 {% endif %}
 
-### User-to-server requests
+### 用户到服务器请求
 
-{% data reusables.apps.deprecating_password_auth %}
-
-{% data variables.product.prodname_github_app %}s can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
+{% data variables.product.prodname_github_app %} 还可以[代表用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps)发送用户到服务器的请求。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Different user-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
+如果应用程序安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，并且经验证用户也属于同一个 {% data variables.product.prodname_ghe_cloud %} 帐户，则不同的用户到服务器请求速率限制适用于 {% data variables.product.prodname_github_app %}。
 
-#### Normal user-to-server rate limits
+#### 标准的用户到服务器速率限制
 
 {% endif %}
 
-User-to-server requests are rate limited at 5,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+用户到服务器请求的速率限制为每个经验证的用户每小时最多发送 5,000 个请求。 该用户授权的所有 OAuth 应用程序、该用户拥有的个人访问令牌以及使用该用户的{% if currentVersion == "github-ae@latest" %}令牌{% else %} 用户名和密码{% endif %} 验证的请求，将共享该用户每小时 5,000 个请求的配额。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### {% data variables.product.prodname_ghe_cloud %} user-to-server rate limits
+#### {% data variables.product.prodname_ghe_cloud %} 用户到服务器速率限制
 
-When a user belongs to a {% data variables.product.prodname_ghe_cloud %} account, user-to-server requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account are rate limited at 15,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+如果用户属于 {% data variables.product.prodname_ghe_cloud %} 帐户，则对同一个 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源发出的用户到服务器请求，速率限制为每个经验证用户每小时 15,000 个请求。 该用户授权的所有 OAuth 应用程序、该用户拥有的个人访问令牌以及使用该用户的用户名和密码验证的 {% data variables.product.prodname_ghe_cloud %} 请求，将共享该用户每小时 5,000 个请求的配额。
 
 {% endif %}
 
-For more detailed information about rate limits, see "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" for REST API and "[Resource limitations](/graphql/overview/resource-limitations)" for GraphQL API.
+有关速率限制的更多信息，请参阅 REST API 的“[速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)”和 GraphQL API 的“[资源限制](/graphql/overview/resource-limitations)”。

@@ -14,7 +14,7 @@ versions:
 
 ### Sobre alterações no nome de usuário
 
-Você pode alterar seu nome de usuário para outro que não esteja em uso no momento.{% if currentVersion == "free-pro-team@latest" %} Se o nome de usuário desejado não estiver disponível, você será informado se é possível solicitar a liberação dele quando digitá-lo.
+Você pode alterar oseu nome de usuário para outro nome de usuário que não está atualmente em uso.{% if currentVersion == "free-pro-team@latest" %} Se o nome de usuário que você deseja não estiver disponível, você verá informações sobre se pode solicitar a liberação do nome de usuário ao digitar o nome de usuário desejado.
 
 Se o nome de usuário não estiver qualificado para liberação e você não detém uma marca comercial para este nome de usuário, é possível escolher outro ou manter o atual. O {% data variables.contact.github_support %} não pode liberar o nome de usuário indisponível para você. Para obter mais informações, consulte "[Alterar nome de usuário](#changing-your-username)".{% endif %}
 
@@ -34,11 +34,11 @@ Se o novo proprietário do seu antigo nome de usuário criar um repositório com
 
 ### Links para a página de perfil anterior
 
-Após alteração do nome de usuário, os links para sua página de perfil anterior, como `https://{% data variables.command_line.backticks %}/previoususername`, retornarão um erro 404. É recomendável atualizar qualquer link para sua conta do {% data variables.product.product_name %} de qualquer lugar{% if currentVersion == "free-pro-team@latest" %}, como seu perfil no LinkedIn ou Twitter{% endif %}.
+Após alteração do nome de usuário, os links para sua página de perfil anterior, como `https://{% data variables.command_line.backticks %}/previoususername`, retornarão um erro 404. Recomendamos atualizar todos os links para a sua conta de {% data variables.product.product_name %} de outro lugar{% if currentVersion == "free-pro-team@latest" %}, como, por exemplo, o seu perfil do LinkedIn ou do Twitter{% endif %}.
 
 ### Seus commits no Git
 
-{% if currentVersion == "free-pro-team@latest"%}Os commits do Git que estavam associados ao seu endereço de e-mail `noreply` fornecido pelo {% data variables.product.product_name %} não serão atribuídos ao seu novo nome de usuário e não aparecerão no gráfico de contribuições.{% endif %} Se seus commits do Git estiverem associados a outro endereço de e-mail que você [adicionou à sua conta do GitHub](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}incluindo o endereço de e-mail `noreply` fornecido pelo {% data variables.product.product_name %} com base na ID, {% endif %}eles continuarão sendo atribuídos a você e aparecerão no gráfico de contribuição depois da alteração do nome de usuário. Para obter mais informações sobre como configurar o endereço de e-mail, consulte "[Configurar o endereço de e-mail do commit](/articles/setting-your-commit-email-address)".
+{% if currentVersion == "free-pro-team@latest"%}commits do Git associados ao seu endereço de e-mail `noreply` fornecido por {% data variables.product.product_name %} não serão atribuídos ao seu novo nome de usuário e não aparecerão no seu gráfico de contribuições.{% endif %} Se seus commits Git estiverem associados a outro endereço de e-mail que você [adicionou à sua conta do GitHub](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}incluindo o endereço de e-mail `noreply` baseado em ID fornecido por {% data variables.product.product_name %}, {% endif %} ele continuará a ser atribuído a você e aparecerá no gráfico de contribuições depois de mudar o seu nome de usuário. Para obter mais informações sobre como configurar o endereço de e-mail, consulte "[Configurar o endereço de e-mail do commit](/articles/setting-your-commit-email-address)".
 
 ### Alterar nome de usuário
 
@@ -53,5 +53,5 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 ### Leia mais
 
 - "[Alterar o URL de um remote](/articles/changing-a-remote-s-url)"
-- "[Por que meus commits estão vinculados ao usuário errado?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Por que os meus commits estão vinculados ao usuário incorreto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} Política de nome de usuário](/articles/github-username-policy)"{% endif %}

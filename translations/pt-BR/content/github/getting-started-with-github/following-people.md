@@ -1,14 +1,15 @@
 ---
 title: Seguir pessoas
-intro: 'É possível seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre as atividades delas {% if currentVersion == "free-pro-team@latest" %} e descobrir projetos nas comunidades em que elas estão inseridas.{% endif %}.'
+intro: 'Você pode seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre sua atividade{% if currentVersion == "free-pro-team@latest" %} e descobrir projetos nas suas comunidades{% endif %}.'
 redirect_from:
   - /articles/following-people
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você verá as atividades públicas das pessoas que você segue na visualização de atividades do feed de notícias.{% if currentVersion == "free-pro-team@latest" %} Se alguém que você segue coloca uma estrela em um repositório público, o {% data variables.product.product_name %} pode reomendá-lo a você nas visualizações de descobertas do seu feed de notícias.{% endif %} Para seguir alguém, vá até a página de perfil da pessoa e clique em **Follow** (Seguir) abaixo da imagem de perfil.
+Ao seguir pessoas, você verá sua atividade pública na exibição de atividades do seu feed de notícias.{% if currentVersion == "free-pro-team@latest" %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} pode recomendar o repositório para você na visualização de descoberta do seu feed de notícias.{% endif %} Para seguir alguém, visite sua página de perfil e clique em **Seguir** na imagem de perfil.
 
 ![Botão Follow user (Seguir usuário)](/assets/images/help/profile/follow-user-button.png)
 

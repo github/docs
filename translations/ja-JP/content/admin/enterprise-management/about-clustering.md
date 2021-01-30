@@ -14,7 +14,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %}は、一連のサービスから構成されています。 クラスタでは、これらのサービスは複数のノードにまたがって動作し、リクエストはそれらのノード間でロードバランスされます。 変更は、冗長なコピーと共に個別のノードに自動的に保存されます。 ほとんどのサービスは、同じサービスの他のインスタンスと同等のピア群です。 ただし`mysql-server`と`redis-server`サービスは例外です。 これらは1つの_プライマリ_ノードと、1つ以上の_レプリカ_ノード上で動作します。
 
-Learn more about [services required for clustering](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
+[クラスタリングに必要なサービスの詳細](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)をご覧ください。
 
 ### クラスタリングは組織に適切か？
 
@@ -24,6 +24,8 @@ Learn more about [services required for clustering](/enterprise/{{ currentVersio
 
 クラスタリングは冗長性を提供しますが、High Availability構成を置き換えることを意図したものではありません。 詳細は「[High Availability 構成](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)」を参照してください。 プライマリ／セカンダリフェイルオーバー設定はクラスタリングよりもはるかにシンプルであり、多くの組織の要求に応えます。 詳しくは[クラスタリングと高可用性との違い](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)を参照してください。
 
+{% data reusables.package_registry.packages-cluster-support %}
+
 ### クラスタリングを利用するには？
 
-クラスタリングは特定のスケーリングの状況のために設計されており、すべての組織を対象としたものではありません。 If clustering is something you'd like to consider, please contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.
+クラスタリングは特定のスケーリングの状況のために設計されており、すべての組織を対象としたものではありません。 クラスタリングをご検討される場合は、専任の担当者または {% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

@@ -13,14 +13,15 @@ versions:
 
 ### Speicher- und Bandbreitennutzung verfolgen
 
-Wenn Du eine Änderung an einer Datei, die mit {% data variables.large_files.product_name_short %} verfolgt wird, freigibst und überträgst, wird eine neue Version der gesamten Datei übertragen und die gesamte Dateigröße wird auf die Speicherbegrenzung des Repository-Inhabers angerechnet. Wenn Du eine Datei herunterlädst, die mit {% data variables.large_files.product_name_short %} verfolgt wird, wird die gesamte Dateigröße auf die Bandbreitenbegrenzung des Repository-Inhabers angerechnet. {% data variables.large_files.product_name_short %}-Uploads werden nicht auf die Bandbreitenbegrenzung angerechnet.
+Wenn Sie eine Änderung an einer Datei, die mit {% data variables.large_files.product_name_short %} verfolgt wird, committen und pushen, wird eine neue Version der gesamten Datei gepusht und die gesamte Dateigröße wird auf die Speicherbegrenzung des Repository-Inhabers angerechnet. Wenn Sie eine Datei herunterladen, die mit {% data variables.large_files.product_name_short %} verfolgt wird, wird die gesamte Dateigröße auf die Bandbreitenbegrenzung des Repository-Besitzers angerechnet. {% data variables.large_files.product_name_short %}-Uploads werden nicht auf die Bandbreitenbegrenzung angerechnet.
 
 Ein Beispiel:
-- Wenn Du eine 500-MB-Datei an {% data variables.large_files.product_name_short %} überträgst, nutzt Du 500 MB Deines verfügbaren Speichers und keine Bandbreite. Wenn Du eine Änderung von 1 Byte vornimmst und die Datei erneut überträgst, nutzt Du weitere 500 MB Speicherplatz und keine Bandbreite, wodurch Deine Gesamtnutzung für diese beiden Pushes bei 1 GB Speicherplatz und Null Bandbreite liegt.
+- Wenn Sie eine 500-MB-Datei an {% data variables.large_files.product_name_short %} pushen, nutzen Sie 500 MB Ihres verfügbaren Speichers und keine Bandbreite. Wenn Du eine Änderung von 1 Byte vornimmst und die Datei erneut überträgst, nutzt Du weitere 500 MB Speicherplatz und keine Bandbreite, wodurch Deine Gesamtnutzung für diese beiden Pushes bei 1 GB Speicherplatz und Null Bandbreite liegt.
 - Wenn Du eine 500-MB-Datei herunterlädst, die mit LFS verfolgt wird, verwendest Du 500 MB der vom Repository-Inhaber zur Verfügung gestellten Bandbreite. Wenn ein Mitarbeiter eine Änderung an eine Datei überträgt und Du die neue Version in Dein lokales Repository lädst, verwendest Du weitere 500 MB Bandbreite, wodurch die Gesamtnutzung für diese beiden Downloads bei 1 GB Bandbreite liegt.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+If
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% tip %}
@@ -37,7 +38,7 @@ Wenn Du mehr als {% data variables.large_files.initial_storage_quota %} des Spei
 
 ### Bandbreiten-Kontingent
 
-Wenn Du mehr als {% data variables.large_files.initial_bandwidth_quota %} der monatlichen Bandbreite nutzt, ohne ein Datenpaket zu kaufen, wird der {% data variables.large_files.product_name_short %}-Support für Dein Konto bis zum nächsten Monat deaktiviert.
+Wenn Sie mehr als {% data variables.large_files.initial_bandwidth_quota %} der monatlichen Bandbreite nutzen, ohne ein Datenpaket zu kaufen, wird die {% data variables.large_files.product_name_short %}-Unterstützung für Ihr Konto bis zum nächsten Monat deaktiviert.
 
 ### Weiterführende Informationen
 

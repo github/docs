@@ -7,12 +7,19 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 {% data reusables.repositories.default-issue-templates %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
 ### 创建议题模板
+
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,10 +31,10 @@ versions:
 7. 要自动设置默认的议题标题、将议题分配给对仓库有读取权限的人或者对议题模板应用标签，请在“Optional additional information（可选附加信息）”下输入这些详细信息。 还可以通过 YAML 前页格式中的 `title`、`labels` 或 `assignees` 为议题模板添加这些详细信息。 ![议题模板的其他信息](/assets/images/help/repository/additional-issue-template-info.png)
 8. 完成编辑和预览模板后，请单击页面右上角的 **Propose changes（提议更改）**。 ![提议更改按钮](/assets/images/help/repository/propose-changes-button.png)
 9. 输入提交消息，描述您的更改。 ![议题模板提交消息字段](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。 ![选择将议题模板提交到 master 或打开拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。 ![选择将议题模板提交到主要或打开的拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. 单击 **Commit changes（提交更改）**。 将这些更改合并到默认分支后，贡献者在仓库中打开新议题时便可使用该模板。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### 配置模板选择器
 
 {% data reusables.repositories.issue-template-config %}

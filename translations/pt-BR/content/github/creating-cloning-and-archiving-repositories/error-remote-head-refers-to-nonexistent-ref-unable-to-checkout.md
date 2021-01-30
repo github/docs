@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 É simples identificar esse erro; o Git avisará quando você tentar clonar o repositório:
@@ -22,7 +23,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<e
 > aviso: HEAD remote faz referência a um ref inexistente, não é possível fazer checkout.
 ```
 
-Para corrigir o erro, você precisa ser o administrador do repositório em {% data variables.product.product_location %}. Você deverá [ alterar o branch padrão](/articles/setting-the-default-branch) do repositório.
+Para corrigir o erro, você precisa ser o administrador do repositório em {% data variables.product.product_location %}. Você deverá [ alterar o branch padrão](/github/administering-a-repository/changing-the-default-branch) do repositório.
 
 Depois de fazer isso, você obterá uma lista de todos os branches disponíveis a partir da linha de comando:
 

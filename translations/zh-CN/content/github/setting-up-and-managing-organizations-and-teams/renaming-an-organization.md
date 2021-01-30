@@ -1,12 +1,13 @@
 ---
 title: 重命名组织
-intro: 如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。
+intro: '如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。'
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -28,7 +29,7 @@ versions:
 #### 并非自动的更改
 
 更改组织的名称后：
-- 指向以前组织资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previousorgname`）将返回 404 错误。 我们建议您更新其他站点指向组织的链接{% if currentVersion == "free-pro-team@latest" %}，例如 LinkedIn 或 Twitter 个人资料{% endif %}。
+- 指向以前组织资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previousorgname`）将返回 404 错误。 我们建议您更新从其他站点指向组织的链接{% if currentVersion == "free-pro-team@latest" %}，例如 LinkedIn 或 Twitter 个人资料{% endif %}。
 - 使用旧组织名称的 API 请求将返回 404 错误。 我们建议您更新 API 请求中的旧组织名称。
 - 对于使用旧组织名称的团队，没有自动[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)重定向。
 

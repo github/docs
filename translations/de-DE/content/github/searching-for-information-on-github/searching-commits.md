@@ -1,14 +1,15 @@
 ---
 title: Commits durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du Commits durchsuchen und die Suchergebnisse mit den folgenden Qualifizierern der Commit-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie Commits durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Commit-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-commits
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst Commits global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können Commits global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 Bei der Suche nach Commits wird nur der [Standardbranch](/articles/about-branches) eines Repositorys durchsucht.
 
@@ -47,10 +48,10 @@ Mit den Qualifizierern `author-date` und `committer-date` kannst Du Commits such
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifizierer             | Beispiel                                                                                                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) sucht Commits, die vor dem 1. Januar 2016 verfasst wurden.               |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A<2016-01-01&type=Commits) sucht Commits, die nach dem 1. Januar 2016 festgeschrieben wurden. |
+| Qualifizierer             | Beispiel                                                                                                                                                              |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) sucht Commits, die vor dem 1. Januar 2016 verfasst wurden. |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) matches commits committed after 2016-01-01.          |
 
 ### Merge-Commits filtern
 
@@ -95,14 +96,11 @@ Wenn Du Commits in allen Repositorys suchst, die einem bestimmten Benutzer oder 
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) sucht in Repositorys der Organisation @github nach Commits, deren Mitteilungen das Wort „test“ enthalten.                                                |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) sucht im Repository „gibberish“ des Benutzers @defunkt nach Commits, deren Mitteilungen das Wort „language“ enthalten. |
 
-### Öffentliche oder private Repositorys filtern
+### Filter by repository visibility
 
-Der Qualifizierer `is` gleicht öffentliche oder private Commits ab.
+The `is` qualifier matches commits from repositories with the specified visibility. Weitere Informationen findest Du unter „[Über Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| Qualifizierer | Beispiel                                                                                              |
-| ------------- | ----------------------------------------------------------------------------------------------------- |
-| `is:public`   | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) gleicht öffentliche Commits ab. |
-| `is:private`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) gleicht private Commits ab.     |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
 ### Weiterführende Informationen
 

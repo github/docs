@@ -1,9 +1,8 @@
 ---
 title: Using built-in authentication
-intro: 'When you use the default authentication method, all authentication details are stored within {% data variables.product.product_location_enterprise %}. Built-in authentication is the default method if you don’t already have an established authentication provider, such as LDAP, SAML, or CAS.'
+intro: 'When you use the default authentication method, all authentication details are stored within {% data variables.product.product_location %}. Built-in authentication is the default method if you don’t already have an established authentication provider, such as LDAP, SAML, or CAS.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
-  - /enterprise/admin/authentication/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication
 versions:
   enterprise-server: '*'

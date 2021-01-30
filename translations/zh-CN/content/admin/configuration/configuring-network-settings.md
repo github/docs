@@ -1,5 +1,5 @@
 ---
-title: Configuring network settings
+title: 配置网络设置
 redirect_from:
   - /enterprise/admin/guides/installation/dns-hostname-subdomain-isolation-and-ssl/
   - /enterprise/admin/articles/about-dns-ssl-and-subdomain-settings/

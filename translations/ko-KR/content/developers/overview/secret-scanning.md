@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match.
+The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match. Your endpoint should be able to handle requests with a large number of matches without timing out.
 
 * **Token**: The value of the secret match.
 * **Type**: The unique name you provided to identify your regular expression.

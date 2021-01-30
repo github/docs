@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
 ---
 
-Bem-vindo ao GitHub Marketplace ("Marketplace")! Estamos felizes por você estar aqui. Por favor, leia estes Termos de Serviço  ("Termos do Marketplace") com cuidado antes de acessar ou usar o GitHub Marketplace. GitHub Marketplace é uma plataforma que permite que você compre produtos de desenvolvedores (gratuitamente ou mediante pagamento de uma taxa) que podem ser usados com sua conta GitHub.com ("Produtos de Desenvolvedor"). Embora vendidos pela GitHub, Inc. ("GitHub", "nós", "nossos"), os produtos de desenvolvedores podem ser desenvolvidos e mantidos pelo GitHub ou por provedores de software terceiros, e podem exigir que você concorde com um termo de serviço separado. O uso e/ou compra de Produtos de Desenvolvedor está sujeito a estes Termos de Marketplace e às taxas aplicáveis, e também pode estar sujeito a termos adicionais, conforme fornecido pelo terceiro licenciador desse Produto do Desenvolvedor (o "Fornecedor de Produto").
+Bem-vindo ao GitHub Marketplace ("Marketplace")! Estamos felizes por você estar aqui. Por favor, leia estes Termos de Serviço  ("Termos do Marketplace") com cuidado antes de acessar ou usar o GitHub Marketplace. GitHub Marketplace é uma plataforma que permite que você selecione apps de desenvolvedores ou ações (gratuitamente ou mediante pagamento de uma taxa) que podem ser usados com sua conta GitHub.com ("Produtos de Desenvolvedor"). Embora oferecido pelo GitHub, Inc. ("GitHub", "nós", "nosso"), Produtos de Desenvolvedor podem ser desenvolvidos e mantidos pelo GitHub ou por provedores de software de terceiros. Sua seleção ou uso de Produtos para Desenvolvedores está sujeito a estes Termos do Marketplace e a quaisquer taxas aplicáveis, e pode exigir que você concorde com termos adicionais, conforme fornecido pelo licenciador de terceiros daquele Produto do Desenvolvedor (o "Fornecedor do Produto").
 
 Ao usar o Marketplace, você está concordando em estar vinculado a estes Termos de Marketplace.
 
-Entrada em vigor: 11 de outubro de 2017
+Data de vigência: 20 de novembro de 2020
 
 ### A. Termos de serviço do GitHub.com
 
@@ -40,11 +40,11 @@ Se você tiver uma pergunta, preocupação ou dúvidas sobre sua fatura, por fav
 
 ### E. Seus Dados e a Política de Privacidade do GitHub
 
-**Privacidade.** Quando você comprar ou assinar um Produto de Desenvolvedor, o GitHub precisará compartilhar certas Informações Pessoais (conforme definido na [Declaração de Privacidade do GitHub](/articles/github-privacy-statement/)) com o Fornecedor de Produto para lhe fornecer o Produto de Desenvolvedor, independente de suas configurações de privacidade. Dependendo dos requisitos do Produto de Desenvolvedor escolhido, o GitHub pode compartilhar minimamente o nome do seu usuário, ID e o endereço de e-mail principal ou até mesmo ter acesso ao conteúdo dos repositórios, incluindo a capacidade de ler e modificar seus dados privados. Você conseguirá ver o escopo das permissões que o Produto do Desenvolvedor está solicitando, e aceitar ou negá-lo, ao conceder sua autorização via OAuth. Em linha com a [Declaração de Privacidade do GitHub](/articles/github-privacy-statement/), nós apenas forneceremos ao Fornecedor de Produto a quantidade mínima de informações necessárias para a finalidade da transação.
+**Privacidade.** Quando você selecionar ou usar um Produto de Desenvolvedor, o GitHub precisará compartilhar certas Informações Pessoais (conforme definido na [Declaração de Privacidade do GitHub](/articles/github-privacy-statement/)) com o Fornecedor de Produto (se tais Informações Pessoais forem recebidas de você) para lhe fornecer o Produto de Desenvolvedor, independente de suas configurações de privacidade. Dependendo dos requisitos do Produto de Desenvolvedor escolhido, o GitHub pode compartilhar minimamente o nome do seu usuário, ID e o endereço de e-mail principal ou até mesmo ter acesso ao conteúdo dos repositórios, incluindo a capacidade de ler e modificar seus dados privados. Você conseguirá ver o escopo das permissões que o Produto do Desenvolvedor está solicitando, e aceitar ou negá-lo, ao conceder sua autorização via OAuth.
 
 Se você cancelar seus serviços de Produto de Desenvolvedor e revogar o acesso através das configurações de sua conta, o Fornecedor de Produto não poderá mais acessar sua conta. O Fornecedor de Produto é responsável por excluir suas Informações Pessoais de seus sistemas dentro de sua janela definida. Entre em contato com o Fornecedor do Produto para garantir que sua conta tenha sido encerrada corretamente.
 
-**Isenção de Responsabilidade pela Segurança de Dados.** Quando você comprar ou assinar um Produto de Desenvolvedor, a segurança do Produto do Desenvolvedor e a custódia dos seus dados é de responsabilidade do Fornecedor do Produto. Você é responsável por compreender as considerações de segurança da compra e do uso do Produto do Desenvolvedor para suas próprias considerações de segurança, risco e conformidade.
+**Isenção de Responsabilidade pela Segurança e Privacidade de Dados.** Quando você selecionar ou usar um Produto de Desenvolvedor, a segurança do Produto do Desenvolvedor e a custódia dos seus dados, incluindo suas Informações Pessoais (se houver), são de responsabilidade do Fornecedor do Produto. Você é responsável por compreender as considerações de segurança e privacidade da seleção ou uso do Produto do Desenvolvedor para suas próprias considerações de segurança, risco e conformidade.
 
 ### F. Direitos para os Produtos de Desenvolvedor
 

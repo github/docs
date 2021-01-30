@@ -1,7 +1,7 @@
 ---
-title: About integration with code scanning
-shortTitle: About integration
-intro: 'You can perform {% data variables.product.prodname_code_scanning %} externally and then display the results in {% data variables.product.prodname_dotcom %}.'
+title: 关于与代码扫描的集成
+shortTitle: 关于集成
+intro: '您可以在外部执行 {% data variables.product.prodname_code_scanning %}，然后在 {% data variables.product.prodname_dotcom %} 中显示结果，或者设置侦听仓库中 {% data variables.product.prodname_code_scanning %} 活动的 web 挂钩。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   free-pro-team: '*'
@@ -11,14 +11,16 @@ versions:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.prodname_dotcom %}, you can perform analysis elsewhere and then upload the results. Alerts for {% data variables.product.prodname_code_scanning %} that you run externally are displayed in the same way as those for  {% data variables.product.prodname_code_scanning %} that you run within {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning)."
+作为在 {% data variables.product.prodname_dotcom %} 中运行 {% data variables.product.prodname_code_scanning %} 的替代方法，您可以在其他地方执行分析，然后上传结果。 在外部运行的 {% data variables.product.prodname_code_scanning %} 的警报显示方式与在 {% data variables.product.prodname_dotcom %} 内运行的 {% data variables.product.prodname_code_scanning %} 的警报显示方式相同。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
-You can use your continuous integration or continuous delivery/deployment (CI/CD) system to run {% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_codeql %} analysis and upload the results to {% data variables.product.prodname_dotcom %}. This is an alternative to using {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis. For more information, see "[Running code scanning in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)."
+如果使用可生成结果为静态分析结果交换格式 (SARIF) 2.1.0 数据的第三方静态分析工具，您可以将其上传到 {% data variables.product.prodname_dotcom %}。 更多信息请参阅“[将 SARIF 文件上传到 GitHub](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”。
 
-If you use a third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data, you can upload this to {% data variables.product.prodname_dotcom %}. 更多信息请参阅“[将 SARIF 文件上传到 GitHub](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”。
+### 与 web 挂钩集成
+
+您可以使用 {% data variables.product.prodname_code_scanning %} web 挂钩构建或设置集成，例如 [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) 或 [{% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/)，以订阅仓库中的 {% data variables.product.prodname_code_scanning %} 事件。 例如，您可以构建在 {% data variables.product.product_location %} 上创建议题，或者在仓库中新增 {% data variables.product.prodname_code_scanning %} 警报时向您发送 Slack 通知的集成。 更多信息请参阅“[创建 web 挂钩](/developers/webhooks-and-events/creating-webhooks)”和“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。
 
 ### 延伸阅读
 
-* "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)"
-* "[Configuring code scanning in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system)"
-* "[SARIF support for code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)"
+* "[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)"
+* "[将 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 与现有的 CI 系统一起使用](/github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system)"
+* "[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)"

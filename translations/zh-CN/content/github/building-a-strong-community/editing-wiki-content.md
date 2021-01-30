@@ -1,6 +1,6 @@
 ---
 title: 编辑 wiki 内容
-intro: 您可以将图片和内容链接添加到您的 wiki，并使用某些受支持的 MediaWiki 格式。
+intro: '您可以将图片和内容链接添加到您的 wiki，并使用某些受支持的 MediaWiki 格式。'
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -14,6 +14,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 添加链接
@@ -32,7 +33,7 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 3. 使用 wiki 边栏，导航至要更改的页面，然后单击 **Edit（编辑）**。
 4. 在 wiki 工具栏上，单击 **Image（图像）**。 ![Wiki 添加图像按钮](/assets/images/help/wiki/wiki_add_image.png)
 5. 在“Insert Image”（插入图像）对话框，输入 URL 和 alt 文本（由搜索引擎和屏幕阅读器使用）。
-6. Click **OK**.
+6. 单击 **OK（确定）**。
 
 #### 链接到仓库中的图片
 

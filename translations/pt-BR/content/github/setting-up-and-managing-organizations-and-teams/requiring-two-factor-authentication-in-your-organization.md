@@ -1,6 +1,6 @@
 ---
 title: Exigir autenticação de dois fatores em sua organização
-intro: 'Os proprietários da organização podem exigir que os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} habilitem a autenticação de dois fatores em suas contas pessoais para dificultar o acesso aos repositórios e às configurações da organização.'
+intro: 'Os proprietários da organização podem exigir que os {% if currentVersion == "free-pro-team@latest" %}integrantes da organização, colaboradores externos e gerentes de cobrança{% else %}membros da organização e colaboradores externos{% endif %} habilitem a autenticação de dois fatores para suas contas pessoais, tornando mais difícil para atores maliciosos acessar os repositórios e configurações de uma organização.'
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
 versions:
@@ -8,23 +8,35 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data reusables.two_fa.auth_methods_2fa %}
+### Sobre a autenticação de dois fatores para organizações
 
-### Requisitos para exigir a autenticação de dois fatores
+{% data reusables.two_fa.about-2fa %} Você pode exigir que todos os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança {% else %}integrantes e colaboradores externos na sua organização{% endif %} habilitem a autenticação de dois fatores em {% data variables.product.product_name %}. Para obter mais informações sobre a autenticação de dois fatores, consulte "[Proteger a sua conta com autenticação de dois fatores (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)".
 
-Antes de poder exigir que os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} usem 2FA, você deve [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa/) na sua própria conta pessoal.
+{% if currentVersion == "free-pro-team@latest" %}
+
+Você também pode exigir autenticação de dois fatores para as organizações de uma empresa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)".
+
+{% endif %}
 
 {% warning %}
 
 **Avisos:**
 
-- Se você exigir o uso da autenticação de dois fatores na organização, os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança{% else %}integrantes e colaboradores externos{% endif %} da sua organização (incluindo contas bot) que não usam a 2FA serão removidos da organização e perderão acesso aos repositórios dela. Eles também perderão acesso às bifurcações dos repositórios privados da organização. Se eles habilitarem a autenticação de dois fatores for habilitada na conta pessoal em até três meses após a remoção da organização, você poderá [restabelecer as configurações e os privilégios de acesso deles](/articles/reinstating-a-former-member-of-your-organization).
-- Se um proprietário, integrante,{% if currentVersion == "free-pro-team@latest" %} gerente de cobrança{% endif %} ou colaborador externo da organização desabilitar a 2FA em sua conta pessoal depois que você tiver habilitado a autenticação de dois fatores obrigatória, ele será automaticamente removido da organização.
+- Ao exigir o uso da autenticação de dois fatores para a sua organização, {% if currentVersion == "free-pro-team@latest" %}os integrantes, colaboradores externos e gerentes de cobrança{% else %}integrantes e colaboradores externos{% endif %} (incluindo contas bot) que não usarem a 2FA serão removidos da organização e perderão acesso aos seus repositórios. Eles também perderão acesso às bifurcações dos repositórios privados da organização. Se eles habilitarem a autenticação de dois fatores for habilitada na conta pessoal em até três meses após a remoção da organização, você poderá [restabelecer as configurações e os privilégios de acesso deles](/articles/reinstating-a-former-member-of-your-organization).
+- Se um proprietário da organização, integrante{% if currentVersion == "free-pro-team@latest" %} gerente de cobrança,{% endif %} ou colaborador externo desabilitar a 2FA para sua conta pessoal depois que você habilitar a autenticação de dois fatores, eles serão automaticamente removidos da organização.
 - Se você for o único proprietário de uma organização que exige autenticação de dois fatores, não poderá desabilitar a 2FA na sua conta pessoal sem desabilitar a autenticação de dois fatores obrigatória na organização.
 
 {% endwarning %}
 
-Antes de exigir o uso da autenticação de dois fatores, recomendamos que você notifique os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} e peça para eles configurarem a 2FA nas contas deles. Você pode [ver se os integrantes e colaboradores externos já usam a 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) na página People (Pessoas) da organização.
+{% data reusables.two_fa.auth_methods_2fa %}
+
+### Pré-requisitos
+
+Antes de poder exigir que {% if currentVersion == "free-pro-team@latest" %}os integrantes da organização, colaboradores externos e gerentes de cobrança{% else %}integrantes da organização e colaboradores externos{% endif %} usem a autenticação de dois fatores, você deve habilitá-la para a sua conta em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Proteger sua conta com autenticação de dois fatores (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)".
+
+Antes de exigir o uso da autenticação de dois fatores, recomendamos notificar os {% if currentVersion == "free-pro-team@latest" %}integrantes da organização, colaboradores externos e gerentes de cobrança {% else %}integrantes da organização e colaboradores externos{% endif %} e solicitar que configurem a 2FA para suas contas. Você pode ver se os integrantes e colaboradores externos já estão usando a 2FA. Para obter mais informações, consulte "[Ver se os usuários na organização têm a 2FA habilitada](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)".
+
+### Exigir autenticação de dois fatores em sua organização
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -47,7 +59,7 @@ Para exibir as pessoas que foram removidas automaticamente da organização por 
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Faça a pesquisa. Para pesquisar:
     - Integrantes da organização removidos, use `action:org.remove_member` na pesquisa
-    - Colaboradores externos removidos, use `action:org.remove_outside_collaborator` na pesquisa{% if currentVersion == "free-pro-team@latest" %}
+    - Colaboradores externos removidos, use `action:org.remove_outside_collaborator` na sua consulta de pesquisa{% if currentVersion == "free-pro-team@latest" %}
     - Gerentes de cobrança removidos, use `action:org.remove_billing_manager`na pesquisa{% endif %}
 
  Você também pode exibir as pessoas que foram removidas da organização usando um [intervalo de tempo](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action) na pesquisa.

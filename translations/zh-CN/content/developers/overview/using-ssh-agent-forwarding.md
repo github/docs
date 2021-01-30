@@ -1,55 +1,56 @@
 ---
-title: Using SSH agent forwarding
-intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
+title: 使用 SSH 代理转发
+intro: '为简化向服务器的部署，您可以设置 SSH 代理转发以安全地使用本地 SSH 密钥。'
 redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+SSH 代理转发可用于简化向服务器的部署。  它允许您使用本地 SSH 密钥，而不是将密钥（不带密码！）放在服务器上。
 
-If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
+如果已设置 SSH 密钥 来与 {% data variables.product.product_name %} 交互，您可能已经熟悉了 `ssh-agent`。 这是一个在后台运行的程序，它将密钥加载到内存中，因此您不需要每次使用密钥时都输入密码。 最妙的是，您可以选择让服务器访问您的本地 `ssh-agent`，就像它们已经在服务器上运行一样。 这有点像要求朋友输入他们的密码，以便您可以使用他们的计算机。
 
-Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
+有关 SSH 代理转发的更详细说明，请参阅 [Steve Friedl 的技术提示指南][tech-tips]。
 
-### Setting up SSH agent forwarding
+### 设置 SSH 代理转发
 
-Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
+确保您自己的 SSH 密钥已设置并正常运行。 如果您还没有 SSH 密钥，请使用[我们的 SSH 密钥生成指南][generating-keys]。
 
-You can test that your local key works by entering `ssh -T git@github.com` in the terminal:
+您可以在终端输入 `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}主机名{% else %}github.com{% endif %}` 来测试您的本地密钥是否有效：
 
 ```shell
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
 > shell access.
 ```
 
-We're off to a great start. Let's set up SSH to allow agent forwarding to your server.
+开局不错。 让我们设置 SSH 以允许代理转发到您的服务器。
 
-1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
+1. 使用您喜欢的文本编辑器打开位于 `~/.ssh/config` 的文件。 如果此文件不存在，您可以通过在终端输入 `touch ~/.ssh/config` 来创建它。
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
+2. 在文件中输入以下文本，将 `example.com` 替换为服务器的域名或 IP：
    
         Host example.com
           ForwardAgent yes
 
 {% warning %}
 
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
+**警告：**您可能想使用 `Host *` 这样的通配符将此设置应用于所有 SSH 连接。 但这并不是一个好主意，因为您将与 SSH 到的*每台*服务器共享您的本地 SSH 密钥。 它们无法直接访问密钥，但是在建立连接后，它们可以*像您一样*使用这些密钥。 **您应该只添加您信任的服务器以及打算用于代理转发的服务器。**
 
 {% endwarning %}
 
-### Testing SSH agent forwarding
+### 测试 SSH 代理转发
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@github.com` once more.  If all is well, you'll get back the same prompt as you did locally.
+要测试代理转发是否对您的服务器有效，您可以 SSH 到服务器，然后再次运行 `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}主机名{% else %}github.com{% endif %}`。  如果一切正常，您将收到与本地使用相同的提示。
 
-If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
+如果不确定是否在使用本地密钥，您还可以检查服务器上的 `SSH_AUTH_SOCK` 变量：
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -57,43 +58,43 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/ssh-4hNGMk8AZX/agent.79453
 ```
 
-If the variable is not set, it means that agent forwarding is not working:
+如果未设置变量，则表示代理转发不起作用：
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
 
-### Troubleshooting SSH agent forwarding
+### SSH 代理转发疑难解答
 
-Here are some things to look out for when troubleshooting SSH agent forwarding.
+以下是排查 SSH 代理转发时需要注意的一些事项。
 
-#### You must be using an SSH URL to check out code
+#### 您必须使用 SSH URL 检出代码
 
-SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
+SSH 转发仅适用于 SSH URL，而不是 HTTP(s) URL。 检查服务器上的 *.git/config* 文件，并确保 URL 是 SSH 样式的 URL，如下所示：
 
 ```shell
 [remote "origin"]
-  url = git@github.com:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-#### Your SSH keys must work locally
+#### 您的 SSH 密钥必须在本地有效
 
-Before you can make your keys work through agent forwarding, they must work locally first. [Our guide on generating SSH keys][generating-keys] can help you set up your SSH keys locally.
+在通过代理转发使密钥起作用之前，它们必须首先在本地有效。 [我们的 SSH 密钥生成指南][generating-keys]可帮助您在本地设置 SSH 密钥。
 
-#### Your system must allow SSH agent forwarding
+#### 您的系统必须允许 SSH 代理转发
 
-Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
+有时，系统配置不允许 SSH 代理转发。 您可以通过在终端中输入以下命令来检查是否正在使用系统配置文件：
 
 ```shell
 $ ssh -v <em>example.com</em>
 # Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config
@@ -102,7 +103,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file *~/.ssh/config* is loaded first, then */etc/ssh_config* is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+在上面的示例中，先加载 *~/.ssh/config* 文件，然后读取 */etc/ssh_config* 文件。  通过运行以下命令，我们可以检查该文件以查看它是否覆盖了我们的选项：
 
 ```shell
 $ cat /etc/ssh_config
@@ -112,17 +113,17 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
+在此示例中，我们的 */etc/ssh_config* 文件特别表示 `ForwardAgent no`，这是一种阻止代理转发的方式。 从文件中删除此行应该会使代理转发再次起作用。
 
-#### Your server must allow SSH agent forwarding on inbound connections
+#### 您的服务器必须允许入站连接上的 SSH 代理转发
 
-Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running `sshd_config`. The output from this command should indicate that `AllowAgentForwarding` is set.
+代理转发也可能在您的服务器上被阻止。 您可以通过 SSH 到服务器并运行 `sshd_config` 来检查是否允许代理转发。 此命令的输出应指示 `AllowAgentForwarding` 已设置。
 
-#### Your local `ssh-agent` must be running
+#### 您的本地 `ssh-agent` 必须正在运行
 
-On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
+在大多数计算机上，操作系统会自动为您启动 `ssh-agent`。  但是在 Windows 上，您需要手动执行此操作。 我们提供了[在每次打开 Git Bash 时如何启动 `ssh-agent` 的指南][autolaunch-ssh-agent]。
 
-To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
+要验证 `ssh-agent` 是否正在您的计算机上运行，请在终端中键入以下命令：
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -130,15 +131,15 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-#### Your key must be available to `ssh-agent`
+#### 您的密钥必须可用于 `ssh-agent`
 
-You can check that your key is visible to `ssh-agent` by running the following command:
+您可以通过运行以下命令来检查您的密钥是否对 `ssh-agent` 可见：
 
 ```shell
 ssh-add -L
 ```
 
-If the command says that no identity is available, you'll need to add your key:
+如果命令说没有身份可用，则需要添加密钥：
 
 ```shell
 $ ssh-add <em>yourkey</em>
@@ -146,7 +147,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-On Mac OS X, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+在 Mac OS X 上，一旦在重新引导过程中重新启动 `ssh-agent`，它将“忘记”该密钥。 但是，您可以使用此命令将 SSH 密钥导入密钥链：
 
 ```shell
 $ ssh-add -K <em>yourkey</em>
@@ -155,6 +156,5 @@ $ ssh-add -K <em>yourkey</em>
 {% endtip %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
-[generating-keys]: /articles/generating-ssh-keys
 [generating-keys]: /articles/generating-ssh-keys
 [autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

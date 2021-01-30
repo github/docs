@@ -1,99 +1,101 @@
 ---
-title: Troubleshooting the detection of vulnerable dependencies
-intro: 'If the dependency information reported by {% data variables.product.product_name %} is not what you expected, there are a number of points to consider, and various things you can check.'
+title: 漏洞依赖项检测疑难解答
+intro: '如果 {% data variables.product.product_name %} 报告的依赖项信息不符合您的预期，则需要考虑许多因素，您可以检查各种问题。'
+shortTitle: 检测故障排除
 versions:
   free-pro-team: '*'
 ---
 
-The results of dependency detection reported by {% data variables.product.product_name %} may be different from the results returned by other tools. There are good reasons for this and it's helpful to understand how {% data variables.product.prodname_dotcom %} determines dependencies for your project.
+{% data variables.product.product_name %} 报告的依赖项检测结果可能不同于其他工具返回的结果。 这是有原因的，它有助于了解 {% data variables.product.prodname_dotcom %} 如何确定项目的依赖项。
 
-### Why do some dependencies seem to be missing?
+### 为什么似乎缺少某些依赖项？
 
-{% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
+{% data variables.product.prodname_dotcom %} 生成和显示依赖项数据不同于其他工具。 因此，如果您过去使用其他工具来识别依赖项，则几乎可以肯定您会看到不同的结果。 考虑以下事项：
 
-*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies. It's a free, curated database of vulnerability information for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. For more information, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)" and "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-*   The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
-*   {% data variables.product.prodname_dependabot_short %} scans any push, to the default branch, that contains a manifest file. When a new vulnerability record is added, it scans all existing repositories and generates an alert for each vulnerable repository. {% data variables.product.prodname_dependabot_short %} alerts are aggregated at the repository level, rather than creating one alert per vulnerability. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
-*   {% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive a security alert about a vulnerable dependency in your repository. {% data variables.product.prodname_dotcom %} automatically creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”。
+*   {% data variables.product.prodname_advisory_database %} 是 {% data variables.product.prodname_dotcom %} 用来识别漏洞依赖项的数据源之一。 它是一款免费的、具有整理功能的数据库，用于检测 {% data variables.product.prodname_dotcom %} 上常见软件包生态系统的漏洞信息。 它包括从 {% data variables.product.prodname_security_advisories %} 直接报告给 {% data variables.product.prodname_dotcom %} 的数据，以及官方馈送和社区来源。 这些数据由 {% data variables.product.prodname_dotcom %} 审查和整理，以确保不会与开发社区分享虚假或不可行的信息。 更多信息请参阅“[浏览 {% data variables.product.prodname_advisory_database %} 中的安全漏洞](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)”和“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+*   依赖项图解析用户仓库中所有已知的包清单文件。 例如，对于 npm，它将解析 _package-lock.json_ 文件。 它构造所有仓库依赖项和公共依赖项的图表。 当启用依赖关系图时，当任何人推送到默认分支时，都会发生这种情况，其中包括对支持的清单格式进行更改的提交。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
+*   {% data variables.product.prodname_dependabot %} 扫描对包含清单文件的默认分支的任何推送。 添加新的漏洞记录时，它会扫描所有现有仓库，并为每个存在漏洞的仓库生成警报。 {% data variables.product.prodname_dependabot_alerts %} 在仓库级别汇总，而不是针对每个漏洞创建一个警报。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+*   {% data variables.product.prodname_dependabot_security_updates %} 在您收到关于仓库中漏洞依赖项的警报时触发。 在可能的情况下，{% data variables.product.prodname_dependabot %} 会在您的仓库中创建拉取请求，以将易受攻击的依赖项升级到避免漏洞所需的最低安全版本。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”。
 
-    {% data variables.product.prodname_dependabot_short %} doesn't scan repositories on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is discovered and added to the advisory database.
+    {% data variables.product.prodname_dependabot %} 不会按计划扫描仓库中的漏洞依赖项，而是在发生某些变更时扫描。 例如，当新的依赖项被添加到 {% data variables.product.prodname_dotcom %} 时（对于每次推送都会进行此项检查），或者当新的漏洞被发现并添加到通告数据库时，就会触发扫描。
 
-### Why don't I get vulnerability alerts for some ecosystems?
+### 为什么我没有收到某些生态系统的漏洞警报？
 
-{% data variables.product.prodname_dotcom %} limits its support for vulnerability alerts to a set of ecosystems where we can provide high-quality, actionable data. Curated vulnerabilities in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% data variables.product.prodname_dependabot_short %} alerts, and {% data variables.product.prodname_dependabot_short %} security updates are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. We'll continue to add support for more ecosystems over time. For an overview of the package ecosystems that we support, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+{% data variables.product.prodname_dotcom %} 对漏洞警报的支持限于一组可提供高质量、可操作数据的生态系统。 {% data variables.product.prodname_advisory_database %} 中经整理的漏洞、依赖关系图、{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_dependabot %} 安全更新等功能适用于多个生态系统，包括 Java’s Maven、JavaScript’s npm 和 Yarn、.NET’s NuGet、Python’s pip、Ruby's RubyGems 以及 PHP’s Composer。 我们将在今后继续增加对更多生态系统的支持。 有关我们支持的包生态系统的概述，请参阅“[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
 
-It's worth noting that [{% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) may exist for other ecosystems. The information in a security advisory is provided by the maintainers of a particular repository. This data is not curated in the same way as information for the supported ecosystems.
+值得注意的是，[{% data variables.product.prodname_dotcom %} 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)可能存在于其他生态系统中。 安全通告中的信息由特定仓库的维护员提供。 此数据的整理方式与支持的生态系统整理信息的方式不同。
 
-**Check**: Does the uncaught vulnerability apply to an unsupported ecosystem?
+**检查**：未捕获的漏洞是否适用于不受支持的生态系统？
 
-### Does the dependency graph only find dependencies in manifests and lockfiles?
+### 依赖项图是否只查找清单和锁文件中的依赖项？
 
-The dependency graph includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
+依赖项图包含在环境中明确声明的依赖项的信息。 也就是说，在清单或锁定文件中指定的依赖项。 依赖项图通常还包括过渡依赖项，即使它们没有在锁定文件中指定，也可以通过查看清单文件中的依赖项来实现。
 
-{% data variables.product.prodname_dependabot_short %} alerts advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% data variables.product.prodname_dependabot_short %} security updates only suggests a change where it can directly "fix" the dependency, that is, when these are:
-* Direct dependencies explicitly declared in a manifest or lockfile
-* Transitive dependencies declared in a lockfile
+{% data variables.product.prodname_dependabot_alerts %} 提醒您应更新的依赖项，包括可从清单或锁定文件确定版本的过渡依赖项。 {% data variables.product.prodname_dependabot %} 安全更新仅在可直接“修复”依赖项的情况下建议更改，即，在以下情况下：
+* 在清单或锁定文件中明确声明的直接依赖项
+* 在锁定文件中声明的过渡依赖项
 
-The dependency graph doesn't include “loose” dependencies. “Loose” dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile.
+依赖项图不包括“宽松”依赖项。 “宽松”依赖项是指从另一个来源复制并直接或在存档文件（例如 ZIP 或 JAR 文件）中检入仓库的单个文件，而不是在包管理器的清单或锁定文件中引用的文件。
 
-**Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
+**检查k**：是否存在仓库清单或锁定文件中未指定组件的未捕获漏洞？
 
-### Does the dependency graph detect dependencies specified using variables?
+### 依赖项图是否检测使用变量指定的依赖项？
 
-The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not be included in the dependency graph.
+依赖项图在清单被推送到 {% data variables.product.prodname_dotcom %} 时分析它们。 因此，依赖项图无法访问项目的构建环境，从而无法解析清单中使用的变量。 如果在清单中使用变量指定名称，或指定依赖项的版本（更常见），则该依赖项不会包括在依赖项图中。
 
-**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
+**检查**: 在清单中缺少的依赖项是否使用变量声明其名称或版本？
 
-### Are there limits which affect the dependency graph data?
+### 是否存在影响依赖项图数据的限制？
 
-Yes, the dependency graph has two categories of limits:
+是的，依赖项图有两个限制类别：
 
-1. **Processing limits**
+1. **处理限制**
 
-    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_short %} alerts being created.
+    这会影响 {% data variables.product.prodname_dotcom %} 中显示的依赖项图，还会阻止 {% data variables.product.prodname_dependabot_alerts %} 的创建。
 
-    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_short %} alerts.
+    仅为企业帐户处理大小超过 0.5 MB 的清单。 对于其他帐户，将忽略超过 0.5 MB 的清单，并且不会创建 {% data variables.product.prodname_dependabot_alerts %}。
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_short %} alerts are not be created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}.
+    默认情况下， {% data variables.product.prodname_dotcom %} 对每个仓库处理的清单不会超过 20 个。 对于超出此限制的清单，不会创建 {% data variables.product.prodname_dependabot_alerts %}。 如果您需要提高限值，请联系 {% data variables.contact.contact_support %}。
 
-2. **Visualization limits**
+2. **可视化限制**
 
-    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_short %} alerts that are created.
+    这会影响 {% data variables.product.prodname_dotcom %} 中依赖项图的显示内容。 但是，它们不会影响 {% data variables.product.prodname_dependabot_alerts %} 的创建。
 
-    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_short %} alerts are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
+    仓库依赖项图的依赖项视图只显示 100 个清单。 通常这就足够了，因为它明显高于上述处理限制。 处理限制超过 100 的情况下，对于任何未在 {% data variables.product.prodname_dotcom %} 中显示的任何清单，仍会创建 {% data variables.product.prodname_dependabot_alerts %}。
 
-**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
+**检查**：在超过 0.5 MB 的清单文件或包含大量清单的仓库中是否存在缺少的依赖项？
 
-### Does {% data variables.product.prodname_dependabot_short %} generate alerts for vulnerabilities that have been known for many years?
+### {% data variables.product.prodname_dependabot %} 是否会针对已知多年的漏洞生成警报？
 
-The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include vulnerability information for the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
+{% data variables.product.prodname_advisory_database %} 于 2019 年 11 月推出，并在最初回顾性包含了受支持生态系统的漏洞信息（从 2017 年开始）。 将 CVE 添加到数据库时，我们会优先处理较新的 CVE，以及影响较新版本软件的 CVE。
 
-Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}.
+提供了一些有关较旧漏洞的信息，尤其是在这些 CVE 特别普遍的地方，但一些较旧的漏洞未包含在 {% data variables.product.prodname_advisory_database %} 中。 如果您需要将一些特定的旧漏洞包含在数据库中，请联系 {% data variables.contact.contact_support %}。
 
-**Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
+**检查**：未捕获的漏洞在国家漏洞数据库中的发布日期是否早于 2017 年？
 
-### Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
+### 为什么 {% data variables.product.prodname_advisory_database %} 使用已发布漏洞数据的子集？
 
-Some third-party tools use uncurated CVE data that isn't checked or filtered by a human. This means that CVEs with tagging or severity errors, or other quality issues, will cause more frequent, more noisy, and less useful alerts.
+有些第三方工具使用未经人为检查或过滤的未整理 CVE 数据。 这意味着 CVE 带有标签或严重错误或其他质量问题，将导致更频繁，更嘈杂且更无用的警报。
 
-Since {% data variables.product.prodname_dependabot_short %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
+由于 {% data variables.product.prodname_dependabot %} 使用 {% data variables.product.prodname_advisory_database %} 中的精选数据，因此警报量可能较少，但是您收到的警报将是准确和相关的。
 
-### Does each dependency vulnerability generate a separate alert?
+### 是否每个依赖项漏洞都会生成单独的警报？
 
-When a dependency has multiple vulnerabilities, only one aggregated alert is generated for that dependency, instead of one alert per vulnerability.
+当一个依赖项有多个漏洞时，只会为该依赖项生成一个汇总警报，而不是针对每个漏洞生成一个警报。
 
-The {% data variables.product.prodname_dependabot_short %} alerts count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, that is, the number of dependencies with vulnerabilities, not the number of vulnerabilities.
+{% data variables.product.prodname_dotcom %} 中的 {% data variables.product.prodname_dependabot_alerts %} 计数显示警报总数，即有漏洞的依赖项数量，而不是漏洞的数量。
 
-![{% data variables.product.prodname_dependabot_short %} alerts view](/assets/images/help/repository/dependabot-alerts-view.png)
+![{% data variables.product.prodname_dependabot_alerts %} 视图](/assets/images/help/repository/dependabot-alerts-view.png)
 
-When you click to display the alert details, you can see how many vulnerabilities are included in the alert.
+单击以显示警报详细信息时，您可以查看警报中包含多少个漏洞。
 
-![Multiple vulnerabilities for a {% data variables.product.prodname_dependabot_short %} alert](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
+![{% data variables.product.prodname_dependabot %} 警报的多个漏洞](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
 
-**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with vulnerability numbers.
+**检查**: 如果您所看到的总数有出入，请检查您是否没有将警报数量与漏洞数量进行比较。
 
 ### 延伸阅读
 
 - “[关于有易受攻击依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- [排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"

@@ -1,6 +1,6 @@
 ---
 title: Deine Git Large File Storage-Nutzung anzeigen
-intro: 'Du kannst das monatliche Bandbreitenkontingent Deines Kontos und den verbleibenden Speicher für {% data variables.large_files.product_name_short %} überwachen.'
+intro: 'Sie können das monatliche Bandbreitenkontingent Ihres Kontos und den verbleibenden Speicher für {% data variables.large_files.product_name_short %} überwachen.'
 redirect_from:
   - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account/
   - /articles/viewing-storage-and-bandwidth-usage-for-an-organization/

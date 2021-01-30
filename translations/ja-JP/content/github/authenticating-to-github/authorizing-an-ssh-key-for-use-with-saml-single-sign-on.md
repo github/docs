@@ -1,6 +1,6 @@
 ---
-title: SAMシングルサインオンで利用するためにSSHキーを認可する
-intro: SAML シングルサインオン (SSO) を使う Organization で SSH キーを使うためには、まずそのキーを認可しなければなりません。
+title: SAMLシングルサインオンで利用するためにSSHキーを認可する
+intro: 'SAML シングルサインオン (SSO) を使う Organization で SSH キーを使うためには、まずそのキーを認可しなければなりません。'
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
@@ -20,7 +20,7 @@ versions:
 {% data reusables.user_settings.ssh %}
 3. 認可したい SSH キーの隣の [**Enable SSO**] (SSO を有効化) または [**Disable SSO**] (SSOを無効化) をクリックします。 ![SSO トークン認可ボタン](/assets/images/help/settings/ssh-sso-button.png)
 4. SSH キーを認可する Organization を見つけます。
-5. Click **Authorize**. ![トークン認可ボタン](/assets/images/help/settings/ssh-sso-authorize.png)
+5. [**Authorize**] をクリックします。 ![トークン認可ボタン](/assets/images/help/settings/ssh-sso-authorize.png)
 
 ### 参考リンク
 

@@ -1,6 +1,6 @@
 ---
 title: Releases in einem Repository verwalten
-intro: 'Du kennst Releases erstellen, um Iterationen eines Projektes zu bündeln und an Benutzer zu liefern.'
+intro: Du kennst Releases erstellen, um Iterationen eines Projektes zu bündeln und an Benutzer zu liefern.
 redirect_from:
   - /articles/creating-releases
   - /articles/listing-and-editing-releases/
@@ -12,17 +12,22 @@ permissions: 'Repository-Mitarbeiter und Personen mit Schreibzugriff auf ein Rep
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
 ### About release management
 
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+{% if currentVersion == "free-pro-team@latest" %}
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
+{% endif %}
+You can choose whether
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
 **Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
@@ -42,7 +47,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 8. Um Benutzer darüber zu informieren, dass der Release nicht produktionsbereit und möglicherweise instabil ist, wähle **This is a pre-release** (Dies ist eine Vorabversion). ![Kontrollkästchen für die Markierung eines Release als Vorab-Release](/assets/images/help/releases/prerelease_checkbox.png)
 9. Wenn Du Deinen Release publizieren möchtest, klicke auf **Publish release** (Release publizieren). Um den Release später zu bearbeiten, klicke auf **Save draft** (Entwurf speichern). ![Schaltfläche „Publish release“ (Release veröffentlichen) und Schaltfläche zum Speichern als Entwurf](/assets/images/help/releases/release_buttons.png)
 
-Du kannst auch automatisch einem Release aus der Kommandozeile oder in einem Skript erstellen. For more information, see "[Releases](/v3/repos/releases/#create-a-release)."
+Du kannst auch automatisch einem Release aus der Kommandozeile oder in einem Skript erstellen. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
 
 ### Eine Veröffentlichung bearbeiten
 

@@ -23,4 +23,4 @@ Beispiele zur möglichen Verwendungsweise von Pre-Receive-Hooks:
 ### Auswirkung auf die Leistung und Workflows
 Die Auswirkung auf Entwickler und auf deren Workflows kann erheblich sein und muss sorgsam durchdacht werden. Von Pre-Receive-Hooks, die auf Geschäftsanforderungen basieren und durchdacht implementiert werden, kann die Organisation als Ganzes am meisten profitieren.
 
-Pre-Receive-Hooks können unerwünschte Auswirkungen auf die Leistung von {% data variables.product.product_location_enterprise %} haben und sollten sorgsam implementiert und überprüft werden.
+Pre-Receive-Hooks können unerwünschte Auswirkungen auf die Leistung von {% data variables.product.product_location %} haben und sollten sorgsam implementiert und überprüft werden.

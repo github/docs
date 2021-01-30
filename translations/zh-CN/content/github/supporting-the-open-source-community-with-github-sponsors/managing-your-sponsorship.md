@@ -1,42 +1,35 @@
 ---
 title: 管理赞助
-intro: 您可以管理谁能看到您的赞助，以及您是否要从赞助的开源贡献者接收电子邮件更新。
+intro: 您可以管理谁能看到您的赞助，以及您是否要接收来自被赞助帐户的电子邮件更新。
 redirect_from:
   - /articles/managing-your-sponsorship
 versions:
   free-pro-team: '*'
 ---
 
-有关更改赞助的信息，请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
+{% data reusables.sponsors.org-sponsors-release-phase %}
 
-### 管理开发者赞助的隐私设置
+### 管理赞助的隐私设置
 
-{% data reusables.sponsors.navigate-to-sponsored-developer %}
-{% data reusables.sponsors.manage-developer-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.manage-sponsorship %}
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### 管理组织赞助的隐私设置
+### 管理赞助的电子邮件更新
 
-{% data reusables.sponsors.navigate-to-sponsored-org %}
-{% data reusables.sponsors.manage-org-sponsorship %}
-{% data reusables.sponsors.who-can-see-your-sponsorship %}
+您可以选择您赞助的帐户能否以电子邮件向您发送其工作的更新。 被赞助帐户无法访问您的电子邮件地址。
+
+{% data reusables.sponsors.manage-updates-for-orgs %}
+
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.manage-sponsorship %}
+{% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### 管理被赞助开发者的电子邮件更新
+### 延伸阅读
 
-您可以选择被赞助开发者能否以电子邮件向您发送其工作的更新。 被赞助开发者无法访问您的电子邮件地址。
-
-{% data reusables.sponsors.navigate-to-sponsored-developer %}
-{% data reusables.sponsors.manage-developer-sponsorship %}
-{% data reusables.sponsors.developer-sponsored-choose-updates %}
-{% data reusables.sponsors.update-sponsorship %}
-
-### 管理被赞助组织的电子邮件更新
-
-You can choose whether a sponsored organization can send you email updates about their work. The sponsored organization will not have access to your email address.
-
-{% data reusables.sponsors.navigate-to-sponsored-org %}
-{% data reusables.sponsors.manage-org-sponsorship %}
-{% data reusables.sponsors.org-sponsored-choose-updates %}
-{% data reusables.sponsors.update-sponsorship %}
+- "[升级赞助](/articles/upgrading-a-sponsorship)"
+- "[降级赞助](/articles/downgrading-a-sponsorship)"

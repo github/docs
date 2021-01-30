@@ -1,6 +1,6 @@
 ---
 title: SSH-Schlüssel-Passphrasen verwenden
-intro: 'Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.'
+intro: Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.
 redirect_from:
   - /ssh-key-passphrases/
   - /working-with-key-passphrases/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn jemand Zugriff auf Deinen Computer erlangt, kann er mit SSH-Schlüsseln zudem auf jedes System zugreifen, das diese Schlüssel verwendet. Als zusätzliche Sicherheitsebene kannst Du Deinem SSH-Schlüssel eine Passphrase beifügen. Mit `ssh-agent` kannst Du Deine Passphrase sicher speichern, damit Du sie nicht erneut eingeben musst.
@@ -17,12 +18,11 @@ Wenn jemand Zugriff auf Deinen Computer erlangt, kann er mit SSH-Schlüsseln zud
 Durch Eingabe des folgenden Befehls kannst Du die Passphrase für einen vorhandenen privaten Schlüssel ändern, ohne das Schlüsselpaar erneut zu genieren:
 
 ```shell
-$ ssh-keygen -p
-# Start des Prozesses zur SSH-Schluesselerstellung
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -73,7 +73,7 @@ fi
 unset env
 ```
 
-Wenn Dein privater Schlüssel nicht in einem der Standardorte gespeichert wird (z.B. `~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} oder `~/. sh/id_dsa`{% endif %}), musst Du Deinem SSH-Authentifizierungsagenten mitteilen, wo er gefunden werden kann. Gib `ssh-add ~/path/to/my_key` ein, um dem SSH-Agenten Deinen Schlüssel hinzuzufügen. Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).“
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. Gib `ssh-add ~/path/to/my_key` ein, um dem SSH-Agenten Deinen Schlüssel hinzuzufügen. Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).“
 
 {% tip %}
 
@@ -104,8 +104,7 @@ Die Ausführung des `ssh-agent`-Prozesses wird fortgesetzt, bis Du Dich abmeldes
 
 In OS X Leopard bis OS X El Capitan werden folgende standardmäßigen Privatschlüssel-Dateien automatisch verarbeitet:
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 Bei der ersten Nutzung Deines Schlüssels wirst Du zur Eingabe Deiner Passphrase aufgefordert. Falls Du die Passphrase mit Deiner Schlüsselkette speicherst, musst Du sie nicht erneut eingeben.

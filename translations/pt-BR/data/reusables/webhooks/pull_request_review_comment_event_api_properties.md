@@ -1,3 +1,3 @@
-| Tecla  | Tipo     | Descrição                                                        |
-| ------ | -------- | ---------------------------------------------------------------- |
-| `Ação` | `string` | The action that was performed on the comment. Pode ser `criado`. |
+| Tecla  | Tipo     | Descrição                                          |
+| ------ | -------- | -------------------------------------------------- |
+| `Ação` | `string` | A ação realizada no comentário. Pode ser `criado`. |

@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can only make commits on pull request branches that:
 - are opened in a repository that you have push access to and that were created from a fork of that repository
 - are on a user-owned fork
 - have permission granted from the pull request creator
-- don't have [branch restrictions](/articles/about-branch-restrictions) that will prevent you from committing
+- don't have [branch restrictions](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
 
 Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
@@ -22,7 +23,9 @@ Only the user who created the pull request can give you permission to push commi
 
 {% endnote %}
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+1. On
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

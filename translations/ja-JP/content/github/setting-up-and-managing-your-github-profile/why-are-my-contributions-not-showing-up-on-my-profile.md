@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### カウントされるコントリビューション
 
-#### Issue およびプルリクエスト
+#### Issues, pull requests and discussions
 
-Issue とプルリクエストは、フォークではなく、スタンドアロンのリポジトリで開かれた場合、コントリビューショングラフに表示されます。
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 #### コミット
 次の条件の**すべて**を満たしている場合、コミットはコントリビューショングラフに表示されます。
@@ -29,20 +30,20 @@ Issue とプルリクエストは、フォークではなく、スタンドア�
 - リポジトリをフォークしたこと。
 - リポジトリでプルリクエストまたは Issue を開いていること。
 - リポジトリに Star を付けたこと。
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### コントリビューションがカウントされない一般的な理由
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### コミットしてからまだ 24 時間経過していない
 
 コントリビューションとしてカウントするための要件を満たすコミットを行った後、コントリビューションがコントリビューショングラフに表示されるまで、最大 24 時間待つ必要があります。
 
-#### ローカルの Git コミットメールをプロフィールに追加していない
+#### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that has been added to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
-You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
+コミット URL の最後に `.patch` を追加すると、コミットに使用されたメールアドレスを確認できます。例: <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
 ```
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
@@ -53,7 +54,7 @@ Subject: [PATCH] より良いウェルカムメッセージのためのインデ
 
 [`From:`] フィールドのメールアドレスは、[ローカル Git 設定](/articles/set-up-git)で設定されたアドレスです。 この例では、コミットに使用されたメールアドレスは、`octocat@nowhere.com` です。
 
-コミットに使用したメールアドレスが、{% data variables.product.product_name %} プロフィールに追加されていない場合は、{% data variables.product.product_name %} アカウントに[メールアドレスを追加する必要があります](/articles/adding-an-email-address-to-your-github-account)。 新しいアドレスを追加すると、 コントリビューショングラフが自動的に再構築されます。
+If the email address used for the commit is not connected to your account on {% data variables.product.product_name %}, {% if currentVersion == "github-ae@latest" %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your {% data variables.product.product_name %} account. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
@@ -63,11 +64,11 @@ Subject: [PATCH] より良いウェルカムメッセージのためのインデ
 
 #### デフォルトまたは `gh-pages` ブランチでコミットされていません
 
-コミットがデフォルトのブランチまたは `gh-pages` ブランチ (プロジェクトサイトを持つリポジトリの場合) で行われた場合にのみカウントされます。 For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+コミットがデフォルトのブランチまたは `gh-pages` ブランチ (プロジェクトサイトを持つリポジトリの場合) で行われた場合にのみカウントされます。 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
 
 コミットがデフォルト以外または `gh-pages` 以外のブランチにあり、コントリビューションにカウントする場合は、以下のうち 1 つを行う必要があります:
 - 変更をデフォルトのブランチまたは `gh-pages` ブランチにマージするには、[プルリクエストを開きます](/articles/creating-a-pull-request)。
-- リポジトリの[デフォルトブランチを変更します](/articles/setting-the-default-branch)。
+- リポジトリの[デフォルトブランチを変更します](/github/administering-a-repository/changing-the-default-branch)。
 
 {% warning %}
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Permissions overview
@@ -29,7 +30,7 @@ For example, if an organization owner has given all organization members read pe
 
 ### Project board visibility
 
-{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to public and back again. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
+{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
 
 ### 더 읽을거리
 

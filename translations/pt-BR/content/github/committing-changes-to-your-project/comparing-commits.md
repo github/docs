@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode comparar o estado de seu repositório entre os branches, tags, commits e datas. Para comparar diferentes versões do repositório, adicione `/compare` ao caminho do seu repositório.
@@ -26,9 +27,9 @@ Veja a seguir um exemplo de uma [comparação entre dois branches](https://githu
 
 ### Comparar tags
 
-A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Para obter mais informações, consulte "[Comparar versões](/github/administering-a-repository/comparing-releases)."{% endif %}
+A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} Para obter mais informações, consulte "[Comparar versos](/github/administering-a-repository/comparing-releases)".{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Para comparar tags, você pode selecionar um nome de tag no menu suspenso `compare` na parte superior da página.{% else %} Em vez de digitar um nome do branch, digite o nome da sua tag no menu suspenso `compare`.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}Para comparar tags, você pode selecionar o nome de uma tag no menu suspenso `comparar` na parte superior da página.{% else %} Em vez de digitar o nome de um branch, digite o nome da sua tag no menu suspenso `comparar`.{% endif %}
 
 Veja a seguir o exemplo de uma [comparação entre duas tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 
@@ -46,7 +47,7 @@ Para saber mais sobre outras opções de comparação, consulte "[Comparações 
 
 Você pode comparar seu repositório base e qualquer repositório bifurcado. Essa é a exibição que é apresentada quando um usuário executa uma pull request em um projeto.
 
-Para comparar branches em repositórios diferentes, anteceda os nomes do branch com nomes de usuários. Por exemplo, especificando `octocat:master` para `base` e `octo-org:master` para `compare`, você pode comparar o branch `master` dos repositórios respectivamente possuídos por `octocat` e `octo-org`.
+Para comparar branches em repositórios diferentes, anteceda os nomes do branch com nomes de usuários. Por exemplo, ao especificar o `octocat:main` para `base` e `octo-org:main` para `compare`você pode comparar o branch `principal` dos repositórios respectivamente que pertencem a `octocat` e `octo-org`.
 
 Veja a seguir o exemplo de uma [comparação entre dois repositórios](https://github.com/octocat/linguist/compare/master...octo-org:master).
 

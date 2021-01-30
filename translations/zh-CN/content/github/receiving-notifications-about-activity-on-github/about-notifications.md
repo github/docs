@@ -33,9 +33,8 @@ versions:
 
 #### 查看通知
 
-您查看的仓库或团队讨论如有更新，{% data variables.product.product_name %} 会发送*查看*通知。 {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}更多信息请参阅“[关注和取消关注仓库](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)”。
-
-{% endif %}您在以下情况下会收到通知：
+您查看的仓库或团队讨论如有更新，{% data variables.product.product_name %} 会发送*查看*通知。  {% data reusables.notifications.auto-watch %}更多信息请参阅“[关注和取消关注仓库](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)”。
+您在以下情况下会收到通知：
   - 新开了一个议题。
   - 打开的议题新增了评论。
   - 新开了一个拉取请求。

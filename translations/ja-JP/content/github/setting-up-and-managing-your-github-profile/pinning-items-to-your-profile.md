@@ -1,6 +1,6 @@
 ---
 title: プロフィールにアイテムをピン止めする
-intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}Gist および{% endif %}リポジトリを自分のプロフィールにピン止めして、他の人があなたの最も優れた作業を素早く見つけられるようにできます。'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

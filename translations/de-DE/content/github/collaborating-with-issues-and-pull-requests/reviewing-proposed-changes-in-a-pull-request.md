@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zum Review von Pull Requests
 
-Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. Während des Reviews der Dateien eines Pull Requests kannst Du einzelne Änderungen kommentieren.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Wenn Du den Review einer Datei abgeschlossen hast, kannst Du die Datei als „gesehen“ markieren. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. In einer Fortschrittsanzeige im Header des Pull Requests wird die Anzahl der gesehenen Dateien angezeigt.{% endif %} Nachdem Du alle oder einzelne Dateien überprüft hast, kannst Du den Pull Request genehmigen oder durch Absenden Deines Reviews mit einem zusammenfassenden Kommentar weitere Änderungen anfordern.
+Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,18 +29,30 @@ Vor dem Absenden Deines Reviews haben Deine Zeilenkommentare den Status _Aussteh
 
 ![Schaltfläche „Cancel review“ (Review abbrechen)](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+{% if currentVersion == "free-pro-team@latest" %}
+### Reviewing dependency changes
+
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
+
 ### Datei als „gesehen“ markieren
 
-Wenn Du den Review einer Datei abgeschlossen hast, kannst Du sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Deiner Überprüfung geändert wird, wird die Markierung aufgehoben.
+Wenn Sie den Review einer Datei abgeschlossen haben, können Sie sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Ihrer Überprüfung geändert wird, wird die Markierung aufgehoben und die Datei wird wieder eingeblendet.
 
 {% data reusables.repositories.changed-files %}
 2. Aktiviere rechts neben dem Header der überprüften Datei das Kontrollkästchen **Viewed** (Gesehen). ![Kontrollkästchen „Viewed“ (Gesehen)](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### Review absenden
 
-Wenn Du den Review aller von Dir im Pull Request einzuschließenden Dateien abgeschlossen hast, sende den Review ab.
+Wenn Sie den Review der Dateien des Pull Requesta abgeschlossen haben, senden Sie den Review ab.
 
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.review-changes %}
@@ -54,8 +67,5 @@ Wenn Du den Review aller von Dir im Pull Request einzuschließenden Dateien abge
 
 ### Weiterführende Informationen
 
-- „[Informationen zu Pull-Request-Reviews](/articles/about-pull-request-reviews)“
-- „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests)“
-- „[Pull Request mit erforderlichen Reviews genehmigen](/articles/approving-a-pull-request-with-required-reviews)“
-- „[Einen Pull Request kommentieren](/articles/commenting-on-a-pull-request)“
-- „[Pull Requests nach Review-Status filtern](/articles/filtering-pull-requests-by-review-status)“
+- „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)“
+- „[Pull Requests nach Review-Status filtern](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)“

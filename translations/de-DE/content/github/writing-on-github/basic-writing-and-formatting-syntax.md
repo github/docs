@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Überschriften
@@ -170,7 +171,7 @@ Weitere Informationen findest Du unter „[Informationen zu Aufgabenlisten](/art
 
 ### Personen und Teams erwähnen
 
-Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. Weitere Informationen zu Benachrichtigungen findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support Wie findet ihr diese Aktualisierungen?`
 
@@ -188,12 +189,9 @@ Du kannst eine Liste vorgeschlagener Issues und Pull Requests im Repository anze
 
 Weitere Informationen findest Du unter „[Automatisch verknüpfte Verweise und URLs](/articles/autolinked-references-and-urls).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Auf externe Ressourcen verweisen
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### Inhaltsanhänge
 
@@ -201,7 +199,7 @@ Einige {% data variables.product.prodname_github_app %}s stellen Informationen i
 
 ![Inhaltsanhang](/assets/images/help/writing/content-attachment.png)
 
-Um Inhaltsanhänge zu sehen, musst Du eine {% data variables.product.prodname_github_app %} besitzen, die das API für Inhaltsanhänge nutzt, welche auf dem Repository installiert ist.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Eine App in Deinem persönlichen Konto installieren](/articles/installing-an-app-in-your-personal-account)“ und „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“.{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 Für URLs, die Teil eines Markdown-Links sind, werden keine Inhaltsanhänge angezeigt.
 
@@ -217,7 +215,7 @@ Du kannst Emojis einfügen, indem Du `:EMOJICODE:` eingeben.
 
 Bei der Eingabe von `:` wird eine Liste mit Vorschlägen für Emojis angezeigt. Die Liste wird während der Eingabe gefiltert. Wenn Du den gewünschten Emoji siehst, drücke die **Tabulator-** oder **Eingabetaste**, um das markierte Ergebnis zu vervollständigen.
 
-Eine komplette Liste der verfügbaren Emojis und Codes findest Du unter [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### Paragraphen
 
@@ -225,7 +223,7 @@ Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen lee
 
 ### Markdown-Formatierung ignorieren
 
-Du kannst {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren (oder zu verlassen), indem Du das Markdown-Zeichen mit `\` maskierst.
+Sie können {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren, indem Sie das Markdown-Zeichen mit `\` maskieren.
 
 `Wir benennen \*unser-neues-Projekt\* in \*unser-altes-Projekt\* um.`
 

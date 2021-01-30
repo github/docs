@@ -11,13 +11,13 @@ versions:
 
 As opções de suporte variam dependendo do seu produto {% data variables.product.prodname_dotcom_the_website %}. Se você tiver qualquer produto pago, pode entrar em contato com {% data variables.contact.github_support %}, em inglês. Sua conta também pode incluir {% data variables.contact.premium_support %}.
 
-|                                                        | {% data variables.product.prodname_gcf %} | Suporte Padrão | Suporte premium |
-| ------------------------------------------------------ | ---------------------------------------------- | -------------- | --------------- |
-| {% data variables.product.prodname_free_user %} | X                                              |                |                 |
-| {% data variables.product.prodname_pro %}         | X                                              | X              |                 |
-| {% data variables.product.prodname_team %}        | X                                              | X              |                 |
-| {% data variables.product.prodname_ghe_cloud %} | X                                              | X              | X               |
-| {% data variables.product.prodname_ghe_server %} | X                                              | X              | X               |
+|                                                    | {% data variables.product.prodname_gcf %} | Suporte Padrão | Suporte premium |
+| -------------------------------------------------- | ----------------------------------------- | -------------- | --------------- |
+| {% data variables.product.prodname_free_user %}  | X                                         |                |                 |
+| {% data variables.product.prodname_pro %}          | X                                         | X              |                 |
+| {% data variables.product.prodname_team %}         | X                                         | X              |                 |
+| {% data variables.product.prodname_ghe_cloud %}  | X                                         | X              | X               |
+| {% data variables.product.prodname_ghe_server %} | X                                         | X              | X               |
 
 Para verificar se, atualmente, há algum incidente afetando os serviços no {% data variables.product.prodname_dotcom %} ou para se inscrever e receber notificações de atualizações de status futuras, visite a [página de status](https://www.githubstatus.com/) do {% data variables.product.prodname_dotcom %}.
 

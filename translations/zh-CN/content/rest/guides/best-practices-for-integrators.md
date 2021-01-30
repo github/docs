@@ -7,11 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 有兴趣与 GitHub 平台集成吗？ [与您志趣相投的大有人在](https://github.com/integrations)。 本指南将帮助您构建能够为用户提供最佳体验*并*确保与 API 进行可靠交互的应用程序。
-
 
 ### 确保安全接收从 GitHub 交付的有效负载
 
@@ -20,7 +20,7 @@ versions:
 您可以采取以下几个步骤来确保安全接收由 GitHub 交付的工作负载：
 
 1. 确保您的接收服务器在 HTTPS 连接上。 默认情况下，GitHub 在交付有效负载时会验证 SSL 证书。{% if currentVersion == "free-pro-team@latest" %}
-1. 您可以将[我们在交付挂钩时使用的 IP 地址](/github/authenticating-to-github/about-githubs-ip-addresses)添加到服务器的允许列表中。 为确保始终检查 IP 地址是否正确，您可以[使用 `/meta` 端点](/v3/meta/#meta)查找我们使用的地址。{% endif %}
+1. 您可以将[我们在交付挂钩时使用的 IP 地址](/github/authenticating-to-github/about-githubs-ip-addresses)添加到服务器的允许列表中。 为确保始终检查 IP 地址是否正确，您可以[使用 `/meta` 端点](/rest/reference/meta#meta)查找我们使用的地址。{% endif %}
 1. 提供[密钥令牌](/webhooks/securing/)以确保有效负载肯定来自 GitHub。 通过实施密钥令牌，您可以确保服务器接收的任何数据绝对来自 GitHub。 理想情况下，您应该为您服务的*每个用户*都提供一个不同的密钥令牌。 这样，即使某个令牌被泄露，也不至于影响其他用户。
 
 ### 支持异步工作而非同步工作
@@ -49,7 +49,7 @@ GitHub 要求在收到 web 挂钩有效负载后 {% if currentVersion == "free-p
 
 GitHub 在资源发生移动时会通过提供重定向状态代码来明确告诉您。 您应该遵循这些重定向。 每个重定向响应都使用要转到的新 URI 来设置 `Location` 标头。 如果您收到了重定向，最好更新代码以遵循新的 URI，以防您请求我们可能已删除的无效路径。
 
-我们提供了 [HTTP 状态代码列表](/v3/#http-redirects)，供您在设计应用程序时参考以便遵循重定向。
+我们提供了 [HTTP 状态代码列表](/rest#http-redirects)，供您在设计应用程序时参考以便遵循重定向。
 
 ### 不要手动解析 URL
 

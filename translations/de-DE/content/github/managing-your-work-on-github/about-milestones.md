@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du [einen Meilenstein erstellst](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), kannst Du ihn [mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests).

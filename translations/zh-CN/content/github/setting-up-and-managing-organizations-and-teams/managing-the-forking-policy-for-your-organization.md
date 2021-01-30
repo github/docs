@@ -1,6 +1,6 @@
 ---
 title: 管理组织的复刻政策
-intro: '您可以允许或阻止对组织拥有的任何私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}和内部{% endif %}仓库进行复刻。'
+intro: '您可以允许或阻止对组织拥有的任何私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 和内部{% endif %} 仓库进行复刻。'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -8,11 +8,12 @@ permissions: 组织所有者可以管理组织组织的复刻政策。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-默认情况下，新的组织被配置为禁止复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}和内部{% endif %}仓库。
+默认情况下，新的组织被配置为禁止复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 和内部{% endif %} 仓库。
 
-如果您在组织级别上允许复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}和内部{% endif %}仓库，则还可以配置复刻特定{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}或内部{% endif %}仓库的能力。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
+如果您在组织级别上允许复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 和内部{% endif %} 仓库，则还可以配置复刻特定{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 或内部{% endif %} 仓库的权限。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

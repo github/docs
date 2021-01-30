@@ -1,6 +1,6 @@
 ---
 title: Beitragsdaten erneut erstellen
-intro: 'Es ist ggf. erforderlich, Beitragsdaten neu zu erstellen, um vorhandene Commits mit einem Benutzerkonto zu verknüpfen.'
+intro: Es ist ggf. erforderlich, Beitragsdaten neu zu erstellen, um vorhandene Commits mit einem Benutzerkonto zu verknüpfen.
 redirect_from:
   - /enterprise/admin/articles/rebuilding-contributions-data/
   - /enterprise/admin/user-management/rebuilding-contributions-data
@@ -15,4 +15,5 @@ Wenn ein Commit per Push-Vorgang an {% data variables.product.prodname_enterpris
 3. Klicken Sie links auf der Seite auf **Admin** (Administrator). ![Registerkarte „Admin“ (Administrator)](/assets/images/enterprise/site-admin-settings/admin-tab.png)
 4. Klicken Sie unter **Contributions data** (Beitragsdaten) auf **Rebuild** (Neu erstellen). ![Schaltfläche „Rebuild“ (Neu erstellen)](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} startet nun Hintergrundaufträge, um Commits mit dem Konto dieses Benutzers neu zu verknüpfen. ![In die Warteschlange versetzte Neuerstellungsaufträge](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} startet nun Hintergrundaufträge, um Commits mit dem Konto dieses Benutzers neu zu verknüpfen.
+  ![In die Warteschlange versetzte Neuerstellungsaufträge](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

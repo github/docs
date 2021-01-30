@@ -3,7 +3,7 @@ title: Personalizar mensagens de usuário na instância
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
-intro: 'É possível criar {% if currentVersion ver_gt "enterprise-server@2.15" %}mensagens personalizadas que os usuários verão nas páginas de entrada e saída{% else %}uma mensagem personalizada que os usuários verão na página de entrada{% endif %}.'
+intro: 'Você pode criar mensagens personalizadas que os usuários verão nas páginas de login e logout{% if currentVersion ver_gt "enterprise-server@2. 1" %} ou em um banner de anúncio na parte superior de cada página{% endif %}.'
 versions:
   enterprise-server: '*'
 ---

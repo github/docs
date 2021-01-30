@@ -14,11 +14,12 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre o {% data variables.large_files.product_name_long %}
 
-{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} Você pode usar o {% data variables.large_files.product_name_long %} com um único repositório, com todos os seus repositórios pessoais ou da organização, ou com todos os repositórios na {% data variables.product.product_location_enterprise %}. Antes de poder habilitar o {% data variables.large_files.product_name_short %} para repositórios ou organizações específicos, é necessário habilitar o {% data variables.large_files.product_name_short %} no appliance.
+{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} Você pode usar {% data variables.large_files.product_name_long %} com um único repositório, todos os seus repositórios pessoais ou organizacionais, ou com cada repositório na sua empresa. Antes de habilitar {% data variables.large_files.product_name_short %} para repositórios ou organizações específicos, você deve habilitar {% data variables.large_files.product_name_short %} para a sua empresa.
 
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
@@ -27,11 +28,10 @@ Para obter mais informações, consulte "[Sobre o {% data variables.large_files.
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-### Configurar o {% data variables.large_files.product_name_long %} no appliance
+### Configurar {% data variables.large_files.product_name_long %} para a sua empresa
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -59,12 +59,13 @@ Para obter mais informações, consulte "[Sobre o {% data variables.large_files.
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Configurar o Git Large File Storage para uso em servidores de terceiros
 
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-1. Desabilite o appliance do {% data variables.large_files.product_name_short %} no {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar o {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)".
+1. Desabilite {% data variables.large_files.product_name_short %} em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar {% data variables.large_files.product_name_long %} para a sua empresa](#configuring-git-large-file-storage-for-your-enterprise)".
 
 2. Crie um arquivo de configuração do {% data variables.large_files.product_name_short %} que aponte para o servidor de terceiros.
   ```shell
@@ -129,6 +130,7 @@ Antes de migrar para outro servidor do {% data variables.large_files.product_nam
   > Pushing objects...
   > Git LFS: (16 de 16 arquivos) 48.00 MB / 48.85 MB, 879.10 KB ignorados
   ```
+{% endif %}
 
 ### Leia mais
 

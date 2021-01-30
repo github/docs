@@ -26,9 +26,19 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
 
 ### Commits mit einem `on-behalf-of`-Badge in der Befehlszeile erstellen
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
 
-2. Gib in der nächsten Zeile der Commit-Mitteilung `on-behalf-of: @org <name@organization.com>` ein, gefolgt von einem abschließenden Anführungszeichen.
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+
+  {% endtip %}
+
+2. Geben Sie in der nächsten Zeile der Commit-Mitteilung `on-behalf-of: @org <name@organization.com>` ein, gefolgt von einem abschließenden Anführungszeichen.
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -41,7 +51,7 @@ Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data v
 
 ### Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
 
-Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen hast, kannst Du einen Commit im Namen Deiner Organisation erstellen, indem Du den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügst.
+Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen haben, können Sie einen Commit im Namen Ihrer Organisation erstellen, indem Sie den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügen.
 
 1. Nachdem Du Deine Änderungen gemacht hast, gib unten auf der Seite eine kurze, aussagekräftige Commit-Mitteilung ein, die die von Dir gemachten Änderungen beschreibt. ![Commit-Mitteilung für Deine Änderung](/assets/images/help/repository/write-commit-message-quick-pull.png)
 

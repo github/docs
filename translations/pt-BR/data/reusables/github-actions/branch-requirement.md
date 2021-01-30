@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** Este evento acionará apenas a execução de um fluxo de trabalho se o arquivo de trabalho estiver no `master` ou branch padrão.
+**Observação:** Este evento acionará apenas um fluxo de trabalho executado se o arquivo do fluxo de trabalho estiver no branch-padrão.
 
 {% endnote %}

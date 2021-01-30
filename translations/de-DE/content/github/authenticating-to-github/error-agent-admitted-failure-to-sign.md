@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Wenn Du auf einem Linux-Computer versuchst, eine SSH-Verbindung mit {% data variables.product.product_location %} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:
+Wenn Sie auf einem Linux-Computer versuchen, eine SSH-Verbindung mit {% data variables.product.product_location %} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}

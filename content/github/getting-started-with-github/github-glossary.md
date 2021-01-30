@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for term in site.data.glossaries.external %}
-  ### {{term.term}}
-  {{term.description}}
+  ### {% data glossaries.external[forloop.index0].term %}
+  {% data glossaries.external[forloop.index0].description %}
   ---
 {% endfor %}
 

@@ -1,65 +1,69 @@
 ---
-title: Creating webhooks
-intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
+title: 创建 web 挂钩
+intro: '了解如何构建 web 挂钩，选择 web 挂钩将在 {% data variables.product.prodname_dotcom %} 上侦听的事件，以及如何设置服务器以接收和管理 web 挂钩负载。'
 redirect_from:
   - /webhooks/creating
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of Issues it receives per day.
+我们已了解 [web 挂钩的基础知识][webhooks-overview]，现在我们来构建自己的 web 挂钩支持的集成。 在本教程中，我们将创建一个仓库 web 挂钩，它将负责根据仓库每天收到的议题数量列出仓库的受欢迎程度。
 
-Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+创建 web 挂钩是一个两步过程。 首先需要设置 web 挂钩通过 {% data variables.product.product_name %} 实施的行为 - 它应该侦听哪些事件。 之后，您将设置服务器以接收和管理有效负载。
 
-### Setting up a Webhook
 
-You can install webhooks on an organization or on a specific repository.
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
-To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
+### 设置 web 挂钩
 
-Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
+您可以在组织或特定仓库上安装 web 挂钩。
 
-Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
+要设置 web 挂钩，请转到仓库或组织的设置页面。 在那里，单击 **Webhooks（web 挂钩）**，然后单击 **Add webhook（添加 web 挂钩）**。
 
-### Payload URL
+或者，您可以选择[通过 web 挂钩 API][webhook-api] 来构建和管理 web 挂钩。
+
+Web 挂钩需要设置几个配置选项才能使用。 我们将在下面介绍所有这些设置。
+
+### 有效负载 URL
 
 {% data reusables.webhooks.payload_url %}
 
-Since we're developing locally for our tutorial, let's set it to `http://localhost:4567/payload`. We'll explain why in the [Configuring Your Server](/webhooks/configuring/) docs.
+由于在本教程中，我们将在本地开发，因此将其设置为 `http://localhost:4567/payload`。 我们将在[配置服务器](/webhooks/configuring/)文档中解释原因。
 
-### Content Type
+### 内容类型
 
-{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
+{% data reusables.webhooks.content_type %} 在本教程中，可以使用默认内容类型 `application/json`。
 
-### Secret
+### 密钥
 
 {% data reusables.webhooks.secret %}
 
-### SSL Verification
+### SSL 验证
 
 {% data reusables.webhooks.webhooks_ssl %}
 
 ### 已激活
 
-By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
+默认情况下，web 挂钩交付为“Active（激活）”。 您可以通过取消选择“Active（激活）”来选择禁用 web 挂钩交付。
 
 ### 事件
 
-Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
+事件是 web 挂钩的核心。 当仓库上发生特定操作时，就会触发这些 web 挂钩，而服务器的有效负载 URL 会截获它们并采取行动。
 
-A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
+有关 web 挂钩事件的完整列表以及它们在什么情况下执行，请参阅 [web 挂钩 API][hooks-api] 参考资料。
 
-Since our webhook is dealing with Issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
+由于我们的 web 挂钩与仓库中的议题相关，因此我们单击 **Let me select individual events（让我选择单个事件）**，然后单击 **Issues（议题）**。 确保选择 **Active（激活）**以接收触发 web 挂钩的议题事件。 您还可以使用默认选项选择所有事件。
 
-When you're finished, click **Add webhook**. 唷！ Now that you created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
+完成后，单击 **Add webhook（添加 web 挂钩）**。 唷！ 现在您创建了 web 挂钩，是时候设置我们的本地服务器来测试 web 挂钩了。 请参阅[配置服务器](/webhooks/configuring/)了解如何进行测试。
 
-#### Wildcard Event
+#### 通配符事件
 
-To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
+要为所有事件配置 web 挂钩，请使用通配符 (`*`) 来指定 web 挂钩事件。 添加通配符事件时，我们将用通配符事件替换您配置的任何现有事件，并向您发送所有受支持事件的有效负载。 您还会自动获取我们可能在将来添加的任何新事件。
 
 [webhooks-overview]: /webhooks/
-[webhook-api]: /v3/repos/hooks/
+[webhook-api]: /rest/reference/repos#hooks
 [hooks-api]: /webhooks/#events

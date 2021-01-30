@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.large_files.use_lfs_tip %}
@@ -16,4 +17,4 @@ Wenn Du versuchst, eine Datei größer als {% data variables.large_files.warning
 
 ### Blockierte Pushs für große Dateien
 
-{% data variables.product.product_name %} blockiert {% if currentVersion != "free-pro-team@latest" %}standardmäßig {% endif %}Übertragungen, welche {% data variables.large_files.max_github_size %} übersteigen. {% if currentVersion != "free-pro-team@latest" %}Ein Website-Administrator kann jedoch für Deine {% data variables.product.prodname_ghe_server %}-Instanz eine andere Limite konfigurieren. Weitere Informationen findest Du unter „[Push-Begrenzungen für Git festlegen](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits).“{% endif %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}. Weitere Informationen findest Du unter „[Push-Begrenzungen für Git festlegen](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits).“{% endif %}

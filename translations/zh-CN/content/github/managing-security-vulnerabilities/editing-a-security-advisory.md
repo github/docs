@@ -19,7 +19,7 @@ versions:
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击您要编辑的安全通告。
-5. In the upper-right corner of the details for the security advisory, click
+5. 在安全通告详细信息的右上角，单击
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![安全通告的编辑按钮](/assets/images/help/security/security-advisory-edit-button.png)
 {% data reusables.repositories.security-advisory-edit-details %}

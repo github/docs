@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %} 全体にわたってグローバルにコードを検索できます。あるいは、特定のリポジトリや Organization のみのコードの検索もできます。 パブリックリポジトリのすべてにわたってコードを検索するには、{% data variables.product.product_name %} にサインインしていなければなりません。 詳細は「[GitHub 上での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索](/articles/about-searching-on-github)」を参照してください。
 
 これらのコード検索の修飾子を使わなければ、コードを検索できません。 リポジトリ、ユーザまたはコミットの特定の修飾子での検索は、コードを検索する場合、うまくいきません。
 
@@ -20,13 +21,14 @@ versions:
 
 コードの検索は複雑なため、検索の実行には一定の制限があります。
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - [フォーク](/articles/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/articles/searching-in-forks)」を参照してください。
 - コード検索では、_デフォルトブランチ_のみインデックスされます。{% if currentVersion == "free-pro-team@latest" %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
-- 500,000 より少ないファイル数のリポジトリのみ検索可能です。
-- サインインしているユーザは、すべてのパブリックリポジトリを検索可能です。
+- Only repositories with fewer than 500,000 files are searchable.{% if currentVersion == "free-pro-team@latest" %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
 - [`filename`](#search-by-filename) の検索を除き、ソースコードを検索する場合、常に少なくとも検索単語を 1 つ含める必要があります。 たとえば[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) は有効な検索ではありませんが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効な検索です。
 - 検索結果では、同一ファイルから取り出される部分は 2 つまでです。そのファイルはさらに多くの部分でヒットしている可能性があります。
 - クエリの一部として次のワイルドカード文字を用いることはできません: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>。 検索では、これらのシンボルは単に無視されます。
@@ -101,5 +103,5 @@ versions:
 ### 参考リンク
 
 - 「[検索結果をソートする](/articles/sorting-search-results/)」
-- "[フォーク内を検索する](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- [フォーク内を検索する](/articles/searching-in-forks){% if currentVersion == "free-pro-team@latest" %}
 - "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

@@ -21,13 +21,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About Jekyll
 
 Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
 
-Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documenation.
+Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
 
@@ -37,7 +38,7 @@ You can configure most Jekyll settings, such as your site's theme and plugins, b
 
 Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -110,7 +111,7 @@ By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses 
 
 If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

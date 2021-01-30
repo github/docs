@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Por padrão, os problemas não podem ser excluídos dos repositórios de uma organização. Um proprietário da organização deve habilitar esse recurso primeiro para todos os repositórios da organização.

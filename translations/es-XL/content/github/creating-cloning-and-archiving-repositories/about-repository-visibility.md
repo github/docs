@@ -1,23 +1,23 @@
 ---
-title: Acerca de la visibilidad de un repositorio
-intro: 'Puedes restringir quién tiene acceso a un repositorio si eliges su visibilidad: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}pública, interna, o privada{% else %} pública o privada{% endif %}.'
+title: About repository visibility
+intro: 'You can restrict who has access to a repository by choosing a repository''s visibility: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}public, internal, or private{% else %} public or private{% endif %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-### Acerca de la visibilidad de un repositorio
+### About repository visibility
 
-Cuando creas un repositorio, puedes elegir configurarlo como público o privado. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Si creas un repositorio en una organización{% if currentVersion == "free-pro-team@latest" %} que sea propiedad de una cuenta empresarial{% endif %}, también puedes configurarlo como interno.{% endif %}
+When you create a repository, you can choose to make the repository public or private. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you're creating the repository in an organization{% if currentVersion == "free-pro-team@latest" %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}Si {% data variables.product.product_location_enterprise %} no está en modo privado o detrás de un cortafuegos, cualquier persona en la internet podrá acceder a los repositorios p{% else %}P{% endif %}úblicos.{% if currentVersion != "free-pro-team@latest" %}De lo contrario, los repositorios públicos estarán disponibles para cualquiera que utilice {% data variables.product.product_location_enterprise %}, incluyendo a los colaboradores externos.{% endif %} Solo tú y las personas con las que compartas el acceso explícitamente podrán acceder a los repositorios privados y, en caso de los repositorios organizacionales, solo [algunos miembros específicos de la organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization). {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Los {% if currentVersion == "free-pro-team@latest" %}miembros de tu cuenta empresarial y{% else %}los de cualquier organización en tu instancia{% endif %} tienen acceso a los repositorios internos. Para obtener más información, consulta la sección "[Acerca de los repositorios internos](#about-internal-repositories)."{% endif %}
+{% if currentVersion != "free-pro-team@latest" %}If {% data variables.product.product_location_enterprise %} is not in private mode or behind a firewall, p{% else %}P{% endif %}ublic repositories are accessible to everyone on the internet.{% if currentVersion != "free-pro-team@latest" %} Otherwise, public repositories are available to everyone using {% data variables.product.product_location_enterprise %}, including outside collaborators.{% endif %} Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, [certain organization members](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization). {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Internal repositories are accessible to {% if currentVersion == "free-pro-team@latest" %}members of your enterprise account{% else %}members of any organization on your instance{% endif %}. For more information, see "[About internal repositories](#about-internal-repositories)."{% endif %}
 
-Los propietarios de la organización siempre tiene acceso a todos los repositorios creados en la misma. Para obtener más información, consulta la sección "[Niveles de permiso en un repositorio para una organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Organization owners always have access to every repository created in an organization. For more information, see "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
 
-Las personas con permisos de administrador para un repositorio pueden cambiar la visibilidad de los repositorios existentes. Para obtener más información, consulta la sección "[Configurar la visibilidad de los repositorios](/github/administering-a-repository/setting-repository-visibility)".
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Acerca de los repositorios internos
+### About internal repositories
 
 {% note %}
 
@@ -25,12 +25,11 @@ Las personas con permisos de administrador para un repositorio pueden cambiar la
 
 {% endnote %}
 
-{% data reusables.repositories.about-internal-repos %}Para obtener más información sobre innersource, consulta la documentación técnica de {% data variables.product.prodname_dotcom %} "Introducción a innersource".
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-Todos los {% if currentVersion == "free-pro-team@latest" %} miembros empresariales{% else %}miembros organizacionales{% endif %}tienen permisos de lectura para los repositorios internos, pero estos no serán visibles para aquellos {% if currentVersion == "free-pro-team@latest" %} externos a la cuenta empresarial{% else %} que no sean miembros de una organización{% endif %}, incluyendo los colaboradores en repositorios organizacionales. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" %}"[Roles para una cuenta empresarial](/articles/roles-for-an-enterprise-account#enterprise-members)" y {% endif %}"[Niveles de permiso para una organización en los repositorios](/articles/repository-permission-levels-for-an-organization)".
+All {% if currentVersion == "free-pro-team@latest" %}enterprise members{% else %}organization members{% endif %} have read permissions to the internal repository, but internal repositories are not visible to people {% if currentVersion == "free-pro-team@latest" %}outside of the enterprise account{% else %}who are not members of an organization{% endif %}, including outside collaborators on organization repositories. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Roles for an enterprise account](/articles/roles-for-an-enterprise-account#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
 {% data reusables.repositories.internal-repo-default %}
-Si se elimina a un usuario de
 
-{% if currentVersion == "free-pro-team@latest" %}una cuenta empresarial{% else %} todas las organizaciones en la instancia{% endif %}, que las bifurcaciones de un usuario en los repositorios internos se eliminan automáticamente.
+If a user is removed from {% if currentVersion == "free-pro-team@latest" %}an enterprise account{% else %}all organizations on the instance{% endif %}, that user's forks of internal repositories are removed automatically.
 {% endif %}

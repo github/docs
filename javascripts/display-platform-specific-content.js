@@ -1,15 +1,17 @@
-const { getPlatformFromUserAgent } = require('platform-utils')
+import parseUserAgent from './user-agent'
 const supportedPlatforms = ['mac', 'windows', 'linux']
 const detectedPlatforms = new Set()
 
 // Emphasize content for the visitor's OS (inferred from user agent string)
 
 export default function displayPlatformSpecificContent () {
-  let platform = getPlatformFromUserAgent()
+  let platform = getDefaultPlatform() || parseUserAgent().os
 
   // adjust platform names to fit existing mac/windows/linux scheme
   if (!platform) platform = 'mac' // default to 'mac' on mobile
   if (platform === 'darwin') platform = 'mac'
+  if (platform === 'ios') platform = 'mac'
+  if (platform === 'android') platform = 'linux'
   if (platform.startsWith('win')) platform = 'windows'
 
   const platformsInContent = findPlatformSpecificContent(platform)
@@ -76,6 +78,11 @@ function detectPlatforms (el) {
     const value = elClass.replace(/platform-/, '')
     if (supportedPlatforms.includes(value)) detectedPlatforms.add(value)
   })
+}
+
+function getDefaultPlatform () {
+  const el = document.querySelector('[data-default-platform]')
+  if (el) return el.dataset.defaultPlatform
 }
 
 function switcherLinks () {

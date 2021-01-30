@@ -1,6 +1,6 @@
 ---
 title: 排查 SSL 错误
-intro: 如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。
+intro: '如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors/
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
@@ -39,7 +39,7 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 ### 上传密钥后安装无响应
 
-如果上传 SSL 密钥后 {% data variables.product.product_location_enterprise %} 无响应，请[联系 {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) 并提供具体的详细信息，并附上您的 SSL 证书的副本。
+如果上传 SSL 密钥后 {% data variables.product.product_location %} 无响应，请[联系 {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) 并提供具体的详细信息，并附上您的 SSL 证书的副本。
 
 ### 证书有效性错误
 

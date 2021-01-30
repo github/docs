@@ -47,7 +47,8 @@ To access {% data variables.product.prodname_marketplace %} Insights:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+4. Select the
+{% data variables.product.prodname_github_app %} that you'd like to view Insights for.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Insights** tab.
 7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
