@@ -1,0 +1,56 @@
+Skip to content
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+You need to leave a comment indicating the requested changes.
+octocat
+/
+Hello-World
+Code
+Issues
+228
+Pull requests
+232
+Actions
+Projects
+Wiki
+Security
+Insights
+Jump to bottom
+##://run:'script:'build'repository'@iixixi/iixixi/README.md:'('('₿')'='('… #846
+ Open
+Iixixi wants to merge 5 commits into octocat:master from Iixixi:patch-4
+Conversation 2
+Commits 5
+Checks 0
+Files changed 1
+ 15  ##:/run:'script:'build'wallet'@iixixi/iixixi/README.md:'('('₿')'='('('c')'('r')')'='₿itcoin' 
+@@ -0,0 +1,15 @@
+
+##://Run:script'build'repository'@iixixi/iixixi/README.md</activeProfiles><profiles><profile><id>![th](https://user-images.githubusercontent.com/72369414/106364517-3b84ca80-62f5-11eb-960f-0089dab78121.jpeg)
+</id><repositories><repository><id>central</id> <url>https://repo1.maven.org/maven2</url> <releases><enabled>true</enabled></releases> <snapshots><enabled>true</enabled></snapshots> </repository> <repository> <id>github</id> <name>GitHub OWNER Apache Maven Packages</name> <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url> </repository> </repositories></profile></profiles><servers><server><id>11889</id><username>'@ZachryTylerWood@Administrator@.git.it.gists/@iixixi/secrets/Bitcoin'</username>'('('c')'('r')')'<password>'('('c')'('r')')'</password> </server> </servers> ##:run://script:'Build::'('('₿')'='('('c')'('r')')'='₿itcoin'</settings>'#://publish::'release::'@iixixi/iixixi/README.md''require "bundler/gem_tasks"desc 'Generate documentation.'
+Steps:'rdoc'doc'system'yarn'doc'#://publish:'::release://Return:#''
+
+
+
+
+
+
+
+
+
+
+
+<li>Zachry T Wood III<li>
+ ProTip! Use n and p to navigate between commits in a pull request.
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
