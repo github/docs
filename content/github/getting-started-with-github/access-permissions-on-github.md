@@ -33,7 +33,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
-
+Zachry Tyler Wood III
 ### Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
