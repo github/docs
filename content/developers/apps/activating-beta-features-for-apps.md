@@ -1,4 +1,4 @@
----
+activating beta features of this message
 title: Activating beta features for apps
 intro: 'You can test new app features released in public beta for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s.'
 versions:
