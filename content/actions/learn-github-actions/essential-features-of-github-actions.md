@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -43,7 +45,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-For example, to run a script as an action, you can store the script in your repository and supply the path and shell type. 
+For example, to run a script as an action, you can store the script in your repository and supply the path and shell type.
 
 ```yaml
 jobs:

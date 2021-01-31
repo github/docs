@@ -3,6 +3,7 @@
 name: Node.js Tests - Translations
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '10 20 * * *' # once a day at 20:10 UTC / 12:10 PST
 
@@ -74,6 +75,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run build script
+        run: npm run build
 
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
