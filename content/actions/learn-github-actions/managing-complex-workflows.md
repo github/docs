@@ -6,8 +6,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'how_to'
-topics:
-  - 'Workflows'
 ---
 
 {% data reusables.actions.enterprise-beta %}
