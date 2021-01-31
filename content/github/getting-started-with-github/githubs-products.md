@@ -6,7 +6,7 @@ redirect_from:
   - /articles/githubs-products
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '*'Ok
   github-ae: '*'
 ---
 
