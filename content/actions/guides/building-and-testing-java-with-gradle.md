@@ -8,10 +8,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
-topics:
-  - 'CI'
-  - 'Java'
-  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -117,12 +113,6 @@ steps:
         ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
-  - name: Cleanup Gradle Cache
-    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
-    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
-    run: |
-      rm -f ~/.gradle/caches/modules-2/modules-2.lock
-      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 

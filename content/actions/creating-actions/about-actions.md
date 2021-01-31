@@ -11,9 +11,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
-topics:
-  - 'Action development'
-  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
