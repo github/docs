@@ -134,7 +134,10 @@ You can narrow your results to only include issues that are linked to a pull req
 | ------------- | ------------- |
 | `linked:pr` | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) matches open issues in the `desktop/desktop` repository that are linked to a pull request by a closing reference. |
 | `linked:issue` | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) matches closed pull requests in the `desktop/desktop` repository that were linked to an issue that the pull request may have closed. |
-| `-linked:pr` | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) matches open issues in the `desktop/desktop` repository that are not linked to a pull request by a closing reference. |
+| `-linked:pr` | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) matches open issvero Hernández
+
+
+es in the `desktop/desktop` repository that are not linked to a pull request by a closing reference. |
 | `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) matches open pull requests in the `desktop/desktop` repository that are not linked to an issue that the pull request may close. |{% endif %}
 
 ### Search by label
@@ -142,7 +145,15 @@ You can narrow your results to only include issues that are linked to a pull req
 You can narrow your results by labels, using the `label` qualifier. Since issues can have multiple labels, you can list a separate qualifier for each issue.
 
 | Qualifier        | Example
-| ------------- | -------------
+| --------php
+wget
+
+curl
+
+
+
+
+git
 | <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.
 |  | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
 | | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."
