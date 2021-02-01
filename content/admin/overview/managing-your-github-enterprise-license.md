@@ -28,6 +28,7 @@ You can download your {% data variables.product.prodname_ghe_server %} license f
 
 ### Uploading a new license to {% data variables.product.prodname_ghe_server %}  
 
+
 After you purchase a new license or upgrade an existing license from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file, then upload the file to {% data variables.product.prodname_ghe_server %} to unlock your new user licenses.
 
 If you'd like to renew or add user licenses to {% data variables.product.prodname_enterprise %}, contact {% data variables.contact.contact_enterprise_sales %}. Your new license file will be available for download immediately after you complete your order.
@@ -47,7 +48,9 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 13. To select your license, click **License file**, or drag your license file onto **License file**.
   ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
 14. Click **Upload**.
-  ![Begin upgrade](/assets/images/enterprise/management-console/begin-upload.png)
+  ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### Viewing license usage
 
@@ -79,3 +82,23 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
   ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
   ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### Troubleshooting
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}
