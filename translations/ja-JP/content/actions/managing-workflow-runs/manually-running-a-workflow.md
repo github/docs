@@ -7,8 +7,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Configuring a workflow to run manually
 
@@ -23,11 +23,11 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 左側のサイドバーで、実行するワークフローをクリックします。 ![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
-1. ワークフロー実行の一覧の上にある [ワークフローの実行 ****を実行する] を選択します。 ![アクション ワークフローのディスパッチ](/assets/images/actions-workflow-dispatch.png)
-1. ワークフローを実行する分岐を選択し、ワークフローで使用される入力パラメータを入力します。 [ ワークフロー</strong>**実行 ] をクリックします。 ![アクションはワークフローを手動で実行します](/assets/images/actions-manually-run-workflow.png)</p></li> </ol>
+1. ワークフロー実行の一覧の上にある**Run workflow（ワークフローの実行）**を選択します。 ![アクション ワークフローのディスパッチ](/assets/images/actions-workflow-dispatch.png)
+1. ワークフローを実行するブランチを選択し、ワークフローで使用される入力パラメータを入力します。 **Run workflow（ワークフローの実行）**をクリックします。 ![アクションはワークフローを手動で実行します](/assets/images/actions-manually-run-workflow.png)
 
 ### REST API を使用してワークフローを実行する
 
-REST API を使用する場合は、 `入力` を構成し、要求本文パラメーターとして ref</code> します。 入力を省略すると、ワークフロー ファイルで定義されている既定値が使用されます。 </p>
+REST API を使用する場合は、 `inputs`と`ref`をリクエストボディのパラメータとして設定してください。 入力を省略すると、ワークフロー ファイルで定義されているデフォルト値が使用されます。
 
-<p spaces-before="0">REST API の使用の詳細については、「ワークフローディスパッチ イベントの作成</a><a href="/rest/reference/actions/#create-a-workflow-dispatch-event">」を参照してください。</p>
+REST API の使用の詳細については、「[ワークフローディスパッチ イベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」を参照してください。

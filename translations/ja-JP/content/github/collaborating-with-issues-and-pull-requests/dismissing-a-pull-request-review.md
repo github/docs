@@ -1,6 +1,6 @@
 ---
 title: プルリクエストレビューの却下
-intro: 'リポジトリに[レビューが必要](/articles/about-required-reviews-for-pull-requests)な場合は、有効でなくなった、またはレビュー担当者による承認不可のプルリクエストレビューを却下できます。'
+intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
@@ -24,4 +24,4 @@ versions:
 
 - "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)
-- [プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)
+- [保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)

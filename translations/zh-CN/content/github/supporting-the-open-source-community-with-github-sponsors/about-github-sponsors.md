@@ -23,11 +23,11 @@ versions:
 
 {% note %}
 
-**Note:** {% data reusables.sponsors.matching-fund-eligible %}
+**注：**{% data reusables.sponsors.matching-fund-eligible %}
 
 {% endnote %}
 
-{% data variables.product.prodname_matching_fund %} 旨在使 {% data variables.product.prodname_dotcom %} 社区开发开源软件的成员获益，宣传 [{% data variables.product.prodname_dotcom %} 社区指导方针](/github/site-policy/github-community-guidelines)。 Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+{% data variables.product.prodname_matching_fund %} 旨在使 {% data variables.product.prodname_dotcom %} 社区开发开源软件的成员获益，宣传 [{% data variables.product.prodname_dotcom %} 社区指导方针](/github/site-policy/github-community-guidelines)。 对被赞助组织的付款和来自组织的付款均不符合 {% data variables.product.prodname_matching_fund %} 资格。
 
 若要符合 {% data variables.product.prodname_matching_fund %} 的资格，您必须创建吸引社区长期维持您发展的个人资料。 有关创建有吸引力的个人资料的更多信息，请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)”。
 

@@ -93,7 +93,7 @@ versions:
     {% link_in_list /changing-the-visibility-of-your-organizations-dependency-insights %}
     {% link_in_list /managing-the-display-of-member-names-in-your-organization %}
     {% link_in_list /managing-updates-from-accounts-your-organization-sponsors %}
-    {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
+    {% link_in_list /managing-the-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
