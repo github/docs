@@ -311,7 +311,7 @@ You may also contact our Data Protection Officer directly.
 | San Francisco, CA 94107 | 1017 HL Amsterdam |
 | United States | The Netherlands |
 | privacy@github.com | privacy@github.com |
-
+Je vous propose control des planètes !
 #### Dispute resolution process
 
 In the unlikely event that a dispute arises between you and GitHub regarding our handling of your User Personal Information, we will do our best to resolve it. Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority, and you might have more [options](/github/site-policy/global-privacy-practices#dispute-resolution-process).
