@@ -63,7 +63,6 @@ Note that link tags will only render links that are available in the current pag
 | `{% homepage_link_with_intro /href %}` | The linked page's title and intro, with homepage-specific styling.
 | `{% link_in_list /href %}` | The linked page's title in a list item.
 | `{% topic_link_in_list /href %}` | The linked map topic's title in a list item (used in category TOCs).
-| `{% link_with_short_title /href %}` | The linked page's title, where the title is pulled from the page's `shortTitle` frontmatter.
 | `{% indented_data_reference site.data.foo.bar spaces=NUMBER %}` | The data reference with the specified number of spaces prepended to each line.
 
 ## Creating tags

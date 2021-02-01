@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **December 30, 2020**
+Effective date: **January 6, 2021**
 
 GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -25,12 +25,9 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 | Braintree (PayPal) | プランのクレジットカード決済処理業者              | 米国    | 米国                 |
 | Clearbit           | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
 | Discourse          | コミュニティフォーラムのソフトウェアプロバイダ         | 米国    | 米国                 |
-| DiscoverOrg        | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
 | Eloqua             | マーケティングキャンペーンの自動化               | 米国    | 米国                 |
 | Google Apps        | 社内インフラストラクチャ                    | 米国    | 米国                 |
 | Google Analytics   | Analytics and performance       | 米国    | 米国                 |
-| LinkedIn Navigator | Data enrichment service         | 米国    | 米国                 |
-| Magic Robot        | キャンペーンレポート (Salesforceのアドオン)    | 米国    | 米国                 |
 | MailChimp          | 顧客チケットメールサービスプロバイダ              | 米国    | 米国                 |
 | Mailgun            | トランザクションメールサービスプロバイダ            | 米国    | 米国                 |
 | Microsoft          | Microsoft Services              | 米国    | 米国                 |

@@ -1,0 +1,1 @@
+1. Opcionalmente, si estás haciendo un patrocinio como una organización, para pagar una cantidad prorrateada en vez de hacer un pago mensual completo, debajo de "Vence hoy", da clic en **Pagar $X.XX prorrateados hoy**. ![Enlace para pagar una cantidad prorrateada](/assets/images/help/sponsors/pay-prorated-amount-link.png)
