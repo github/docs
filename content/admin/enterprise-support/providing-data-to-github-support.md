@@ -59,7 +59,9 @@ After you submit your support request, we may ask you to share a support bundle 
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
 - `collectd/logs/collectd.log`: Collectd logs
 - `mail-logs/mail.log`: SMTP email delivery logs
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`: Webhook delivery errors
+{% endif %}
 
 For more information, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)."
 
@@ -85,7 +87,7 @@ You can use these steps to create and share a support bundle if you can access t
 
 #### Creating a support bundle using SSH
 
-You can use these steps to create and share a support bundle if you have SSH access to your {% data variables.product.prodname_ghe_server %} appliance and have outbound internet access.
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -114,8 +116,8 @@ You can use these steps to create and share a support bundle if you have SSH acc
 #### Uploading a support bundle directly using SSH
 
 You can directly upload a support bundle to our server if:
-- You have SSH access to your {% data variables.product.prodname_ghe_server %} appliance.
-- Outbound HTTPS connections over TCP port 443 are allowed from your {% data variables.product.prodname_ghe_server %} appliance.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Upload the bundle to our support bundle server:
   ```shell
@@ -130,7 +132,7 @@ To prevent bundles from becoming too large, bundles only contain logs that haven
 
 #### Creating an extended support bundle using SSH
 
-You can use these steps to create and share an extended support bundle if you have SSH access to your {% data variables.product.prodname_ghe_server %} appliance and you have outbound internet access.
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
 1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
   ```shell
@@ -142,8 +144,8 @@ You can use these steps to create and share an extended support bundle if you ha
 #### Uploading an extended support bundle directly using SSH
 
 You can directly upload a support bundle to our server if:
-- You have SSH access to your {% data variables.product.prodname_ghe_server %} appliance.
-- Outbound HTTPS connections over TCP port 443 are allowed from your {% data variables.product.prodname_ghe_server %} appliance.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Upload the bundle to our support bundle server:
   ```shell

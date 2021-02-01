@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于审查拉取请求
 
-您可以在拉取请求中每次审查一个文件的更改。 While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. 这会折叠文件，帮助您识别还需要审查的文件。 A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+您可以在拉取请求中每次审查一个文件的更改。 在拉取请求中审查文件时，可以对特定更改留下单个注释。 在完成审查每个文件后，您可以将该文件标记为已查看。 这会折叠文件，帮助您识别还需要审查的文件。 拉取请求标题中的进度条显示您查看过的文件数。 在按需要审查文件后， 您可以提交包含摘要评论的审查来批准拉取请求或请求额外更改。
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -27,6 +28,20 @@ versions:
 提交审查之前，您的行注释为_待处理_状态并且仅对您可见。 您可以在提交审查之前随时编辑待处理的注释。 要取消待处理的审查（包括所有其待处理的注释），请在 Conversation（对话）选项卡中向下滚动到时间表的末尾，然后单击 **Cancel review（取消审查）**。
 
 ![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
+
+{% if currentVersion == "free-pro-team@latest" %}
+### 查看依赖项更改
+
+如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+
+{% data reusables.repositories.changed-files %}
+
+1. 在清单或锁定文件标头的右侧，单击 **{% octicon "file" aria-label="The rich diff icon" %}** 多差异按钮以显示依赖项审查。
+
+   ![多差异按钮](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
 
 ### 将文件标记为已查看
 
@@ -52,8 +67,5 @@ versions:
 
 ### 延伸阅读
 
-- “[关于拉取请求审查](/articles/about-pull-request-reviews)”
-- "[关于拉取请求的必要审查](/articles/about-required-reviews-for-pull-requests)"
-- “[批准需要审查的拉取请求](/articles/approving-a-pull-request-with-required-reviews)”
-- "[评论拉取请求](/articles/commenting-on-a-pull-request)"
-- "[按审查状态过滤拉取请求](/articles/filtering-pull-requests-by-review-status)"
+- "[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[按审查状态过滤拉取请求](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

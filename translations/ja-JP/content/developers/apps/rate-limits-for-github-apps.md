@@ -1,5 +1,5 @@
 ---
-title: Rate limits for GitHub Apps
+title: GitHub Appのレート制限
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits/
@@ -9,15 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Server-to-server requests
+### さーばーからサーバーへのリクエスト
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Different server-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
+{% data variables.product.prodname_ghe_cloud %}アカウントが所有するOrganizationもしくはリポジトリにアプリエーションがインストールされた場合、様々なサーバーからサーバーへのリクエストのレート制限が{% data variables.product.prodname_github_app %}に適用されます。
 
-#### Normal server-to-server rate limits
+#### 通常のサーバーからサーバーへのレート制限
 
 {% endif %}
 
@@ -25,34 +26,32 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
+#### {% data variables.product.prodname_ghe_cloud %}のサーバーからサーバーへのレート制限
 
-{% data variables.product.prodname_github_app %}s that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_ghe_cloud %}アカウントが所有するOrganizationもしくはリポジトリにインストールされ、サーバーからサーバーへのリクエストを発行する{% data variables.product.prodname_github_app %}は、1時間あたり15,000リクエストのレート制限を持ちます。
 
 {% endif %}
 
-### User-to-server requests
+### ユーザからサーバーへのリクエスト
 
-{% data reusables.apps.deprecating_password_auth %}
-
-{% data variables.product.prodname_github_app %}s can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
+{% data variables.product.prodname_github_app %}[ユーザの代わりに](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps)動作し、ユーザからサーバーへのリクエストを発行することができます。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Different user-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
+アプリケーションが{% data variables.product.prodname_ghe_cloud %}アカウントが所有するOrganiozationもしくはリポジトリにインストールされ、認証されたユーザが同じ{% data variables.product.prodname_ghe_cloud %}アカウントに属しているなら、様々なユーザからサーバーへのリクエストのレート制限が{% data variables.product.prodname_github_app %}に適用されます。
 
-#### Normal user-to-server rate limits
+#### 通常のユーザからサーバーへのレート制限
 
 {% endif %}
 
-User-to-server requests are rate limited at 5,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+ユーザからサーバーへのリクエストは、1時間あたり及び認証されたユーザごとに5,000リクエストのレート制限を受けます。 そのユーザが認可したすべてのOAuthアプリケーション、そのユーザが所有する個人アクセストークン、そのユーザの{% if currentVersion == "github-ae@latest" %}トークン{% else %}ユーザ名及びパスワード{% endif %}で認証されたリクエストは、そのユーザに対する1時間あたり5,000リクエストの同じクォータを共有します。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### {% data variables.product.prodname_ghe_cloud %} user-to-server rate limits
+#### {% data variables.product.prodname_ghe_cloud %}のユーザからサーバーへのレート制限
 
-When a user belongs to a {% data variables.product.prodname_ghe_cloud %} account, user-to-server requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account are rate limited at 15,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+ユーザが{% data variables.product.prodname_ghe_cloud %}アカウントに属している場合、同じ{% data variables.product.prodname_ghe_cloud %}アカウントに所有されているリソースへのユーザからサーバーへのリクエストは、1時間あたり認証されたユーザごとに15,000リクエストのレート制限を受けます。 そのユーザが認可したすべてのOAuthアプリケーション、そのユーザが所有する個人アクセストークン、そのユーザのユーザ名及びパスワードで認証された{% data variables.product.prodname_ghe_cloud %}リクエストは、そのユーザに対する1時間あたり5,000リクエストの同じクォータを共有します。
 
 {% endif %}
 
-For more detailed information about rate limits, see "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" for REST API and "[Resource limitations](/graphql/overview/resource-limitations)" for GraphQL API.
+レート制限に関する詳細な情報については、REST APIについては「[レート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)」を、GraphQL APIについては「[リソース制限](/graphql/overview/resource-limitations)」を参照してください。

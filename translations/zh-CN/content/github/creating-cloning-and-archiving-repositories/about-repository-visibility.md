@@ -1,35 +1,43 @@
 ---
-title: About repository visibility
-intro: 'You can restrict who has access to a repository by choosing a repository''s visibility: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}public, internal, or private{% else %} public or private{% endif %}.'
+title: 关于仓库可见性
+intro: '您可以通过选择仓库的可见性来限制谁有权访问仓库：{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}公共、内部或私有{% elsif currentVersion == "github-ae@latest"  %}私有或内部{% else %} 公共或私有{% endif %}。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### About repository visibility
+### 关于仓库可见性
 
-When you create a repository, you can choose to make the repository public or private. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you're creating the repository in an organization{% if currentVersion == "free-pro-team@latest" %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}
+{% if currentversion == "github-ae@latest" %}当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的仓库时，可以选择将仓库设为私有或内部。{% else %}创建仓库时，可以选择使仓库成为公共或私有。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 如果要在组织中创建{% if currentVersion == "free-pro-team@latest" %} 由企业帐户拥有的仓库{% endif %}，也可以选择将仓库设为内部。{% endif %}{% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}If {% data variables.product.product_location_enterprise %} is not in private mode or behind a firewall, p{% else %}P{% endif %}ublic repositories are accessible to everyone on the internet.{% if currentVersion != "free-pro-team@latest" %} Otherwise, public repositories are available to everyone using {% data variables.product.product_location_enterprise %}, including outside collaborators.{% endif %} Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, [certain organization members](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization). {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Internal repositories are accessible to {% if currentVersion == "free-pro-team@latest" %}members of your enterprise account{% else %}members of any organization on your instance{% endif %}. For more information, see "[About internal repositories](#about-internal-repositories)."{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}
+如果
+{% data variables.product.product_location %} 不是私人模式或在防火墙后面，所有人都可以在互联网上访问公共仓库。 或者，使用 {% data variables.product.product_location %} 的每个人都可以使用公共仓库，包括外部协作者。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 {% if currentversion ver_gt "enterprise-server@2.19" %} 内部仓库可供企业成员访问。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。{% endif %}
+{% elsif currentVersion == "github-ae@latest" %}
+私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 所有企业成员均可访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。
+{% else %}
+互联网上的所有人都可以访问公共仓库。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 企业成员可以访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。
+{% endif %}
 
-Organization owners always have access to every repository created in an organization. For more information, see "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+组织所有者始终有权访问其组织中创建的每个仓库。 更多信息请参阅“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)”。
 
-People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+拥有仓库管理员权限的人可更改现有仓库的可见性。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### About internal repositories
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+### 关于内部仓库
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.internal-repos %}
+**注：**{% data reusables.gated-features.internal-repos %}
 
 {% endnote %}
 
-{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+{% data reusables.repositories.about-internal-repos %} 有关内部资源的更多信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部资源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
-All {% if currentVersion == "free-pro-team@latest" %}enterprise members{% else %}organization members{% endif %} have read permissions to the internal repository, but internal repositories are not visible to people {% if currentVersion == "free-pro-team@latest" %}outside of the enterprise account{% else %}who are not members of an organization{% endif %}, including outside collaborators on organization repositories. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Roles for an enterprise account](/articles/roles-for-an-enterprise-account#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
+所有企业成员对内部仓库具有读取权限，但内部仓库对{% if currentVersion == "free-pro-team@latest" %}企业外部{% else %}非组织成员{% endif %}的人员不可见，包括组织仓库的外部协作者。 更多信息请参阅 {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)”和{% endif %}“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。
 
 {% data reusables.repositories.internal-repo-default %}
 
-If a user is removed from {% if currentVersion == "free-pro-team@latest" %}an enterprise account{% else %}all organizations on the instance{% endif %}, that user's forks of internal repositories are removed automatically.
+如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
 {% endif %}

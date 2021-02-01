@@ -20,6 +20,7 @@ Du kannst einen Benutzer in Deinen Kontoeinstellungen oder über das Profil des 
 Wenn Du einen Benutzer blockierst:
 - Folgt er Dir nicht mehr
 - The user stops watching and unpins your repositories
+- The user is not able to join any organizations you are an owner of
 - werden die Sternmarkierungen und Issue-Zuweisungen des Benutzers von Deinen Repositorys entfernt
 - The user's forks of your repositories are deleted
 - You delete any forks of the user's repositories

@@ -1,6 +1,6 @@
 ---
 title: 邀请协作者参加个人仓库
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+intro: '您可以{% if currentVersion == "free-pro-team@latest" %}邀请用户成为{% else %}添加用户成为{% endif %}个人仓库的协作者。'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 组织拥有的仓库可授予更细致的访问权限。 更多信息请参阅“[{% data variables.product.product_name %} 上的访问权限](/articles/access-permissions-on-github)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
@@ -29,7 +30,7 @@ versions:
 
 1. 询问您要邀请成为合作者的人员的用户名。
 
-{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -49,7 +50,7 @@ versions:
 
 ### 延伸阅读
 
-- "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)"
+- “[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)”
 - "[从个人仓库删除协作者](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[从协作者的仓库删除您自己](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[将成员组织成团队](/articles/organizing-members-into-teams)"

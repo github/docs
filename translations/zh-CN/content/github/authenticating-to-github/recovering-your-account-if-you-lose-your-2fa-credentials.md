@@ -82,7 +82,7 @@ versions:
 2. 单击与您的 {% data variables.product.product_name %} 帐户关联的恢复令牌。 ![Facebook 中存储的恢复令牌列表](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. 要取回帐户恢复令牌，请单击 **Recover This Account（恢复此帐户）**。 此时将打开一个新窗口，将您返回到 {% data variables.product.product_name %}。 ![含有恢复令牌相关信息的模态框和恢复此帐户按钮](/assets/images/help/settings/security-recover-account-facebook.png)
 4. 联系我们
-{% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
+{% data variables.contact.contact_support %}，告知他们您的帐户恢复令牌已准备好进行审查。
 {% endif %}
 
 ### 延伸阅读

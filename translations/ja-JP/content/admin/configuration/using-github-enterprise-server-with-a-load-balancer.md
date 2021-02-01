@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### {% data variables.product.product_location_enterprise %}でのPROXYプロトコルサポートの有効化
+#### {% data variables.product.product_location %}でのPROXYプロトコルサポートの有効化
 
 アプライアンスとロードバランサの両方でPROXYプロトコルサポートを有効化することを強くおすすめします。 ロードバランサでPROXYプロトコルを有効化する方法については、ベンダーが提供する指示に従ってください。 詳しい情報については[PROXY プロトコルのドキュメンテーション](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt)を参照してください。
 
@@ -33,7 +33,7 @@ versions:
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### {% data variables.product.product_location_enterprise %}でのX-Forwarded-Forサポートの有効化
+#### {% data variables.product.product_location %}でのX-Forwarded-Forサポートの有効化
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 

@@ -3,10 +3,11 @@ header:
   github_docs: GitHub Docs
   contact: 联系我们
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22目前作为版本候选仅有限发布。
+    ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>了解更多信息。
+    release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
     localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
-    product_in_progress: '👋你好，探索者！ 此页面正在积极开发中。有关最新和最准确的信息，请访问我们的<a href="https://developer.github.com">开发者文档</a>。'
+    early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品...
@@ -15,10 +16,11 @@ homepage:
   version_picker: 版本
 toc:
   getting_started: 入门指南
-  popular_articles: 热门文章
+  popular_articles: 热门
   guides: 指南
+  whats_new: 新增内容
 pages:
-  article_version: "文章版本："
+  article_version: '文章版本：'
   miniToc: 本文内容
 errors:
   oops: 哎呀！
@@ -54,6 +56,14 @@ contribution_cta:
   button: 做出贡献
   or: 或,
   to_guidelines: 了解如何参与。
+enterprise_releases_list:
+  title: Enterprise Server 发行版
+  currently_supported: 当前支持
+  currently_supported_message: 请参阅 <a href="https://github.com/enterprise">GitHub Enterprise</a> 以获取最新版本的信息。
+  deprecated: 已废弃
+  deprecated_message: '这些文档仍然可用，但不再维护：'
+  deprecated_developer: 在 developer.github.com 上已废弃
+  deprecated_developer_message: '这些文档在旧<a href="https://developer.github.com">开发者站点</a>上仍然可用，但不再维护：'
 products:
   graphql:
     reference:
@@ -118,3 +128,19 @@ footer:
       careers: 招聘
       press: 新闻
       shop: 商店
+product_landing:
+  quick_start: 快速入门
+  reference_guides: 参考指南
+  overview: 概览
+product_sublanding:
+  start: 开始
+  start_path: 开始路径
+  learning_paths: 学习路径
+  learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
+  more_guides: 更多指南
+  guideTypes:
+    overview: 概览
+    quick_start: 快速入门
+    tutorial: 教程
+    how_to: 操作方法指南
+    reference: 参考

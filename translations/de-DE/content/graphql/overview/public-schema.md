@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can [perform introspection](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) against the GraphQL API directly.
+You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.
 
 Alternatively, you can download the latest version of the public schema here:
 
@@ -16,8 +17,16 @@ Alternatively, you can download the latest version of the public schema here:
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs.graphql`](/public/schema.docs.graphql)
 
-{% else %}
+{% endif %}
 
-[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/{{ currentVersion }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
+{% if enterpriseServerVersions contains currentVersion %}
+
+[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/ghes-{{ allVersions[currentVersion].currentRelease }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-ghae.graphql`](/public/ghae/schema.docs-ghae.graphql) ({{ allVersions[currentVersion].versionTitle }})
 
 {% endif %}

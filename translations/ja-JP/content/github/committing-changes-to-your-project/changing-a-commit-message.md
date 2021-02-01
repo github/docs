@@ -7,6 +7,7 @@ intro: 'コミットメッセージに不明確、不正確、または機密情
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 直近のコミットメッセージの書き換え
@@ -45,7 +46,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% endwarning %}
 
-**Changing the message of the most recently pushed commit**
+**直近でプッシュされたコミットのメッセージを変更する**
 
 1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
 2. `push --force` コマンドにより、古いコミットをフォースプッシュで上書きします。
@@ -53,7 +54,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
   $ git push --force <em>example-branch</em>
   ```
 
-**Changing the message of older or multiple commit messages**
+**古いまたは複数のコミットメッセージを変更する**
 
 複数のコミットまたは古いコミットの、メッセージを修正する必要がある場合は、インタラクティブなリベースを利用した後にフォースプッシュして、コミットの履歴を変更できます。
 
@@ -97,7 +98,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
   ```
 4. コミット一覧のファイルを保存して閉じます。
 5. 生成された各コミットコミットファイルに、新しいコミットメッセージを入力し、ファイルを保存して閉じます。
-6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+6. 変更を GitHub にプッシュする準備ができたら、push --force コマンドを使用して、古いコミットを強制的にプッシュします。
 ```shell
 $ git push --force <em>example-branch</em>
 ```

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -67,24 +68,24 @@ Na etapa de implementação, você deverá definir as variáveis de ambiente par
 
 {% raw %}
 ```yaml
-nome: Publicar pacote no Repositório Central do Maven
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+name: Publish package to the Maven Central Repository
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Configurar no Repositório Central do Maven
-        usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Maven Central Repository
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - nome: Publicar pacote
-        executar: mvn -B deploy
+      - name: Publish package
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -130,20 +131,20 @@ Com esta configuração, você pode criar um fluxo de trabalho que publica seu p
 
 {% raw %}
 ```yaml
-nome: Publicar pacote nos pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+name: Publish package to GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Publicar pacote
-        executar: mvn -B deploy
+      - name: Publish package
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -165,33 +166,33 @@ Certifique-se de que seu arquivo _pom.xml_ inclui um repositório de gerenciamen
 
 {% raw %}
 ```yaml
-nome: Publicar pacote no Repositório Central do Maven e nos Pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+name: Publish package to the Maven Central Repository and GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usar: actions/checkout@v2
-      - nome: Configurar o Java para publicação no Repositório Central do Maven
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - nome: Publicar no Repositório Central do Maven
-        run: mvn -B deploy
+      - name: Publish to the Maven Central Repository
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        usa: actions/setup-java@v1
-        com:
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Publicar nos pacotes do GitHub
-        executar: mvn -B deploy
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

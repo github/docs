@@ -58,7 +58,7 @@ versions:
 
 - "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[管理破坏性评论](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在  {% data variables.product.prodname_dotcom %} 上维护您的安全](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[限制仓库中的交互](/github/building-a-strong-community/limiting-interactions-in-your-repository)"{% endif %}
 - “[跟踪评论中的更改](/articles/tracking-changes-in-a-comment)”

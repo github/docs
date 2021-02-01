@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -41,7 +42,7 @@ Jobs und Schritte in Azure-Pipelines sind sehr ähnlich zu Jobs und Schritten in
 
 ### Skriptschritte migrieren
 
-Du kannst in einem Workflow ein Skript oder einen Shell-Befehl als Schritt ausführen. In Azure-Pipelines können Skriptschritte mit dem Schlüssel `script`, `bash`, `powershell` oder `pwsh` festgelegt werden. Skripte können auch als Eingabe für den [Bash-Task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) oder den [PowerShell-Task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops) angegeben werden.
+Du kannst in einem Workflow ein Skript oder einen Shell-Befehl als Schritt ausführen. In Azure-Pipelines können Skriptschritte mit dem Schlüssel `script`, `bash`, `powershell` oder `pwsh` festgelegt werden. Skripte können auch als Eingabe für den [Bash-Task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) oder den [PowerShell-Task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops) angegeben werden.
 
 In {% data variables.product.prodname_actions %} sind alle Skripte mit dem Schlüssel `run` spezifiziert. Um eine bestimmte Shell auszuwählen, kannst Du den Schlüssel `shell` angeben, wenn Du das Skript zur Verfügung stellst. Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)“.
 
@@ -324,4 +325,3 @@ jobs:
 </table>
 
 Aktionen zur Verwendung in Deinem Workflow findest du entweder auf dem [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) oder Du kannst eigene Aktionen erstellen. For more information, see "[Creating actions](/actions/creating-actions)."
-

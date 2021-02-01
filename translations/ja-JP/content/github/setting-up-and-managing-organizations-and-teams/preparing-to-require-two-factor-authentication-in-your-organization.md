@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-We recommend that you notify {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
+Organization で 2 要素認証を義務付ける 1 週間以上前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバーと外部コラボレーター{% endif %}に通知することをおすすめします。
 
 Organization で 2 要素認証を必須にすると、2 要素認証を使わないメンバー、外部コラボレーター、および支払いマネージャー (ボットアカウントを含む) は Organization から削除され、そのリポジトリにアクセスできなくなります。 Organization のプライベートリポジトリのフォークへのアクセスも失います。
 

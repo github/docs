@@ -17,44 +17,35 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+learningTracks:
+  - getting_started
+  - continuous_integration
+  - continuous_deployment
+  - hosting_your_own_runners
+  - create_actions
+layout: product-sublanding
 ---
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-### Criar fluxos de trabalho personalizados de integração contínua
-
-Você pode usar o {% data variables.product.prodname_actions %} para criar fluxos de trabalho personalizados de integração contínua (CI) que criam e testam projetos escritos em diferentes linguagens de programação.
-
-{% link_in_list /about-continuous-integration %}
-{% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
-{% link_in_list /building-and-testing-nodejs %}
-{% link_in_list /building-and-testing-python %}
-{% link_in_list /building-and-testing-java-with-maven %}
-{% link_in_list /building-and-testing-java-with-gradle %}
-{% link_in_list /building-and-testing-java-with-ant %}
-
-### Publicar pacotes de software
-
-Você pode automatizar pacotes de software de publicação como parte do fluxo de trabalho de entrega contínua (CD). Os pacotes podem ser publicados em qualquer host de pacote e em {% data reusables.gated-features.packages %}.
-
-{% link_in_list /about-packaging-with-github-actions %}
-{% link_in_list /publishing-nodejs-packages %}
-{% link_in_list /publishing-java-packages-with-maven %}
-{% link_in_list /publishing-java-packages-with-gradle %}
-{% link_in_list /publishing-docker-images %}
-
-### Memorizando e armazenando os dados do fluxo de trabalho
-
-Memorize as dependências e armazene os artefatos para fazer com que o seu fluxo de trabalho seja executado de modo mais eficiente.
-
-{% link_in_list /storing-workflow-data-as-artifacts %}
-{% link_in_list /caching-dependencies-to-speed-up-workflows %}
-
-### Usar contêineres de serviço em um fluxo de trabalho
-
-Conecte os serviços ao seu fluxo de trabalho usando contêineres de serviço.
-
-{% link_in_list /about-service-containers %}
-{% link_in_list /creating-redis-service-containers %}
-{% link_in_list /creating-postgresql-service-containers %}
+<!-- {% link_in_list /about-continuous-integration %} -->
+<!-- {% link_in_list /setting-up-continuous-integration-using-workflow-templates %} -->
+<!-- {% link_in_list /building-and-testing-nodejs %} -->
+<!-- {% link_in_list /building-and-testing-net %} -->
+<!-- {% link_in_list /building-and-testing-powershell %} -->
+<!-- {% link_in_list /building-and-testing-python %} -->
+<!-- {% link_in_list /building-and-testing-ruby %} -->
+<!-- {% link_in_list /building-and-testing-java-with-maven %} -->
+<!-- {% link_in_list /building-and-testing-java-with-gradle %} -->
+<!-- {% link_in_list /building-and-testing-java-with-ant %} -->
+<!-- {% link_in_list /about-packaging-with-github-actions %} -->
+<!-- {% link_in_list /publishing-nodejs-packages %} -->
+<!-- {% link_in_list /publishing-java-packages-with-maven %} -->
+<!-- {% link_in_list /publishing-java-packages-with-gradle %} -->
+<!-- {% link_in_list /publishing-docker-images %} -->
+<!-- {% link_in_list /storing-workflow-data-as-artifacts %} -->
+<!-- {% link_in_list /caching-dependencies-to-speed-up-workflows %} -->
+<!-- {% link_in_list /about-service-containers %} -->
+<!-- {% link_in_list /creating-redis-service-containers %} -->
+<!-- {% link_in_list /creating-postgresql-service-containers %} -->
+<!-- {% link_in_list /deploying-to-amazon-elastic-container-service %} -->
+<!-- {% link_in_list /deploying-to-azure-app-service %} -->
+<!-- {% link_in_list /deploying-to-google-kubernetes-engine %} -->

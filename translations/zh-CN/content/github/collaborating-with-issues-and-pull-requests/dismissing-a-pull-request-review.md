@@ -1,11 +1,12 @@
 ---
 title: 忽略拉取请求审查
-intro: '如果仓库 [要求审查](/articles/about-required-reviews-for-pull-requests)，可以忽略不再有效或无法被审查者批准的拉取请求审查。'
+intro: '如果仓库要求审查，可以忽略不再有效或无法被审查者批准的拉取请求审查。'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -23,4 +24,4 @@ versions:
 
 - “[关于拉取请求审查](/articles/about-pull-request-reviews)”
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[关于拉取请求的必要审查](/articles/about-required-reviews-for-pull-requests)"
+- "[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"

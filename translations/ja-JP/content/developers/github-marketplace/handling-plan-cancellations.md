@@ -1,6 +1,6 @@
 ---
-title: Handling plan cancellations
-intro: 'Cancelling a {% data variables.product.prodname_marketplace %} app triggers the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `cancelled` action, which kicks off the cancellation flow.'
+title: プランのキャンセルの処理
+intro: '{% data variables.product.prodname_marketplace %}アプリケーションをキャンセルすると、[`marketplace_purchase`イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhookが`cancelled`アクション付きでトリガされます。これによって、キャンセルのフローが開始されます。'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
@@ -11,23 +11,23 @@ versions:
 
 
 
-For more information about cancelling as it relates to billing, see "[Billing customers in {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)."
+支払いに関連するキャンセルについての詳しい情報は、「[{% data variables.product.prodname_marketplace %}での顧客の支払い](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)」を参照してください。
 
-### ステップ 1. Cancellation event
+### ステップ 1. キャンセルイベント
 
-If a customer chooses to cancel a {% data variables.product.prodname_marketplace %} order, GitHub sends a [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the action `cancelled` to your app when the cancellation takes effect. If the customer cancels during a free trial, your app will receive the event immediately. When a customer cancels a paid plan, the cancellation will occur at the end of the customer's billing cycle.
+顧客が{% data variables.product.prodname_marketplace %}の注文をキャンセルすることにした場合、GitHubは[`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookを`cancelled`というアクション付きで、キャンセルが有効になった時点でアプリケーションに送信します。 顧客が無料トライアル中にキャンセルした場合、アプリケーションはすぐにこのイベントを受け取ります。 顧客が有料プランをキャンセルした場合、キャンセルは顧客の支払いサイクルの終了時に行われます。
 
-### ステップ 2. Deactivating customer accounts
+### ステップ 2. 顧客のアカウントのアクティベーション解除
 
-When a customer cancels a free or paid plan, your app must perform these steps to complete cancellation:
+顧客が無料もしくは有料のプランをキャンセルした場合、アプリケーションはキャンセルを完了するために以下のステップを実行しなければなりません。
 
-1. Deactivate the account of the customer who cancelled their plan.
-1. Revoke the OAuth token your app received for the customer.
-1. If your app is an OAuth App, remove all webhooks your app created for repositories.
-1. Remove all customer data within 30 days of receiving the `cancelled` event.
+1. プランをキャンセルした顧客のアカウントのアクティベーションを解除する。
+1. 顧客用にアプリケーションが受け取ったOAuthトークンを取り消す。
+1. アプリケーションがOAuthアプリケーションの場合、リポジトリ用にアプリケーションが作成したすべてのwebhookを削除する。
+1. `cancelled`イベントを受け取ってから30日以内に顧客のすべてのデータを削除する。
 
 {% note %}
 
-**Note:** We recommend using the [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan). For more information on webhooks, see "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)."
+**ノート:** プランの変更がいつ生じるのかを知るために[`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookの`effective_date`を利用し、定期的に[プランのリストアカウント](/rest/reference/apps#list-accounts-for-a-plan)を同期することをおすすめします。 webhookに関する詳しい情報については「[{% data variables.product.prodname_marketplace %}のwebhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
 
 {% endnote %}

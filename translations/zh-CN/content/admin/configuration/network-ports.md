@@ -14,16 +14,16 @@ versions:
 
 ### 管理端口
 
-需要使用一些管理端口来配置 {% data variables.product.product_location_enterprise %} 和运行某些功能。 最终用户在使用基本应用程序时不需要管理端口。
+需要使用一些管理端口来配置 {% data variables.product.product_location %} 和运行某些功能。 最终用户在使用基本应用程序时不需要管理端口。
 
-| 端口       | 服务    | 描述                                                                                                                                            |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| 8443     | HTTPS | 基于安全 Web 的 {% data variables.enterprise.management_console %}。 进行基本安装和配置时需要。                                                                  |
-| 8080     | HTTP  | 基于纯文本 Web 的 {% data variables.enterprise.management_console %}。 除非手动禁用 SSL，否则不需要。                                                             |
-| 122      | SSH   | 对 {% data variables.product.product_location_enterprise %} 进行 Shell 访问。 对来自高可用性配置中的其他所有节点的传入连接开放时需要。 默认 SSH 端口 (22) 专用于 Git 和 SSH 应用程序网络流量。 |
-| 1194/UDP | VPN   | 采用高可用性配置的安全复制网络隧道。 对配置中的其他所有节点开放时需要。                                                                                                          |
-| 123/UDP  | NTP   | 为时间协议操作所需。                                                                                                                                    |
-| 161/UDP  | SNMP  | 为网络监视协议操作所需。                                                                                                                                  |
+| 端口       | 服务    | 描述                                                                                                                               |
+| -------- | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 8443     | HTTPS | 基于安全 Web 的 {% data variables.enterprise.management_console %}。 进行基本安装和配置时需要。                                                     |
+| 8080     | HTTP  | 基于纯文本 Web 的 {% data variables.enterprise.management_console %}。 除非手动禁用 SSL，否则不需要。                                                |
+| 122      | SSH   | 对 {% data variables.product.product_location %} 进行 Shell 访问。 对来自高可用性配置中的其他所有节点的传入连接开放时需要。 默认 SSH 端口 (22) 专用于 Git 和 SSH 应用程序网络流量。 |
+| 1194/UDP | VPN   | 采用高可用性配置的安全复制网络隧道。 对配置中的其他所有节点开放时需要。                                                                                             |
+| 123/UDP  | NTP   | 为时间协议操作所需。                                                                                                                       |
+| 161/UDP  | SNMP  | 为网络监视协议操作所需。                                                                                                                     |
 
 ### 最终用户的应用程序端口
 

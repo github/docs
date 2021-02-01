@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn sich Dein Commit nicht auf dem Standardbranch befindet, zeigt ein Indikator, welche Branches den Commit enthalten. Ist der Commit Teil eines nicht übertragenen Pull Requests, wird ein Link angezeigt.

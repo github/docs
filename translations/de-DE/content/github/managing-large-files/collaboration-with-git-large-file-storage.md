@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Mitarbeiter an Ihrem Repository {% data variables.large_files.product_name_short %} nicht installiert haben, haben sie keinen Zugriff auf die große Originaldatei. Wenn sie versuchen, Dein Repository zu klonen, rufen sie nur die Pointer-Dateien ab und haben keinen Zugriff auf die tatsächlichen Daten.

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 测试 SSH 连接之前，您应已完成以下各项：
@@ -26,19 +27,11 @@ versions:
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Are you sure you want to continue connecting (yes/no)?
-  ```
-
-  或类似如下：
-
-  ```shell
-  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 验证您看到的消息中的指纹匹配步骤 2 中的消息之一，然后输入 `yes`：
+3. 验证所看到消息中的指纹是否匹配 {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} 的 RSA 公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

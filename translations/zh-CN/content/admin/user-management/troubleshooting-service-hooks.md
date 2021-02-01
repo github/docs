@@ -7,6 +7,7 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 获取有关交付的信息

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 协作者是对您拥有的项目板具有访问权限的个人。 协作者的权限默认为读取权限。 更多信息请参阅“[用户项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards)”。
@@ -18,8 +19,8 @@ versions:
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-5. Under "Search by username, full name or email address", type the collaborator's name, username, or
-{% data variables.product.prodname_dotcom %} email.
+5. 在“Search by username, full name or email address（按用户名、全名或电子邮件地址搜索）”下，输入协作者的姓名、用户名或
+{% data variables.product.prodname_dotcom %} 电子邮件。
    ![在搜索字段中输入了 Octocat 用户名的协作者部分](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
 7. 新协作者默认具有读取权限。 在新协作者名称旁边，可以选择使用下拉菜单选择不同的权限级别。 ![选择了权限下拉菜单的协作者部分](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)

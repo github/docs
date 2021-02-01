@@ -10,7 +10,7 @@ versions:
 
 {% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。 您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。
 
-有关可供导出的数据 {% data variables.product.product_name %} 存储的更多信息，请参阅“[下载用户迁移存档](/v3/migrations/users/#download-a-user-migration-archive)”和“[关于 {% data variables.product.product_name %} 对数据的使用](/articles/about-github-s-use-of-your-data)”。
+有关可供导出的数据 {% data variables.product.product_name %} 存储的更多信息，请参阅“[下载用户迁移存档](/rest/reference/migrations#download-a-user-migration-archive)”和“[关于 {% data variables.product.product_name %} 对数据的使用](/articles/about-github-s-use-of-your-data)”。
 
 当您通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置请求导出个人数据时，{% data variables.product.product_name %} 会将您的个人数据打包到 `tar.gz` 文件中，并向您的主电子邮件地址发送含有下载链接的电子邮件。
 

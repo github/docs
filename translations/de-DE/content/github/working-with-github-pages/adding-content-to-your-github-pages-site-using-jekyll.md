@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll Inhalte zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.
@@ -50,7 +51,7 @@ Dein Design umfasst standardmäßige Layouts, Includes und Stylesheets, die auto
 4. Erstelle eine neue Datei mit dem Namen _YYYY-MM-DD-NAME-OF-POST.md_, wobei Du _YYYY-MM-DD_ durch das Datum des Beitrags und _NAME-OF-POST_ durch den Namen des Beitrags ersetzt.
 4. Füge den folgenden YAML-Frontmatter oben in der Datei hinzu, und ersetze dabei _POST TITLE_ durch den Titel des Beitrags, _YYYY-MM-DD hh:mm:ss -0000_ durch das Datum und die Uhrzeit für den Beitrag und _CATEGORY-1_ und _CATEGORY-2_ durch so viele Kategorien, wie Dein Beitrag aufweisen soll.
   ```shell
-  layout: page
+  layout: post
   title: "<em>POST TITLE</em>"
   date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
   categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>
@@ -60,6 +61,8 @@ Dein Design umfasst standardmäßige Layouts, Includes und Stylesheets, die auto
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
 ### Nächste Schritte:
 

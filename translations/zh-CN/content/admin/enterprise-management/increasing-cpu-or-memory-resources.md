@@ -20,7 +20,7 @@ versions:
 
 #### 调整的考量因素
 
-在为 {% data variables.product.product_location_enterprise %} 增加 CPU 或内存资源之前：
+在为 {% data variables.product.product_location %} 增加 CPU 或内存资源之前：
 
 - **使用 CPU 扩展内存**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **将 Elastic IP 地址分配给实例**。 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
@@ -64,7 +64,7 @@ versions:
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 1. 使用 vSphere Client 连接到 VMware ESXi 主机。
-2. 关闭 {% data variables.product.product_location_enterprise %}。
+2. 关闭 {% data variables.product.product_location %}。
 3. 选择虚拟机，然后单击 **Edit Settings**。
 4. 在“Hardware”下，根据需要调整分配给虚拟机的 CPU 和/或内存资源。 ![VMware 设置资源](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
 5. 要启动虚拟机，请单击 **OK**。

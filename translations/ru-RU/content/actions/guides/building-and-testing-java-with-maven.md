@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'руководство'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -53,7 +54,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -85,13 +86,13 @@ steps:
     with:
       java-version: 1.8
   - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 ### Caching dependencies
 
-You can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)" and the [`cache` action](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
@@ -108,7 +109,7 @@ steps:
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
   - name: Build with Maven
-    run: mvn -B package --file pom.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -125,7 +126,7 @@ Maven will usually create output files like JARs, EARs, or WARs in the `target` 
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:

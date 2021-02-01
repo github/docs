@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,11 +47,11 @@ In dieser Anleitung wir werden die Docker-Aktion `build-push-action` verwenden, 
 
 Im folgenden Beispiel-Workflow verwenden wir die Docker-Aktion `build-push-action`, um das Docker-Image zu bauen und, wenn der Build erfolgreich ist, das gebaute Image auf „Docker Hub“ zu übertragen.
 
-Um zum „Docker Hub“ zu pushen, benötigst Du ein Benutzerkonto auf „Docker Hub“ und musst ein „Docker Hub“-Repository erstellt haben. Weitere Informationen findest Du unter „[Images auf ‚Docker Hub‘ freigeben](https://docs.docker.com/get-started/part3/)“ in der Docker-Dokumentation.
+Um zum „Docker Hub“ zu pushen, benötigst Du ein Benutzerkonto auf „Docker Hub“ und musst ein „Docker Hub“-Repository erstellt haben. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 „Docker Hub“ benötigt für `build-push-action` die folgenden Optionen:
 
-* `username` und `password`: Dies ist Dein Benutzername und Passwort auf „Docker Hub“. Wir empfehlen Dir, Deinen „Docker Hub“-Benutzernamen und das -Passwort als verschlüsselte Geheimnisse in Deinem {% data variables.product.prodname_dotcom %}-Repository zu speichern, damit diese nicht in Deiner Workflow-Datei enthüllt werden. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+* `username` und `password`: Dies ist Dein Benutzername und Passwort auf „Docker Hub“. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 * `repository`: Dein „Docker Hub“-Repository im Format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}

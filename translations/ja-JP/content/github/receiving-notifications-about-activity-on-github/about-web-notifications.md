@@ -7,7 +7,7 @@ versions:
 
 *参加*と *Watch* 対象との通知の違いについては、「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」を参照してください。
 
-アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 For more information on enabling web notifications, see "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)." Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。
+アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。
 
 {% data reusables.notifications.shared_state %}
 

@@ -10,6 +10,7 @@ versions:
 ### 关于在 {% data variables.product.prodname_dotcom %} 上导航代码
 
 导航代码功能使用开源库 [`semantic`](https://github.com/github/semantic)。 支持以下语言：
+- C#
 - CodeQL
 - Go
 - Java

@@ -140,7 +140,8 @@
     随附于提交的简短描述性文字，用于沟通提交引入的更改。
 - 
   term: 比较分支
-  description: 用于创建拉取请求的分支。此分支与您选择用于拉取请求的基础分支进行比较，并确定更改。合并拉取请求时，基础分支将使用比较分支的更改进行更新。也称为拉取请求的“头部分支”。
+  description: >-
+    用于创建拉取请求的分支。此分支与您选择用于拉取请求的基础分支进行比较，并确定更改。合并拉取请求时，基础分支将使用比较分支的更改进行更新。也称为拉取请求的“头部分支”。
 - 
   term: 持续集成
   description: >-
@@ -157,7 +158,7 @@
   description: >-
     GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
-  term: 贡献者，参与者
+  term: 贡献者
   description: >-
     贡献者是指对仓库没有协作者权限但参与过项目，并且他们打开的拉取请求已合并到仓库的人员。
 - 
@@ -180,7 +181,7 @@
 - 
   term: 默认分支
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为"main"，并且通常是默认分支。
 - 
   term: 从属者图
   description: >-
@@ -251,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    gist 是一种可共享的文件，可用于在 GitHub 上编辑、克隆和分叉。您可以将 gist 设为公共或私密，但私密 gist 可供具有 URL 的任何人访问。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -387,9 +388,13 @@
   term: 标记
   description: 一种用于标注和格式化文档的系统。
 - 
+  term: main
+  description: >-
+    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
+- 
   term: master
   description: >-
-    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "master" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
+    许多 Git 存储库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。
@@ -431,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
+    Web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
 - 
   term: OAuth 应用程序
   description: >-
@@ -565,7 +570,7 @@
 - 
   term: 变基
   description: >-
-    要将一系列变更从一个分支重新应用到不同的基础分支，并将分支的 HEAD 重置为结果。
+    要将一系列变更从一个分支重新应用到不同的基分支，并将分支的 HEAD 重置为结果。
 - 
   term: 异地恢复帐户
   description: >-

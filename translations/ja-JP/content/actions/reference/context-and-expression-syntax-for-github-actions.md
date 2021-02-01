@@ -13,8 +13,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### コンテキストと式について
 
@@ -59,7 +59,7 @@ env:
 | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `github`   | `オブジェクト` | ワークフロー実行に関する情報。 詳しい情報については、「[`github` コンテキスト](#github-context)」を参照してください。                                                                                              |
 | `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については[`env`コンテキスト](#env-context)を参照してください。                                                                                       |
-| `ジョブ`      | `オブジェクト` | 現在実行中のジョブに関する情報。 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。                                                                                                   |
+| `job`      | `オブジェクト` | 現在実行中のジョブに関する情報。 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。                                                                                                   |
 | `steps`    | `オブジェクト` | このジョブで実行されているステップに関する情報。 詳しい情報については、「[`steps` コンテキスト](#steps-context)」を参照してください。                                                                                       |
 | `runner`   | `オブジェクト` | 現在のジョブを実行している runner に関する情報。 詳しい情報については[`runner`コンテキスト](#runner-context)を参照してください。                                                                                     |
 | `secrets`  | `オブジェクト` | シークレットへのアクセスを有効にします。 シークレットに関する詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。 |
@@ -75,7 +75,11 @@ env:
 - `a-Z` または `_` で始まる。
 - `a-Z` 、`0-9`、 `-`、または`_`が続く。
 
-#### **`github` コンテキスト**
+#### Determining when to use contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
+#### `github` コンテキスト
 
 `github` コンテキストは、ワークフローの実行および、その実行をトリガーしたイベントの情報を含みます。 ほとんどの `github` コンテキストデータは、環境変数で読み取ることができます。 環境変数に関する詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
 
@@ -93,7 +97,7 @@ env:
 | `github.event_path`       | `string` | ランナー上の完全なイベントwebhookペイロードへのパス。                                                                                                                                                                                                                                                      |
 | `github.head_ref`         | `string` | ワークフローの実行における `head_ref` またはプルリクエストのソースブランチ。 このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                             |
 | `github.job`              | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                |
-| `github.ref`              | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。                                                                                                                                                                                                                                                      |
+| `github.ref`              | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。 ブランチの場合、これは `refs/heads/<branch_name>` の形式で、タグの場合は `refs/tags/<tag_name>` です。                                                                                                                                                            |
 | `github.repository`       | `string` | 所有者およびリポジトリの名前。 `Codertocat/Hello-World`などです。                                                                                                                                                                                                                                       |
 | `github.repository_owner` | `string` | リポジトリのオーナーの名前。 たとえば`Codertocat`。                                                                                                                                                                                                                                                    |
 | `github.run_id`           | `string` | {% data reusables.github-actions.run_id_description %}
@@ -103,21 +107,20 @@ env:
 | `github.workflow`         | `string` | ワークフローの名前。 ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。                                                                                                                                                                                                  |
 | `github.workspace`        | `string` | [`checkout`](https://github.com/actions/checkout)アクションを使う際の、ステップにとってのデフォルトのワーキングディレクトリであり、リポジトリのデフォルトの場所です。                                                                                                                                                                         |
 
-#### **`env`コンテキスト**
+#### `env`コンテキスト
 
 `env`コンテキストには、ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 ワークフローでの環境変数の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)」を参照してください。
 
-`env`の構文で、ワークフローファイル中の環境変数の値を利用できます。 ランナー中で環境変数の値を使いたい場合は、ランナーのオペレーティングシステムで環境変数を読み取る通常の方法を使ってください。
+`env`の構文で、ワークフローファイル中の環境変数の値を利用できます。 You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. ステップの構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
 
-`env`は`with`及び`name`キーの値の中で、あるいはステップの`if`条件の中でのみ使えます。 ステップの構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
+ランナー中で環境変数の値を使いたい場合は、ランナーのオペレーティングシステムで環境変数を読み取る通常の方法を使ってください。
 
 | プロパティ名                 | 種類       | 説明                                                             |
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `env`                  | `オブジェクト` | このコンテキストは、ジョブのステップごとに異なります。 このコンテキストには、ジョブのあらゆるステップからアクセスできます。 |
-| `env.<env name>` | `string` | 特定の環境変数の値。                                                     |
+| `env.<env_name>` | `string` | 特定の環境変数の値。                                                     |
 
-
-#### **`job` コンテキスト**
+#### `job` コンテキスト
 
 `job` コンテキストは、現在実行中のジョブに関する情報を含みます。
 
@@ -133,7 +136,7 @@ env:
 | `job.services.<service id>.ports`   | `オブジェクト` | サービスコンテナの公開ポート。                                                                                                                                                                     |
 | `job.status`                              | `string` | ジョブの現在の状態。 `success`、`failure`、`cancelled` のいずれかの値をとります。                                                                                                                            |
 
-#### **`steps` コンテキスト**
+#### `steps` コンテキスト
 
 `steps` コンテキストは、すでに実行中のジョブ内のステップに関する情報を含みます。
 
@@ -145,7 +148,7 @@ env:
 | `steps.<step id>.outcome`                     | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用される前の完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
 | `steps.<step id>.outputs.<output name>` | `string` | 特定の出力の値。                                                                                                                                                                                                                                                                           |
 
-#### **`runner`コンテキスト**
+#### `runner`コンテキスト
 
 `runner`コンテキストには、現在のジョブを実行しているランナーに関する情報が含まれています。
 
@@ -155,7 +158,7 @@ env:
 | `runner.temp`       | `string` | ランナー用のテンポラリディレクトリのパス。 このディレクトリは、セルフホストランナーの場合であっても、各ジョブの開始時点では空であることが保証されています。                                                                                                                                                                           |
 | `runner.tool_cache` | `string` | {% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。 |
 
-#### **`needs`コンテキスト**
+#### `needs`コンテキスト
 
 `needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 ジョブの依存関係の定義に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
 
@@ -172,7 +175,7 @@ env:
 
 {% data reusables.github-actions.github-context-warning %}
 
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 {% raw %}
 ```yaml
 on: push

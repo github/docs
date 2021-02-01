@@ -10,10 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 概要
 
@@ -21,7 +22,7 @@ versions:
 
 - パブリック リポジトリ
 - ワークフローファイルがアクションを参照するのと同じリポジトリ
-- Docker ハブで公開された Docker コンテナー イメージ
+- Docker Hubで公開された Docker コンテナイメージ
 
 {% data variables.product.prodname_marketplace %}は、{% data variables.product.prodname_dotcom %}コミュニティによって構築されたアクションを見つけるための中央となる場所です。 [{% data variables.product.prodname_marketplace %} ページ](https://github.com/marketplace/actions/)では、アクションをカテゴリでフィルタできます。
 
@@ -76,7 +77,7 @@ steps:
 
 #### ブランチの使用
 
-特定のブランチを参照するということは、アクションが常にターゲットブランチの最新の更新を含み使用することを示しますが、それらの更新に重大な変更が含まれる場合、問題が発生する可能性があります。 この例では、`@main` という名前のブランチを対象としています。
+Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. この例では、`@main` という名前のブランチを対象としています。
 
 ```yaml
 steps:
@@ -87,7 +88,7 @@ steps:
 
 ### アクションで入力と出力を使用する
 
-多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 たとえば、アクションでは、ファイルへのパス、ラベルの名前、またはアクション処理の一部として使用するその他のデータを指定する必要がある場合があります。
+多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
 アクションの入力と出力を確認するには、リポジトリのルートディレクトリにある `action.yml` または `action.yaml` を確認してください。
 
@@ -106,50 +107,50 @@ outputs:
     description: "Path to results file"
 ```
 
-### ワークフロー ファイルでアクションを使用する同じリポジトリ内のアクションの参照
+### ワークフロー ファイルでアクションを使用するのと同じリポジトリ内のアクションの参照
 
-ワークフロー ファイルがアクションを使用するのと同じリポジトリでアクションが定義されている場合は、ワークフロー ファイル内の`{owner}/{repo}@{ref}` または `./path/to/dir` 構文を使用してアクションを参照できます。
+ワークフロー ファイルがアクションを使用するのと同じリポジトリでアクションが定義されている場合、そのアクションはワークフロー ファイル内の`{owner}/{repo}@{ref}` または `./path/to/dir` 構文を使用して参照できます。
 
 リポジトリ ファイル構造の例:
 
 ```
-|-- ハローワールド (リポジトリ)
-|  github
-|      └─ ワークフロー
-|          └─ 私の最初のワークフロー.yml
-|      └─
-アクション |          |__ ハローワールドアクション
-|              └── アクション.yml
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
 ```
 
 ワークフロー ファイルの例:
 
 ```yaml
-ジョブ:
-  ビルド:
-    実行: ubuntu 最新
-    ステップ:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       # このステップは、リポジトリのコピーをチェックアウトします。
-      - 用途: アクション/checkout@v2
+      - uses: actions/checkout@v2
       # このステップは、アクションを含むディレクトリを参照します。
-      - 用途: ./.github/アクション/ハローワールドアクション
+      - uses: ./.github/actions/hello-world-action
 ```
 
 `action.yml` ファイルは、アクションのメタデータを提供するために使用されます。 このファイルの内容については、「[GitHub Actions のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」をご覧ください。
 
-### Docker ハブでのコンテナーの参照
+### Docker Hubでのコンテナーの参照
 
-アクションが Docker Hub の公開された Docker コンテナー イメージで定義されている場合は、ワークフロー ファイル内の `docker://{image}:{tag}` 構文を使用してアクションを参照する必要があります。 コードとデータを保護するために、ワークフローで使用する前に Docker Hub から Docker コンテナー イメージの整合性を確認することを強くお勧めします。
+アクションが Docker Hub の公開された Docker コンテナイメージで定義されている場合は、そのアクションはワークフロー ファイル内の `docker://{image}:{tag}` 構文を使用して参照する必要があります。 コードとデータを保護するために、ワークフローで使用する前に Docker HubからのDocker コンテナイメージの整合性を確認することを強くおすすめします。
 
 ```yaml
-ジョブ:
+jobs:
   my_first_job:
-    ステップ:
-      - 名前: 使用
-        私の最初のステップ: docker://alpine:3.8
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
 ```
 
-Dockerアクションの例については、[Docker-image.ymlのワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)及び「[Dockerコンテナのアクションの作成](/articles/creating-a-docker-container-action)」を参照してください。
+Docker アクションの例については、[Docker-image.yml のワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) および「[Docker コンテナのアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。
 
 ### 次のステップ
 

@@ -1,6 +1,6 @@
 ---
 title: GitHub InsightsとGitHub Enterprise間のリンクの有効化
-intro: 'ユーザが{% data variables.product.prodname_ghe_server %}から{{  site.data.variables.product.prodname_insights }}へアクセスできるようにするリンクを有効化できます。'
+intro: 'ユーザが{% data variables.product.prodname_ghe_server %}から{% data variables.product.prodname_insights %}へアクセスできるようにするリンクを有効化できます。'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: '{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_insights %}間のリンクを有効化できます。'
 redirect_from:
@@ -17,13 +17,12 @@ versions:
   ```
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. Return to
+3. 次に、
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-7. Under
-{% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.
+7. GitHub Insightsの
+{% octicon "gear" aria-label="The Settings gear" %} **Setting（設定）**の下で、**{% data variables.product.prodname_insights %}**をクリックしてください。
   {% note %}
 
   **ノート：** この設定コマンドを実行してから、このオプションが{% data variables.product.prodname_enterprise %}で有効になるまでには数分かかります。 **{% data variables.product.prodname_insights %}**が表示されなければ、待ってみるか、{% data variables.product.prodname_enterprise %}を再起動してください。

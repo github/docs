@@ -49,7 +49,7 @@ versions:
 | プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                 |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM            | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +150,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location_enterprise %} を利用できるようにしてください。
+7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location %} を利用できるようにしてください。
 
   {% note %}
 
@@ -203,7 +203,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
    1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location_enterprise %} を使えるようにメンテナンスモードを無効化してください。
+6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
 ### 失敗したアップグレードからのリストア
 
@@ -218,3 +218,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
 #### フィーチャリリースのロールバック
 
 フィーチャリリースからロールバックするには、ルートおよびデータパーティションが整合した状態になることを保証するため、VM スナップショットからリストアしてください。 詳細は「[スナップショットを取得する](#taking-a-snapshot)」を参照してください。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 参考リンク
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

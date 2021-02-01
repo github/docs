@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,10 +34,14 @@ Wir empfehlen, dass Du ein grundlegendes Verständnis von Node.js, YAML, Workflo
 Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -45,7 +50,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -53,11 +58,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
@@ -69,7 +72,7 @@ Der einfachste Weg, eine Node.js-Version anzugeben, ist die Aktion `setup-node` 
 
 Die Aktion `setup-node` nimmt eine Node.js-Version als Eingabe und konfiguriert diese Version auf dem Runner. Die Aktion `setup-node` findet auf jedem Runner eine bestimmte Version von Node.js aus dem Tools-Cache und legt die notwendigen Binärdateien im `PATH` ab, wo sie für den Rest des Jobs bestehen bleiben. Für Node.js mit {% data variables.product.prodname_actions %} wird empfohlen, die Aktion `setup-node` zu verwenden, weil dadurch über verschiedenen Runner und verschiedenen Versionen von Node.js hinweg ein konsistentes Verhalten sicherstellt wird. Wenn Du einen selbst gehosteten Runner verwendest, musst Du Node.js installieren und zum `PATH` hinzufügen.
 
-Die Vorlage enthält eine Matrix-Strategie, die Deinen Code mit drei Node.js-Versionen baut und testet: 8.x, 10.x und 12.x. Das 'x' ist ein Platzhalterzeichen, für das neueste Minor- und Patch-Release des jeweiligen Major-Releases steht. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Jede Version von Node.js, die im Array `node-version` festgelegt ist, erstellt einen Job, der die gleichen Schritte ausführt.
+The template includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Jede Version von Node.js, die im Array `node-version` festgelegt ist, erstellt einen Job, der die gleichen Schritte ausführt.
 
 Jeder Job in der Matrix kann mithilfe des `Matrix`-Kontexts auf den im Array `node-version` definierten Wert zugreifen. Die Aktion `setup-node` verwendet den Kontext als Eingabe für `node-version`. Die Aktion `setup-node` konfiguriert jeden Job mit einer anderen Node.js-Version bevor sie den Code baut und testet. Weitere Informationen zu Matrix-Strategien und Kontexten findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)“ und „[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
@@ -77,7 +80,7 @@ Jeder Job in der Matrix kann mithilfe des `Matrix`-Kontexts auf den im Array `no
 ```yaml
 strategy:
   matrix:
-    node-version: [8.x, 10.x, 12.x]
+    node-version: [10.x, 12.x, 14.x, 15.x]
 
 steps:
 - uses: actions/checkout@v2
@@ -115,11 +118,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
@@ -129,7 +130,7 @@ Wenn Du keine Node.js Version festlegst, verwendet {% data variables.product.pro
 
 Auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern sind die Abhängigkeitsmanager npm und Yarn installiert. Du kannst npm und Yarn verwenden, um in Ihrem Workflow Abhängigkeiten zu installieren, bevor Du Deinen Code baust und testest. Die auf {% data variables.product.prodname_dotcom %} gehosteten Windows- und Linux-Runner haben auch Grunt, Gulp und Bower installiert.
 
-Du kannst Abhängigkeiten auch im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen. Weitere Informationen findest Du unter „[Abhängigkeiten im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“.
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 #### Beispiel mit npm
 
@@ -193,9 +194,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-Um Dich bei Deiner privaten Registry zu authentifizieren, musst Du in Deinen Repository-Einstellungen Dein npm-Authentifizierungs-Token als Geheimnis ablegen. Erstelle z.B. ein Geheimnis namens `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
-Im folgenden Beispiel enthält das Geheimnis `NPM_TOKEN` den npm-Authentifizierungs-Token. Die Aktion `setup-node` konfiguriert die Datei *.npmrc*, um den npm-Authentifizierung-Token aus der Umgebungsvariablen `NODE_AUTH_TOKEN` zu lesen. Wenn Du die Aktion `setup-node` verwendest, um eine Datei *.npmrc* zu erstellen, musst Du die Umgebungsvariable `NPM_AUTH_TOKEN` auf das Geheimnis setzen, das Deinen npm-Authentifizierungs-Token enthält.
+Im folgenden Beispiel enthält das Geheimnis `NPM_TOKEN` den npm-Authentifizierungs-Token. Die Aktion `setup-node` konfiguriert die Datei *.npmrc*, um den npm-Authentifizierung-Token aus der Umgebungsvariablen `NODE_AUTH_TOKEN` zu lesen. When using the `setup-node` action to create an *.npmrc* file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
 Bevor Du Abhängigkeiten installierst, verwende die Aktion `setup-node`, um die Datei *.npmrc* zu erstellen. Die Aktion hat zwei Eingabeparameter. Der Parameter `node-version` legt die Version von Node.js fest und der Parameter `registry-url` bestimmt die Standard-Registry. Wenn Deine Paket-Registry Geltungsbereiche verwendet, musst Du den Parameter `scope` verwenden. Weitere Informationen findest Du unter [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
@@ -227,7 +228,7 @@ always-auth=true
 
 #### Beispiel zum Zwischenspeichern von Abhängigkeiten im Cache
 
-Du kannst Abhängigkeiten mit einem eindeutigen Schlüssel im Cache zwischenspeichern und sie später wiederherstellen, wenn Du zukünftige Workflows mit der Aktion `-cache-` ausführst. Weitere Informationen findest Du unter „[Caching-Abhängigkeiten zur Beschleunigung von Workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching-Abhängigkeiten zur Beschleunigung von Workflows</a>“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
@@ -241,7 +242,7 @@ steps:
   uses: actions/cache@v2
   with:
     # npm cache files are stored in `~/.npm` on Linux/macOS
-    path: ~/.npm 
+    path: ~/.npm
     key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-

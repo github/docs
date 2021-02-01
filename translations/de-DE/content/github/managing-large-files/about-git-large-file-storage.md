@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} verarbeitet große Dateien, indem Referenzen auf die Datei im Repository gespeichert werden, nicht aber die Datei an sich. Um die Architektur von Git zu umgehen, erstellt {% data variables.large_files.product_name_short %} eine Pointer-Datei, die als Referenz auf die aktuelle Datei (die an einem anderen Ort gespeichert ist) dient. {% data variables.product.product_name %} verwaltet diese Pointer-Datei in Ihrem Repository. Wenn Sie das Repository klonen, verwendet {% data variables.product.product_name %} die Pointer-Datei als Karte, um die große Datei für Sie zu finden.
@@ -41,11 +42,13 @@ size 84977953
 
 Sie erfasst die `version` von {% data variables.large_files.product_name_short %}, die Sie verwenden, gefolgt von einem eindeutigen Kennzeichner für die Datei (`oid`). Außerdem speichert sie die Größe (`size`) der endgültigen Datei.
 
-{% tip %}
+{% note %}
 
-**Tipp**: {% data variables.large_files.product_name_short %} kann nicht mit {% data variables.product.prodname_pages %}-Websites verwendet werden.
+**Hinweise**:
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### Weiterführende Informationen
 

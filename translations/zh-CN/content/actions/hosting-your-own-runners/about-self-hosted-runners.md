@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -87,11 +88,11 @@ versions:
 - Windows Server 2016 64 位
 - Windows Server 2019 64 位
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) 或更高版本
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 
@@ -111,9 +112,10 @@ versions:
 github.com
 api.github.com
 *.actions.githubusercontent.com
+codeload.github.com
 ```
 
-如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
+如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
 
 {% else %}
 

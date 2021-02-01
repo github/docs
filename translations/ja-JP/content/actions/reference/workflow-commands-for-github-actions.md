@@ -14,15 +14,15 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフローコマンドについて
 
 アクションは、 環境変数を設定する、他のアクションに利用される値を出力する、デバッグメッセージを出力ログに追加するなどのタスクを行うため、ランナーマシンとやりとりできます。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
+ほとんどのワークフローコマンドは特定の形式で `echo` コマンドを使用しますが、他のワークフローコマンドはファイルへの書き込みによって呼び出されます。 詳しい情報については、「[環境ファイル](#environment-files)」を参照してください。
 {% else %}
 ワークフローコマンドは、特定のフォーマットで `echo` コマンドを使います。
 {% endif %}
@@ -45,44 +45,46 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 ### ワークフローコマンドを使ったツールキット関数へのアクセス
 
-[actions/toolkit](https://github.com/actions/toolkit)には、ワークフローコマンドとして実行できる多くの関数があります。 `::`構文を使って、YAMLファイル内でワークフローコマンドを実行してください。それらのコマンドは`stdout`を通じてランナーに送信されます。 For example, instead of using code to set an output, as below:
+[actions/toolkit](https://github.com/actions/toolkit)には、ワークフローコマンドとして実行できる多くの関数があります。 `::`構文を使って、YAMLファイル内でワークフローコマンドを実行してください。それらのコマンドは`stdout`を通じてランナーに送信されます。 たとえば、コードを使用して出力を設定する代わりに、以下のようにします。
 
 ```javascript
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-You can use the `set-output` command in your workflow to set the same value:
+ワークフローで `set-output` コマンドを使用して、同じ値を設定できます。
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
-| ツールキット関数                                                                                                                                                                            | 等価なワークフローのコマンド                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| `core.addPath`                                                                                                                                                                      |                                    |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                    |
-|                                                                                                                                                                                     |                                    |
-| `core.debug`                                                                                                                                                                        | `debug`                            |
-| `core.error`                                                                                                                                                                        | `エラー`                              |
-| `core.endGroup`                                                                                                                                                                     | `endgroup`                         |
-| `core.exportVariable`                                                                                                                                                               |                                    |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}   |                                    |
-|                                                                                                                                                                                     |                                    |
-| `core.getInput`                                                                                                                                                                     | 環境変数の`INPUT_{NAME}`を使ってアクセス可能      |
-| `core.getState`                                                                                                                                                                     | 環境変数の`STATE_{NAME}`を使ってアクセス可能      |
-| `core.isDebug`                                                                                                                                                                      | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能      |
-| `core.saveState`                                                                                                                                                                    | `save-state`                       |
-| `core.setFailed`                                                                                                                                                                    | `::error`及び`exit 1`のショートカットとして使われる |
-| `core.setOutput`                                                                                                                                                                    | `set-output`                       |
-| `core.setSecret`                                                                                                                                                                    | `add-mask`                         |
-| `core.startGroup`                                                                                                                                                                   | `group`                            |
-| `core.warning`                                                                                                                                                                      | `warning file`                     |
+| ツールキット関数                                                                                                                                                             | 等価なワークフローのコマンド                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `core.addPath`                                                                                                                                                       |                                    |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}環境ファイル `GITHUB_PATH` を使用してアクセス可能{% else %} `add-path` {% endif %} |                                    |
+|                                                                                                                                                                      |                                    |
+| `core.debug`                                                                                                                                                         | `debug`                            |
+| `core.error`                                                                                                                                                         | `エラー`                              |
+| `core.endGroup`                                                                                                                                                      | `endgroup`                         |
+| `core.exportVariable`                                                                                                                                                |                                    |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}環境ファイル `GITHUB_ENV` を使用してアクセス可能{% else %} `set-env` {% endif %}   |                                    |
+|                                                                                                                                                                      |                                    |
+| `core.getInput`                                                                                                                                                      | 環境変数の`INPUT_{NAME}`を使ってアクセス可能      |
+| `core.getState`                                                                                                                                                      | 環境変数の`STATE_{NAME}`を使ってアクセス可能      |
+| `core.isDebug`                                                                                                                                                       | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能      |
+| `core.saveState`                                                                                                                                                     | `save-state`                       |
+| `core.setFailed`                                                                                                                                                     | `::error`及び`exit 1`のショートカットとして使われる |
+| `core.setOutput`                                                                                                                                                     | `set-output`                       |
+| `core.setSecret`                                                                                                                                                     | `add-mask`                         |
+| `core.startGroup`                                                                                                                                                    | `group`                            |
+| `core.warning`                                                                                                                                                       | `warning file`                     |
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### 環境変数の設定
@@ -130,7 +132,7 @@ echo "::add-path::/path/to/dir"
 
 `::debug::{message}`
 
-デバッグメッセージをログに出力します。 ログでこのコマンドにより設定されたデバッグメッセージを表示するには、`ACTIONS_STEP_DEBUG` という名前のシークレットを作成し、値を `true` に設定する必要があります。 For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
+デバッグメッセージをログに出力します。 ログでこのコマンドにより設定されたデバッグメッセージを表示するには、`ACTIONS_STEP_DEBUG` という名前のシークレットを作成し、値を `true` に設定する必要があります。 詳しい情報については、「[デバッグログの有効化](/actions/managing-workflow-runs/enabling-debug-logging)」を参照してください。
 
 #### サンプル
 
@@ -161,6 +163,25 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### サンプル
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
 ### ログ中での値のマスク
 
@@ -228,13 +249,13 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-## Environment Files
+## 環境ファイル
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
 
 {% warning %}
 
-**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**警告:** Powershell はデフォルト設定で UTF-8 を使用しません。 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
 
 ```
 steps:
@@ -255,9 +276,10 @@ steps:
 echo "action_state=yellow" >> $GITHUB_ENV
 ```
 
-Running `$action_state` in a future step will now return `yellow`
+将来のステップで `$action_state` を実行すると `yellow` が返されるようになりました
 
-#### Multline strings
+#### Multiline strings
+
 複数行の文字列の場合、次の構文で区切り文字を使用できます。
 
 ```
@@ -266,8 +288,9 @@ Running `$action_state` in a future step will now return `yellow`
 {delimiter}
 ```
 
-#### サンプル
-In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
+##### サンプル
+
+この例では、区切り文字として `EOF` を使用し、`JSON_RESPONSE` 環境変数を cURL レスポンスの値に設定します。
 ```
 steps:
   - name: Set the value
@@ -282,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-現在のジョブ内にある、続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### サンプル
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

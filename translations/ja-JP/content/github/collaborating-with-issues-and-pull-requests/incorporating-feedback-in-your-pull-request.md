@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 提案された変更を適用する
@@ -23,6 +24,10 @@ versions:
     - 変更のバッチに提案を追加するには、[**Add suggestion to batch**] をクリックします。 これを繰り返して、1 つのコミットに取り込む変更を追加します。 提案された変更の追加が終わったら、[**Commit suggestions**] をクリックします。 ![[Add suggestion to batch] ボタン](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. コミットメッセージのフィールドに、ファイルに対する変更内容を説明する、短くわかりやすいコミットメッセージを入力します。 ![Commit messageフィールド](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. [**Commit changes**] をクリックします。 ![[Commit changes] ボタン](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### レビューを再リクエストする
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### スコープ外の提案に対する Issue のオープン
 

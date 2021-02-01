@@ -20,6 +20,7 @@ Você pode bloquear um usuário nas configurações da sua conta ou no perfil do
 Quando você bloqueia um usuário:
 - O usuário para de seguir você
 - O usuário para de inspecionar e deixa de fixar seus repositórios
+- O usuário não pode participar de nenhuma organização da qual você é proprietário
 - As estrelas e atribuições de problema do usuário são removidas dos repositórios
 - As bifurcações dos seus repositórios são excluídas
 - Você exclui qualquer bifurcação dos repositórios do usuário

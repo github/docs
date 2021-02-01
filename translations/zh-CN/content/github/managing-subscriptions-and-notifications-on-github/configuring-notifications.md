@@ -16,24 +16,30 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
+
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
 
 ### 通知递送选项
 
-您有三个基本的通知递送选项：
-  - the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}
-  - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_name %} 上的收件箱同步{% endif %}
-  - an email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
+您可以在以下位置的 {% data variables.product.product_name %} 上接收活动的通知。
 
-{% if currentVersion == "free-pro-team@latest" %}
+  - {% data variables.product.product_name %} Web 界面{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}中的通知收件箱
+  - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_name %} 上的收件箱同步{% endif %}
+  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 及 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱同步
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[选择通知设置](#choosing-your-notification-settings)”。
 {% endif %}
 
-{% data reusables.notifications-v2.tip-for-syncing-email-and-your-inbox-on-github %}
+{% data reusables.notifications.shared_state %}
 
 #### 通知收件箱的优点
 
-The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为您的 {% data variables.product.product_name %} 通知流程设计的分类选项，包括：
   - 一次对多种通知进行分类。
   - 将已完成的通知标记为**完成**并从收件箱中删除它们。 要查看标记为**完成**的所有通知，请使用 `is:done` 查询。
   - 保存通知以供以后查看。 保存的通知将在收件箱中标记并无限期保留。 要查看所有已保存的通知，请使用 `is:saved` 查询。
@@ -43,9 +49,9 @@ The notifications inbox on {% data variables.product.product_name %}{% if curren
   - 创建自定义过滤器，以便按需要关注不同的通知。
   - 按仓库或日期对收件箱中的通知进行分组，以快速概览通知，减少上下文切换
 
-{% if currentVersion == "free-pro-team@latest" %}
-In addition, the notifications inbox on
-{% data variables.product.prodname_mobile %} allows you to triage notifications in dark mode and receive push notifications for direct mentions. 更多信息请参阅“[为移动版 GitHub 启用推送通知](#enabling-push-notifications-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+此外，
+{% data variables.product.prodname_mobile %} 上的通知收件箱允许您在黑暗模式下对通知进行分类，并接收直接提及的推送通知。 更多信息请参阅“[为移动版 GitHub 启用推送通知](#enabling-push-notifications-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
 {% endif %}
 
 #### 对通知使用电子邮件客户端的优点
@@ -58,11 +64,24 @@ In addition, the notifications inbox on
 
 ### 关于参与和查看通知
 
-关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 要查看您关注的仓库，请参阅 [https://github.com/watching](https://github.com/watching)。 更多信息请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
+关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/github/building-a-strong-community/about-team-discussions)”。
 
+要查看您关注的仓库，请参阅[关注页面](https://github.com/watching)。 更多信息请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+#### 配置通知
+{% endif %}
+您可以在仓库页面上或关注页面上为仓库配置通知。
+{% if currentversion == "github-ae@latest" or currentversion ver_gt "enterprise-server@2. 0" %} 您可以选择仅接收仓库中发布的通知，或忽略仓库的所有通知。{% endif %}{% if currentversion == "free proteam@latest" %}
+
+#### 关于自定义通知
+{% data reusables.notifications-v2.custom-notifications-beta %}
+您可以自定义仓库的通知，例如，您可以选择仅在仓库中发生一类或多类事件（议题、拉取请求、发布、讨论）的更新时收到通知，或者忽略仓库的所有通知。
+{% endif %} 更多信息请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)”。
+
+#### 参与对话
 每当您在对话中发表评论或有人 @提及您的用户名时，您都在_参与_对话。 默认情况下，当您参与对话时，会自动订阅该对话。 您可以通过单击议题或拉取请求上的 **Unsubscribe（取消订阅）**或通过通知收件箱中的 **Unsubscribe（取消订阅）**选项，手动取消订阅已参与的对话。
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
+对于您关注或参与的对话，您可以选择是通过电子邮件还是 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" % 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
 
 ![参与和关注通知选项](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -70,7 +89,7 @@ For conversations you're watching or participating in, you can choose whether yo
   - 如果您不希望将通知发送到您的电子邮件地址，请取消选中 **email（电子邮件）**以便参与和查看通知。
   - 如果您希望在参与对话时通过电子邮件接收通知，则可以选中“Participating（参与）”下的 **email（电子邮件）**。
 
-If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+如果您未对 Web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 和移动{% endif %} 启用关注或参与通知，则您的通知收件箱不会收到任何更新。
 
 ### 自定义电子邮件通知
 
@@ -94,7 +113,9 @@ If you do not enable watching or participating notifications for web{% if curren
   - 拉取请求推送。
   - 您自己的更新，例如当您打开、评论或关闭议题或拉取请求时。
 
-您还可以向特定仓库的不同电子邮件地址发送通知，具体取决于拥有仓库的组织。 例如，您可以向经验证的个人电子邮件地址发送特定公共仓库的通知。 您的组织可能要求验证特定域的电子邮件地址。 更多信息请参阅“[选择接收组织的电子邮件通知的位置](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)”。
+您还可以向不同电子邮件地址发送通知，具体取决于拥有仓库的组织。 您的组织可能要求验证特定域的电子邮件地址。 更多信息请参阅“[选择接收组织的电子邮件通知的位置](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)”。
+
+您也可以将特定仓库的通知发送到电子邮件地址。 更多信息请参阅“[关于推送到仓库的电子邮件通知](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)。”
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
@@ -108,10 +129,10 @@ If you do not enable watching or participating notifications for web{% if curren
 
 | 标头                     | 信息                                                                                                                                                                                                                                  |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `From` 地址              | This address will always be {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}.                                   |
-| `To` 字段                | 此字段直接连接到线程。 如果您回复电子邮件，将会为对话添加新评论。                                                                                                                                                                                                   |
-| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li><li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li><li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li><li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
-| `mailing list` 字段      | 此字段识别仓库名称及其所有者。 此地址的格式始终是 `<仓库名称>.<仓库所有者>.{% data variables.command_line.backticks %}`。 |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}
+| `From` 地址              | 此地址始终是 {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'网站管理员配置的无需回复电子邮件地址'{% endif %}。                                                                                                      |
+| `To` 字段                | 此字段直接连接到线程。{% if currentVersion != "github-ae@latest" %} 如果您回复电子邮件，将在对话中添加一个新的评论。{% endif %}
+| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li><li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li>{% endif %}<li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
+| `mailing list` 字段      | 此字段识别仓库名称及其所有者。 此地址的格式始终是 `<仓库名称>.<仓库所有者>.{% data variables.command_line.backticks %}`。 |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | `X-GitHub-Severity` 字段 | {% data reusables.repositories.security-alerts-x-github-severity %} 可能的严重程度等级包括：<ul><li>`低`</li><li>`中`</li><li>`高`</li><li>`严重`</li></ul>更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 |{% endif %}
 
 ### 选择通知设置
@@ -120,9 +141,9 @@ If you do not enable watching or participating notifications for web{% if curren
 {% data reusables.notifications-v2.manage-notifications %}
 3. 在通知设置页面上，选择在以下情况下如何接收通知：
     - 在您关注的仓库或团队讨论或参与的对话中发生了更新。 更多信息请参阅“[关于参与和关注通知](#about-participating-and-watching-notifications)”。
-    - 您获得了新仓库的访问权限或加入了新团队。 For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#github-dependabot-alerts-notification-options)”。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
-    - 您的仓库中有新的安全警报。 For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
+    - 您获得了新仓库的访问权限或加入了新团队。 更多信息请参阅“[自动关注](#automatic-watching)”。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#dependabot-alerts-notification-options)”。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - 您的仓库中有新的安全警报。 更多信息请参阅“[安全警报通知选项](#security-alert-notification-options)”。 {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - 在使用 {% data variables.product.prodname_actions %} 设置的仓库上有工作流程运行更新。 更多信息请参阅“[{% data variables.product.prodname_actions %} 通知选项](#github-actions-notification-options)”。{% endif %}
 
 ### 自动关注
@@ -147,7 +168,7 @@ If you do not enable watching or participating notifications for web{% if curren
 
 #### 自定义每个组织的电子邮件路由
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% if currentVersion == "free-pro-team@latest" %} your verified email addresses{% else %} the email addressed you've added to your {% data variables.product.product_name %} account{% endif %}. {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+如果您是多个组织的成员，您可以配置每个组织发送通知任何{% if currentVersion == "free-pro-team@latest" %} 您已验证的电子邮件地址{% else %}您已添加到 {% data variables.product.product_name %} 帐户的电子邮件地址{% endif %}。 {% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
@@ -157,34 +178,21 @@ If you are a member of more than one organization, you can configure each one to
 5. 选择一个经验证电子邮件地址，然后单击 **Save（保存）**。    
    ![切换每个组织的电子邮件地址](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### {% data variables.product.prodname_dependabot_alerts %} 通知选项
 {% else %}
-### Security alert notification options
+### 安全警报通知选项
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. 您可以在收件箱中接收 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}、作为 {% data variables.product.product_name %} 的横幅、在命令行上接收、通过电子邮件接收，或使用这些选项的一些组合。
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
+有关您可以使用的通知递送方法的更多信息，以及关于优化通知的建议
 
-如果您想通过电子邮件接收 {% data variables.product.prodname_dependabot_alerts %} ，请选择您是想每周接收最多 10 个仓库的漏洞电子邮件摘要，还是在每次检测到漏洞时接收一封新的电子邮件。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. 您可以在收件箱中接收安全警报、作为 {% data variables.product.product_name %} 的横幅、在命令行上接收、通过电子邮件接收，或使用这些选项的一些组合。
-
-如果您想通过电子邮件接收安全警报 ，请选择您是想每周接收最多 10 个仓库的漏洞电子邮件摘要，还是在每次检测到漏洞时接收一封新的电子邮件。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 {% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} 警报选项](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![安全警报选项](/assets/images/help/notifications-v2/security-alerts-options.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
-{% note %}
-
-**Note:** You can filter your {% data variables.product.company_short %} inbox notifications by {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts. 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)”。
-
-{% endnote %}
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-
 ### {% data variables.product.prodname_actions %} 通知选项
 
 选择您希望如何接收所关注仓库的工作流程运行更新，通过 {% data variables.product.prodname_actions %} 设置。 您也可以选择仅接收关于失败的工作流程运行的通知。
@@ -193,13 +201,14 @@ If you are a member of more than one organization, you can configure each one to
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 ### 使用 {% data variables.product.prodname_mobile %} 启用推送通知
 
 安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 然后，您可以针对应用程序中的直接提及启用推送通知。
 
 目前，您只能针对 {% data variables.product.prodname_mobile %} 上仓库的推送接收通知。
+
+{% data reusables.mobile.push-notifications-on-ghes %}
 
 #### 使用 {% data variables.product.prodname_ios %} 启用推送通知
 
@@ -208,9 +217,11 @@ If you are a member of more than one organization, you can configure each one to
 3. 要更新通知设置，请点击 **Push notifications（推送通知）**。
 4. 要针对直接提及开启推送通知，请使用 **Direct Mentions（直接提及）**切换按钮。
 
+{% if currentVersion == "free-pro-team@latest" %}
 #### 使用 {% data variables.product.prodname_android %} 启用推送通知
 
 1. 在“Home（主页）”上，点击您的个人资料照片。
 2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。 ![Android 版 GitHub 的设置图标](/assets/images/help/mobile/android-settings-icon.png)
 3. 要针对直接提及开启推送通知，请使用 **Direct mentions（直接提及）**切换按钮。
+{% endif %}
 {% endif %}

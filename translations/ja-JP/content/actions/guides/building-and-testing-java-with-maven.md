@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
-このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、プルリクエストに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
+このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
 
 {% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びMavenを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Maven のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 
@@ -30,7 +31,7 @@ Java及びMavenフレームワークの基本的な理解をしておくこと�
 
 ### Mavenワークフローテンプレートで始める
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については[Mavenワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については、[Maven ワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)を参照してください。
 
 素早く始めるには、新しいワークフローを作成する際に事前設定されたMavenテンプレートを選択できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
 
@@ -53,7 +54,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -73,7 +74,7 @@ jobs:
 
 ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
 
-スターターワークフローは、デフォルトで`package`タスクを実行します。 デフォルトのMavenの設定では、このコマンドは依存関係をダウンロードし、クラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージします。
+スターターワークフローは、デフォルトで`package`ターゲットを実行します。 デフォルトのMavenの設定では、このコマンドは依存関係をダウンロードし、クラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージします。
 
 プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを使いたいのであれば、それらを指定できます。 たとえば、_pom-ci.xml_ファイル中で設定された`verify`ターゲットを実行したいこともあるでしょう。
 
@@ -85,13 +86,13 @@ steps:
     with:
       java-version: 1.8
   - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 ### 依存関係のキャッシング
 
-ワークフローの実行速度を上げるために、依存関係をキャッシュすることもできます。 実行に成功した後、ローカルのMavenリポジトリがGitHub Actionsのインフラストラクチャ上に保存されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化できます。 実行に成功した後、ローカルのMavenリポジトリがGitHub Actionsのインフラストラクチャ上に保存されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 詳しい情報については「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシング</a>」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
 
 {% raw %}
 ```yaml
@@ -108,7 +109,7 @@ steps:
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
   - name: Build with Maven
-    run: mvn -B package --file pom.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -125,7 +126,7 @@ Mavenは通常、JAR、EAR、WARのような出力ファイルを`target`ディ�
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:

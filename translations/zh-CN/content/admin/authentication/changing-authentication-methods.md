@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-在您更改身份验证方法时，{% data variables.product.product_location_enterprise %} 上的用户帐户将保留，只要他们的用户名没有发生变化，用户就可以继续登录原来的帐户。
+在您更改身份验证方法时，{% data variables.product.product_location %} 上的用户帐户将保留，只要他们的用户名没有发生变化，用户就可以继续登录原来的帐户。
 
-如果新的身份验证方法更改了用户名，将创建新帐户。 作为管理员，您可以通过站点管理员设置或使用 [User Administration API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user) 重命名用户。
+如果新的身份验证方法更改了用户名，将创建新帐户。 作为管理员，您可以通过站点管理员设置或使用[用户管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user)重命名用户。
 
 您应当考虑的其他问题包括：
 
@@ -30,4 +30,4 @@ versions:
 
 * **双重身份验证**：{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **对您的身份提供程序覆盖范围外的用户进行内置身份验证**：您可以邀请用户在 {% data variables.product.product_location_enterprise %} 中进行身份验证，无需将他们添加到您的身份提供程序中。 更多信息请参阅“[允许对身份提供程序覆盖范围以外的用户进行内置身份验证](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)”。
+* **对您的身份提供程序覆盖范围外的用户进行内置身份验证**：您可以邀请用户在 {% data variables.product.product_location %} 中进行身份验证，无需将他们添加到您的身份提供程序中。 更多信息请参阅“[允许对身份提供程序覆盖范围以外的用户进行内置身份验证](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)”。

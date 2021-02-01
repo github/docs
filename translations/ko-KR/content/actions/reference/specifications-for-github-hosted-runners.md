@@ -29,15 +29,15 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 #### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on Standard_DS2_v2 virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the Standard_DS2_v2 machine resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
+{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on Standard_DS2_v2 virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the Standard_DS2_v2 machine resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
 
-{% data variables.product.prodname_dotcom %} uses [MacStadium](https://www.macstadium.com/) to host the macOS runners.
+{% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
 #### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
 
 The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
 ### Supported runners and hardware resources
 
@@ -50,6 +50,7 @@ Each virtual machine has the same hardware resources available.
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
@@ -62,9 +63,11 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 * [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
@@ -80,44 +83,11 @@ If there is a tool that you'd like to request, please open an issue at [actions/
 
 {% endnote %}
 
-Windows and Ubuntu runners are hosted in Azure and have the same IP address ranges as Azure Data centers. Currently, all Windows and Ubuntu {% data variables.product.prodname_dotcom %}-hosted runners are in the following Azure regions:
+Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-- East US (`eastus`)
-- East US 2 (`eastus2`)
-- West US 2 (`westus2`)
-- Central US (`centralus`)
-- South Central US (`southcentralus`)
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
-Microsoft updates the Azure IP address ranges weekly in a JSON file that you can download from the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) website. You can use this range of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
-
-The JSON file contains an array called `values`. Inside that array, you can find the supported IP addresses in an object with a `name` and `id` of the Azure region, for example `"AzureCloud.eastus2"`.
-
-You can find the supported IP address ranges in the `"addressPrefixes"` object. This is a condensed example of the JSON file.
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
 ### File systems
 

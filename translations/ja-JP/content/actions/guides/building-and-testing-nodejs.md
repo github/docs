@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -33,10 +34,14 @@ Node.js、YAML、ワークフローの設定オプションと、ワークフロ
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -45,7 +50,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -53,11 +58,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
@@ -69,7 +72,7 @@ jobs:
 
 `setup-node`アクションはNode.jsのバージョンを入力として取り、ランナー上でそのバージョンを設定します。 `setup-node`は各ランナー上のツールキャッシュから指定されたNode.jsのバージョンを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 `setup-node`アクションの利用は、{% data variables.product.prodname_actions %}でNode.jsを使うための推奨される方法です。これは、そうすることで様々なランナーや様々なバージョンのNode.jsで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Node.jsをインストールして`PATH`に追加しなければなりません。
 
-以下のテンプレートには、Node.jsのバージョン8.x、10.x、12.ｘでコードをビルドしてテストするマトリクス戦略が含まれています。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のマイナー及びパッチリリースにマッチします。 `node-version`配列で指定されたNode.jsの各バージョンに対して、同じステップを実行するジョブが作成されます。
+このテンプレートには、Node.jsの4つのバージョン、10.x、12.x、14.x、15.xでコードをビルドしてて酢と酢とマトリクス戦略が含まれています。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のマイナー及びパッチリリースにマッチします。 `node-version`配列で指定されたNode.jsの各バージョンに対して、同じステップを実行するジョブが作成されます。
 
 それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 マトリクス戦略とコンテキストに関する詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)」及び「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
@@ -77,7 +80,7 @@ jobs:
 ```yaml
 strategy:
   matrix:
-    node-version: [8.x, 10.x, 12.x]
+    node-version: [10.x, 12.x, 14.x, 15.x]
 
 steps:
 - uses: actions/checkout@v2
@@ -115,11 +118,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
@@ -129,7 +130,7 @@ Node.jsのバージョンを指定しなかった場合、{% data variables.prod
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、依存関係マネージャーのnpmとYarnがインストールされています。 コードのビルドとテストに先立って、npmやYarnを使ってワークフロー中で依存関係をインストールできます。 Windows及びLinuxの{% data variables.product.prodname_dotcom %}ホストランナーには、Grunt、Gulp、Bowerもインストールされています。
 
-ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化することもできます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 #### npmの利用例
 
@@ -193,9 +194,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-プライベートリポジトリで認証を受けるには、npm認証トークンをリポジトリ設定中にシークレットとして保存しなければなりません。 たとえば`NPM_TOKEN`というシークレットを生成してください。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+プライベートレジストリに対して認証するには、npm 認証トークンをシークレットとして保存する必要があります。 たとえば、`NPM_TOKEN` というリポジトリシークレットを作成します。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-以下の例では、`NPM_TOKEN`というシークレットにはnpmの認証トークンが保存されます。 `setup-node`アクションは、環境変数の`NODE_AUTH_TOKEN`からnpmの認証トークンを読み取るよう*.npmrc*ファイルを設定します。 `setup-node`アクションを使って*.npmrc*ファイルを作成する場合、環境変数の`NPM_AUTH_TOKEN`にnpmの認証トークンを含むシークレットを設定しなければなりません。
+以下の例では、`NPM_TOKEN`というシークレットにはnpmの認証トークンが保存されます。 `setup-node`アクションは、環境変数の`NODE_AUTH_TOKEN`からnpmの認証トークンを読み取るよう*.npmrc*ファイルを設定します。 `setup-node` アクションを使用して *.npmrc* ファイルを作成する場合は、npm 認証トークンを含むシークレットを使用して `NODE_AUTH_TOKEN` 環境変数を設定する必要があります。
 
 依存関係をインストールする前に、`setup-node`アクションを使って*.npmrc*ファイルを作成してください。 このアクションには2つの入力パラメーターがあります。 `node-version`パラメーターはNode.jsのバージョンを設定し、`registry-url`パラメーターはデフォルトのレジストリを設定します。 パッケージレジストリがスコープを使うなら、`scope`パラメーターを使わなければなりません。 詳しい情報については[`npm-scope`](https://docs.npmjs.com/misc/scope)を参照してください。
 
@@ -227,7 +228,7 @@ always-auth=true
 
 #### 依存関係のキャッシングの例
 
-`cache`アクションを使って、ユニークキーを使って依存関係をキャッシュし、将来のワークフローの実行で依存関係をリストアできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
+{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用して依存関係をキャッシュし、`cache` アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシング</a>」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
 
 {% raw %}
 ```yaml
@@ -240,8 +241,8 @@ steps:
 - name: Cache Node.js modules
   uses: actions/cache@v2
   with:
-    # npm キャッシュファイルは Linux/macOS の「~/.npm」に保存される
-    path: ~/.npm 
+    # npm cache files are stored in `~/.npm` on Linux/macOS
+    path: ~/.npm
     key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-

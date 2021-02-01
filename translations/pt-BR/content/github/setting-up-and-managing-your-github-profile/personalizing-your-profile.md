@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Alterar sua imagem de perfil
@@ -51,7 +52,7 @@ Adicione uma bio em seu perfil para compartilhar informações sobre si mesmo co
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-Para um formulário mais longo e uma maneira mais proeminente de exibir informações personalizadas sobre você, também é possível usar um LEIAME do perfil. Para obter mais informações sobre o LEIAME do perfil, consulte "[Gerenciar o LEIAME do seu perfil](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)".
+Para um formulário mais longo e uma maneira mais proeminente de exibir informações personalizadas sobre você, também é possível usar um LEIAME do perfil. Para obter mais informações, consulte "[Gerenciar seu perfil LEIAME](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)".
 
 {% endif %}
 

@@ -13,14 +13,8 @@ You can only manage your payouts from {% data variables.product.prodname_sponsor
 
 {% data reusables.sponsors.payout-info %}
 
-### Viewing and editing payout information for your sponsored user account
+### Viewing and editing payout information
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-payouts-tab %}
-{% data reusables.sponsors.edit-bank-information %}
-
-### Viewing and editing payout information for your sponsored organization
-
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}
 {% data reusables.sponsors.edit-bank-information %}

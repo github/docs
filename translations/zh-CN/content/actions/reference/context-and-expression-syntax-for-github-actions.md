@@ -59,7 +59,7 @@ env:
 | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `github`   | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。                                                                               |
 | `env`      | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。                                                                            |
-| `job`      | `对象` | 当前执行的作业相关信息。 更多信息请参阅 [`job` 上下文](#job-context)。                                                                                     |
+| `作业`       | `对象` | 当前执行的作业相关信息。 更多信息请参阅 [`job` 上下文](#job-context)。                                                                                     |
 | `steps`    | `对象` | 此作业中已经运行的步骤的相关信息。 更多信息请参阅 [`steps` 上下文](#steps-context)。                                                                            |
 | `runner`   | `对象` | 运行当前作业的运行程序相关信息。 更多信息请参阅 [`runner` 上下文](#runner-context)。                                                                           |
 | `secrets`  | `对象` | 启用对密码的访问权限。 有关密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。 |
@@ -75,7 +75,11 @@ env:
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
 
-#### **`github` 上下文**
+#### Determining when to use contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
+#### `github` 上下文
 
 `github` 上下文包含有关工作流程运行以及触发运行的事件相关信息。 您可以读取环境变量中的大多数 `github` 上下文数据。 有关环境变量的更多信息，请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”。
 
@@ -93,7 +97,7 @@ env:
 | `github.event_path`       | `字符串` | 运行器上完整事件 web 挂钩有效负载的路径。                                                                                                                                                                                                 |
 | `github.head_ref`         | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 时才可用。                                                                                                                                                   |
 | `github.job`              | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                     |
-| `github.ref`              | `字符串` | 触发工作流程的分支或标记参考。                                                                                                                                                                                                         |
+| `github.ref`              | `字符串` | 触发工作流程的分支或标记参考。 对于分支，使用格式 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                          |
 | `github.repository`       | `字符串` | 所有者和仓库名称。 例如 `Codertocat/Hello-World`。                                                                                                                                                                                  |
 | `github.repository_owner` | `字符串` | 仓库所有者的名称。 例如 `Codertocat`。                                                                                                                                                                                              |
 | `github.run_id`           | `字符串` | {% data reusables.github-actions.run_id_description %}
@@ -103,21 +107,20 @@ env:
 | `github.workflow`         | `字符串` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。                                                                                                                                                                      |
 | `github.workspace`        | `字符串` | 使用 [`checkout`](https://github.com/actions/checkout) 操作时步骤的默认工作目录和仓库的默认位置。                                                                                                                                              |
 
-#### **`env` 上下文**
+#### `env` 上下文
 
 `env` 上下文包含已在工作流程、作业或步骤中设置的环境变量。 有关在工作流程中设置环境变量的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)”。
 
-`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 如果您想要在运行器中使用环境变量的值，请使用运行器操作系统的正常方法来读取环境变量。
+`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
 
-您只能将 `env` 上下文用在 `with` 和 `name` 键值，或用在步骤的 `if` 条件中。 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
+如果您想要在运行器中使用环境变量的值，请使用运行器操作系统的正常方法来读取环境变量。
 
 | 属性名称                   | 类型    | 描述                                     |
 | ---------------------- | ----- | -------------------------------------- |
 | `env`                  | `对象`  | 此上下文针对作业中的每个步骤而改变。 您可以从作业中的任何步骤访问此上下文。 |
-| `env.<env name>` | `字符串` | 特定环境变量的值。                              |
+| `env.<env_name>` | `字符串` | 特定环境变量的值。                              |
 
-
-#### **`job` 上下文**
+#### `job` 上下文
 
 `job` 上下文包含当前正在运行的作业相关信息。
 
@@ -133,7 +136,7 @@ env:
 | `job.services.<service id>.ports`   | `对象`  | 服务容器显露的端口。                                                                                                                                             |
 | `job.status`                              | `字符串` | 作业的当前状态。 可能的值包括 `success`、`failure` 或 `cancelled`。                                                                                                     |
 
-#### **`steps` 上下文**
+#### `steps` 上下文
 
 `steps` 上下文包含当前作业中已经运行的步骤相关信息。
 
@@ -145,7 +148,7 @@ env:
 | `steps.<step id>.outcome`                     | `字符串` | 在 [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) 应用之前完成的步骤的结果。 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。 当 `continue-on-error` 步骤失败时，`outcome` 为 `failure`，但最终的 `conclusion` 为 `success`。 |
 | `steps.<step id>.outputs.<output name>` | `字符串` | 特定输出的值。                                                                                                                                                                                                                                                            |
 
-#### **`runner` 上下文**
+#### `runner` 上下文
 
 `runner` 上下文包含正在执行当前作业的运行器相关信息。
 
@@ -155,7 +158,7 @@ env:
 | `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                                                          |
 | `runner.tool_cache` | `字符串` | 包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 |
 
-#### **`needs` 上下文**
+#### `needs` 上下文
 
 `needs` 上下文包含定义为当前作业依赖项的所有作业的输出。 有关定义作业依赖项的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
 

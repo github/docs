@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -56,26 +57,26 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
     {% raw %}
     **action.yml**
     ```yaml
-    Name: 'Hello World'
-    Beschreibung: 'Greet someone'
+    name: 'Hello World'
+    description: 'Greet someone'
     inputs:
-      who-to-greet: 'id of input
+      who-to-greet:  # id of input
         description: 'Who to greet'
         required: true
         default: 'World'
     outputs:
-      zuzufällige Zahl: 
-        Beschreibung: "Zufallszahl"
-        Wert:{{ steps.random-number-generator.outputs.random-id }}
-    läuft:
-      mit: "composite"
-      Schritten: 
-        - laufen:{{ inputs.who-to-greet }}echo
+      random-number: 
+        description: "Random number"
+        value: ${{ steps.random-number-generator.outputs.random-id }}
+    runs:
+      using: "composite"
+      steps: 
+        - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::'(echo $RANDOM)"
+          run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: '{{ github.action_path }}/goodbye.sh
+        - run: ${{ github.action_path }}/goodbye.sh
           shell: bash
     ```
     {% endraw %}
@@ -109,20 +110,20 @@ Copy the workflow code into a `.github/workflows/main.yml` file in another repos
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-zu: [push]
+on: [push]
 
-Jobs:
+jobs:
   hello_world_job:
-    läuft auf: ubuntu-latest
-    Name: Ein Job, um Hallo zu sagen
-    Schritte:
-    - verwendet: aktionen/checkout@v2
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - uses: actions/checkout@v2
     - id: foo
-      verwendet: actions/hello-world-composite-run-steps-action@v1
-      mit:
+      uses: actions/hello-world-composite-run-steps-action@v1
+      with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-{{ steps.foo.outputs.random-number }} 
-      number
+    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+      shell: bash
 ```
 {% endraw %}
 

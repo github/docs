@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.profile.activity-overview-summary %}更多信息请参阅“[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)”。

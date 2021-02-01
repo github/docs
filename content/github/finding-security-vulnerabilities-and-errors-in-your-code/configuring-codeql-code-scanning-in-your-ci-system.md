@@ -21,7 +21,7 @@ To integrate {% data variables.product.prodname_code_scanning %} into your CI sy
 
 In general, you invoke the {% data variables.product.prodname_codeql_runner %} as follows.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
@@ -40,7 +40,7 @@ The {% data variables.product.prodname_codeql_runner %} automatically detects an
 
 To override automatic language detection, run the `init` command with the `--languages` flag, followed by a comma-separated list of language keywords. The keywords for the supported languages are `cpp`, `csharp`, `go`, `java`, `javascript`, and `python`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -58,7 +58,7 @@ For more information, see "[Using a custom configuration file](#using-a-custom-c
 
 In the following example, the `+` symbol ensures that the {% data variables.product.prodname_codeql_runner %} uses the additional queries together with any queries specified in the referenced configuration file.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -71,7 +71,7 @@ The configuration file is a YAML file. It uses syntax similar to the workflow sy
 
 Use the `--config-file` flag of the `init` command to specify the configuration file. The value of <nobr>`--config-file`</nobr> is the path to the configuration file that you want to use. This example loads the configuration file _.github/codeql/codeql-config.yml_.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
@@ -87,7 +87,7 @@ For many common build systems, the {% data variables.product.prodname_codeql_run
 
 The `autobuild` process only ever attempts to build _one_ compiled language for a repository. The language automatically selected for analysis is the language with the most files. If you want to choose a language explicitly, use the `--language` flag of the `autobuild` command.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
@@ -97,7 +97,7 @@ If the `autobuild` command can't build your code, you can run the build steps yo
 
 By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 ### {% data variables.product.prodname_codeql_runner %} command reference
 

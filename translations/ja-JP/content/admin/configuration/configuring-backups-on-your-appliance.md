@@ -12,14 +12,14 @@ redirect_from:
   - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
-intro: 'システム災害復旧計画の一部として、自動化バックアップを設定して{% data variables.product.product_location_enterprise %}のプロダクションデータを保護できます。'
+intro: 'システム災害復旧計画の一部として、自動化バックアップを設定して{% data variables.product.product_location %}のプロダクションデータを保護できます。'
 versions:
   enterprise-server: '*'
 ---
 
 ### {% data variables.product.prodname_enterprise_backup_utilities %}について
 
-{% data variables.product.prodname_enterprise_backup_utilities %}は、個別のホストにインストールするバックアップシステムで、{% data variables.product.product_location_enterprise %}のバックアップスナップショットをセキュアなSSHネットワーク接続経由で定期的に取得します。 スナップショットを使用して、既存の {% data variables.product.prodname_ghe_server %} インスタンスをバックアップホストから以前の状態に復元できます。
+{% data variables.product.prodname_enterprise_backup_utilities %}は、個別のホストにインストールするバックアップシステムで、{% data variables.product.product_location %}のバックアップスナップショットをセキュアなSSHネットワーク接続経由で定期的に取得します。 スナップショットを使用して、既存の {% data variables.product.prodname_ghe_server %} インスタンスをバックアップホストから以前の状態に復元できます。
 
 ネットワーク経由で転送されるのは最後のスナップショット以降に追加されたデータのみで、追加の物理ストレージ領域もその分だけしか占めません。 パフォーマンスへの影響を最小化するために、バックアップは最低のCPU/IO優先度の下でオンライン実行されます。 バックアップを行うために、メンテナンスウィンドウをスケジューリングする必要はありません。
 
@@ -27,11 +27,11 @@ versions:
 
 ### 必要な環境
 
-{% data variables.product.prodname_enterprise_backup_utilities %}を利用するには、{% data variables.product.product_location_enterprise %}とは別のLinuxもしくはUnixホストシステムが必要です。
+{% data variables.product.prodname_enterprise_backup_utilities %}を利用するには、{% data variables.product.product_location %}とは別のLinuxもしくはUnixホストシステムが必要です。
 
 {% data variables.product.prodname_enterprise_backup_utilities %}は、重要なデータのための長期的な恒久ストレージの既存環境に統合することもできます。
 
-バックアップホストと{% data variables.product.product_location_enterprise %}は、地理的に離れたところに配置することをおすすめします。 そうすることで、プライマリのサイトにおける大規模な災害やネットワーク障害に際してもリカバリにバックアップが利用できることが保証されます。
+バックアップホストと{% data variables.product.product_location %}は、地理的に離れたところに配置することをおすすめします。 そうすることで、プライマリのサイトにおける大規模な災害やネットワーク障害に際してもリカバリにバックアップが利用できることが保証されます。
 
 物理的なストレージの要求は、Gitリポジトリのディスク利用状況と予想される成長パターンによって異なります。
 
@@ -59,7 +59,7 @@ versions:
 3. `GHE_HOSTNAME` の値をプライマリの {% data variables.product.prodname_ghe_server %} インスタンスのホスト名あるいは IP アドレスに設定します。
 4. `GHE_DATA_DIR` の値をバックアップスナップショットを保存したいファイルシステムの場所に設定します。
 5. `https://HOSTNAME/setup/settings` にあるプライマリインスタンスの設定ページを開き、バックアップホストの SSH キーを認証済みの SSH キーのリストに追加します。 詳しい情報については、「[管理シェル (SSH) にアクセスする](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)」を参照してください。
-5. `ghe-host-check` コマンドで、{% data variables.product.product_location_enterprise %} との SSH 接続を確認します。
+5. `ghe-host-check` コマンドで、{% data variables.product.product_location %} との SSH 接続を確認します。
   ```shell
   $ bin/ghe-host-check        
   ```
@@ -78,9 +78,17 @@ versions:
 
 ### バックアップのリストア
 
-万が一、プライマリサイトで長時間の停止または壊滅的なイベントが発生した場合は、別の {% data variables.product.prodname_enterprise %} アプライアンスをプロビジョニングしてバックアップホストから復元を実行することで、{% data variables.product.product_location_enterprise %} を復元できます。 アプライアンスを復元する前に、バックアップホストの SSH キーをターゲットの {% data variables.product.prodname_enterprise %} アプライアンスに認証済み SSH キーとして追加する必要があります。
+万が一、プライマリサイトで長時間の停止または壊滅的なイベントが発生した場合は、別の {% data variables.product.prodname_enterprise %} アプライアンスをプロビジョニングしてバックアップホストから復元を実行することで、{% data variables.product.product_location %} を復元できます。 アプライアンスを復元する前に、バックアップホストの SSH キーをターゲットの {% data variables.product.prodname_enterprise %} アプライアンスに認証済み SSH キーとして追加する必要があります。
 
-最後に成功したスナップショットから {% data variables.product.product_location_enterprise %} を復元するには、`ghe-restore` コマンドを使用します。 以下と同じような出力が表示されるでしょう:
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
+最後に成功したスナップショットから {% data variables.product.product_location %} を復元するには、`ghe-restore` コマンドを使用します。 以下と同じような出力が表示されるでしょう:
 
 ```shell
 $ ghe-restore -c 169.154.1.1

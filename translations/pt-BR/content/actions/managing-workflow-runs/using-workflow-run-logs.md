@@ -14,7 +14,7 @@ Na página de execução de fluxo de trabalho, você pode verificar se a execuç
 
 Se a execução estiver concluída, será possível ver se o resultado teve êxito, se houve falha, se foi cancelado ou se ficou neutro. Em caso de falha, você poderá exibir e pesquisar os logs de criação para diagnosticar a falha e executar o fluxo de trabalho novamente. Você também pode visualizar os minutos da execução do trabalho faturável ou fazer o download dos registros e criar artefatos.
 
-O {% data variables.product.prodname_actions %} usa a API de Verificação para mostrar os status, resultados e logs de um fluxo de trabalho. O {% data variables.product.prodname_dotcom %} cria um novo conjunto de verificações para cada execução de fluxo de trabalho. O conjunto de verificações contêm uma execução de verificação para cada trabalho no fluxo de trabalho, e cada trabalho inclui etapas. As ações do {% data variables.product.prodname_actions %} são executadas como etapas no fluxo de trabalho. Para obter mais informações sobre a API de verificações, consulte "[Verificações](/v3/checks/)".
+O {% data variables.product.prodname_actions %} usa a API de Verificação para mostrar os status, resultados e logs de um fluxo de trabalho. O {% data variables.product.prodname_dotcom %} cria um novo conjunto de verificações para cada execução de fluxo de trabalho. O conjunto de verificações contêm uma execução de verificação para cada trabalho no fluxo de trabalho, e cada trabalho inclui etapas. As ações do {% data variables.product.prodname_actions %} são executadas como etapas no fluxo de trabalho. Para obter mais informações sobre a API de verificações, consulte "[Verificações](/rest/reference/checks)".
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
@@ -44,7 +44,12 @@ Para trabalhos executados em executores hospedados no {% data variables.product.
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta. ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
+1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
+{% else %}
+  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
+{% endif %}
 {% else %}
 1. Para expandir cada etapa que você pretende incluir na pesquisa, clique na etapa.![Nome da etapa](/assets/images/help/repository/failed-check-step.png)
 1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta. ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box.png)
@@ -60,12 +65,16 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. No canto superior direito, clique em
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo do registro**.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  {% else %}
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  {% endif %}
 {% else %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. No canto superior direito, clique em
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Fazer o download o arquivo de registro**.
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down.png)
 {% endif %}
 
@@ -78,9 +87,21 @@ Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. 
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que não restaram arquivos de registro na execução do fluxo de trabalho.
+1. No canto superior direito, clique em
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+ ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    {% else %}
+    ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    {% endif %}
+2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  {% else %}
+  ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated.png)
+  {% endif %}
+Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que nenhum arquivo de registro permaneça na execução do fluxo de trabalho.
 {% else %}
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Depois que os registros forem excluídos, o botão **Excluir todos os registros** é removido para indicar que nenhum arquivo de registro permanece na execução do fluxo de trabalho.
 {% endif %}

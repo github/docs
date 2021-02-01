@@ -10,6 +10,8 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
 数据传输每月都会重置，而存储使用量不重置。
@@ -50,8 +52,8 @@ versions:
 
 ### 关于支出限制
 
-默认情况下，您的帐户对 {% data variables.product.prodname_registry %} 使用的支出限额为 0 美元。 要对超出帐户所含金额的私人软件包启用存储和数据传输，您可以增加支出限额或允许无限制支出。 更多信息请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”。
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

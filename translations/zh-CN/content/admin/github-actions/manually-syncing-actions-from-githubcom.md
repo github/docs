@@ -12,7 +12,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-要使 {% data variables.product.prodname_dotcom_the_website %} 中的特定操作可用于工作流程，您可以使用 {% data variables.product.company_short %} 的开源 [`actions-sync`](https://github.com/actions/actions-sync) 工具将操作仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到企业实例。 有关访问 {% data variables.product.prodname_dotcom_the_website %} 上操作的其他方式，请参阅“[关于 {% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)”。
+The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %} . 更多信息请参阅“[启用使用 {% data variables.product.prodname_github_connect %} 自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
+
+However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance.
 
 ### 关于 `actions-sync` 工具
 
@@ -24,7 +26,7 @@ versions:
 
 ### 基本要求
 
-* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 更多信息请参阅“[创建组织](/enterprise/admin/user-management/creating-organizations)”。
+* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 更多信息请参阅“[从头开始创建新组织](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)”。
 * 您必须在企业实例上创建可以创建并写入目标组织中的仓库的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 ### 示例：使用 `actions-sync` 工具

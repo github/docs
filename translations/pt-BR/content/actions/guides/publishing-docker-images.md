@@ -46,11 +46,11 @@ Neste guia, usaremos a ação `build-push-action` do Docker para criar a imagem 
 
 No exemplo do fluxo de trabalho abaixo, usamos a ação `build-push-action` do Docker para criar a imagem e, se a construção for bem-sucedida, faça o push da imagem criada para o Docker Hub.
 
-Para fazer push para o Docker Hub, você deverá ter uma conta Docker Hub e ter criado um repositório Docker Hub. Para obter mais informações, consulte "[Compartilhar imagens no Docker Hub](https://docs.docker.com/get-started/part3/)" na documentação do Docker.
+Para fazer push para o Docker Hub, você deverá ter uma conta Docker Hub e ter criado um repositório Docker Hub. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 As opções `build-push-action` necessárias para o Docker Hub são:
 
-* `nome de usuário` e `senha`: Este é o seu nome de usuário e senha do Docker Hub. Recomendamos armazenar seu nome de usuário e senha do Docker Hub como segredos encriptados no repositório {% data variables.product.prodname_dotcom %} para que não sejam expostos no seu arquivo de fluxo de trabalho. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+* `nome de usuário` e `senha`: Este é o seu nome de usuário e senha do Docker Hub. Recomendamos armazenar seu nome de usuário e senha do Docker Hub como segredos para que não estejam expostos no seu arquivo de fluxo de trabalho. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 * `repositório`: Seu repositório do Docker Hub no formato `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -25,7 +26,7 @@ versions:
   ```shell
   $ gpg> adduid
   ```
-6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

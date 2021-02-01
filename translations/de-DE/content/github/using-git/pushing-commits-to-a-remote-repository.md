@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Der Befehl `git push` hat zwei Argumente:
@@ -97,3 +98,4 @@ Weitere Informationen zur Arbeit mit Forks findest Du unter „[Fork synchronisi
 - [„`git remote`"-Handbuch-Seiten](https://git-scm.com/docs/git-remote.html)
 - „[Git-Merkzettel](/articles/git-cheatsheet)“
 - „[Git-Workflows](/articles/git-workflows)“
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

@@ -76,7 +76,7 @@ These guidelines are designed to make the processing of requests to remove sensi
 
 ### How to Submit Your Request
 
-You can submit your request to remove sensitive data via our [contact form](https://support.github.com/contact). Please include a plain-text version of your request in the body of your message. Sending your request in an attachment may result in processing delays.
+You can submit your request to remove sensitive data via our [contact form](https://support.github.com/contact?tags=docs-sensitive-data). Please include a plain-text version of your request in the body of your message. Sending your request in an attachment may result in processing delays.
 
 ### Disputes
 

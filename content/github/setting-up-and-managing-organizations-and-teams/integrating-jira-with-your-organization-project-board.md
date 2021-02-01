@@ -5,6 +5,7 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 {% data reusables.user_settings.access_settings %}
 2. In the left sidebar under **Organization settings**, click the name of your organization.

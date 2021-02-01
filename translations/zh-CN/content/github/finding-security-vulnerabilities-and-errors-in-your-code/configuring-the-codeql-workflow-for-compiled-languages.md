@@ -3,7 +3,7 @@ title: 为编译语言配置 CodeQL 工作流程
 shortTitle: 为编译语言配置
 intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何使用 {% data variables.product.prodname_codeql_workflow %} 扫描用编译语言编写的代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '拥有仓库写入权限的人可配置仓库的 {% data variables.product.prodname_code_scanning %}。'
+permissions: '如果您拥有仓库的写入权限，您可以为该仓库配置 {% data variables.product.prodname_code_scanning %}。'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -20,8 +20,8 @@ versions:
 To enable {% data variables.product.prodname_code_scanning %} for your repository, you add to the repository a {% data variables.product.prodname_actions %}  workflow which includes {% data variables.product.prodname_codeql %} analysis. 更多信息请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”。 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 默认 {% data variables.product.prodname_code_scanning %} 工作流程使用 `on.push` 事件触发代码扫描 - 每次推送到任何包含工作流程文件的分支时触发。
 
 {% data reusables.code-scanning.edit-workflow %}
-For general information about configuring
-{% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+有关配置
+{% data variables.product.prodname_code_scanning %} 和编辑工作流程文件的一般信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
 ### 关于 {% data variables.product.prodname_codeql %} 的自动构建
 
@@ -39,17 +39,17 @@ For general information about configuring
 
 #### C/C++
 
-| 支持的系统类型 | 系统名称                                                                                                                                           |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 操作系统    | Windows, macOS, and Linux                                                                                                                      |
-| 构建系统    | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+| 支持的系统类型 | 系统名称                                                                                                       |
+| ------- | ---------------------------------------------------------------------------------------------------------- |
+| 操作系统    | Windows、macOS 和 Linux                                                                                      |
+| 构建系统    | Windows：MSbuild 和构建脚本<br/>Linux 和 macOS：Autoconf、Make、CMake、qmake、Meson、Waf、SCons、Linux Kbuild 和构建脚本 |
 
-`autobuild` 步骤的行为因提取运行所在的操作系统而异。 On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+`autobuild` 步骤的行为因提取运行所在的操作系统而异。 在 Windows 上，`autobuild` 步骤尝试使用以下方法自动检测合适的 C/C# 构建方法：
 
-1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root. 如果 `autobuild` 在顶层目录下的相同深度（最短）检测到多个解决方案或项目文件，它将尝试构建所有这些文件。
-2. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+1. 在最接近根目录的解决方案 (`.sln`) 或项目 (`.vcxproj`) 文件上调用 `MSBuild.exe`。 如果 `autobuild` 在顶层目录下的相同深度（最短）检测到多个解决方案或项目文件，它将尝试构建所有这些文件。
+2. 调用看起来像构建脚本的脚本—_build.bat_、_build.cmd_ _和 build.exe_（按此顺序）。
 
-On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
+在 Linux 和 macOS 上，`autobuild` 步骤检查仓库中存在的文件，以确定所使用的构建系统：
 
 1. 在根目录中查找构建系统。
 2. 如果未找到，则搜索子目录以查找含有 C/C++ 构建系统的唯一目录。
@@ -70,10 +70,10 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 
 #### Java
 
-| 支持的系统类型 | 系统名称                                       |
-| ------- | ------------------------------------------ |
-| 操作系统    | Windows, macOS, and Linux (no restriction) |
-| 构建系统    | Gradle、Maven 和 Ant                         |
+| 支持的系统类型 | 系统名称                       |
+| ------- | -------------------------- |
+| 操作系统    | Windows、macOS 和 Linux（无限制） |
+| 构建系统    | Gradle、Maven 和 Ant         |
 
 `autobuild` 进程尝试通过应用此策略来确定 Java 代码库的构建系统：
 

@@ -8,7 +8,9 @@ versions:
 
 ### Sobre a cobrança do {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
 
 Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
@@ -51,7 +53,7 @@ O número de trabalhos que você pode executar simultaneamente em todos os repos
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta. Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de $56, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = $56 ($24 + $32).
-  - 3.000 minutos Linux a $0,008 por = $24.
+  - 3.000 minutos Linux a $0,008 por minuto = $ 24.
   - 2.000 minutos do Windows a $0,016 por minuto = $32.
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.
@@ -69,8 +71,8 @@ Se uso de {% data variables.product.prodname_actions %} compartilha a data de co
 
 ### Sobre limites de gastos
 
-Por padrão, sua conta terá um limite de gastos de $0 para o uso de {% data variables.product.prodname_actions %}. Para habilitar o uso de minutos e armazenamento para repositórios privados além dos valores incluídos em sua conta, você pode aumentar o limite de gastos ou permitir gastos ilimitados. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

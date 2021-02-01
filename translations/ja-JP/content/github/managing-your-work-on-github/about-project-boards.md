@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プロジェクトボードは、Issue、プルリクエスト、選択した列内でカードとして分類されるノートから構成されます。 列内のカードの並び替え、列から列へのカードの移動、および列の順序の変更には、ドラッグアンドドロップまたはキーボードショートカットが利用できます。
@@ -59,7 +60,7 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 ### 参考リンク
 
 - [プロジェクトボードの作成](/articles/creating-a-project-board)
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

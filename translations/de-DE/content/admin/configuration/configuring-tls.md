@@ -1,6 +1,6 @@
 ---
 title: TLS konfigurieren
-intro: 'Sie können Transport Layer Security (TLS) auf {% data variables.product.product_location_enterprise %} konfigurieren, damit Sie ein von einer vertrauenswürdigen Zertifizierungsstelle signiertes Zertifikat verwenden können.'
+intro: 'Sie können Transport Layer Security (TLS) auf {% data variables.product.product_location %} konfigurieren, damit Sie ein von einer vertrauenswürdigen Zertifizierungsstelle signiertes Zertifikat verwenden können.'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -51,9 +51,9 @@ Let's Encrypt ist eine öffentliche Zertifizierungsstelle, die kostenlose, autom
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-Wenn Sie die Automatisierung der TLS-Zertifikatsverwaltung mit Let's Encrypt aktivieren, kontaktiert {% data variables.product.product_location_enterprise %} die Let's Encrypt-Server, um ein Zertifikat abzurufen. Zum Verlängern eines Zertifikats müssen die Let's Encrypt-Server die Steuerung des konfigurierten Domain-Namens mit eingehenden HTTP-Anforderungen validieren.
+Wenn Sie die Automatisierung der TLS-Zertifikatsverwaltung mit Let's Encrypt aktivieren, kontaktiert {% data variables.product.product_location %} die Let's Encrypt-Server, um ein Zertifikat abzurufen. Zum Verlängern eines Zertifikats müssen die Let's Encrypt-Server die Steuerung des konfigurierten Domain-Namens mit eingehenden HTTP-Anforderungen validieren.
 
-Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data variables.product.product_location_enterprise %} verwenden, um ein Let's Encrypt-Zertifikat automatisch zu generieren. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)“.
+Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data variables.product.product_location %} verwenden, um ein Let's Encrypt-Zertifikat automatisch zu generieren. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)“.
 
 ### TLS mit Let's Encrypt konfigurieren
 

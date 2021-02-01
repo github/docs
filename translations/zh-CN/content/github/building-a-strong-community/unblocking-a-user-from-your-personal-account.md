@@ -22,7 +22,7 @@ versions:
 ### 从用户的个人资料页面取消阻止该用户
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. 在左侧边栏中用户的个人资料图片下，单击 **Unblock or report user（取消阻止或举报用户）**。 ![取消阻止或举报用户链接](/assets/images/help/profile/profile-unblock-or-report-user.png)
+2. 在左侧边栏中，在用户的个人资料图片下，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击  **Unblock or report user（取消阻止或报告用户）**。 ![取消阻止或举报用户链接](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. 单击 **Unblock user（取消阻止用户）**。 ![包含取消阻止用户或举报滥用选项的模态框](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}.
 
-At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analagous information for your MinIO configuration.
+At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration. Before configuring third-party storage for {% data variables.product.prodname_registry %} on {% data variables.product.prodname_dotcom %}, you must set up a bucket with your third-party storage provider. For more information on installing and running a MinIO bucket to use with {% data variables.product.prodname_registry %}, see the "[Quickstart for configuring MinIO storage](/admin/packages/quickstart-for-configuring-minio-storage)."
 
 For the best experience, we recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
 
@@ -21,7 +21,10 @@ For the best experience, we recommend using a dedicated bucket for {% data varia
 
 {% warning %}
 
-**Warning:** Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Warnungen:**
+- It's critical you set the restrictive access policies you want for your storage bucket because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. For more information, see [Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html) in the AWS Documentation.
+- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 

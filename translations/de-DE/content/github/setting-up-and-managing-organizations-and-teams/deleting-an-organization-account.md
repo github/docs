@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -19,7 +20,7 @@ versions:
 
 ### 1. Sichere die Inhalte Deiner Organisation
 
-Wenn Du eine Organisation gelöscht hast, kann GitHub **Deine Inhalte nicht wiederherstellen.**. Bevor Du also Deine Organisation löschst, stelle sicher, dass Du eine Kopie aller Repositorys, Wikis und Issues des Kontos besitzt.
+Wenn Du eine Organisation gelöscht hast, kann GitHub **Deine Inhalte nicht wiederherstellen.**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
 ### 2. Lösche die Organisation
 

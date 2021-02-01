@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'руководство'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,11 +47,11 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 In the example workflow below, we use the Docker `build-push-action` action to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Share images on Docker Hub](https://docs.docker.com/get-started/part3/)" in the Docker documentation.
+To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `build-push-action` options required for Docker Hub are:
 
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as encrypted secrets in the your {% data variables.product.prodname_dotcom %} repository so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 * `repository`: Your Docker Hub repository in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}

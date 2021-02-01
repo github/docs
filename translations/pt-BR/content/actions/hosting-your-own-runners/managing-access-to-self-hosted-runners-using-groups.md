@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,7 +34,7 @@ Todas as organizações têm um único grupo de executores auto-hospedados padr�
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode mover um executor do grupo- padrão para qualquer grupo que você criar.
 
-Ao criar um grupo, você deverá escolher uma política que defina quais repositórios têm acesso ao grupo do executor. É possível configurar um grupo do executor para ser acessível a uma lista específica de repositórios, todos repositórios privados ou todos os repositórios na organização.
+Ao criar um grupo, você deverá escolher uma política que defina quais repositórios têm acesso ao grupo do executor.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -42,10 +43,23 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)</li>
 1
-Insira um nome para o seu grupo do seu executor e selecione uma política de acesso na lista suspensa **Acesso ao repositório**.
+Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-    ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1 Clique em **Salvar grupo** para criar o grupo e aplicar a política.</ol>
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, os repositórios públicos não podem acessar executores em um grupo de executor, mas você pode usar a opção **Permitir repositórios públicos** para substituir isso.{% else if currentVersion == "enterprise-server@2.22"%}Você pode configurar um grupo de executores para ser acessível por uma lista específica de repositórios, todos os repositórios privados ou todos os repositórios na organização.{% endif %}
+
+   {% warning %}
+
+   **Aviso**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
+
+   ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1
+Clique em **Salvar grupo** para criar o grupo e aplicar a política.</ol>
 
 ### Criar um grupo de executor auto-hospedado para uma empresa
 
@@ -53,21 +67,28 @@ As empresas podem adicionar seus executores auto-hospedados a grupos para gerenc
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
 
-Ao criar um grupo, é necessário escolher uma política que conceda acesso a todas as organizações da empresa ou escolher organizações específicas.
+Ao criar um grupo, você deve escolher uma política que defina quais organizações têm acesso ao grupo de executores.
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Clique na aba **Executores auto-hospedados**.
 1. Clique em **Adicionar novo** e, em seguida, **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Insira um nome para o seu grupo do seu executor e selecione uma política de acesso na lista suspensa **Acesso à organização**.
+1. Insira um nome para o seu grupo de executor e atribua uma política para acesso à organização.
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %} Você pode configurar um grupo para ser acessível para uma lista específica de organizações ou todas as organizações da empresa. Por padrão, os repositórios públicos não podem acessar executores em um grupo de executores, mas você pode usar a opção **Permitir repositórios públicos** para substituir isso.{% else if currentVersion == "enterprise-server@2.22"%}Você pode configurar um grupo de executores para ser acessível por todas as organizações da empresa ou escolher organizações específicas.{% endif %}
+
+   {% warning %}
+
+   **Aviso**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
 
     ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. Clique em **Salvar grupo** para criar o grupo e aplicar a política.

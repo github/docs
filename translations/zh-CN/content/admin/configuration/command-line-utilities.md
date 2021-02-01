@@ -64,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-此实用程序可用于检索和修改 {% data variables.product.product_location_enterprise %} 的配置设置。
+此实用程序可用于检索和修改 {% data variables.product.product_location %} 的配置设置。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -84,7 +84,7 @@ $ ghe-config -l
 允许您将用户列表从 API 速率限制中排除。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
+此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
 
 ```shell
 ghe-legacy-github-services-report
@@ -395,7 +395,7 @@ ghe-ssl-acme -e
 
 运行此实用程序可添加证书链进行 S/MIME 提交签名验证。 更多信息请参阅“[关于提交签名验证](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)”。
 
-如果 {% data variables.product.product_location_enterprise %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location_enterprise %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
+如果 {% data variables.product.product_location %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
 
 ```
 SSL-Session:
@@ -453,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-此实用程序会打印 {% data variables.product.product_location_enterprise %} 的版本、平台和内部版本号。
+此实用程序会打印 {% data variables.product.product_location %} 的版本、平台和内部版本号。
 
 ```shell
 $ ghe-version
@@ -468,18 +468,21 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-要显示全局 web 挂钩交付：
-```shell
-ghe-webhook-logs --global
 ```
 
 ### 集群

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Der Befehl `git remote add` hat zwei Argumente:
@@ -36,7 +37,7 @@ Beim Hinzufügen eines Remote-Repositorys können folgende Fehler auftreten.
 Dieser Fehler bedeutet, dass Du versucht hast, ein Remote-Repository hinzuzufügen, dessen Name bereits im lokalen Repository vorhanden ist:
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 

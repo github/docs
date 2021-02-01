@@ -59,7 +59,9 @@ Nachdem Du Deine Supportanfrage eingereicht hast, können wir Dich bitten, unser
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %}-Konfigurationsprotokolle,
 - `collectd/logs/collectd.log`: Collectd-Protokolle,
 - `mail-logs/mail.log`: SMTP-E-Mail-Zustellprotokolle,
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`: Webhook-Auslieferungsfehler.
+{% endif %}
 
 Weitere Informationen finden Sie unter „[Auditprotokollierung](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)“.
 
@@ -85,7 +87,7 @@ Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wen
 
 #### Support-Bundle mithilfe von SSH erstellen
 
-Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wenn Sie SSH-Zugriff auf Ihre {% data variables.product.prodname_ghe_server %}-Appliance und ausgehenden Internetzugang haben.
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -99,9 +101,9 @@ Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wen
 
 #### Ein Support-Paket wird mit Deinem Unternehmenskonto hochladen
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Klicke unter „{% data variables.product.prodname_enterprise %} Help“ (Hilfe zu {% data variables.product.prodname_enterprise %}) auf **Upload a support bundle** (Ein Support-Paket hochladen). ![Einen Link zum Support-Paket hochladen](/assets/images/enterprise/support/upload-support-bundle.png)
 5. Wähle unter „Select an enterprise account“ (Unternehmenskonto auswählen) das zugehörige Konto des Support-Pakets aus dem Dropdown-Menü aus. ![Firmenkonto des Support-Pakets auswählen](/assets/images/enterprise/support/support-bundle-account.png)
 6. Um Dein Support-Paket auszuwählen, klickst Du unter „Upload a support bundle for {% data variables.contact.enterprise_support %}“ (Ein Support-Bundle für {% data variables.contact.enterprise_support %} hochladen) auf **Choose file** (Datei auswählen) oder Du ziehst Deine Support-Paket-Datei auf **Choose file**. ![Support-Paket-Datei hochladen](/assets/images/enterprise/support/choose-support-bundle-file.png)
@@ -110,8 +112,8 @@ Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wen
 #### Support-Bundle mithilfe von SSH direkt hochladen
 
 Unter folgenden Voraussetzungen können Sie ein Support-Bundle direkt auf unseren Server hochladen:
-- Sie haben SSH-Zugriff auf Ihre {% data variables.product.prodname_ghe_server %}-Appliance.
-- Ausgehende HTTPS-Verbindungen über TCP-Port 443 sind von Ihrer {% data variables.product.prodname_ghe_server %}-Appliance aus möglich.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Laden Sie das Bundle auf unseren Support-Bundle-Server hoch:
   ```shell
@@ -126,7 +128,7 @@ Damit die Pakete nicht zu groß werden, enthalten sie nur Protokolle, die nicht 
 
 #### Erweitertes Support-Bundle mithilfe von SSH erstellen
 
-Mit diesen Schritten können Sie ein erweitertes Support-Bundle erstellen und freigeben, wenn Sie SSH-Zugriff auf Ihre {% data variables.product.prodname_ghe_server %}-Appliance und ausgehenden Internetzugang haben.
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
 1. Laden Sie das erweiterte Support-Bundle über SSH herunter, indem Sie den Flag `-x` zum Befehl `ghe-support-bundle` hinzufügen:
   ```shell
@@ -138,8 +140,8 @@ Mit diesen Schritten können Sie ein erweitertes Support-Bundle erstellen und fr
 #### Erweitertes Support-Bundle mithilfe von SSH direkt hochladen
 
 Unter folgenden Voraussetzungen können Sie ein Support-Bundle direkt auf unseren Server hochladen:
-- Sie haben SSH-Zugriff auf Ihre {% data variables.product.prodname_ghe_server %}-Appliance.
-- Ausgehende HTTPS-Verbindungen über TCP-Port 443 sind von Ihrer {% data variables.product.prodname_ghe_server %}-Appliance aus möglich.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Laden Sie das Bundle auf unseren Support-Bundle-Server hoch:
   ```shell

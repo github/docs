@@ -1,12 +1,13 @@
 ---
 title: Branch-Einschränkungen aktivieren
-intro: 'You can enforce branch restrictions so that only certain users{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} or{% endif %} teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, or apps{% endif %} can push to a protected branch in repositories owned by your organization.'
+intro: 'You can enforce branch restrictions so that only certain users, teams, or apps can push to a protected branch in repositories owned by your organization.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jeder Benutzer mit Administratorberechtigungen für ein Repository im Besitz der Organisation kann Branch-Einschränkungen aktivieren.

@@ -21,15 +21,15 @@ versions:
 
 ### 推奨される対応
 
-- アップグレードのプロセスに含めるアップグレードは、できるだけ少なくしてください。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} から {{ enterpriseVersions.supported[1] }} を経て {{ enterpriseVersions.latest }} にアップグレードする代わりに、{% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} から {{ enterpriseVersions.latest }} にアップグレードできます。
-- バージョンが数バージョン古いのであれば、{% data variables.product.product_location_enterprise %}をアップグレードのプロセスの各ステップでできる限り先までアップグレードしてください。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
+- アップグレードのプロセスに含めるアップグレードは、できるだけ少なくしてください。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.supported[1] }} を経て {{ enterpriseServerReleases.latest }} にアップグレードする代わりに、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.latest }} にアップグレードできます。
+- バージョンが数バージョン古いのであれば、{% data variables.product.product_location %}をアップグレードのプロセスの各ステップでできる限り先までアップグレードしてください。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
 - アップグレードの際には、最新のパッチリリースを使ってください。 {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - アップグレードのステップのテストには、ステージングインスタンスを使ってください。 詳しい情報については "[ステージングインスタンスのセットアップ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)"を参照してください。
 - 複数のアップグレードを実行する際には、フィーチャアップグレードの間に少なくとも24時間を挟み、データの移行とバックグラウンドのアップグレードタスクが完全に終わるようにしてください。
 
 ### 要件
 
-- アップグレードは、**最大でも**2リリース前のフィーチャリリースから行わなければなりません。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.latest }} にアップグレードするためには、{% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[1] }} あるいは {{ enterpriseVersions.supported[2] }} でなければなりません。
+- アップグレードは、**最大でも**2リリース前のフィーチャリリースから行わなければなりません。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }} にアップグレードするためには、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} あるいは {{ enterpriseServerReleases.supported[2] }} でなければなりません。
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - ホットパッチは、影響するサービス（カーネル、MySQL、Elasticsearchなど）がVMの再起動やサービスの再起動を必要とするなら、ダウンタイムが必要になります。 リブートや再起動が必要になったときには通知されます。 リブートや再起動は後で完了させることができます。
 - ホットパッチでアップグレードをする場合、アップグレードの完了までに特定のサービスの複数バージョンがインストールされることから、追加のルートストレージが利用できなければなりません。 十分なルートディスクストレージがなければ、事前チェックで通知されます。

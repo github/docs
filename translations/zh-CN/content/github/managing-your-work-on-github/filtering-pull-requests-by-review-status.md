@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以过滤仓库的拉取请求列表以查找：
 - 尚未[审查](/articles/about-pull-request-reviews)的拉取请求
-- [需要审查](/articles/about-required-reviews-for-pull-requests)后才能合并的拉取请求
+- [需要审查](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)后才能合并的拉取请求
 - 审查者已批准的拉取请求
 - 审查者要求更改的拉取请求
 - 您已审查的拉取请求

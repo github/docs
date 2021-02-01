@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About pull request reviews
 
 After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
-Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review)." {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review assignment for your team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review)." {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review assignment for your team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 Reviews allow for discussion of proposed changes and help ensure that the changes meet the repository's contributing guidelines and other quality standards. You can define which individuals or teams own certain types or areas of code in a CODEOWNERS file. When a pull request modifies code that has a defined owner, that individual or team will automatically be requested as a reviewer. For more information, see "[About code owners](/articles/about-code-owners/)."
 
@@ -37,11 +38,13 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.resolving-conversations %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Required reviews
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
-
-For more information, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
 {% tip %}
 
@@ -52,6 +55,5 @@ For more information, see "[About required reviews for pull requests](/articles/
 ### 더 읽을거리
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Enabling required reviews for pull requests](/articles/enabling-required-reviews-for-pull-requests)"
 - "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"

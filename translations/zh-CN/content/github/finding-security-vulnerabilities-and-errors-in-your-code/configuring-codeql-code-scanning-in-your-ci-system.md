@@ -1,5 +1,5 @@
 ---
-title: Configuring CodeQL code scanning in your CI system
+title: 在 CI 系统中配置 CodeQL 代码扫描
 shortTitle: 在 CI 中配置
 intro: '您可以配置 {% data variables.product.prodname_codeql_runner %} 如何扫描项目中的代码并将结果上传到 {% data variables.product.prodname_dotcom %}。'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -15,9 +15,9 @@ versions:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
+### 关于在 CI 系统中配置 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}
 
-要将 {% data variables.product.prodname_code_scanning %} 集成到 CI 系统中，您可以使用 {% data variables.product.prodname_codeql_runner %}。 For more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+要将 {% data variables.product.prodname_code_scanning %} 集成到 CI 系统中，您可以使用 {% data variables.product.prodname_codeql_runner %}。 更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”。
 
 一般情况下，调用 {% data variables.product.prodname_codeql_runner %} 如下所示。
 
@@ -89,13 +89,13 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
-如果 `autobuild` 命令无法构建您的代码，您可以在 `init` 与 `analyze` 步骤之间手动运行构建步骤。 For more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)."
+如果 `autobuild` 命令无法构建您的代码，您可以在 `init` 与 `analyze` 步骤之间手动运行构建步骤。 更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)”。
 
 ### 将 {% data variables.product.prodname_code_scanning %} 数据上传到 {% data variables.product.prodname_dotcom %}
 
 默认情况下，当您运行 `analyze` 命令时，{% data variables.product.prodname_codeql_runner %} 上传来自 {% data variables.product.prodname_code_scanning %} 的结果。 您也可以使用 `upload` 命令单独上传 SARIF 文件。
 
-上传数据后，{% data variables.product.prodname_dotcom %} 将在您的仓库中显示警报。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+上传数据后，{% data variables.product.prodname_dotcom %} 将在您的仓库中显示警报。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 ### {% data variables.product.prodname_codeql_runner %} 命令引用
 

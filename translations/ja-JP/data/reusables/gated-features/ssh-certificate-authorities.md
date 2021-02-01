@@ -1,1 +1,1 @@
-SSH認証局のサポートは{% data variables.product.prodname_ghe_cloud %}及び{% data variables.product.prodname_ghe_server %} 2.19+で利用できます。 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。
+Support for SSH certificate authorities is available with {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %} 2.19+. 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

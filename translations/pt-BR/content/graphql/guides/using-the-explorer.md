@@ -6,17 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## Sobre o explorador do GraphQL
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-O [Explorador do GraphQL](/v4/explorer) é uma instância do [GraphiQL](https://github.com/graphql/graphiql), que é um "IDE do GraphiQL gráfica e interativa no mesmo navegador".
+O [Explorador do GraphQL](/graphql/overview/explorer) é uma instância do [GraphiQL](https://github.com/graphql/graphiql), que é um "IDE do GraphiQL gráfica e interativa no mesmo navegador".
 
 {% note %}
 
-**Nota**: {% data variables.product.prodname_dotcom %} desabilitou as [mutações](/v4/mutation/) no Explorador, mas você pode usá-las em sua própria instância do GraphiQL.
+**Nota**: {% data variables.product.prodname_dotcom %} desabilitou as [mutações](/graphql/reference/mutations) no Explorador, mas você pode usá-las em sua própria instância do GraphiQL.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ Para usar o aplicativo GraphiQL, faça o download e instale-o em https://github.
 
 #### Configurar GraphiQL
 
-1. Obtenha um [token do OAuth](/v4/guides/forming-calls#authenticating-with-graphql).
+1. Obtenha um [token do OAuth](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Iniciar GraphiQL.
 1. No canto superior direito do GraphiQL, clique em **Editar cabeçalhos de HTTP**.
 1. No campo **chave**, insira `autorização`. No campo **Valor**, insira `Bearer <token>`, em que `<token>` é o seu token do OAuth gerado. ![cabeçalhos do grafiql](/assets/images/developer/graphiql-headers.png)
@@ -43,7 +44,7 @@ Para usar o aplicativo GraphiQL, faça o download e instale-o em https://github.
 
 {% note %}
 
-**Observação**: Para obter mais informações sobre o motivo de `POST` ser o método, consulte "[Comunicar-se com GraphQL](/v4/guides/forming-calls#communicating-with-graphql)".
+**Observação**: Para obter mais informações sobre o motivo de `POST` ser o método, consulte "[Comunicar-se com GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)".
 
 {% endnote %}
 
@@ -65,13 +66,13 @@ Todos os tipos em esquema do GraphQL incluem um campo `descrição` compilado na
 
 {% note %}
 
-A barra lateral **Documentação** contém o mesmo conteúdo gerado automaticamente a partir do esquema sob "[Referência](/v4/), embora esteja formatada de forma diferente em alguns lugares.
+A barra lateral **Documentação** contém o mesmo conteúdo gerado automaticamente a partir do esquema sob "[Referência](/graphql), embora esteja formatada de forma diferente em alguns lugares.
 
 {% endnote %}
 
 ### Usar o painel de variáveis
 
-Algumas chamadas de exemplo incluem [variáveis](/v4/guides/forming-calls#working-with-variables) escritas como esta:
+Algumas chamadas de exemplo incluem [variáveis](/graphql/guides/forming-calls-with-graphql#working-with-variables) escritas como esta:
 
 ```graphql
 query($number_of_repos:Int!){
@@ -89,7 +90,7 @@ variables {
 }
 ```
 
-Este é o formato correto para enviar a chamada por meio de `POST` em cURL (contanto que [escape das novas linhas](/v4/guides/forming-calls#communicating-with-graphql)).
+Este é o formato correto para enviar a chamada por meio de `POST` em cURL (contanto que [escape das novas linhas](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 Se você desejar executar a chamada no Explorador, insira o segmento `da consulta` no painel principal e as variáveis no painel **Variáveis de consulta** abaixo dele. Omita a palavra `variáveis` no Explorador:
 
@@ -105,12 +106,12 @@ Se você desejar executar a chamada no Explorador, insira o segmento `da consult
 
 ### Solução de erros
 
-Já que o GraphQL é [introspectivo](/v4/guides/intro-to-graphql#discovering-the-graphql-api), o Explorador suporta:
+Já que o GraphQL é [introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), o Explorador suporta:
 
 * Preenchimento automático inteligente do esquema atual
 * Pré-visualizações de erros durante a digitação
 
-Se você informar uma consulta que não é bem formada ou não passa um [esquema de validação](/v4/guides/intro-to-graphql#schema), uma janela de pop-up alertará um erro. Se você executar a consulta, o erro será retornado no painel de resposta.
+Se você informar uma consulta que não é bem formada ou não passa um [esquema de validação](/graphql/guides/introduction-to-graphql#schema), uma janela de pop-up alertará um erro. Se você executar a consulta, o erro será retornado no painel de resposta.
 
 Uma resposta do GraphQL contém várias chaves: um hash de `dados` um array de `erros`.
 

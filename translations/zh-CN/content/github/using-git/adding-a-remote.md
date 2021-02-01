@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote add` 命令使用两个参数：
@@ -36,7 +37,7 @@ $ git remote -v
 此错误消息表示您尝试添加的远程与本地仓库中的远程名称相同：
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 

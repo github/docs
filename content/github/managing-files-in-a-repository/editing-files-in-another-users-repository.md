@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.

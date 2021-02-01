@@ -1,6 +1,6 @@
 ---
 title: 探索仓库的依赖项
-intro: 'Using the dependency graph, you can see the packages your project depends on{% if currentVersion == "free-pro-team@latest" %} and the repositories that depend on it{% endif %}. 此外，您还可以看到在其依赖项中检测到的任何漏洞。'
+intro: '使用依赖项图，您可以看到项目所依赖的包{% if currentVersion == "free-pro-team@latest" %}以及依赖它的仓库{% endif %}。 此外，您还可以看到在其依赖项中检测到的任何漏洞。'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -16,7 +16,7 @@ versions:
 
 {% data reusables.repositories.enable-security-alerts %}
 
-The dependency graph shows the dependencies{% if currentVersion == "free-pro-team@latest" %} and dependents{% endif %} of your repository. 有关依赖项检测以及支持哪些生态系统的信息，请参阅“[关于依赖关系图”](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)。
+依赖项图显示仓库的依赖项{% if currentVersion == "free-pro-team@latest" %}和依赖关系{% endif %}。 有关依赖项检测以及支持哪些生态系统的信息，请参阅“[关于依赖关系图”](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -26,8 +26,8 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 #### 依赖项视图
 
 {% if currentVersion == "free-pro-team@latest" %}
-依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。 For dependencies on public repositories hosted on
-{% data variables.product.product_name %}, you can also click a dependency to view the repository. 私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。
+依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。 对于托管在
+{% data variables.product.product_name %} 上的公共仓库中的依赖项，您也可以单击依赖来查看仓库。 私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。
 
 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问 {% data variables.product.prodname_dependabot_alerts %} 的用户查看。
 
@@ -35,15 +35,9 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
-{% data variables.product.prodname_dependabot_short %} 警报.
-
-{% note %}
-
-**注：**{% data variables.product.prodname_ghe_server %} 不会填充 **Dependents（依赖项）**视图。
-
-{% endnote %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问的用户查看
+{% data variables.product.prodname_dependabot_alerts %} 的通知。
 
 ![依赖关系图](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -55,14 +49,8 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问安全警报的用户查看。
-
-{% note %}
-
-**注：**{% data variables.product.prodname_ghe_server %} 不会填充 **Dependents（依赖项）**视图。
-
-{% endnote %}
 
 ![依赖关系图](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,21 +81,39 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 4. 阅读有关授予 {% data variables.product.product_name %} 只读访问仓库数据的消息，以启用依赖关系图，然后在“Dependency Graph（依赖关系图）”旁边单击 **Enable（启用）**。 ![依赖关系图的"启用"按钮](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 您可以随时单击 Security & analysis（安全性和分析）选项卡上“Dependency Graph（依赖关系图）”旁边的 **Disable（禁用）**来禁用依赖关系图。
+
+### 更改“Used by（使用者）”包
+
+如果启用了依赖项图，并且您的仓库包含已发布在受支持包生态系统上的包，则 {% data variables.product.prodname_dotcom %} 将在仓库的 **Code（代码）**选项卡的边栏中显示“Used by（使用者）”部分。 有关受支持包生态系统的更多信息，请参阅“[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
+
+“Used by（使用者）”部分显示已发现对包的公开引用数量，并显示某些依赖项所有者的头像。
+
+!["使用者"边栏部分](/assets/images/help/repository/used-by-section.png)
+
+单击此部分的任何项都会转到依赖项图的 **Dependents（依赖项）**选项卡。
+
+“Used by（使用者）”部分表示仓库中的单个包。 如果您对包含多个包的仓库拥有管理员权限，您可以选择“Used by（使用者）”部分表示哪个包。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. 在“Configure security and analysis features（配置安全和分析功能）”下，单击“Used by counter（使用者计数）”部分中的下拉菜单并选择一个包。 ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
-### 依赖关系图疑难排解
+### 依赖项图疑难排解
 
 如果依赖关系图为空，则包含依赖项的文件可能有问题。 检查该文件以确保其格式对文件类型是正确的。
 
 {% if currentVersion == "free-pro-team@latest" %}
-如果文件格式正确，请检查文件大小。 The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a
-{% data variables.product.prodname_enterprise %} user. 默认情况下，每个仓库最多处理 20 个清单或锁定文件，因此您可以在仓库子目录中将依赖项拆分为较小的文件。{% endif %}
+如果文件格式正确，请检查文件大小。 依赖项图忽略单个清单并锁定超过 0.5 Mb 的文件，除非您是
+{% data variables.product.prodname_enterprise %} 用户。 默认情况下，每个仓库最多处理 20 个清单或锁定文件，因此您可以在仓库子目录中将依赖项拆分为较小的文件。{% endif %}
 
 如果清单或锁定文件未获处理，其依赖项将从依赖关系图中省略，而不能接受有漏洞依赖项的检查。
 
 ### 延伸阅读
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- "[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
 - "[查看组织的洞察](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[了解 {% data variables.product.product_name %} 如何使用和保护数据](/github/understanding-how-github-uses-and-protects-your-data)"

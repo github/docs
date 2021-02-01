@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'руководство'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,7 +34,7 @@ All organizations have a single default self-hosted runner group. Organizations 
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
-When creating a group, you must choose a policy that defines which repositories have access to the runner group. You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.
+When creating a group, you must choose a policy that defines which repositories have access to the runner group.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -41,9 +42,21 @@ When creating a group, you must choose a policy that defines which repositories 
 1. In the **Self-hosted runners** section, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. Enter a name for your runner group, and select an access policy from the **Repository access** dropdown list.
+1. Enter a name for your runner group, and assign a policy for repository access.
 
-    ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+
+   {% warning %}
+
+   **Предупреждение**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
+
+   ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.
 
 ### Creating a self-hosted runner group for an enterprise
@@ -52,21 +65,28 @@ Enterprises can add their self-hosted runners to groups for access management. E
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
 
-When creating a group, you must choose a policy that grants access to all organizations in the enterprise or choose specific organizations.
+When creating a group, you must choose a policy that defines which organizations have access to the runner group.
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Click the **Self-hosted runners** tab.
 1. Click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Enter a name for your runner group, and select an access policy from the **Organization access** dropdown list.
+1. Enter a name for your runner group, and assign a policy for organization access.
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+
+   {% warning %}
+
+   **Предупреждение**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
 
     ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.

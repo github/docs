@@ -12,7 +12,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-To make specific actions from {% data variables.product.prodname_dotcom_the_website %} available to use in workflows, you can use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using {% data variables.product.prodname_dotcom_the_website %} actions on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)."
+The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %} . For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance.
 
 ### About the `actions-sync` tool
 
@@ -24,7 +26,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
 
 ### Prerequisites
 
-* Before using the the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating organizations](/enterprise/admin/user-management/creating-organizations)."
+* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
 * You must create a personal access token (PAT) on your enterprise instance that can create and write to repositories in the destination organizations. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ### Example: Using the `actions-sync` tool
@@ -61,7 +63,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
      * You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).
 1. After the action repository is created on your enterprise instance, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
    
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

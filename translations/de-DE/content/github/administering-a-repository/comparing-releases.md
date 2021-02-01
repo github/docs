@@ -5,6 +5,7 @@ permissions: Personen mit Lesezugriff auf ein Repository können Releases ansehe
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

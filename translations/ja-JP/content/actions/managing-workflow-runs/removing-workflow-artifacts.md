@@ -1,5 +1,5 @@
 ---
-title: Removing workflow artifacts
+title: ワークフロー アーティファクトを削除する
 intro: '{% data variables.product.product_name %} で期限切れになる前にアーティファクトを削除することで、使用済みの {% data variables.product.prodname_actions %} ストレージを再利用できます。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
@@ -7,8 +7,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### アーティファクトを削除する
 
@@ -26,7 +26,13 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trashcan" aria-label="The trashcan icon" %} next to the artifact you want to remove. ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact.png)
+1. Under **Artifacts**, click
+{% octicon "trashcan" aria-label="The trashcan icon" %} next to the artifact you want to remove.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+ ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
+    ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### アーティファクトの保持期間を設定する

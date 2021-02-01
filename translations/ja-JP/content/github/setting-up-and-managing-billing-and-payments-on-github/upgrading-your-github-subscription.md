@@ -28,8 +28,8 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Next to "
-{% data variables.product.prodname_free_user %}", click **Upgrade**.
+4. [
+{% data variables.product.prodname_free_user %}] の隣で、[**Upgrade**] をクリックします。
   ![アップグレードボタン](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}

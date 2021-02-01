@@ -6,7 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**注：**要将仓库链接到组织或用户拥有的项目板，仓库需要启用议题。 有关如何查看仓库是否禁用了议题，请参阅“[禁用议题](/github/managing-your-work-on-github/disabling-issues)”。
+
+{% endnote %}
 
 对项目板具有写入权限的任何人都可以将该组织或用户帐户拥有的仓库链接到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization/)”或“[用户拥有的项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards/)”。
 

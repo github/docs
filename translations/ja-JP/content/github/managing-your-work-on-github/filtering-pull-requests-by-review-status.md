@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:
 - まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエスト
-- マージの前に[レビューが必要](/articles/about-required-reviews-for-pull-requests)なプルリクエスト
+- マージの前に[レビューが必要](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)なプルリクエスト
 - レビュー担当者が承認したプルリクエスト
 - レビュー担当者が変更を求めているプルリクエスト
 - 自分がレビューしたプルリクエスト

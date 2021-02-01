@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのレビューについて
 
-プルリクエストの変更は、1 ファイルごとにレビューできます。 While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストでファイルを確認しているときに、特定の変更について個別のコメントを残すことができます。 各ファイルの確認が終了したら、ファイルを閲覧済みとしてマークできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストヘッダのプログレスバーには、閲覧したファイル数が表示されます。 必要な数のファイルを確認した後、要約コメントを付けて確認を送信することにより、プルリクエストを承認するか、追加の変更をリクエストできます。
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -27,6 +28,20 @@ versions:
 レビューを提出する前は、行のコメントは_保留中_であり、自分にしか見えません。 レビューを提出する前ならばいつでも、保留中のコメントを編集できます。 その保留中のコメントのすべてを含めて、保留中のレビューをキャンセルするには、[Conversation] タブでタイムラインの最後まで下にスクロールし、[**Cancel review**] をクリックします。
 
 ![[Cancel review] ボタン](/assets/images/help/pull_requests/cancel-review-button.png)
+
+{% if currentVersion == "free-pro-team@latest" %}
+### 依存関係の変更をレビューする
+
+プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+
+   ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
 
 ### ファイルをレビュー済みとしてマークする
 
@@ -52,8 +67,5 @@ versions:
 
 ### 参考リンク
 
-- "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
-- [プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)
-- "[必須レビューで Pull Request を承認する](/articles/approving-a-pull-request-with-required-reviews)"
-- [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)
-- 「[プルリクエストをレビューステータスでフィルタリングする](/articles/filtering-pull-requests-by-review-status)」
+- [保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
+- 「[プルリクエストをレビューステータスでフィルタリングする](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)」

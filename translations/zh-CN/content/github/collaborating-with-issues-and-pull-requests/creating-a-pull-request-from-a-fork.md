@@ -7,6 +7,7 @@ permissions: 对仓库具有写入权限的任何人都可以从用户拥有的�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您也可以授权上游仓库的维护员将提交推送到用户拥有的复刻。 如果您的拉取请求将上游仓库中的分支作为与主题分支进行比较的基本分支，则您的主题分支也称为该拉取请求的比较分支 。 有关拉取请求分支的更多信息，包括示例，请参阅“[创建拉取请求](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)”。

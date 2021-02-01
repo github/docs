@@ -6,7 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**Observação:** Para vincular um repositório à sua organização ou quadro de projeto de propriedade de usuário, o repositório precisa ter problemas habilitados. Para obter informações sobre como ver se os problemas estão desabilitados em um repositório, consulte "[Desabilitar problemas](/github/managing-your-work-on-github/disabling-issues)".
+
+{% endnote %}
 
 Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincular repositórios pertencentes a essa organização ou conta de usuário ao quadro de projeto. Para obter mais informações, consulte "[Permissões de quadro de projeto da organização](/articles/project-board-permissions-for-an-organization/)" ou "[Níveis de permissão para quadros de projetos de propriedade de usuários](/articles/permission-levels-for-user-owned-project-boards/)".
 

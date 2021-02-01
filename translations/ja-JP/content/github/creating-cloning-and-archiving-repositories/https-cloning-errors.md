@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 HTTPS エラーの例を次に示します:
@@ -44,16 +45,16 @@ HTTPS エラーの例を次に示します:
 ```shell
 $ git remote -v
 # 既存のリモートを表示する
-> origin  https://github.com/github/reactivecocoa.git (fetch)
-> origin  https://github.com/github/reactivecocoa.git (push)
+> origin  https://github.com/ghost/reactivecocoa.git (fetch)
+> origin  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # 'origin' リモートの URL を変更する
 
 $ git remote -v
 # 新規 URL を検証する
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 もしくは、[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) アプリケーションから URL を変更できます。
@@ -70,7 +71,7 @@ $ git remote -v
 
 {% tip %}
 
-**ヒント**: リモートリポジトリを操作するときの毎回の認証情報の入力を省くには、[認証情報のキャッシュ](/github/using-git/caching-your-github-credentials-in-git)をオンにします。
+**ヒント**: リモートリポジトリを操作するときの毎回の認証情報の入力を省くには、[認証情報のキャッシュ](/github/using-git/caching-your-github-credentials-in-git)をオンにします。 すでに認証情報のキャッシュを使用している場合は、コンピューターに正しい認証情報がキャッシュされていることを確認してください。 認証情報が正しくない、または古い場合、認証に失敗します。
 
 {% endtip %}
 

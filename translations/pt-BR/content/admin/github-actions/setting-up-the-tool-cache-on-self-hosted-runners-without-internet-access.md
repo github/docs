@@ -34,7 +34,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 
 ### Preencher o cache de ferramentas para um executor auto-hospedado
 
-1. Em {% data variables.product.prodname_dotcom_the_website %}, navegue até um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
+1. Em {% data variables.product.prodname_dotcom_the_website %}, acesse um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
 1. Crie um novo arquivo de fluxo de trabalho na pasta `.github/workflows` do repositório que faz o upload de um artefato que contém o cache da ferramenta do executor armazenado em {% data variables.product.prodname_dotcom %}.
 
    O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 18.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.

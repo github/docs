@@ -19,8 +19,7 @@ Para obter mais informações sobre como promover um usuário a proprietário da
 
 ### Promover usuários pelas configurações empresariais
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. No canto superior direito da página, clique em **Add owner** (Adicionar proprietário). ![Botão para adicionar administrador](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ Para obter mais informações sobre como promover um usuário a proprietário da
 
 ### Rebaixar administrador do site pelas configurações empresariais
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. No canto superior esquerdo da página, no campo de pesquisa "Find an administrator" (Localizar administrador), digite o nome de usuário da pessoa que você pretende rebaixar. ![Campo de pesquisa para localizar administrador](/assets/images/help/business-accounts/business-account-search-for-admin.png)

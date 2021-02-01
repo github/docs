@@ -5,6 +5,7 @@ redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 目录

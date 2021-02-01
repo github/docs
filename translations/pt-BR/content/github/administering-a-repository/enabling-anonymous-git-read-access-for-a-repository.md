@@ -9,7 +9,7 @@ versions:
 
 Os administradores de repositório poderão alterar a configuração do acesso de leitura anônimo do Git de um repositório específico se:
 - Um administrador de site tiver habilitado o modo privado e o acesso de leitura anônimo do Git.
-- O repositório for público na instância e não for uma bifurcação.
+- O repositório é público na empresa e não é uma bifurcação.
 - Um administrador de site não tiver desabilitado o acesso de leitura anônimo do Git do repositório.
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}

@@ -1,6 +1,7 @@
 ---
 title: GitHub Advisory Database のセキュリティ脆弱性を参照する
 intro: '{% data variables.product.prodname_advisory_database %} を使用すると、{% data variables.product.company_short %} のオープンソースプロジェクトに影響を与える脆弱性を参照または検索できます。'
+shortTitle: Browsing the Advisory Database
 versions:
   free-pro-team: '*'
 ---

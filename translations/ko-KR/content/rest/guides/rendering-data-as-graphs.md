@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
+ 
 
 
 In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {% data variables.product.product_name %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
@@ -332,7 +333,7 @@ Et voila! Beautiful rectangles containing your repo languages, with relative pro
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

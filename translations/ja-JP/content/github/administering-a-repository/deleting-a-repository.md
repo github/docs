@@ -8,21 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %}Organization のリポジトリを削除できます。 [**Allow members to delete or transfer repositories for this organization**] が無効化されていると、Organization のオーナーだけが Organization のリポジトリを削除できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+
 {% warning %}
 
-**警告**: リポジトリを削除すると、リリース添付ファイルとチーム権限が**完全に**削除されます。 このアクションは取り消すことが**できません**。
+**警告**:
+
+- Deleting a repository will **permanently** delete release attachments and team permissions. このアクションは取り消すことが**できません**。
+- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
 
 {% endwarning %}
-{% endif %}
-
-次の点もご注意ください:
-- プライベートリポジトリを削除すると、そのフォークもすべて削除されます。
-- パブリックリポジトリを削除しても、そのフォークは削除されません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 削除したリポジトリは、90 日以内であれば復元できます。 詳しい情報については、「[削除されたリポジトリを復元する](/articles/restoring-a-deleted-repository)」を参照してください。

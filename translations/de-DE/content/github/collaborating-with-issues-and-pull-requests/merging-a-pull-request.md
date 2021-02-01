@@ -6,20 +6,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### Informationen zum Zusammenführen von Pull Requests
 
-Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. {% data reusables.pull_requests.about-protected-branches %} Es kann jedoch Einschränkungen geben, wann Du einen Pull Request zu einem bestimmten Branch zusammenführen kannst. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
+Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. Standardmäßig kann jeder Pull Request jederzeit zusammengeführt werden, es sei denn, der Head-Branch steht in Konflikt mit dem Basisbranch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
 
-Wenn beim Pull Request Mergekonflikte vorliegen oder Du die Änderungen vor dem Zusammenführen testen möchtest, kannst Du [den Pull Request lokal auschecken](/articles/checking-out-pull-requests-locally) und ihn über die Befehlszeile zusammenführen.
+{% data reusables.pull_requests.you-can-auto-merge %}
+
+Wenn beim Pull Request Mergekonflikte vorliegen oder Sie die Änderungen vor dem Mergen testen möchten, können Sie [den Pull Request lokal auschecken](/articles/checking-out-pull-requests-locally) und ihn über die Befehlszeile mergen.
 
 Pull-Request-Entwürfe kannst du nicht zusammenführen. Weitere Informationen zu Entwürfen von Pull Requests findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch zusammenführen möchtest, kannst Du [den Pull Request schließen](/articles/closing-a-pull-request), ohne ihn zusammenzuführen.
+Wenn Sie die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch mergen möchten, können Sie [den Pull Request schließen](/articles/closing-a-pull-request), ohne ihn zu mergen.
 
 ### Einen Pull Request auf {% data variables.product.prodname_dotcom %} zusammenführen
 
@@ -42,12 +45,18 @@ Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. Klicke auf **Confirm merge** (Merge bestätigen), **Confirm squash and merge** (Squash und Merge bestätigen) oder **Confirm rebase and merge** (Rebase und Merge bestätigen).
 6. Optional kannst Du auch [den Branch löschen](/articles/deleting-unused-branches). So bleibt die Liste der Branches in Ihrem Repository ordentlich.
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. Weitere Informationen findest Du unter „[Verwalten des automatischen Löschens von Branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}

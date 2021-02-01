@@ -6,7 +6,7 @@ company_short: 'GitHub'
 #GitHub's flagship products
 ## Until we have versioning to support GitHub Enterprise Cloud content, avoid using this variable if the output should specifically be GitHub Enterprise Cloud or GitHub Enterprise Server
 product_name: >-
-  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}GitHub Enterprise{% endif %}
+  {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% else %}GitHub{% endif %}
 ## Use this variable when the output should always be GitHub, regardless of the product the user is using
 prodname_dotcom: 'GitHub'
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
@@ -16,10 +16,13 @@ prodname_dotcom_the_website: 'GitHub.com'
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
 prodname_ghe_server: 'Корпоративный сервер GitHub'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
+prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}your GitHub Enterprise Server instance{% endif %}
+  {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
+#Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
+#Do not use in other situations!
 product_location_enterprise: 'your GitHub Enterprise Server instance'
 prodname_free_user: 'GitHub бесплатно'
 prodname_pro: 'GitHub Pro'
@@ -34,7 +37,10 @@ prodname_unified_search: 'унифицированный поиск'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
+prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
+prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
+prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -56,14 +62,18 @@ prodname_github_app: 'Приложение GitHub'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'Приложение OAuth'
 #API and developer docs
-prodname_enterprise_api: 'the GitHub Enterprise Server API'
+prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
 prodname_support_forum_with_url: '[GitHub API Development and Support Forum](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Content Attachments'
+#Azure AD
+ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
 #GitHub Debug
 prodname_debug: 'GitHub Debug'
+#GitHub Discussions
+prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_github_container_registry: 'GitHub Container Registry'
@@ -74,6 +84,7 @@ prodname_insights: 'GitHub Insights'
 prodname_sponsors: 'GitHub Sponsors'
 prodname_matching_fund: 'Фонд подбора спонсоров GitHub'
 #GitHub Advanced Security
+prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
 #Codespaces
 prodname_codespaces: 'Codespaces'
@@ -113,11 +124,10 @@ prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
-prodname_dependabot: 'GitHub Dependabot'
-prodname_dependabot_short: 'Dependabot'
-prodname_dependabot_alerts: 'GitHub Dependabot alerts'
-prodname_dependabot_security_updates: 'GitHub Dependabot security updates'
-prodname_dependabot_version_updates: 'GitHub Dependabot version updates'
+prodname_dependabot: 'Dependabot'
+prodname_dependabot_alerts: 'Dependabot alerts'
+prodname_dependabot_security_updates: 'Dependabot security updates'
+prodname_dependabot_version_updates: 'Dependabot version updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
@@ -145,7 +155,7 @@ api_url_pre: >-
 oauth_host_code: >-
   {% if currentVersion == "free-pro-team@latest" %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
 #Use this all other code blocks
 api_url_code: >-
   {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% else %}http(s)://[hostname]/api/v3{% endif %}

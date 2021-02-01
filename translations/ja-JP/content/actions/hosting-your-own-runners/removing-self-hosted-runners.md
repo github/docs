@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### リポジトリからのランナーの削除
 
@@ -62,19 +63,15 @@ Organizationからセルフホストランナーを削除するには、Organiza
 
 {% if currentVersion == "free-pro-team@latest" %}
 セルフホストランナーを Enterprise アカウントから削除するには、Enterprise のオーナーである必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 次の Enterprise レベルでセルフホストランナーを削除するには、
 {% data variables.product.product_location %} の Enterprise レベルでを追加するには、サイト管理者である必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

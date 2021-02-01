@@ -3,7 +3,7 @@ title: Enabling code scanning for a repository
 shortTitle: Enabling code scanning
 intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project''s repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can enable {% data variables.product.prodname_code_scanning %} for the repository.'
+permissions: 'If you have write permissions to a repository, you can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -38,7 +38,10 @@ You decide how you generate {% data variables.product.prodname_code_scanning %} 
 7. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request. ![Choose where to commit](/assets/images/help/repository/start-commit-choose-where-to-commit.png)
 8. Click **Commit new file** or **Propose new file**.
 
-In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch or any protected branches. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
+In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
+
+### Bulk enabling {% data variables.product.prodname_code_scanning %}
+You can enable {% data variables.product.prodname_code_scanning %} in many repositories in bulk using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
 
 ### Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
@@ -46,7 +49,7 @@ After enabling {% data variables.product.prodname_code_scanning %} for your repo
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow.
+  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
   ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
 
@@ -58,7 +61,7 @@ After enabling {% data variables.product.prodname_code_scanning %} for your repo
 
 1. Review the logging output from the actions in this workflow as they run.
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% note %}
 
@@ -86,7 +89,7 @@ After {% data variables.product.prodname_code_scanning %} has analyzed the code 
 
 There are other situations where there may be no analysis for the latest commit to the base branch for a pull request. These include:
 
-* The pull request has been raised against a branch other than the default branch or a protected branch, and this branch hasn't been analyzed.
+* The pull request has been raised against a branch other than the default branch, and this branch hasn't been analyzed.
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_capc %} page, click the **Branch** drop-down and select the relevant branch.
 

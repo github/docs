@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %}のGraphQL API、今後の�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /about-the-graphql-api %}

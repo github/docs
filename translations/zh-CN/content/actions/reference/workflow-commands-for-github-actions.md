@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 您可以在工作流程中使用 `set-output` 命令来设置相同的值：
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 下表显示了在工作流程中可用的工具包功能：
 
@@ -162,6 +164,25 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### 对日志行分组
+
+```
+::group::{title}
+::endgroup::
+```
+
+在日志中创建一个可扩展的组。 要创建组，请使用 `group` 命令并指定 `title`。 打印到 `group` 与 `endgroup` 命令之间日志的任何内容都会嵌套在日志中可扩展的条目内。
+
+#### 示例
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![工作流运行日志中的可折叠组](/assets/images/actions-log-group.png)
+
 ### 在日志中屏蔽值
 
 `::add-mask::{value}`
@@ -258,6 +279,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 在未来步骤中运行 `$action_state` 现在会返回 `yellow`
 
 #### 多行字符串
+
 对于多行字符串，您可以使用具有以下语法的分隔符。
 
 ```
@@ -266,7 +288,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 {delimiter}
 ```
 
-#### 示例
+##### 示例
+
 在此示例中， 我们使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 cURL 响应的值。
 ```
 steps:
@@ -282,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-为当前作业中的所有后续操作将目录添加到系统 `PATH` 变量之前。 当前运行的操作无法访问新路径变量。
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### 示例
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

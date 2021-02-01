@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 You can use the `set-output` command in your workflow to set the same value:
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 Die folgende Tabelle zeigt, welche Toolkit-Funktionen innerhalb eines Workflows verfügbar sind:
 
@@ -162,6 +164,25 @@ Erstellt eine Fehlermeldung und fügt die Mitteilung in das Protokoll ein. Optio
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### Beispiel
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+
 ### Masking a value in log
 
 `::add-mask::{value}`
@@ -257,7 +278,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 Running `$action_state` in a future step will now return `yellow`
 
-#### Multline strings
+#### Multiline strings
+
 For multiline strings, you may use a delimiter with the following syntax.
 
 ```
@@ -266,7 +288,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-#### Beispiel
+##### Beispiel
+
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
 ```
 steps:
@@ -282,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Fügt für alle nachfolgenden Aktionen im aktuellen Auftrag vor der Systemvariablen `PATH` ein Verzeichnis hinzu. Die gerade ausgeführte Aktion kann nicht auf die neue Pfadvariable zugreifen.
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### Beispiel
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

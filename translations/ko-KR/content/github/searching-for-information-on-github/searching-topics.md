@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Search {% data variables.product.product_name %} for topics
@@ -25,7 +26,7 @@ If you want to explore repositories about a certain topic, find projects to cont
 
 The `is:featured` search qualifier will narrow search results to the topics with the most repositories on {% data variables.product.product_name %}. These topics are also featured at https://github.com/topics/.
 
-The `is:curated` search qualifier will narrow search results to topics that community members have added extra information to. For more information, see the explore repository at https://github.com/github/explore.
+The `is:curated` search qualifier will narrow search results to topics that community members have added extra information to. For more information, see the [explore repository](https://github.com/github/explore).
 
 You can filter topics based when they were created using the date parameter and `created:` or based on how many repositories are associated with this topic using `repositories:n`. Both of these qualifiers can use the [greater than and less than range qualifiers](/articles/understanding-the-search-syntax).
 

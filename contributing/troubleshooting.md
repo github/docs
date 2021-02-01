@@ -1,5 +1,6 @@
-# Troubleshooting status checks <!-- omit in toc -->
+# Troubleshooting <!-- omit in toc -->
 
+- [Troubleshooting server tests that fail locally but pass in CI](#troublshooting-server-tests-that-fail-locally-but-pass-in-ci)
 - [Troubleshooting stalled deployments and CI](#troubleshooting-stalled-deployments-and-ci)
   - [Staging deployment stalled](#staging-deployment-stalled)
   - [CI stalled or stuck](#ci-stalled-or-stuck)
@@ -11,7 +12,13 @@
 - [Check external links](#check-external-links)
 - [Debugging locally](#debugging-locally)
 
-## Troubleshooting stalled deployments and CI
+## Troubleshooting
+
+### Troubleshooting server tests that fail locally but pass in CI
+
+If you run the tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, and/or the client-side JavaScript bundle, but **the same tests pass in CI** on a PR, you likely need to run `npm run build`. This is a one-time command that creates static assets locally.
+
+See [`development.md`](./development.md) for more info.
 
 ### Staging deployment stalled
 If a staging deployment is pending for more than 5-10min, try the following:
@@ -20,14 +27,14 @@ If a staging deployment is pending for more than 5-10min, try the following:
 2. If that doesn't work, trigger a new staging deployment by pushing an empty commit on the command line:
 
 ```
-$ git commit --allow-empty -m'empty commit to redeploy staging'
+$ git commit --allow-empty -m 'empty commit to redeploy staging'
 ```
 
 ### CI stalled or stuck
 :yellow_heart: If tests are stuck yellow for more than an hour, rerun CI by pushing an empty commit on the command line:
 
 ```
-$ git commit --allow-empty -m'empty commit to rerun CI'
+$ git commit --allow-empty -m 'empty commit to rerun CI'
 ```
 
 ## Troubleshooting failed deployments and CI
@@ -83,7 +90,7 @@ Again, you should see more information about the error either in your browser or
 
 The `check internal links` test reports any broken links on the site, including images. The test reports the URL of the broken link, _not_ the file that includes that link, so you'll need to search the `docs` repository to find the file.
 
-Broken images include `assets/images/` in the URL and are often caused by images being versioned for previous versions of GHES but not uploaded to the appropriate folder in S3. Search the `docs` repository for the file name (e.g., `assets/images/help/repository/security-tab.png`), then make sure the image is versioned correctly in each result. If the image is in a reusable, you'll also need to search for each occurence of that reusable. If the image is versioned correctly, upload the image to the appropriate folder(s) in S3.
+Broken images include `assets/images/` in the URL and are often caused by images being versioned for previous versions of GHES but not uploaded to the appropriate folder in S3. Search the `docs` repository for the file name (e.g., `assets/images/help/repository/security-tab.png`), then make sure the image is versioned correctly in each result. If the image is in a reusable, you'll also need to search for each occurrence of that reusable. If the image is versioned correctly, upload the image to the appropriate folder(s) in S3.
 
 For broken links to articles on our site, find the file that contains the link by searching the `docs` repository for the file name (e.g., `incorporating-feedback-in-your-pull-request`). Try the following fixes:
 

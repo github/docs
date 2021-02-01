@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para corrigir, remova a chave de implantação do repositório e [adicione a chave à sua conta de usuário](/articles/adding-a-new-ssh-key-to-your-github-account).

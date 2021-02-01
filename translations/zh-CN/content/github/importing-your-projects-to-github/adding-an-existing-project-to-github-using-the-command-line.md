@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -21,7 +22,7 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -29,7 +30,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell
@@ -59,7 +60,7 @@ versions:
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -67,7 +68,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell
@@ -97,7 +98,7 @@ versions:
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -105,7 +106,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell

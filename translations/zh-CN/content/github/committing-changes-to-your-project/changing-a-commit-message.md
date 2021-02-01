@@ -7,6 +7,7 @@ intro: '如果提交消息中包含不明确、不正确或敏感的信息，您
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 重写最近的提交消息
@@ -97,7 +98,7 @@ versions:
   ```
 4. 保存并关闭提交列表文件。
 5. 在每个生成的提交文件中，键入新的提交消息，保存文件，然后关闭它。
-6. $ git push --force
+6. 准备好将更改推送到 GitHub 时，请使用 push - force 命令强制推送旧提交。
 ```shell
 $ git push --force <em>example-branch</em>
 ```

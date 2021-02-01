@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,7 +49,7 @@ Daten zwischen Aufträgen freigeben:
 * **Dateien hochladen**: Gib der hochgeladenen Datei einen Namen und lade die Daten hoch, bevor der Job endet.
 * **Dateien herunterladen**: Du kannst nur Artefakte herunterladen, die während des gleichen Workflow-Laufs hochgeladen wurden. Wenn Du eine Datei herunterlädst, kannst Du sie mit Namen referenzieren.
 
-Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben finden Sie unter „[Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)“.
+Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben findest Du unter „[Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)“.
 
 ### Build- und Testartefakte hochladen
 
@@ -74,7 +75,7 @@ Zum Beispiel kann Dein Projektarchiv oder eine Webanwendung SASS- und TypeScript
 |   
 ```
 
-In diesem Beispiel wird gezeigt, wie Du einen Workflow für ein Node.js-Projekt erstellst, das den Code im `src`-Verzeichnis `erstellt` und die Tests im `tests`-Verzeichnis ausführt. Wenn `npm test` ausgeführt wird, wird im Verzeichnis `output/test/` ein Bericht zur Codeabdeckung mit dem Namen `code-coverage.html` erstellt und gespeichert.
+In diesem Beispiel wird gezeigt, wie Sie einen Workflow für ein Node.js-Projekt erstellen, das den Code im src-Verzeichnis `erstellt` und die Tests im `tests`-Verzeichnis ausführt. Wenn `npm test` ausgeführt wird, wird im Verzeichnis `output/test/` ein Bericht zur Codeabdeckung mit dem Namen `code-coverage.html` erstellt und gespeichert.
 
 Der Workflow lädt die Produktionsartefakte in das `dist` Verzeichnis, schließt jedoch alle Markdowndateien aus. Es lädt auch die `code-coverage.html` Bericht als ein weiteres Artefakt.
 
@@ -108,8 +109,6 @@ jobs:
           pfad: output/test/code-coverage.html
 ```
 
-![Bild mit Workflow-Ausführung des Workflow-Upload-Artefakts](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Configuring a custom artifact retention period
 
@@ -131,7 +130,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/v3/actions/artifacts/)."
+After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
 
 #### Herunterladen von Artefakten während einer Workflowausführung
 
@@ -171,12 +170,12 @@ Von den Artefakten eines vorherigen Auftrags abhängige Aufträge müssen auf de
 
 Auftrag 1 führt die folgenden Schritte durch:
 - Führt eine mathematische Berechnung aus und speichert das Ergebnis in einer Textdatei namens `math-homework.txt`.
-- Verwendet die Aktion `upload-artifact`, um die Datei `math-homework.txt` mit dem Namen `homework` hochzuladen. Die Aktion platziert die Datei in einem Verzeichnis mit dem Namen `homework`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 Auftrag 2 verwendet das Ergebnis des vorherigen Auftrags:
 - Lädt das im vorherigen Auftrag hochgeladene `homework`-Artefakt herunter. Die Aktion `download-artifact` lädt die Artefakte standardmäßig in das Verzeichnis der Arbeitsoberfläche, in dem der Schritt ausgeführt wird. Du kannst den Eingabeparameter `path` verwenden, um ein anderes Download-Verzeichnis anzugeben.
-- Liest den Wert in der Datei `homework/math-homework.txt`, führt eine mathematische Berechnung durch und speichert das Ergebnis in `math-homework.txt`.
-- Lädt die Datei `math-homework.txt` hoch. Dieser Upload überschreibt den vorherigen Upload, da beide Uploads den gleichen Namen haben.
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- Lädt die Datei `math-homework.txt` hoch. This upload overwrites the previously uploaded artifact because they share the same name.
 
 Auftrag 3 zeigt das im vorherigen Auftrag hochgeladene Ergebnis an:
 - Lädt das `homework`-Artefakt herunter.
@@ -238,7 +237,12 @@ Jobs:
           echo Das Ergebnis ist $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

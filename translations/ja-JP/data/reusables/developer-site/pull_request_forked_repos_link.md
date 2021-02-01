@@ -10,4 +10,4 @@
 
 デフォルトでは、フォークされたリポジトリではワークフローは実行されません。 フォークされたリポジトリの** Actions**タブでGitHub Actionsを有効化しなければなりません。
 
-フォークしたリポジトリ内の `GITHUB_TOKEN` への権限は、読み取りのみです。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% data reusables.actions.forked-secrets %} The permissions for the `GITHUB_TOKEN` in forked repositories is read-only. 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。

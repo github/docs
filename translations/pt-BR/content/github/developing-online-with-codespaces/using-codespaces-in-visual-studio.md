@@ -46,8 +46,12 @@ A conexão ao {% data variables.product.prodname_github_codespaces %} com a pré
 
 ### Configurar um codespace para {% data variables.product.prodname_vs %}
 
-O ambiente de codespace padrão criado pelo {% data variables.product.prodname_vs %} inclui estruturas e ferramentas populares como .NET Core, Microsoft SQL Server, Python e Windows SDK. O {% data variables.product.prodname_github_codespaces %} criado com {% data variables.product.prodname_vs %} pode ser personalizado por meio de um subconjunto de propriedades do `devcontainers.json` e uma nova ferramenta denominada devinit, incluída com o {% data variables.product.prodname_vs %}.
+Um codespace, criado com {% data variables.product.prodname_vs %}, pode ser personalizado por meio de uma nova ferramenta denominada devinit, uma ferramenta de linha de comando incluída com {% data variables.product.prodname_vs %}.
 
 #### devinit
 
-A ferramenta de linha de comando [devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) permite que você instale estruturas adicionais e ferramentas em seus códigos de desenvolvimento do Windows, além de executar scripts de PowerShell ou modificar variáveis de ambiente. A devinit é compatível com um arquivo de configuração denominado [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json), que pode ser adicionado ao seu projeto para criar ambientes de desenvolvimento personalizados e repetíveis. Para obter mais informações sobre a configuração do codespace do Windows e sobre a devinit, consulte [Personalizar um codespace](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces) na documentação do {% data variables.product.prodname_vs %}.
+[devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) permite que você instale estruturas e ferramentas adicionais nos seus codespaces de desenvolvimento do Windows, modificar as variáveis de ambiente e muito mais.
+
+O devinit é compatível com um arquivo de configuração denominado [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json). Você pode adicionar este arquivo ao seu projeto se você desejar criar um ambiente de desenvolvimento personalizado e reproduzível. Ao usar devinit com um arquivo [devcontainer.json](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces#running-devinit-when-creating-a-codespace), seus codespaces serão configurados automaticamente na criação.
+
+Para obter mais informações sobre a configuração do codespace do Windows e sobre a devinit, consulte [Personalizar um codespace](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces) na documentação do {% data variables.product.prodname_vs %}. Para obter mais informações sobre devinit, consulte [Primeiros passos com devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit).

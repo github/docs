@@ -1,17 +1,22 @@
 ---
 title: 从收件箱管理通知
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
+intro: '使用收件箱快速分类并在电子邮件{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 与手机{% endif %} 之间同步您的通知。'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
+
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
 
 ### 关于收件箱
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)”。
 {% endif %}
 
@@ -81,48 +86,40 @@ versions:
   - 区分 `is:issue`、`is:pr` 及 `is:pull-request` 查询过滤器。 这些查询将返回议题和拉取请求。
   - 创建超过 15 个自定义过滤器。
   - 更改默认过滤器或其顺序。
+  - 使用 `NOT` 或 `-QUALIFIER` 进行[排除](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results)搜索。
 
 ### 支持的自定义过滤器查询
 
-您可以使用三种类型的过滤器：
+以下是您可以使用的过滤器类型：
   - 使用 `repo:` 按仓库过滤
   - 使用 `is:` 按讨论类型过滤
-  - 使用 `reason:` 按通知原因过滤
+  - 使用 `reason:` 按通知原因过滤{% if currentVersion == "free-pro-team@latest" %}
+  - 使用 `author:` 按通知作者过滤
+  - 使用 `org:` 按组织过滤{% endif %}
 
-要添加 `repo:` 过滤器，您必须在查询中包含仓库的所有者。 例如，`repo:atom/atom` 表示 Atom 组织拥有的 Atom 仓库。
+#### 支持的 `repo:` 查询
 
-#### 支持的 `reason:` 查询
-
-要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
-
-| 查询                        | 描述                                     |
-| ------------------------- | -------------------------------------- |
-| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                      |
-| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                 |
-| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                    |
-| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。              |
-| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                      |
-| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。 |
-| `reason:mention`          | 您被直接@提及。                               |
-| `reason:review-requested` | 有人请求您或您所在的团队审查拉取请求。                    |
-| `reason:security-alert`   | 为仓库发出安全警报时。                            |
-| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。      |
-| `reason:team-mention`     | 您所在的团队被@提及时。                           |
-| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。              |
+要添加 `repo:` 过滤器，您必须在查询中包含仓库的所有者：`repo:owner/repository`。 所有者是拥有触发通知的 {% data variables.product.prodname_dotcom %} 资产的组织或用户。 例如，`repo:octo-org/octo-repo` 将会显示在 octo-org 组织内的 octo-repo 仓库中触发的通知。
 
 #### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
+要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 例如，要仅查看仓库邀请更新，则使用 `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}，要仅查看 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} 安全{% endif %}警报，则使用 `is:repository-vulnerability-alert`。{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
 - `is:repository-vulnerability-alert`
-- `is:repository-advisory`
-- `is:team-discussion`
+- `is:repository-advisory`{% endif %}
+- `is:team-discussion`{% if currentVersion == "free-pro-team@latest" %}
+- `is:discussions`{% endif %}
+
+{% if currentVersion != "github-ae@latest" %}
+有关减少
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
+{% endif %}
 
 您还可以使用 `is:` 查询来描述如何对通知进行分类。
 
@@ -130,3 +127,59 @@ versions:
 - `is:done`
 - `is:unread`
 - `is:read`
+
+#### 支持的 `reason:` 查询
+
+要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
+
+| 查询                        | 描述                                                              |
+| ------------------------- | --------------------------------------------------------------- |
+| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                               |
+| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                          |
+| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                             |
+| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                       |
+| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                               |
+| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                          |
+| `reason:mention`          | 您被直接@提及。                                                        |
+| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | 为仓库发出安全警报时。{% endif %}
+| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                               |
+| `reason:team-mention`     | 您所在的团队被@提及时。                                                    |
+| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                       |
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### 支持的 `author:` 查询
+
+要按用户过滤通知，您可以使用 `author:` 查询。 作者是指与通知相关的线程（议题、拉取请求、Gist、讨论等）的原作者。 例如，要查看与 Octocat 用户创建的线程相关的通知，请使用 `author:octocat`。
+
+#### 支持的 `org:` 查询
+
+要按组织过滤通知，您可以使用 `org` 查询。 您需要在查询中指定的组织是与您在 {% data variables.product.prodname_dotcom %} 上收到的通知相关之仓库所属的组织。 如果您属于多个组织，并且想要查看特定组织的通知，则此查询很有用。
+
+例如，要查看来自 octo-org 组织的通知，请使用 `org:octo-org`。
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+### {% data variables.product.prodname_dependabot %} 自定义过滤器
+
+{% if currentVersion == "free-pro-team@latest" %}
+如果您使用
+{% data variables.product.prodname_dependabot %} 来保持依赖项更新，您可以使用并保存这些自定义过滤器：
+- `is:repository_vulnerability_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
+- `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
+- `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
+有关
+
+{% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+如果您使用
+{% data variables.product.prodname_dependabot %} 以保持依赖项更新，您可以使用并保存 `is:repository_vulnerability_alert` 自定义过滤器以显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
+有关
+
+{% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+{% endif %}
+
+{% endif %}

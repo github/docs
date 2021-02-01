@@ -1,5 +1,5 @@
 ---
-title: Criar e estar o Java com o Maven
+title: Criar e testar o Java com o Maven
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Maven.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,7 +31,7 @@ Recomendamos que você tenha um entendimento básico da estrutura do Java e do M
 
 ### Introdução com um modelo de fluxo de trabalho do Maven
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [Modelo do fluxo de trabalho do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
 Para começar rapidamente, você pode escolher o modelo do Maven pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
 
@@ -38,22 +39,22 @@ Você também pode adicionar este fluxo de trabalho manualmente, criando um novo
 
 {% raw %}
 ```yaml
-nome: Java CI
+name: Java CI
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Set up JDK 1.8
-        usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Criado com Maven
-        executar: mvn -B package --file pom.xml
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -79,36 +80,36 @@ Se você usa comandos diferentes para criar seu projeto ou se desejar usar um al
 
 {% raw %}
 ```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - usa: actions/setup-java@v1
-    com:
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - nome: Executar a fase de verificação do Maven
-    executar: mvn -B verify --file pom-ci.xml
+  - name: Run the Maven verify phase
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 ### Memorizar dependências
 
-Você pode armazenar as suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Para obter mais informações, consulte "[Memorizando dependências para acelerar os fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)" e a ação [`cache`](https://github.com/marketplace/actions/cache).
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - nome: Set up JDK 1.8
-    usa: actions/setup-java@v1
-    cpm:
+steps:
+  - uses: actions/checkout@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - nome: Cache Maven packages
-    usa: actions/cache@v2
-    com:
-      caminho: ~/.m2
-      chave: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+  - name: Cache Maven packages
+    uses: actions/cache@v2
+    with:
+      path: ~/.m2
+      key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
-  - nome: Construir com Maven
-    executar: mvn -B package --file pom.xml
+  - name: Build with Maven
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -125,7 +126,7 @@ De modo geral, o Maven criará arquivos de saída como JARs, EARs ou WARs no dir
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:

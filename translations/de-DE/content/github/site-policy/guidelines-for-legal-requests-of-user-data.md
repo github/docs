@@ -141,7 +141,8 @@ Bitte beachten Sie, dass die verfügbaren Informationen von Fall zu Fall variier
   - Kommunikation oder Dokumentation (wie Probleme oder Wikis) in privaten Repositorys
   - Alle Sicherheitsschlüssel, die für die Authentifizierung oder Verschlüsselung verwendet werden
 
-- <a name="in-exigent-circumstances"></a>**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
+- <a name="in-exigent-circumstances"></a>
+**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
 
 ### Kostenerstattung
 
@@ -161,8 +162,6 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505, USA.
 ```
-
-Sie können auch eine Kopie an legal@support.github.com senden.
 
 Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, einschließlich der folgenden Informationen:
 

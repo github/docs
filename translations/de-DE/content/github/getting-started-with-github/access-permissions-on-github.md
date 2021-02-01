@@ -9,6 +9,7 @@ intro: 'Während Du Mitarbeitern in einem persönlichen Repository Lese-/Schreib
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Persönliche Benutzerkonten
@@ -27,7 +28,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ### Enterprise-Konten
 
-*Enterprise-Inhaber* haben die endgültige Kontrolle über das Enterprise-Konto und können sämtliche Aktionen im Enterprise-Konto durchführen. *Abrechnungsmanager* können die Abrechnungseinstellungen Deines Enterprise-Kontos verwalten. Mitglieder und externe Mitarbeiter von Organisationen im Besitz Deines Enterprise-Kontos sind automatisch Mitglieder des Enterprise-Kontos, aber sie haben keinen Zugriff auf das Enterprise-Konto selbst oder dessen Einstellungen. Weitere Informationen findest Du unter „[Rollen eines Enterprise-Kontos](/articles/roles-for-an-enterprise-account).“
+*Enterprise-Inhaber* haben die endgültige Kontrolle über das Enterprise-Konto und können sämtliche Aktionen im Enterprise-Konto durchführen. *Abrechnungsmanager* können die Abrechnungseinstellungen Deines Enterprise-Kontos verwalten. Mitglieder und externe Mitarbeiter von Organisationen im Besitz Deines Enterprise-Kontos sind automatisch Mitglieder des Enterprise-Kontos, aber sie haben keinen Zugriff auf das Enterprise-Konto selbst oder dessen Einstellungen. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
 {% data reusables.gated-features.enterprise-accounts %}
 

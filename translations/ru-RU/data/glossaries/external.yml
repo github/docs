@@ -61,7 +61,7 @@
 - 
   term: ветвь
   description: >-
-    Ветвь — это параллельная версия репозитория. Она хранится в репозитории, но не влияет на ветвь первого порядка или главную ветвь, что позволяет свободно работать, не изменяя «рабочую» версию. После внесения необходимых изменений можно осуществить слияние своей ветви снова с главной ветвью для публикации сделанных изменений.
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
 - 
   term: ограничение ветви
   description: >-
@@ -123,7 +123,7 @@
 - 
   term: коммит
   description: >-
-    Коммит или «версия» — это отдельное изменение файла (или набора файлов). При создании коммита для сохранения своей работы Git присваивает уникальный ID (также называемый «SHA» или «хэш»), который позволяет регистрировать конкретные изменения вместе с данными о том, кто и когда их внес. Обычно коммиты содержат сообщение о коммите, в котором кратко описаны сделанные изменения.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: автор коммита
   description: Пользователь, выполняющий коммит.
@@ -137,10 +137,11 @@
 - 
   term: сообщение коммита
   description: >-
-    Краткий описательный текст, который присутствует в коммите и содержит информацию об изменении, которое вносит коммит.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: сравнить ветвь
-  description: Ветвь, используемая для создания запроса на включение внесенных изменений. Эта ветвь сравнивается с базовой ветвью, выбранной для запроса на включение внесенных изменений для выявления изменений. При слиянии запроса на включение внесенных изменений базовая ветвь обновляется с учетом изменений, внесенных в ветвь для сравнения. Также носит название «главная ветвь» запроса на включение внесенных изменений.
+  description: >-
+    Ветвь, используемая для создания запроса на включение внесенных изменений. Эта ветвь сравнивается с базовой ветвью, выбранной для запроса на включение внесенных изменений для выявления изменений. При слиянии запроса на включение внесенных изменений базовая ветвь обновляется с учетом изменений, внесенных в ветвь для сравнения. Также носит название «главная ветвь» запроса на включение внесенных изменений.
 - 
   term: непрерывная интеграция
   description: >-
@@ -251,13 +252,13 @@
 - 
   term: Gist
   description: >-
-    Gist — это файл совместного доступа, который можно редактировать, клонировать и порождать его копию в GitHub. Gist может быть общедоступным или скрытым, хотя скрытый gist будет доступен всем, у кого есть URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
     Git — это программа с открытым исходным кодом для отслеживания изменений в текстовых файлах. Она была разработана автором операционной системы Linux и является основной технологией, лежащей в основе социального и пользовательского интерфейса GitHub.
 - 
-  term: Приложение GitHub
+  term: приложение GitHub
   description: >-
     Приложения GitHub предоставляют услуги для всей организации и используют собственные алгоритмы при выполнении своих функций. Их можно настроить непосредственно для учетных записей организаций и пользователей и предоставить им доступ к определенным репозиториям. У них имеются детальные разрешения и встроенные веб-перехватчики.
 - 
@@ -268,7 +269,7 @@
   description: >-
     Инструмент для быстрого импорта репозиториев исходного кода, включая коммиты и журнал изменений, в GitHub для пользователей.
 - 
-  term: Вакансии GitHub
+  term: вакансии GitHub
   description: >-
     Сайт GitHub, где работодатели могут публиковать вакансии, которые могут заинтересовать пользователей GitHub.
 - 
@@ -317,7 +318,7 @@
   description: >-
     Автоматически создаваемое изображение, используемое в качестве стандартной фотографии профиля при регистрации пользователя в GitHub. Пользователи могут заменить свой идентикон на желаемую фотографию профиля.
 - 
-  term: провайдер идентификации
+  term: поставщик удостоверений
   description: >-
     Также называется IdP. Доверенный поставщик, позволяющий использовать единый вход SAML для доступа к другим сайтам.
 - 
@@ -387,9 +388,13 @@
   term: Разметка
   description: Система для аннотирования и форматирования документа.
 - 
+  term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+- 
   term: главная (ветвь)
   description: >-
-    Ветвь разработки по умолчанию. Каждый раз при создании репозитория Git создается ветвь с именем «master», которая становится активной ветвью. В большинстве случаев она содержит локальную разработку, хотя это чисто условно и необязательно.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
 - 
   term: Диаграмма участников
   description: График репозитория, на котором показаны все ответвления репозитория.
@@ -431,7 +436,7 @@
 - 
   term: оповещение
   description: >-
-    Обновления, доставляемые через Интернет или по электронной почте, в зависимости от ваших настроек, в которых содержится информация об интересующих вас действиях.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: Приложение OAuth
   description: >-

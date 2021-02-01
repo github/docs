@@ -1,0 +1,335 @@
+---
+- 
+  title: Example services
+  description: Example workflows using service containers
+  languages: JavaScript
+  href: actions/example-services
+  tags:
+    - service containers
+- 
+  title: Declaratively setup GitHub Labels
+  description: GitHub Action to declaratively setup labels across repos
+  languages: JavaScript
+  href: lannonbr/issue-label-manager-action
+  tags:
+    - issues
+    - labels
+- 
+  title: Declaratively sync GitHub labels
+  description: GitHub Action to sync GitHub labels in the declarative way
+  languages: 'Go, Dockerfile'
+  href: micnncim/action-label-syncer
+  tags:
+    - issues
+    - labels
+- 
+  title: Add releases to GitHub
+  description: Publish Github releases in an action
+  languages: 'Dockerfile, Shell'
+  href: elgohr/Github-Release-Action
+  tags:
+    - 버전 출시
+    - publishing
+- 
+  title: Publish a docker image to Dockerhub
+  description: A Github Action used to build and publish Docker images
+  languages: 'Dockerfile, Shell'
+  href: elgohr/Publish-Docker-Github-Action
+  tags:
+    - docker
+    - publishing
+    - build
+- 
+  title: Create an issue using content from a file
+  description: A GitHub action to create an issue using content from a file
+  languages: 'JavaScript, Python'
+  href: peter-evans/create-issue-from-file
+  tags:
+    - issues
+- 
+  title: Publish GitHub Releases with Assets
+  description: GitHub Action for creating GitHub Releases
+  languages: 'TypeScript, Shell, JavaScript'
+  href: softprops/action-gh-release
+  tags:
+    - 버전 출시
+    - publishing
+- 
+  title: GitHub Project Automation+
+  description: Automate GitHub Project cards with any webhook event
+  languages: JavaScript
+  href: alex-page/github-project-automation-plus
+  tags:
+    - projects
+    - automation
+    - issues
+    - pull requests
+- 
+  title: Run GitHub Actions Locally with a web interface
+  description: Runs GitHub Actions workflows locally (local)
+  languages: 'JavaScript, HTML, Dockerfile, CSS'
+  href: phishy/wflow
+  tags:
+    - local-development
+    - devops
+    - docker
+- 
+  title: Run your GitHub Actions locally
+  description: Run GitHub Actions Locally in Terminal
+  languages: 'Go, Shell'
+  href: nektos/act
+  tags:
+    - local-development
+    - devops
+    - docker
+- 
+  title: Build and Publish Android debug APK
+  description: Build and release debug APK from your Android project
+  languages: 'Shell, Dockerfile'
+  href: ShaunLWM/action-release-debugapk
+  tags:
+    - android
+    - build
+- 
+  title: Generate sequential build numbers for GitHub Actions
+  description: GitHub action for generating sequential build numbers.
+  languages: JavaScript
+  href: einaregilsson/build-number
+  tags:
+    - build
+    - automation
+- 
+  title: GitHub actions to push back to repository
+  description: Push Git changes to GitHub repository without authentication difficulties
+  languages: 'JavaScript, Shell'
+  href: ad-m/github-push-action
+  tags:
+    - publishing
+- 
+  title: Generate release notes based on your events
+  description: Action to auto generate a release note based on your events
+  languages: 'Shell, Dockerfile'
+  href: Decathlon/release-notes-generator-action
+  tags:
+    - 버전 출시
+    - publishing
+- 
+  title: Create a GitHub wiki page based on the provided markdown file
+  description: Create a GitHub wiki page based on the provided markdown file
+  languages: 'Shell, Dockerfile'
+  href: Decathlon/wiki-page-creator-action
+  tags:
+    - wiki
+    - publishing
+- 
+  title: Label your Pull Requests auto-magically (using committed files)
+  description: Github action to label your pull requests auto-magically (using committed files)
+  languages: 'TypeScript, Dockerfile, JavaScript'
+  href: Decathlon/pull-request-labeler-action
+  tags:
+    - projects
+    - issues
+    - labels
+- 
+  title: Add Label to your Pull Requests based on the author team name
+  description: Github action to label your pull requests based on the author name
+  languages: 'TypeScript, JavaScript'
+  href: JulienKode/team-labeler-action
+  tags:
+    - 끌어오기 요청
+    - labels
+- 
+  title: Get a list of file changes with a PR/Push
+  description: This action gives you will get outputs of the files that have changed in your repository
+  languages: 'TypeScript, Shell, JavaScript'
+  href: trilom/file-changes-action
+  tags:
+    - 워크플로
+    - 리포지토리
+- 
+  title: Private actions in any workflow
+  description: Allows private GitHub Actions to be easily reused
+  languages: 'TypeScript, JavaScript, Shell'
+  href: InVisionApp/private-action-loader
+  tags:
+    - 워크플로
+    - tools
+- 
+  title: Label your issues using the issue's contents
+  description: A GitHub Action to automatically tag issues with labels and assignees
+  languages: 'JavaScript, TypeScript'
+  href: damccorm/tag-ur-it
+  tags:
+    - 워크플로
+    - tools
+    - labels
+    - issues
+- 
+  title: Rollback a GitHub Release
+  description: A GitHub Action to rollback or delete a release
+  languages: 'JavaScript'
+  href: author/action-rollback
+  tags:
+    - 워크플로
+    - 버전 출시
+- 
+  title: Lock closed issues and Pull Requests
+  description: GitHub Action that locks closed issues and pull requests after a period of inactivity
+  languages: 'JavaScript'
+  href: dessant/lock-threads
+  tags:
+    - issues
+    - pull requests
+    - 워크플로
+- 
+  title: Get Commit Difference Count Between Two Branches
+  description: This GitHub Action compares two branches and gives you the commit count between them
+  languages: 'JavaScript, Shell'
+  href: jessicalostinspace/commit-difference-action
+  tags:
+    - 커밋
+    - 비교(diff)
+    - 워크플로
+- 
+  title: Generate Release Notes Based on Git References
+  description: GitHub Action to generate changelogs, and release notes
+  languages: 'JavaScript, Shell'
+  href: metcalfc/changelog-generator
+  tags:
+    - cicd
+    - release-notes
+    - 워크플로
+    - changelog
+- 
+  title: Enforce Policies on GitHub Repositories and Commits
+  description: Policy enforcement for your pipelines
+  languages: 'Go, Makefile, Dockerfile, Shell'
+  href: talos-systems/conform
+  tags:
+    - docker
+    - build-automation
+    - 워크플로
+- 
+  title: Auto Label Issue Based
+  description: Automatically label an issue based on the issue description
+  languages: 'TypeScript, JavaScript, Dockerfile'
+  href: Renato66/auto-label
+  tags:
+    - labels
+    - 워크플로
+    - automation
+- 
+  title: Update Configured GitHub Actions to the Latest Versions
+  description: CLI tool to check whehter all your actions are up-to-date or not
+  languages: 'C#, Inno Setup, PowerSHell, Shell'
+  href: fabasoad/ghacu
+  tags:
+    - versions
+    - cli
+    - 워크플로
+- 
+  title: Create Issue Branch
+  description: GitHub Action that automates the creation of issue branches
+  languages: 'JavaScript, Shell'
+  href: robvanderleek/create-issue-branch
+  tags:
+    - probot
+    - issues
+    - labels
+- 
+  title: Remove old artifacts
+  description: Customize artifact cleanup
+  languages: 'JavaScript, Shell'
+  href: c-hive/gha-remove-artifacts
+  tags:
+    - artifacts
+    - 워크플로
+- 
+  title: Sync Defined Files/Binaries to Wiki or External Repositories
+  description: GitHub Action to automatically sync changes to external repositories, like the wiki, for example
+  languages: 'Shell, Dockerfile'
+  href: kai-tub/external-repo-sync-action
+  tags:
+    - wiki
+    - sync
+    - 워크플로
+- 
+  title: Create/Update/Delete a GitHub Wiki page based on any file
+  description: Updates your GitHub wiki by using rsync, allowing for exclusion of files and directories and actual deletion of files
+  languages: 'Shell, Dockerfile'
+  href: Andrew-Chen-Wang/github-wiki-action
+  tags:
+    - wiki
+    - docker
+    - 워크플로
+- 
+  title: Prow GitHub Actions
+  description: Automation of policy enforcement, chat-ops, and automatic PR merging
+  languages: 'TypeScript, JavaScript'
+  href: jpmcb/prow-github-actions
+  tags:
+    - chat-ops
+    - prow
+    - 워크플로
+- 
+  title: Check GitHub Status in your Workflow
+  description: Check GitHub Status in your workflow
+  languages: 'TypeScript, JavaScript'
+  href: crazy-max/ghaction-github-status
+  tags:
+    - 상태
+    - monitoring
+    - 워크플로
+- 
+  title: Manage labels on GitHub as code
+  description: GitHub Action to manage labels (create/rename/update/delete)
+  languages: 'TypeScript, JavaScript'
+  href: crazy-max/ghaction-github-labeler
+  tags:
+    - labels
+    - 워크플로
+    - automation
+- 
+  title: Distribute funding in free and open source projects
+  description: Continuous Distribution of funding to project contributors and dependencies
+  languages: 'Python, Dockerfile, Shell, Ruby'
+  href: protontypes/libreselery
+  tags:
+    - sponsors
+    - funding
+    - payment
+- 
+  title: Herald rules for GitHub
+  description: Add reviewers, subscribers, labels and assignees to your PR
+  languages: 'TypeScript, JavaScript'
+  href: gagoar/use-herald-action
+  tags:
+    - reviewers
+    - labels
+    - assignees
+    - 끌어오기 요청
+- 
+  title: Codeowner validator
+  description: Ensures the correctness of your GitHub CODEOWNERS file, supports public and private GitHub repositories and also GitHub Enterprise installations
+  languages: 'Go, Shell, Makefile, Dockerfile'
+  href: mszostok/codeowners-validator
+  tags:
+    - codeowners
+    - validate
+    - 워크플로
+- 
+  title: Copybara Action
+  description: Move and transform code between repositories (ideal to maintain several repos from one monorepo)
+  languages: 'TypeScript, JavaScript, Shell'
+  href: olivr/copybara-action
+  tags:
+    - monorepo
+    - copybara
+    - 워크플로
+- 
+  title: Deploy static files to GitHub Pages
+  description: GitHub Action to publish website to GitHub Pages automatically
+  languages: 'TypeScript, JavaScript'
+  href: peaceiris/actions-gh-pages
+  tags:
+    - publishing

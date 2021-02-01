@@ -141,7 +141,8 @@ Por favor, note que a informação disponível varia de caso a caso. Algumas das
   - Comunicações ou documentação (como problemas ou Wikis) em repositórios privados
   - Qualquer chave de segurança usada para autenticação ou criptografia
 
-- <a name="in-exigent-circumstances"></a>**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
+- <a name="in-exigent-circumstances"></a>
+**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
 
 ### Reembolso de custos
 
@@ -160,8 +161,6 @@ GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505
 ```
-
-Você também pode enviar uma cópia de cortesia para legal@support.github.com.
 
 Por favor, faça suas solicitações da forma mais específica e breve quanto for possível, incluindo as seguintes informações:
 

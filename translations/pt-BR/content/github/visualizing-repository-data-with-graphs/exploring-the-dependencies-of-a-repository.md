@@ -35,15 +35,9 @@ Se foram detectadas vulnerabilidades no repositório, estas são exibidas na par
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas serão exibidas na parte superior da visualização para usuários com acesso ao
-Alertas de {% data variables.product.prodname_dependabot_short %}.
-
-{% note %}
-
-**Observação:** {% data variables.product.prodname_ghe_server %} não preenche a vista de **Dependentes**.
-
-{% endnote %}
+{% data variables.product.prodname_dependabot_alerts %}.
 
 ![Gráfico de dependências](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -55,14 +49,8 @@ Alertas de {% data variables.product.prodname_dependabot_short %}.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso a alertas de segurança.
-
-{% note %}
-
-**Observação:** {% data variables.product.prodname_ghe_server %} não preenche a vista de **Dependentes**.
-
-{% endnote %}
 
 ![Gráfico de dependências](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,6 +81,24 @@ Você também pode habilitar ou desabilitar o gráfico de dependências para tod
 4. Leia a mensagem sobre a concessão de acesso somente leitura pelo {% data variables.product.product_name %} aos dados do repositório para habilitar o gráfico de dependências e, em seguida, ao lado de "Gráfico de Dependência", clique em **Habilitar**. ![Botão "Habilitar" para o gráfico de dependência](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 Você pode desabilitar o gráfico de dependências a qualquer momento clicando em **Desabilitar** ao lado de "Gráfico de dependência" na aba de análise & de Segurança &.
+
+### Changing the "Used by" package
+
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+
+!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+
+Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
 ### Solução de problemas para o gráfico de dependências
