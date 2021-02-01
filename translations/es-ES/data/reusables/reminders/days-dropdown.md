@@ -1,0 +1,1 @@
+1. Debajo de "Días", da clic en **Días de la semana**{% octicon "triangle-down" aria-label="The down triangle icon" %} para seleccionar uno o más días en los que quieras recibir recordatorios programados. ![Menú desplegable de días](/assets/images/help/settings/scheduled-reminders-days.png)

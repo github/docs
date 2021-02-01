@@ -80,6 +80,14 @@ versions:
 
 如果主要站点发生的故障或灾难性事件的时间较长，要还原 {% data variables.product.product_location %}，请提供另一个 {% data variables.product.prodname_enterprise %} 设备并从备份主机执行还原。 在还原设备之前，您必须将备份主机的 SSH 密钥作为已授权 SSH 密钥添加到目标 {% data variables.product.prodname_enterprise %} 设备。
 
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
 要通过上一个成功快照还原 {% data variables.product.product_location %}，请使用 `ghe-restore` 命令。 您看到的输出应类似于：
 
 ```shell

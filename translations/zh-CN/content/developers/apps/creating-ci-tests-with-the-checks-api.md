@@ -24,7 +24,7 @@ CI 服务器托管运行 CI 测试的代码，如代码语法检查（检查样�
 
 [检查 API](/rest/reference/checks) 允许您设置针对仓库中的每个代码提交自动运行的 CI 测试。 检查 API 在拉取请求的 **Checks（检查）**选项卡中报告 GitHub 上每个检查的详细信息。 使用检查 API，您可以创建带有特定代码行附加细节的注释。 注释在 **Checks（检查）**选项卡中可见。 当您为拉取请求中的文件创建注释时，注释也会显示在 **Files changed（文件已更改）**选项卡中。
 
-_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks/)”。
+_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
 
 每当有新代码推送到仓库时，检查 API 会将 [`check_suite` web 挂钩事件](/webhooks/event-payloads/#check_suite)发送到仓库中安装的所有 GitHub 应用程序。 要接收所有检查 API 事件操作，应用程序必须具有 `checks:write` 权限。 GitHub 使用默认流程自动为仓库中的新代码提交创建 `check_suite` 事件，但您可以根据需要[更新检查套件的仓库首选项](/rest/reference/checks#update-repository-preferences-for-check-suites)。 以下是默认流程的工作方式：
 
