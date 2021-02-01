@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Documentação de ajuda'
+title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Documentação de ajuda Hello'
 featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
