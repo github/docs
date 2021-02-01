@@ -49,7 +49,7 @@ There are a few more things to know when you're getting started with this repo:
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
+- [content/READMME.md)
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
 - [contributing/README.md](contributing/README.md)
