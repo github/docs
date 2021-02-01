@@ -11,7 +11,7 @@ versions:
 
 ### 设置外部 `collectd` 服务器
 
-如果您尚未设置外部 `collectd` 服务器，则需要首先进行设置，然后才能在 {% data variables.product.product_location %} 上启用 `collectd` 转发。 Your `collectd` server must be running `collectd` version 5.x or higher.
+如果您尚未设置外部 `collectd` 服务器，则需要首先进行设置，然后才能在 {% data variables.product.product_location %} 上启用 `collectd` 转发。 您的 `collectd` 服务器运行的 `collectd` 版本不得低于 5.x。
 
 1. 登录 `collectd` 服务器。
 2. 创建或编辑 `collectd` 配置文件，以加载网络插件并为服务器和端口指令填入适当的值。 在大多数分发中，此文件位于 `/etc/collectd/collectd.conf` 中

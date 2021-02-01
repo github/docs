@@ -49,19 +49,19 @@ admin@ghe-data-node-0:~$ <em>status-ghe-cluster | grep erro</em>
   {% enddanger %}
   {% note %}
 
-  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+  **Observação:** Se você estiver usando uma distribuição do Linux que não seja compatível com o algoritmo Ed25519, use o comando:
   ```shell
   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
   {% endnote %}
-2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+2. Copie a chave privada (`id_ed25519`) para a pasta inicial `nagios` e defina a propriedade adequada.
   ```shell
   nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. Para autorizar a chave pública a executar *somente* o comando `ghe-cluster-status-n`, use o prefixo `command=` no arquivo `/data/user/common/authorized_keys`. No shell administrativo de qualquer nó, modifique esse arquivo para incluir a chave pública gerada na etapa 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. Para autorizar a chave pública a executar *somente* o comando `ghe-cluster-status-n`, use o prefixo `command=` no arquivo `/data/user/common/authorized_keys`. No shell administrativo de qualquer nó, modifique esse arquivo para incluir a chave pública gerada na etapa 1. Por exemplo: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
 4. Valide e copie a configuração para cada nó do cluster executando `ghe-cluster-config-apply` no nó em que você modificou o arquivo `/data/user/common/authorized_keys`.
 

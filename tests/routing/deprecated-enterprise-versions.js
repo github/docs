@@ -1,6 +1,6 @@
 const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM } = require('../helpers')
+const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
 
 describe('enterprise deprecation', () => {
@@ -40,7 +40,7 @@ describe('enterprise deprecation', () => {
   test('sets the expected x-robots-tag header for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
-    expect(res.get('x-robots-tag')).toBe('none')
+    expect(res.get('x-robots-tag')).toBe('noindex')
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
@@ -169,6 +169,16 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
+  it('returns the expected node_modules', async () => {
+    const result = await supertest(app)
+      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
+      .set('Referrer', '/en/enterprise/2.17')
+
+    expect(result.statusCode).toBe(200)
+    expect(result.get('x-is-archived')).toBe('true')
+    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+  })
+
   it('returns the expected favicon', async () => {
     const result = await supertest(app)
       .get('/assets/images/site/favicon.svg')
@@ -179,7 +189,7 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
-  it('returns the expected CSS file  ( <2.13 )', async () => {
+  it('returns the expected CSS file ( <2.13 )', async () => {
     const result = await supertest(app)
       .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')

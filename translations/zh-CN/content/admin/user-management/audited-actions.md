@@ -36,12 +36,12 @@ versions:
 
 #### 企业配置设置
 
-|                                                      名称 | 描述                                                                                                                                                                                               |
-| -------------------------------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `business.update_member_repository_creation_permission` | 站点管理员限制在企业中的组织中创建仓库。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。                              |
-|               `business.clear_members_can_create_repos` | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。                         |
-|           `enterprise.config.lock_anonymous_git_access` | 站点管理员锁定匿名 Git 读取权限，以防止仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。 |
-|         `enterprise.config.unlock_anonymous_git_access` | 站点管理员解锁匿名 Git 读取权限，以允许仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。 |
+|                                                      名称 | 描述                                                                                                                                                                                                                                |
+| -------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `business.update_member_repository_creation_permission` | 站点管理员限制在企业中的组织中创建仓库。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。                                                               |
+|               `business.clear_members_can_create_repos` | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% if enterpriseServerVersions contains currentVersion %}
+|           `enterprise.config.lock_anonymous_git_access` | 站点管理员锁定匿名 Git 读取权限，以防止仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。                                  |
+|         `enterprise.config.unlock_anonymous_git_access` | 站点管理员解锁匿名 Git 读取权限，以允许仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。{% endif %}
 
 #### 议题和拉取请求
 
@@ -77,23 +77,23 @@ versions:
 
 #### 仓库
 
-|                                         名称 | 描述                                                                                                                                                                                             |
-| ------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                              `repo.access` | 已将私有仓库设为公共，或者已将公共仓库设为私有。                                                                                                                                                                       |
-|                             `repo.archive` | 已存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。                                       |
-|                          `repo.add_member` | 已向仓库添加协作者。                                                                                                                                                                                     |
-|                              `repo.config` | 站点管理员已阻止强制推送。 更多信息请参阅“[阻止对仓库进行强制推送](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)”。                                                 |
-|                              `repo.create` | 已创建仓库。                                                                                                                                                                                         |
-|                             `repo.destroy` | 已删除仓库。                                                                                                                                                                                         |
-|                       `repo.remove_member` | 已从仓库中移除协作者。                                                                                                                                                                                    |
-|                              `repo.rename` | 已重命名仓库。                                                                                                                                                                                        |
-|                            `repo.transfer` | 用户已接受接收传输仓库的请求。                                                                                                                                                                                |
-|                      `repo.transfer_start` | 用户已发送向另一用户或组织传输仓库的请求。                                                                                                                                                                          |
-|                           `repo.unarchive` | 已取消存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。                                     |
-| `repo.config.disable_anonymous_git_access` | 已为公共仓库禁用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                          |
-|  `repo.config.enable_anonymous_git_access` | 已为公共仓库启用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                          |
-|    `repo.config.lock_anonymous_git_access` | 已锁定仓库的匿名 Git 读取权限设置，阻止仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。 |
-|  `repo.config.unlock_anonymous_git_access` | 已解锁仓库的匿名 Git 读取权限设置，允许仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。 |
+|                                         名称 | 描述                                                                                                                                                                                                                  |
+| ------------------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              `repo.access` | 仓库的可见性已更改为私有{% if enterpriseServerVersions contains currentVersion %}、公共{% endif %} 或内部。                                                                                                                            |
+|                             `repo.archive` | 已存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。                                                            |
+|                          `repo.add_member` | 已向仓库添加协作者。                                                                                                                                                                                                          |
+|                              `repo.config` | 站点管理员已阻止强制推送。 更多信息请参阅“[阻止对仓库进行强制推送](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)”。                                                                      |
+|                              `repo.create` | 已创建仓库。                                                                                                                                                                                                              |
+|                             `repo.destroy` | 已删除仓库。                                                                                                                                                                                                              |
+|                       `repo.remove_member` | 已从仓库中移除协作者。                                                                                                                                                                                                         |
+|                              `repo.rename` | 已重命名仓库。                                                                                                                                                                                                             |
+|                            `repo.transfer` | 用户已接受接收传输仓库的请求。                                                                                                                                                                                                     |
+|                      `repo.transfer_start` | 用户已发送向另一用户或组织传输仓库的请求。                                                                                                                                                                                               |
+|                           `repo.unarchive` | 已取消存档仓库。 更多信息请参阅“[存档 {% data variables.product.prodname_dotcom %} 仓库](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。{% if enterpriseServerVersions contains currentVersion %}
+| `repo.config.disable_anonymous_git_access` | 已为仓库禁用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                                                 |
+|  `repo.config.enable_anonymous_git_access` | 已为仓库启用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                                                 |
+|    `repo.config.lock_anonymous_git_access` | 已锁定仓库的匿名 Git 读取权限设置，阻止仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。                      |
+|  `repo.config.unlock_anonymous_git_access` | 已解锁仓库的匿名 Git 读取权限设置，允许仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。{% endif %}
 
 #### 站点管理员工具
 
@@ -107,36 +107,40 @@ versions:
 
 #### 团队
 
-|             名称 | 描述              |
-| --------------:| --------------- |
-|  `team.create` | 已向团队添加用户帐户或仓库。  |
-|  `team.delete` | 已从团队中移除用户帐户或仓库。 |
-| `team.destroy` | 已删除团队。          |
+|                        名称 | 描述                                                                                                                                                   |
+| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             `team.create` | 已向团队添加用户帐户或仓库。                                                                                                                                       |
+|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
+|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
+
 
 #### 用户
 
-|                          名称 | 描述                                                                                         |
-| ---------------------------:| ------------------------------------------------------------------------------------------ |
-|            `user.add_email` | 已向用户帐户添加电子邮件地址。                                                                            |
-|         `user.async_delete` | 异步作业已开始破坏用户帐户，最终触发 `user.delete`。{% if enterpriseServerVersions contains currentVersion %}
-|      `user.change_password` | 用户已更改其密码。{% endif %}
-|               `user.create` | 已创建新的用户帐户。                                                                                 |
-|               `user.delete` | 已通过异步作业销毁用户帐户。                                                                             |
-|               `user.demote` | 已将站点管理员降级为普通用户帐户。                                                                          |
-|              `user.destroy` | 用户已删除其帐户，触发 `user.async_delete`。{% if enterpriseServerVersions contains currentVersion %}
-|         `user.failed_login` | 用户尝试登录时使用的用户名、密码或双重身份验证码不正确。                                                               |
-|      `user.forgot_password` | 用户通过登录页面请求了密码重置。{% endif %}
-|                `user.login` | 用户已登录。                                                                                     |
-|              `user.promote` | 已将普通用户帐户升级为站点管理员。                                                                          |
-|         `user.remove_email` | 已从用户帐户中移除电子邮件地址。                                                                           |
-|               `user.rename` | 已更改用户名。                                                                                    |
-|              `user.suspend` | 用户帐户被站点管理员暂停。{% if enterpriseServerVersions contains currentVersion %}
-| `user.two_factor_requested` | 已提示用户输入双重身份验证码。{% endif %}
-|            `user.unsuspend` | 站点管理员已取消挂起用户帐户。                                                                            |
+|                              名称 | 描述                                                                                                                                                                   |
+| -------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                `user.add_email` | 已向用户帐户添加电子邮件地址。                                                                                                                                                      |
+|             `user.async_delete` | 异步作业已开始破坏用户帐户，最终触发 `user.delete`。{% if enterpriseServerVersions contains currentVersion %}
+|          `user.change_password` | 用户已更改其密码。{% endif %}
+|                   `user.create` | 已创建新的用户帐户。                                                                                                                                                           |
+|                   `user.delete` | 已通过异步作业销毁用户帐户。                                                                                                                                                       |
+|                   `user.demote` | 已将站点管理员降级为普通用户帐户。                                                                                                                                                    |
+|                  `user.destroy` | 用户已删除其帐户，触发 `user.async_delete`。{% if enterpriseServerVersions contains currentVersion %}
+|             `user.failed_login` | 用户尝试登录时使用的用户名、密码或双重身份验证码不正确。                                                                                                                                         |
+|          `user.forgot_password` | 用户通过登录页面请求了密码重置。{% endif %}
+|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+|                  `user.promote` | 已将普通用户帐户升级为站点管理员。                                                                                                                                                    |
+|             `user.remove_email` | 已从用户帐户中移除电子邮件地址。                                                                                                                                                     |
+|                   `user.rename` | 已更改用户名。                                                                                                                                                              |
+|                  `user.suspend` | 用户帐户被站点管理员暂停。{% if enterpriseServerVersions contains currentVersion %}
+|     `user.two_factor_requested` | 已提示用户输入双重身份验证码。{% endif %}
+|                `user.unsuspend` | 站点管理员已取消挂起用户帐户。                                                                                                                                                      |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [部署密钥]: /guides/managing-deploy-keys/#deploy-keys
   [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth 访问令牌]: /v3/oauth/
+  [OAuth 访问令牌]: /developers/apps/authorizing-oauth-apps
   [OAuth 应用程序]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication

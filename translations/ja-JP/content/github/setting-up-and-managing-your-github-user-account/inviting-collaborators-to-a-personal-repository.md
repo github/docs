@@ -50,7 +50,7 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 
 ### 参考リンク
 
-- [ユーザ アカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)
+- "[ユーザ アカウントリポジトリの権限レベル](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - [個人リポジトリからコラボレーターを削除する](/articles/removing-a-collaborator-from-a-personal-repository)
 - [コラボレーターのリポジトリから自分を削除する](/articles/removing-yourself-from-a-collaborator-s-repository)
 - [メンバーを Team に編成する](/articles/organizing-members-into-teams)

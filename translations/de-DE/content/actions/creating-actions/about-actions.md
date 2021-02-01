@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,8 +34,8 @@ Sie können Docker-Container- und JavaScript-Aktionen erstellen. Für Aktionen w
 | Typ                                  | Betriebssystem        |
 | ------------------------------------ | --------------------- |
 | Docker-Container                     | Linux                 |
-| JavaScript                           | Linux, MacOS, Windows |
-| Zusammengesetzte Ausführungsschritte | Linux, MacOS, Windows |
+| JavaScript                           | Linux, macOS, Windows |
+| Zusammengesetzte Ausführungsschritte | Linux, macOS, Windows |
 
 #### Docker-Containeraktionen
 

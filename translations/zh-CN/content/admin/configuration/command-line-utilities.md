@@ -84,7 +84,7 @@ $ ghe-config -l
 允许您将用户列表从 API 速率限制中排除。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
+此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
 
 ```shell
 ghe-legacy-github-services-report
@@ -468,18 +468,21 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-要显示全局 web 挂钩交付：
-```shell
-ghe-webhook-logs --global
 ```
 
 ### 集群

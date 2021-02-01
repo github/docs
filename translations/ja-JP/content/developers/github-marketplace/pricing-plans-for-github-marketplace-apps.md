@@ -10,35 +10,45 @@ versions:
 
 
 
-{% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にすることができ、GitHubは価格を米ドルでリストします。 顧客はGitHub.comを離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払い処理を行うためのコードを書く必要はありませんが、購入イベントのための[支払いフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)は処理しなければなりません。
+{% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 有料プランは、検証済みのリストに限られます。
+
+顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
 {% data variables.product.prodname_marketplace %}上でリストしているアプリケーションが複数のプランのオプションを持っているなら、対応する価格プランをセットアップできます。 たとえばアプリケーションが2つのプランの選択肢としてオープンソースプランとプロプランを持っているなら、オープンソースプランに対して無料価格プランを、そしてプロプランに対して定額料金プランをセットアップできます。 それぞれの{% data variables.product.prodname_marketplace %}リストには、リストされたすべてのプランに対して年間及び月間の価格がなければなりません。
 
 価格プランの作成方法に関する詳しい情報については「[{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)」を参照してください。
 
-{% note %}
-
-**ノート:**{% data variables.product.prodname_marketplace %}上でアプリケーションをリストする場合、{% data variables.product.prodname_marketplace %}の外部で有料サービスを提供しているなら無料プランでアプリケーションをリストすることはできません。
-
-{% endnote %}
+{% data reusables.marketplace.free-plan-note %}
 
 ### 価格プランの種類
 
-**無料プラン**は、完全に無料です。 無料プランをセットアップした場合、アプリケーションを利用するために無料プランを選択したユーザに課金することはできません。 リストでは無料と有料のプランをどちらも作成できます。 未検証の無料アプリケーションは、支払いフローを実装する必要はありません。 GitHubによって検証される無料アプリケーションは、新規の購入とキャンセルのための支払いフローを実装しなければなりませんが、無料トライアル、アップグレード、ダウングレードの支払いフローを実装する必要はありません。 無料のサービスとして{% data variables.product.prodname_marketplace %}にリスト済みのアプリケーションに有料プランを追加する場合は、そのアプリケーションをレビューのために再度サブミットしなければなりません。
+#### 無料プラン
 
-**定額料金プラン**は、月単位及び年単位で設定された料金を課金します。
+{% data reusables.marketplace.free-apps-encouraged %}
 
-**ユニット単位の価格プラン**は、月単位あるいは年単位で、指定した単位に基づいて設定された料金を課金します。 「ユニット」には好きなもの（たとえばユーザ、シート、あるいは人）を指定できます。
+無料プランは、ユーザに対してまったく無料です。 無料プランをセットアップした場合、アプリケーションを利用するために無料プランを選択したユーザに課金することはできません。 リストでは無料と有料のプランをどちらも作成できます。
 
-**Marketplace無料トライアル**は、OAuthあるいはGitHubアプリケーションを顧客に対して14日間の無料トライアルを提供します。 [Marketplaceの価格プランをセットアップ](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)する際に、このオプションを選択して定額料金あるいはユニット単位の価格プランに対して無料トライアルを提供できます。
+すべてのアプリケーションは、新規の購入とキャンセルのイベントを処理しなければなりません。 無料プランだけを持つアプリケーションは、無料トライアル、アップグレード、ダウングレードのイベントを処理する必要はありません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+
+{% data variables.product.prodname_marketplace %}に無料のサービスとしてリスト済みのアプリケーションに有料プランを追加する場合、アプリケーションの検証をリクエストし、金銭のオンボーディングを通さなければなりません。
+
+#### 有料プラン
+
+有料プランには2つの種類があります。
+
+- 定額プランは、月単位及び年単位で設定された料金を課金します。
+
+- ユニット単位の価格プランは、月単位あるいは年単位で、指定したユニットに基づいて設定された料金を課金します。 「ユニット」には好きなもの（たとえばユーザ、シート、あるいは人）を指定できます。
+
+無料トライアルを提供したいこともあるでしょう。 無料トライアルは、OAuthもしくはGitHub Appsを無料の14日間のトライアルとして顧客に提供します。 Marketplaceの価格プランをセットアップする際に、定額あるいはユニット単位の価格プランに対する無料トライアルを提供するオプションを選択できます。
 
 ### 無料トライアル
 
-顧客はMarketplaceのリスト上の利用可能な任意の有料プランに対して無料トライアルを開始できますが、1つのMarketplace製品に対して複数の無料トライアルを作成することはできません。
+顧客は、無料トライアルを含むMarketplaceリスト上の任意の有料プランに対して、無料トライアルを開始できます。 ただし、顧客はMarketplaceの製品ごとに複数の無料トライアルを作成することはできません。
 
 無料トライアルの期間は固定の14日間です。 顧客はトライアル期間の終了の4日前（無料トライアルの11日目）に、プランがアップグレードされるという通知を受け取ります。 顧客は、キャンセルしないかぎり、無料トライアルの終わりにトライアルを行っていたプランに自動的に登録されます。
 
-アプリケーションで無料トライアルを処理する方法の詳細については「[新規の購入と無料トライアル](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)」を参照してください。
+詳しい情報については「[新規の購入と無料トライアルの処理](/developers/github-marketplace/handling-new-purchases-and-free-trials/)」を参照してください。
 
 {% note %}
 

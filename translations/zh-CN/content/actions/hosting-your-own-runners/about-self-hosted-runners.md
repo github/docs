@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -87,7 +88,7 @@ versions:
 - Windows Server 2016 64 位
 - Windows Server 2019 64 位
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) 或更高版本
 

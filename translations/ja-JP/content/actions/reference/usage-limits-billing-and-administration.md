@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
@@ -79,6 +79,7 @@ GitHub アクションの使用は、
 - 「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)」{% if currentVersion == "free-pro-team@latest" %}
 - {% data variables.product.prodname_ghe_cloud %} の「[Enterprise アカウントでの {% data variables.product.prodname_actions %} ポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### ワークフローの無効化と有効化
 
 {% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。
@@ -86,3 +87,4 @@ GitHub アクションの使用は、
 {% data reusables.actions.scheduled-workflows-disabled %}
 
 詳しい情報については、「[ワークフローの無効化と有効化](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)」を参照してください。
+{% endif %}

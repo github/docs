@@ -4,7 +4,6 @@ intro: 'Você pode adicionar um LEIAME ao seu perfil de{% data variables.product
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
 ---
 
 ### Sobre o LEIAME do seu perfil
@@ -62,4 +61,4 @@ The method you choose is dependant upon your needs, but if you're unsure, we rec
 
 ### Leia mais
 
-- [Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)
+- [Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)

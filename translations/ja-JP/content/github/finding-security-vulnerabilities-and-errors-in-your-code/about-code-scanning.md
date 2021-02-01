@@ -20,7 +20,7 @@ versions:
 
 {% data variables.product.prodname_code_scanning %} がコードに潜在的な脆弱性またはエラーを見つけた場合、{% data variables.product.prodname_dotcom %} はリポジトリにアラートを表示します。 アラートを引き起こしたコードを修正すると、{% data variables.product.prodname_dotcom %}はそのアラートを閉じます。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用します。 詳細については、「[{% data variables.product.prodname_actions %}について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。
+To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 {% data variables.product.prodname_code_scanning %} を始めるには、「[{% data variables.product.prodname_code_scanning %} の有効化](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)」を参照してください。
 
@@ -54,7 +54,7 @@ versions:
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS 委員会 の Web サイトの「[OASIS Static Analysis Results Interchange Format (SARIF) 」TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

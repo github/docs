@@ -22,7 +22,7 @@ Rufe https://github.com/topics/ auf, um die am häufigsten verwendeten Themen zu
 
 Repository-Administratoren können beliebige Themen zu einem Repository hinzufügen. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% if currentVersion == "free-pro-team@latest" %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Die Inhalte privater Repositorys werden nicht analysiert, und es gibt keine Themenvorschläge für private Repositorys.{% endif %}
 
-Öffentliche und private Repositorys können Themen haben, aber in den Resultaten der Themensuche wirst Du nur die privaten Repositorys sehen, auf die Du Zugriff hast.
+{% if currentVersion == "github-ae@latest" %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
 Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sind. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“. Sie können auch nach einer Liste von Themen auf {% data variables.product.product_name %} suchen. Weitere Informationen findest Du unter „[Themen suchen](/articles/searching-topics).“
 

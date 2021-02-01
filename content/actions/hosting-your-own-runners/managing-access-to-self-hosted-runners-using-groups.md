@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,7 +49,9 @@ When creating a group, you must choose a policy that defines which repositories 
    {% warning %}
 
    **Warning**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
@@ -78,7 +81,9 @@ When creating a group, you must choose a policy that defines which organizations
    {% warning %}
 
    **Warning**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}

@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -76,7 +77,7 @@ etapas:
 
 #### Usar branches
 
-Fazer referência a um branch específico significa que a ação sempre incluirá as atualizações mais recentes no branch de destino, mas pode criar problemas se essas atualizações incluírem alterações significativas. Este exemplo é direcionado a um branch denominado `@main`:
+Especificar um branch de destino para a ação significa que ele sempre irá executar a versão atualmente nesse branch. Essa abordagem pode criar problemas se uma atualização do branch incluir mudanças significativas. Este exemplo é direcionado a um branch denominado `@main`:
 
 ```yaml
 steps:
@@ -87,7 +88,7 @@ Para obter mais informações, consulte "[Usar o gerenciamento de versões para 
 
 ### Usar entradas e saídas com uma ação
 
-Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. Por exemplo, uma ação pode exigir que você especifique um caminho para um arquivo, o nome de uma etiqueta ou outros dados que usará como parte do processamento da ação.
 
 Para ver as entradas e saídas de uma ação, verifique a `action.yml` ou `action.yaml` no diretório-raiz do repositório.
 

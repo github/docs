@@ -12,7 +12,9 @@ versions:
 
 ### About pull request merges
 
-In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. {% data reusables.pull_requests.about-protected-branches %} However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/articles/checking-out-pull-requests-locally) and merge it using the command line.
 

@@ -20,7 +20,7 @@ versions:
 
 如果 {% data variables.product.prodname_code_scanning %} 发现您的代码中可能存在漏洞或错误，{% data variables.product.prodname_dotcom %} 会在仓库中显示警报。 在修复触发警报的代码之后，{% data variables.product.prodname_dotcom %} 将关闭警报。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
-{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”。
+要监控您的仓库或组织的 {% data variables.product.prodname_code_scanning %} 结果，您可以使用 web 挂钩和 {% data variables.product.prodname_code_scanning %} API。 有关用于 {% data variables.product.prodname_code_scanning %} 的 web 挂钩的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。 有关 API 端点的信息，请参阅“[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)”。
 
 要开始 {% data variables.product.prodname_code_scanning %}，请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”。
 
@@ -54,7 +54,7 @@ versions:
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS Committee 网站上的 [OASIS 静态分析结果交换格式 (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

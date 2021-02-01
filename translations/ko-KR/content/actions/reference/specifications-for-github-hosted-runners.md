@@ -63,8 +63,8 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 * [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
-* [MacOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
@@ -83,44 +83,11 @@ If there is a tool that you'd like to request, please open an issue at [actions/
 
 {% endnote %}
 
-Windows and Ubuntu runners are hosted in Azure and have the same IP address ranges as Azure Data centers. Currently, all Windows and Ubuntu {% data variables.product.prodname_dotcom %}-hosted runners are in the following Azure regions:
+Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-- East US (`eastus`)
-- East US 2 (`eastus2`)
-- West US 2 (`westus2`)
-- Central US (`centralus`)
-- South Central US (`southcentralus`)
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
-Microsoft updates the Azure IP address ranges weekly in a JSON file that you can download from the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) website. You can use this range of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
-
-The JSON file contains an array called `values`. Inside that array, you can find the supported IP addresses in an object with a `name` and `id` of the Azure region, for example `"AzureCloud.eastus2"`.
-
-You can find the supported IP address ranges in the `"addressPrefixes"` object. This is a condensed example of the JSON file.
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
 ### File systems
 

@@ -10,10 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -51,8 +52,7 @@ versions:
 # コードを実行するコンテナイメージ
 FROM alpine:3.10
 
-# アクションのリポジトリからコードファイルをファイルシステムパスへコピー
-`/` of the container
+# アクションのリポジトリからコードファイルをコンテナのファイルシステムパス `/`にコピー
 COPY entrypoint.sh /entrypoint.sh
 
 # dockerコンテナが起動する際に実行されるコードファイル (`entrypoint.sh`)
@@ -64,7 +64,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
-**アクション.yml**
+**action.yml**
 ```yaml
 # action.yml
 name: 'Hello World'
@@ -154,7 +154,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### アクションの GitHub へのコミットとタグ、プッシュ
+### アクションの{% data variables.product.product_name %}へのコミットとタグ、プッシュ
 
 ターミナルから、`action.yml`、`entrypoint.sh`、`Dockerfile`、および `README.md` ファイルをコミットします。
 
@@ -167,7 +167,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-### ワークフローでアクションを試す
+### ワークフローでアクションをテストする
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
@@ -175,10 +175,10 @@ git push --follow-tags
 
 #### パブリックアクションを使用する例
 
-次のワークフローコードでは、[`actions/hello-world-docker-container-action`](https://github.com/actions/hello-world-docker-action)というパブリックリポジトリにある完成した hello world アクションを使っています。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+次のワークフローコードでは、[`actions/hello-world-docker-container-action`](https://github.com/actions/hello-world-docker-action)というパブリックリポジトリにある完成した hello world アクションを使っています。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -200,10 +200,10 @@ jobs:
 
 #### プライベートアクションを使用する例
 
-次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -227,6 +227,10 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+{% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run.png)
+{% endif %}

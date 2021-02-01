@@ -36,7 +36,7 @@ You can also see a list of people who have contributed to the project's Python d
 
 {% tip %}
 
-**ヒント:** リポジトリへのコミットのコントリビューターを一覧表示する方法については、「[リポジトリ](/v3/repos/#list-contributors)」を参照してください。
+**ヒント:** リポジトリへのコミットのコントリビューターを一覧表示する方法については、「[リポジトリ](/rest/reference/repos#list-contributors)」を参照してください。
 
 {% endtip %}
 

@@ -32,14 +32,18 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 ### Supported repositories and ecosystems
 
+You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
-
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
 
 {% data reusables.dependabot.supported-package-managers %}
 
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."
+
+### About notifications for {% data variables.product.prodname_dependabot %} version updates
+
+You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."

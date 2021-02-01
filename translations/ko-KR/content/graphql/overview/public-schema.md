@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-You can [perform introspection](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) against the GraphQL API directly.
+You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.
 
 Alternatively, you can download the latest version of the public schema here:
 
