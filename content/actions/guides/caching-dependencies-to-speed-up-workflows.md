@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 type: 'tutorial'
+topics:
+  - 'Workflows'
 ---
 
 ### About caching workflow dependencies
