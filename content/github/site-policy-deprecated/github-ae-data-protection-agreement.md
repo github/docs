@@ -8,7 +8,7 @@ redirect_from:
   - /github/site-policy/github-ae-data-protection-agreement
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 ## INTRODUCTION
 
