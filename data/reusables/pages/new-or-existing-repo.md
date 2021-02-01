@@ -1,6 +1,5 @@
-If your site is an independent project, you can create a new repository to store your site's source code. In this case, it is best to create a public repository. {% data variables.product.prodname_pages %} is supported for private repositories for paid accounts, but using a public repository makes it easy to remember that the content is published publicly.
+If your site is an independent project, you can create a new repository to store your site's source code. {% if currentVersion == "free-pro-team@latest" %}If you are using a {% data variables.product.prodname_free_user %} or a {% data variables.product.prodname_free_team %} for organizations account, this should be a public repository.{% endif %}
 
 If your site is associated with an existing project, you can add the source code {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}to that project's repository, in a `/docs` folder on the default branch or on a different branch.{% else %}for your site to a `gh-pages` branch or a `docs` folder on the `master` branch in that project's repository.{% endif %} For example, if you're creating a site to publish documentation for a project that's already on {% data variables.product.product_name %}, you may want to store the source code for the site in the same repository as the project.
 
 If you want to create a site in an existing repository, skip to the "[Creating your site](#creating-your-site)" section.
-
