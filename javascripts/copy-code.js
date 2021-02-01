@@ -1,15 +1,19 @@
-import Clipboard from 'clipboard'
-
 export default () => {
-  const clipboard = new Clipboard('button.js-btn-copy')
+  const buttons = Array.from(document.querySelectorAll('button.js-btn-copy'))
 
-  clipboard.on('success', evt => {
-    const btn = evt.trigger
-    const beforeTooltip = btn.getAttribute('aria-label')
-    btn.setAttribute('aria-label', 'Copied!')
+  if (!buttons) return
 
-    setTimeout(() => {
-      btn.setAttribute('aria-label', beforeTooltip)
-    }, 2000)
-  })
+  buttons.forEach(button =>
+    button.addEventListener('click', async evt => {
+      const text = button.dataset.clipboardText
+      await navigator.clipboard.writeText(text)
+
+      const beforeTooltip = button.getAttribute('aria-label')
+      button.setAttribute('aria-label', 'Copied!')
+
+      setTimeout(() => {
+        button.setAttribute('aria-label', beforeTooltip)
+      }, 2000)
+    })
+  )
 }

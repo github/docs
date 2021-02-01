@@ -65,7 +65,10 @@
     </div>
     </div>
 
-    <div class="d-block border-top border-gray-light mt-4 markdown-body">
+    <div class="d-block mt-4 markdown-body">
+      {% if currentLearningTrack and currentLearningTrack.trackName %}
+        {% include learning-track-nav %}
+      {% endif %}
       {% include helpfulness %}
       {% unless page.hidden %}{% include contribution %}{% endunless %}
     </div>

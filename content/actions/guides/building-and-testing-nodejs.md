@@ -9,6 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Node'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}

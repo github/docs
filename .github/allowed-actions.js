@@ -8,11 +8,11 @@ module.exports = [
   'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f', //actions/checkout@v2.3.4
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
-  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d', //actions/setup-node@v1.4.4
+  'actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e', //actions/setup-node@v2.1.4
   'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
-  'crykn/copy_folder_to_another_repo_action@abc264e1c16eb3d7b1f7763bfdb0e1699ad43120',
+  'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
   'cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
