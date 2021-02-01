@@ -1,0 +1,1 @@
+Cada tarea tiene un título y una fecha límite ocpional. Puedes escoger la visibilidad de los repositorios que {% data variables.product.prodname_classroom %} crea, y elegir los permisos de acceso. También puedes calificar automáticamente las tareas y crear un espacio dedicado para debatirlas con el alumno.

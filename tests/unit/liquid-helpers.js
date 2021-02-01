@@ -45,6 +45,16 @@ describe('liquid helper tags', () => {
     const expected = '<a class="link-title Bump-link--hover no-underline" href="/ja/desktop/contributing-and-collaborating-using-github-desktop">'
     const output = await liquid.parseAndRender(template, context)
     expect(output.includes(expected)).toBe(true)
+    // set this back to english
+    context.currentLanguage = 'en'
+  })
+
+  test('link tag with local variable', async () => {
+    const template = `{% assign href = "/contributing-and-collaborating-using-github-desktop" %}
+    {% link {{ href }} %}`
+    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">'
+    const output = await liquid.parseAndRender(template, context)
+    expect(output.includes(expected)).toBe(true)
   })
 
   test('link tag with absolute path', async () => {
@@ -82,6 +92,17 @@ describe('liquid helper tags', () => {
     const expected = '- <a class="article-link link Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating using GitHub Desktop</a>'
     const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
+  })
+
+  test('link_as_article_card', async () => {
+    const template = '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
+    const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="" data-topics="">
+  <a class="no-underline d-flex flex-column py-3 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
+    <h4 class="h4 text-gray-dark mb-1">Contributing and collaborating using GitHub Desktop</h4>
+    <div class="text-purple h6 text-uppercase"></div>
+    <p class="text-gray my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>`
+    const output = await liquid.parseAndRender(template, context)
+    expect(output.includes(expected)).toBe(true)
   })
 
   describe('indented_data_reference tag', () => {

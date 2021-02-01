@@ -110,7 +110,7 @@
   description: Центральный процессор.
 - 
   term: вспомогательное приложение для управления учетными данными
-  description: Программа, которая хранит и оценивает учетные данные Git.
+  description: A program that stores and fetches Git credentials.
 - 
   term: creole
   description: >-
@@ -739,7 +739,7 @@
 - 
   term: WYSIWYG
   description: >-
-    Отображение редактируемого текста максимально похожим на конечный результат образом. Аббревиатура означает, что текст на экране выглядит таким же, каким его будет видеть пользователь.
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: Платформа виртуализации.
