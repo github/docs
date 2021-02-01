@@ -64,8 +64,8 @@ The audit log lists events triggered by activities that affect your organization
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions)                                                                                                                                                                                                                                              | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts.                                                                                                                                                                                                                              |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 | [`secret_scanning`](#secret_scanning-category-actions)                                                                                                                                                                                                                                                                              | Contains organization-level configuration activities for secret scanning in existing repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。                                                                                                                                       |
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions)                                                                                                                                                                                                                                                          | Contains organization-level configuration activities for secret scanning for new repositories created in the organization.                                                                                                                                                                                                                   |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`sponsors`](#sponsors-category-actions)                                                                                                                                                                                                                                                                                            | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| [`Team`](#team-category-actions)                                                                                                                                                                                                                                                                                                    | Organization の Team に関連するすべてのアクティビティが対処です。{% endif %}
+| [`sponsors`](#sponsors-category-actions)                                                                                                                                                                                                                                                                                            | スポンサーボタンに関連するすべてのアクティビティが対象です (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照){% endif %}
+| [`Team`](#team-category-actions)                                                                                                                                                                                                                                                                                                    | Organization内のチームに関連するすべてのアクティビティを含みます。                                                                                                                                                                                                                                                                                                      |
 | [`team_discussions`](#team_discussions-category-actions)                                                                                                                                                                                                                                                                            | Organization の Team ディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                           |
 
 次の用語を使用すれば、特定の一連の行動を検索できます。 例:
@@ -82,7 +82,9 @@ Each category has a set of associated actions that you can filter on. 例:
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{% data reusables.search.date_gt_lt %} 例:
+{% data reusables.search.date_gt_lt %}
+
+例:
 
   * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
   * `created:>=2014-07-08` は、2014 年 7 月 8 日かそれ以降に生じたすべてのイベントを検索します。
@@ -106,24 +108,52 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-### Audit log API を使用する
+### Using the audit log API
+
+You can interact with the audit log using the GraphQL API{% if currentVersion == "free-pro-team@latest" %} or the REST API{% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### Using the GraphQL API
+
+{% endif %}
 
 {% note %}
 
-**メモ**: Audit log API は、{% data variables.product.prodname_enterprise %} を使用している Organization が利用できます。 {% data reusables.gated-features.more-info-org-products %}
+**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
 
 {% endnote %}
 
-IP の安全性を保ち、Organization のコンプライアンスを守るため、Audit log API を使って、Audit log データのコピーを保存し、モニタリングできます。
-* Organization またはリポジトリの設定へのアクセス
-* 権限の変更
-* Organization、リポジトリ、または Team におけるユーザの追加や削除
-* 管理者に昇格しているユーザ
-* GitHub App の権限の変更
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
+{% data reusables.audit_log.audit-log-api-info %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+Note that you can't retrieve Git events using the GraphQL API.
+{% endif %}
 
 GraphQL のレスポンスには、90 日から 120 日までのデータを含めることができます。
 
 たとえば、GraphQL にリクエストして、Organization に新しく追加された Organization メンバー全員を表示できます。 詳細は「[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)」を参照してください。
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### Using the REST API
+
+{% note %}
+
+**Note**: The audit log REST API is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+
+{% endnote %}
+
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
+{% data reusables.audit_log.audit-log-api-info %}
+* Git events, such as cloning, fetching, and pushing
+
+{% data reusables.audit_log.audit-log-git-events-retention %}
+
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+
+{% endif %}
 
 ### Audit log actions
 
@@ -149,7 +179,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `decline` | Triggered when someone declines credit for a security advisory.                                                                                                                  |
 | `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.                                                                                 |
 
-#### `billing` category actions
+#### `billing` カテゴリアクション
 
 | アクション                 | 説明                                                                                                                                 |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,7 +198,7 @@ An overview of some of the most common actions that are recorded as events in th
 | アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
-| `enable`  | Triggered when an organization owner enbles {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.                                                                                                                                                                                                                       |
+| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.                                                                                                                                                                                                                      |
 
 #### `dependabot_security_updates` category actions
 
@@ -214,6 +244,28 @@ An overview of some of the most common actions that are recorded as events in th
 | `update`  | [Team ディスカッションの投稿への返答が編集される](/articles/managing-disruptive-comments/#editing-a-comment)ときにトリガーされます。  |
 | `destroy` | [Team ディスカッションの投稿への返答が削除される](/articles/managing-disruptive-comments/#deleting-a-comment)ときにトリガーされます。 |
 
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### `git` category actions
+
+{% note %}
+
+**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+
+{% endnote %}
+
+{% data reusables.audit_log.audit-log-git-events-retention %}
+
+| アクション  | 説明                                                    |
+| ------ | ----------------------------------------------------- |
+| `クローン` | Triggered when a repository is cloned.                |
+| `フェッチ` | Triggered when changes are fetched from a repository. |
+| `プッシュ` | Triggered when changes are pushed to a repository.    |
+
+{% endif %}
+
 #### `hook` category actions
 
 | アクション            | 説明                                                                              |
@@ -238,13 +290,13 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `marketplace_agreement_signature` category actions
+#### `marketplace_agreement_signature` カテゴリアクション
 
 | アクション    | 説明                                                                                      |
 | -------- | --------------------------------------------------------------------------------------- |
 | `create` | {% data variables.product.prodname_marketplace %} Developer Agreement に署名するときにトリガーされます。 |
 
-#### `marketplace_listing` category actions
+#### `marketplace_listing` カテゴリアクション
 
 | アクション     | 説明                                                                                  |
 | --------- | ----------------------------------------------------------------------------------- |
@@ -273,6 +325,8 @@ An overview of some of the most common actions that are recorded as events in th
 
 | アクション                                                                                                          | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest"%}
+| `advanced_security_disabled`                                                                                   | Triggered when an organization admin disables {% data variables.product.prodname_GH_advanced_security %} for all existing private and internal repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."                                                                                                           |
+| `advanced_security_enabled`                                                                                    | Triggered when an organization admin enables {% data variables.product.prodname_GH_advanced_security %} for all existing private and internal repositories.                                                                                                                                                                                                                                                                                                                                |
 | `audit_log_export`                                                                                             | Organization の管理者が [Organization の Audit log のエクスポートを作成する](#exporting-the-audit-log)ときにトリガーされます。 エクスポートにクエリが含まれていた場合、ログには使用されたクエリとそのクエリに一致する Audit log エントリの数が一覧表示されます。                                                                                                                                                                                                                                                                                                                      |
 | `block_user`                                                                                                   | Organization のオーナーが[Organization のリポジトリにユーザーがアクセスするのをブロックする](/articles/blocking-a-user-from-your-organization)ときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                   |
 | `cancel_invitation`                                                                                            | Organization の招待が取り消されている場合にトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                                                                                        |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -345,7 +399,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `payment_method` category actions
+#### `payment_method` カテゴリアクション
 
 | アクション    | 説明                                                                   |
 | -------- | -------------------------------------------------------------------- |
@@ -355,12 +409,12 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `profile_picture` category actions
+#### `profile_picture` カテゴリアクション
 | アクション  | 説明                                           |
 | ------ | -------------------------------------------- |
 | update | Organization のプロファイル写真を設定または更新するときにトリガーされます。 |
 
-#### `project` category actions
+#### `project` カテゴリアクション
 
 | アクション                    | 説明                                                                                     |
 | ------------------------ | -------------------------------------------------------------------------------------- |
@@ -394,31 +448,33 @@ An overview of some of the most common actions that are recorded as events in th
 | `update_linear_history_requirement_enforcement_level` | 保護されたブランチについて、必須の直線状のコミット履歴が有効化または無効化されるときにトリガーされます。                                                                                                                                                                                   |
 {% endif %}
 
-#### `repo` category actions
+#### `repo` カテゴリアクション
 
-| アクション                                 | 説明                                                                                                                                                                                                                                       |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `access`                              | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.                                                                                    |
-| `add_member`                          | ユーザーが[リポジトリへのコラボレーションアクセスへの招待](/articles/inviting-collaborators-to-a-personal-repository)を受諾するときにトリガーされます。                                                                                                                               |
-| `add_topic`                           | リポジトリの管理者がリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                               |
+| アクション                                 | 説明                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                              | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.                                                                                                                                               |
+| `add_member`                          | ユーザーが[リポジトリへのコラボレーションアクセスへの招待](/articles/inviting-collaborators-to-a-personal-repository)を受諾するときにトリガーされます。                                                                                                                                                                                          |
+| `add_topic`                           | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% if currentVersion == "free-pro-team@latest" %}
+| `advanced_security_disabled`          | Triggered when a repository owner disables {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)." |
+| `advanced_security_enabled`           | Triggered when a repository owner enables {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 | `archived`                            | リポジトリの管理者が[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% if enterpriseServerVersions contains currentVersion %}
-| `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                         |
-| `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                         |
-| `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                    |
+| `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                    |
+| `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                    |
+| `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                                               |
 | `config.unlock_anonymous_git_access`  | リポジトリの[匿名の Git 読み取りアクセス設定がロック解除される](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。{% endif %}
 | `create`                              | Triggered when [a new repository is created](/articles/creating-a-new-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | `create_actions_secret`               | Triggered when a repository admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).{% endif %}
-| `destroy`                             | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
+| `destroy`                             | [リポジトリが削除される](/articles/deleting-a-repository)ときにトリガーされます。{% if currentVersion == "free-pro-team@latest" %}
 | `disable`                             | リポジトリが無効になるときにトリガーされます ([残高不足](/articles/unlocking-a-locked-account)などの場合)。{% endif %}
 | `enable`                              | Triggered when a repository is reenabled.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | `remove_actions_secret`               | Triggered when a repository admin removes a {% data variables.product.prodname_actions %} secret.{% endif %}
 | `remove_member`                       | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `register_self_hosted_runner`         | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).                                                        |
-| `remove_self_hosted_runner`           | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                                                                    |{% endif %}
-| `remove_topic`                        | リポジトリの管理者がリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                   |
-| `rename`                              | [リポジトリの名前が変更される](/articles/renaming-a-repository)ときにトリガーされます。                                                                                                                                                                            |
-| `移譲`                                  | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                        |
-| `transfer_start`                      | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                          |
+| `register_self_hosted_runner`         | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).                                                                                                                   |
+| `remove_self_hosted_runner`           | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                                                                                                                               |{% endif %}
+| `remove_topic`                        | リポジトリの管理者がリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                                                                              |
+| `rename`                              | [リポジトリの名前が変更される](/articles/renaming-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                       |
+| `移譲`                                  | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                   |
+| `transfer_start`                      | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                                                                                     |
 | `unarchived`                          | Triggered when a repository admin unarchives a repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | `update_actions_secret`               | Triggered when a repository admin updates a {% data variables.product.prodname_actions %} secret.{% endif %}
 
@@ -497,28 +553,38 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `sponsors` category actions
+#### `sponsors` カテゴリアクション
 
-| アクション                               | 説明                                                                                                                              |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| repo_funding_link_button_toggle | リポジトリでスポンサーボタンの表示を有効化または無効化したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照) |
-| repo_funding_links_file_action  | リポジトリで FUNDING ファイルを変更したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)      |
+| アクション                                          | 説明                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `repo_funding_link_button_toggle`              | リポジトリでスポンサーボタンの表示を有効化または無効化したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)                                                                                                                                                                                          |
+| `repo_funding_links_file_action`               | リポジトリで FUNDING ファイルを変更したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)                                                                                                                                                                                               |
+| `sponsor_sponsorship_cancel`                   | スポンサーシップをキャンセルしたときにトリガーされます (「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                                                                                                                                             |
+| `sponsor_sponsorship_create`                   | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")                                                                                                                           |
+| `sponsor_sponsorship_preference_change`        | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")                                                                                                                                                            |
+| `sponsor_sponsorship_tier_change`              | スポンサーシップをアップグレードまたはダウングレードしたときにトリガーされます (「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                                                                     |
+| `sponsored_developer_approve`                  | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                     |
+| `sponsored_developer_create`                   | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                      |
+| `sponsored_developer_profile_update`           | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                |
+| `sponsored_developer_request_approval`         | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)") |
+| `sponsored_developer_tier_description_update`  | スポンサーシップ層の説明を変更したときにトリガーされます (「[スポンサーシップ層を変更する](/articles/changing-your-sponsorship-tiers)」を参照)                                                                                                                                                                                                                          |
+| sponsored_developer_update_newsletter_send | スポンサーにメールで最新情報を送信したときにトリガーされます (「[スポンサーに連絡する](/articles/contacting-your-sponsors)」を参照)                                                                                                                                                                                                                                   |
+| `waitlist_invite_sponsored_developer`          | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")    |
+| `waitlist_join`                                | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                                    |
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-#### `team` category actions
+#### `team` カテゴリアクション
 
-| アクション                | 説明                                                                                                   |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| `add_member`         | Organization のメンバーが[Team に追加される](/articles/adding-organization-members-to-a-team)ときにトリガーされます。        |
-| `add_repository`     | リポジトリの管理が Team に任せられるときにトリガーされます。                                                                    |
-| `change_parent_team` | 子チームが作成されるとき、または[子チームの親が変更される](/articles/moving-a-team-in-your-organization-s-hierarchy)ときにトリガーされます。 |
-| `change_privacy`     | Team のプライバシー レベルが変更されるときにトリガーされます。                                                                   |
-| `create`             | 新たな Team が作成されるときにトリガーされます。                                                                          |
-| `destroy`            | Team が Organization から削除されるときにトリガーされます。                                                              |
-| `remove_member`      | Organization のメンバーが[Team から削除される](/articles/removing-organization-members-from-a-team)ときにトリガーされます。   |
-| `remove_repository`  | リポジトリが Team の管理下でなくなるときにトリガーされます。                                                                    |
-{% endif %}
+| アクション                | 説明                                                                                                                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_member`         | Organization のメンバーが[Team に追加される](/articles/adding-organization-members-to-a-team)ときにトリガーされます。                                                                                    |
+| `add_repository`     | リポジトリの管理が Team に任せられるときにトリガーされます。                                                                                                                                                |
+| `change_parent_team` | 子チームが作成されるとき、または[子チームの親が変更される](/articles/moving-a-team-in-your-organization-s-hierarchy)ときにトリガーされます。                                                                             |
+| `change_privacy`     | Team のプライバシー レベルが変更されるときにトリガーされます。                                                                                                                                               |
+| `create`             | Triggered when a new team is created.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+
+
+`demote_maintainer` | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %} | `destroy` | Triggered when a team is deleted from the organization.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} `team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %} | `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team). | `remove_repository` | Triggered when a repository is no longer under a team's control.
 
 #### `team_discussions` category actions
 

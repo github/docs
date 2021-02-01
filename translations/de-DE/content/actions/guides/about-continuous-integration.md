@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -25,7 +26,7 @@ Zum Erstellen und Testen des Codes ist ein Server erforderlich. Sie können Aktu
 
 ### Informationen zur kontinuierlichen Integration mit {% data variables.product.prodname_actions %}
 
-CI mit {% data variables.product.prodname_actions %} bietet Workflows, die den Code in Ihrem Repository erstellen und Ihre Tests ausführen können. Workflows können auf {% data variables.product.prodname_dotcom %}gehosteten virtuellen Maschinen oder auf Computern ausgeführt werden, die Sie selbst hosten. Weitere Informationen finden Sie unter "[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}gehostete Läufer](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" und "[über selbst gehostete Läufer](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+CI mit {% data variables.product.prodname_actions %} bietet Workflows, die den Code in Ihrem Repository erstellen und Ihre Tests ausführen können. Workflows können auf {% data variables.product.prodname_dotcom %}gehosteten virtuellen Maschinen oder auf Computern ausgeführt werden, die Sie selbst hosten. For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 
 Sie können Ihren CI-Workflow so konfigurieren, dass er ausgeführt wird, wenn ein {% data variables.product.product_name %} Ereignis auftritt (z. B. wenn neuer Code an Ihr Repository übertragen wird), nach einem festgelegten Zeitplan oder wenn ein externes Ereignis mithilfe des Repository-Dispatch-Webhooks auftritt.
 

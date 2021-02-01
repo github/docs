@@ -15,7 +15,7 @@ For choice and flexibility in how and when you use {% data variables.product.pro
 
 {% data reusables.user_settings.access_settings %}
 1. In the user settings sidebar, click **Appearance**.
-    !["Apperance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
+    !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
 1. Under "Theme", select a theme preference.
     ![Radio buttons for theme settings](/assets/images/help/settings/theme-settings-radio-buttons.png)
 

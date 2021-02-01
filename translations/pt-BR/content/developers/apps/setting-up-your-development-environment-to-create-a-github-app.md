@@ -220,7 +220,7 @@ end
 
 #### Defina um gerenciador de encaminhamento
 
-Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. Você não vai escrever este manipulador de eventos neste início rápido, mas veja os outros [guias de início rápido](/apps/quickstart-guides/) para obter exemplos de como estender o aplicativo deste modelo.
 
 ``` ruby
 post '/event_handler' do
@@ -422,7 +422,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
     **R:** Você pode não estar executando o cliente da Smee ou você pode não ter o domínio Smee correto nas configurações do seu aplicativo GitHub. Primeiro verifique para certificar-se de que o cliente da Smee está em execução em uma aba do Terminal. Se esse não for o problema, acesse a sua [página de configurações do aplicativo](https://github.com/settings/apps) e verifique os campos exibidos na "[Etapa 2. Registre um novo aplicativo GitHub](#step-2-register-a-new-github-app)." Certifique-se de que o domínio nesses campos corresponde ao domínio que você usou no seu comando `smee -u <unique_channel>` na "[Etapa 1. Inicie um novo canal da Smee](#step-1-start-a-new-smee-channel)."
 
-* **P:** Estou vendo um `Octokit::NotFound` 404 error na minha saída de depuração:
+* **P:** Eu recebi uma mensagem de erro `Octokit::NotFound` 404 error na minha saída de depuração:
     ```
     2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```

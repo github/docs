@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフロー構文
 
@@ -27,10 +27,18 @@ versions:
 
 ### 認証とシークレット
 
-{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 機密情報をシークレットとして Organization またはリポジトリに保存することもできます。 {% data variables.product.prodname_dotcom %} はすべてのシークレットを暗号化します。
+{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 You can also store sensitive information as a secret in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or environments{% else %} or repository{% endif %}. {% data variables.product.prodname_dotcom %} はすべてのシークレットを暗号化します。
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Environments
+
+Workflow jobs can reference environments that have protection rules or environment-specific secrets.
+
+{% link_in_list /environments %}
+{% endif %}
 
 ### {% data variables.product.prodname_dotcom %}ホストランナー
 

@@ -28,7 +28,7 @@ versions:
 {% data variables.product.prodname_insights %}を{% data variables.product.prodname_enterprise %}に接続するには、{% data variables.product.prodname_enterprise %}上のOrganization内に{% data variables.product.prodname_github_app %}を作成しなければなりません。 インテグレーションが動作すると、{% data variables.product.prodname_enterprise %}上にアプリケーションのスラッグバージョンの名前が表示されます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. Navigate to the organization you'd like to connect to
+2. に接続したいOrganizationにアクセスしてください。
 {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
@@ -99,4 +99,4 @@ versions:
 ### 参考リンク
 
 - [リポジトリの管理](/insights/installing-and-configuring-github-insights/managing-repositories)
-- [{% data variables.product.prodname_insights %}とOrganizationのデータ保護](/github/site-policy/github-insights-and-data-protection-for-your-organization)
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %}とOrganizationのデータ保護</a>

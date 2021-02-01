@@ -14,6 +14,8 @@ versions:
 
 Em uma pull request, você propõe que as alterações feitas em um branch head sejam mescladas em um branch base. {% data reusables.pull_requests.about-protected-branches %} No entanto, pode haver restrições sobre quando você pode fazer merge de um pull request em um branch específico. Por exemplo, você só pode fazer merge de um pull request no branch-padrão se as verificações de status necessárias forem aprovadas. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
 
+{% data reusables.pull_requests.you-can-auto-merge %}
+
 Se a pull request apresenta conflitos de merges ou se você deseja testar as alterações antes de fazer merge, é possível [fazer checkout da pull request localmente](/articles/checking-out-pull-requests-locally) e fazer merge usando a linha de comando.
 
 Você não pode realizar o merge de um rascunho de um pull request. Para obter mais informações sobre pull requests em rascunho, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".

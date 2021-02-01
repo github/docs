@@ -8,7 +8,7 @@ versions:
 
 **DIESE BESTIMMUNGEN UND BEDINGUNGEN (DIE "VEREINBARUNG") REGELN IHRE TEILNAHME AM GITHUB MARKETPLACE-PROGRAMM. DURCH DIE ANMELDUNG ZUR TEILNAHME AM MARKETPLACE-PROGRAMM ODER DURCH KLICKEN AUF "ICH AKZEPTIERE" UNTEN BESTÄTIGEN SIE, DASS SIE DIESE VEREINBARUNG VERSTANDEN HABEN UND DASS SIE ALLE IHRE BESTIMMUNGEN UND BEDINGUNGEN AKZEPTIEREN.  WENN SIE DIESE VEREINBARUNG IM NAMEN EINES UNTERNEHMENS ODER EINER ANDEREN JURISTISCHEN PERSON ABSCHLIEßEN, VERSICHERN SIE, DASS SIE RECHTLICH BEFUGT SIND, DIE PERSON AN DIESE VEREINBARUNG ZU BINDEN. IN DIESEM FALL BEDEUTET "SIE" DIE PERSON, DIE SIE VERTRETEN.**
 
-Effective Date: July 21, 2020
+Effective Date: January 1, 2021
 
 ### 1.  DEFINITIONEN
 
@@ -143,7 +143,7 @@ Für den Fall, dass Ihr Angebot zwangsläufig entfernt wird, weil es fehlerhaft 
 
 **6.1** GitHub fungiert als Vertragspartner für Entwicklerprodukte, die von Endbenutzern über den Marketplace gekauft werden.
 
-**6.2**  Preise für Marketplace-Angebote von Entwickleranwendungen werden in US-Dollar (USD) festgelegt. Der Entwickler hat die vollständige Kontrolle über die Festlegung von Preisen für jedes Angebot, und sobald diese Preise festgelegt sind, können diese Preise nicht geändert werden. Sie können eine Preisübersicht für ein bestehendes Angebot zurückziehen und eine neue Preisübersicht für ein solches Angebot hinzufügen, unter der Voraussetzung, dass sich diese neue Preisübersicht nicht negativ auf bestehende Endnutzer auswirkt. Die Preise, die Sie für Entwicklerprodukte festlegen, bestimmen den Zahlungsbetrag, den Sie erhalten. GitHub überweist 75% des Verkaufspreises in USD ohne Abzug von Steuern mit Ausnahme von Quellensteuern, die nach geltendem Recht erforderlich sind. Die restlichen 25 % des Verkaufspreises werden GitHub zugeteilt und einbehalten.  GitHub überweist Ihnen am Ende jedes Monats und sobald ein Mindestbetrag von 500 USD erreicht wird, Ihren Zahlungsanteil.
+**6.2**  Preise für Marketplace-Angebote von Entwickleranwendungen werden in US-Dollar (USD) festgelegt. Der Entwickler hat die vollständige Kontrolle über die Festlegung von Preisen für jedes Angebot, und sobald diese Preise festgelegt sind, können diese Preise nicht geändert werden. Sie können eine Preisübersicht für ein bestehendes Angebot zurückziehen und eine neue Preisübersicht für ein solches Angebot hinzufügen, unter der Voraussetzung, dass sich diese neue Preisübersicht nicht negativ auf bestehende Endnutzer auswirkt. Die Preise, die Sie für Entwicklerprodukte festlegen, bestimmen den Zahlungsbetrag, den Sie erhalten. GitHub überweist 95% des Verkaufspreises in USD ohne Abzug von Steuern mit Ausnahme von Quellensteuern, die nach geltendem Recht erforderlich sind. Die restlichen 5 % des Verkaufspreises werden GitHub zugeteilt und einbehalten.  GitHub überweist Ihnen am Ende jedes Monats und sobald ein Mindestbetrag von 500 USD erreicht wird, Ihren Zahlungsanteil.
 
 **6.3** Rückerstattungsanforderungen. Sie sind dafür verantwortlich, die Bedingungen für Rückerstattungen an Ihre Endbenutzer festzulegen. In keinem Fall ist GitHub dafür verantwortlich, Unterstützung für Rückerstattungen zu leisten; ebenfalls haftet GitHub nicht für die Bezahlung von Rückerstattungen.
 
@@ -169,7 +169,7 @@ UNTER KEINEN UMSTÄNDEN UND UNTER KEINER RECHTLICHEN GRUNDLAGE (SEI ES VERTRAGLI
 
 **10.3**    GitHub kann diese Vereinbarung jederzeit kündigen, wenn (a) Sie gegen eine Bestimmung dieser Vereinbarung verstoßen haben oder (b) GitHub gesetzlich dazu verpflichtet ist.
 
-**10.4**  Folgen der Kündigung durch den Entwickler. Nach Erhalt einer fünfundvierzig (45) Tage im Voraus erfolgenden schriftlichen Kündigung durch den Entwickler wird die Annahme neuer Kunden über den Marketplace für den Entwickler gesperrt. Alle ausstehenden Gebühren werden nach Beendigung und Entfernung des Entwicklerprodukts aus dem Marketplace überwiesen. Wird die Kündigung aufgrund einer Anderung dieser Bedingungen durch GitHub eingeleitet (Abschnitt 11), gelten die unmittelbar vor dieser Änderung in Kraft getretenen Bedingungen für die Dauer der 45-tägigen Kündigungsfrist bis zum Datum der tatsächlichen Kündigung.
+**10.4**  Folgen der Kündigung durch den Entwickler. Nach Erhalt einer fünfundvierzig (45) Tage im Voraus erfolgenden schriftlichen Kündigung durch den Entwickler wird die Annahme neuer Kunden über den Marketplace für den Entwickler gesperrt. Alle ausstehenden Gebühren werden nach Beendigung und Entfernung des Entwicklerprodukts aus dem Marketplace überwiesen. If termination is initiated as a result of a GitHub modification to these terms (Section 11), the terms in effect immediately prior to such modification shall govern for the duration of the 45-day notice period until the date of actual termination.
 
 **10.5**    Die Verpflichtungen in den Abschnitten 2, 3, 4, 5, 8, 9 und 12-18 gelten auch nach Ablauf oder Kündigung dieser Vereinbarung.
 
