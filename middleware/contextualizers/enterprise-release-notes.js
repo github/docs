@@ -1,4 +1,3 @@
-const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
 const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
@@ -20,8 +19,8 @@ function sortPatchKeys (release, version) {
     })
   return keys
     .sort((a, b) => {
-      if (semver.gt(a.version, b.version)) return -1
-      if (semver.lt(a.version, b.version)) return 1
+      if (a.version > b.version) return -1
+      if (a.version < b.version) return 1
       return 0
     })
 }
