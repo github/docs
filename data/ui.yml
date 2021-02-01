@@ -153,6 +153,7 @@ product_sublanding:
   no_result: Sorry, there is no guide that match your filter.
   filters:
     type: Type
+    topic: Topic
     all: All
   guide_types:
     overview: Overview
@@ -161,5 +162,5 @@ product_sublanding:
     how_to: How-to guide
     reference: Reference
 learning_track_nav:
-  prevGuide: Previous Guide
-  nextGuide: Next Guide
+  prevGuide: Previous guide
+  nextGuide: Next guide
