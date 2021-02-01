@@ -41,7 +41,7 @@ const languagesToSkip = Object.keys(require('../lib/languages'))
 // Skip deprecated Enterprise content.
 // Capture the old format https://docs.github.com/enterprise/2.1/
 // and the new format https://docs.github.com/enterprise-server@2.19/.
-const enterpriseReleasesToSkip = new RegExp(`${root}.+?[/@](${deprecated.join('|')})/`)
+const enterpriseReleasesToSkip = new RegExp(`${root}.+?[/@](${deprecated.join('|')})(/|$)`)
 
 const config = {
   path: program.path || englishRoot,
