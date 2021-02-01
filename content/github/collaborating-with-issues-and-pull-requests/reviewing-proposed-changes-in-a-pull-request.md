@@ -70,5 +70,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ### Further reading
 
-- "[About required reviews for pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

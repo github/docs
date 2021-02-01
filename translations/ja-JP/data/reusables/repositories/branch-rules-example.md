@@ -1,1 +1,1 @@
-リポジトリ中のブランチルールは、特定のブランチ、すべてのブランチ、fnmatch構文で指定された名前のパターンにマッチするブランチに対して作成できます。 たとえば`release`という語を含むブランチに対し、マージ前に最低でも2つのプルリクエストレビューを必須とするなら、`*release*`に対してブランチルールを作成できます。
+You can create a branch protection rule in a repository for a specific branch, all branches, or any branch that matches a name pattern you specify with `fnmatch` syntax. For example, to protect any branches containing the word `release`, you can create a branch rule for `*release*`.
