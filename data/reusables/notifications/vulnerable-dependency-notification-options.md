@@ -4,18 +4,16 @@
 - by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled on a repository, when a new manifest file is committed on to the repository, and when a new vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option).
 - in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option).
 - on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option).
-- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled on a repository, when a new manifest file is committed on to the repository and when a new vulnerability with a critical or high severity is found (**Web** option).
+- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled on a repository, when a new manifest file is committed on to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).
 - on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with GitHub for mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 
 {% note %}
 
 **Note:** The email and web/{% data variables.product.prodname_mobile %} notifications are:
 
-- _per repository_:
-   - when {% data variables.product.prodname_dependabot %} is enabled on the repository (when at least one vulnerability is of critical or high severity)
-   - when a new manifest file is committed to the repository (when at least one vulnerability is of critical or high severity.)
+- _per repository_when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
 
-- _per organization_ when a new vulnerability is discovered (when the severity is critical or high.)
+- _per organization_ when a new vulnerability is discovered
 
 {% endnote %}
 
