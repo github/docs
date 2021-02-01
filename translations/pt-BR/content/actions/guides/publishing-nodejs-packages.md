@@ -8,7 +8,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -88,28 +87,9 @@ always-auth=true
 
 Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado sempre que ocorre o evento `versão` com o tipo `criado`. O fluxo de trabalho publica o pacote em {% data variables.product.prodname_registry %} se o teste de CI for aprovado.
 
-#### Configurar o repositório de destino
+Por padrão, o {% data variables.product.prodname_registry %} publica um pacote no repositório {% data variables.product.prodname_dotcom %} que você especificar no campo `nome` do arquivo *package.json*. Por exemplo, você publicaria um pacote denominado `@my-org/test` no repositório `my-org/test` do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte [`npm-scope`](https://docs.npmjs.com/misc/scope) na documentação do npm.
 
-If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. Por exemplo, um pacote denominado `@my-org/test` é publicado no `my-org/test` repositório de {% data variables.product.prodname_dotcom %}.
-
-No entanto, se você fornecer a chave `repositório`, o repositório nessa chave será usado como o registro de npm de destino para {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
-
-```json
-{
-  "name": "@octocat/my-amazing-package",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/octocat/my-other-repo.git"
-  },
-```
-
-#### Efetuar a autenticação no repositório de destino
-
-Para efetuar a autenticação no registro de {% data variables.product.prodname_registry %} no seu fluxo de trabalho, você pode usar o `GITHUB_TOKEN` do seu repositório. Ele é criado automaticamente e tem permissão de _leitura_ e _gravação_ para pacotes no repositório, em que o fluxo de trabalho é executado. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)".
-
-Se você quiser publicar seu pacote em um repositório diferente, você deverá usar um token de acesso pessoal (PAT) que tenha permissão para escrever pacotes no repositório de destino. Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
-
-#### Exemplo de fluxo de trabalho
+Para realizar operações autenticadas no registro do {% data variables.product.prodname_registry %} em seu fluxo de trabalho, você pode usar o `GITHUB_TOKEN`. O `GITHUB_TOKEN` existe no repositório por padrão e tem permissões de leitura e gravação para pacotes no repositório em que o fluxo de trabalho é executado. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 Este exemplo armazena o segredo `GITHUB_TOKEN` na variável de ambiente `NODE_AUTH_TOKEN`. Quando a ação `setup-node` cria um arquivo *.npmrc*, ela faz referência ao token da variável de ambiente `NODE_AUTH_TOKEN`.
 

@@ -19,19 +19,15 @@ versions:
   github-ae: '*'
 ---
 
-{% if enterpriseServerVersions contains currentVersion %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ### Opções de entrega de notificação
 
 Você pode receber notificações de atividades em {% data variables.product.product_name %} nos locais a seguir.
 
-  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+  - Caixa de notificações na interface web de {% data variables.product.product_name %} {% if currentVersion == "free-pro-team@latest" %}
   - A caixa de entrada no {% data variables.product.prodname_mobile %}, que sincroniza com a caixa de entrada em {% data variables.product.product_name %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}
+  - Um cliente de e-mail que usa um endereço de e-mail verificado, que também pode sincronizar com a caixa de entrada de {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} e {% data variables.product.prodname_mobile %}{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} Para obter mais informações, consulte "[Escolhendo suas configurações de notificação](#choosing-your-notification-settings)".
 {% endif %}
 
@@ -39,7 +35,7 @@ Você pode receber notificações de atividades em {% data variables.product.pro
 
 #### Benefícios da caixa de entrada de notificações
 
-The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+A caixa de entrada de notificações em {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} e {% data variables.product.prodname_mobile %}{% endif %} inclui opções de triagem projetadas especificamente para o seu fluxo de notificações de {% data variables.product.product_name %} e inclui opções para:
   - Fazer triagem de várias notificações ao mesmo tempo.
   - Marcar as notificações concluídas como **Concluído** e removê-las da sua caixa de entrada. Para ver todas as suas notificações marcadas como **Concluído**, use a consulta `is:done`.
   - Salvar uma notificação para revisar mais tarde. As notificações salvas são sinalizadas na sua caixa de entrada e mantidas indefinidamente. Para visualizar todas as suas notificações salvas, use a consulta `is:saved`.
@@ -49,7 +45,7 @@ The notifications inbox on {% data variables.product.product_name %}{% if curren
   - Criar filtros personalizados para focar em notificações diferentes quando quiser.
   - Notificações em grupo em sua caixa de entrada por repositório ou data para obter uma visão geral rápida com menos comutação de contexto
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+{% if currentVersion == "free-pro-team@latest" %}
 Além disso, a caixa de entrada de notificações em
 {% data variables.product.prodname_mobile %} permite que você faça triagem de notificações no modo escuro e receba notificações push para menções diretas. Para obter mais informações, consulte "[Habilitar notificações push com GitHub para celular](#enabling-push-notifications-with-github-for-mobile)" ou "[GitHub para celular](/github/getting-started-with-github/github-for-mobile)".
 {% endif %}
@@ -81,7 +77,7 @@ Você pode configurar as notificações para um repositório na página do repos
 #### Participar de conversas
 A qualquer momento que você comentar em uma conversa ou quando alguém @mencionar seu nome de usuário, você estará _participando_ de uma conversa. Por padrão, você é inscrito automaticamente em uma conversa ao participar dela. Você pode cancelar manualmente a inscrição de uma conversa que você participou, clicando em **Cancelar inscrição** no problema ou na pull request ou através da opção **Cancelar inscrição** na caixa de entrada de notificações.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}.
+Para conversas que você está inspecionando ou participando, você pode escolher se deseja receber notificações por e-mail ou através da caixa de entrada em {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} e {% data variables.product.prodname_mobile %}{% endif %}.
 
 ![Opções de notificações de participação e inspeção](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -89,7 +85,7 @@ Por exemplo:
   - Se você não quiser que as notificações sejam enviadas para o seu e-mail, desmarque **e-mail** para participar e inspecionar as notificações.
   - Se quiser receber notificações por e-mail quando você participou de uma conversa, então selecione **e-mail** abaixo de "Participar".
 
-If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+Se você não permite assistir ou participar de notificações da web{% if currentVersion == "free-pro-team@latest" %} e móvel{% endif %}, sua caixa de entrada de notificações não terá nenhuma atualização.
 
 ### Personalizando suas notificações por e-mail
 
@@ -201,14 +197,12 @@ Escolha como você deseja receber atualizações de execução de fluxo de traba
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+{% if currentVersion == "free-pro-team@latest" %}
 ### Habilitando notificações push com {% data variables.product.prodname_mobile %}
 
 Quando você instalar {% data variables.product.prodname_mobile %}, você será automaticamente incluído em notificações da web. Você poderá então ativar notificações push para menções diretas no app.
 
 Você só pode receber notificações de pushes para repositórios no {% data variables.product.prodname_mobile %} neste momento.
-
-{% data reusables.mobile.push-notifications-on-ghes %}
 
 #### Habilitar notificações de push com {% data variables.product.prodname_ios %}
 
@@ -217,11 +211,9 @@ Você só pode receber notificações de pushes para repositórios no {% data va
 3. Para atualizar suas configurações de notificação, clique em **Notificações push**.
 4. Para ativar as notificações push para menções diretas, use a alternância **Menções Diretas**.
 
-{% if currentVersion == "free-pro-team@latest" %}
 #### Habilitar notificações de push com {% data variables.product.prodname_android %}
 
 1. Acima de "Home", clique na foto do seu perfil.
 2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}. ![Ícone de configurações para GitHub para iOS](/assets/images/help/mobile/android-settings-icon.png)
 3. Para ativar as notificações push para menções diretas, use a alternância **Menções Diretas**.
-{% endif %}
 {% endif %}

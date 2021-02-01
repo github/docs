@@ -11,9 +11,9 @@ versions:
 
 ### Contribuições que são contabilizadas
 
-#### Issues, pull requests and discussions
+#### Problemas e pull requests
 
-Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+Os problemas e as pull requests aparecerão no gráfico de contribuições se tiverem sido abertos em um repositório autônomo, e não em uma bifurcação.
 
 #### Commits
 Os commits aparecerão no gráfico de contribuições se atenderem a **todas** estas condições:
