@@ -11,9 +11,9 @@
 
 **Note:** The email and web/{% data variables.product.prodname_mobile %} notifications are:
 
-- _per repository_when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
+- _per repository_ when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
 
-- _per organization_ when a new vulnerability is discovered
+- _per organization_ when a new vulnerability is discovered.
 
 {% endnote %}
 
