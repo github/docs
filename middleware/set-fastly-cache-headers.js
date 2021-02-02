@@ -2,11 +2,11 @@ const FASTLY_TTL = process.env.FASTLY_TTL || String(60 * 60 * 24) // 24 hours
 const STALE_TTL = String(60 * 10) // 10 minutes
 
 const BYPASS_FASTLY = process.env.TEST_BYPASS_FASTLY === 'true'
-const BYPASS_PRODUCTS = /^\/([a-z]{2})\/([a-z0-9._-]+@[a-z0-9._-]+\/)?(discussions|packages|actions)(\/.*|$)/i
+const BYPASS_PRODUCTS = /^\/([a-z]{2})\/([a-z0-9._-]+@[a-z0-9._-]+\/)?github(\/.*|$)/i
 
 module.exports = (req, res, next) => {
   // Test bypassing Fastly for all pages inside of the Discussions product
-  if (BYPASS_FASTLY && BYPASS_PRODUCTS.test(req.originalUrl)) {
+  if (BYPASS_FASTLY && !BYPASS_PRODUCTS.test(req.originalUrl)) {
     res.set({
       'surrogate-control': 'private, no-store',
       'cache-control': 'private, no-store'
