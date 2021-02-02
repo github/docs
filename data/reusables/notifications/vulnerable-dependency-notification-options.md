@@ -1,10 +1,10 @@
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 {% if currentVersion == "free-pro-team@latest"%}By default, you will receive notifications:{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion gt "enterprise-server@3.0" %}By default, if your site administrator has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
-- by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled on a repository, when a new manifest file is committed on to the repository, and when a new vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option).
+- by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option).
 - in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option).
 - on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option).
-- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled on a repository, when a new manifest file is committed on to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).
+- in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).
 - on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with GitHub for mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 
 {% note %}
