@@ -4,6 +4,25 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `NotificationRestrictionSettingValue` was added",
+          "Type `UpdateNotificationRestrictionSettingInput` was added",
+          "Type `UpdateNotificationRestrictionSettingPayload` was added",
+          "Field `notificationDeliveryRestrictionEnabledSetting` was added to object type `Organization`",
+          "Field `notificationsPermalink` was added to object type `SecurityAdvisory`",
+          "Field `notificationDeliveryRestrictionEnabledSetting` was added to object type `EnterpriseOwnerInfo`",
+          "Field `updateNotificationRestrictionSetting` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ContributionLevel` was added",
           "Type `VerifiableDomainOrder` was added",
           "Type `VerifiableDomainOrderField` was added",

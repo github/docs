@@ -2,6 +2,16 @@
 
 const isBrowser = process.env.BROWSER
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
+const testTranslation = Boolean(process.env.TEST_TRANSLATION)
+
+let reporters = ['default']
+
+if (testTranslation) {
+  // only use custom reporter if we are linting translations
+  reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
+} else if (isActions) {
+  reporters.push('jest-github-actions-reporter')
+}
 
 module.exports = {
   coverageThreshold: {
@@ -15,9 +25,7 @@ module.exports = {
   preset: isBrowser
     ? 'jest-puppeteer'
     : undefined,
-  reporters: isActions
-    ? ['default', 'jest-github-actions-reporter']
-    : ['default'],
+  reporters,
   modulePathIgnorePatterns: [
     'assets/'
   ],

@@ -43580,6 +43580,14 @@
           "href": "/graphql/reference/objects#securityadvisoryidentifier"
         },
         {
+          "name": "notificationsPermalink",
+          "description": "<p>The permalink for the advisory's dependabot alerts page.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
           "name": "origin",
           "description": "<p>The organization that originated the advisory.</p>",
           "type": "String!",
