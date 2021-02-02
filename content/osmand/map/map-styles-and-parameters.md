@@ -123,6 +123,7 @@ Sometimes when we use the application during your trip or riding, you don't use 
 
 |Parameter|Description|<div style="width:160px">Example</div>|       
 |------------|---------------|---------------|
+|<img width=200/>|<img width=500/>|<img width=320/>|
 |**{% data variables.android-values.rendering_category_routes %}**|
 |{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
 |{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Highlighted cycle routes and showed nodes network cycle routes.|![Map styles](/assets/images/map/ms-22.png)|
