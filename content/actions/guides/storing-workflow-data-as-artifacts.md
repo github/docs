@@ -11,6 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Workflows'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,7 +21,7 @@ versions:
 
 ### About workflow artifacts
 
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. 
+Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended.
 
 {% data reusables.github-actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 
@@ -78,7 +81,7 @@ This example shows you how to create a workflow for a Node.js project that build
 
 The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also and uploads the `code-coverage.html` report as another artifact.
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -113,7 +116,7 @@ jobs:
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -127,7 +130,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 ### Downloading or deleting artifacts
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run. 
+During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run.
 
 After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
 
@@ -182,7 +185,7 @@ Job 3 displays the result uploaded in the previous job:
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
