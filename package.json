@@ -57,7 +57,6 @@
     "highlightjs-graphql": "^1.0.2",
     "hot-shots": "^8.2.0",
     "html-entities": "^1.2.1",
-    "html-truncate": "^1.2.2",
     "imurmurhash": "^0.1.4",
     "ioredis": "^4.19.4",
     "ioredis-mock": "^5.2.0",
