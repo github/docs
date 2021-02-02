@@ -21,9 +21,29 @@ Check that you have correctly entered the required address in the search - city,
 
 ### Offline search by address does not show the required address 
 
-- Check if there are any districts in your city. The address may belong to them. You can check this on the OSM maps by opening the administrative boundaries of the city. All localities within the borders are districts. Districts can be of different types depending on the countries - district, suburb, village, etc.
+#### Problems with districts
 
-Also enter the street with the house number without specifying the city. The search results will show the desired address belonging to another city. Enter the found name of the locality in [nominatim](https://nominatim.openstreetmap.org/ui/search.html), and its type will be indicated in the Address Rank line.
+**Check if there are any districts in your city**. The address may belong to them. You can check this on the OSM maps by opening the administrative boundaries of the city. All localities within the borders are districts. Districts can be of different types depending on the countries - district, suburb, village, etc.
+
+---
+**Example:** 
+You found - Wolności 223 Zabrze
+- Open [OSM maps](https://www.openstreetmap.org/) and write Zabrze in search.
+- Select a search result starting with  **administrative boundary** 
+- You will see a map with the boundaries of the selected city.
+---
+You can also use **Nominatim** . Enter the street with the house number without specifying the city. The search results will show the desired address belonging to another city. Enter the found name of the locality in [nominatim](https://nominatim.openstreetmap.org/ui/search.html), and its type will be indicated in the Address Rank line.
+
+---
+**Example:** 
+You found - Wolności 223 Zabrze
+- You will see Wolności Maciejów in the search results.
+- Open [nominatim](https://nominatim.openstreetmap.org/ui/search.html) and write Maciejów in search.
+- Select a search result with  **administrative** 
+- You will see 20 (suburb / hamlet) in the Address Rank line.
+
+>Be careful when choosing a locality in the search results.
+>There may be duplicates or similar cities in other regions and countries.
 
 # Points of Interest
 
