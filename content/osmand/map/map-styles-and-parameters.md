@@ -111,6 +111,26 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 ### Routes
 
+Sometimes when we use the application during your trip or riding, you don't use navigation and you want to see special paths and symbols on the map. In OsmAnd we can highlight routes and hiking symbol overlay for your activities. It will very useful for your cycling, hiking and etc. In the table we show all parameters:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_routes %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
+
+|Parameter          |Description          |Example          
+|:------------|:---------------|:---------------|
+|{% data variables.android-values.rendering_category_routes %}|
+|{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|![Map styles](/assets/images/map/ms-12.png)|
+|{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-13.png)|
+|{% data variables.android-values.rendering_attr_showMtbRoutes_name %}|Showed smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|![Map styles](/assets/images/map/ms-14.png)|
+|{% data variables.android-values.rendering_attr_alpineHiking_name %}|Showed access of roads: private or permissivis, or only for emergency, or maybe toll road. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road access. |![Map styles](/assets/images/map/ms-15.png)|
+|{% data variables.android-values.rendering_attr_horseRoutes_name %}|Showed green board and labels for Low Emission Zones in cities. It will help you not receive penalty in green citycenter.|![Map styles](/assets/images/map/ms-16.png)|
+|[{% data variables.android-values.rendering_attr_whiteWaterSports_name %}]|Colored buildings and places have in special colors for each categorie: Regular buildings, industrial, commercial and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your color for the building. |![Map styles](/assets/images/map/ms-17.png)|
+|[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
+|[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
+|[{% data variables.ios-values.rendering_attr_depthContours_name %}]|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps. |![Map styles](/assets/images/map/ms-20.png)|
+
+
 ### Hide
 
 Sometimes we need to hide objects on the map for better vision. For example to hide water during using [Underlay layer of Satellite online maps](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer).
@@ -123,16 +143,16 @@ In order to hide some objects on the map you can choose them in this menu:
 
 |Parameter          |Description        
 |:------------|:---------------|
-|[{% data variables.android-values.rendering_attr_noAdminboundaries_name %}]| Hide regional boundaries inside of countries, but state boundaries are visible. |
-|[{% data variables.android-values.rendering_attr_noPolygons_name %}]|Hide all polygons of natural objects, special function for [Underlay/Overlay layer](https://docs.osmand.net/en/main@latest/osmand/map/online-raster-maps#change-layer-parameters-transparency).  |
-|[{% data variables.android-values.rendering_attr_hideBuildings_name %}]|Hide all polygons of buildings. |
-|[{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}]|Hide all polygons of water (seas, lakes, reservoirs and etc.)  |
-|[{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}]|Hide house numbers on the map.  |
-|[{% data variables.android-values.rendering_attr_hideProposed_name %}]|Hide proposed objects, that objects which plan for building, but only have a project (projected roads, crossroads, buildings and etc.)  |
-|[{% data variables.android-values.rendering_attr_hideIcons_name %}]|Hide POI icons from the map. But labels of these POI will be on the map. |
-|[{% data variables.android-values.rendering_attr_hidePOILabels_name %}]|Hide POI labels from the map. But icons of these POI will be on the map.  |
-|[{% data variables.android-values.rendering_attr_hideUnderground_name %}]| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
-|[{% data variables.android-values.rendering_attr_hideOverground_name %}]|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.  |
+|{% data variables.android-values.rendering_attr_noAdminboundaries_name %}| Hide regional boundaries inside of countries, but state boundaries are visible. |
+|{% data variables.android-values.rendering_attr_noPolygons_name %}|Hide all polygons of natural objects, special function for [Underlay/Overlay layer](https://docs.osmand.net/en/main@latest/osmand/map/online-raster-maps#change-layer-parameters-transparency).  |
+|{% data variables.android-values.rendering_attr_hideBuildings_name %}|Hide all polygons of buildings. |
+|{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}|Hide all polygons of water (seas, lakes, reservoirs and etc.)  |
+|{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}|Hide house numbers on the map.  |
+|{% data variables.android-values.rendering_attr_hideProposed_name %}|Hide proposed objects, that objects which plan for building, but only have a project (projected roads, crossroads, buildings and etc.)  |
+|{% data variables.android-values.rendering_attr_hideIcons_name %}|Hide POI icons from the map. But labels of these POI will be on the map. |
+|{% data variables.android-values.rendering_attr_hidePOILabels_name %}|Hide POI labels from the map. But icons of these POI will be on the map.  |
+|{% data variables.android-values.rendering_attr_hideUnderground_name %}| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
+|{% data variables.android-values.rendering_attr_hideOverground_name %}|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.  |
 
 ## How to create and to add your own Map style (Map rendering)
 
