@@ -121,9 +121,8 @@ Sometimes when we use the application during your trip or riding, you don't use 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
 
 
-|Parameter|Description|Example|       
+|Parameter|Description|<div style="width:160px">Example</div>|       
 |------------|---------------|---------------|
-|<img width=200/>|<img width=500/>|<img width=320/>|
 |**{% data variables.android-values.rendering_category_routes %}**|
 |{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
 |{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Highlighted cycle routes and showed nodes network cycle routes.|![Map styles](/assets/images/map/ms-22.png)|
@@ -132,9 +131,9 @@ Sometimes when we use the application during your trip or riding, you don't use 
 |{% data variables.android-values.rendering_attr_horseRoutes_name %}|Colored routes for riding by horse.|![Map styles](/assets/images/map/ms-25.png)|
 |[{% data variables.android-values.rendering_attr_whiteWaterSports_name %}]|Showed [icons of access, danger areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |![Map styles](/assets/images/map/ms-26.png)|
 |**{% data variables.android-values.rendering_attr_hikingRoutesOSMC_name %}**|
-|[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
-|[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
-|[{% data variables.ios-values.rendering_attr_depthContours_name %}]|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps. |![Map styles](/assets/images/map/ms-20.png)|
+|[{% data variables.android-values.rendering_value_walkingRoutesOSMC_name %}]|Showed [colored hiking trails and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-27.png)|
+|[{% data variables.android-values.rendering_value_walkingRoutesScopeOSMC_name %}]|Showed [colored trails by type and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-28.png)|
+|[{% data variables.android-values.rendering_value_walkingRoutesOSMCNodes_name %}]|Showed [Node networks](https://wiki.openstreetmap.org/wiki/Node_Networks) on the map. |![Map styles](/assets/images/map/ms-29.png)|
 
 
 ### Hide
