@@ -120,10 +120,10 @@ Sometimes when we use the application during your trip or riding, you don't use 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
 
-|<div style="width:30px">Parameter</div>|<div style="width:50px">Description </div>|<div style="width:320px">Example</div>        
+|Parameter|Description|Example       
 |:------------|:---------------|:---------------|
 |**{% data variables.android-values.rendering_category_routes %}**|
-|{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
+|{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|<div style="width:320px">![Map styles](/assets/images/map/ms-21.png)</div>|
 |{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Highlighted cycle routes and showed nodes network cycle routes.|![Map styles](/assets/images/map/ms-22.png)|
 |{% data variables.android-values.rendering_attr_showMtbRoutes_name %}|Colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-23.png)|
 |{% data variables.android-values.rendering_attr_alpineHiking_name %}|[Classified hiking trails]{https://wiki.openstreetmap.org/wiki/Key:sac_scale} in mountainous areas with regard to the difficulties to be expected by color.|![Map styles](/assets/images/map/ms-24.png)|
