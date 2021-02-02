@@ -5,7 +5,7 @@ redirect_from:
   - /articles/can-i-archive-a-repository/
   - /articles/archiving-a-github-repository
   - /enterprise/admin/user-management/archiving-and-unarchiving-repositories
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

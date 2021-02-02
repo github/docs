@@ -27,7 +27,7 @@ El nombre de tu flujo de trabajo. {% data variables.product.prodname_dotcom %} m
 
 ### `on`
 
-**Obligatorio** El nombre del evento {% data variables.product.prodname_dotcom %} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
+**Requerido**. El nombre del evento de {% data variables.product.prodname_dotcom %} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -286,7 +286,7 @@ En este ejemplo, `job3` utiliza la expresión condicional `always()` para que si
 
 ### `jobs.<job_id>.runs-on`
 
-**Obligatorio** El tipo de máquina en la que se ejecuta el trabajo. La máquina puede ser un ejecutor alojado {% data variables.product.prodname_dotcom %} o un ejecutor autoalojado.
+**Requerido**. El tipo de máquina en la cual se ejecutará el job. La máquina puede ser un ejecutor alojado {% data variables.product.prodname_dotcom %} o un ejecutor autoalojado.
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -299,6 +299,7 @@ Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} di
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### Ejemplo
 
@@ -518,7 +519,7 @@ Las acciones son archivos JavaScript o contenedores Docker. Si la acción que es
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -700,12 +701,24 @@ steps:
 
 Puede establecer el valor `shell` en una cadena de plantilla utilizando el comando `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interpreta la primera palabra delimitada por espacios en blanco de la cadena como el comando, e inserta el nombre del archivo para el script temporal en `{0}`.
 
+Por ejemplo:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### Códigos de salida y preferencia de acción de error
 
 Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutores alojados {% data variables.product.prodname_dotcom %}. Deberías usar estos lineamientos al ejecutar scripts shell.
 
 - `bash`/`sh`:
-  - Comportamiento a prueba de fallos utilizando `set -e o pipefail`: valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
+  - Comportamiento a prueba de fallos utilizando `set -eo pipefail`: Valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
   - Puedes excluir la función de falla rápida y tomar el control total al proporcionar una cadena de plantilla a las opciones del shell. Por ejemplo, `bash {0}`.
   - Los shells tipo sh salen con el código de salida del último comando ejecutado en un script, que también es el comportamiento predeterminado para las acciones. El ejecutor informará el estado del paso como fallido o exitoso según este código de salida.
 
@@ -1186,7 +1199,7 @@ Para obtener más información acerca de la sintaxis de filtro de ramas, de etiq
 | `'**'`                                                 | Encuentra todos los nombres de rama y de etiqueta. Este es el comportamiento predeterminado cuando no usas un filtro de `ramas` o `etiquetas`.                                            | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                           | El caracter `*` es un caracter especial en YAML. Cuando comiences un patrón con `*`, debes usar comillas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                  | Encuentra los nombres de rama y de etiqueta que comienzan con `v2`.                                                                                                                       | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                  | Encuentra todas las etiquetas de versión semántica con las versiones principales 1 o 2                                                                                                    | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                  | Matches all semantic versioning branches and tags with major version 1 or 2                                                                                                               | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### Patrones para encontrar rutas de archivos
 

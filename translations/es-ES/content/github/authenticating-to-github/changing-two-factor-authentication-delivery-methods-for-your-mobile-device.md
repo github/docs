@@ -22,7 +22,7 @@ versions:
     - Para configurar la autenticación de dos factores mediante una app móvil TOTP, haz clic en **Set up using an app** (Configurar mediante una app).
     - Para configurar la autenticación de dos factores mediante un mensaje de texto (SMS), haz clic en **Set up using SMS** (Configurar mediante SMS).
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
 - [Configurar métodos de recuperación de autenticación de dos factores](/articles/configuring-two-factor-authentication-recovery-methods)"

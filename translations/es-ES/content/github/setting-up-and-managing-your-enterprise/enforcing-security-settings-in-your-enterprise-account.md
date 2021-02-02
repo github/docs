@@ -113,6 +113,6 @@ La eliminación de un CA no se puede deshacer. Si deseas usar la misma CA en el 
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-### Further reading
+### Leer más
 
-- "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"
+- "[Configurar la administración de accesos e identidades para tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

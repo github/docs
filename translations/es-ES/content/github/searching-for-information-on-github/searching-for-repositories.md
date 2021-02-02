@@ -179,7 +179,7 @@ Puedes buscar repositorios que tienen una cantidad mínima de propuestas etiquet
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"
 - "[Búsqueda en bifurcaciones](/articles/searching-in-forks)"

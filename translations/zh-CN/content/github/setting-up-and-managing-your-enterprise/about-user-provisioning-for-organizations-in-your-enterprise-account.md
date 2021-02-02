@@ -1,6 +1,6 @@
 ---
-title: About user provisioning for organizations in your enterprise account
-intro: You can manage organization membership in an enterprise account directly from an identity provider (IdP).
+title: 关于企业帐户中组织的用户预配
+intro: 您可以直接从身份提供程序 (IdP) 管理企业帐户中的组织成员身份。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.scim.enterprise-account-scim %}（可选）您也可以启用 SAML 预配和单独取消预配。
 
-If you configure SCIM for the {% data variables.product.product_name %} application in your IdP, each time you make changes to group membership in your IdP, your IdP will make a SCIM call to {% data variables.product.prodname_dotcom %} to update the corresponding organization's membership. 如果启用 SAML 预配，则每当企业成员访问受企业帐户 SAML 配置保护的资源时，该 SAML 断言都将触发预配。
+如果您在 IdP 中为 {% data variables.product.product_name %} 应用程序配置 SCIM，则每次更改 IdP 中的组成员身份时，IdP 都会向 {% data variables.product.prodname_dotcom %} 发出 SCIM 调用来更新相应的组织成员身份。 如果启用 SAML 预配，则每当企业成员访问受企业帐户 SAML 配置保护的资源时，该 SAML 断言都将触发预配。
 
 对于每个 SCIM 呼叫或 SAML 断言，{% data variables.product.product_name %} 都将检查用户所属的 IdP 组并执行以下操作：
 

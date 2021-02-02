@@ -1,1 +1,1 @@
-Even after all required reviewers have approved a pull request, collaborators cannot merge the pull request if there are other open pull requests that have a head branch pointing to the same commit with pending or rejected reviews. Someone with write permissions must approve or dismiss the blocking review on the other pull requests first.
+即使在所有必需的审查者已经批准拉取请求之后，如果还有其他打开的拉取请求有头部分支指向同一待处理或拒绝审查的评论，协作者也不能合并拉请求。 具有写入权限的人必须先批准或取消对其他拉取请求的阻止审查。

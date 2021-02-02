@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
+topics:
+  - 'Containers'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -47,7 +50,7 @@ type: 'overview'
 本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:10.18-jessie` 容器。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -89,7 +92,7 @@ jobs:
 此示例映射服务容器 `redis` 端口 6379 到 Docker 主机端口 6379。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis Service Example
 on: push
 

@@ -79,6 +79,10 @@ Library name | Repository |---|---| **gidgethub**|[brettcannon/gidgethub](https:
 
 ライブラリ名 | リポジトリ |---|---| **GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github) **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
 
+### Rust
+
+Library name | Repository |---|---| **Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
+
 ### Scala
 
 ライブラリ名 | リポジトリ |---|---| **Hubcat**|[softprops/hubcat](https://github.com/softprops/hubcat) **Github4s**|[47deg/github4s](https://github.com/47deg/github4s)

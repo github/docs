@@ -13,19 +13,19 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Enabling or disabling security and analysis features for public repositories
+### Habilitar o inhabilitar las características de análisis y seguridad para los repositorios públicos
 
-You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
+Puedes administrar un subconjunto de características de análisis y seguridad para los repositorios públicos. Otras características se encuentran habilitadas permanentemente, incluyendo la gráfica de dependencias y el escaneo de secretos.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**. !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**. ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y análisis" en un repositorio público.](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
 {% endif %}
 
-### Enabling or disabling security and analysis features{% if currentVersion == "free-pro-team@latest" %} for private repositories{% endif %}
+### Habilitar o inhabilitar las características de seguridad y análisis{% if currentVersion == "free-pro-team@latest" %} para los repositorios privados{% endif %}
 
-You can manage the security and analysis features for your {% if currentVersion == "free-pro-team@latest" %}private or internal {% endif %}repository. If your organization or enterprise has a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+Puedes administrar las características de seguridad y de análisis para tu repositorio {% if currentVersion == "free-pro-team@latest" %}privado o interno {% endif %}. Si tu organización o empresa tienen una licencia para {% data variables.product.prodname_GH_advanced_security %}, entonces tendrás opciones adicionales disponibles. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -33,7 +33,7 @@ You can manage the security and analysis features for your {% if currentVersion 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**.
-{% if currentVersion == "free-pro-team@latest" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+{% if currentVersion == "free-pro-team@latest" %}Si no se muestra "{% data variables.product.prodname_secret_scanning_caps %}", puede que primero necesites habilitar la {% data variables.product.prodname_GH_advanced_security %}.
   ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
   {% endif %}
   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
@@ -67,7 +67,7 @@ Los propietarios de organización y administradores de repositorio solo pueden o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click
+4. Debajo de "Acceso a las alertas", a la derecha de la persona o equipo para el cual quieres eliminar el acceso, da clic en
 {% octicon "x" aria-label="X symbol" %}.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Botón "x" para eliminar el acceso de alguien a las alertas de seguridad para tu repositorio](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
@@ -76,7 +76,7 @@ Los propietarios de organización y administradores de repositorio solo pueden o
    ![Botón "x" para eliminar el acceso de alguien a las alertas de seguridad para tu repositorio](/assets/images/help/repository/security-and-analysis-security-alerts-username-x-ghe.png)
    {% endif %}
 
-### Further reading
+### Leer más
 
 - [Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository)"
 - "[Administrar la seguridad y la configuración de análisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)"
