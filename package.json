@@ -170,6 +170,7 @@
     "build": "cross-env NODE_ENV=production npx webpack --mode production",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
     "lint": "eslint --fix . && prettier -w \"**/*.{yml,yaml}\"",
+    "lint-translation": "TEST_TRANSLATION=true jest content/lint-files",
     "test": "jest && eslint . && prettier -c \"**/*.{yml,yaml}\" && npm run check-deps",
     "prebrowser-test": "npm run build",
     "browser-test": "start-server-and-test browser-test-server 4001 browser-test-tests",
