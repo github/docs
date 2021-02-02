@@ -29763,6 +29763,11 @@ type SecurityAdvisory implements Node {
   identifiers: [SecurityAdvisoryIdentifier!]!
 
   """
+  The permalink for the advisory's dependabot alerts page
+  """
+  notificationsPermalink: URI
+
+  """
   The organization that originated the advisory
   """
   origin: String!

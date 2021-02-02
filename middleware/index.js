@@ -1,4 +1,5 @@
 const express = require('express')
+const instrument = require('../lib/instrument-middleware')
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -24,7 +25,7 @@ module.exports = function (app) {
   // See https://expressjs.com/en/guide/behind-proxies.html
   app.set('trust proxy', 1)
   app.use(require('./rate-limit'))
-  app.use(require('./handle-invalid-paths'))
+  app.use(instrument('./handle-invalid-paths'))
 
   // *** Security ***
   app.use(require('./cors'))
@@ -43,50 +44,50 @@ module.exports = function (app) {
   // *** Config and context for redirects ***
   app.use(require('./req-utils')) // Must come before record-redirect and events
   app.use(require('./record-redirect'))
-  app.use(require('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
-  app.use(asyncMiddleware(require('./context'))) // Must come before early-access-*, handle-redirects
+  app.use(instrument('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument('./context'))) // Must come before early-access-*, handle-redirects
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(require('connect-slashes')(false))
-  app.use(require('./redirects/external'))
-  app.use(require('./redirects/help-to-docs'))
-  app.use(require('./redirects/language-code-redirects')) // Must come before contextualizers
-  app.use(require('./redirects/handle-redirects')) // Must come before contextualizers
+  app.use(instrument('./redirects/external'))
+  app.use(instrument('./redirects/help-to-docs'))
+  app.use(instrument('./redirects/language-code-redirects')) // Must come before contextualizers
+  app.use(instrument('./redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(require('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(require('./block-robots'))
+  app.use(instrument('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(instrument('./block-robots'))
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
-  app.use(require('./archived-enterprise-versions-assets')) // Must come before static/assets
+  app.use(instrument('./archived-enterprise-versions-assets')) // Must come before static/assets
   app.use('/dist', express.static('dist'))
   app.use('/assets', express.static('assets'))
   app.use('/public', express.static('data/graphql'))
-  app.use('/events', require('./events'))
-  app.use('/csrf', require('./csrf-route'))
-  app.use('/search', require('./search'))
-  app.use(require('./archived-enterprise-versions'))
-  app.use(require('./robots'))
-  app.use(/(\/.*)?\/early-access$/, require('./contextualizers/early-access-links'))
-  app.use(require('./categories-for-support-team'))
-  app.use(require('./loaderio-verification'))
-  app.get('/_500', asyncMiddleware(require('./trigger-error')))
+  app.use('/events', instrument('./events'))
+  app.use('/csrf', instrument('./csrf-route'))
+  app.use('/search', instrument('./search'))
+  app.use(instrument('./archived-enterprise-versions'))
+  app.use(instrument('./robots'))
+  app.use(/(\/.*)?\/early-access$/, instrument('./contextualizers/early-access-links'))
+  app.use(instrument('./categories-for-support-team'))
+  app.use(instrument('./loaderio-verification'))
+  app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
 
   // *** Preparation for render-page ***
-  app.use(asyncMiddleware(require('./contextualizers/enterprise-release-notes')))
-  app.use(require('./contextualizers/graphql'))
-  app.use(require('./contextualizers/rest'))
-  app.use(require('./contextualizers/webhooks'))
-  app.use(require('./breadcrumbs'))
-  app.use(require('./early-access-breadcrumbs'))
-  app.use(require('./enterprise-server-releases'))
-  app.use(require('./dev-toc'))
-  app.use(require('./featured-links'))
-  app.use(require('./learning-track'))
+  app.use(asyncMiddleware(instrument('./contextualizers/enterprise-release-notes')))
+  app.use(instrument('./contextualizers/graphql'))
+  app.use(instrument('./contextualizers/rest'))
+  app.use(instrument('./contextualizers/webhooks'))
+  app.use(instrument('./breadcrumbs'))
+  app.use(instrument('./early-access-breadcrumbs'))
+  app.use(instrument('./enterprise-server-releases'))
+  app.use(instrument('./dev-toc'))
+  app.use(instrument('./featured-links'))
+  app.use(instrument('./learning-track'))
 
   // *** Rendering, must go last ***
-  app.get('/*', asyncMiddleware(require('./render-page')))
+  app.get('/*', asyncMiddleware(instrument('./render-page')))
   app.use(require('./handle-errors'))
 }

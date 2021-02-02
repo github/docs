@@ -140,7 +140,7 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 {% note %}
 
-**Note**: The audit log REST API is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+**Note:** The audit log REST API is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only. 
 
 {% endnote %}
 
@@ -249,7 +249,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% note %}
 
-**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only. 
 
 For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
 
