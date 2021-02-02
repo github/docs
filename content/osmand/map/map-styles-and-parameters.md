@@ -100,7 +100,7 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.res_details %}
 
-|Parameter &nbsp;|Description &nbsp; &nbsp; &nbsp; &nbsp;|Example &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|         
+|Parameter |Description |Example |         
 |------------|---------------|---------------|
 |[{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|![Map styles](/assets/images/map/ms-12.png)|
 |[{% data variables.ios-values.rendering_attr_showSurfaces_name %}]|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-13.png)|
@@ -120,7 +120,7 @@ Sometimes when we use the application during your trip or riding, you don't use 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
 
-|Parameter          |Description          |Example          
+|Parameter          |Description          |Example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
 |:------------|:---------------|:---------------|
 |**{% data variables.android-values.rendering_category_routes %}**|
 |{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
