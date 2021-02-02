@@ -121,7 +121,7 @@ Sometimes when we use the application during your trip or riding, you don't use 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
 
 
-|Parameter|Description|<div style="width:160px">Example</div>|       
+|Parameter|Description|Example|       
 |------------|---------------|---------------|
 |<img width=200/>|<img width=500/>|<img width=320/>|
 |**{% data variables.android-values.rendering_category_routes %}**|
