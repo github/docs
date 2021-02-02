@@ -25,59 +25,62 @@ OsmAnd style is the default style of map rendering, general purpose style. It of
 
 ### Touring view
 
-Touring view is created to meet the needs of tourists and has higher contrast than the regular one.
+{% data variables.android-values.touring_view_render_descr %}
 
 ![Map styles](/assets/images/map/ms-2.png)
 
 ### UniRS and LightRS
 
+{% data variables.android-values.unirs_render_descr %}
 UniRS and LightRS styles are author styles that render the basic map information but in different color schemes.
 
-UniRS style: Simple and contrast style for car navigation. Gentle for the eyes in the night mode. Key features: contour lines, contrast orange styled roads, less distracting secondary map objects.
+UniRS style: {% data variables.android-values.unirs_render_descr %}
+
 ![Map styles](/assets/images/map/ms-3.png)
 
-LightRS style:
+LightRS style: {% data variables.android-values.light_rs_render_descr %}
 ![Map styles](/assets/images/map/ms-4.png)
 
 ### Nautical 
-Style for marine and river navigation. Key features: buoys, lighthouses, water navigation lines and marks, harbours, seamark services, depth contours. Read more about [Nautical maps](https://osmand.net/features/nautical-charts).
+
+{% data variables.android-values.nautical_render_descr %} Read more about [Nautical maps](https://osmand.net/features/nautical-charts).
 
 ![Map styles](/assets/images/map/ms-5.png)
 
 ### Winter and ski
 
+{% data variables.android-values.ski_map_render_descr %}
 Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Key features: renders pistes, aerial ways and other ski features in a convenient way. Less distracting secondary map objects. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
 
 ![Map styles](/assets/images/map/ms-6.png)
 
 ### Topo
 
-Contrast style designed primarily for nature hiking, trekking and cycling. Good readability in complex external lighting. Key features: contrast roads and natural objects, different types of routes, contour lines with advanced settings, more details at corresponding zoom levels than "default" style. "Surface integrity" option allows you distinguish between roads with different surface quality. No night mode.
+{% data variables.android-values.topo_render_descr %}
 
 ![Map styles](/assets/images/map/ms-7.png)
 
 ### Mapnik
 
-Mapnik - former default style. Key features: colours are similar to Mapnik style.
+{% data variables.android-values.mapnik_render_descr %}
 
 ![Map styles](/assets/images/map/ms-8.png)
 
 ### Desert
 
-Desert - for deserts and other sparsely populated areas. Displays more details on the viewing scale.
+{% data variables.android-values.desert_render_descr %}
 
 ![Map styles](/assets/images/map/ms-9.png)
 
 ### Offroad
 
-Offroad - for off-road driving, based on the "Topo" topographic style, can be used with green satellite imagery as a backing. Reduced thickness of main roads, increased thickness of tracks, paths, bicycles and other routes. There is no night mode.
-Suitable for use during off-road driving. Suitable for use with green satellite images as an undarlay map. Key points: reduced thickness of the main roads, increased thickness of tracks, paths, bicycle and other routes. Based on Topo style. 
+{% data variables.android-values.off_road_render_descr %}
 
 ![Map styles](/assets/images/map/ms-10.png)
 
 ### Snowmobile
 
-Snowmobile - fro snowmobile riding. Contrast snowmobile trails.
+{% data variables.android-values.snowmobile_render_descr %}
 
 ![Map styles](/assets/images/map/ms-11.png)
 
