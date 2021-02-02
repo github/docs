@@ -92,9 +92,9 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) or later
 
-#### Hardware architectures
+#### Architectures
 
-The following hardware architectures are supported for the self-hosted runner application.
+The following processor architectures are supported for the self-hosted runner application.
 
 - `x64` - Linux, macOS, Windows.
 - `ARM64` - Linux only.
