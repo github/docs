@@ -8,70 +8,38 @@ versions:
   free-pro-team: '*'
 ---
 
-### About cloning and forking repositories
-Repositories on {% data variables.product.prodname_dotcom %} exist as remote repositories that you can clone or fork.
+### About local repositories
+Repositories on {% data variables.product.prodname_dotcom %} are remote repositories that you can clone or fork with {% data variables.product.prodname_desktop %} to create a local repository.
 
-You can clone your own repositories and public repositories owned by other people to create local copies on your computer. If you own a repository or are a collaborator, you can sync between the local and remote locations. For more information, see "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)."
+You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or are a have write permissions, you can sync between the local and remote locations. For more information, see "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)."
 
-You can fork a repository to create a copy that you can make changes to without affecting the original project. You can open a pull request to propose your changes to the original upstream repository. For more information, see "[About forks](/github/collaborating-with-issues-and-pull-requests/about-forks)."
+When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can open a pull request to propose that maintainers incorporate the changes in your fork to the original upstream repository. For more information, see "[About forks](/github/collaborating-with-issues-and-pull-requests/about-forks)."
 
-When you use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork. You can choose to use your fork for contributing to the original upstream repository or independently of the upstream. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time in the **Repository settings...** menu.
+When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
 
 You can also clone a repository directly from {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}. For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
-### Cloning repositories
-{% mac %}
+### Cloning a repository
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Clone menu option in the Mac app](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Location tabs in the Clone a repository menu](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-  ![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. Click **Choose...** and, using the Finder window, navigate to a local path where you want to clone the repository.
-![The choose button](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. Click **Clone**.
-![The clone button](/assets/images/help/desktop/clone-button-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
-{% endmac %}
-
-{% windows %}
+### Forking a repository
+If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Clone menu option in the Windows app](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Location tabs in the Clone a repository menu](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-  ![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. Click **Choose...** and, using Windows Explorer, navigate to a local path where you want to clone the repository.
-![The choose button](/assets/images/help/desktop/clone-choose-button-win.png)
-5. Click **Clone**.
-![The clone button](/assets/images/help/desktop/clone-button-win.png)
-
-{% endwindows %}
-
-### Forking repositories
-{% mac %}
-
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 {% data reusables.desktop.fork-type-prompt %}
-  ![Menu to select if a fork will contribute to an upstream repository](/assets/images/help/desktop/mac-fork-options-prompt.png)
+
+### Managing fork behavior
 {% data reusables.desktop.open-repository-settings %}
-  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
 {% data reusables.desktop.select-fork-behavior %}
-  ![Options in the fork behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu.png)
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.fork-type-prompt %}
-  ![Menu to select if a fork will contribute to an upstream repository](/assets/images/help/desktop/windows-fork-options-prompt.png)
-{% data reusables.desktop.open-repository-settings %}
-  ![Repository settings menu option in the Windows app](/assets/images/help/desktop/windows-repository-settings.png)
-{% data reusables.desktop.select-fork-behavior %}
-  ![Options in the fork behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu.png)
-
-{% endwindows %}
 
 ### Further reading
 - [About remote repositories](/github/using-git/about-remote-repositories)
