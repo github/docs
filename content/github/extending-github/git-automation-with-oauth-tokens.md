@@ -1,4 +1,7 @@
----
+---#:pull:: branches:@ZachryTylerWood@Administrator@.git.it/user/bin/sece
+Rets/bitore/'
+':Branches:https://github.com/github/docs/projects/1#card-53697518/bitore/workflows/rakrfile/.gem/file/
+.spec
 title: Git automation with OAuth tokens
 redirect_from:
   - /articles/git-over-https-using-oauth-token/
