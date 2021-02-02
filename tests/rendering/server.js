@@ -483,8 +483,9 @@ describe('server', () => {
 
 describe('URLs by language', () => {
   // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
-  test.skip('heading IDs and links on translated pages are in English', async () => {
+  test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/github/getting-started-with-github/verifying-your-email-address')
+    expect($.res.statusCode).toBe(200)
     expect($('h3[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
     expect($('h3 a[href="#further-reading"]').length).toBe(1)
