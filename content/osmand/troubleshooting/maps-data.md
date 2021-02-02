@@ -17,7 +17,13 @@ Unfortunately not. This would require the generation of completely separate cont
 
 # Search
 ### Offline search by address does not show all streets
-Should we add content here? If yes, we need to update it.
+Check that you have correctly entered the required address in the search - city, street, house, etc.
+
+### Offline search by address does not show the required address 
+
+- Check if there are any districts in your city. The address may belong to them. You can check this on the OSM maps by opening the administrative boundaries of the city. All localities within the borders are districts. Districts can be of different types depending on the countries - district, suburb, village, etc.
+
+Also enter the street with the house number without specifying the city. The search results will show the desired address belonging to another city. Enter the found name of the locality in [nominatim](https://nominatim.openstreetmap.org/ui/search.html), and its type will be indicated in the Address Rank line.
 
 # Points of Interest
 
