@@ -29,6 +29,6 @@ Puedes solicitar una revisión de una persona sugerida o de una persona específ
 6. De manera opcional, si conoces el nombre de la persona o el equipo del que quieres una revisión, haz clic en **Reviewers** (Revisores), luego escribe el nombre de usuario de la persona o el nombre del equipo al que le solicitarás que revise tus cambios. Haz clic en su nombre de equipo o nombre de usuario para solicitar una revisión. ![Campo para ingresar el nombre de usuario de un revisor y desplegable con el nombre del revisor](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
 7. Después de que la solicitud de extracción esté revisada y de que hayas hecho los cambios necesarios, le puedes pedir a un revisor que vuelva a revisar tu solicitud de extracción. Navega hasta **Reviewers** (Revisores) en la barra lateral derecha y haz clic en {% octicon "sync" aria-label="The sync icon" %} al lado del nombre del revisor del que quieres la revisión. ![Icono Re-review sync (Sincronización de volver a revisar) en la barra lateral derecha](/assets/images/help/pull_requests/request-re-review.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las revisiones de solicitudes de extracción](/articles/about-pull-request-reviews)"

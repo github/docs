@@ -13,7 +13,7 @@ versions:
 
 Um eine Überschrift zu erstellen, füge bis zu sechs Rautenzeichen (`#`) vor dem Text der Überschrift hinzu. Die Anzahl an `#` bestimmt die Größe der Überschrift.
 
-```
+```markdown
 # Die größte Überschrift
 ## Die zweitgrößte Überschrift
 ###### Die kleinste Überschrift
@@ -37,7 +37,7 @@ Um Text hervorzuheben, kannst Du die Fett- und/oder Kursivschrift verwenden oder
 
 Du kannst einen Text mit einem `>` zitieren.
 
-```
+```markdown
 Mit den Worten von Abraham Lincoln:
 
 > Verzeihen Sie meine Ausdrucksweise.
@@ -55,7 +55,7 @@ Mit den Worten von Abraham Lincoln:
 
 Du kannst Code oder einen Befehl innerhalb eines Satzes mit einfachen Backticks zitieren. Der Text innerhalb der Backticks wird nicht formatiert.
 
-```
+```markdown
 Verwende `git status`, um alle neuen oder geänderten Dateien aufzulisten, die noch nicht freigegeben wurden.
 ```
 
@@ -102,7 +102,7 @@ Du kannst einen Inline-Link erstellen, indem Du den Text in eckige Klammern `[ ]
 
 Du kannst eine ungeordnete Liste erstellen, indem Du einer Textzeile oder mehreren Textzeilen ein `-` oder `*` voranstellst.
 
-```
+```markdown
 - George Washington
 - John Adams
 - Thomas Jefferson
@@ -112,7 +112,7 @@ Du kannst eine ungeordnete Liste erstellen, indem Du einer Textzeile oder mehrer
 
 Um Deine Liste zu ordnen, stelle jeder Zeile eine Zahl voran.
 
-```
+```markdown
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
@@ -126,7 +126,7 @@ Du kannst eine verschachtelte Liste erstellen, indem Du ein Listenelement oder m
 
 Beim Web-Editor auf {% data variables.product.product_name %} oder bei einem Texteditor wie [Atom](https://atom.io/), der eine nicht proportionale Schriftart verwendet, kannst Du Deine Liste visuell ausrichten. Gib vor dem einzurückenden Listenelement so viele Leerzeichen ein, bis das Listenzeichen (`-` oder `*`) direkt unter dem ersten Zeichen des darüber liegenden Elements liegt.
 
-```
+```markdown
 1. First list item
    - First nested list item
      - Second nested list item
@@ -140,7 +140,7 @@ Um eine verschachtelte Liste im Kommentareditor auf {% data variables.product.pr
 
 Im folgenden Beispiel kannst Du ein untergeordnetes Listenelement unter dem Listenelement `100. <code>Erstes Listenelement` hinzufügen, indem Du das untergeordnete Listenelement um mindestens fünf Leerzeichen einrückst, da sich vor `Erstes Listenelement` fünf Zeichen (`100.`) befinden.
 
-```
+```markdown
 100. Erstes Listenelement
      - Erstes untergeordnetes Listenelement
 ```
@@ -149,7 +149,7 @@ Im folgenden Beispiel kannst Du ein untergeordnetes Listenelement unter dem List
 
 Du kannst mit derselben Methode mehrere Ebenen an verschachtelten Listen erstellen. Beispiel: Beim ersten untergeordneten Listenelement stehen sieben Zeichen (`␣␣␣␣␣-␣`) vor `Erstes untergeordnetes Listenelement`. Daher musst Du das zweite untergeordnete Listenelement um sieben Leerzeichen einrücken.
 
-```
+```markdown
 100. Erstes Listenelement
      - Erstes untergeordnetes Listenelement
        - Zweites untergeordnetes Listenelement

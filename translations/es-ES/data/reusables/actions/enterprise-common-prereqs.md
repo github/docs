@@ -1,5 +1,5 @@
 * {% data reusables.actions.enterprise-hardware-considerations %}
-* TLS must be configured for {% data variables.product.product_location %}'s domain. For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
+* Se debe configurar el TLS para el dominio de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Configurar el TLS](/admin/configuration/configuring-tls)".
 
   {% note %}
 

@@ -45,10 +45,10 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/articles/adding-a-remote)してください。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
@@ -83,10 +83,10 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. コマンドプロンプトで、ローカルリポジトリのプッシュ先となる[リモートリポジトリの URL を追加](/articles/adding-a-remote)します。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
@@ -121,10 +121,10 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/articles/adding-a-remote)してください。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell

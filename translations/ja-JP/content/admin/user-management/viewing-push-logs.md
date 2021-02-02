@@ -22,16 +22,19 @@ versions:
 
 ### リポジトリのプッシュログを表示する
 
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. リポジトリにアクセスします。
-{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the upper-right corner of the repository's page, click
+{% octicon "rocket" aria-label="The rocket ship" %}.
+    ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### コマンドラインでリポジトリのプッシュログを表示する
 
-1. SSHを使ってアプライアンスに接続してください。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
-2. 適切な Git リポジトリで Audit log ファイルを開いてください。
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. 適切な Git リポジトリで Audit log ファイルを開いてください。
   ```shell
   ghe-repo <em>コードオーナー</em>/<em>リポジトリ</em> -c "less audit_log"
   ```

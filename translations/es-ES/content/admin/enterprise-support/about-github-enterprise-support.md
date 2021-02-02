@@ -123,7 +123,6 @@ Cuando contactas a {% data variables.contact.enterprise_support %}, puedes escog
 ### Leer más
 
 {% if enterpriseServerVersions contains currentVersion %}
-- [Preguntas frecuentes sobre {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/faq)
 - Sección 10 sobre soporte en el "[Acuerdo de licencia de {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/license)"{% endif %}
 - "[recibir ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% if enterpriseServerVersions contains currentVersion %}
 - "[Prepararse para emitir un ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}

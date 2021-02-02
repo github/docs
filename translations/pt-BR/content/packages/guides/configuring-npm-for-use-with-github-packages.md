@@ -17,13 +17,13 @@ versions:
 **Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Limits for published npm versions
+### Limites para versões publicadas do npm
 
-If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+Se você publicar mais de 1.000 versões de pacote de npm até {% data variables.product.prodname_registry %}, você poderá ver problemas de performance e tempo-limite que ocorrem durante o uso.
 
-To reduce the number of versions you have published for your npm package, consider deleting package versions. Para obter mais informações, consulte "[Excluir um pacote](/packages/manage-packages/deleting-a-package)".
+No futuro, para melhorar o desempenho do serviço, você não será capaz de publicar mais de 1.000 versões de um pacote em {% data variables.product.prodname_dotcom %}. Todas as versões publicadas antes de atingir esse limite serão legíveis.
 
-In the future,  {% data variables.product.company_short %} will enforce a hard limit on publishing more than 1,000 versions of an npm package.  When we start enforcing the 1,000 versions limit for each npm package hosted on {% data variables.product.prodname_registry %}, we will offer more guidance on how to manage your package versions.
+Se você atingir este limite, considere excluir versões de pacote ou entre em contato com o suporte para obter ajuda. Quando este limite for aplicado, a nossa documentação será atualizada com uma forma de contornar este limite. Para obter mais informações, consulte "[Excluir um pacote](/packages/manage-packages/deleting-a-package)" ou "[Entrar em contato com o Suporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
 
 {% endif %}
 
@@ -166,7 +166,7 @@ Você também precisa adicionar o arquivo *.npmrc* ao seu projeto para que todas
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. Configure *package.json* no seu projeto para usar o pacote que você está instalando. Para adicionar as suas dependências de pacote ao arquivo *package.json* para {% data variables.product.prodname_registry %}, especifique o nome do pacote com escopo completo, como, por exemplo, `@my-org/server`. Para pacotes do *npmjs.com*, especifique o nome completo, como `@babel/core` ou `@lodash`. Por exemplo, o arquivo *package.json* a seguir usa o pacote `@octo-org/octo-app` como uma dependência.
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",
@@ -207,6 +207,12 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
+{% endif %}
+
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Usando o registro oficial do NPM
+
+{% data variables.product.prodname_registry %} permite que você acesse o registro oficial do NPM no `registry.npmjs.com`, caso seu administrador de {% data variables.product.prodname_ghe_server %} tenha habilitado esta funcionalidade. Para obter mais informações, consulte [Conectar ao registro oficial do NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
 
 ### Leia mais

@@ -28,7 +28,7 @@ Cuando abres una propuesta desde el código, la propuesta contiene un fragmento 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-### Further reading
+### Leer más
 
 - [Crear una propuesta](/github/managing-your-work-on-github/creating-an-issue)"
 - "[Obtener enlaces permanentes a los archivos](/github/managing-files-in-a-repository/getting-permanent-links-to-files)"

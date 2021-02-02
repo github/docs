@@ -33,7 +33,7 @@ Puedes filtrar los datos incluidos en las métricas o los informes clave por equ
 {% data reusables.github-insights.filter-reports %}
 {% data reusables.github-insights.view-events %}
 
-### Further reading
+### Leer más
 
 - "[Administrar colaboradores y equipos](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)"
 - "[Administrar repositorios](/insights/installing-and-configuring-github-insights/managing-repositories)"

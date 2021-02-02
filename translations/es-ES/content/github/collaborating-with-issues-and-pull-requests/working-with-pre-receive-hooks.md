@@ -11,7 +11,7 @@ Los ganchos de pre-recepción ejecutan pruebas en código que se suben a un repo
 
 Si no se acepta tu subida, verás un mensaje de error que corresponde al gancho de pre-recepción fallido.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
