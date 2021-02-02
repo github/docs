@@ -120,8 +120,8 @@ Sometimes when we use the application during your trip or riding, you don't use 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_routes %}
 
-|Parameter          |Description          |Example          
-|:------------|:---------------|:---------------|
+|Parameter     |Description      |Example          
+|:------------|:----------|:---------------|
 |**{% data variables.android-values.rendering_category_routes %}**|
 |{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
 |{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Highlighted cycle routes and showed nodes network cycle routes.|![Map styles](/assets/images/map/ms-22.png)|
