@@ -38,7 +38,6 @@ module.exports = function (app) {
 
   // *** Headers ***
   app.use(require('compression')())
-  app.use(require('./set-fastly-cache-headers'))
   app.use(require('./disable-caching-on-safari'))
 
   // *** Config and context for redirects ***
@@ -92,6 +91,9 @@ module.exports = function (app) {
   app.use(instrument('./dev-toc'))
   app.use(instrument('./featured-links'))
   app.use(instrument('./learning-track'))
+
+  // *** Headers for pages only ***
+  app.use(require('./set-fastly-cache-headers'))
 
   // *** Rendering, must go last ***
   app.get('/*', asyncMiddleware(instrument('./render-page')))

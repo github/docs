@@ -66,6 +66,15 @@ describe('server', () => {
     expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
+  test('sets Fastly cache control headers to bypass if enabled', async () => {
+    process.env.TEST_BYPASS_FASTLY = 'true'
+
+    const res = await get('/en')
+    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['surrogate-control']).toBe('private, no-store')
+    expect(res.headers).not.toHaveProperty('surrogate-key')
+  })
+
   test('does not render duplicate <html> or <body> tags', async () => {
     const $ = await getDOM('/en')
     expect($('html').length).toBe(1)
