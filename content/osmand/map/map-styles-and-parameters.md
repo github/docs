@@ -100,7 +100,7 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.res_details %}
 
-|Parameter |Description |Example |         
+|Parameter |Description |<div style="width:160px">Example</div>|        
 |------------|---------------|---------------|
 |[{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|![Map styles](/assets/images/map/ms-12.png)|
 |[{% data variables.ios-values.rendering_attr_showSurfaces_name %}]|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-13.png)|
@@ -127,9 +127,9 @@ Sometimes when we use the application during your trip or riding, you don't use 
 |{% data variables.android-values.rendering_attr_showCycleRoutes_name %}|Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-21.png)|
 |{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}|Highlighted cycle routes and showed nodes network cycle routes.|![Map styles](/assets/images/map/ms-22.png)|
 |{% data variables.android-values.rendering_attr_showMtbRoutes_name %}|Colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-23.png)|
-|{% data variables.android-values.rendering_attr_alpineHiking_name %}|[Classified hiking trails]{https://wiki.openstreetmap.org/wiki/Key:sac_scale} in mountainous areas with regard to the difficulties to be expected by color.|![Map styles](/assets/images/map/ms-24.png)|
+|{% data variables.android-values.rendering_attr_alpineHiking_name %}|[Classified hiking trails](https://wiki.openstreetmap.org/wiki/Key:sac_scale) in mountainous areas with regard to the difficulties to be expected by color.|![Map styles](/assets/images/map/ms-24.png)|
 |{% data variables.android-values.rendering_attr_horseRoutes_name %}|Colored routes for riding by horse.|![Map styles](/assets/images/map/ms-25.png)|
-|[{% data variables.android-values.rendering_attr_whiteWaterSports_name %}]|Showed [icons of access, danger areas, tourism of whitewater sports]{https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map}. |![Map styles](/assets/images/map/ms-26.png)|
+|[{% data variables.android-values.rendering_attr_whiteWaterSports_name %}]|Showed [icons of access, danger areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |![Map styles](/assets/images/map/ms-26.png)|
 |**{% data variables.android-values.rendering_attr_hikingRoutesOSMC_name %}**|
 |[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
 |[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
