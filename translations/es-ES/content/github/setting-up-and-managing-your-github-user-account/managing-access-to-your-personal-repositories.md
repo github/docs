@@ -6,7 +6,7 @@ redirect_from:
   - /categories/managing-repository-collaborators/
   - /articles/managing-access-to-your-personal-repositories
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

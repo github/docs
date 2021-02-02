@@ -20,7 +20,7 @@ Hay dos tipos principales de modelos de desarrollo con los cuales usar las solic
 
 En el *modelo de repositorio compartido*, se le otorga a los colaboradores acceso de escritura a un único repositorio compartido y las ramas de tema son creadas cuando es necesario hacer cambios. Las solicitudes de extracción son útiles en este modelo ya que inician la revisión de código y el debate general acerca de un conjunto de cambios antes de que los mismos sean fusionados en la rama de desarrollo principal. Este modelo es más frecuente con las organizaciones y los equipos pequeños que colaboran en proyectos privados.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"

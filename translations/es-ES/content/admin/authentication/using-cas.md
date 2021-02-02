@@ -27,7 +27,7 @@ Están disponibles los siguientes atributos.
 
 | Nombre del atributo | Type      | Descripción                                                              |
 | ------------------- | --------- | ------------------------------------------------------------------------ |
-| `username`          | Requerido | El nombre de usuario {% data variables.product.prodname_ghe_server %}. |
+| `nombre de usuario` | Requerido | El nombre de usuario {% data variables.product.prodname_ghe_server %}. |
 
 ### Configurar CAS
 {% warning %}

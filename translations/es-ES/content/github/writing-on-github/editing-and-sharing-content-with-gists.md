@@ -1,7 +1,7 @@
 ---
 title: Editar y compartir contenido con gists
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /categories/23/articles/
   - /categories/gists/

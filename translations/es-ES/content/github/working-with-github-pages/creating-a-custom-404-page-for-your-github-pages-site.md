@@ -16,7 +16,7 @@ versions:
 {% data reusables.files.add-file %}
 3. En el campo para el nombre de archivo, escribe `404.html` o `404.md`. ![Campo File name (Nombre de archivo)](/assets/images/help/pages/404-file-name.png)
 4. Si denominaste tu archivo `404.md`, agrega el siguiente texto preliminar de YAML al comienzo del archivo:
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---
@@ -27,6 +27,6 @@ versions:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 
 - [Texto preliminar](http://jekyllrb.com/docs/frontmatter) en la documentación de Jekyll

@@ -7,7 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - 打包
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -55,7 +59,7 @@ Docker Hub 需要的 `build-push-action` 选项包括：
 * `repository`：`DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY` 格式的 Docker Hub 仓库。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -93,7 +97,7 @@ jobs:
 * `repository`：必须以 `OWNER/REPOSITORY/IMAGE_NAME` 格式设置。 例如，对于 `http://github.com/octo-org/octo-repo` 上名为 `octo-image` stored on {% data variables.product.prodname_dotcom %} 的映像，`repository` 选项应设置为 `octo-org/octo-repo/octo-image`。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -126,7 +130,7 @@ jobs:
 下面的示例工作流程使用前面章节中的 `build-push-action` 步骤（“[发布映像到 Docker Hub](#publishing-images-to-docker-hub)”和“[发布映像到 {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)”）来创建同时推送到两个注册表的单一工作流程。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:

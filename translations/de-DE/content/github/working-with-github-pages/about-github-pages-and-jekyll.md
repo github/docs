@@ -38,7 +38,7 @@ Du kannst die meisten Jekyll-Einstellungen konfigurieren, beispielsweise das Des
 
 Einige Konfigurationseinstellungen können für {% data variables.product.prodname_pages %}-Websites nicht geändert werden.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ Standardmäßig werden Codeblöcke auf Deiner Website von Jekyll markiert. Jekyl
 
 Wenn Du einen anderen Markierer verwenden möchtest, z. B. `highlight.js`, musst Du die Jekyll-Syntaxmarkierung deaktivieren, indem Du die *_config.yml*-Datei Deines Projekts änderst.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true
