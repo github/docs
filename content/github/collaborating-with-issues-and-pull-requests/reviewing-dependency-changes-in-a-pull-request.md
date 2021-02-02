@@ -7,7 +7,7 @@ versions:
 
 {% note %}
 
-**Note:** Dependency review is currently in beta and subject to change.
+**Note:** Dependency review is currently in beta and subject to change. At 2 Feb 2020 this feature is not available. 
 
 {% endnote %}
 
