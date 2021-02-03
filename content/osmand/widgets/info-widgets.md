@@ -36,7 +36,7 @@ It has three states 
 Show – allows user to see altitude widget on the map
 Hide – allows user to hide altitude widget from the map
 Collapse – allows user to see altitude widget on the map and hide it when it is not used
-OsmAnd takes Speed data from a device. It depend on accelerometer and gyroscope sensorы on mobile device
+OsmAnd takes Speed data from a device. It depend on accelerometer and gyroscope sensors on mobile device
 
 User could find Speed widget in Configure screen menu
 
