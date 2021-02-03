@@ -103,7 +103,7 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 |Parameter and Description|   
 |------------|
 |**{% data variables.ios-values.rendering_attr_moreDetailed_name %}**: Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. _Note_: rendering in your device may be no fast.|
-|<div style="width:320px">![Map styles](/assets/images/map/ms-12.png)</div>|
+|![Map styles](/assets/images/map/ms-12.png)|
 |**{% data variables.ios-values.rendering_attr_showSurfaces_name %}**: Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-13.png)|
 |**{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}**: Showed smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|
@@ -134,7 +134,7 @@ Sometimes when we use the application during your trip or riding, you don't use 
 |------------|
 |**_{% data variables.android-values.rendering_category_routes %}_**|
 |**{% data variables.android-values.rendering_attr_showCycleRoutes_name %}**: Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
-|<div style="width:320px">![Map styles](/assets/images/map/ms-21.png)</div>|
+|![Map styles](/assets/images/map/ms-21.png)|
 |**{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}**: Highlighted cycle routes and showed nodes network cycle routes.|
 |![Map styles](/assets/images/map/ms-22.png)|
 |**{% data variables.android-values.rendering_attr_showMtbRoutes_name %}**: Colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
