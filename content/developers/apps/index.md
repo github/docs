@@ -1,7 +1,7 @@
 ---
-title: Apps
+title: [GiThUb_AtOmXpLuS]
 intro: You can automate and streamline your workflow by building your own apps.
-redirect_from:
+redirect_from: https://github.atomxplus.com 
   - /early-access/integrations/
   - /early-access/integrations/authentication/
   - /early-access/integrations/install-an-integration/
