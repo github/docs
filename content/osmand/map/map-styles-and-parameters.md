@@ -105,15 +105,15 @@ Here you can choose:
 
 |Parameter          |Description        
 |:------------|:---------------|
-|{% data variables.android-values.daynight_mode_auto %}|Automated day/night view switching. |
-|{% data variables.android-values.daynight_mode_day %}|Switching on day mode only.|
-|{% data variables.android-values.daynight_mode_night %}|Switching on night mode only.|
-|{% data variables.android-values.daynight_mode_sensor %}|Using light sensor for day/night mode.|
+|**{% data variables.android-values.daynight_mode_auto %}**|Automated day/night view switching. |
+|**{% data variables.android-values.daynight_mode_day %}**|Switching on day mode only.|
+|**{% data variables.android-values.daynight_mode_night %}**|Switching on night mode only.|
+|**{% data variables.android-values.daynight_mode_sensor %}**|Using light sensor for day/night mode.|
 
 
 ### Details
 
-In **{% data variables.android-values.rendering_category_details %} menu** you can show or hide next additional map details:
+In {% data variables.android-values.rendering_category_details %} menu you can show or hide next additional map details:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_details %} 
 
