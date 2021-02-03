@@ -102,15 +102,15 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 |Parameter|Description|<div style="width:160px">Example</div>|       
 |------------|---------------|---------------|
-|[{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|![Map styles](/assets/images/map/ms-12.png)|
-|[{% data variables.ios-values.rendering_attr_showSurfaces_name %}]|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-13.png)|
-|[{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}]|Showed smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|![Map styles](/assets/images/map/ms-14.png)|
-|[{% data variables.ios-values.rendering_attr_showAccess_name %}]|Showed access of roads: private or permissivis, or only for emergency, or maybe toll road. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road access. |![Map styles](/assets/images/map/ms-15.png)|
-|[{% data variables.ios-values.rendering_attr_showLez_name %}]|Showed green board and labels for Low Emission Zones in cities. It will help you not receive penalty in green citycenter.|![Map styles](/assets/images/map/ms-16.png)|
-|[{% data variables.ios-values.rendering_attr_coloredBuildings_name %}]|Colored buildings and places have in special colors for each categorie: Regular buildings, industrial, commercial and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your color for the building. |![Map styles](/assets/images/map/ms-17.png)|
-|[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
-|[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
-|[{% data variables.ios-values.rendering_attr_depthContours_name %}]|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps. |![Map styles](/assets/images/map/ms-20.png)|
+|{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|![Map styles](/assets/images/map/ms-12.png)|
+|{% data variables.ios-values.rendering_attr_showSurfaces_name %}|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-13.png)|
+|{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}|Showed smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|![Map styles](/assets/images/map/ms-14.png)|
+|{% data variables.ios-values.rendering_attr_showAccess_name %}|Showed access of roads: private or permissivis, or only for emergency, or maybe toll road. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road access. |![Map styles](/assets/images/map/ms-15.png)|
+|{% data variables.ios-values.rendering_attr_showLez_name %}|Showed green board and labels for Low Emission Zones in cities. It will help you not receive penalty in green citycenter.|![Map styles](/assets/images/map/ms-16.png)|
+|{% data variables.ios-values.rendering_attr_coloredBuildings_name %}|Colored buildings and places have in special colors for each categorie: Regular buildings, industrial, commercial and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your color for the building. |![Map styles](/assets/images/map/ms-17.png)|
+|{% data variables.ios-values.rendering_attr_streetLighting_name %}|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
+|{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
+|{% data variables.ios-values.rendering_attr_depthContours_name %}|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps.|![Map styles](/assets/images/map/ms-20.png)|
 
 ### Routes
 
@@ -129,11 +129,30 @@ Sometimes when we use the application during your trip or riding, you don't use 
 |{% data variables.android-values.rendering_attr_showMtbRoutes_name %}|Colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-23.png)|
 |{% data variables.android-values.rendering_attr_alpineHiking_name %}|[Classified hiking trails](https://wiki.openstreetmap.org/wiki/Key:sac_scale) in mountainous areas with regard to the difficulties to be expected by color.|![Map styles](/assets/images/map/ms-24.png)|
 |{% data variables.android-values.rendering_attr_horseRoutes_name %}|Colored routes for riding by horse.|![Map styles](/assets/images/map/ms-25.png)|
-|[{% data variables.android-values.rendering_attr_whiteWaterSports_name %}]|Showed [icons of access, danger areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |![Map styles](/assets/images/map/ms-26.png)|
+|{% data variables.android-values.rendering_attr_whiteWaterSports_name %}|Showed [icons of access, danger areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |![Map styles](/assets/images/map/ms-26.png)|
 |**{% data variables.android-values.rendering_attr_hikingRoutesOSMC_name %}**|
-|[{% data variables.android-values.rendering_value_walkingRoutesOSMC_name %}]|Showed [colored hiking trails and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-27.png)|
-|[{% data variables.android-values.rendering_value_walkingRoutesScopeOSMC_name %}]|Showed [colored trails by type and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-28.png)|
-|[{% data variables.android-values.rendering_value_walkingRoutesOSMCNodes_name %}]|Showed [Node networks](https://wiki.openstreetmap.org/wiki/Node_Networks) on the map. |![Map styles](/assets/images/map/ms-29.png)|
+|{% data variables.android-values.rendering_value_walkingRoutesOSMC_name %}|Showed [colored hiking trails and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-27.png)|
+|{% data variables.android-values.rendering_value_walkingRoutesScopeOSMC_name %}|Showed [colored trails by type and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map. |![Map styles](/assets/images/map/ms-28.png)|
+|{% data variables.android-values.rendering_value_walkingRoutesOSMCNodes_name %}|Showed [Node networks](https://wiki.openstreetmap.org/wiki/Node_Networks) on the map. |![Map styles](/assets/images/map/ms-29.png)|
+
+
+### Transport
+
+In navigation in cities, you need to see public transport in more contrast and stops. Of course, this setting shows train routes too.
+You can click to public transport stop and choose one of public tranport route. You see all route with named stops.
+In OsmAnd  we can choose special rendering for these needed:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.shared_string_show %} → {% data variables.android-values.icon_group_transport %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.rendering_category_transport %}
+
+|Parameter|Description|<div style="width:160px">Example</div>|       
+|------------|---------------|---------------|
+|{% data variables.android-values.rendering_attr_transportStops_name %}|Colored and showed public transport stops.|![Map styles](/assets/images/map/ms-30.png)|
+|{% data variables.android-values.rendering_attr_publicTransportMode_name %}|Colored and showed bus, trolleybus, shuttle routes.|![Map styles](/assets/images/map/ms-31.png)|
+|{% data variables.android-values.rendering_attr_tramTrainRoutes_name %}|Colored and showed tram and train routes|![Map styles](/assets/images/map/ms-32.png)|
+|{% data variables.android-values.rendering_attr_subwayMode_name %}|Colored and showed underground routes.|![Map styles](/assets/images/map/ms-33.png)|
+
 
 
 ### Hide
@@ -158,6 +177,8 @@ In order to hide some objects on the map you can choose them in this menu:
 |{% data variables.android-values.rendering_attr_hidePOILabels_name %}|Hide POI labels from the map. But icons of these POI will be on the map.  |
 |{% data variables.android-values.rendering_attr_hideUnderground_name %}| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
 |{% data variables.android-values.rendering_attr_hideOverground_name %}|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.  |
+
+
 
 ## How to create and to add your own Map style (Map rendering)
 
