@@ -48,7 +48,7 @@ Hide – allows user to hide altitude widget from the map
 Collapse – allows user to see altitude widget on the map and hide it when it is not used
 OsmAnd takes Battery level from a device. 
 
-User could find Battery level widget in Configure screen menu
+Battery level widget can be found in Configure screen menu
 
 ## GPS Info (Android)
 GPS info widget shows number of satellites. <!--You can click to this widget for adding GPS - applications.-->
@@ -56,8 +56,8 @@ It has three states 
 Show – allows user to see altitude widget on the map
 Hide – allows user to hide altitude widget from the map
 Collapse – allows user to see altitude widget on the map and hide it when it is not used
-OsmAnd takes GPS info from a device. <!--Then on the main screen tap on GPS widget. You can see GPS status.-->  The more satellite a device can see, better connection user will have.
-To add GPS - applications  user have to click GPS info widget on the map.
+OsmAnd takes GPS info from a device. <!--Then on the main screen tap on GPS widget. You can see GPS status.-->  The more satellites a device can see, the better positioning will be provided.
+To see a GPS status menu user has to click on GPS info widget. GPS status menu provides additional tools for tuning onboard GPS device
 
 User could find GPS info widget in Configure screen menu
 
