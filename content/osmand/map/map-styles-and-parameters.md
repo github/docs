@@ -91,7 +91,7 @@ Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map
 
 ## Parameters of Map rendering
 
-### {% data variables.android-values.map_mode %} 
+### Map mode
 
 During day and night you need to use mode for night and day. [Map styles](/osmand/map/map-styles-and-parameters#default-map-styles) have night and day style. In this menu you find time of sunrise and sunset.
 
