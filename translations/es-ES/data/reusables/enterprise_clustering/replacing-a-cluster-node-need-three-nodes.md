@@ -1,0 +1,1 @@
+1. Si vas a tomar un nodo fuera de línea que tiene `git-server = true` establecido en cluster.conf, evacua el nodo. Para obtener más información, consulta "[Evacuar un nodo de la agrupación](/enterprise/{{ currentVersion }}/admin/clustering/evacuating-a-cluster-node)".

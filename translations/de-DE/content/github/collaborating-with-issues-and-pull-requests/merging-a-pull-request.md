@@ -12,15 +12,17 @@ versions:
 
 ### Informationen zum Zusammenführen von Pull Requests
 
-Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. {% data reusables.pull_requests.about-protected-branches %} Es kann jedoch Einschränkungen geben, wann Du einen Pull Request zu einem bestimmten Branch zusammenführen kannst. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
+Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. Standardmäßig kann jeder Pull Request jederzeit zusammengeführt werden, es sei denn, der Head-Branch steht in Konflikt mit dem Basisbranch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
 
-Wenn beim Pull Request Mergekonflikte vorliegen oder Du die Änderungen vor dem Zusammenführen testen möchtest, kannst Du [den Pull Request lokal auschecken](/articles/checking-out-pull-requests-locally) und ihn über die Befehlszeile zusammenführen.
+{% data reusables.pull_requests.you-can-auto-merge %}
+
+Wenn beim Pull Request Mergekonflikte vorliegen oder Sie die Änderungen vor dem Mergen testen möchten, können Sie [den Pull Request lokal auschecken](/articles/checking-out-pull-requests-locally) und ihn über die Befehlszeile mergen.
 
 Pull-Request-Entwürfe kannst du nicht zusammenführen. Weitere Informationen zu Entwürfen von Pull Requests findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch zusammenführen möchtest, kannst Du [den Pull Request schließen](/articles/closing-a-pull-request), ohne ihn zusammenzuführen.
+Wenn Sie die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch mergen möchten, können Sie [den Pull Request schließen](/articles/closing-a-pull-request), ohne ihn zu mergen.
 
 ### Einen Pull Request auf {% data variables.product.prodname_dotcom %} zusammenführen
 

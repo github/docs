@@ -12,8 +12,8 @@ jobs:
       - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-pr-message: 'This PR is stale because it has been open 7 days with no activity and will be automatically closed in 3 days. To keep this PR open, update the PR by adding a comment or pushing a commit.'
-          days-before-stale: 7
+          stale-pr-message: 'This PR is stale because it has been open 21 days with no activity and will be automatically closed in 10 days. To keep this PR open, update the PR by adding a comment or pushing a commit.'
+          days-before-stale: 21
           days-before-close: 10
           stale-pr-label: 'stale'
           exempt-pr-labels: 'never-stale'

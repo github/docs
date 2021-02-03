@@ -60,5 +60,6 @@ versions:
 {% topic_link_in_list /incorporating-changes-from-a-pull-request %}
     {% link_in_list /about-pull-request-merges %}
     {% link_in_list /merging-a-pull-request %}
+    {% link_in_list /automatically-merging-a-pull-request %}
     {% link_in_list /closing-a-pull-request %}
     {% link_in_list /reverting-a-pull-request %}

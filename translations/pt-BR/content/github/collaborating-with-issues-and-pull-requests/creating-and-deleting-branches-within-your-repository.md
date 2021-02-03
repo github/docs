@@ -24,7 +24,7 @@ versions:
 
 {% note %}
 
-**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+**Observação:** Se o branch que você deseja excluir for o branch padrão do repositório, você deverá escolher um novo branch padrão antes de excluir o branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
 
 {% endnote %}
 

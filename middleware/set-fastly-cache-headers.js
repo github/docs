@@ -2,6 +2,18 @@ const FASTLY_TTL = process.env.FASTLY_TTL || String(60 * 60 * 24) // 24 hours
 const STALE_TTL = String(60 * 10) // 10 minutes
 
 module.exports = (req, res, next) => {
+  const BYPASS_FASTLY = process.env.TEST_BYPASS_FASTLY === 'true'
+
+  // Bypass Fastly caching for all rendered pages
+  if (BYPASS_FASTLY) {
+    // Disallow both Fastly AND the browser from caching HTML pages
+    res.set({
+      'surrogate-control': 'private, no-store',
+      'cache-control': 'private, no-store'
+    })
+    return next()
+  }
+
   res.set({
 
     // Say you want Fastly to cache your content but you don't want it cached by browsers.

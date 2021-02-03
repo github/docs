@@ -1,6 +1,6 @@
-const rank = require('../../../lib/algolia/rank')
+const rank = require('../../../lib/search/rank')
 
-test('algolia custom rankings', () => {
+test('search custom rankings', () => {
   const expectedRankings = [
     ['https://docs.github.com/en/github/actions', 3],
     ['https://docs.github.com/en/rest/reference', 2],

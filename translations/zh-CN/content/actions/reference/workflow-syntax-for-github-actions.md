@@ -27,7 +27,7 @@ versions:
 
 ### `on`
 
-**必要** 触发工作流程的 {% data variables.product.prodname_dotcom %} 事件的名称。 您可以提供单一事件 `string`、事件的 `array`、事件 `types` 的 `array` 或事件配置 `map`，以安排工作流程的运行，或将工作流程的执行限于特定文件、标记或分支更改。 有关可用事件的列表，请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows)”。
+**必填**。 The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. 您可以提供单一事件 `string`、事件的 `array`、事件 `types` 的 `array` 或事件配置 `map`，以安排工作流程的运行，或将工作流程的执行限于特定文件、标记或分支更改。 有关可用事件的列表，请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows)”。
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -187,7 +187,7 @@ on:
 
 ### `env`
 
-环境变量的 `map` 可用于工作流程中的所有作业和步骤。 您还可以设置仅适用于作业或步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)。
+A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -223,7 +223,7 @@ defaults:
 
 工作流程运行包括一项或多项作业。 作业默认是并行运行。 要按顺序运行作业，您可以使用 `<job_id>needs` 关键词在其他作业上定义依赖项。
 
-每个作业在 `runs-on` 指定的环境中运行。
+每个作业在 `runs-on` 指定的运行器环境中运行。
 
 在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
@@ -249,9 +249,9 @@ jobs:
 
 ### `jobs.<job_id>.needs`
 
-识别在此作业运行之前必须成功完成的任何作业。 它可以是一个字符串，也可以是字符串数组。 If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
+识别在此作业运行之前必须成功完成的任何作业。 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件表达式。
 
-#### Example requiring dependent jobs to be successful
+#### 要求相关作业成功的示例
 
 ```yaml
 jobs:
@@ -270,7 +270,7 @@ jobs:
 2. `job2`
 3. `job3`
 
-#### Example not requiring dependent jobs to be successful
+#### 不要求相关作业成功的示例
 
 ```yaml
 jobs:
@@ -282,11 +282,11 @@ jobs:
     needs: [job1, job2]
 ```
 
-In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+在此示例中，`job3` 使用 `always()` 条件表达式，因此它始终在 `job1` 和 `job2` 完成后运行，不管它们是否成功。 更多信息请参阅“[ 上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)”。
 
 ### `jobs.<job_id>.runs-on`
 
-**必需**运行作业的机器类型。 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
+**必填**。 The type of machine to run the job on. 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -299,6 +299,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### 示例
 
@@ -319,6 +320,39 @@ runs-on: [self-hosted, linux]
 ```
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
+
+作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+
+您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
+
+##### 使用单一环境名称的示例
+
+```yaml
+environment: staging_environment
+```
+
+##### 使用环境名称和 URL 的示例
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+URL 可以是表达式，并且可以使用除 `secrets` 上下文以外的任何上下文。 有关表达式的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+
+#### 示例
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
 
 ### `jobs.<job_id>.outputs`
 
@@ -354,7 +388,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-环境变量的 `map` 可用于作业中的所有步骤。 您也可以设置整个工作流程或单个步骤的环境变量。 更多信息请参阅 [`env`](#env) 和 [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)。
+环境变量的 `map` 可用于作业中的所有步骤。 您也可以设置整个工作流程或单个步骤的环境变量。 更多信息请参阅 [`env`](#env) 和 [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -429,11 +463,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.id`
+### `jobs.<job_id>.steps[*].id`
 
 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-### `jobs.<job_id>.steps.if`
+### `jobs.<job_id>.steps[*].if`
 
 您可以使用 `if` 条件阻止步骤在条件得到满足之前运行。 您可以使用任何支持上下文和表达式来创建条件。
 
@@ -463,11 +497,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.name`
+### `jobs.<job_id>.steps[*].name`
 
 步骤显示在 {% data variables.product.prodname_dotcom %} 上的名称。
 
-### `jobs.<job_id>.steps.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 选择要作为作业中步骤的一部分运行的操作。 操作是一种可重复使用的代码单位。 您可以使用工作流程所在仓库中、公共仓库中或[发布 Docker 容器映像](https://hub.docker.com/)中定义的操作。
 
@@ -485,7 +519,7 @@ steps:
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -570,7 +604,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.run`
+### `jobs.<job_id>.steps[*].run`
 
 使用操作系统 shell 运行命令行程序。 如果不提供 `name`，步骤名称将默认为 `run` 命令中指定的文本。
 
@@ -606,14 +640,15 @@ jobs:
 
 您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。
 
-| 支持的平台         | `shell` 参数   | 描述                                                                                                               | 内部运行命令                                          |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                   | `bash --noprofile --norc -eo pipefail {0}`      |
-| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                             | `pwsh -command ". '{0}'"`                       |
-| 所有            | `python`     | 执行 python 命令。                                                                                                    | `python {0}`                                    |
-| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                  | `sh -e {0}`                                     |
-| Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                     | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows       | `powershell` | 这是 Windows 上使用的默认 shell。 Desktop PowerShell。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 | `powershell -command ". '{0}'"`.                |
+| 支持的平台         | `shell` 参数   | 描述                                                                                                                                                                                                                                     | 内部运行命令                                          |
+| ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                                                                                                                                         | `bash --noprofile --norc -eo pipefail {0}`      |
+| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                                                                   | `pwsh -command ". '{0}'"`                       |
+| 所有            | `python`     | 执行 python 命令。                                                                                                                                                                                                                          | `python {0}`                                    |
+| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                                                                                                                                        | `sh -e {0}`                                     |
+| Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                                                                                                                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows       | `pwsh`       | 这是 Windows 上使用的默认 shell。 PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
+| Windows       | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                                                            | `powershell -command ". '{0}'"`.                |
 
 #### 使用 bash 运行脚本的示例
 
@@ -642,6 +677,15 @@ steps:
     shell: pwsh
 ```
 
+#### Example: Using PowerShell Desktop to run a script
+
+```yaml
+steps:
+  - name: Display the path
+    run: echo ${env:PATH}
+    shell: powershell
+```
+
 #### 运行 python 脚本的示例
 
 ```yaml
@@ -657,12 +701,24 @@ steps:
 
 您可以使用 `command […options] {0} [..more_options]` 将 `shell` 值设置为模板字符串。 {% data variables.product.prodname_dotcom %} 将字符串的第一个用空格分隔的词解释为命令，并在 `{0}` 处插入临时脚本的文件名。
 
+例如：
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### 退出代码和错误操作首选项
 
 至于内置的 shell 关键词，我们提供由 {% data variables.product.prodname_dotcom %} 托管运行程序执行的以下默认值。 在运行 shell 脚本时，您应该使用这些指南。
 
 - `bash`/`sh`：
-  - 使用 `set -e o pipefail` 的快速失败行为：`bash` 和内置 `shell` 的默认值。 它还是未在非 Windows 平台上提供选项时的默认值。
+  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. 它还是未在非 Windows 平台上提供选项时的默认值。
   - 您可以向 shell 选项提供模板字符串，以退出快速失败并接管全面控制权。 例如 `bash {0}`。
   - sh 类 shell 使用脚本中最后执行的命令的退出代码退出，也是操作的默认行为。 运行程序将根据此退出代码将步骤的状态报告为失败/成功。
 
@@ -675,7 +731,7 @@ steps:
   - 除了编写脚本来检查每个错误代码并相应地响应之外，似乎没有办法完全选择快速失败行为。 由于我们默认不能实际提供该行为，因此您需要将此行为写入脚本。
   - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行程序。 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
 
-### `jobs.<job_id>.steps.with`
+### `jobs.<job_id>.steps[*].with`
 
 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。 输入参数被设置为环境变量。 该变量的前缀为 `INPUT_`，并转换为大写。
 
@@ -695,7 +751,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 `string` 定义 Docker 容器的输入。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。 此参数不支持 `array of strings`。
 
@@ -718,7 +774,7 @@ steps:
 1. 使用默认值，允许不指定任何 `args` 即可使用操作。
 1. 如果操作显示 `--help` 标记或类似项，请将其用作默认值，以便操作自行记录。
 
-### `jobs.<job_id>.steps.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 覆盖 `Dockerfile` 中的 Docker `ENTRYPOINT`，或在未指定时设置它。 与包含 shell 和 exec 表单的 Docker `ENTRYPOINT` 指令不同，`entrypoint` 关键词只接受定义要运行的可执行文件的单个字符串。
 
@@ -734,7 +790,7 @@ steps:
 
 `entrypoint` 关键词旨在用于 Docker 容器操作，但您也可以将其用于未定义任何输入的 JavaScript 操作。
 
-### `jobs.<job_id>.steps.env`
+### `jobs.<job_id>.steps[*].env`
 
 设置供步骤用于运行器环境的环境变量。 您也可以设置整个工作流程或某个作业的环境变量。 更多信息请参阅 [`env`](#env) 和 [`jobs.<job_id>.env`](#jobsjob_idenv)。
 
@@ -755,11 +811,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 防止步骤失败时作业也会失败。 设置为 `true` 以允许在此步骤失败时作业能够通过。
 
-### `jobs.<job_id>.steps.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 终止进程之前运行该步骤的最大分钟数。
 
@@ -769,7 +825,7 @@ steps:
 
 ### `jobs.<job_id>.strategy`
 
-策略创建作业的构建矩阵。 您可以定义要在其中运行每项作业的环境的不同变种。
+策略创建作业的构建矩阵。 您可以定义要在其中运行每项作业的不同变种。
 
 ### `jobs.<job_id>.strategy.matrix`
 
@@ -1116,7 +1172,7 @@ volumes:
 - `**`： 匹配零个或多个任何字符。
 - `?`：匹配零个或一个字符。 例如 `Octoc?t` 匹配 `Octocat`。
 - `+`: 匹配一个或多个前置字符。
-- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包含 `a-z`、`A-Z` 和 `0-9`。 例如，范围 `[0-9a-f]` 匹配任何数字或小写字母。 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，`[1-2]00` 匹配 `100` 和 `200`。
+- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包含 `a-z`、`A-Z` 和 `0-9`。 For example, the range`[0-9a-z]` matches any digit or lowercase letter. 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，`[1-2]00` 匹配 `100` 和 `200`。
 - `!`：在模式开始时，它将否定以前的正模式。 如果不是第一个字符，它就没有特殊的意义。
 
 字符 `*`、`[` 和 `!` 是 YAML 中的特殊字符。 如果模式以 `*`、`[` 或 `!` 开头，必须用引号括住模式。
@@ -1134,35 +1190,35 @@ volumes:
 
 #### 匹配分支和标记的模式
 
-| 模式                                            | 描述                                                                   | 示例匹配                                                                                               |
-| --------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `功能/*`                                        | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `功能/**`                                       | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`main`<br/>-`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | -`main`<br/>-`releases/mona-the-octocat`                                                     |
-| `'*'`                                         | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`main`<br/>-`releases`                                                                      |
-| `'**'`                                        | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*功能'`                                       | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                         | 匹配以 `v2` 开头的分支和标记名称。                                                 | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                         | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| 模式                                                     | 描述                                                                          | 示例匹配                                                                                                                  |
+| ------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `功能/*`                                                 | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                                 | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `功能/**`                                                | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                         | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                             | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                  | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。        | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                 | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                          | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*功能'`                                                | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                                  | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                  | 匹配以 `v2` 开头的分支和标记名称。                                                        | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                  | Matches all semantic versioning branches and tags with major version 1 or 2 | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### 匹配文件路径的模式
 
 路径模式必须匹配整个路径，并从仓库根开始。
 
-| 模式                                                   | 匹配描述                                                                   | 示例匹配                                                                                         |
-| ---------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `'*'`                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`README.md`<br/>-`server.rb`                                                          |
-| `'*.jsx?'`                                           | `?` 个字符匹配零个或一个前缀字符。                                                    | -`page.js`<br/>-`page.jsx`                                                             |
-| `'**'`                                               | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | -`all/the/files.md`                                                                          |
-| `'*.js'`                                             | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | -`app.js`<br/>-`index.js`                                                              |
-| `'**.js'`                                            | 匹配仓库中的所有 `.js` 文件。                                                     | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js`                              |
-| `文档/*`                                               | 仓库根目录下 `docs` 根目录中的所有文件。                                               | -`docs/README.md`<br/>-`docs/file.txt`                                                 |
-| `文档/**`                                              | 仓库根目录下 `/docs` 目录中的任何文件。                                               | -`docs/README.md`<br/>-`docs/mona/octocat.txt`                                         |
-| `docs/**/*.md`                                       | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | -`docs/README.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md` |
-| `'**/文档/**'`                                         | 仓库中任意位置 `docs` 目录下的任何文件。                                               | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`   |
-| `'**/README.md'`                                     | 仓库中任意位置的 README.md 文件。                                                 | -`README.md`<br/>-`js/README.md`                                                       |
-| `'**/*src/**'`                                       | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | -`a/src/app.js`<br/>-`my-src/code/js/app.js`                                           |
-| `'**/*-post.md'`                                     | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | -`my-post.md`<br/>-`path/their-post.md`                                                |
-| `'**/migrate-*.sql'`                                 | 仓库中任意位置具有前缀 `migrate-` 和后缀 `.sql` 的文件。                                 | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql`    |
-| -`*.md`<br/>-`!README.md`                      | 模式前使用感叹号 (`!`) 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。              | -`hello.md`<br/>_Does not match_<br/>-`README.md`<br/>-`docs/hello.md`   |
-| -`*.md`<br/>-`!README.md`<br/>-`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。                                          | -`hello.md`<br/>-`README.md`<br/>-`README.doc`                                   |
+| 模式                                                                      | 匹配描述                                                                   | 示例匹配                                                                                                                     |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `'*'`                                                                   | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `README.md`<br/><br/>`server.rb`                                                                             |
+| `'*.jsx?'`                                                              | `?` 个字符匹配零个或一个前缀字符。                                                    | `page.js`<br/><br/>`page.jsx`                                                                                |
+| `'**'`                                                                  | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | `all/the/files.md`                                                                                                       |
+| `'*.js'`                                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | `app.js`<br/><br/>`index.js`                                                                                 |
+| `'**.js'`                                                               | 匹配仓库中的所有 `.js` 文件。                                                     | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
+| `文档/*`                                                                  | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `文档/**`                                                                 | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/**/*.md`                                                          | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
+| `'**/文档/**'`                                                            | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/README.md'`                                                        | 仓库中任意位置的 README.md 文件。                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
+| `'**/*src/**'`                                                          | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
+| `'**/*-post.md'`                                                        | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
+| `'**/migrate-*.sql'`                                                    | 仓库中任意位置具有前缀 `migrate-` 和后缀 `.sql` 的文件。                                 | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
+| `*.md`<br/><br/>`!README.md`                                | 模式前使用感叹号 (`!`) 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。              | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。                                          | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |

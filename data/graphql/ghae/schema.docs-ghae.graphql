@@ -882,6 +882,120 @@ enum AuditLogOrderField {
 }
 
 """
+Represents a 'auto_merge_disabled' event on a given pull request.
+"""
+type AutoMergeDisabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who disabled auto-merge for this Pull Request
+  """
+  disabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event
+  """
+  pullRequest: PullRequest
+
+  """
+  The reason auto-merge was disabled
+  """
+  reason: String
+
+  """
+  The reason_code relating to why auto-merge was disabled
+  """
+  reasonCode: String
+}
+
+"""
+Represents a 'auto_merge_enabled' event on a given pull request.
+"""
+type AutoMergeEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
+Represents a 'auto_rebase_enabled' event on a given pull request.
+"""
+type AutoRebaseEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge (rebase) for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
+Represents a 'auto_squash_enabled' event on a given pull request.
+"""
+type AutoSquashEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge (squash) for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
 Represents a 'automatic_base_change_failed' event on a given pull request.
 """
 type AutomaticBaseChangeFailedEvent implements Node {
@@ -2057,6 +2171,11 @@ enum CheckStatusState {
   The check suite or run has been requested.
   """
   REQUESTED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """
@@ -2966,12 +3085,12 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   committedDate: DateTime!
 
   """
-  Check if commited via GitHub web UI.
+  Check if committed via GitHub web UI.
   """
   committedViaWeb: Boolean!
 
   """
-  Committership details of the commit.
+  Committer details of the commit.
   """
   committer: GitActor
 
@@ -3837,6 +3956,12 @@ type ContributionCalendarDay {
   contributionCount: Int!
 
   """
+  Indication of contributions, relative to other days. Can be used to indicate
+  which color to represent this day on a calendar.
+  """
+  contributionLevel: ContributionLevel!
+
+  """
   The day this square represents.
   """
   date: Date!
@@ -3885,6 +4010,36 @@ type ContributionCalendarWeek {
   The date of the earliest square in this week.
   """
   firstDay: Date!
+}
+
+"""
+Varying levels of contributions from none to many.
+"""
+enum ContributionLevel {
+  """
+  Lowest 25% of days of contributions.
+  """
+  FIRST_QUARTILE
+
+  """
+  Highest 25% of days of contributions. More contributions than the third quartile.
+  """
+  FOURTH_QUARTILE
+
+  """
+  No contributions occurred.
+  """
+  NONE
+
+  """
+  Second lowest 25% of days of contributions. More contributions than the first quartile.
+  """
+  SECOND_QUARTILE
+
+  """
+  Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.
+  """
+  THIRD_QUARTILE
 }
 
 """
@@ -5268,7 +5423,7 @@ input CreateTeamDiscussionInput {
   clientMutationId: String
 
   """
-  If true, restricts the visiblity of this discussion to team members and
+  If true, restricts the visibility of this discussion to team members and
   organization admins. If false or not specified, allows any organization member
   to view this discussion.
   """
@@ -6725,6 +6880,11 @@ enum DeploymentStatusState {
   The deployment was successful.
   """
   SUCCESS
+
+  """
+  The deployment is waiting.
+  """
+  WAITING
 }
 
 """
@@ -10339,7 +10499,7 @@ enum GitSignatureState {
   NO_USER
 
   """
-  Valid siganture, though certificate revocation check failed
+  Valid signature, though certificate revocation check failed
   """
   OCSP_ERROR
 
@@ -13393,7 +13553,7 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   number: Int!
 
   """
-  Indentifies the percentage complete for the milestone
+  Identifies the percentage complete for the milestone
   """
   progressPercentage: Float!
 
@@ -16863,7 +17023,7 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   restoredCustomEmailRoutingsCount: Int
 
   """
-  The number of issue assignemnts for the restored member.
+  The number of issue assignments for the restored member.
   """
   restoredIssueAssignmentsCount: Int
 
@@ -18383,7 +18543,7 @@ type OrganizationIdentityProvider implements Node {
   id: ID!
 
   """
-  The x509 certificate used by the Identity Provder to sign assertions and responses.
+  The x509 certificate used by the Identity Provider to sign assertions and responses.
   """
   idpCertificate: X509Certificate
 
@@ -19002,7 +19162,7 @@ type PinnedIssueEdge @preview(toggledBy: "elektra-preview") {
 }
 
 """
-An ISO-8601 encoded UTC date string with millisecond precison.
+An ISO-8601 encoded UTC date string with millisecond precision.
 """
 scalar PreciseDateTime
 
@@ -22250,7 +22410,7 @@ type PullRequestTimelineConnection {
 }
 
 """
-An item in an pull request timeline
+An item in a pull request timeline
 """
 union PullRequestTimelineItem = AssignedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
 
@@ -22272,7 +22432,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -22352,6 +22512,26 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'automatic_base_change_succeeded' event on a given pull request.
   """
   AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT
+
+  """
+  Represents a 'auto_merge_disabled' event on a given pull request.
+  """
+  AUTO_MERGE_DISABLED_EVENT
+
+  """
+  Represents a 'auto_merge_enabled' event on a given pull request.
+  """
+  AUTO_MERGE_ENABLED_EVENT
+
+  """
+  Represents a 'auto_rebase_enabled' event on a given pull request.
+  """
+  AUTO_REBASE_ENABLED_EVENT
+
+  """
+  Represents a 'auto_squash_enabled' event on a given pull request.
+  """
+  AUTO_SQUASH_ENABLED_EVENT
 
   """
   Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -23687,6 +23867,11 @@ type Release implements Node & UniformResourceLocatable {
   Whether or not the release is a draft
   """
   isDraft: Boolean!
+
+  """
+  Whether or not the release is the latest releast
+  """
+  isLatest: Boolean!
 
   """
   Whether or not the release is a prerelease
@@ -26138,7 +26323,7 @@ type RepoCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   forkParentName: String
 
   """
-  The name of the root repository for this netork.
+  The name of the root repository for this network.
   """
   forkSourceName: String
   id: ID!
@@ -27165,6 +27350,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     orderBy: LanguageOrder
   ): LanguageConnection
+
+  """
+  Get the latest release for the repository if one exists.
+  """
+  latestRelease: Release
 
   """
   The license associated with the repository
@@ -28787,7 +28977,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dismissReason: String
 
   """
-  When was the alert dimissed?
+  When was the alert dismissed?
   """
   dismissedAt: DateTime
 
@@ -28808,7 +28998,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   securityAdvisory: SecurityAdvisory
 
   """
-  The associated security vulnerablity
+  The associated security vulnerability
   """
   securityVulnerability: SecurityVulnerability
 
@@ -28941,6 +29131,11 @@ enum RequestableCheckStatusState {
   The check suite or run has been queued.
   """
   QUEUED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """
@@ -29568,6 +29763,11 @@ type SecurityAdvisory implements Node {
   identifiers: [SecurityAdvisoryIdentifier!]!
 
   """
+  The permalink for the advisory's dependabot alerts page
+  """
+  notificationsPermalink: URI
+
+  """
   The organization that originated the advisory
   """
   origin: String!
@@ -29921,7 +30121,7 @@ type SmimeSignature implements GitSignature {
 }
 
 """
-Entites that can sponsor others via GitHub Sponsors
+Entities that can sponsor others via GitHub Sponsors
 """
 union Sponsor = Organization | User
 
@@ -35170,7 +35370,7 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   excludedTeamMemberIds: [ID!] @possibleTypes(concreteTypes: ["User"])
 
   """
-  The Node ID of the team to update review assginments of
+  The Node ID of the team to update review assignments of
   """
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 
@@ -36565,6 +36765,72 @@ enum UserStatusOrderField {
   """
   UPDATED_AT
 }
+
+"""
+A domain that can be verified for an organization or an enterprise.
+"""
+type VerifiableDomain implements Node {
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
+  The DNS host name that should be used for verification.
+  """
+  dnsHostName: URI
+
+  """
+  The unicode encoded domain.
+  """
+  domain: URI!
+
+  """
+  Whether a TXT record for verification with the expected host name was found.
+  """
+  hasFoundHostName: Boolean!
+
+  """
+  Whether a TXT record for verification with the expected verification token was found.
+  """
+  hasFoundVerificationToken: Boolean!
+  id: ID!
+
+  """
+  Whether this domain is required to exist for an organization policy to be enforced.
+  """
+  isRequiredForPolicyEnforcement: Boolean!
+
+  """
+  Whether or not the domain is verified.
+  """
+  isVerified: Boolean!
+
+  """
+  The owner of the domain.
+  """
+  owner: VerifiableDomainOwner!
+
+  """
+  The punycode encoded domain.
+  """
+  punycodeEncodedDomain: URI!
+
+  """
+  The time that the current verification token will expire.
+  """
+  tokenExpirationTime: DateTime
+
+  """
+  The current verification token for the domain.
+  """
+  verificationToken: String
+}
+
+"""
+Types that can own a verifiable domain.
+"""
+union VerifiableDomainOwner = Enterprise | Organization
 
 """
 A hovercard context with a message describing how the viewer is related.

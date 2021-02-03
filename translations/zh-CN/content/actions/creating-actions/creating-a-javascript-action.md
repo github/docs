@@ -1,6 +1,6 @@
 ---
 title: 创建 JavaScript 操作
-intro: '在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。'
+intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - 操作开发
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -176,7 +180,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+检入 `node_modules` 目录可能会导致问题。 作为替代方法，您可以使用名为 [`@vercel/ncc`](https://github.com/vercel/ncc) 的工具将您的代码和模块编译到一个用于分发的文件中。
 
 1. 通过在您的终端运行此命令来安装 `vercel/ncc`。 `npm i -g @vercel/ncc`
 
