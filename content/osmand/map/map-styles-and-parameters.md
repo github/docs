@@ -217,7 +217,7 @@ In order to hide some objects on the map you can choose them in this menu:
 
 ### Road style
 
-
+Special settings for roads. When we change colors according road Atlas, or add high contrast of roads or bold outline for roads.
 
 |Parameter and Description|   
 |------------|
@@ -232,7 +232,22 @@ In order to hide some objects on the map you can choose them in this menu:
 |**{% data variables.android-values.rendering_value_boldOutline_name %}**: Bold outline for roads.|
 |![Map styles](/assets/images/map/ms-38.png)|
 
+### Text size
 
+This setting helps to change text size for names on the map:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.text_size %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.map_settings_text_size %}
+
+|**100%**|
+|![Map styles](/assets/images/map/ms-39.png)|
+|**200**|
+|![Map styles](/assets/images/map/ms-40.png)|
+
+### Map magnifier
+
+### Map Language
 
 ## How to create and to add your own Map style (Map rendering)
 
