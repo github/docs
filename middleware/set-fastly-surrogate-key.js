@@ -8,5 +8,5 @@ module.exports = (req, res, next) => {
   // https://docs.fastly.com/en/guides/getting-started-with-surrogate-keys
   res.set('surrogate-key', 'all-the-things')
 
-  next()
+  return next()
 }
