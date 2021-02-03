@@ -97,6 +97,10 @@ During day and night you need to use mode for the map. [Map styles](/map/map-sty
 
 
 
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.map_mode %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% map_settings_mode %}
+
 Here you can choose:
 
 |Parameter          |Description        
