@@ -45,7 +45,7 @@ Cuando una organización elimina el acceso de una {% data variables.product.prod
 
 Si una organización desactiva las restricciones de aplicación de acceso de {% data variables.product.prodname_oauth_app %}, y más tarde las vuelve a activar, automáticamente se le otorga acceso a los recursos de la organización a la {% data variables.product.prodname_oauth_app %} previamente aprobada .
 
-### Further reading
+### Leer más
 
 - "[Activar las restricciones de acceso de {% data variables.product.prodname_oauth_app %} para tu organización](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
 - "[Aprobar {% data variables.product.prodname_oauth_app %}s para tu organización](/articles/approving-oauth-apps-for-your-organization)"

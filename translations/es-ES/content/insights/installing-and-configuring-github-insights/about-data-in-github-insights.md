@@ -17,6 +17,6 @@ Puedes elegir qué colaboradores se incluirán en las métricas y crear equipos 
 
 {% data reusables.github-insights.events %} Para obtener más información, consulta "[Administrar eventos](/insights/installing-and-configuring-github-insights/managing-events)".
 
-### Further reading
+### Leer más
 - "[Métricas disponibles con {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)"
 - "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} y protección de datos para tu organización</a>"

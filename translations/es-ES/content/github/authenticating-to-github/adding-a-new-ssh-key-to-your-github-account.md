@@ -38,7 +38,7 @@ Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product
 {% data reusables.user_settings.ssh %}
 4. Haz clic en **New SSH key** (Nueva clave SSH) o **Add SSH key** (Agregar clave SSH). ![Botón SSH Key (Clave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. En el campo "Title" (Título), agrega una etiqueta descriptiva para la clave nueva. Por ejemplo, si estás usando tu Mac personal, es posible que llames a esta tecla "Personal MacBook Air".
-6. Copia tu clave en el campo "Key" (Clave).![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
+6. Pega tu clave en el campo "Key". ![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
 7. Haz clic en **Add SSH key** (Agregar tecla SSH). ![Botón Add key (Agregar llave)](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user_settings.sudo-mode-popup %}
 
@@ -65,7 +65,7 @@ Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product
 {% data reusables.user_settings.ssh %}
 4. Haz clic en **New SSH key** (Nueva clave SSH) o **Add SSH key** (Agregar clave SSH). ![Botón SSH Key (Clave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. En el campo "Title" (Título), agrega una etiqueta descriptiva para la clave nueva. Por ejemplo, si estás usando tu Mac personal, es posible que llames a esta tecla "Personal MacBook Air".
-6. Copia tu clave en el campo "Key" (Clave).![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
+6. Pega tu clave en el campo "Key". ![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
 7. Haz clic en **Add SSH key** (Agregar tecla SSH). ![Botón Add key (Agregar llave)](/assets/images/help/settings/ssh-add-key.png)
 8. Si se te solicita, confirma tu contraseña {% data variables.product.product_name %}.![Diálogo Modo sudo](/assets/images/help/settings/sudo_mode_popup.png)
 
@@ -94,14 +94,14 @@ Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product
 {% data reusables.user_settings.ssh %}
 4. Haz clic en **New SSH key** (Nueva clave SSH) o **Add SSH key** (Agregar clave SSH). ![Botón SSH Key (Clave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. En el campo "Title" (Título), agrega una etiqueta descriptiva para la clave nueva. Por ejemplo, si estás usando tu Mac personal, es posible que llames a esta tecla "Personal MacBook Air".
-6. Copia tu clave en el campo "Key" (Clave).![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
+6. Pega tu clave en el campo "Key". ![Campo de llave](/assets/images/help/settings/ssh-key-paste.png)
 7. Haz clic en **Add SSH key** (Agregar tecla SSH). ![Botón Add key (Agregar llave)](/assets/images/help/settings/ssh-add-key.png)
 8. Si se te solicita, confirma tu contraseña {% data variables.product.product_name %}.![Diálogo Modo sudo](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endlinux %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+### Leer más
 
 - "[Autorizar una clave SSH para usar con el inicio de sesión único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}

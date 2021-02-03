@@ -44,7 +44,7 @@ jobs:
     - name: Setup .NET Core SDK ${{ matrix.dotnet }}
       uses: actions/setup-dotnet@v1.6.0
       with:
-        dotnet-version: {{ matrix.dotnet-version }}
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -58,7 +58,7 @@ jobs:
 
 Para utilizar una versión preinstalada de .NET Core SDK en un ejecutor hospedado en {% data variables.product.prodname_dotcom %}, utiliza la acción `setup-dotnet`. Esta acción encuentra una versión específica de .NET desde el caché de las herramientas en cada ejecutor y agrega los binarios necesarios a `PATH`. Estos cambios persistirán para el recordatorio del job.
 
-La acción `setup-dotnet` es la forma recomendada de utilizar .NET con las {% data variables.product.prodname_actions %}, porque garantiza el comportamiento consistente a través de diversos ejecutores y diversas versiones de .NET. Si estás utilizando un ejecutor auto-hospedado, debes instalar .NET y agregarlo a `PATH`. Para obtener más información, consulta la acción [`setup-dotnet`](https://github.com/marketplace/actions/setup-dotnet).
+La acción `setup-dotnet` es la forma recomendada de utilizar .NET con las {% data variables.product.prodname_actions %}, porque garantiza el comportamiento consistente a través de diversos ejecutores y diversas versiones de .NET. Si estás utilizando un ejecutor auto-hospedado, debes instalar .NET y agregarlo a `PATH`. Para obtener más información, consulta la acción [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk).
 
 #### Utilizar versiones múltiples de .NET
 

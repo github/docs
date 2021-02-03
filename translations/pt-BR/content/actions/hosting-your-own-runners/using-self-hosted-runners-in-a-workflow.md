@@ -64,8 +64,11 @@ Estas etiquetas operam cumulativamente. Portanto, as etiquetas de um executor au
 
 ### Precedência de encaminhamento para executores auto-hospedados
 
-Se você usar executores no nível do repositório e da organização, {% data variables.product.prodname_dotcom %} seguirá uma ordem de precedência ao encaminhar trabalhos para os executores auto-hospedados:
+Ao encaminhar um trabalho para um executor auto-hospedado, {% data variables.product.prodname_dotcom %} procura um executor que corresponde às etiquetas `runs-on` do trabalho:
 
-1. As etiquetas `runs-on` do trabalho são processadas. {% data variables.product.prodname_dotcom %}, em seguida, tenta localizar um executor que corresponda aos requisitos da etiqueta:
-2. O trabalho é enviado para um executor do nível de repositório que corresponde à etiqueta do trabalho. Se nenhum executor no nível do repositório estiver disponível (ocupado, off-line ou sem etiquetas correspondentes):
-3. O trabalho será enviado para um executor do nível da organização que corresponde às etiquetas do trabalho. Se nenhum executor de nível de organização estiver disponível, ocorrerá uma falha na solicitação do trabalho em razão de erro.
+1. {% data variables.product.prodname_dotcom %} primeiro procura um executor no nível do repositório, depois no nível da organização{% if currentVersion ver_gt "enterprise-server@2.21" %} e, por fim, no nível empresarial{% endif %}.
+2. Em seguida, o trabalho é enviado para o primeiro executor correspondente que está on-line e inativo.
+   - Se todos os executores on-line estiverem ocupados, o trabalho será agendado no nível com o maior número de executores on-line.
+   - Se todos os runners correspondentes estiverem off-line, a tarefa será listada no nível com o maior número de executores off-line correspondentes.
+   - Se não houver executores correspondentes em qualquer nível, o trabalho falhará.
+   - Se o trabalho permanecer na fila por mais de 24 horas, o trabalho falhará.

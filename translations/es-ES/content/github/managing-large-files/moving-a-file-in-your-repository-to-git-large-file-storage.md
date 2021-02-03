@@ -22,7 +22,7 @@ Después de instalar {% data variables.large_files.product_name_short %} y confi
 1.  Elimina el archivo del historial del repositorio de Git utilizando el comando `filter-branch` o BFG Repo-Cleaner. Para obtener información detallada sobre sus usos, consulta "[Eliminar datos confidenciales de un repositorio](/articles/removing-sensitive-data-from-a-repository)".
 2. Configura el rastreo para tu archivo y súbelo a {% data variables.large_files.product_name_short %}. Para obtener más información sobre este procedimiento, consulta "[Configurar {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)."
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
 - "[Colaborar con {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"

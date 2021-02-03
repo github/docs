@@ -48,18 +48,21 @@ To protect your customers, we recommend that you also follow security best pract
 
 ### Requirements for paid apps
 
-In addition to the requirements for all apps above, each app that you offer as a paid service on {% data variables.product.prodname_marketplace %} must also meet the following requirements:
+To publish a paid plan for your app on {% data variables.product.prodname_marketplace %}, your app must be owned by an organization that is a verified publisher. For more information about the verification process or transfering ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+
+If your app is already published and you're a verified publisher, then you can publish a new paid plan from the pricing plan editor. For more information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
+
+To publish a paid app (or an app that offers a paid plan), you must also meet the following requirements:
 
 - {% data variables.product.prodname_github_app %}s should have a minimum of 100 installations.
 - {% data variables.product.prodname_oauth_app %}s should have a minimum of 200 users.
 - All paid apps must handle {% data variables.product.prodname_marketplace %} purchase events for new purchases, upgrades, downgrades, cancellations, and free trials. For more information, see "[Billing requirements for paid apps](#billing-requirements-for-paid-apps)" below.
-- Publishing organizations must have a verified domain and must enable two-factor authentication. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)“.
 
-When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the listing.
+When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.
 
 {% note %}
 
-The verification process is open to organizations. {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to do this, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
+**Note:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
 
 {% endnote %}
 

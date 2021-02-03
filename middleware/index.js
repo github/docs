@@ -38,7 +38,6 @@ module.exports = function (app) {
 
   // *** Headers ***
   app.use(require('compression')())
-  app.use(require('./set-fastly-cache-headers'))
   app.use(require('./disable-caching-on-safari'))
 
   // *** Config and context for redirects ***
@@ -62,7 +61,13 @@ module.exports = function (app) {
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
   app.use(instrument('./archived-enterprise-versions-assets')) // Must come before static/assets
-  app.use('/dist', express.static('dist'))
+  app.use('/dist', express.static('dist', {
+    index: false,
+    etag: false,
+    immutable: true,
+    lastModified: false,
+    maxAge: '28 days'
+  }))
   app.use('/assets', express.static('assets'))
   app.use('/public', express.static('data/graphql'))
   app.use('/events', instrument('./events'))
@@ -86,6 +91,9 @@ module.exports = function (app) {
   app.use(instrument('./dev-toc'))
   app.use(instrument('./featured-links'))
   app.use(instrument('./learning-track'))
+
+  // *** Headers for pages only ***
+  app.use(require('./set-fastly-cache-headers'))
 
   // *** Rendering, must go last ***
   app.get('/*', asyncMiddleware(instrument('./render-page')))
