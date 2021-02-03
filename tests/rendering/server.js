@@ -59,16 +59,7 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers', async () => {
-    const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('no-store, must-revalidate')
-    expect(res.headers['surrogate-control']).toBe('max-age=86400, stale-if-error=600, stale-while-revalidate=600')
-    expect(res.headers['surrogate-key']).toBe('all-the-things')
-  })
-
-  test('sets Fastly cache control headers to bypass if enabled', async () => {
-    process.env.TEST_BYPASS_FASTLY = 'true'
-
+  test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
     expect(res.headers['cache-control']).toBe('private, no-store')
     expect(res.headers['surrogate-control']).toBe('private, no-store')
