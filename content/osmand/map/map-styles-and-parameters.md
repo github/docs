@@ -103,7 +103,7 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 |Parameter|Description|   
 |------------|---------------|
 |{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|Showed polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. **Note**: rendering in your device may be no fast.|
-|<div style="width:160px">![Map styles](/assets/images/map/ms-12.png)</div>|
+|<div style="width:320px">![Map styles](/assets/images/map/ms-12.png)</div>|
 |{% data variables.ios-values.rendering_attr_showSurfaces_name %}|Showed type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-13.png)|
 |{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}|Showed smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|
