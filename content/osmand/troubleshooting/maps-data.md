@@ -16,34 +16,15 @@ Unfortunately not. This would require the generation of completely separate cont
 ### Create own maps
 
 # Search
-### Offline search by address does not show all streets
-Check that you have correctly entered the required address in the search - city, street, house, etc.
+### Structured (city -> street -> house) address search doesn't found the house
 
-### Offline search by address does not show the required address 
+I searched in Address Search and there was no home on the street I found. 
+>Tip: check the full-text search without the city, it may be in another city.
 
-#### Problems with districts
-
-**Check if there are any districts in your city**. The address may belong to them. You can check this on the OSM maps by opening the administrative boundaries of the city. All localities within the borders are districts. Districts can be of different types depending on the countries - district, suburb, village, etc.
-
----
-**Example:** 
-You found - Wolności 223 Zabrze
-- Open [OSM maps](https://www.openstreetmap.org/) and write Zabrze in search.
-- Select a search result starting with  **administrative boundary** 
-- You will see a map with the boundaries of the selected city.
----
-You can also use **Nominatim** . Enter the street with the house number without specifying the city. The search results will show the desired address belonging to another city. Enter the found name of the locality in [nominatim](https://nominatim.openstreetmap.org/ui/search.html), and its type will be indicated in the Address Rank line.
-
----
-**Example:** 
-You found - Wolności 223 Zabrze
-- You will see Wolności Maciejów in the search results.
-- Open [nominatim](https://nominatim.openstreetmap.org/ui/search.html) and write Maciejów in search.
-- Select a search result with  **administrative** 
-- You will see 20 (suburb / hamlet) in the Address Rank line.
-
->Be careful when choosing a locality in the search results.
->There may be duplicates or similar cities in other regions and countries.
+- The house isn't drawn on the map or has no number (check in **OpenStreetMap**). Example [here](https://www.openstreetmap.org/#map=19/33.91937/-118.24357).
+- The street name on the house is incorrectly signed in OpenStreetMap. Check the tag **addr: street**. The street name must exactly match the street name tag.
+- The house is drawn on the map, but not found in [Nominatim](https://www.openstreetmap.org/#map=19/33.91937/-118.24357).
+- The house is in Nominatim, so this problem is OsmAnd. You can help solve it by studying in more detail.
 
 # Points of Interest
 
