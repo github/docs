@@ -20,6 +20,7 @@ User could make Altitude correction to make sure the up-to-date data is used.
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} 
 
 ## Current time
+<!--??---->
 - Purpose
 - How to use
 - How to configure
