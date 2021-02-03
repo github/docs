@@ -22,7 +22,7 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
 ### Prerequisites
 
-GitHub will display your profile README on your profile page if all of the following are true.
+GitHub will display your profile README on your profile page if all of the following are true:
 
 - You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
 - The repository is public.
