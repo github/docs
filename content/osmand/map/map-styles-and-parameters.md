@@ -244,7 +244,7 @@ This setting helps to change text size for names on the map:
 |------------|
 |**100%**|
 |![Map styles](/assets/images/map/ms-39.png)|
-|**200**|
+|**200%**|
 |![Map styles](/assets/images/map/ms-40.png)|
 
 ### Map magnifier
@@ -259,7 +259,7 @@ This setting helps to change magnifier of the map. You can choose this settings 
 |------------|
 |**75%**|
 |![Map styles](/assets/images/map/ms-41.png)|
-|**200**|
+|**200%**|
 |![Map styles](/assets/images/map/ms-42.png)|
 
 ### Map Language
