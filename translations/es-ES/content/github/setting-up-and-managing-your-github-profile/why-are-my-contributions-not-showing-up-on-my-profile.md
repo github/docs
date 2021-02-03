@@ -11,9 +11,9 @@ versions:
 
 ### Contribuciones que se cuentan
 
-#### Issues, pull requests and discussions
+#### Propuestas, solicitudes de cambios y debates
 
-Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+Las propuestas, solicitudes de cambios y debates aparecerán en tu gráfica de contribuciones si se abrieron en un repositorio independiente y no en una bifurcación.
 
 #### Confirmaciones
 Las confirmaciones aparecerán en tu gráfico de contribución si cumplen **todas** las condiciones a continuación:
@@ -82,7 +82,7 @@ Las confirmaciones que se hicieron en una bifurcación no contarán para tus con
 - [Abre una solicitud de extracción](/articles/creating-a-pull-request) para que se fusionen tus cambios en el repositorio padre.
 - Para desconectar la bifurcación y convertirla en un repositorio independiente en {% data variables.product.product_name %}, contacta {% data variables.contact.contact_support %}. Si la bifurcación tiene a su vez más bifurcaciones, indica a {% data variables.contact.github_support %} si éstas deberán moverse junto con tu repositorio a una nueva red o permanecer en la actual. Para obtener más información, consulta "[Acerca de las bifurcaciones](/articles/about-forks/)."
 
-### Further reading
+### Leer más
 
 - "[Divulgar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
 - "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"

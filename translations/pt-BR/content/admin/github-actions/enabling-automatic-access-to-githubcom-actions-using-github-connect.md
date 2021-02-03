@@ -13,7 +13,7 @@ versions:
 
 Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} não podem usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-Para tornar todas as ações do {% data variables.product.prodname_dotcom_the_website %} disponíveis na instância empresarial, você pode conectar {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %} usando {% data variables.product.prodname_github_connect %}. Para outras formas de acessar as ações de {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre o uso de ações de {% data variables.product.prodname_dotcom_the_website %} no {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)".
+Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_website %} disponíveis na sua instância corporativa, você pode usar {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.prodname_ghe_server %} a {% data variables.product.prodname_ghe_cloud %}. Para conhecer outras formas de acessar ações a partir de {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre ações em {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server).
 
 ### Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
@@ -23,3 +23,4 @@ Antes de permitir o acesso a todas as ações de {% data variables.product.prodn
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Em "Servidor pode usar ações do GitHub.com em execuções de fluxos de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
+1. {% data reusables.actions.enterprise-limit-actions-use %}

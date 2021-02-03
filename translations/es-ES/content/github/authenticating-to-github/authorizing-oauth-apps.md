@@ -78,7 +78,7 @@ Cuando autorizas una {% data variables.product.prodname_oauth_app %} para tu cue
 
 Si perteneces a cualquier organizacion que imponga el inicio de sesión único de SAML, debes tener una sesión activa de SAML para cada organización cada vez que autorices un {% data variables.product.prodname_oauth_app %}.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las restricciones de acceso a {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"
 - "[Soporte técnico de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)"

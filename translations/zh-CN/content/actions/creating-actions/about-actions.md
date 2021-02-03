@@ -11,6 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
+topics:
+  - '操作开发'
+  - '基础'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -124,7 +127,7 @@ steps:
 
 #### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 使用提交的完整 SHA 值而不是缩写值可以帮助防止人们使用缩写相同的恶意提交。
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}您必须使用提交的完整 SHA 值，而不是缩写值。{% else %}使用提交的完整 SHA 值而不使用缩写值有助于防止他人使用相同缩写值进行恶意提交。{% endif %}
 
 ```yaml
 steps:

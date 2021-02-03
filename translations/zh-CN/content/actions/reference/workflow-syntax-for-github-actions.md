@@ -27,7 +27,7 @@ versions:
 
 ### `on`
 
-**必要** 触发工作流程的 {% data variables.product.prodname_dotcom %} 事件的名称。 您可以提供单一事件 `string`、事件的 `array`、事件 `types` 的 `array` 或事件配置 `map`，以安排工作流程的运行，或将工作流程的执行限于特定文件、标记或分支更改。 有关可用事件的列表，请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows)”。
+**必填**。 The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. 您可以提供单一事件 `string`、事件的 `array`、事件 `types` 的 `array` 或事件配置 `map`，以安排工作流程的运行，或将工作流程的执行限于特定文件、标记或分支更改。 有关可用事件的列表，请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows)”。
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -286,7 +286,7 @@ jobs:
 
 ### `jobs.<job_id>.runs-on`
 
-**必需**运行作业的机器类型。 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
+**必填**。 The type of machine to run the job on. 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -299,6 +299,7 @@ jobs:
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### 示例
 
@@ -518,7 +519,7 @@ steps:
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -700,12 +701,24 @@ steps:
 
 您可以使用 `command […options] {0} [..more_options]` 将 `shell` 值设置为模板字符串。 {% data variables.product.prodname_dotcom %} 将字符串的第一个用空格分隔的词解释为命令，并在 `{0}` 处插入临时脚本的文件名。
 
+例如：
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### 退出代码和错误操作首选项
 
 至于内置的 shell 关键词，我们提供由 {% data variables.product.prodname_dotcom %} 托管运行程序执行的以下默认值。 在运行 shell 脚本时，您应该使用这些指南。
 
 - `bash`/`sh`：
-  - 使用 `set -e o pipefail` 的快速失败行为：`bash` 和内置 `shell` 的默认值。 它还是未在非 Windows 平台上提供选项时的默认值。
+  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. 它还是未在非 Windows 平台上提供选项时的默认值。
   - 您可以向 shell 选项提供模板字符串，以退出快速失败并接管全面控制权。 例如 `bash {0}`。
   - sh 类 shell 使用脚本中最后执行的命令的退出代码退出，也是操作的默认行为。 运行程序将根据此退出代码将步骤的状态报告为失败/成功。
 
@@ -1177,16 +1190,16 @@ volumes:
 
 #### 匹配分支和标记的模式
 
-| 模式                                                     | 描述                                                                   | 示例匹配                                                                                                                  |
-| ------------------------------------------------------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `功能/*`                                                 | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
-| `功能/**`                                                | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
-| `main`<br/><br/>`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
-| `'*'`                                                  | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `main`<br/><br/>`releases`                                                                                |
-| `'**'`                                                 | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | `all/the/branches`<br/><br/>`every/tag`                                                                   |
-| `'*功能'`                                                | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
-| `v2*`                                                  | 匹配以 `v2` 开头的分支和标记名称。                                                 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                  | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| 模式                                                     | 描述                                                                          | 示例匹配                                                                                                                  |
+| ------------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `功能/*`                                                 | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                                 | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `功能/**`                                                | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                         | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                             | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                  | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。        | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                 | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                          | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*功能'`                                                | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                                  | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                  | 匹配以 `v2` 开头的分支和标记名称。                                                        | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                  | Matches all semantic versioning branches and tags with major version 1 or 2 | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### 匹配文件路径的模式
 

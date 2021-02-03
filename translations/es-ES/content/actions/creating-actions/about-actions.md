@@ -10,7 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -124,7 +127,7 @@ steps:
 
 #### Utilizar el SHA de las confirmaciones para la administración de lanzamientos
 
-Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. Utilizar el valor completo de SHA de una confirmación en vez de su valor abreviado puede ayudar a prevenir que las personas utilicen una confirmación malintencionada que utilice la misma abreviación.
+Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Debes utilizar el valor completo del SHA de la confirmación y no el abreviado.{% else %}El utilizar el valor completo del SHA de la confirmación en vez del abreviado ayuda a prevenir que las personas utilicen una confirmación mal intencionada que utiice la misma abreviación.{% endif %}
 
 ```yaml
 steps:
@@ -163,6 +166,6 @@ Mientras que tanto las {% data variables.product.prodname_actions %} como las {%
 * No necesitan que implementas un código o que sirvas una aplicación.
 * Tienen una interfaz simple para crear y usar secretos, que permite que las acciones interactúen con servicios de terceros sin la necesidad de almacenar las credenciales de la persona que utiliza la acción.
 
-### Further reading
+### Leer más
 
 - "[Herramientas de desarrollo para {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"

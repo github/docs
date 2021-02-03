@@ -54,7 +54,7 @@ Los gerentes de facturación solo tienen acceso a la configuración de facturaci
 
 Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu empresa y no pueden agregar o eliminar propietarios de la misma. Los gerentes de facturación deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las cuentas de empresa](/articles/about-enterprise-accounts)"
 

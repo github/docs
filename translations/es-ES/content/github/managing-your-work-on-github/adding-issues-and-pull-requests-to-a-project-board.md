@@ -58,7 +58,7 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 4. Selecciona uno o más tableros de proyecto en donde quieras agregar la propuesta o solicitud de cambios. ![Tablero de proyecto seleccionado](/assets/images/help/projects/sidebar-select-project.png)
 5. Haz clic en {% octicon "triangle-down" aria-label="The down triangle icon" %}, luego haz clic en la columna en la que quieras colocar tu propuesta o solicitud de extracción. La tarjeta se moverá al final de la columna del tablero de proyecto que selecciones. ![Menú Move card to column (Mover tarjeta a la columna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Editar un tablero de proyecto](/articles/editing-a-project-board)"

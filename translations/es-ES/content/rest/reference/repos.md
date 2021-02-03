@@ -1,6 +1,6 @@
 ---
 title: Repositorios
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
