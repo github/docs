@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Flujos de trabajo'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -79,7 +81,7 @@ En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto Node
 
 El flujo de trabajo carga los artefactos de producción en el directorio `dist`, pero excluye cualquier archivo de markdown. También carga el reporte `code-coverage.html` como otro artefacto.
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -114,7 +116,7 @@ jobs:
 
 Puedes definir un periodo de retención personalizado para los artefactos indivudales que crea un flujo de trabajo. Cuando utilices un flujo de trabajo para crear un artefacto nuevo, puedes utilizar `retention-days` con la acción `upload-artifact`. Este ejemplo ilustra cómo configurar un periodo de retención personalizado de 5 días para el artefacto que se llama `my-artifact`:
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -183,7 +185,7 @@ El job 3 muestra el resultado cargado en el trabajo anterior:
 
 La operación matemática completa realizada en este ejemplo de flujo de trabajo es `(3 + 7) x 9 = 90`.
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
@@ -246,7 +248,7 @@ La ejecución de flujo de trabajo archivará cualquier artefacto que haya genera
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+### Leer más
 
 - "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 

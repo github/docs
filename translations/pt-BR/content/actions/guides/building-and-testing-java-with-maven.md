@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Para começar rapidamente, você pode escolher o modelo do Maven pré-configurad
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ O fluxo de trabalho inicial executará o `pacote`-alvo por padrão. Na configura
 Se você usa comandos diferentes para criar seu projeto ou se desejar usar um alvo diferente, você poderá especificá-los. Por exemplo, você pode desejar executar o alvo de `verificar`, configurado em um arquivo _pom-ci.xml_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -122,7 +126,7 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 De modo geral, o Maven criará arquivos de saída como JARs, EARs ou WARs no diretório `alvo`. Para fazer o upload como artefatos, você pode copiá-los em um novo diretório que contém artefatos a serem subidos. Por exemplo, você pode criar um diretório denominado `treinamento`. Em seguida, você pode fazer o upload do conteúdo desse diretório usando a ação `upload-artifact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

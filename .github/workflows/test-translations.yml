@@ -17,6 +17,9 @@ jobs:
         with:
           ref: translations # check out the 'translations' branch
 
+      - name: Check out tip of main
+        run: git fetch --depth=1 origin main
+
       - name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
@@ -40,6 +43,9 @@ jobs:
 
       - name: Run linter
         run: npx eslint .
+
+      - name: Lint translated content
+        run: npm run lint-translation
 
       - name: Check dependencies
         run: npm run check-deps

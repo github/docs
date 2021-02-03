@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### 基本要求
 
 必须安装 Jekyll 和 Git 后才可使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点。 更多信息请参阅 Jekyll 文档中的[安装](https://jekyllrb.com/docs/installation/)和“[设置 Git](/articles/set-up-git)”。
@@ -95,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Packages for your enterprise
-intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
+title: Primeiros passos com o GitHub Packages para a sua empresa
+intro: 'Você pode começar a usar {% data variables.product.prodname_registry %} em {% data variables.product.product_location %} habilitando o recurso, configurando armazenamento de terceiros, configurando os ecossistemas que você deseja que sejam compatíveis e atualizando seu certificado TLS.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**Note:** After you've been invited to join the beta, follow the instructions from your account representative to enable {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}.
+**Observação:** Depois de ser convidado a participar da versão beta, siga as instruções do representante de sua conta para habilitar {% data variables.product.prodname_registry %} para {% data variables.product.product_location %}.
 
 {% endnote %}
 
@@ -22,28 +22,28 @@ versions:
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-### Step 1: Enable {% data variables.product.prodname_registry %} and configure external storage
+### Etapa 1: Habilite {% data variables.product.prodname_registry %} e configure o armazenamento externo
 
 {% data variables.product.prodname_registry %} em {% data variables.product.prodname_ghe_server %} usa armazenamento externo de blob para armazenar seus pacotes.
 
-After enabling {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
+Depois de habilitar {% data variables.product.prodname_registry %} para {% data variables.product.product_location %}, você deverá preparar seu bucket de armazenamento de terceiros. A quantidade de armazenamento necessária depende do seu uso de {% data variables.product.prodname_registry %}, e as diretrizes de configuração podem variar de acordo com o provedor de armazenamento.
 
-Supported external storage providers
+Provedores de armazenamento externos compatíveis
 - Amazon Web Services (AWS) S3 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
-To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
+Para habilitar {% data variables.product.prodname_registry %} e configurar o armazenamento de terceiros, consulte:
+  - "[Habilitar o GitHub Packages com AWS](/admin/packages/enabling-github-packages-with-aws)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+  - "[Habilitar o GitHub Packages com o Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+  - "[Habilitar o GitHub Packages com o MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
-### Step 2: Specify the package ecosystems to support on your instance
+### Etapa 2: Especifique os ecossistemas de pacote que serão compatíveis com a sua instância
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on your {% data variables.product.product_location %}. Available options are Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
+Escolha quais ecossistemas de pacote você gostaria de habilitar, desabilitar ou definir como somente leitura no seu {% data variables.product.product_location %}. As opções disponíveis são Docker, RubyGems, npm, Apache Maven, Gradle ou NuGet.  Para obter mais informações, consulte "[Configurar a compatibilidade com o ecossistema de pacote para a sua empresa](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)".
 
-### Step 3: Ensure you have a TLS certificate for your package host URL, if needed
+### Etapa 3: Certifique-se de ter um certificado TLS para a URL do seu pacote de hospedagem, se necessário
 
-If subdomain isolation is enabled for {% data variables.product.product_location %}{% if currentVersion == "enterprise-server@2.22" %}, which is required to use {% data variables.product.prodname_registry %} with Docker{% endif %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Certifique-se de que o host de cada pacote contém `https://`.
+Se o isolamento do subdomínio for habilitado para {% data variables.product.product_location %}{% if currentVersion == "enterprise-server@2.22" %}, que é necessário para usar {% data variables.product.prodname_registry %} com o Docker{% endif %}, você precisará criar e fazer o upload de um certificado TLS que permite a URL de host do pacote para cada ecossistema que você deseja usar como, por exemplo, `npm.HOSTNAME`. Certifique-se de que o host de cada pacote contém `https://`.
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. Para obter mais informações sobre as URLs de host do pacote, consulte "[Habilitar o isolamento de subdomínio](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obter mais informações sobre o upload de certificados TLS para {% data variables.product.product_name %}, consulte "[Configurar TLS](/enterprise/admin/configuration/configuring-tls)".
+  Você pode criar o certificado manualmente ou pode usar _Let's Encrypt_. Se você já usa _Let's Encrypt_, você deverá solicitar um novo certificado TLS depois de habilitar {% data variables.product.prodname_registry %}. Para obter mais informações sobre as URLs de host do pacote, consulte "[Habilitar o isolamento de subdomínio](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obter mais informações sobre o upload de certificados TLS para {% data variables.product.product_name %}, consulte "[Configurar TLS](/enterprise/admin/configuration/configuring-tls)".

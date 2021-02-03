@@ -30,7 +30,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### Further reading
+### Leer más
 
 - "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/)"
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests/)"

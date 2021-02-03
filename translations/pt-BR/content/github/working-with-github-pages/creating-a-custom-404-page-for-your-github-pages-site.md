@@ -16,7 +16,7 @@ versions:
 {% data reusables.files.add-file %}
 3. No campo de nome de arquivo, digite `404.html` ou `404.md`. ![Campo de nome de arquivo](/assets/images/help/pages/404-file-name.png)
 4. Se você nomeou seu arquivo como `404.md`, adicione a seguinte página inicial YAML no começo do arquivo:
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---
