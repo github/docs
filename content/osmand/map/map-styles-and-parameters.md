@@ -240,6 +240,7 @@ This setting helps to change text size for names on the map:
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.map_settings_text_size %}
 
+|------------|
 |**100%**|
 |![Map styles](/assets/images/map/ms-39.png)|
 |**200**|
@@ -253,6 +254,7 @@ This setting helps to change magnifier of the map. You can choose this settings 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.map_settings_map_magnifier %}
 
+|------------|
 |**75%**|
 |![Map styles](/assets/images/map/ms-41.png)|
 |**200**|
@@ -266,6 +268,7 @@ This setting allows using of any language for names on the map. If names don't h
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.sett_lang %}
 
+|------------|
 |**Local names**|
 |![Map styles](/assets/images/map/ms-43.png)|
 |**Russian**|
