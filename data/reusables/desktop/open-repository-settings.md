@@ -1,4 +1,4 @@
-1. If you want to change how a fork behaves with the upstream repository, open the **Repository** menu, then click **Repository settings...**.
+1. Open the **Repository** menu, then click **Repository settings...**.
 
   {% mac %}
 

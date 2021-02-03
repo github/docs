@@ -1,5 +1,4 @@
-1. Click **Fork behavior**. 
-2. If you want the fork to make pull requests to the original upstream repository, select **To contribute to the parent repository**.
+1. Click **Fork behavior**, then select how you want to use the fork.
 
   {% mac %}
 
@@ -13,21 +12,7 @@
 
   {% endwindows %}
 
-3. If you want to keep changes to the fork separate from the upstream repository, select **For my own purposes**.
-
-  {% mac %}
-
-  ![The own purposes option in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu-own.png)
-
-  {% endmac %}
-
-  {% windows %}
-
-  ![The own purposes option in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu-own.png)
-
-  {% endwindows %}
-
-4. Click **Save**.
+2. Click **Save**.
 
   {% mac %}
 
