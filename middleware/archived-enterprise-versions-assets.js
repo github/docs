@@ -30,8 +30,8 @@ module.exports = async (req, res, next) => {
     res.set('x-robots-tag', 'noindex')
     // Allow the browser and Fastly to cache these
     res.set('cache-control', `public, max-age=${ONE_DAY}`)
-    res.send(r.body)
+    return res.send(r.body)
   } catch (err) {
-    next()
+    return next()
   }
 }
