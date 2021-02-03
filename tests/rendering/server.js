@@ -66,7 +66,7 @@ describe('server', () => {
     const res = await get('/en')
     expect(res.headers['cache-control']).toBe('private, no-store')
     expect(res.headers['surrogate-control']).toBe('private, no-store')
-    expect(res.headers).not.toHaveProperty('surrogate-key')
+    expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {
