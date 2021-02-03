@@ -5,6 +5,7 @@ const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -45,12 +46,14 @@ describe('server', () => {
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
     expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
     expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
+    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
