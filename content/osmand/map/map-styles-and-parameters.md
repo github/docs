@@ -139,7 +139,9 @@ Sometimes when we use the application during your trip or riding, you don't use 
 ### Transport
 
 In navigation in cities, you need to see public transport in more contrast and stops. Of course, this setting shows train routes too.
+
 You can click to public transport stop and choose one of public tranport route. You see all route with named stops.
+
 In OsmAnd  we can choose special rendering for these needed:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.shared_string_show %} → {% data variables.android-values.icon_group_transport %} 
