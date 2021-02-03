@@ -89,9 +89,27 @@ Winter and ski style is designed to help you navigate on winter sports locations
 Map legend is a visual explanation of the symbols used on the map. It typically includes a sample of each symbol (point, line, or area), and a short description of what the symbol means. For example, a short segment of a blue sinuous line may be labeled 'rivers'.
 Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map-legend/).
 
-## How to change parameters for Map style (Map rendering)
+## Parameters of Map rendering
 
-In OsmAnd application you can customize map rendering. It's mean, that you can show or hide details and routes on the map, change map mode, map language, choose text size and map magnifier. All this settings help you to make your map more useful during your trips. The general settings is choosing of [Map style](/osmand/map/map-styles-and-parameters#default-map-styles), which we discrebed above in this article:
+### {% data variables.android-values.map_mode %} 
+
+During day and night you need to use mode for night and day. [Map styles](/osmand/map/map-styles-and-parameters#default-map-styles) have night and day style. In this menu you find time of sunrise and sunset.
+
+In order to change {% data variables.android-values.daynight%}:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.map_mode %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% map_settings_mode %}
+
+Here you can choose:
+
+|Parameter          |Description        
+|:------------|:---------------|
+|{% data variables.android-values.daynight_mode_auto %}|{% data variables.android-values.aynight_descr %}|
+|{% data variables.android-values.daynight_mode_day %}|Swich on day mode only.|
+|{% data variables.android-values.daynight_mode_night %}|Swich on night mode only.|
+|{% data variables.android-values.daynight_mode_sensor %}|Using light sensor for day/night mode.|
+
 
 ### Details
 In **{% data variables.android-values.rendering_category_details %} menu** you can show or hide next additional map details:
@@ -199,7 +217,10 @@ In order to hide some objects on the map you can choose them in this menu:
 |{% data variables.android-values.rendering_attr_hideIcons_name %}|Hide POI icons from the map. But labels of these POI will be on the map. |
 |{% data variables.android-values.rendering_attr_hidePOILabels_name %}|Hide POI labels from the map. But icons of these POI will be on the map.  |
 |{% data variables.android-values.rendering_attr_hideUnderground_name %}| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
-|{% data variables.android-values.rendering_attr_hideOverground_name %}|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.  |
+|{% data variables.android-values.rendering_attr_hideOverground_name %}|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.|
+
+
+
 
 
 
