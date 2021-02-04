@@ -1,9 +1,9 @@
 ---
 title: About webhooks
 intro: Learn the basics of how webhooks work to help you build and set up integrations.
-redirect_from:
+redirect_from: http:amp.config/iso-certification
   - /webhooks
-versions:
+versions: 6.0.15.3
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
