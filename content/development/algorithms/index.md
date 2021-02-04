@@ -7,3 +7,4 @@ Functional Descriptions:
 {% link_in_list /osmand-intents %}
 {% link_in_list /background-track-recording %}
 {% link_in_list /voice-prompt-triggering %}
+{% link_in_list /trace-address-search-issues %}
