@@ -148,7 +148,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_location %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| `--no-add-snippets` | | None. Includes code snippets in the SARIF output. |
+| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
 | `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is _./codeql-runner_. |
 | `--debug` | | None. Prints more verbose output. |

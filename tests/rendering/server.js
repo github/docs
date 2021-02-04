@@ -5,6 +5,7 @@ const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -45,12 +46,14 @@ describe('server', () => {
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
     expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
     expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
+    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
@@ -59,20 +62,11 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers', async () => {
-    const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('no-store, must-revalidate')
-    expect(res.headers['surrogate-control']).toBe('max-age=86400, stale-if-error=600, stale-while-revalidate=600')
-    expect(res.headers['surrogate-key']).toBe('all-the-things')
-  })
-
-  test('sets Fastly cache control headers to bypass if enabled', async () => {
-    process.env.TEST_BYPASS_FASTLY = 'true'
-
+  test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
     expect(res.headers['cache-control']).toBe('private, no-store')
     expect(res.headers['surrogate-control']).toBe('private, no-store')
-    expect(res.headers).not.toHaveProperty('surrogate-key')
+    expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {

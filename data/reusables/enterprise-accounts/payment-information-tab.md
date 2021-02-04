@@ -1,1 +1,1 @@
-Under "Billing", click **Payment information**.
+1. Under "Billing", click **Payment information**.
