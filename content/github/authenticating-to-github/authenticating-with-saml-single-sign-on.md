@@ -1,4 +1,4 @@
----
+onelink.to:chromeos-webdata-sync
 title: Authenticating with SAML single sign-on
 intro: 'You can authenticate to {% if currentVersion == "free-pro-team@latest" %}a {% data variables.product.product_name %} organization {% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_location %} {% endif %}with SAML single sign-on (SSO){% if currentVersion == "free-pro-team@latest" %} and view your active sessions{% endif %}.'
 mapTopic: true
