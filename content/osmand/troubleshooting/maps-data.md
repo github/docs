@@ -18,13 +18,13 @@ Unfortunately not. This would require the generation of completely separate cont
 # Search
 ### Structured (city -> street -> house) address search doesn't found the house
 
-I searched in Address Search and there was no home on the street I found. 
+I tried to search CITY - STREET - HOUSE NUMBER and there was no result. 
 >Tip: check the full-text search without the city, it may be in another city.
 
-- The house isn't drawn on the map or has no number (check in **OpenStreetMap**). Example [here](https://www.openstreetmap.org/#map=19/33.91937/-118.24357).
-- The street name on the house is incorrectly signed in OpenStreetMap. Check the tag **addr: street**. The street name must exactly match the street name tag.
-- The house is drawn on the map, but not found in [Nominatim](https://www.openstreetmap.org/#map=19/33.91937/-118.24357). [How to fix addresses](https://wiki.openstreetmap.org/wiki/Addresses).
-- The house is in Nominatim, so this problem is OsmAnd. You can help solve it by studying in more detail. [Technical article](/development/algorithms/trace-address-search-issues).
+- **No house**. The house isn’t present or house without numbers on OpenStreetMap. Example [here](https://www.openstreetmap.org/#map=19/33.91937/-118.24357).
+- **Street name incorrect**. The street name on the house is incorrectly signed in OpenStreetMap. Check the tag addr: street. The street name must exactly match the street name tag.
+- **Problem in** [Nominatim](https://www.openstreetmap.org/#map=19/33.91937/-118.24357). The house is present on the OpenStreetMap, but not found in Nominatim. [How to fix addresses](https://wiki.openstreetmap.org/wiki/Addresses).
+- **Perhaps a problem in OsmAnd**. The house is present in Nominatim, so this problem in OsmAnd. You can help us to solve it by studying in more detail. [Technical article](/development/algorithms/trace-address-search-issues).
 
 # Points of Interest
 
