@@ -14,7 +14,7 @@ versions:
 
 実行が完了している場合には、結果が成功か失敗か、キャンセルされたか、またはニュートラルかを確認できます。 実行が失敗した場合には、ビルドログを表示して検索し、失敗の原因を診断してワークフローを再実行することもできます。 また、課金対象のジョブ実行時間を表示したり、ログやビルドの成果物をダウンロードすることもできます。
 
-{% data variables.product.prodname_actions %}は、Checks APIを使用してワークフローのステータス、結果、ログを出力します。 {% data variables.product.prodname_dotcom %} は、ワークフローの実行に対してそれぞれ新しいチェックスイートを作成します。 チェックスイートには、ワークフロー内の各ジョブに対するチェック実行が含まれ、各ジョブにはステップが含まれています。 {% data variables.product.prodname_actions %}は、ワークフローのステップとして実行されます。 For more information about the Checks API, see "[Checks](/rest/reference/checks)."
+{% data variables.product.prodname_actions %}は、Checks APIを使用してワークフローのステータス、結果、ログを出力します。 {% data variables.product.prodname_dotcom %} は、ワークフローの実行に対してそれぞれ新しいチェックスイートを作成します。 チェックスイートには、ワークフロー内の各ジョブに対するチェック実行が含まれ、各ジョブにはステップが含まれています。 {% data variables.product.prodname_actions %}は、ワークフローのステップとして実行されます。 Checks APIに関する詳しい情報については「[チェック](/rest/reference/checks)」を参照してください。
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
@@ -66,7 +66,7 @@ versions:
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 1. 右上隅にある
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %}をクリックし、**Download log archive（ログアーカイブをダウンロード）**を選択してください。
   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
   ![[Download logs] ドロップダウンメニュー](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
@@ -88,19 +88,18 @@ versions:
 {% data reusables.repositories.view-run-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 1. 右上隅にある
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
- ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックしてください。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。
   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  ![すべてのログを削除](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
+  ![すべてのログを削除](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
-After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+ログを削除すると、**Delete all logs（すべてのログを削除）**ボタンは消え、ワークフローの実行にログファイルが残っていないことを示します。
 {% else %}
 1. 右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)ログが削除されると、[**Delete all logs**] ボタンが削除され、ワークフローの実行にログファイルが残っていないことを示します。

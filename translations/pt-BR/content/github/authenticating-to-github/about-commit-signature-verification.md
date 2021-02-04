@@ -19,11 +19,13 @@ Você pode assinar commits e tags localmente para que outras pessoas possam veri
 
 Se um commit ou uma tag tiver uma assinatura que não possa ser verificada, o {% data variables.product.product_name %} marcará o commit ou a tag como não verificado(a).
 
-Os administradores do repositório podem impor a assinatura de commit obrigatória em um branch para bloquear todos os commits que não estejam assinados e verificados. Para obter mais informações, consulte "[Sobre a assinatura de commit obrigatória](/articles/about-required-commit-signing)".
+Os administradores do repositório podem impor a assinatura de commit obrigatória em um branch para bloquear todos os commits que não estejam assinados e verificados. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
 
 Você pode conferir o status de verificação de seus commits ou tags assinados no {% data variables.product.product_name %} e ver por que as assinaturas de commit podem não ter sido verificadas. Para obter mais informações, consulte "[Conferir o status de verificação da assinatura de commit ou tag](/articles/checking-your-commit-and-tag-signature-verification-status)".
 
-{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} usará automaticamente o GPG para assinar commits que você criar usando a interface web do {% data variables.product.product_name %}, exceto quando você faz combinação por squash e merge de um pull request do qual você não é o autor. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+{% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você fizer usando a interface web do {% data variables.product.product_name %} exceto quando você faz combinação por squash e mescla um pull request do qual você não é o autor. Opcionalmente, você pode escolher que {% data variables.product.product_name %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. Para obter mais informações sobre como habilitar a verificação de GPG para os seus códigos, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
+{% endif %}
 
 ### Verificação da assinatura de commit GPG
 

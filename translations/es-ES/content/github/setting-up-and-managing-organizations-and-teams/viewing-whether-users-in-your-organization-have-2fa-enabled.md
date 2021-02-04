@@ -21,6 +21,6 @@ versions:
 5. Para ver los colaboradores externos en tu organización, dentro de la pestaña "People" (Personas), haz clic en **Outside collaborators (Colaboradores externos)**. ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)
 6. Para ver qué colaboradores externos han habilitado o inhabilitado la autenticación de dos factores, a la derecha, haz clic en **2FA** y selecciona **Enabled** (Habilitado) o **Disabled** (Inhabilitado). ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
-### Further reading
+### Leer más
 
 - "[Ver los roles de las personas en un organización](/articles/viewing-people-s-roles-in-an-organization)"

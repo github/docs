@@ -33,7 +33,9 @@ versions:
 
 要使用许可的 {% data variables.product.prodname_enterprise %} 部分，订阅者在 {% data variables.product.prodname_dotcom_the_website %} 上的用户帐户必须是或成为 {% data variables.product.prodname_dotcom_the_website %} 上的企业所拥有组织的成员。
 
-组织所有者可以通过电子邮件地址邀请新成员加入组织。 组织所有者邀请的电子邮件地址必须匹配 {% data variables.product.prodname_vs %} 订阅者的用户主名 (UPN)，它应该是一个电子邮件地址。 订阅者可以使用 {% data variables.product.prodname_dotcom_the_website %} 上的现有用户帐户或创建一个新帐户来接受邀请。
+组织所有者可以通过电子邮件地址邀请新成员加入组织。 订阅者可以使用 {% data variables.product.prodname_dotcom_the_website %} 上的现有用户帐户或创建一个新帐户来接受邀请。
+
+虽然不是必需的，但我们建议组织所有者将邀请发送到 {% data variables.product.prodname_vs %} 订阅者的用户主名 (UPN) 使用的同一电子邮件地址。 当 {% data variables.product.product_name %} 上的电子邮件地址与订阅者的 UPN 匹配时，您可以确保组织的其他成员不会索要该订阅者的许可证。
 
 更多信息请参阅“[邀请用户加入组织](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)”、“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”和“[管理电子邮件首选项](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)”。
 

@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'quick_start'
+topics:
+  - '基础'
 ---
 
 {% data reusables.actions.enterprise-beta %}

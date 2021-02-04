@@ -1,1 +1,1 @@
-To make a person an enterprise owner, you must delegate ownership permission in your IdP. Include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
+要使某人成为企业所有者，您必须在 IdP 中委派所有权权限。 在 IdP 用户帐户的 SAML 声明中包含 `administrator` 属性，其值为 `true`。 有关企业所有者的更多信息，请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)”。

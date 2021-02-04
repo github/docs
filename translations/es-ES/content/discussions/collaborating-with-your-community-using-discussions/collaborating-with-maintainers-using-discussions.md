@@ -42,7 +42,7 @@ Puedes buscar debates y filtrar la lista de éstos en un repositorio. Para obten
 
 {% data reusables.discussions.you-can-convert-an-issue %} Para obtener más información, consulta la sección "[Moderar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"

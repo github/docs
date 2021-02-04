@@ -28,8 +28,8 @@ Todos los datos de transferencia saliente, cuando se desencadenan mediante {% da
 
 |                                               | Hospedado | Auto-Hospedado |
 | --------------------------------------------- | --------- | -------------- |
-| Acceso utilizando un `GITHUB_TOKEN`           | Free      | Free           |
-| Acceso utilizando un token de acceso personal | Free      | $              |
+| Acceso utilizando un `GITHUB_TOKEN`           | Gratis    | Gratis         |
+| Acceso utilizando un token de acceso personal | Gratis    | $              |
 
 El uso de almacenamiento se comparte con los artefactos de compilación que produce {% data variables.product.prodname_actions %} para los repositorios que pertenecen a tu cuenta. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)".
 

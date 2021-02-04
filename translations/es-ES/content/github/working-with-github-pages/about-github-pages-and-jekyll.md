@@ -38,7 +38,7 @@ Puedes configurar la mayoría de los parámetros de Jekyll, como los temas y los
 
 Algunos parámetros de configuración no pueden cambiarse para los sitios {% data variables.product.prodname_pages %} sites.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ Por defecto, los bloques de código en su sitio serán resaltados por Jekyll. Je
 
 Si quieres usar otro resaltador, como `highlight.js`, debes desactivar el resaltador de sintaxis de Jekyll actualizando el archivo de tu proyecto *_config.yml*.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

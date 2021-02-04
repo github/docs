@@ -1,17 +1,16 @@
----
-date: '21-07-2020'
+date: '2020-07-21'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/21437, https://github.com/github/enterprise2/pull/21402, https://github.com/github/enterprise2/pull/21495, https://github.com/github/enterprise2/pull/21479 {% endcomment %}'
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/21437, https://github.com/github/enterprise2/pull/21402, https://github.com/github/enterprise2/pull/21495, https://github.com/github/enterprise2/pull/21479 {% endcomment %}'
   bugs:
-    - 'The Management Console monitor graphs would sometimes not display correctly on larger screens. {% comment %} https://github.com/github/enterprise2/pull/21397, https://github.com/github/enterprise2/pull/21381 {% endcomment %}'
-    - 'GitHub App Manifest creation flow was unusable in some scenarios when a SameSite Cookie policy was applied. {% comment %} https://github.com/github/github/pull/147826, https://github.com/github/github/pull/144121 {% endcomment %}'
+    - 'Os gráficos do monitor do console de gerenciamento às vezes não seriam exibidos corretamente em telas maiores. {% comment %} https://github.com/github/enterprise2/pull/21397, https://github.com/github/enterprise2/pull/21381 {% endcomment %}'
+    - 'Não era possível usar o fluxo de criação do manifesto do aplicativo GitHub em alguns cenários quando uma política de Cookie do SameSite foi aplicada. {% comment %} https://github.com/github/github/pull/147826, https://github.com/github/github/pull/144121 {% endcomment %}'
   changes:
-    - 'Improvements to HAProxy scaling. {% comment %} https://github.com/github/enterprise2/pull/21383 {% endcomment %}'
+    - 'Melhorias no dimensionamento do HAProxy {% comment %} https://github.com/github/enterprise2/pull/21383 {% endcomment %}'
   known_issues:
     - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
-    - 'Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
     - 'Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
-    - 'Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
-    - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
-    - 'Security alerts are not reported when pushing to a repository on the command line. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer envio por push em um repositório na linha de comando. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'

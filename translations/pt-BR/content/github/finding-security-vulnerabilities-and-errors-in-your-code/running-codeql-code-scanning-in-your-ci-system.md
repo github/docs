@@ -28,7 +28,16 @@ Você pode usar {% data variables.product.prodname_codeql_runner %} para executa
 
 O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha de comando que executa a análise de {% data variables.product.prodname_codeql %} em um checkout de um repositório do {% data variables.product.prodname_dotcom %}. Você adiciona o executor ao seu sistema de terceiros e, em seguida, chama o executor para analisar o código e fazer o upload dos resultados para o {% data variables.product.product_location %}. Estes resultados são exibidos como alertas do {% data variables.product.prodname_code_scanning %} no repositório.
 
-{% data reusables.code-scanning.codeql-runner-license %}
+{% note %}
+
+**Notas:**
+{% if currentVersion == "free-pro-team@latest" %}
+* O {% data variables.product.prodname_codeql_runner %} usa o CLI de {% data variables.product.prodname_codeql %} para analisar o código e, portanto, tem as mesmas condições da licença. É grátis usar em repositórios públicos que são mantidos no {% data variables.product.prodname_dotcom_the_website %}, e disponíveis para uso em repositórios privados que são propriedade de clientes com uma licença do {% data variables.product.prodname_advanced_security %}. Para obter informações, consulte "[{% data variables.product.product_name %} Termos e Condições](https://securitylab.github.com/tools/codeql/license) de do CLI de {% data variables.product.prodname_codeql %} " e "[{% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+{% else %}
+* O {% data variables.product.prodname_codeql_runner %} está disponível para os clientes com uma licença de {% data variables.product.prodname_advanced_security %}.
+{% endif %}
+* O {% data variables.product.prodname_codeql_runner %} não deve ser confundido com o CLI de {% data variables.product.prodname_codeql %}. O CLI de {% data variables.product.prodname_codeql %} é uma interface de linha de comando interativa que permite que você crie bancos de dados de {% data variables.product.prodname_codeql %} para pesquisa de segurança e realize consultas de {% data variables.product.prodname_codeql %}. Para obter mais informações, consulte "[ CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+{% endnote %}
 
 ### Fazer o download do {% data variables.product.prodname_codeql_runner %}
 
@@ -51,7 +60,7 @@ No Windows, o arquivo `codeql-runner-win.exe` normalmente não exige alteração
 
 ### Adicionar {% data variables.product.prodname_codeql_runner %} ao seu sistema de CI
 
-Após concluído o download do {% data variables.product.prodname_codeql_runner %} e verificado que pode ser executado, você deve disponibilizar o executor para cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %}. É importante notar que cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %} deve ter o {% data variables.product.prodname_codeql_runner %}. Você pode configurar cada servidor para copiar o executor a partir de um local central interno ou você pode usar a API REST para obter o executor direto do GitHub, por exemplo:
+Após fazer o download de {% data variables.product.prodname_codeql_runner %} e verificar se pode ser executado, você deverá disponibilizar o executor para cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %}. Por exemplo, você pode configurar cada servidor para que copie o executor de um local central interno. Como alternativa, você pode usar a API REST para obter o executor diretamente do GitHub, por exemplo:
 
 ```shell
 wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
@@ -60,8 +69,8 @@ chmod +x codeql-runner-linux
 
 Além disso, cada servidor de CI também precisa:
 
-- Um {% data variables.product.prodname_github_apps %} ou um token de acesso pessoal para {% data variables.product.prodname_codeql_runner %} usar. Para repositórios privados, o token deve ter o escopo do `repositório`. Para público, o token precisa apenas dos escopos `public_repo` e `repo:security_events`. Para obter informações, consulte "[Criar {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" e "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)".
-- Acesso ao pacote de {% data variables.product.prodname_codeql %} associado a esta versão do {% data variables.product.prodname_codeql_runner %}. Este pacote contém CLI de {% data variables.product.prodname_codeql %}, consultas e bibliotecas necessárias para a análise de {% data variables.product.prodname_codeql %}. Para obter informações, consulte "[CLI de {% data variables.product.prodname_codeql %}](https://help.semmle.com/codeql/codeql-cli.html)".
+- Um {% data variables.product.prodname_github_app %} ou um token de acesso pessoal para {% data variables.product.prodname_codeql_runner %} usar. Você deve usar um token de acesso com o escopo `security_events` ou um {% data variables.product.prodname_github_app %} com a permissão de gravação `security_events`. Para obter informações, consulte "[Criar {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" e "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)".
+- Acesso ao pacote de {% data variables.product.prodname_codeql %} associado a esta versão do {% data variables.product.prodname_codeql_runner %}. Este pacote contém consultas e bibliotecas necessárias para a análise de {% data variables.product.prodname_codeql %} mais o CLI de {% data variables.product.prodname_codeql %}, que é usado internamente pelo executor. Para obter informações, consulte "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 
 As opções para fornecer acesso ao pacote de{% data variables.product.prodname_codeql %} são:
 
@@ -83,6 +92,8 @@ Para ambos os comandos, você deve especificar a URL de {% data variables.produc
 Você pode configurar o local onde o {% data variables.product.prodname_codeql_runner %} armazena o pacote do CodeQL para futuras análises em um servidor usando o sinalizador <nobr>`--tools-dir`</nobr> e onde armazena arquivos temporários durante a análise usando <nobr>`--temp-dir`</nobr>.
 
 Para visualizar a referência de linha de comando para o executor, use o sinalizador `-h`. Por exemplo, para listar todos os comandos executados: `codeql-runner-OS -h` ou para listar todos os sinalizadores disponíveis para o comando `init` executado: `codeql-runner-OS init -h` (em que `OS` varia de acordo com o executável que você está usando). Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)".
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### Exemplo básico
 

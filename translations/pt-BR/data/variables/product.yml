@@ -61,6 +61,7 @@ prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'aplicativo GitHub'
 prodname_github_apps: 'Aplicativos do GitHub'
 prodname_oauth_app: 'aplicativo OAuth'
+prodname_oauth_apps: 'Aplicativos OAuth'
 #API and developer docs
 prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
 prodname_support_forum_with_url: '[Fórum de Suporte e Desenvolvimento de API GitHub](https://github.community/c/github-api-development-and-support/37)'
@@ -84,6 +85,7 @@ prodname_insights: 'GitHub Insights'
 prodname_sponsors: 'GitHub Sponsors'
 prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 #GitHub Advanced Security
+prodname_GH_advanced_security: 'Segurança Avançada GitHub'
 prodname_advanced_security: 'Segurança Avançada'
 #Codespaces
 prodname_codespaces: 'Codespaces'

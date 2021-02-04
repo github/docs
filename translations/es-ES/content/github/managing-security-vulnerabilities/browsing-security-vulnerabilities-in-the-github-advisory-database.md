@@ -19,9 +19,9 @@ La {% data variables.product.prodname_advisory_database %} contiene una lista se
 Cada asesoría de seguridad contiene información acerca de la vulnerabilidad, incluyendo la descripción, severidad, paquete afectado, paquete de ecosistema, versiones afectadas y versiones parchadas, impacto, e información opcional tal como referencias, soluciones alternas, y créditos. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
 El nivel de gravedad es uno de cuatro niveles posibles definidos en el [Sistema de clasificación de vulnerabilidades comunes (CVSS), Sección 2.12](https://www.first.org/cvss/specification-document):
-- Low
-- Moderate
-- High
+- Bajo
+- Moderado
+- Alto
 - Crítico
 
 La {% data variables.product.prodname_advisory_database %} utiliza estándares de CVSS versión 3.0 y los niveles de CVSS descritos anteriormente. {% data variables.product.product_name %} no publica los puntajes de CVSS.
@@ -60,6 +60,6 @@ Puedes buscar coincidencias exactas en la base de datos y utilizar calificadores
 | `created:YYYY-MM-DD`  | [**created:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2019-10-31) mostrará únicamente las asesorías creadas en esta fecha.                          |
 | `updated:YYYY-MM-DD`  | [**updated:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2019-10-31) mostrará únicamente asesorías actualizadas en esta fecha.                         |
 
-### Further reading
+### Leer más
 
 - [Definición de MITRE de "vulnerabilidad"](https://cve.mitre.org/about/terminology.html#vulnerability)

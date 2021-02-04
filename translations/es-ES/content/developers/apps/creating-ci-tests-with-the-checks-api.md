@@ -24,7 +24,7 @@ Un servidor de IC hospeda código que ejecuta pruebas de IC, tal como los limpí
 
 La [API de Verificaciones](/rest/reference/checks) te permite configurar las pruebas de IC que se ejecutan automáticamente contra cada confirmación de código en un repositorio. La API de Verificaciones reporta información detallada acerca de cada verificación en GitHub dentro de la pestaña de **Verificaciones** de las solicitudes de extracción. Con la API de verificaciones, puedes crear anotaciones con detalles adicionales para líneas específicas de código. Las anotaciones se encuentran visibles en la pestaña de **Verificaciones**. Cuando creas una anotación para un archivo que es parte de la solicitud de extracción, estas también se muestran en la pestaña **Archivos cambiados**.
 
-Un _conjunto de verificaciones_ es un grupo de _ejecuciones de verificación_ (pruebas de IC individuales). Tanto estos conjuntos como las ejecuciones contienen _estados_ que pueden visualizarse en la solicitud de extracción en GitHub. Puedes utilizar estados para determinar cuando una confirmación de código introduce errores. El utilizar estos estados con [ramas protegidas](/rest/reference/repos#branches) puede prevenir que las personas fusionen solicitudes de extracción prematuramente. See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+Un _conjunto de verificaciones_ es un grupo de _ejecuciones de verificación_ (pruebas de IC individuales). Tanto estos conjuntos como las ejecuciones contienen _estados_ que pueden visualizarse en la solicitud de extracción en GitHub. Puedes utilizar estados para determinar cuando una confirmación de código introduce errores. El utilizar estos estados con [ramas protegidas](/rest/reference/repos#branches) puede prevenir que las personas fusionen solicitudes de extracción prematuramente. Para encontrar más detalles, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 La API de Verificaciones envía el [evento de webhook `check_suite`](/webhooks/event-payloads/#check_suite) a todas las GitHub Apps que se instalan en un repositorio cada vez que se carga código nuevo a éste. Para recibir todas las acciones de los eventos de la API de Verificaciones, la app debe contar con el permiso `checks:write`. GitHub crea los eventos de `check_suite` automáticamente para las nuevas confirmaciones de código en un repositorio utilizando el flujo predeterminado, aunque puedes [Actualizar las preferencias del repositorio para los conjuntos de verificaciones](/rest/reference/checks#update-repository-preferences-for-check-suites) si así lo quieres. Aquí te mostramos cómo funciona el flujo predeterminado:
 
@@ -435,7 +435,7 @@ El código anterior obtiene el nombre completo del repositorio y el SHA de encab
 
 ### Paso 2.3. Ejecutar RuboCop
 
-¡Genial! Estás clonando el repositorio y creando ejecuciones de verificación al utilizar tu servidor de IC. Ahora te meterás en los detalles más minusciosos del [Limpiador de RuboCop](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) y de las [Anotaciones de la API de Verificaciones](/rest/reference/checks#create-a-check-run).
+¡Genial! Estás clonando el repositorio y creando ejecuciones de verificación al utilizar tu servidor de IC. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
 
 El siguiente código ejecuta RuboCop y guarda los errores de estilo en el código con un formato JSON. Agrega el código siguiente debajo de la llamada a `clone_repository` que agregaste en el [paso anterior](#step-22-cloning-the-repository) y sobre el código que actualiza la ejecución de verificación para completarse.
 
@@ -447,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-Este código utiliza RuboCop en todos los archivos dentro del directorio del repositorio. La opción `--format json` es una manera útil de guardar una copia de los resultados que se han limpiado en un formato que pueda analizar la máquina. Consulta los [Documentos de RuboCop](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter) para obtener más detalles y un ejemplo del formato en JSON.
+Este código utiliza RuboCop en todos los archivos dentro del directorio del repositorio. La opción `--format json` es una manera útil de guardar una copia de los resultados que se han limpiado en un formato que pueda analizar la máquina. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
 
 Ya que este código almacena los resultados de RuboCop en una variable de `@report`, puede eliminar la salida del repositorio con seguridad. Este código también analiza el JSON para que puedas acceder fácilmente a las claves y valores en tu GitHub App utilizando la variable `@output`.
 
@@ -588,7 +588,7 @@ Este código limita la cantidad total de anotaciones a 50. Pero puedes modificar
 
 Cuando la `offense_count` es de cero, la prueba de IC se muestra como `success`. Si hay errores, este código configura la conclusión como `neutral` para prevenir los errores estrictamente implementados desde los limpiadores de código. Pero puedes cambiar la conclusión a `failure` si quisieras garantizar que el conjunto de verificaciones falle cuando existan errores de limpieza.
 
-Cuando se reportan los errores, el código anterior itera a través de la matriz de `files` en el reporte de RuboCop. Para cada archivo, extrae la ruta del mismo y configura el nivel de anotcación en `notice`. Puedes incluso ir más allá y especificar ls niveles de advertencia para cada tipo de [RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/), pero para simplificar todo aún más en esta guía rápida, todos los errores se configurarán en un nivel de `notice`.
+Cuando se reportan los errores, el código anterior itera a través de la matriz de `files` en el reporte de RuboCop. Para cada archivo, extrae la ruta del mismo y configura el nivel de anotcación en `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
 
 Este código también itera a través de cada error en la matriz de `offenses` y recolecta la ubicación de la falta y el mensaje de error. Después de extraer la información requerida, el código crea una anotación para cada error y lo almacena en la matriz de `annotations`. Ya que las anotaciones solo son compatibles con las columnas de inicio y fin en la misma línea, `start_column` y `end_column` se agregarán únicamente al objeto `annotation` si los valores iniciales y finales de la línea son los mismos.
 
@@ -718,13 +718,13 @@ Si las anotaciones se relacionan con un archivo que ya se incluya en la solicitu
 
 Si has llegado hasta aquí, ¡excelente! 👏 Ya creaste una prueba de IC. En esta sección vas a agregar una característica más que utiliza a RuboCop para corregir automáticamente los errores que encuentre. Ya agregaste el botón de "Corregir esto" en la [sección anterior](#step-25-updating-the-check-run-with-ci-test-results). Ahora agregarás el código para gestionar el evento de ejecución de verificación `requested_action` que se activa cuando alguien da clic en dicho botón.
 
-La herramienta de RuboCop [ofrece](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) la opción de línea de comandos `--auto-correct` para corregir automáticamente los errores que encuentre. Cuado utilizas la característica de `--auto-correct`, se aplican las actualizaciones en los archivos locales del servidor. Necesitarás cargar los cambios a GitHub después de que RuboCop haga su magia.
+The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. Cuado utilizas la característica de `--auto-correct`, se aplican las actualizaciones en los archivos locales del servidor. Necesitarás cargar los cambios a GitHub después de que RuboCop haga su magia.
 
 Para cargar un repositorio, tu app debe tener permisos de escritura para "contenido de repositorio". Estos permisos los configuraste en el [Paso 2.2. Clonar el repositorio](#step-22-cloning-the-repository) como **Lectura & escritura**, así que estás listo.
 
 Para confirmar los archivos, Git debe saber qué [nombre de usuario](/articles/setting-your-username-in-git/) y [correo electrónico](/articles/setting-your-commit-email-address-in-git/) asociará con la confirmación. Agrega dos variables de ambiente adicionales en tu archivo `.env` para almacenar las configuraciones de nombre(`GITHUB_APP_USER_NAME`) y de correo electrónico (`GITHUB_APP_USER_EMAIL`). Tu nombre puede ser aquél de tu app y la dirección de correo electrónico puede ser cualquiera para este ejemplo. Por ejemplo:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

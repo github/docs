@@ -144,7 +144,7 @@
   languages: 'TypeScript, Shell, JavaScript'
   href: trilom/file-changes-action
   tags:
-    - workflow
+    - flujo de trabajo
     - repositorio
 - 
   title: Acciones privadas en cualquier flujo de trabajo
@@ -152,7 +152,7 @@
   languages: 'TypeScript, JavaScript, Shell'
   href: InVisionApp/private-action-loader
   tags:
-    - workflow
+    - flujo de trabajo
     - tools
 - 
   title: Etiqueta tus propuestas utilizando sus contenidos
@@ -160,7 +160,7 @@
   languages: 'JavaScript, TypeScript'
   href: damccorm/tag-ur-it
   tags:
-    - workflow
+    - flujo de trabajo
     - tools
     - etiquetas
     - propuestas
@@ -170,7 +170,7 @@
   languages: 'JavaScript'
   href: author/action-rollback
   tags:
-    - workflow
+    - flujo de trabajo
     - releases
 - 
   title: Bloquear propuestas y solicitudes de cambios cerradas
@@ -180,16 +180,16 @@
   tags:
     - propuestas
     - solicitudes de extracción
-    - workflow
+    - flujo de trabajo
 - 
   title: Obtiene un conteo de diferencias en confirmaciones entre dos ramas
   description: Esta GitHub Action compara dos ramas y te proporciona el conteo de confirmaciones entre ellas
   languages: 'JavaScript, Shell'
   href: jessicalostinspace/commit-difference-action
   tags:
-    - commit
-    - diff
-    - workflow
+    - confirmación
+    - diferencia
+    - flujo de trabajo
 - 
   title: Genera notas de lanzamiento con base en las referencias de Git
   description: GitHub Action para generar registros de cambios y notas de lanzamiento
@@ -198,7 +198,7 @@
   tags:
     - cicd
     - notas de lanzamiento
-    - workflow
+    - flujo de trabajo
     - bitácora de Cambios
 - 
   title: Requiere políticas en las confirmaciones y repositorios de GitHub
@@ -208,7 +208,7 @@
   tags:
     - docker
     - build-automation
-    - workflow
+    - flujo de trabajo
 - 
   title: Auto Etiquetado Basado en Propuestas
   description: Etiqueta automáticamente una propuesta con base en su descripción
@@ -216,7 +216,7 @@
   href: Renato66/auto-label
   tags:
     - etiquetas
-    - workflow
+    - flujo de trabajo
     - automatización
 - 
   title: Actualiza las GitHub Actions configuradas a sus últimas versiones
@@ -226,7 +226,7 @@
   tags:
     - versions
     - cli
-    - workflow
+    - flujo de trabajo
 - 
   title: Crear Rama de Propuesta
   description: GitHub Action que automatiza la creación de ramas de propuestas
@@ -243,7 +243,7 @@
   href: c-hive/gha-remove-artifacts
   tags:
     - artefactos
-    - workflow
+    - flujo de trabajo
 - 
   title: Sincroniza los archivos/binarios definidos a un Wiki o a repositorios externos
   description: GitHub Action para sincronizar automáticamente los cambios a los repositorios externos, como el wiki, por ejemplo
@@ -252,7 +252,7 @@
   tags:
     - wiki
     - sync
-    - workflow
+    - flujo de trabajo
 - 
   title: Crea/Actualiza/Borra una página de Wiki de GitHub con base en cualquier archivo
   description: Actualiza tu wiki de GitHub utilizando rsync, lo cual permite la exclusión de archivops y directorios y el borrado real de los archivos
@@ -261,7 +261,7 @@
   tags:
     - wiki
     - docker
-    - workflow
+    - flujo de trabajo
 - 
   title: GitHub Actions de Prow
   description: Automatización del requerimiento de políticas, chat-ops y fusión automática de PR
@@ -270,16 +270,16 @@
   tags:
     - chat-ops
     - prow
-    - workflow
+    - flujo de trabajo
 - 
   title: Verifica el estado de GitHub en tu flujo de trabajo
   description: Verifica el estado de GitHub en tu flujo de trabajo
   languages: 'TypeScript, JavaScript'
   href: crazy-max/ghaction-github-status
   tags:
-    - status
+    - estado
     - supervisar
-    - workflow
+    - flujo de trabajo
 - 
   title: Administra etiquetas en GitHub como código
   description: GitHub Action para administrar etiquetas (create/rename/update/delete)
@@ -287,7 +287,7 @@
   href: crazy-max/ghaction-github-labeler
   tags:
     - etiquetas
-    - workflow
+    - flujo de trabajo
     - automatización
 - 
   title: Distribuir los fondos en los proyectos gratuitos y de código abierto
@@ -316,7 +316,7 @@
   tags:
     - codeowners
     - validar
-    - workflow
+    - flujo de trabajo
 - 
   title: Acción Copybara
   description: Mueve y transfora el código entre los repositorios (ideal para mantener varios repositorios fuera de un mono-repositorio)
@@ -325,7 +325,7 @@
   tags:
     - monorepo
     - copybara
-    - workflow
+    - flujo de trabajo
 - 
   title: Despliega archivos estáticos a GitHub Pages
   description: GitHub Action para publcar un sitio web en GitHub Pages automáticamente

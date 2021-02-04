@@ -51,6 +51,6 @@ Para obtener más información acerca de cómo destacar repositorios y seguir pe
 
 Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en los repositorios que hayas visitado o marcado como favoritos, las personas que sigues, y la actividad dentro de los repositorios a los que tienes acceso.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta la sección "[Encontrar formas para contribuir con los proyectos de código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca del tablero de tu organización](/articles/about-your-organization-dashboard)"

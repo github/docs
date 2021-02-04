@@ -45,7 +45,7 @@ versions:
 7. En la parte superior de la página de Configuración rápida del repositorio de {% data variables.product.product_name %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto.![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En Terminal, [agrega la URL para el repositorio remoto](/articles/adding-a-remote) donde se subirá tu repositorio local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -83,7 +83,7 @@ versions:
 7. En la parte superior de la página de Configuración rápida del repositorio de {% data variables.product.product_name %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto.![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En la indicación Command (Comando), [agrega la URL para el repositorio remoto](/articles/adding-a-remote) donde se subirá tu repositorio local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -121,7 +121,7 @@ versions:
 7. En la parte superior de la página de Configuración rápida del repositorio de {% data variables.product.product_name %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto.![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En Terminal, [agrega la URL para el repositorio remoto](/articles/adding-a-remote) donde se subirá tu repositorio local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -134,6 +134,6 @@ versions:
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - [Agregar un archivo a un repositorio mediante la línea de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)"

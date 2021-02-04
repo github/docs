@@ -1,62 +1,62 @@
 ---
 - 
-  title: Example services
-  description: Example workflows using service containers
+  title: 示例服务
+  description: 使用服务容器的示例工作流程
   languages: JavaScript
   href: actions/example-services
   tags:
-    - service containers
+    - 服务容器
 - 
-  title: Declaratively setup GitHub Labels
-  description: GitHub Action to declaratively setup labels across repos
+  title: 声明设置 GitHub 标签
+  description: 声明设置跨仓库标签的 GitHub Actions
   languages: JavaScript
   href: lannonbr/issue-label-manager-action
   tags:
     - issues
     - labels
 - 
-  title: Declaratively sync GitHub labels
-  description: GitHub Action to sync GitHub labels in the declarative way
+  title: 声明同步 GitHub 标签
+  description: 以声明方式同步 GitHub 标签的 GitHub Actions
   languages: 'Go, Dockerfile'
   href: micnncim/action-label-syncer
   tags:
     - issues
     - labels
 - 
-  title: Add releases to GitHub
-  description: Publish Github releases in an action
+  title: 向 GitHub 添加版本
+  description: 在操作中发布 Github 版本
   languages: 'Dockerfile, Shell'
   href: elgohr/Github-Release-Action
   tags:
     - 发行版
-    - publishing
+    - 发布
 - 
-  title: Publish a docker image to Dockerhub
-  description: A Github Action used to build and publish Docker images
+  title: 向 Dockerhub 发布 Docker 映像
+  description: 用于生成和发布 Docker 映像的 Github 操作
   languages: 'Dockerfile, Shell'
   href: elgohr/Publish-Docker-Github-Action
   tags:
     - docker
-    - publishing
+    - 发布
     - 构建
 - 
-  title: Create an issue using content from a file
-  description: A GitHub action to create an issue using content from a file
+  title: 使用文件中的内容创建议题
+  description: 使用文件中的内容创建议题的 GitHub 操作
   languages: 'JavaScript, Python'
   href: peter-evans/create-issue-from-file
   tags:
     - issues
 - 
-  title: Publish GitHub Releases with Assets
-  description: GitHub Action for creating GitHub Releases
+  title: 使用资产发布 GitHub 版本
+  description: 用于创建 GitHub 版本的 GitHub 操作
   languages: 'TypeScript, Shell, JavaScript'
   href: softprops/action-gh-release
   tags:
     - 发行版
-    - publishing
+    - 发布
 - 
   title: GitHub Project Automation+
-  description: Automate GitHub Project cards with any webhook event
+  description: 使用任何 web 挂钩事件自动执行 GitHub 项目卡
   languages: JavaScript
   href: alex-page/github-project-automation-plus
   tags:
@@ -65,8 +65,8 @@
     - issues
     - 拉取请求
 - 
-  title: Run GitHub Actions Locally with a web interface
-  description: Runs GitHub Actions workflows locally (local)
+  title: 使用 Web 界面在本地运行 GitHub Actions
+  description: 本地运行 GitHub Actions 工作流程（本地）
   languages: 'JavaScript, HTML, Dockerfile, CSS'
   href: phishy/wflow
   tags:
@@ -74,8 +74,8 @@
     - devops
     - docker
 - 
-  title: Run your GitHub Actions locally
-  description: Run GitHub Actions Locally in Terminal
+  title: 在本地运行 GitHub Actions
+  description: 在终端中本地运行 GitHub Actions
   languages: 'Go, Shell'
   href: nektos/act
   tags:
@@ -83,47 +83,47 @@
     - devops
     - docker
 - 
-  title: Build and Publish Android debug APK
-  description: Build and release debug APK from your Android project
+  title: 生成和发布 Android 调试 APK
+  description: 从 Android 项目生成和发布调试 APK
   languages: 'Shell, Dockerfile'
   href: ShaunLWM/action-release-debugapk
   tags:
     - android
     - 构建
 - 
-  title: Generate sequential build numbers for GitHub Actions
-  description: GitHub action for generating sequential build numbers.
+  title: 为 GitHub Actions 生成序列生成编号
+  description: 用于生成序列生成编号的 GitHub 操作。
   languages: JavaScript
   href: einaregilsson/build-number
   tags:
     - 构建
     - automation
 - 
-  title: GitHub actions to push back to repository
-  description: Push Git changes to GitHub repository without authentication difficulties
+  title: 要推回到仓库的 GitHub 操作
+  description: 将 Git 更改推送到 GitHub 仓库，而不会遇到身份验证困难
   languages: 'JavaScript, Shell'
   href: ad-m/github-push-action
   tags:
-    - publishing
+    - 发布
 - 
-  title: Generate release notes based on your events
-  description: Action to auto generate a release note based on your events
+  title: 根据您的事件生成发行说明
+  description: 根据事件自动生成发行说明的操作
   languages: 'Shell, Dockerfile'
   href: Decathlon/release-notes-generator-action
   tags:
     - 发行版
-    - publishing
+    - 发布
 - 
-  title: Create a GitHub wiki page based on the provided markdown file
-  description: Create a GitHub wiki page based on the provided markdown file
+  title: 基于提供的 markdown 文件创建 GitHub wiki 页面
+  description: 基于提供的 markdown 文件创建 GitHub wiki 页面
   languages: 'Shell, Dockerfile'
   href: Decathlon/wiki-page-creator-action
   tags:
     - wiki
-    - publishing
+    - 发布
 - 
-  title: Label your Pull Requests auto-magically (using committed files)
-  description: Github action to label your pull requests auto-magically (using committed files)
+  title: 自动标记您的拉取请求（使用提交的文件）
+  description: 自动标记拉取请求（使用提交的文件）的 Github 操作
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:
@@ -131,32 +131,32 @@
     - issues
     - labels
 - 
-  title: Add Label to your Pull Requests based on the author team name
-  description: Github action to label your pull requests based on the author name
+  title: 根据作者团队名称向拉取请求添加标签
+  description: 根据作者名称标记拉取请求的 Github 操作
   languages: 'TypeScript, JavaScript'
   href: JulienKode/team-labeler-action
   tags:
     - 拉取请求
     - labels
 - 
-  title: Get a list of file changes with a PR/Push
-  description: This action gives you will get outputs of the files that have changed in your repository
+  title: 使用 PR/Push 获取文件更改列表
+  description: 此操作可让您获取仓库已更改的文件的输出
   languages: 'TypeScript, Shell, JavaScript'
   href: trilom/file-changes-action
   tags:
     - 工作流程
     - 仓库
 - 
-  title: Private actions in any workflow
-  description: Allows private GitHub Actions to be easily reused
+  title: 任何工作流程中的私人操作
+  description: 允许轻松重复利用私人 GitHub Actions
   languages: 'TypeScript, JavaScript, Shell'
   href: InVisionApp/private-action-loader
   tags:
     - 工作流程
     - tools
 - 
-  title: Label your issues using the issue's contents
-  description: A GitHub Action to automatically tag issues with labels and assignees
+  title: 使用议题的内容标记您的议题
+  description: 使用标签和受理人自动标记议题的 GitHub 操作
   languages: 'JavaScript, TypeScript'
   href: damccorm/tag-ur-it
   tags:
@@ -165,16 +165,16 @@
     - labels
     - issues
 - 
-  title: Rollback a GitHub Release
-  description: A GitHub Action to rollback or delete a release
+  title: 回滚 GitHub 版本
+  description: 回滚或删除版本的 GitHub 操作
   languages: 'JavaScript'
   href: author/action-rollback
   tags:
     - 工作流程
     - 发行版
 - 
-  title: Lock closed issues and Pull Requests
-  description: GitHub Action that locks closed issues and pull requests after a period of inactivity
+  title: 锁定已关闭的议题和拉取请求
+  description: 在一段时间不活动后锁定关闭的议题和拉取请求的 GitHub 操作
   languages: 'JavaScript'
   href: dessant/lock-threads
   tags:
@@ -182,8 +182,8 @@
     - 拉取请求
     - 工作流程
 - 
-  title: Get Commit Difference Count Between Two Branches
-  description: This GitHub Action compares two branches and gives you the commit count between them
+  title: 获取两个分支之间的提交差异数
+  description: 此 GitHub 操作比较两个分支，并提供它们之间的提交数
   languages: 'JavaScript, Shell'
   href: jessicalostinspace/commit-difference-action
   tags:
@@ -191,8 +191,8 @@
     - 差异
     - 工作流程
 - 
-  title: Generate Release Notes Based on Git References
-  description: GitHub Action to generate changelogs, and release notes
+  title: 基于 Git 引用生成发行说明
+  description: 生成变更日志和发行说明的 GitHub 操作
   languages: 'JavaScript, Shell'
   href: metcalfc/changelog-generator
   tags:
@@ -201,8 +201,8 @@
     - 工作流程
     - 变更日志
 - 
-  title: Enforce Policies on GitHub Repositories and Commits
-  description: Policy enforcement for your pipelines
+  title: 对 GitHub 仓库和提交实施策略
+  description: 管道的策略实施
   languages: 'Go, Makefile, Dockerfile, Shell'
   href: talos-systems/conform
   tags:
@@ -210,8 +210,8 @@
     - build-automation
     - 工作流程
 - 
-  title: Auto Label Issue Based
-  description: Automatically label an issue based on the issue description
+  title: 基于议题自动标记
+  description: 根据议题描述自动标记议题
   languages: 'TypeScript, JavaScript, Dockerfile'
   href: Renato66/auto-label
   tags:
@@ -219,8 +219,8 @@
     - 工作流程
     - automation
 - 
-  title: Update Configured GitHub Actions to the Latest Versions
-  description: CLI tool to check whehter all your actions are up-to-date or not
+  title: 将配置的 GitHub Actions 更新到最新版本
+  description: 用于检查所有操作是否为最新的 CLI 工具
   languages: 'C#, Inno Setup, PowerSHell, Shell'
   href: fabasoad/ghacu
   tags:
@@ -228,8 +228,8 @@
     - cli
     - 工作流程
 - 
-  title: Create Issue Branch
-  description: GitHub Action that automates the creation of issue branches
+  title: 创建议题分支
+  description: 自动创建议题分支的 GitHub 操作
   languages: 'JavaScript, Shell'
   href: robvanderleek/create-issue-branch
   tags:
@@ -237,16 +237,16 @@
     - issues
     - labels
 - 
-  title: Remove old artifacts
-  description: Customize artifact cleanup
+  title: 删除旧构件
+  description: 自定义构件清理
   languages: 'JavaScript, Shell'
   href: c-hive/gha-remove-artifacts
   tags:
     - 构件
     - 工作流程
 - 
-  title: Sync Defined Files/Binaries to Wiki or External Repositories
-  description: GitHub Action to automatically sync changes to external repositories, like the wiki, for example
+  title: 将定义的文件/二进制文件同步到 Wiki 或外部仓库
+  description: 自动将更改同步到外部仓库（例如 wiki）的 GitHub 操作
   languages: 'Shell, Dockerfile'
   href: kai-tub/external-repo-sync-action
   tags:
@@ -254,8 +254,8 @@
     - sync
     - 工作流程
 - 
-  title: Create/Update/Delete a GitHub Wiki page based on any file
-  description: Updates your GitHub wiki by using rsync, allowing for exclusion of files and directories and actual deletion of files
+  title: 基于任何文件创建/更新/删除 GitHub Wiki 页面
+  description: 使用 rsync 更新 GitHub wiki，允许排除文件和目录以及实际删除文件
   languages: 'Shell, Dockerfile'
   href: Andrew-Chen-Wang/github-wiki-action
   tags:
@@ -264,7 +264,7 @@
     - 工作流程
 - 
   title: Prow GitHub Actions
-  description: Automation of policy enforcement, chat-ops, and automatic PR merging
+  description: 策略实施、聊天操作和自动 PR 合并的自动化
   languages: 'TypeScript, JavaScript'
   href: jpmcb/prow-github-actions
   tags:
@@ -272,8 +272,8 @@
     - prow
     - 工作流程
 - 
-  title: Check GitHub Status in your Workflow
-  description: Check GitHub Status in your workflow
+  title: 检查工作流程中的 GitHub 状态
+  description: 检查工作流程中的 GitHub 状态
   languages: 'TypeScript, JavaScript'
   href: crazy-max/ghaction-github-status
   tags:
@@ -281,8 +281,8 @@
     - 监视
     - 工作流程
 - 
-  title: Manage labels on GitHub as code
-  description: GitHub Action to manage labels (create/rename/update/delete)
+  title: 将 GitHub 上的标签作为代码管理
+  description: 用于管理标签的 GitHub 操作（创建/重命名/更新/删除）
   languages: 'TypeScript, JavaScript'
   href: crazy-max/ghaction-github-labeler
   tags:
@@ -290,8 +290,8 @@
     - 工作流程
     - automation
 - 
-  title: Distribute funding in free and open source projects
-  description: Continuous Distribution of funding to project contributors and dependencies
+  title: 在免费和开源项目中分配资金
+  description: 持续向项目贡献者和依赖项分配资金
   languages: 'Python, Dockerfile, Shell, Ruby'
   href: protontypes/libreselery
   tags:
@@ -299,8 +299,8 @@
     - funding
     - payment
 - 
-  title: Herald rules for GitHub
-  description: Add reviewers, subscribers, labels and assignees to your PR
+  title: GitHub 的 Herald 规则
+  description: 将审查者、订阅者、标签和受理人添加到您的 PR
   languages: 'TypeScript, JavaScript'
   href: gagoar/use-herald-action
   tags:
@@ -309,17 +309,17 @@
     - assignees
     - 拉取请求
 - 
-  title: Codeowner validator
-  description: Ensures the correctness of your GitHub CODEOWNERS file, supports public and private GitHub repositories and also GitHub Enterprise installations
+  title: 代码所有者验证器
+  description: 确保 GitHub CODEOWNERS 文件的正确性，支持公共和私有 GitHub 仓库以及 GitHub Enterprise 安装
   languages: 'Go, Shell, Makefile, Dockerfile'
   href: mszostok/codeowners-validator
   tags:
     - codeowners
-    - validate
+    - 验证
     - 工作流程
 - 
-  title: Copybara Action
-  description: Move and transform code between repositories (ideal to maintain several repos from one monorepo)
+  title: Copybara 操作
+  description: 在仓库之间移动和转化代码（非常适合从单个仓库维护几个仓库）
   languages: 'TypeScript, JavaScript, Shell'
   href: olivr/copybara-action
   tags:
@@ -327,9 +327,9 @@
     - copybara
     - 工作流程
 - 
-  title: Deploy static files to GitHub Pages
-  description: GitHub Action to publish website to GitHub Pages automatically
+  title: 将静态文件部署到 GitHub Pages
+  description: 用于将网站自动发布到 GitHub Pages 的 GitHub 操作
   languages: 'TypeScript, JavaScript'
   href: peaceiris/actions-gh-pages
   tags:
-    - publishing
+    - 发布

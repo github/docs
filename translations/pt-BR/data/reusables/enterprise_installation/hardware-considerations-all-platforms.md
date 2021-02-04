@@ -1,5 +1,6 @@
-- [Requisitos mínimos](#minimum-requirements)
-- [Recursos do beta em {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)
+- [Minimum requirements](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- [Optional features](#optional-features){% endif %}
 - [Armazenamento](#storage)
 - [CPU e memória](#cpu-and-memory)
 
@@ -7,10 +8,10 @@
 
 Recomendamos diferentes configurações de hardware, dependendo do número de licenças de usuário para {% data variables.product.product_location %}. Se você fornecer mais recursos do que os requisitos mínimos, sua instância terá um desempenho e uma escala melhores.
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} If you enable the beta for {% data variables.product.prodname_actions %}, review the following requirements and recommendations.
+{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} If you enable {% if currentVersion == "enterprise-server@2.22" %}the beta for {% endif %}{% data variables.product.prodname_actions %}, review the following requirements and recommendations.
 
 - Você deve configurar pelo menos um executor para fluxos de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-- Você deve configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_actions %} e configurar o armazenamento](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)".
+- Você deve configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 - You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
 
     | Máximo de trabalhos por minuto | Additional vCPUs | Additional memory |
@@ -28,9 +29,9 @@ Recomendamos um SSD de alto desempenho com operações de alta entrada/saída po
 
 A sua instância exige um disco de dados persistente separado do disco raiz. Para obter mais informações, consulte "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-Se você habilitar o beta de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22, você precisará configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_actions %} e configurar o armazenamento](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)".
+If you enable{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you'll need to configure external blob storage. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 
 {% endif %}
 
@@ -48,4 +49,4 @@ O {% data variables.product.prodname_ghe_server %} exige mais recursos de CPU e 
 
 {% endwarning %}
 
-Você pode aumentar os recursos de memória ou da CPU na sua instância. Para obter mais informações, consulte "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources).
+Você pode aumentar os recursos de memória ou da CPU na sua instância. Para obter mais informações, consulte "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."

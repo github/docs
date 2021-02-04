@@ -5,6 +5,11 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - CD
+  - Containers
+  - Amazon ECS
 ---
 
 {% data reusables.actions.enterprise-beta %}

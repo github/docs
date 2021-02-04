@@ -12,7 +12,7 @@ versions:
 
 ### Acerca de las fusiones de las solicitudes de extracción
 
-En una solicitud de extracción, propones que los cambios que hayas hecho en una rama de encabezado se fusionen en una rama base. Por defecto, cualquier solicitud de extracción se puede fusionar en cualquier momento, a menos que la rama de encabezado esté en conflicto con la rama base. However, there may be restrictions on when you can merge a pull request into a specific branch. Por ejemplo, puede que solo puedas fusionar una solicitud de extracción en la rama predeterminada si están pasando las verificaciones de estado requeridas. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+En una solicitud de extracción, propones que los cambios que hayas hecho en una rama de encabezado se fusionen en una rama base. Por defecto, cualquier solicitud de extracción se puede fusionar en cualquier momento, a menos que la rama de encabezado esté en conflicto con la rama base. Sin embargo, puede que existan restricciones sobre cuándo puedes fusionar una solicitud de cambios en una rama específica. Por ejemplo, puede que solo puedas fusionar una solicitud de extracción en la rama predeterminada si están pasando las verificaciones de estado requeridas. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
@@ -69,7 +69,7 @@ Las solicitudes de extracción se fusionan utilizando [la opción `--no-ff`](htt
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-### Further reading
+### Leer más
 
 - "[Revertir una solicitud de extracción](/articles/reverting-a-pull-request)"
 - "[Sincronizar tu rama](/desktop/guides/contributing-to-projects/syncing-your-branch/)" utilizando {% data variables.product.prodname_desktop %}

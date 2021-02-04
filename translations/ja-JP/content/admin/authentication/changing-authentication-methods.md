@@ -10,7 +10,7 @@ versions:
 
 {% data variables.product.product_location %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
 
-新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
+新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイトアドミン設定または[ユーザ管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user) を使用してユーザ名を変更できます。
 
 他に考慮しなければならない問題には以下があります。
 

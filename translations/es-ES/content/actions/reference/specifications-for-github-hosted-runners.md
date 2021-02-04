@@ -95,7 +95,7 @@ La lista de direcciones IP permitidas de {% data variables.product.prodname_acti
 
 | Directorio            | Variable de entorno | Descripción                                                                                                                                                                                                               |
 | --------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hogar`               | `HOME`              | Contiene datos relacionados con el usuario. Por ejemplo, este directorio podría contener las credenciales de un intento de inicio de sesión.                                                                              |
+| `home`                | `HOME`              | Contiene datos relacionados con el usuario. Por ejemplo, este directorio podría contener las credenciales de un intento de inicio de sesión.                                                                              |
 | `workspace`           | `GITHUB_WORKSPACE`  | Las acciones y los comandos del shell se ejecutan en este directorio. Una acción puede modificar los contenidos de este directorio, al que pueden tener acceso acciones posteriores.                                      |
 | `workflow/event.json` | `GITHUB_EVENT_PATH` | La carga `POST` del evento de webhook que activó el flujo de trabajo. {% data variables.product.prodname_dotcom %} reescribe esto cada vez que se ejecuta una acción para aislar el contenido del archivo entre acciones. |
 

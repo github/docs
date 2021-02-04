@@ -27,6 +27,6 @@ Puedes volver a ordenar las listas de tareas dentro de un comentario único haci
 
 ![Volver a ordenar lista de tareas](/assets/images/help/writing/task-list-reordered.gif)
 
-### Further reading
+### Leer más
 
 * [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

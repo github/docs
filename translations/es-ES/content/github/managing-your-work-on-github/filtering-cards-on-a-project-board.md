@@ -34,7 +34,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

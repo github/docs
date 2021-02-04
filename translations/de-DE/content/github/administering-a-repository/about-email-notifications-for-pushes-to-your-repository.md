@@ -33,8 +33,8 @@ Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repositor
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
 5. Gib bis zu zwei E-Mail-Adressen (getrennt durch Leerzeichen) ein, an die Du Benachrichtigungen senden möchtest. Wenn Du E-Mails an mehr als zwei Konten senden möchtest, legst Du eine der E-Mail-Adressen als Gruppen-E-Mail-Adresse fest. ![Textfeld für die E-Mail-Adresse](/assets/images/help/settings/email_services_addresses.png)
-6. Wenn Du Deinen eigenen Server verwendest, kannst Du die Integrität von E-Mails über das Token **Secret** (Geheim) überprüfen. Dieses Token wird mit der E-Mail als `Approved`-Header (Genehmigt) gesendet. Wenn der `Approved`-Header (Genehmigt) mit dem von Dir gesendeten Token übereinstimmt, kannst Du darauf vertrauen, dass die E-Mail von {% data variables.product.product_name %} stammt. ![Textfeld für das E-Mail-Geheimnis](/assets/images/help/settings/email_services_token.png)
-7. Klicke auf **Save settings** (Einstellungen speichern). ![Schaltfläche „Save settings“ (Einstellungen speichern)](/assets/images/help/settings/save_notification_settings.png)
+1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}. ![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
+7. Click **Setup notifications**. ![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
 ### Weiterführende Informationen
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}

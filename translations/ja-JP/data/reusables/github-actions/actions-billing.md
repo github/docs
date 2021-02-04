@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %} usage is free for public repositories and self-hosted runners. プライベートリポジトリでは、それぞれの{% data variables.product.prodname_dotcom %}アカウントは使用している製品に応じて一定量の無料の分とストレージを受け取ります。 Any usage beyond the included amounts is controlled by spending limits.
+{% data variables.product.prodname_actions %} usage is free for both public repositories and self-hosted runners. プライベートリポジトリでは、それぞれの{% data variables.product.prodname_dotcom %}アカウントは使用している製品に応じて一定量の無料の分とストレージを受け取ります。 Any usage beyond the included amounts is controlled by spending limits.

@@ -1,13 +1,13 @@
 ---
 title: ワークフローでのセルフホストランナーの利用
-intro: 'ワークフローでセルフホストランナーを使うには、ラベルを使ってジョブのためのランナーの種類を指定できます。'
+intro: ワークフローでセルフホストランナーを使うには、ラベルを使ってジョブのためのランナーの種類を指定できます。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -64,8 +64,11 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### セルフホストランナーのルーティングの優先順位
 
-リポジトリレベルと Organization レベルの両方のランナーを使用する場合、{% data variables.product.prodname_dotcom %} は、次の優先順位に従ってジョブをセルフホストランナーにルーティングします。
+ジョブをセルフホストランナーにルーティングする際に、{% data variables.product.prodname_dotcom %}はジョブの`runs-on`ラベルにマッチするランナーを探します。
 
-1. ジョブの `runs-on` ラベルが処理されます。 次に、{% data variables.product.prodname_dotcom %} は、ラベル要件に一致するランナーを検索します。
-2. ジョブは、ジョブラベルに一致するリポジトリレベルのランナーに送信されます。 リポジトリレベルのランナーが利用できない（ビジー、オフライン、または一致するラベルがない）場合:
-3. ジョブは、ジョブラベルに一致する Organization レベルのランナーに送信されます。 Organization レベルのランナーが利用できない場合、ジョブ要求はエラーで失敗します。
+1. {% data variables.product.prodname_dotcom %}ま、まずリポジトリレベルで、続いてOrganizationのレベルで{% if currentVersion ver_gt "enterprise-server@2.21" %}、そしてEnterpriseのレベルで{% endif %}ランナーを探します。
+2. ジョブは最初にマッチした、オンラインでアイドル状態のランナーに送信されます。
+   - マッチしたすべてのランナーがビジーだった場合、ジョブはマッチしたオンラインのランナーが最も多いレベルでキューイングされます。
+   - マッチしたランナーがすべてオフラインだった場合、ジョブはマッチしたオフラインのランナーが最も多いレベルでキューイングされます。
+   - マッチするランナーがどのレベルにもなかった場合、そのジョブは失敗します。
+   - 24時間以上にわたってキューに残っていたジョブは失敗します。

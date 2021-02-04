@@ -35,7 +35,7 @@
 - 
   term: 略歴
   description: >-
-    プロフィール（ https://help.github.com/ja/github/setting-up-and-managing-your-github-profile/personalizing-your-profile ）に存在する、ユーザが生成した記述。
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: 支払いサイクル
   description: 特定の支払いプランの時間間隔。
@@ -156,7 +156,7 @@
 - 
   term: コントリビューション
   description: >-
-    GitHub で次のことを行う特定のアクティビティ。- ユーザのコントリビューショングラフに正方形を追加：「[コントリビューションとしてカウントされるもの](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)」- ユーザのプロフィール上でタイムラインにアクティビティを追加：「[コントリビューションアクティビティ](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)」
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: コントリビューター
   description: >-
@@ -229,7 +229,7 @@
     新しい機能の実験や本番環境にない Issue の修正に使用されるブランチ。トピックブランチともいいます。
 - 
   term: コードブロック
-  description: 'コードのインデントされているブロック。GitHub Flavored Markdown でコードブロックの前後に 3 つのバッククォート（\`\`\`）を使用することで作成できます。[例](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)を参照。'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: フェッチ
   description: >-

@@ -20,6 +20,8 @@ You can set up {% data variables.product.prodname_code_scanning %} to check the 
 
 By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 ### About alerts details
 
 Each alert highlights a problem with the code and the name of the tool that identified it. アラートをトリガーしたコード行と、アラートのプロパティ（問題の重要度や性質など）を確認できます。 アラートは、問題が最初に発生したときにも通知します。 For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.

@@ -4,7 +4,7 @@ intro: 'Como propietario de la organización o administrador de un tablero de pr
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -23,7 +23,7 @@ La compra de paquetes de datos para {% data variables.large_files.product_name_s
 
 Si bajas de categoría tu cantidad de paquetes de datos adicionales, tus cambios entrarán en vigencia en tu próxima fecha de facturación.
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
 - "[Instalar {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"

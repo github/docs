@@ -102,5 +102,5 @@ Você pode arquivar uma sala de aula que você não usa mais em {% data variable
 {% data reusables.classroom.click-settings %}
 1. À direita de "Excluir essa sala de aula", clique em **Excluir sala de aula**. ![Botão "Excluir repositório"](/assets/images/help/classroom/click-delete-classroom-button.png)
 1. **Leia os avisos**.
-1. Para verificar se você está excluindo a sala de aula correta, digite o nome da sala de aula que você deseja excluir. ![Modal para excluir uma sala de aula com avisos e campo de texto para nome da sala de aula](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. Para verificar se você está excluindo a sala de aula correta, digite o nome da sala de aula que você deseja excluir. ![Modal para excluir uma sala de aula com avisos e campo de texto para o nome da sala de aula](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
 1. Clique em **Excluir sala de aula**. ![Botão "Excluir sala de aula"](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

@@ -24,7 +24,7 @@ The severity level is one of four possible levels defined in the [Common Vulnera
 - High
 - Critical
 
-The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.0 standards and the CVSS levels described above. {% data variables.product.product_name %} doesn't publish CVSS scores.
+The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.0 standards and the CVSS levels described above.
 
 {% data reusables.repositories.github-security-lab %}
 
@@ -42,7 +42,8 @@ The database is also accessible using the GraphQL API. For more information, see
 {% endnote %}
 
 ### Searching the {% data variables.product.prodname_advisory_database %}
-You can search the database, and use qualifiers to narrow your search to advisories created on a certain date, in a specific ecosystem, or in a particular library.
+
+You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -50,16 +51,32 @@ You can search the database, and use qualifiers to narrow your search to advisor
 
 | Qualifier  | Example |
 | ------------- | ------------- |
+| `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
+| `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
 | `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting NPM packages. |
 | `severity:LEVEL`| [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) will show only advisories with a high severity level. |
 | `affects:LIBRARY`| [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) will show only advisories affecting the lodash library. |
+| `cwe:ID`| [**cwe:352**](https://github.com/advisories?query=cwe%3A352) will show only advisories with this CWE number. |
+| `credit:USERNAME`| [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) will show only advisories credited to the "octocat" user account. |
 | `sort:created-asc`| [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) will sort by the oldest advisories first. |
 | `sort:created-desc`| [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) will sort by the newest advisories first. |
 | `sort:updated-asc`| [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) will sort by the least recently updated first. |
 | `sort:updated-desc`| [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) will sort by the most recently updated first. |
 | `is:withdrawn`| [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) will show only advisories that have been withdrawn. |
-| `created:YYYY-MM-DD`| [**created:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2019-10-31) will show only advisories created on this date. |
-| `updated:YYYY-MM-DD`| [**updated:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2019-10-31) will show only advisories updated on this date. |
+| `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
+| `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
+
+### Viewing your vulnerable repositories
+
+For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
+
+1. Navigate to https://github.com/advisories.
+2. Click an advisory.
+3. At the top of the advisory page, click **Dependabot alerts**.
+   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
+   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
+5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
 ### Further reading
 

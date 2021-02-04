@@ -61,6 +61,7 @@ prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth App'
+prodname_oauth_apps: 'OAuth Apps'
 #API and developer docs
 prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
 prodname_support_forum_with_url: '[GitHub API Entwicklungs- und Support-Forum](https://github.community/c/github-api-development-and-support/37)'

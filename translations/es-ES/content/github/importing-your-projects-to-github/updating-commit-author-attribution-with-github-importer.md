@@ -31,7 +31,7 @@ Si la dirección de correo electrónico del autor no está asociada a su cuenta 
 
 Si el autor no tiene una cuenta de GitHub, el Importador GitHub atribuirá sus confirmaciones a la dirección de correo electrónico asociada a las confirmaciones.
 
-### Further reading
+### Leer más
 
 - "[Acerca del Importador GitHub](/articles/about-github-importer)"
 - "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"

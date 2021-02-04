@@ -21,14 +21,24 @@ versions:
 要设置自定义环境变量，您需要在工作流程文件中指定变量。 您可以使用 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv) 和 [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) 关键字定义步骤、作业或整个工作流程的环境变量。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
 
 ```yaml
-steps:
-  - name: Hello world
-    run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+jobs:
+  weekday_job:
+    runs-on: ubuntu-latest
     env:
-      FIRST_NAME: Mona
-      middle_name: The
-      Last_Name: Octocat
+      DAY_OF_WEEK: Mon
+    steps:
+      - name: "Hello world when it's Monday"
+        if: env.DAY_OF_WEEK == 'Mon'
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
 ```
+
+To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
+
+If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
 
 您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
 

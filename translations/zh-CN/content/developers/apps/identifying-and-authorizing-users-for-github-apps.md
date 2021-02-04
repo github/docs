@@ -89,7 +89,7 @@ versions:
 
 默认情况下，响应采用以下形式。 响应参数 `expires_in`、`refresh_token` 和 `refresh_token_expires_in` 仅当您启用过期用户到服务器访问令牌测试版功能时才会返回。
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",

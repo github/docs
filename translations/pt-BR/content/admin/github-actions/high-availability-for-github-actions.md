@@ -24,6 +24,6 @@ Para obter mais informações, consulte "[Iniciar uma falha na réplica do seu d
 
 #### Remover réplica de alta disponibilidade
 
-Evitar deixar várias instâncias para serem gravadas no mesmo armazenamento externo de {% data variables.product.prodname_actions %}. Isso pode ocorrer ao usar o comando `ghe-repl-teardown` para parar e remover permanentemente uma réplica de habilitada por {% data variables.product.prodname_actions %}. This is because the replica will be converted into a standalone {% data variables.product.prodname_ghe_server %}, and after the teardown it will still use the same external storage configuration as the primary.
+Evitar deixar várias instâncias para serem gravadas no mesmo armazenamento externo de {% data variables.product.prodname_actions %}. Isso pode ocorrer ao usar o comando `ghe-repl-teardown` para parar e remover permanentemente uma réplica de habilitada por {% data variables.product.prodname_actions %}. Isto porque a réplica será convertida em uma versão autônoma de {% data variables.product.prodname_ghe_server %} e, após a sua desmontagem, continuará usando a mesma configuração de armazenamento externo.
 
 Para evitar esse problema, recomendamos desativar o servidor de réplica ou atualizar a sua configuração de {% data variables.product.prodname_actions %} com um armazenamento externo diferente.

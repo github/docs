@@ -42,7 +42,7 @@ Si estás usando una llave GPG que coincida con la identidad de la persona que c
   ```
 10. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+### Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"

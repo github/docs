@@ -79,12 +79,12 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 
 ### Publicar un paquete
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si te autenticas con un archivo de *nuget.config*{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, o si utilizas la opción de línea de comandos `--api-key` con tu token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### Publishing a package using a GitHub PAT as your API key
+#### Publicar un paquete utilizando el PAT de GitHub como tu clave de la API
 
-If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Si aún no tienes un PAT para utilizar con tu cuenta de {% data variables.product.prodname_dotcom %}, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 1. Crear un proyecto nuevo.
   ```shell
@@ -95,7 +95,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
   dotnet pack--lanzamiento de configuración
   ```
 
-3. Publish the package using your PAT as the API key.
+3. Publicar el paquete utilizando tu PAT como la clave de la API.
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
   ```
@@ -104,7 +104,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 {% endif %}
 
-#### Publishing a package using a *nuget.config* file
+#### Publicar un paquete utilizando un archivo *nuget.config*
 
 Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que usas en tu archivo de autenticación *nuget.config*. Especifica o incrementa el número de versión en tu archivo *.csproj* y luego usa el comando `dotnet pack` para crear un archivo *.nuspec* para esa versión. Para obtener más información sobre cómo crear tu paquete, consulta la sección "[Crear y publicar un paquete](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" en la documentación de Microsoft.
 
@@ -219,6 +219,6 @@ El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proy
   restaurar dotnet
   ```
 
-### Further reading
+### Leer más
 
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

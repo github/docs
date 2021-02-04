@@ -22,7 +22,7 @@ You can sponsor an account on behalf of your user account to invest in projects 
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to be invoiced, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
 
 {% data reusables.sponsors.no-fees %}詳細は「[{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)」を参照してください。
 

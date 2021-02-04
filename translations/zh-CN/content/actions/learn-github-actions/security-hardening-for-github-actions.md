@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
+topics:
+  - '安全'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,11 +56,13 @@ type: 'overview'
 
   将操作固定到全长提交 SHA 是当前将操作用作不可变版本的唯一方法。 固定到特定 SHA 有助于降低恶意执行者向操作仓库添加后门的风险，因为他们需要为有效的 Git 对象负载生成 SHA-1 冲突。
 
+  {% if currentVersion ver_lt "enterprise-server@3.1" %}
   {% warning %}
 
   **警告** 提交 SHA 的简短版本不安全，绝不可用于指定操作的 Git 引用。 由于仓库网络的工作方式，任何用户都可以复刻仓库，将精心编写的提交推送到与短 SHA 冲突的仓库。 这会导致该 SHA 上的后续克隆失败，因为它成为不明确的提交。 因此，使用缩短的 SHA 的任何工作流程将立即失败。
 
   {% endwarning %}
+  {% endif %}
 
 
 * **审核操作的源代码**
@@ -113,7 +117,7 @@ type: 'overview'
 
 例如，您可以使用审核日志跟踪 `action:org.update_actions_secret` 事件，以跟踪组织机密的更改： ![审核日志条目](/assets/images/help/repository/audit-log-entries.png)
 
-以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 有关使用审核日志的更多信息，请参阅“[查看组织的审核日志](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)”。
+以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
 
 #### 机密管理的事件
 | 操作                                  | 描述                                                                                                                                                  |
@@ -140,4 +144,4 @@ type: 'overview'
 | `action:org.runner_group_removed`         | 组织管理员删除自托管运行器组时触发。                                                                                                                                                 |
 | `action:org.runner_group_renamed`         | 组织管理员重命名自托管运行器组时触发。                                                                                                                                                |
 | `action:org.runner_group_runners_added`   | 组织管理员[添加自托管运行器到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)时触发。                |
-| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               | 
+| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               |
