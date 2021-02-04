@@ -297,7 +297,7 @@ runs:
 
 #### `runs.image`
 
-**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, use a path relative to your action metadata file. The `docker` application will execute this file.
+**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` (the filename must be `Dockerfile`) local to your repository, use a path relative to your action metadata file. The `docker` application will execute this file.
 
 #### `runs.env`
 
