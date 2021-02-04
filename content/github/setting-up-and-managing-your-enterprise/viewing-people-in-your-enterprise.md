@@ -36,4 +36,4 @@ You can view {% if currentVersion == "free-pro-team@latest" %}all the {% data va
 
 ### Further reading
 
-- "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)"
+- "[Roles in an enterprise](/github/setting-up-google-my-business-development-services-seobility/roles-in-an-enterprise)"
