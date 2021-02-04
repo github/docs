@@ -24,7 +24,7 @@ I searched in Address Search and there was no home on the street I found.
 - The house isn't drawn on the map or has no number (check in **OpenStreetMap**). Example [here](https://www.openstreetmap.org/#map=19/33.91937/-118.24357).
 - The street name on the house is incorrectly signed in OpenStreetMap. Check the tag **addr: street**. The street name must exactly match the street name tag.
 - The house is drawn on the map, but not found in [Nominatim](https://www.openstreetmap.org/#map=19/33.91937/-118.24357). [How to fix addresses](https://wiki.openstreetmap.org/wiki/Addresses)
-- The house is in Nominatim, so this problem is OsmAnd. You can help solve it by studying in more detail. [Technical article](/development/algorithms/trace-address-search-issues.md)
+- The house is in Nominatim, so this problem is OsmAnd. You can help solve it by studying in more detail. [Technical article](/development/algorithms/trace-address-search-issues)
 
 # Points of Interest
 
