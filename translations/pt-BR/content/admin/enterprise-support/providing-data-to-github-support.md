@@ -59,7 +59,9 @@ Depois do envio da sua solicitação de suporte, podemos pedir que você compart
 - `configuration-logs/ghe-config.log`: logs de configuração do {% data variables.product.prodname_ghe_server %};
 - `collectd/logs/collectd.log`: logs coletados;
 - `mail-logs/mail.log`: logs de entrega de e-mail por SMTP;
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`: erros de entrega por webhook.
+{% endif %}
 
 Para obter mais informações, consulte "[Gerar logs de auditoria](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)".
 

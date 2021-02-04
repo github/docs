@@ -21,6 +21,6 @@ Cuando abres un informe de problemas desde un comentario, este informe contiene 
 6. Haz clic en **Create issue** (Crear propuesta). ![Botón para crear la nueva propuesta](/assets/images/help/pull_requests/create-issue.png)
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
-### Further reading
+### Leer más
 
 - [Crear una propuesta](/github/managing-your-work-on-github/creating-an-issue)"

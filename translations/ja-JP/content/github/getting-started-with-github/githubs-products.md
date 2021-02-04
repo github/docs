@@ -85,6 +85,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - {% data variables.contact.enterprise_support %}。 詳細は「<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} サポート</a>」および「<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 補遺</a>」を参照してください。
 - 50,000 {% data variables.product.prodname_actions %} 分
 - 50GBの{% data variables.product.prodname_registry %}ストレージ
+- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
 - 99.9% の月次稼働時間を保証するサービスレベルアグリーメント
 - エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「<a href="/articles/about-enterprise-accounts" class="dotcom-only">Enterprise アカウントについて</a>」を参照してください。
 

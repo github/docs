@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} in 5 minutes or less with {% data variables.product.prodname_actions %}.'
+title: Inicie rapidamente para o GitHub Packages
+intro: 'Publicar em {% data variables.product.prodname_registry %} em 5 minutos ou menos com {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
@@ -9,25 +9,25 @@ versions:
 
 ### Introdução
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to publish a package to {% data variables.product.prodname_registry %}. In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}. Feel free to create a new repository for this Quickstart. You can use it to test this and future {% data variables.product.prodname_actions %} workflows.
+Você só precisa de um repositório de {% data variables.product.prodname_dotcom %} existente para publicar um pacote em {% data variables.product.prodname_registry %}. Neste guia, você criará um fluxo de trabalho de {% data variables.product.prodname_actions %} para testar seu código e, em seguida, publicá-lo em {% data variables.product.prodname_registry %}. Sinta-se à vontade para criar um novo repositório para esse guia de início rápido. Você pode usá-lo para testar este e os fluxos de trabalho futuros de {% data variables.product.prodname_actions %}.
 
-### Publishing your package
+### Publicar o seu pacote
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. Create a private repository if you’d like to delete this package later, public packages cannot be deleted. Para obter mais informações, consulte "[Criar um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
+1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. Crie um repositório privado, se quiser excluir este pacote mais tarde. Os pacotes públicos não podem ser excluídos. Para obter mais informações, consulte "[Criar um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+2. Clone o repositório para a sua máquina local.
     {% raw %}
     ```shell
     $ git clone https://github.com/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
     {% endraw %}
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
+3. Crie um arquivo `index.js` e adicione um alerta básico que diga "Hello world!"
     {% raw %}
     ```javascript{:copy}
     alert("Hello, World!");
     ```
     {% endraw %}
-4. Initialize an npm package. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0` if you do not have any tests. Commit your changes and push them to
+4. Inicializa um pacote de npm. No assistente de inicialização de pacote, insira seu pacote com o nome: _`@YOUR-USERNAME/YOUR-REPOSITORY`_ e defina o script de teste para `exit 0` se você não tiver testes. Faça o commit das alterações e envie-as por push para
 {% data variables.product.prodname_dotcom %}.
     {% raw %}
     ```shell
@@ -45,7 +45,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
     ```
     {% endraw %}
 5. Do seu repositório no {% data variables.product.prodname_dotcom %}, crie um novo arquivo no diretório `.github/workflows` denominado `release-package.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
-6. Copy the following YAML content into the `release-package.yml` file.
+6. Copie o seguinte conteúdo do YAML para o arquivo `release-package.yml`.
     {% raw %}
     ```yaml{:copy}
     name: Node.js Package
@@ -80,31 +80,31 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
               NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     ```
     {% endraw %}
-7. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Em seguida, para criar um pull request, clique em **Propor novo arquivo**.
-8. **Merge** the pull request.
-9. Navigate to the **Code** tab and create a new release to test the workflow. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+7. Vá até o final da página e selecione **Criar um novo branch para este commit e iniciar um pull request**. Em seguida, para criar um pull request, clique em **Propor novo arquivo**.
+8. **Faça merge** do pull request.
+9. Acesse a aba **Código** e crie uma nova versão para testar o fluxo de trabalho. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 
-Creating a new release in your repository triggers the workflow to build and test your code. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+A criação uma nova versão no seu repositório aciona o fluxo de trabalho para construir e testar seu código. Se os testes passarem, o pacote será publicado em {% data variables.product.prodname_registry %}.
 
-### Viewing your published package
+### Visualizar o seu pacote publicado
 
-Packages are published at the repository level. You can see all the packages in a repository and search for a specific package.
+Os pacotes são publicados no nível de repositório. Você pode visualizar todos os pacotes em um repositório e procurar um pacote específico.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
 
-### Installing a published package
+### Instalar um pacote publicado
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Configuring npm for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)."
+Agora que você publicou o pacote, você vai querer usá-lo como uma dependência nos seus projetos. Para obter mais informações, consulte "[Configurar npm para uso com o {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)".
 
 ### Próximas etapas
 
-The basic workflow you just added runs any time a new release is created in your repository. But, this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
+O fluxo de trabalho básico que você acabou de adicionar é executado sempre que uma nova versão for criada no seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_registry %}. Pode publicar o seu pacote em vários registros com um único fluxo de trabalho, acionar o fluxo de trabalho para ser executado em eventos diferentes, como um pull request mesclado, gerenciar contêineres, entre outros.
 
-Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Pronto para começar? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
+Combinar {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seguir as próximas etapas com {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}:
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Guides](/packages/guides)" for specific uses cases and examples
+- "[Aprenda sobre {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" para obter um tutorial aprofundado no GitHub Packages
+- "[Aprenda sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para obter um tutorial aprofundado no GitHub Actions
+- "[Guias](/packages/guides)" para casos e exemplos específicos de uso

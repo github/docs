@@ -1,6 +1,6 @@
 date: '2021-01-12'
 release_candidate: true
-intro: Release notes are now published on the documentation site. The new location makes it easier to learn about new releases and features at the same time. Historical release notes are available on [GitHub Enterprise Releases](https://enterprise.github.com/releases).
+intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)".
 sections:
   features:
     - heading: GitHub Actions

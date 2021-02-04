@@ -41,7 +41,9 @@ versions:
 {% data reusables.enterprise-accounts.license-tab %}
 12. 在“Quick links”下，单击 **Update license**。 ![更新许可链接](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. 要选择许可，请单击 **License file（许可文件）**，或将许可文件拖到 **License file（许可文件）**上。 ![上传许可文件](/assets/images/enterprise/management-console/upload-license.png)
-14. 单击 **Upload（上传）**。 ![开始升级](/assets/images/enterprise/management-console/begin-upload.png)
+14. 单击 **Upload（上传）**。 ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### 查看许可使用情况
 
@@ -70,3 +72,23 @@ versions:
 {% data reusables.enterprise-accounts.license-tab %}
 10. 在“Enterprise Server Instances（Enterprise Server 实例）”下，单击 **Add server usage（添加服务器使用情况）**。 ![Upload GitHub Enterprise Servers usage 链接](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. 上传从 {% data variables.product.prodname_ghe_server %} 下载的 JSON 文件。 ![拖放或选择要上传的文件](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### 疑难解答
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}

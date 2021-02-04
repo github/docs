@@ -22,6 +22,6 @@ Los administradores de la organización pueden usar [uno de los códigos de reup
 
 Una vez que has usado un código de verificación, asegúrate de anotar que ya no es válido. No podrás volver a usar el código de recuperación.
 
-### Further reading
+### Leer más
 
 - [Acerca de la administración de acceso e identidad con SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

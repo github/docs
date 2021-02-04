@@ -1,5 +1,5 @@
 ---
-title: 自己ホストランナーについて
+title: セルフホストランナーについて
 intro: '独自のランナーをホストして、{% data variables.product.prodname_actions %}ワークフロー中でジョブの実行に使われる環境をカスタマイズできます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
@@ -7,13 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 自己ホストランナーについて
+### セルフホストランナーについて
 
 {% data reusables.github-actions.self-hosted-runner-description %} セルフホストランナーは、物理、仮想、コンテナ内、オンプレミス、クラウド内のいずれでも可能です。
 
@@ -96,13 +96,13 @@ type: 'overview'
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 
-そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[セルフホストランナーと{% data variables.product.prodname_dotcom %}の通信](#communication-between-self-hosted-runners-and-github)」を参照してください。
+{% data variables.product.prodname_ghe_server %}とあわせて{% data variables.product.prodname_dotcom_the_website %}からアクションを使う場合、あるいはインターネットアクセスのないセルフホストランナーで`actions/setup-LANGUAGE`アクションを使う場合には、多少の追加設定が必要になるかもしれません。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
 
 {% endif %}
 
 ### セルフホストランナーと{% data variables.product.product_name %}との通信
 
-The self-hosted runner polls {% data variables.product.prodname_dotcom %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.prodname_dotcom %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
+セルフホストランナーは{% data variables.product.product_name %}をポーリングして、アプリケーションのアップデートを取得し、処理のためにジョブがキューイングされていないかチェックします。 セルフホストランナーはHTTPSの_ロングポーリング_を使います。これは{% data variables.product.product_name %}に対して50秒間接続を開き、レスポンスがなければタイムアウトして新しいロングポーリングを生成します。 アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

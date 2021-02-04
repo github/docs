@@ -19,11 +19,13 @@ versions:
 
 ### Sobre a configuração dos planos de preços
 
-Se desejar vender um aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar verificação ao publicar o anúncio do seu aplicativo. Durante o processo de verificação, um especialista em integração verifica as configurações de identidade e segurança da organização. O especialista em integração fará com que a organização passe pela integração financeira. Para mais informações, consulte: "[Requisitos para anunciar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
+{% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de planos de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
 
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obter informações sobre como fazer isso, consulte: "[Enviar o seu anúncio para publicação](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
+Para oferecer um plano pago para seu aplicativo, este deve ser pertencente a uma organização que tenha concluído o processo de verificação de editor e atendido a certos critérios. Para obter mais informações, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" e "[Requisitos para listar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-{% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de plano de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
+Se seu aplicativo já foi publicado com um plano pago e você é um editor verificado, você poderá publicar um novo plano pago a partir da página "Editar um plano de preços" nas configurações da listagem do seu aplicativo do Marketplace.
+
+![Botão Publicar este plano](/assets/images/marketplace/publish-this-plan-button.png)
 
 ### Sobre como salvar planos de preços
 
