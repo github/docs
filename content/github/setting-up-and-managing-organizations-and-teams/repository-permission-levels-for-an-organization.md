@@ -68,7 +68,7 @@ In addition to managing organization-level settings, organization owners have ad
 | [Report abusive or spammy content](/articles/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
-| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
+| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | [Enable and disable auto-merge on a pull request](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | | | **X** | **X** | **X** |{% endif %}
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
@@ -133,7 +133,7 @@ In addition to managing organization-level settings, organization owners have ad
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 #### Permission requirements for security features
 
-In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features. 
+In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|{% if currentVersion == "free-pro-team@latest" %}
