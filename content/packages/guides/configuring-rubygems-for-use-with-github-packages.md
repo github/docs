@@ -144,6 +144,6 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   $ gem install octo-gem --version "0.1.1"
   ```
 
-### Further reading
+### Further reading 
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
