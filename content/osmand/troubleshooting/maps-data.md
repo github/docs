@@ -16,7 +16,7 @@ Unfortunately not. This would require the generation of completely separate cont
 ### Create own maps
 
 # Search
-### Structured (city -> street -> house) address search doesn't found the house
+### Structured (city -> street -> house) address search doesn't find the house
 
 I tried to search CITY - STREET - HOUSE NUMBER and there was no result. 
 >Tip: check the full-text search without the city, it may be in another city.
