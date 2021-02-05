@@ -9,7 +9,7 @@ versions:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorship upgrades
+### Sobre atualizações de patrocínio
 
 Quando você atualiza a camada do patrocínio, a alteração entra em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 

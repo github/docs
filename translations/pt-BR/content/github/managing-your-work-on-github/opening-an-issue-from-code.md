@@ -1,7 +1,7 @@
 ---
 title: Abrir um problema a partir de código
 intro: É possível abrir um problema novo a partir de uma linha ou linhas específicas de código em um arquivo ou pull request.
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: 'Pessoas com permissões de leitura podem criar um problema em um repositório onde os problemas estão habilitados.'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:

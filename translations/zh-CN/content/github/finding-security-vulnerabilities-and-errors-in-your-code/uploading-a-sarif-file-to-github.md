@@ -27,6 +27,8 @@ versions:
 - {% data variables.product.prodname_dotcom %} 将在仓库中显示来自上传的 SARIF 文件的 {% data variables.product.prodname_code_scanning %} 警报。 如果您阻止自动上传，在准备上传结果时可以使用 `upload` 命令（更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”）。
 - 作为仓库外部构件生成结果的工具，您可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（更多信息请参阅“[上传 SARIF 文件](/rest/reference/code-scanning#upload-a-sarif-file)”）。
 
+{% data reusables.code-scanning.not-available %}
+
 ### 通过 {% data variables.product.prodname_actions %} 上传 {% data variables.product.prodname_code_scanning %} 分析
 
 要将第三方 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}，需要 {% data variables.product.prodname_actions %} 工作流程。 更多信息请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
@@ -36,6 +38,8 @@ versions:
 `upload-sarif` 操作可配置为在 `push` and `scheduled` 事件发生时运行。 有关 {% data variables.product.prodname_actions %} 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
 
 如果您的 SARIF 文件不含 `partialFingerprints`，则 `upload-sarif` 操作将为您计算 `partialFingerprints` 字段，并尝试防止重复警报。 {% data variables.product.prodname_dotcom %} 仅当仓库同时包含 SARIF 文件和静态分析中使用的源代码时才能创建 `partialFingerprints`。 有关防止重复警报的更多信息，请参阅“[关于代码扫描的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)”。
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### 在存储库外部生成的 SARIF 文件的工作流程示例
 

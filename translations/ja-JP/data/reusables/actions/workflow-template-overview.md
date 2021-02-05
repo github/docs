@@ -1,0 +1,3 @@
+{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can customize to create your own continuous integration workflow. {% data variables.product.product_name %} analyzes your code and shows you CI templates that might be useful for your repository. たとえばリポジトリにNode.jsのコードが含まれているなら、Node.jsプロジェクトのためのサジェッションが提示されます。 ワークフローテンプレートは、カスタムワークフローの構築の出発点として利用することも、そのまま利用することもできます。
+
+{% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) リポジトリ{% else %} {% data variables.product.product_location %} の `actions/starter-workflows` リポジトリで、ワークフローテンプレートの完全なリストを閲覧できます{% endif %}。

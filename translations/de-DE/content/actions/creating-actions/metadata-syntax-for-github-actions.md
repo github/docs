@@ -1,7 +1,7 @@
 ---
 title: Metadaten-Syntax für GitHub-Aktionen
 shortTitle: Metadaten-Syntax
-intro: Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.
+intro: 'Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -103,20 +104,21 @@ outputs:
 
 {% raw %}
 ```yaml
-Outputs:
-  Zufallszahl: 
-    Beschreibung: "Zufallszahl"
-    Wert:{{ steps.random-number-generator.outputs.random-id }}
-läuft:
-  mit: "composite"
-  Schritten: 
-    - id: zuzufälliger Zahlengenerator
-      ausführen: echo "::set-output name=random-id::'(echo $RANDOM)"
-      Shell: bash
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
 ```
 {% endraw %}
 
 #### `outputs.<output_id>.value`
+
 **Erforderliche** Der Wert, dem der Ausgabeparameter zugeordnet wird. Sie können dies auf eine `Zeichenfolge` oder einen Ausdruck mit Kontext festlegen. Sie können z. B. die `Schritte` Kontext verwenden, um den `Wert` einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
@@ -204,48 +206,51 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
 
 **Erforderliche** Die Ausführungsschritte, die Sie in dieser Aktion ausführen möchten.
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **Erforderliche** Der Befehl, den Sie ausführen möchten. Dies kann inline oder ein Skript in Ihrem Aktions-Repository sein:
+
+{% raw %}
 ```yaml
-läuft:
-  mit: "composite"
-  Schritte: 
-    - ausführen:{{ github.action_path }}/test/script.sh
-      Shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh
+      shell: bash
+```
+{% endraw %}
+
+Alternatively, you can use `$GITHUB_ACTION_PATH`:
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: bash
 ```
 
-Alternativ können Sie `$GITHUB_ACTION_PATH`verwenden:
+For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-```yaml
-läuft:
-  verwenden: "composite"
-  Schritte: 
-    - ausführen: $GITHUB_ACTION_PATH/script.sh
-      Shell: bash
-```
+##### `runs.steps[*].shell`
 
-Weitere Informationen finden Sie unter "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### `runs.steps.shell`
+##### `runs.steps[*].name`
 
-**Erforderliche** Die Shell, in der Sie den Befehl ausführen möchten. Sie können eine der hier aufgeführten Shells [](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)verwenden.
+**Optional** The name of the composite run step.
 
-##### `runs.steps.name`
+##### `runs.steps[*].id`
 
-**Optionaler** Der Name des zusammengesetzten Ausführungsschritts.
+**Optional** A unique identifier for the step. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### `runs.steps.id`
+##### `runs.steps[*].env`
 
-**Optionaler** Ein eindeutiger Bezeichner für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### `runs.steps.env`
+##### `runs.steps[*].working-directory`
 
-**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
-
-##### `runs.steps.working-directory`
-
-**Optionale**  Gibt das Arbeitsverzeichnis an, in dem der Befehl ausgeführt wird.
+**Optional**  Specifies the working directory where the command is run.
 
 ### `runs` for Docker actions
 
@@ -254,7 +259,7 @@ Weitere Informationen finden Sie unter "[`github context`](/actions/reference/co
 #### Beispiel für die Nutzung eines Dockerfiles in Deinem Repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -262,9 +267,9 @@ runs:
 #### Beispiel zur Nutzung des öffentlichen Docker-Registry-Containers
 
 ```yaml
-läuft: 
-  mit: 'docker'
-  Image: 'docker://debian:stretch-slim'
+runs:
+  using: 'docker'
+  image: 'docker://debian:stretch-slim'
 ```
 
 #### `runs.using`

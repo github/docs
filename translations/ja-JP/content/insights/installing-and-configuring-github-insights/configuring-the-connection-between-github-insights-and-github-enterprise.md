@@ -8,8 +8,8 @@ versions:
 ---
 
 {% data reusables.github-insights.settings-tab %}
-2. Under
-{% octicon "gear" aria-label="The gear icon" %} Settings, click **Enterprise**.
+2. GitHub Insightsの
+{% octicon "gear" aria-label="The gear icon" %} Setting（設定）の下で、**Enterprise**をクリックしてください。
   ![Enterpriseタブ](/assets/images/help/insights/enterprise-tab.png)
 {% data reusables.github-insights.enterprise-api-url %}
 {% data reusables.github-insights.app-id %}

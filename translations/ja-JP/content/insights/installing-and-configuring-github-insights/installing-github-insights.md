@@ -16,6 +16,7 @@ versions:
 - アプリケーションサーバーに依存関係をインストールしなければなりません。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), available via apt for [Debian](https://packages.debian.org/search?keywords=netcat) and [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -28,7 +29,7 @@ versions:
 {% data variables.product.prodname_insights %}を{% data variables.product.prodname_enterprise %}に接続するには、{% data variables.product.prodname_enterprise %}上のOrganization内に{% data variables.product.prodname_github_app %}を作成しなければなりません。 インテグレーションが動作すると、{% data variables.product.prodname_enterprise %}上にアプリケーションのスラッグバージョンの名前が表示されます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. Navigate to the organization you'd like to connect to
+2. に接続したいOrganizationにアクセスしてください。
 {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
@@ -99,4 +100,4 @@ versions:
 ### 参考リンク
 
 - [リポジトリの管理](/insights/installing-and-configuring-github-insights/managing-repositories)
-- [{% data variables.product.prodname_insights %}とOrganizationのデータ保護](/github/site-policy/github-insights-and-data-protection-for-your-organization)
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %}とOrganizationのデータ保護</a>

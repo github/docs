@@ -20,6 +20,8 @@ versions:
 
 {% data reusables.saml.about-linked-identities %}
 
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
+
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.people %}

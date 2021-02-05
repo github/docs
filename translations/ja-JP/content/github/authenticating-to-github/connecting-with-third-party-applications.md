@@ -32,7 +32,7 @@ versions:
 
 *スコープ*は、アプリケーションがパブリックおよび非パブリックのデータへのアクセスをリクエストできる権限について名前を付けたグループです。
 
-{% data variables.product.product_name %} と統合するサードパーティアプリケーションを使用したい場合、そのアプリケーションは、データに対してどういった種類のアクセスが必要になるのかをあなたに通知します。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば `user:email` スコープをリクエストするアプリケーションを使用したい場合、そのアプリケーションはあなたのプライベートのメールアドレスに対してリードオンリーのアクセスを持つことになります。 詳しい情報については 、「[{% data variables.product.prodname_oauth_app %} のスコープについて](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)」を参照してください。
+{% data variables.product.product_name %} と統合するサードパーティアプリケーションを使用したい場合、そのアプリケーションは、データに対してどういった種類のアクセスが必要になるのかをあなたに通知します。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば `user:email` スコープをリクエストするアプリケーションを使用したい場合、そのアプリケーションはあなたのプライベートのメールアドレスに対してリードオンリーのアクセスを持つことになります。 詳しい情報については 、「[{% data variables.product.prodname_oauth_app %} のスコープについて](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)」を参照してください。
 
 {% tip %}
 

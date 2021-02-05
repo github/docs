@@ -1,7 +1,7 @@
 ---
 title: 从代码打开议题
 intro: 您可以从文件或拉取请求的特定代码行打开新议题。
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
