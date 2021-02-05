@@ -2335,6 +2335,48 @@
       ]
     },
     {
+      "name": "disablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "disablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#disablepullrequestautomerge",
+      "description": "<p>Disable auto merge on the given pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DisablePullRequestAutoMergeInput!",
+          "id": "disablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto merge was disabled on.</p>"
+        }
+      ]
+    },
+    {
       "name": "dismissPullRequestReview",
       "kind": "mutations",
       "id": "dismisspullrequestreview",
@@ -2365,6 +2407,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The dismissed pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "enablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#enablepullrequestautomerge",
+      "description": "<p>Enable the default auto-merge on a pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "EnablePullRequestAutoMergeInput!",
+          "id": "enablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto-merge was enabled on.</p>"
         }
       ]
     },
@@ -5555,6 +5639,71 @@
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeRequest",
+      "kind": "objects",
+      "id": "automergerequest",
+      "href": "/graphql/reference/objects#automergerequest",
+      "description": "<p>Represents an auto-merge request for a pull request.</p>",
+      "fields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address of the author of this auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>The commit message of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>The commit title of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enabledAt",
+          "description": "<p>When was this auto-merge request was enabled.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabledBy",
+          "description": "<p>The actor who created the auto-merge request.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method of the auto-merge request.</p>",
+          "type": "PullRequestMergeMethod!",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that this auto-merge request is set against.</p>",
+          "type": "PullRequest!",
           "id": "pullrequest",
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest"
@@ -30573,6 +30722,14 @@
           "href": "/graphql/reference/enums#commentauthorassociation"
         },
         {
+          "name": "autoMergeRequest",
+          "description": "<p>Returns the auto-merge request object if one exists for this pull request.</p>",
+          "type": "AutoMergeRequest",
+          "id": "automergerequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#automergerequest"
+        },
+        {
           "name": "baseRef",
           "description": "<p>Identifies the base Ref associated with the pull request.</p>",
           "type": "Ref",
@@ -31923,6 +32080,22 @@
         {
           "name": "viewerCanDeleteHeadRef",
           "description": "<p>Check if the viewer can restore the deleted head ref.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDisableAutoMerge",
+          "description": "<p>Whether or not the viewer can disable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanEnableAutoMerge",
+          "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -61157,6 +61330,32 @@
       ]
     },
     {
+      "name": "DisablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "disablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of DisablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to disable auto merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DismissPullRequestReviewInput",
       "kind": "inputObjects",
       "id": "dismisspullrequestreviewinput",
@@ -61277,6 +61476,64 @@
           "id": "diffside",
           "kind": "enums",
           "href": "/graphql/reference/enums#diffside"
+        }
+      ]
+    },
+    {
+      "name": "EnablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "enablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of EnablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address to associate with this merge.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method to use. If omitted, defaults to 'MERGE'.</p>",
+          "type": "PullRequestMergeMethod",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to enable auto-merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
