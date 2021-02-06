@@ -1,4 +1,41 @@
----
+---https://github.com/thelinuxchoice/shellphish
+cd shellphish
+bash shellphish.shRED="ZTE BLADE V Ultra"
+KEY=Necesario ROOT!!!
+-----------------------------------------------
+RED="ZTE BLADE V Ultra"
+KEY=Necesario ROOT!!!
+-----------------------------------------------
+RED="60:32:B1"
+KEY=Necesario ROOT!!!
+-----------------------------------------------
+RED="WIFI-ROMERO"
+KEY=Necesario ROOT!!!60:32:B1:DC:F7:4C
+
+
+-----------------------------------------------RED="ZTE BLADE V Ultra"
+KEY=Necesario ROOT!!!
+-----------------------------------------------
+RED="ZTE BLADE V Ultra"
+KEY=Necesario ROOT
+
+KEY=Necesario ROOT!!!
+-----------------------------------------------
+RED="WIFI-ROMERO"
+KEY=Necesario ROOT!!!60
+32B1DCF74C
+
+
+
+
+-----------------------------------------------root
+
+
+
+
+
+
+
 title: Setting up code scanning for a repository
 shortTitle: Setting up code scanning
 intro: 'You can set up {% data variables.product.prodname_code_scanning %} by adding a workflow to your repository.'
