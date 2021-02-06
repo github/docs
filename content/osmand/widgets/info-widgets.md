@@ -69,6 +69,9 @@ User could find GPS info widget in Configure screen menu
 - How to use
 - How to configure
 
+{% link_with_intro /radius-ruler %}
+{% link_with_intro /coordinates-widget %}
+
 ## Link to radius-ruler
 
 ## Link to coordinates-widget
