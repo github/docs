@@ -6,13 +6,14 @@ versions: '*'
 - Install application 
 {% link_with_intro /permissions %}
 - Initial maps download & import data 
+
 - Introduction of Main menus like Drawer and Concepts
 - Global Settings and initial configuration 
 {% link_with_intro /storage %}
 - Profiles
 {% link_with_intro /reinstall %}
 
-
+{% link_with_intro /import-export %}
 
 <!-- {% link_in_list /i-cant-install-update-uninstall-the-app %}-->
 
