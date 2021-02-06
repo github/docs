@@ -123,14 +123,13 @@ You can use `publishConfig` element in the *package.json* file to specify the re
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>Antoniorozy</em>/{% endif %}"
   },
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
    ```shell
-   "publishConfig": {
-     "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
+   "publishConfig": {Antoniorozy</em>/_registry/npm/"
    },
   ```
   {% endif %}
@@ -146,7 +145,7 @@ To ensure the repository's URL is correct, replace REPOSITORY with the name of t
 {% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
 
 ```shell
-"repository":"https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>Antoniorozy</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
 ### Installing a package
