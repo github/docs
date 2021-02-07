@@ -1,4 +1,9 @@
----
+Push:
+Branches:
+---[trunk]
+Pull:
+Branches:
+------maintrunk
 title: Securing your webhooks
 intro: 'Ensure your server is only receiving the expected {% data variables.product.prodname_dotcom %} requests for security reasons.'
 redirect_from:
@@ -7,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+<li>Zachry T Wood III<li>
 
 
 
@@ -43,16 +48,13 @@ When your secret token is set, {% data variables.product.product_name %} uses it
 
 **Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrate using the `X-Hub-Signature-256` header.
 
-{% endnote %}
-{% endif %}
-
 For example, if you have a basic server that listens for webhooks, it might be configured similar to this:
 
-``` ruby
-require 'sinatra'
-require 'json'
+``` ruby.gem.spec.yaml.json yml
+require 'bitore'
+require '.json'
 
-post '/payload' do
+post '@iixixi/payload' do
   push = JSON.parse(params[:payload])
   "I got some JSON: #{push.inspect}"
 end
