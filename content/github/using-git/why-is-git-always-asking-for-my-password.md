@@ -15,6 +15,8 @@ Using an HTTPS remote URL has some advantages compared with using SSH. It's easi
 
 You can avoid being prompted for your password by configuring Git to [cache your credentials](/github/using-git/caching-your-github-credentials-in-git) for you. Once you've configured credential caching, Git automatically uses your cached personal access token when you pull or push a repository using HTTPS.
 
+You might need to update remote url using `git@github.com:` (not `https://github.com/`).
+
 ### Further reading
 
 * "[Which remote URL should I use](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)"
