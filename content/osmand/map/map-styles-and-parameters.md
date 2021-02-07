@@ -6,7 +6,7 @@ versions: '*'
 
 ## Use cases
 
-Editable Map styles are one of the main advantages of OsmAnd. Each user can customize the display of the map for himself and his hobbies, configure to show or hide certain map objects, sizes and colors of this objects,  change the scale on which to display certain objects. 
+Editable Map styles are one of the main advantages of OsmAnd. Each user can customize the display of the map for himself and his hobbies, configure to show or hide certain map objects, sizes, and colors of these objects, change the scale on which to display certain objects.
 
 ## Default Map styles:
 
@@ -19,7 +19,7 @@ OsmAnd offers you numerous map styles and data layers to fit the purpose by defa
 
 ### OsmAnd
 
-OsmAnd style is the default style of map rendering, general purpose style. It offers details about the city such as streets, buildings, transport stops, etc. Simplified rendering to have cleaner maps in the populated cities. Key features: contour lines, routes, surface quality, access restrictions, road shields, paths rendering according to SAC scale, whitewater sports features. 
+OsmAnd style is the default style of map rendering, general-purpose style. It offers details about the city such as streets, buildings, transport stops, etc. Simplified rendering to have cleaner maps in the populated cities. Key features: contour lines, routes, surface quality, access restrictions, road shields, paths rendering according to SAC scale, whitewater sports features.
 
 ![Map styles](/assets/images/map/ms-1.png)
 
@@ -50,7 +50,7 @@ LightRS style: {% data variables.android-values.light_rs_render_descr %}
 ### Winter and ski
 
 {% data variables.android-values.ski_map_render_descr %}
-Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Key features: renders pistes, aerial ways and other ski features in a convenient way. Less distracting secondary map objects. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
+Winter and ski style is designed to help you navigate winter sports locations: you'll be able to see ski pistes and other details such as the complexity of skiing tracks and ski lift markers. Key features: renders pistes, aerial ways, and other ski features in a convenient way. Less distracting secondary map objects. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
 
 ![Map styles](/assets/images/map/ms-6.png)
 
@@ -93,7 +93,7 @@ Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map
 
 ### Map mode
 
-During day and night you need to use mode for the map. [Map styles](/map/map-styles-and-parameters#default-map-styles) have night and day mode style. In this menu you find time of sunrise and sunset.
+During day and night, you need to use mode for the map. [Map styles](/map/map-styles-and-parameters#default-map-styles) have night and day mode style. In this menu, you find the time of sunrise and sunset.
 
 In order to change {% data variables.android-values.daynight%}:
 
@@ -112,7 +112,7 @@ Here you can choose:
 
 ### Details
 
-In {% data variables.android-values.rendering_category_details %} menu you can show or hide next additional map details:
+In {% data variables.android-values.rendering_category_details %} menu you can show or hide the next additional map details:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_details %} 
 
@@ -122,21 +122,21 @@ In {% data variables.android-values.rendering_category_details %} menu you can s
 |------------|
 |**{% data variables.ios-values.rendering_attr_moreDetailed_name %}**: Showing polygons, trails, points, signs at low zooms on the map. It means you can see more details on your map at low zooms. _Note_: rendering in your device may be no fast.|
 |![Map styles](/assets/images/map/ms-12.png)|
-|**{% data variables.ios-values.rendering_attr_showSurfaces_name %}**: Showing type of surface of roads. Color on the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
+|**{% data variables.ios-values.rendering_attr_showSurfaces_name %}**: Showing type of surface of roads. Color of the road helps you to understand what is surface of the road: asphalt, grass or sand and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-13.png)|
-|**{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}**: Showing smoothness (grade) of the road. What is smoothness your roads: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|
+|**{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}**: Showing smoothness (grade) of the road. What smoothness is of your roads: good, bad or maybe horrible and etc: good, bad or maybe horrible and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road smoothness.|
 |![Map styles](/assets/images/map/ms-14.png)|
-|**{% data variables.ios-values.rendering_attr_showAccess_name %}**:  Showing access of roads: private or permissivis, or only for emergency, or maybe toll road. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road access. |
+|**{% data variables.ios-values.rendering_attr_showAccess_name %}**:  Showing access of roads: private or permissive, or only for emergency, or maybe toll road. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your road access. |
 |![Map styles](/assets/images/map/ms-15.png)|
-|**{% data variables.ios-values.rendering_attr_showLez_name %}**: Showing green board and labels for Low Emission Zones in cities. It will help you not receive penalty in green citycenter.|
+|**{% data variables.ios-values.rendering_attr_showLez_name %}**: Showing green board and labels for Low Emission Zones in cities. It will help you not receive penalties in the green city center.|
 |![Map styles](/assets/images/map/ms-16.png)|
-|**{% data variables.ios-values.rendering_attr_coloredBuildings_name %}**: Colored buildings and places have in special colors for each categorie: Regular buildings, industrial, commercial and etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your color for the building. |
+|**{% data variables.ios-values.rendering_attr_coloredBuildings_name %}**: Coloring buildings and places have special colors for each category: regular buildings, industrial, commercial, etc. Look at [Map legend](https://osmand.net/help-online/map-legend/) to find your color for the building. |
 |![Map styles](/assets/images/map/ms-17.png)|
-|**{% data variables.ios-values.rendering_attr_streetLighting_name %}**: Showing street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
+|**{% data variables.ios-values.rendering_attr_streetLighting_name %}**: Showing street lighting on the map. On the map, you can see illuminated and not illuminated street, underground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-18.png)|
-|**{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}**: Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |
+|**{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}**:Special setting for mappers. Showed refs, remarks, comments on the map from other mappers. |
 |![Map styles](/assets/images/map/ms-19.png)|
-|**{% data variables.ios-values.rendering_attr_depthContours_name %}**: Showing nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps.|
+|**{% data variables.ios-values.rendering_attr_depthContours_name %}**: Showing nautical depth contours on seas. You need to have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps.|
 |![Map styles](/assets/images/map/ms-20.png)|
 
 ### Routes
@@ -278,10 +278,10 @@ This setting allows using of any language for names on the map. If names don't h
 |![Map styles](/assets/images/map/ms-44.png)|
 
 ## Custom Map style (own map style)
-If you have your own or 3rd party custom map style created according to ![Specification](/development/osmand-file-formats/osmand-rendering-style), you can install it on device with the following ways.
+If you have your own or 3rd party custom map style created according to [Specification](/development/osmand-file-formats/osmand-rendering-style), you can install it on device with the following ways.
 - Copy *.render.xml file on devices & Open with OsmAnd. 
-- Rendering styles could be exported & imported via ![Standard import / export dialogs](/osmand/start-with/import-export). So if you create an example '*.osf' package which will work as a plugin which could be shared with other people.
-- If you have access directly to the External Storage of OsmAnd (Android), you can simply copy it to **rendering-styles** folder. Read more about it in ![Storage specification](/osmand/storage).
+- Rendering styles could be exported & imported via [Standard import / export dialogs](/osmand/start-with/import-export). So if you create an example '*.osf' package which will work as a plugin which could be shared with other people.
+- If you have access directly to the External Storage of OsmAnd (Android), you can simply copy it to **rendering-styles** folder. Read more about it in [Storage specification](/osmand/storage).
 
 After that you could select your own map style in the menu.
 
