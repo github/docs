@@ -1,4 +1,21 @@
----
+---'#'##Run:'::Automate:'::start:'::'actions'use':'start'uses'::'steps'uses'-''
+'-::request_pull:'@Iixixi/paradise/tree/'Iixixiii/.github%2Fworkflows%2F:'::bra'nh0main.yml'
+'-::request:'-::pull:'@Iixixi/paradise/tree/Iixixiii/.github%2Fworkflows%2Fblank.yml'
+'-::request:'-::pull:'@Iixixi/paradise/tree'/Iixixiii/.github%2Fworkflows%2Fazure.yml'
+'-::Automate:'squash_merge''
+-::Build:'@iixixi%2iixixi%2README.md%2bitcoin%2tree%2trunk
+'-::Const:'::repository:'::@user%2bin'%2bitcoin'
+-::return:'#'
+
+
+'#'##Run:'::Automate:':🔛'::'actions'use':'on'uses'::'steps'uses'-'
+'-::request_pull:'@Iixixi/paradise/tree'/'Iixixiii/.github/workflows/:'::'bra'nh0main.yml'
+'-::request:'-::pull:'@Iixixi/paradise/tree'/Iixixiii/.github/workflows/blank'.yml'
+'-::request:'-::pull:'@Iixixi/paradise/tree''/Iixixiii/.github/workflows/azure'.yml'
+'-::Automate:'squash_merge''
+'-::const:@iixixi/iixixi/README.md/bitcoin/tree/trunk'
+'-::Const:'::repository:'::@iixixi/iixixi'/'repositories'/'bitcoin'
+-::return:'#::pull:'¡#!::TIERRAFOURMA¡#¡:R'::releases:'energy'¡#:'::¡#¡TIERRAFORM'energy¡#¡:Realease¡#!:bitore@Iixixi /iixixi/readME.md:: Automate:'::AytoMerge:@'[Screenshot_20210207-064041.png]{https://user-images.githubusercontent.com/72369414/107149816-72279a00-6920-11eb-9f31-18134a5c218a.png.js.svn.yaml.json}:: Build:'@iixixi/repository::publish:container:'::release:@iixixi/iixixi/readme.Md
 title: Creating a pull request
 intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
 redirect_from:
