@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
 ---
-
+https://github.com/javascript-obfuscator/javascript-obfuscator/pull/855
 ### About renaming branches
 
 You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)."
