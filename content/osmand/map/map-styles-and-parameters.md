@@ -158,7 +158,7 @@ Sometimes when we use the application during your trip, you don't use navigation
 |![Map styles](/assets/images/map/ms-23.png)|
 |**{% data variables.android-values.rendering_attr_alpineHiking_name %}**: Showing  [classified hiking trails](https://wiki.openstreetmap.org/wiki/Key:sac_scale) in mountainous areas with regard to the difficulties to be expected by color.|
 |![Map styles](/assets/images/map/ms-24.png)|
-|**{% data variables.android-values.rendering_attr_horseRoutes_name %}**: Showing colored routes for riding horses.|
+|**{% data variables.android-values.rendering_attr_horseRoutes_name %}**: Showing colored routes and symbols for riding horses.|
 |![Map styles](/assets/images/map/ms-25.png)|
 |**{% data variables.android-values.rendering_attr_whiteWaterSports_name %}**: Showing [icons of access, dangerous areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |
 |![Map styles](/assets/images/map/ms-26.png)|
@@ -174,7 +174,7 @@ Sometimes when we use the application during your trip, you don't use navigation
 
 In navigation in cities, you need to see public transport in more contrast and stops. Of course, this setting shows train routes too.
 
-You can click to public transport stop and choose one of public tranport route. You see all route with named stops.
+You can click to public transport stop and choose one of a public transport route. You see all routes with stops.
 
 In OsmAnd  we can choose special rendering for these needed:
 
@@ -184,13 +184,13 @@ In OsmAnd  we can choose special rendering for these needed:
 
 |Parameter and Description|   
 |------------|
-|**{% data variables.android-values.rendering_attr_transportStops_name %}**: Colored and showed public transport stops.|
+|**{% data variables.android-values.rendering_attr_transportStops_name %}**: Showing public transport stops.|
 |![Map styles](/assets/images/map/ms-30.png)|
-|**{% data variables.android-values.rendering_attr_publicTransportMode_name %}**: Colored and showed bus, trolleybus, shuttle routes.|
+|**{% data variables.android-values.rendering_attr_publicTransportMode_name %}**: Showing bus, trolleybus, shuttle routes.|
 |![Map styles](/assets/images/map/ms-31.png)|
-|**{% data variables.android-values.rendering_attr_tramTrainRoutes_name %}**: Colored and showed tram and train routes|
+|**{% data variables.android-values.rendering_attr_tramTrainRoutes_name %}**: Showing tram and train routes. |
 |![Map styles](/assets/images/map/ms-32.png)|
-|**{% data variables.android-values.rendering_attr_subwayMode_name %}**: Colored and showed underground routes.|
+|**{% data variables.android-values.rendering_attr_subwayMode_name %}**: Showing underground routes.|
 |![Map styles](/assets/images/map/ms-33.png)|
 
 ### Hide
@@ -209,7 +209,7 @@ In order to hide some objects on the map you can choose them in this menu:
 |{% data variables.android-values.rendering_attr_hideBuildings_name %}|Hide all polygons of buildings. |
 |{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}|Hide all polygons of water (seas, lakes, reservoirs and etc.)  |
 |{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}|Hide house numbers on the map.  |
-|{% data variables.android-values.rendering_attr_hideProposed_name %}|Hide proposed objects, that objects which plan for building, but only have a project (projected roads, crossroads, buildings and etc.)  |
+|{% data variables.android-values.rendering_attr_hideProposed_name %}|Hide proposed objects, that objects which planned for a building, but only have a project (projected roads, crossroads, buildings and etc.)  |
 |{% data variables.android-values.rendering_attr_hideIcons_name %}|Hide POI icons from the map. But labels of these POI will be on the map. |
 |{% data variables.android-values.rendering_attr_hidePOILabels_name %}|Hide POI labels from the map. But icons of these POI will be on the map.  |
 |{% data variables.android-values.rendering_attr_hideUnderground_name %}| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
@@ -217,24 +217,24 @@ In order to hide some objects on the map you can choose them in this menu:
 
 ### Road style
 
-Special settings for roads. When we change colors according road Atlas, or add high contrast of roads or bold outline for roads.
+Special settings for roads. When we change colors according to road Atlas or add high contrast of roads or bold outline for roads.
 
 |Parameter and Description|   
 |------------|
 |**{% data variables.android-values.rendering_value_default_name %}**: Default style for highways. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-34.png)|
-|**{% data variables.android-values.rendering_value_germanRoadAtlas_name %}**: German road atlas style.|
+|**{% data variables.android-values.rendering_value_germanRoadAtlas_name %}**: Style of German road atlas.|
 |![Map styles](/assets/images/map/ms-35.png)|
-|**{% data variables.android-values.rendering_value_americanRoadAtlas_name %}**: American road atlas style.|
+|**{% data variables.android-values.rendering_value_americanRoadAtlas_name %}**: Style of American road atlas.|
 |![Map styles](/assets/images/map/ms-36.png)|
-|**{% data variables.android-values.rendering_value_highContrastRoads_name %}**: High contrast of roads.|
+|**{% data variables.android-values.rendering_value_highContrastRoads_name %}**: The high contrast of roads.|
 |![Map styles](/assets/images/map/ms-37.png)|
 |**{% data variables.android-values.rendering_value_boldOutline_name %}**: Bold outline for roads.|
 |![Map styles](/assets/images/map/ms-38.png)|
 
 ### Text size
 
-This setting helps to change text size for names on the map:
+This setting helps to change the text size for names on the map:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.text_size %} 
 
@@ -249,7 +249,7 @@ This setting helps to change text size for names on the map:
 
 ### Map magnifier
 
-This setting helps to change magnifier of the map. You can choose this settings by long click to "+" or "-" button on the screen or:
+This setting helps to change magnifier of the map. You can choose this setting by long-click to "+" or "-" button on the screen or:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.map_magnifier %} 
 
@@ -278,11 +278,11 @@ This setting allows using of any language for names on the map. If names don't h
 |![Map styles](/assets/images/map/ms-44.png)|
 
 ## Custom Map style (own map style)
-If you have your own or 3rd party custom map style created according to [Specification](/development/osmand-file-formats/osmand-rendering-style), you can install it on device with the following ways.
+If you have your own or 3rd party custom map style created according to [Specification](/development/osmand-file-formats/osmand-rendering-style), you can install it on a device in the following ways.
 - Copy *.render.xml file on devices & Open with OsmAnd. 
-- Rendering styles could be exported & imported via [Standard import / export dialogs](/osmand/start-with/import-export). So if you create an example '*.osf' package which will work as a plugin which could be shared with other people.
+- Rendering styles could be exported & imported via [Standard import / export dialogs](/osmand/start-with/import-export). So if you create an example '*.osf' package which will work as a plugin that could be shared with other people.
 - If you have access directly to the External Storage of OsmAnd (Android), you can simply copy it to **rendering-styles** folder. Read more about it in [Storage specification](/osmand/storage).
 
-After that you could select your own map style in the menu.
+After that, you could select your own map style in the menu.
 
 
