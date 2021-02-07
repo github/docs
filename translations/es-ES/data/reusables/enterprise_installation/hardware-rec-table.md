@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: If you enable {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}, your instance requires additional hardware resources. Minimum requirements for an instance with {% if currentVersion == "enterprise-server@2.22" %}beta{% else %}optional{% endif %} features enabled are **bold** in the following table. For more information, see "{% if currentVersion == "enterprise-server@2.22" %}[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% else %}[Optional features](#optional-features){% endif %}."
+**Nota**: Si habilitas las {% data variables.product.prodname_actions %} o el {% data variables.product.prodname_registry %}, tu instancia requerirá de recursos de hardware adicionales. Los requisitos mínimos para una instancia con características {% if currentVersion == "enterprise-server@2.22" %}beta{% else %}opcionales{% endif %} habilitadas se encuentran en **negritas** en la siguiente tabla. Para obtener más información, consulta la sección "{% if currentVersion == "enterprise-server@2.22" %}[Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% else %}[Características opcionales](#optional-features){% endif %}".
 
 {% endnote %}
 {% endif %}
@@ -40,10 +40,10 @@ Si habilitas las características beta para {% data variables.product.prodname_g
 
 {% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 
-#### Optional features
+#### Características opcionales
 
-You can enable optional features for {% data variables.product.prodname_ghe_server %}, such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)" or "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Puedes habilitar las características opcionales para {% data variables.product.prodname_ghe_server %}, tales como las {% data variables.product.prodname_actions %} y el {% data variables.product.prodname_registry %}. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)" o "[Iniciar con el {% data variables.product.prodname_registry %} para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".
 
-If you enable optional features, your instance requires additional hardware resources. Para obtener más información, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+Si habilitas las características opcionales, tu instancia requerirá recursos de hardware adicionales. Para obtener más información, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% endif %}

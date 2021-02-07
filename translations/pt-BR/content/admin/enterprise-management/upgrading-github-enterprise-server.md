@@ -218,3 +218,9 @@ Para obter mais informações, consulte "[Utilitários de linha de comando](/ent
 #### Voltar a uma versão de recurso
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Leia mais
+
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

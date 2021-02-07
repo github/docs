@@ -46,6 +46,6 @@ Los tokens de acceso personal solo se pueden usar para operaciones HTTPS Git. Si
 
 Si no se te solicita tu nombre de usuario y contraseña, tus credenciales pueden estar almacenadas en la caché de tu computadora. Puedes [actualizar tus credenciales en la keychain](/articles/updating-credentials-from-the-osx-keychain) para reemplazar tu contraseña anterior con el token.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación en GitHub](/github/authenticating-to-github/about-authentication-to-github)"

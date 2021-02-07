@@ -7,32 +7,32 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
 versions:
   free-pro-team: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: Qualquer pessoa pode patrocinar contas em nome da própria conta de usuário. Os proprietários e gerentes de faturamento da organização podem patrocinar contas em nome de sua organização.
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorships
+### Sobre patrocínios
 
 {% data reusables.sponsors.sponsorship-details %}
 
-You can sponsor an account on behalf of your user account to invest in projects that you personally benefit from. You can sponsor an account on behalf of your organization for many reasons.
-- Sustaining specific libraries that your organization's work depends on
-- Investing in the ecosystem you rely on as a organization (such as blockchain)
-- Developing brand awareness as an organization that values open source
-- Thanking open source developers for building libraries that complement the product your organization offers
+Você pode patrocinar uma conta em nome de sua conta de usuário para investir em projetos dos quais você se beneficia pessoalmente. Você pode patrocinar uma conta em nome de sua organização por muitas razões.
+- Sustentar bibliotecas específicas das quais o trabalho da sua organização depende
+- Investir no ecossistema com o qual você conta como uma organização (como a blockchain)
+- Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
+- Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to be invoiced, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização desejar pagar por fatura, [entre em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
-When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
+Se a conta patrocinada for retirada, a sua camada permanecerá em vigor para você até que você escolha uma camada diferente ou cancele a sua assinatura. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
 
-If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para a sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+Se a conta que você deseja patrocinar não tiver um perfil em {% data variables.product.prodname_sponsors %}, você pode incentivar que participe. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para a sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -42,15 +42,15 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% endnote %}
 
-### Sponsoring an account
+### Patrocinar uma conta
 
-Before you can sponsor an account, you must have a verified email address. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".
+Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verificado. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".
 
-1. On {% data variables.product.product_name %}, navigate to the profile of the user or organization you want to sponsor.
-1. Navigate to your sponsorship dashboard for the account.
-   - To sponsor a developer, under the developer's name, click **Sponsor**. ![Botão Sponsor (Patrocinar)](/assets/images/help/profile/sponsor-button.png)
-   - To sponsor an organization, to the right of the the organization's name, click **Sponsor**. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-org-button.png)
-1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+1. Em {% data variables.product.product_name %}, acesse o perfil do usuário ou organização que deseja patrocinar.
+1. Acesse o painel de patrocínio para a conta.
+   - Para patrocinar um desenvolvedor, sob o nome do desenvolvedor, clique em **Patrocinador**. ![Botão Sponsor (Patrocinar)](/assets/images/help/profile/sponsor-button.png)
+   - Para patrocinar uma organização, à direita do nome da organização, clique em **Patrocinador**. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-org-button.png)
+1. Opcionalmente, no lado direito da página, para patrocinar a conta em nome da sua organização, use o menu suspenso **Patrocinar como** e clique na organização. ![Menu suspenso para escolher a conta que você irá patrocinar como](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

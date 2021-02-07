@@ -64,8 +64,11 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 ### Precedencia de enrutamiento para los ejecutores auto-hospedados
 
-Si utilizas ejecutores tanto a nivel de repositorio como a nivel de organización, {% data variables.product.prodname_dotcom %} sigue un orden de precedencia cuando enruta los jobs hacia los ejecutores auto-hospedados:
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. Se procesan las etiquetas de `runs-on` del job. Entonces, {% data variables.product.prodname_dotcom %} intenta ubicar un ejecutor que coincida con los requisitos de la etiqueta:
-2. El job se envía a un ejecutor a nivel de repositorio que coincida con las etiquetas del mismo. Si no hay un ejecutor a nivel de repositorio disponible (ya sea que esté ocupado, sin conexión, o no tenga etiquetas que coincidan):
-3. El job se envía a un ejecutor de nivel organizacional que coincida con las etiquetas del mismo. Si hay un ejecutor de nivel organizacional disponible, el la solicitud del job falla con un error.
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
+2. The job is then sent to the first matching runner that is online and idle.
+   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
+   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
+   - If there are no matching runners at any level, the job will fail.
+   - If the job remains queued for more than 24 hours, the job will fail.

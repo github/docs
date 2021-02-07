@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Containers'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ También puede ser útil tener un conocimiento básico de YAML, la sintaxis para
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
@@ -93,7 +96,7 @@ Jobs:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Etiqueta del trabajo del contenedor
   container-job:
@@ -118,7 +121,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Descarga una copia del código en tu repositorio antes de ejecutar pruebas de CI
   - name: Check out repository code
@@ -153,7 +156,7 @@ Cuando ejecutes un trabajo directamente en la máquina del ejecutor, deberás as
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
@@ -213,7 +216,7 @@ Jobs:
 
 El flujo de trabajo asigna el puerto 5432 del contenedor de servicios PostgreSQL al host de Docker. Para obtener más información acerca de la palabra clave `ports`, consulta "[Acerca de los contenedores de servicio](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
-```yaml
+```yaml{:copy}
 jobs:
   # Etiqueta del trabajo del ejecutador
   Runner-Job:
@@ -243,7 +246,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Descarga una copia del código en tu repositorio antes de ejecutar pruebas de CI
   - name: Check out repository code
@@ -279,7 +282,7 @@ Puedes modificar *client.js* para incluir cualquier operación de PostgreSQL que
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({

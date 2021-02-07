@@ -26,6 +26,6 @@ Predeterminadamente, MakeCode Arcade se encuentra configurado para subir las tar
 
 ![Funcionalidad de control de versiones de MakeCode Arcade](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

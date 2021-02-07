@@ -33,7 +33,7 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 4. Al lado del colaborador que deseas eliminar, haz clic en el icono **X**. ![Enlace Remove (Eliminar)](/assets/images/help/organizations/Collaborator-Remove.png)
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Eliminar de un equipo a miembros de la organización](/articles/removing-organization-members-from-a-team)"
 - "[Eliminar a un colaborador externo desde el repositorio de una organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
