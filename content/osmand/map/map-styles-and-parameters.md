@@ -141,7 +141,7 @@ In {% data variables.android-values.rendering_category_details %} menu you can s
 
 ### Routes
 
-Sometimes when we use the application during your trip or riding, you don't use navigation and you want to see special paths and symbols on the map. In OsmAnd we can highlight routes and hiking symbol overlay for your activities. It will very useful for your cycling, hiking and etc. In the table we show all parameters:
+Sometimes when we use the application during your trip, you don't use navigation and you want to see special paths and symbols on the map. In OsmAnd we can highlight routes and hiking symbol overlay for your activities. It will very useful for your cycling, hiking, etc. In the table we show all parameters:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_routes %} 
 
@@ -150,17 +150,17 @@ Sometimes when we use the application during your trip or riding, you don't use 
 |Parameter and Description|   
 |------------|
 |**_{% data variables.android-values.rendering_category_routes %}_**|
-|**{% data variables.android-values.rendering_attr_showCycleRoutes_name %}**: Colored cycle routes, paths and showed nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
+|**{% data variables.android-values.rendering_attr_showCycleRoutes_name %}**: Showing colored cycle routes, paths, and showing nodes network cycle routes. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-21.png)|
 |**{% data variables.android-values.rendering_attr_showCycleNodeNetworkRoutes_name %}**: Highlighted cycle routes and showed nodes network cycle routes.|
 |![Map styles](/assets/images/map/ms-22.png)|
-|**{% data variables.android-values.rendering_attr_showMtbRoutes_name %}**: Colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
+|**{% data variables.android-values.rendering_attr_showMtbRoutes_name %}**: Showing colored MTB trails. Look at [Map legend](https://osmand.net/help-online/map-legend/).|
 |![Map styles](/assets/images/map/ms-23.png)|
-|**{% data variables.android-values.rendering_attr_alpineHiking_name %}**: [Classified hiking trails](https://wiki.openstreetmap.org/wiki/Key:sac_scale) in mountainous areas with regard to the difficulties to be expected by color.|
+|**{% data variables.android-values.rendering_attr_alpineHiking_name %}**: Showing  [classified hiking trails](https://wiki.openstreetmap.org/wiki/Key:sac_scale) in mountainous areas with regard to the difficulties to be expected by color.|
 |![Map styles](/assets/images/map/ms-24.png)|
-|**{% data variables.android-values.rendering_attr_horseRoutes_name %}**: Colored routes for riding by horse.|
+|**{% data variables.android-values.rendering_attr_horseRoutes_name %}**: Showing colored routes for riding horses.|
 |![Map styles](/assets/images/map/ms-25.png)|
-|**{% data variables.android-values.rendering_attr_whiteWaterSports_name %}**: Showing [icons of access, danger areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |
+|**{% data variables.android-values.rendering_attr_whiteWaterSports_name %}**: Showing [icons of access, dangerous areas, tourism of whitewater sports](https://wiki.openstreetmap.org/wiki/Whitewater_sports#Whitewater_Map). |
 |![Map styles](/assets/images/map/ms-26.png)|
 |**_{% data variables.android-values.rendering_attr_hikingRoutesOSMC_name %}_**|
 |**{% data variables.android-values.rendering_value_walkingRoutesOSMC_name %}**: Showing [colored hiking trails and OSMC symbols](https://wiki.openstreetmap.org/wiki/Key:osmc:symbol#Maps_that_show_osmc:symbol) on the map.|
