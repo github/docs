@@ -1,6 +1,6 @@
 ---
 title: 启用 GitHub Insights 与 GitHub Enterprise 之间的链接
-intro: '您可以启用一个允许用户从 {% data variables.product.prodname_ghe_server %} 导航到 {{  site.data.variables.product.prodname_insights }} 的链接。'
+intro: '您可以启用一个允许用户从 {% data variables.product.prodname_ghe_server %} 导航到 {% data variables.product.prodname_insights %} 的链接。'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员可启用 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_insights %} 之间的链接。'
 redirect_from:
@@ -14,7 +14,7 @@ versions:
 
 1. 连接到 {% data variables.product.prodname_ghe_server %} 的管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
 2. 运行以下命令。
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. 返回到

@@ -25,6 +25,7 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests that involve, but don't necessarily [**@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), certain people: `state:open type:issue involves:octocat`
 - Filter issues and pull requests by assignee: `state:open type:issue assignee:octocat`
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 For issues, you can also use search to:
@@ -35,7 +36,7 @@ For issues, you can also use search to:
 For pull requests, you can also use search to:
 - Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
 - Filter pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet: `state:open type:pr review:none`
-- Filter pull requests that [require a review](/articles/about-required-reviews-for-pull-requests) before they can be merged: `state:open type:pr review:required`
+- Filter pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`

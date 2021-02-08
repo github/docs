@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure your enterprise to send email notifications on issue, pull request, and commit comments{% if enterpriseServerVersions contains currentVersion %}, as well as additional settings to allow inbound email replies{% endif %}.'
+intro: 'Para facilitar a resposta rápida dos usuários à atividade em {% data variables.product.product_name %}, você pode configurar sua empresa para enviar notificações por e-mail sobre problemas, pull request e comentários de commit{% if enterpriseServerVersions contains currentVersion %}, bem como configurações adicionais para permitir respostas de e-mail de envio{% endif %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,16 +15,17 @@ versions:
 Os e-mails de notificação serão enviados se houver atividades no repositório em que o usuário estiver participando, se houver atividades em pull requests ou problemas em que ele esteja envolvido, ou se houver @menções ao usuário ou à equipe da qual ele é integrante.
 
 {% if currentVersion == "github-ae@latest" %}
-Your dedicated technical account manager in
-{% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
+O seu gerente de contas técnico dedicado em
+{% data variables.contact.github_support %} pode configurar o e-mail para notificações serem enviadas através de seu servidor SMTP. Certifique-se de incluir os detalhes a seguir na sua solicitação de suporte.
 
-- Your SMTP server address
-- The port your SMTP server uses to send email
-- The domain name that your SMTP server will send with a HELO response, if any
-- The type of encryption used by your SMTP server
-- The no-reply email address to use in the `From` and `To` field for all notifications
+- O endereço do seu servidor SMTP
+- Informações de login para efetuar a autenticação no servidor: nome de usuário e senha
+- A porta que o seu servidor SMTP usa para enviar e-mail
+- O nome de domínio que o seu servidor SMTP enviará com uma resposta HELO, se houver
+- O tipo de criptografia usado pelo seu servidor SMTP
+- O endereço de e-mail "no-reply" a ser usado nos campos `De` e `Para` para todas as notificações
 
-For more information about contacting support, see "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
+Para obter mais informações sobre como entrar em contato com o suporte, consulte "[Sobre {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)".
 {% else %}
 ### Configurar SMTP
 
@@ -39,12 +40,6 @@ For more information about contacting support, see "[About {% data variables.con
     - No campo **Domain** (Domínio), digite o nome do domínio que o servidor SMTP enviará com resposta HELO, se houver.
     - No menu suspenso **Authentication** (Autenticação), escolha o tipo de criptografia usado pelo servidor SMTP.
     - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
-
-    {% note %}
-
-    **Observação:** se você marcar a caixa de seleção **Send from author** (Enviar do autor) no webhook de e-mail de um repositório **Services** (Serviços), os e-mails de saída do repositório em questão serão enviados pelo autor, e não pelo endereço de e-mail no-reply. Para obter mais informações, consulte "[Sobre notificações de email para push no seu repositório](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)".
-
-    {% endnote %}
 
 6. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção para descartar e-mails destinados ao endereço no-reply](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. Em **Support** (Suporte), escolha um tipo de link para dar suporte adicional aos usuários:
@@ -154,14 +149,14 @@ Você verá que `metroplex` capta a mensagem de entrada, processa a mensagem e d
 
 #### Verificar as configurações DNS
 
-Para processar corretamente os e-mails de entrada, você deve configurar um registro A válido (ou CNAME) e um registro MX. Para obter mais informações, consulte "[Configurar DNS e firewall para o recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
+Para processar corretamente os e-mails de entrada, você deve configurar um registro A válido (ou CNAME) e um registro MX. Para obter mais informações, consulte "[Definir as configurações de DNS e firewall para permitir recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
 
 #### Verificar as configurações de firewall ou grupo de segurança do AWS
 
 Se a {% data variables.product.product_location %} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
 
 #### Entrar em contato com o suporte
-If you're still unable to resolve the problem, contact
+Se ainda não conseguir resolver o problema, entre em contato
 
 {% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
 {% endif %}

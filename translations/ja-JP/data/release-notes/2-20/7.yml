@@ -1,0 +1,21 @@
+---
+date: '2020-05-05'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/20027, https://github.com/github/enterprise2/pull/19997 {% endcomment %}'
+  bugs:
+    - '`ghe-repl-start`及び`ghe-repl-status`が構文エラーを表示しました。{% comment %} https://github.com/github/enterprise2/pull/19954, https://github.com/github/enterprise2/pull/19927 {% endcomment %}'
+    - 'リポジトリで"automatically delete head branches（自動的にheadブランチを削除）"設定が有効化されており、Pull RequestがGitHub Appのインストールによってマージされた場合に、headブランチが自動的に削除されませんでした。{% comment %} https://github.com/github/github/pull/141588, https://github.com/github/github/pull/133698, https://github.com/github/github/pull/133871, https://github.com/github/github/issues/132588 {% endcomment %}'
+    - 'Organizationのメンバーが復帰したとき、webhookのペイロードが復帰を行った実際のユーザではなく、`幽霊`ユーザを送信者として報告しました。{% comment %} https://github.com/github/github/pull/141731, https://github.com/github/github/pull/140609 {% endcomment %}'
+    - 'リポジトリで"automatically delete head branches（自動的にheadブランチを削除）"設定が有効化されており、headリポジトリがベースリポジトリと異なる場合に、headブランチが自動的に削除されませんでした。{% comment %} https://github.com/github/github/pull/142096, https://github.com/github/github/pull/133871{% endcomment %}'
+    - '一時ファイルのガベージコレクションがライセンス検証エラーにつながることがありました。{% comment %} https://github.com/github/github/pull/142209, https://github.com/github/github/pull/142189 {% endcomment %}'
+    - 'リポジトリが初めて作成された場合を含むいくつかの状況で、pre-receiveフックがGITHUB_REPO_PUBLIC環境変数に展開された値なしで実行されます。{% comment %} https://github.com/github/github/pull/139419, https://github.com/github/github/pull/136228, https://github.com/github/github/pull/134363 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Gistへのプッシュの際に、post-receiveフックの間に例外がトリガーされることがあります。{% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。（2020-06-23更新）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '複数のRedisノードでのクラスタ設定にデプロイされた際に、依存関係グラフが依存関係を検出しません。（2020-06-30更新）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

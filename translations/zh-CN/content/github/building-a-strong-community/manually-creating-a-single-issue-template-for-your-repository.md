@@ -18,7 +18,7 @@ versions:
 
 下面是 YAML 前页的示例。
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.
@@ -39,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### 添加议题模板
 

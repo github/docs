@@ -21,5 +21,7 @@ Quando houver um servidor proxy habilitado para a {% data variables.product.prod
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 4. Em **HTTP Proxy Server** (Servidor proxy HTTP), digite a URL do seu servidor proxy. ![Campo para digitar a URL do servidor proxy HTTP](/assets/images/enterprise/management-console/http-proxy-field.png)
-5. Você também pode ir até **HTTP Proxy Exclusion** (Exclusão de proxy HTTP) e digitar qualquer host que não exija acesso por proxy, separando os hosts por vírgulas. ![Campo para digitar qualquer exclusão de proxy HTTP](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
+5. Você também pode ir até **HTTP Proxy Exclusion** (Exclusão de proxy HTTP) e digitar qualquer host que não exija acesso por proxy, separando os hosts por vírgulas. Para excluir todos os hosts de um domínio que exige acesso ao proxy, você pode usar `.` como um prefixo curinga.  Por exemplo: `octo-org.tentacle` ![Campo para digitar qualquer exclusão de proxy HTTP](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
 {% data reusables.enterprise_management_console.save-settings %}

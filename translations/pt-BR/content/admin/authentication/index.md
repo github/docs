@@ -1,6 +1,6 @@
 ---
 title: Autenticação
-intro: You can configure how users sign into {% data variables.product.product_name %}.
+intro: Você pode configurar como os usuários conectam-se a {% data variables.product.product_name %}.
 redirect_from:
   - /enterprise/admin/authentication
 versions:

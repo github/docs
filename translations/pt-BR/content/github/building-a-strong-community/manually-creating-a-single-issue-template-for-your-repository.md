@@ -18,7 +18,7 @@ Você pode adicionar o YAML frontmatter a cada modelo de problema para preencher
 
 Aqui está um exemplo de YAML front matter.
 
-```
+```yaml
 ---
 name: Rastreando problema
 about: Use este modelo para rastrear novos recursos.
@@ -39,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Adicionar um modelo de problema
 

@@ -87,7 +87,13 @@
 /* Breadcrumbs
 ------------------------------------------------------------------------------*/
 
-.breadcrumbs a:not(:last-child)::after{
+.breadcrumbs-wrapper {
+  @include breakpoint(xl) {
+    height: 39px;
+  }
+}
+
+.breadcrumbs a:not(:last-child)::after, .breadcrumbs span:not(:last-child)::after {
   content: '/';
   color: $gray-400;
   padding-right: $spacer-1;

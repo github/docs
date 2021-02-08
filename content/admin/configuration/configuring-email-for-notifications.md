@@ -18,6 +18,7 @@ Notification emails are sent if there is activity on a repository a user is watc
 Your dedicated technical account manager in {% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
 
 - Your SMTP server address
+- Login information to authenticate to the server: username and password
 - The port your SMTP server uses to send email
 - The domain name that your SMTP server will send with a HELO response, if any
 - The type of encryption used by your SMTP server
@@ -42,12 +43,6 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
     - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
     - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
     - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-
-    {% note %}
-
-    **Note:** If you select the **Send from author** checkbox in a repository’s **Services** email webhook, outbound email for that repository will send from the author and not from the no-reply email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
-
-    {% endnote %}
 
 6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
 ![Checkbox to discard emails addressed to the no-reply email address](/assets/images/enterprise/management-console/discard-noreply-emails.png)
@@ -164,8 +159,7 @@ You'll notice that `metroplex` catches the inbound message, processes it, then m
 
 #### Verify your DNS settings
 
-In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incom
- emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### Check firewall or AWS Security Group settings
 

@@ -14,13 +14,13 @@ Isso descreve os recursos que formam a API REST oficial de {% data variables.pro
 
 ### Versão atual
 
-Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/v3/versions) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/v3/media/#request-specific-version).
+Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/developers/overview/about-githubs-apis) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/v4). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/v4/guides/migrating-from-rest/)".
+Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 
@@ -30,7 +30,7 @@ Para obter informações sobre a API do GraphQL do GitHub, consulte a [documenta
 enviados e recebidos como JSON.
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
+$ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 > HTTP/1.1 200 OK
 > Server: nginx
@@ -41,8 +41,9 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -76,7 +77,7 @@ A documentação fornece um exemplo de resposta para cada método da API. O exem
 
 ### Autenticação
 
-{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% if currentVersion == "github-ae@latest" %} Recomendamos efetuar a autenticação na API REST de {% data variables.product.product_name %}, criando um token OAuth2 por meio do [fluxo do aplicativo web](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} Existem duas maneiras de efetuar a autenticação por meio da API REST de {% data variables.product.product_name %}.{% endif %} As solicitações que exigem autenticação retornarão `404 Not Found`, em vez de `403 Forbidden` em alguns lugares.  Isso é para evitar a fuga acidental de repositórios privados para usuários não autorizados.
 
 #### Autenticação básica
 
@@ -96,7 +97,7 @@ Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de a
 
 {% endnote %}
 
-Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
+Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens do OAuth2 podem ser adquiridos usando o [fluxo de aplicação web](/developers/apps/authorizing-oauth-apps#web-application-flow) para aplicativos de produção.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 key/secret
@@ -123,7 +124,7 @@ Leia [Mais informações sobre limitação da taxa não autenticada](#increasing
 A autenticação com credenciais inválidas retornará `401 Unauthorized`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
+$ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 > HTTP/1.1 401 Unauthorized
 
 > {
@@ -135,9 +136,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 Após detectar várias solicitações com credenciais inválidas em um curto período de tempo, a API rejeitará temporariamente todas as tentativas de autenticação para esse usuário (incluindo aquelas com credenciais válidas) com `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,22 +166,13 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 Você pode emitir uma solicitação `GET` para o ponto de extremidade de raiz para obter todas as categorias do ponto de extremidade com a qual a API REST é compatível:
 
 ```shell
-$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-
-{% note %}
-
-**Observação:** Por {% data variables.product.prodname_ghe_server %}, [como em todos os outros pontos de extremidade](/v3/enterprise-admin/#endpoint-urls), você deverá passar seu nome de usuário e senha.
-
-{% endnote %}
-
-{% endif %}
 
 ### IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ](/v4/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+Consulte o guia em "[Usar IDs do nó globais ](/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
 
 ### Erros do cliente
 
@@ -250,14 +242,14 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para cada ação.
 
-| Verbo    | Descrição                                                                                                                                                                                                                                                                                                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | Pode ser emitido contra qualquer recurso para obter apenas as informações de cabeçalho HTTP.                                                                                                                                                                                                                                                                                |
-| `GET`    | Usado para recuperar recursos.                                                                                                                                                                                                                                                                                                                                              |
-| `POST`   | Usado para criar recursos.                                                                                                                                                                                                                                                                                                                                                  |
-| `PATCH`  | Usado para atualizar recursos com dados parciais do JSON.  Por exemplo, um recurso de um problema tem atributos de `título` e `texto`.  Uma solicitação de PATCH pode aceitar um ou mais dos atributos para atualizar o recurso.  PATCH é um verbo HTTP relativamente novo e incomum. Portanto, os pontos de extremidade de recursos também aceitam solicitações de `POST`. |
-| `PUT`    | Usado para substituir recursos ou coleções. Para as solicitações de `PUT` sem atributo de `texto`, certifique-se de definir o cabeçalho `Content-Length` como zero.                                                                                                                                                                                                         |
-| `DELETE` | Usado para excluir recursos.                                                                                                                                                                                                                                                                                                                                                |
+| Verbo    | Descrição                                                                                                                                                                                                                        |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | Pode ser emitido contra qualquer recurso para obter apenas as informações de cabeçalho HTTP.                                                                                                                                     |
+| `GET`    | Usado para recuperar recursos.                                                                                                                                                                                                   |
+| `POST`   | Usado para criar recursos.                                                                                                                                                                                                       |
+| `PATCH`  | Usado para atualizar recursos com dados parciais do JSON. Por exemplo, um recurso de um problema tem atributos de `título` e `texto`. Uma solicitação de `PATCH` pode aceitar um ou mais dos atributos para atualizar o recurso. |
+| `PUT`    | Usado para substituir recursos ou coleções. Para as solicitações de `PUT` sem atributo de `texto`, certifique-se de definir o cabeçalho `Content-Length` como zero.                                                              |
+| `DELETE` | Usado para excluir recursos.                                                                                                                                                                                                     |
 
 ### Hipermídia
 
@@ -277,13 +269,15 @@ Então você pode expandir estes modelos usando algo como o [uri_template][uri] 
 
 ### Paginação
 
-Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `?page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `?per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `?per_page`, veja [eventos](/v3/activity/events/) por exemplo.
+Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `per_page`, veja [eventos](/rest/reference/activity#events) por exemplo.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-Observe que a numeração da página é baseada em 1 e que, ao omitir o parâmetro `?page`, retornará a primeira página.
+Observe que a numeração da página é baseada em 1 e que, ao omitir o parâmetro `page`, retornará a primeira página.
+
+Alguns pontos de extremidade usam paginação baseada no cursor. Um cursor é uma string que aponta para uma localização no conjunto de resultados. Com paginação baseada em cursor, não há um conceito fixo de "páginas" no conjunto de resultados. Portanto, você não pode navegar para uma página específica. Em vez disso, você pode percorrer os resultados usando os parâmetros `antes` ou `após`.
 
 Para obter mais informações sobre paginação, confira nosso guia sobre [Passar com paginação][pagination-guide].
 
@@ -295,14 +289,18 @@ Para obter mais informações sobre paginação, confira nosso guia sobre [Passa
 
 {% endnote %}
 
-O [cabeçalho do link](http://tools.ietf.org/html/rfc5988) inclui informações de paginação:
+O [cabeçalho do link](http://tools.ietf.org/html/rfc5988) inclui informações de paginação. Por exemplo:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _O exemplo inclui uma quebra de linha para legibilidade._
 
-Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/v3/#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
+Ou, se o ponto de extremidade usar paginação baseada em cursor:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/rest#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
 
 Os valores de `rel` possíveis são:
 
@@ -327,12 +325,12 @@ Para solicitações não autenticadas, o limite de taxa permite até 60 solicita
 
 {% data reusables.enterprise.rate_limit %}
 
-Observe que [a API de pesquisa tem regras de limite de taxa personalizadas](/v3/search/#rate-limit).
+Observe que [a API de pesquisa tem regras de limite de taxa personalizadas](/rest/reference/search#rate-limit).
 
 Os cabeçalhos HTTP retornados de qualquer solicitação de API mostram o seu status atual de limite de taxa:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/octocat
+$ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -370,7 +368,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 > }
 ```
 
-Você pode [verificar o status do seu limite de taxa](/v3/rate_limit) sem a incorrer em uma consulta da API.
+Você pode [verificar o status do seu limite de taxa](/rest/reference/rate-limit) sem a incorrer em uma consulta da API.
 
 #### Aumentar o limite de taxa não autenticado para aplicativos OAuth
 
@@ -430,7 +428,7 @@ User-Agent: Awesome-Octocat-App
 A cURL envia um cabeçalho válido do `User-Agent` por padrão. Se você fornecer um cabeçalho inválido de `User-Agent` via cURL (ou via um cliente alternativo), você receberá uma resposta `403 Forbidden`:
 
 ```shell
-$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
+$ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -457,7 +455,7 @@ A maioria das respostas retorna um cabeçalho de </code>Etag`. Muitas respostas 
 {% endif %}
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/user
+$ curl -I {% data variables.product.api_url_pre %}/user
 > HTTP/1.1 200 OK
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -468,7 +466,7 @@ $ curl -i {% data variables.product.api_url_pre %}/user
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+$ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -479,7 +477,7 @@ $ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+$ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
@@ -497,7 +495,7 @@ A API é compatível com Compartilhamento de Recursos de Origens Cruzadas (CORS)
 Aqui está uma solicitação de exemplo enviada a partir de uma consulta em `http://exemplo.com`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
+$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/1.1 302 Found
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -506,7 +504,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 A solicitação pré-voo de CORS se parece com isso:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
+$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
@@ -601,9 +599,9 @@ Algumas solicitações que criam novos dados, como a criação de um novo commit
 
 #### Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário
 
-Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/v3/git/commits).
+Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/rest/reference/git#commits).
 
-Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/v3/git/commits/#example-input) para saber como essas marcas de tempo podem ser especificadas.
+Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/rest/reference/git#example-input) para saber como essas marcas de tempo podem ser especificadas.
 
 #### Usar o cabeçalho `Time-Zone`
 
@@ -613,7 +611,7 @@ Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/v3/repos/contents/) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
+Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/rest/reference/repos#contents) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
 
 #### Usar o último fuso horário conhecido para o usuário
 

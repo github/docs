@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{currentLanguage}}">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="width-full">
+      <main class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+        <article class="markdown-body width-full">
+          <div class="d-lg-flex flex-justify-between"></div>
+
+          <div class="mt-2 article-grid-container">
+
+          <div class="article-grid-head">
+            <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+              <h1 class="border-bottom-0">{% data ui.enterprise_releases_list.title %}</h1>
+            </div>
+          </div>
+          <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+            <div class="article-grid-toc-content">
+              {% if miniTocItems.size > 1 %}
+              <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">{% data ui.pages.miniToc %}</a></h2>
+              <ul class="list-style-none pl-0 f5 mb-0">
+                {% for item in miniTocItems %}
+                <li class="ml-{{ item.indentationLevel | times: 3 }} mb-2 lh-condensed">{{ item.contents }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </div>
+          <div id="article-contents" class="article-grid-body">
+            <h2 id="currently-supported"><a href="#currently-supported">{% data ui.enterprise_releases_list.currently_supported %}</a></h2>
+            <p>{% data ui.enterprise_releases_list.currently_supported_message %}</p>
+            <ul>
+            {% for version in enterpriseServerReleases.supported %}
+            <li><a href="/{{currentLanguage}}/enterprise-server@{{version}}">Enterprise Server {{version}}</a></li>
+            {% endfor %}
+            </ul>
+            <h2 id="deprecated"><a href="#deprecated">{% data ui.enterprise_releases_list.deprecated %}</a></h2>
+            <p>{% data ui.enterprise_releases_list.deprecated_message %}</p>
+            <ul>
+            {% for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
+            <li><a href="/{{currentLanguage}}/enterprise-server@{{version}}">Enterprise Server {{version}}</a></li>
+            {% endfor %}
+            {% for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
+            <li><a href="/{{currentLanguage}}/enterprise/{{version}}">Enterprise Server {{version}}</a></li>
+            {% endfor %}
+            </ul>
+            <h2 id="deprecated-on-developer.github.com"><a href="#deprecated-on-developer.github.com">{% data ui.enterprise_releases_list.deprecated_developer %}</a></h2>
+            <p>{% data ui.enterprise_releases_list.deprecated_developer_message %}</p>
+            {% for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
+            <li><a href="https://developer.github.com/enterprise/{{version}}">Enterprise Server {{version}}</a></li>
+            {% endfor %}
+            {% include support %}
+            {% include small-footer %}
+          </div>
+          </div>
+        </article>
+      </main>
+
+    </main>
+  </body>
+</html>

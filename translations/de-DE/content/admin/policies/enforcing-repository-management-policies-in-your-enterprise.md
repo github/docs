@@ -34,7 +34,7 @@ versions:
 
 Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. Weitere Informationen zu Repository-Sichtbarkeiten findest Du unter „[Informationen zur Sichtbarkeit eines Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)“.
 
-Wenn ein Site-Administrator Mitgliedern das Erstellen bestimmter Arten Repositorys verwehrt, werden Mitglieder nicht in der Lage sein, ein Repository dieser Art zu erstellen, selbst wenn die Einstellung zur Sichtbarkeit diesen Typ als Standard vorgibt. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
+If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
@@ -49,9 +49,9 @@ Wenn ein Site-Administrator Mitgliedern das Erstellen bestimmter Arten Repositor
 
 ### Setting a policy for changing a repository's visibility
 
-Wenn Sie Mitglieder daran hindern, die Sichtbarkeit des Repositorys zu ändern, können nur Websiteadministratoren öffentliche Repositorys als privat oder private Repositorys als öffentlich festlegen.
+When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
 
-Falls ein Websiteadministrator die Möglichkeit der Repository-Erstellung auf Organisationsinhaber beschränkt hat, können Mitglieder die Sichtbarkeit eines Repositorys nicht ändern. Hat ein Websiteadministrator dagegen die Möglichkeit von Mitgliedern auf die Erstellung privater Repositorys beschränkt, können Mitglieder die Sichtbarkeit eines Repositorys von öffentlich auf privat festlegen. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
+If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -74,6 +74,15 @@ Falls ein Websiteadministrator die Möglichkeit der Repository-Erstellung auf Or
 {% else %}
 6. Wählen Sie im Dropdownmenü unter „Repository creation“ (Repository-Erstellung) eine Richtlinie aus. ![Dropdownmenü mit Richtlinien zur Repository-Erstellung](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
+
+### Eine Richtlinie zum Forken privater oder interner Repositorys erzwingen
+
+Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. Lies auf der Registerkarte **Repository policies** (Repository-Richtlinien) unter „Repository forking“ (Repository-Forking) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Wähle im Dropdownmenü unter „Repository forking“ (Repository-Forking) eine Richtlinie aus. ![Dropdownmenü mit den Optionen für die Richtlinie für das Repository-Forking](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
 ### Setting a policy for repository deletion and transfer
 
@@ -166,6 +175,8 @@ Sie können die standardmäßig übernommenen Einstellungen überschreiben, inde
     - **Block to the default branch** (Übertragung an den Standardbranch blockieren), damit die an den Standardbranch übertragenen erzwungenen Push-Vorgänge blockiert werden. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
 6. Wählen Sie optional **Enforce on all repositories** (Auf allen Repositorys erzwingen) aus, um Repository-spezifische Einstellungen zu überschreiben. Note that this will **not** override an enterprise-wide policy. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
+{% if enterpriseServerVersions contains currentVersion %}
+
 ### Configuring anonymous Git read access
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
@@ -192,7 +203,6 @@ If necessary, you can prevent repository administrators from changing anonymous 
 4. Klicken Sie unter „Anonymous Git read access“ (Anonymer Git-Lesezugriff) auf das Dropdownmenü, und klicken Sie auf **Enabled** (Aktiviert). ![Dropdownmenü „Anonymous Git read access“ (Anonymer Git-Lesezugriff) mit den angezeigten Menüoptionen „Enabled“ (Aktiviert) und „Disabled“ (Deaktiviert)](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
 3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**. ![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### Setting anonymous Git read access for a specific repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -203,6 +213,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 6. Klicken Sie unter „Danger Zone“ (Gefahrenzone) neben „Enable Anonymous Git read access“ (Anonymen Git-Lesezugriff aktivieren) auf **Enable** (Aktivieren). ![Schaltfläche „Enabled“ (Aktiviert) unter „Enable anonymous Git read access“ (Anonymen Git-Lesezugriff aktivieren) in der „Danger Zone“ (Gefahrenzone) der Websiteadministratoreinstellungen eines Repositorys ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
 7. Überprüfen Sie die Änderungen. Klicken Sie zur Bestätigung auf **Yes, enable anonymous Git read access** (Ja, anonymen Git-Lesezugriff aktivieren). ![Bestätigung der Einstellung für anonymen Git-Lesezugriff in einem Popup-Fenster](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. Aktivieren Sie optional **Prevent repository admins from changing anonymous Git read access** (Repository-Administratoren daran hindern, den anonymen Git-Lesezugriff zu ändern), um Repository-Administratoren daran zu hindern, diese Einstellung für dieses Repository zu ändern. ![Durch die Aktivierung des Kontrollkästchens werden Repository-Administratoren daran gehindert, den anonymen Git-Lesezugriff für dieses Repository zu ändern](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
+
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}

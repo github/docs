@@ -1,6 +1,6 @@
 ---
 title: プライベートコントリビューションをプロフィールで公開または非公開にする
-intro: '{% data variables.product.product_name %} プロフィールには、過去 1 年間のリポジトリコントリビューションのグラフが表示されます。 パブリックリポジトリのアクティビティを表示するほか、プライベートリポジトリからのアクティビティも匿名化して表示することができます。'
+intro: '{% data variables.product.product_name %} プロフィールには、過去 1 年間のリポジトリコントリビューションのグラフが表示されます。 You can choose to show anonymized activity from {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}private and internal{% else %}private{% endif %} repositories{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:

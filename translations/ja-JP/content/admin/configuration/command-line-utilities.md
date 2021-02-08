@@ -76,15 +76,15 @@ $ ghe-config -l
 ```
 `cluster.conf`で有効なUUIDを検索できます。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 API レート制限からユーザのリストを除外できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # ユーザーの hubot と github-actions をレート制限から除外する
 ```
 {% endif %}
@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/v3/guides/replacing-github-services/)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
+このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/developers/overview/replacing-github-services)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
 
 ```shell
 ghe-legacy-github-services-report
@@ -283,7 +283,7 @@ $ ghe-saml-mapping-csv -u -n -f /path/to/file
 
 新しい値でSAMLマッピングを更新するには、次のようにします。
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+$ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
 #### ghe-service-list
@@ -467,18 +467,21 @@ ghe-webhook-logs
 ```
 
 過去1日の失敗したフックデリバリーを表示するには、以下のようにします。
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 フックのペイロードの全体や結果、デリバリーの例外を表示するには、以下のようにします。
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-グローバルな webhook のデリバリーを表示するには、以下のようにします。
-```shell
-ghe-webhook-logs --global
 ```
 
 ### クラスタリング
@@ -541,8 +544,8 @@ ghe-dpages status
 ```
 
 クラスタノードの退避に先立って{% data variables.product.prodname_pages %}ストレージサービスを退避するには、以下のようにします。
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -567,16 +570,16 @@ ghe-spokes route
 
 クラスタノード上のストレージサービスを退避するには、以下のようにします。
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 このユーティリティを使用すると、クラスタノードからの待避の前にストレージサービスをすべて待避させることができます。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

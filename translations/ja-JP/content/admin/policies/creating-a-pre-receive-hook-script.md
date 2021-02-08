@@ -58,7 +58,8 @@ pre-receiveスクリプトの`終了ステータス`は、プッシュが受け�
 | $GITHUB_VIA                           | ref の作成に使われた方式。<br>**取り得る値: **<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | クライアントによって送信されたプッシュオプション数。 プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | $GIT_PUSH_OPTION_N                  | ここで <em>N</em> は 0 から始まる整数で、この変数にはクライアントから送信されたプッシュオプションの文字列が含まれます。 送信された最初のオプションはGIT_PUSH_OPTION_0に保存され、2番目のオプションはGIT_PUSH_OPTION_1に保存され、といったようになります。 プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | 変更をプッシュしたクライアントから送信されたユーザエージェント文字列型。 |{% endif %}
+| $GIT_USER_AGENT                     | 変更をプッシュしたクライアントから送信されたユーザエージェント文字列型。 
+{% endif %}
 
 ### 権限の設定と {% data variables.product.prodname_ghe_server %} への pre-receive フックのプッシュ
 
@@ -70,19 +71,19 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
 
    ```shell
    $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
-  ```
-  Windows ユーザは、スクリプトに実行権限を持たせてください。
+   ```
+   Windows ユーザは、スクリプトに実行権限を持たせてください。
 
-  ```shell
-  git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
-  ```
+   ```shell
+   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   ```
 
 2. {% data variables.product.prodname_ghe_server %} インスタンス上の対象となる pre-receive フックのリポジトリにコミットおよびプッシュしてください。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
-  ```
+   ```
 
 3. {% data variables.product.prodname_ghe_server %} のインスタンス上で [pre-receive フックを作成](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/#creating-pre-receive-hooks)してください。
 
@@ -93,9 +94,9 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
 
 2. 以下を含む `Dockerfile.dev` というファイルを作成してください。
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN \
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
       apk add --no-cache git openssh bash && \
       ssh-keygen -A && \
       sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
@@ -107,26 +108,26 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
       mkdir /home/git/test.git && \
       git --bare init /home/git/test.git"
 
-    VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-    WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-    CMD ["/usr/sbin/sshd", "-D"]
-    ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. `always_reject.sh` というテストのpre-receiveスクリプトを作成してください。 このスクリプト例では、全てのプッシュを拒否します。これは、リポジトリをロックする場合に役立ちます。
+   3. `always_reject.sh` というテストのpre-receiveスクリプトを作成してください。 このスクリプト例では、全てのプッシュを拒否します。これは、リポジトリをロックする場合に役立ちます。
 
-    ```
-    #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
-    echo "error: rejecting all pushes"
-    exit 1
-    ```
+   echo "error: rejecting all pushes"
+   exit 1
+   ```
 
 4. `always_reject.sh`スクリプトが実行権限を持つことを確認してください。
 
    ```shell
    $ chmod +x always_reject.sh
-  ```
+   ```
 
 5. `Dockerfile.dev` を含むディレクトリからイメージをビルドしてください。
 
@@ -149,32 +150,32 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    ....出力を省略....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
-  ```
+   ```
 
 6. 生成された SSH キーを含むデータコンテナを実行してください。
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
-  ```
+   ```
 
 7. テスト pre-receive フックの `always_reject.sh` をデータコンテナにコピーしてください:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
-  ```
+   ```
 
 8. `sshd` を実行しフックを動作させるアプリケーションコンテナを実行してください。 返されたコンテナ ID をメモしておいてください:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
-  ```
+   ```
 
 9. 生成された SSH キーをデータコンテナからローカルマシンにコピーしてください:
 
    ```shell
    $ docker cp data:/home/git/.ssh/id_ed25519 .
-  ```
+   ```
 
 10. テストリポジトリのリモートを修正して、Docker コンテナ内の `test.git` リポジトリにプッシュしてください。 この例では `git@github.com:octocat/Hello-World.git` を使っていますが、どのリポジトリを使ってもかまいません。 この例ではローカルマシン (127.0.0.1) がポート 52311 をバインドしているものとしていますが、docker がリモートマシンで動作しているなら異なる IP アドレスを使うことができます。
 
@@ -193,9 +194,9 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > To git@192.168.99.100:test.git
    >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
-  ```
+   ```
 
-  pre-receive フックの実行後にプッシュが拒否され、スクリプトからの出力がエコーされていることに注意してください。
+   pre-receive フックの実行後にプッシュが拒否され、スクリプトからの出力がエコーされていることに注意してください。
 
 ### 参考リンク
  - *Pro Git Webサイト*の「[Gitのカスタマイズ - Gitポリシーの実施例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)」

@@ -15,29 +15,29 @@ versions:
 
 {% data reusables.codespaces.use-chrome %} 詳しい情報については、「[codespace のトラブルシューティング](/github/developing-online-with-codespaces/troubleshooting-your-codespace)」を参照してください。
 
-### Connecting to a codespace from {% data variables.product.prodname_vscode %}
+### {% data variables.product.prodname_vscode %} から Codespaces に接続する
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-### Navigating to your codespace
+### Codespaces に移動する
 {% data reusables.codespaces.navigate-to-codespaces %}
 2. 開発する codespace の名前をクリックします。 ![codespace の名前](/assets/images/help/codespaces/click-name-codespace.png)
 
-### Forwarding ports
+### ポートを転送する
 
-Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 3000, you can access the application from your browser to test and debug it.
+ポート転送を使用すると、Codespaces 内で実行されている TCP ポートにアクセスできます。 たとえば、ポート 3000 で Web アプリケーションを実行している場合は、ブラウザからアプリケーションにアクセスして、テストとデバッグを行うことができます。
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards those ports. You can click on the URL in the terminal to open it in a browser. For example, if an application outputs `http://127.0.0.1:3000` or `http://localhost:3000` to the console, the log would automatically convert the output to a clickable URL for port 3000.
+Codespaces 内で実行されているアプリケーションがポートをコンソールに出力すると、{% data variables.product.prodname_codespaces %} はローカルホストの URL パターンを検出し、それらのポートを自動的に転送します。 ターミナルの URL をクリックすると、ブラウザで開くことができます。 たとえば、アプリケーションが `http://127.0.0.1:3000` または `http://localhost:3000` をコンソールに出力する場合、ログは出力をポート 3000 のクリック可能な URL に自動的に変換します。
 
-![Automatic Port Forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
+![自動ポート転送](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
-Alternatively, you can also use any of the following ways to forward a port.
+または、次のいずれかの方法を使用してポートを転送することもできます。
 
-* You can forward a port on demand by triggering the command palette (`shift command P` / `shift control P`) and typing "Codespaces: Forward Port". You can then enter the number of the port you want to forward.
+* コマンドパレット (`shift command P` / `shift control P`) をトリガーし、「Codespaces: Forward Port」と入力すると、オンデマンドでポートを転送できます。 次に、転送するポートの番号を入力します。
 
-    ![Command Palette Port Forwarding](/assets/images/help/codespaces/command-palette-port-forwarding.png)
+    ![コマンドパレットのポート転送](/assets/images/help/codespaces/command-palette-port-forwarding.png)
 
-* You can automatically configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property.
+* `forwardPorts` プロパティを使用して、`.devcontainer.json` ファイルで転送ポートを自動的に設定できます。
 
-* You can add or remove forwarded ports within the Remote Explorer extension. From the Remote Explorer you can copy and paste the URLs for forwarded ports, allowing you to access them through your browser.
+* Remote Explorer 拡張機能内で転送ポートを追加または削除できます。 Remote Explorer から転送されたポートの URL をコピーして貼り付けることができ、ブラウザからそれらにアクセスできます。
 
-    ![Remote Explorer Port Forwarding](/assets/images/help/codespaces/remote-explorer-port-forwarding.png)
+    ![リモートエクスプローラのポート転送](/assets/images/help/codespaces/remote-explorer-port-forwarding.png)

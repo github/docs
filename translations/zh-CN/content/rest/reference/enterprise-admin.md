@@ -40,7 +40,7 @@ http(s)://<em>hostname</em>/
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### 身份验证
 
-{% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if enterpriseServerVersions contains currentVersion %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
+{% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**{% if enterpriseServerVersions contains currentVersion %}（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）{% endif %}或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if enterpriseServerVersions contains currentVersion %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
 
 企业管理 API 端点只有经过身份验证的 {% data variables.product.product_name %} 站点管理员可以访问{% if enterpriseServerVersions contains currentVersion %}，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/){% endif %}。
 
@@ -53,6 +53,16 @@ http(s)://<em>hostname</em>/
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+## 审核日志
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}
@@ -86,7 +96,7 @@ IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/v3/auth/#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
 
 {% endnote %}
 

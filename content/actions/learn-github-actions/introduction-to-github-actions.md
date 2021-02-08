@@ -9,6 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +41,7 @@ An event is a specific activity that triggers a workflow. For example, activity 
 
 #### Jobs
 
-A job is a set of steps that execute on the same runner. By default, a workflow with multiple jobs will run those jobs in parallel. You can also configure a workflow to run jobs sequentially. For example, a workflow can have two sequential jobs that build and test code, where the test job is dependent on the status of the build job. If the build job fails, the test job will not run. 
+A job is a set of steps that execute on the same runner. By default, a workflow with multiple jobs will run those jobs in parallel. You can also configure a workflow to run jobs sequentially. For example, a workflow can have two sequential jobs that build and test code, where the test job is dependent on the status of the build job. If the build job fails, the test job will not run.
 
 #### Steps
 
@@ -146,7 +149,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each line nested under this section is a separate action.
+  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell command.
 </td>
 </tr>
 <tr>
@@ -179,7 +182,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package. 
+  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
 </td>
 </tr>
 <tr>
@@ -204,7 +207,7 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ### Viewing the job's activity
 
-Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**.
@@ -213,7 +216,14 @@ Once your job has started running, you can view each step's activity on {% data 
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the job you want to see.
+   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. View the results of each step.
+    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. Click on the job name to see the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}

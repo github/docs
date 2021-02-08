@@ -1,6 +1,6 @@
 ---
 title: アプリをテストする
-intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 {% data variables.product.prodname_marketplace %}オンボーディングチームによる承認の前に、アプリケーションは[支払いフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)を十分に処理できなければなりません。'
+intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 オンボーディングの専門家の検証前に、アプリケーションは支払いフローを適切に処理しなければなりません。'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
@@ -13,7 +13,7 @@ versions:
 
 ### アプリケーションのテスト
 
-[ドラフトの{% data variables.product.prodname_marketplace %}リスト](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)を使って、各[支払いフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)をシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。
+ドラフトの{% data variables.product.prodname_marketplace %}リストを使って、それぞれの支払いフローをシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 詳細な情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」及び「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
 #### 変更のテストのために開発アプリケーションをドラフトリストと使用する
 
@@ -37,7 +37,7 @@ versions:
 
 ### APIのテスト
 
-ほとんどの{% data variables.product.prodname_marketplace %} APIエンドポイントに対しては、テストに利用できるハードコーディングされた偽のデータを返すスタブのAPIエンドポイントも提供されています。 スタブのデータを受信するには、ルートに`/stubbed`を含むスタブURL（たとえば`/user/marketplace_purchases/stubbed`）を指定してください。 スタブデータのアプローチをサポートしているエンドポイントのリストは、[{% data variables.product.prodname_marketplace %}エンドポイント](/v3/apps/marketplace/#github-marketplace)を参照してください。
+ほとんどの{% data variables.product.prodname_marketplace %} APIエンドポイントに対しては、テストに利用できるハードコーディングされた偽のデータを返すスタブのAPIエンドポイントも提供されています。 スタブのデータを受信するには、ルートに`/stubbed`を含むスタブURL（たとえば`/user/marketplace_purchases/stubbed`）を指定してください。 スタブデータのアプローチをサポートしているエンドポイントのリストは、[{% data variables.product.prodname_marketplace %}エンドポイント](/rest/reference/apps#github-marketplace)を参照してください。
 
 ### webhookのテスト
 

@@ -16,6 +16,7 @@ versions:
 - 您必须在应用程序服务器上安装依赖项。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/)，通过 apt 用于 [Debian](https://packages.debian.org/search?keywords=netcat) 和 [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -99,4 +100,4 @@ versions:
 ### 延伸阅读
 
 - "[管理仓库](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- [{% data variables.product.prodname_insights %} 和组织的数据保护](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} 和组织的数据保护</a>"

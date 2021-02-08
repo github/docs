@@ -1,5 +1,5 @@
 ---
-title: Criar e estar o Java com o Ant
+title: Criar e testar o Java com o Ant
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Ant.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -7,6 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Ant'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,23 +42,23 @@ Para começar rapidamente, você pode escolher o modelo do Ant pré-configurado 
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
 {% raw %}
-```yaml
-nome: Java CI
+```yaml{:copy}
+name: Java CI
 
-em: [push]
+on: [push]
 
-trabalho:
+jobs:
   build:
     runs-on: ubuntu-latest
 
-    etapa:
-      - usa: actions/checkout@v2
-      - nome: Configure JDK 1.
-        uso: actionp-java@v1
-        com:
-          java-version: 1.
-      - nome: Construir com Ant
-        executar: ant -noinput -buildfile build.xml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Ant
+        run: ant -noinput -buildfile build.xml
 ```
 {% endraw %}
 
@@ -78,14 +83,14 @@ O fluxo de trabalho inicial executará o alvo-padrão especificado no arquivo _b
 Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você pode desejar executar o `jar` alvo configurado no arquivo _build-ci.xml_.
 
 {% raw %}
-```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - usa: actions/setup-java@v1
-    com:
+```yaml{:copy}
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - nome: Executa o alvo do Ant jar
-    executa: ant -noinput -buildfile build-ci.xml jar
+  - name: Run the Ant jar target
+    run: ant -noinput -buildfile build-ci.xml jar
 ```
 {% endraw %}
 
@@ -96,7 +101,7 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 De modo geral, o Ant cria arquivos de saída como JARs, EARs ou WARs no diretório `build/jar`. Você pode fazer upload do conteúdo desse diretório usando a ação `upload-artefact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

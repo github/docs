@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
+{% data variables.product.prodname_dotcom %} の公開鍵のフィンガープリントは次のとおりです。
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)
 - `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)

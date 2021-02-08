@@ -25,7 +25,7 @@ To renew an expiring user-to-server access token, you can exchange the `refresh_
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/v3/guides/basics-of-authentication/#providing-a-callback)."
+This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Name | Type | Description
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
+  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"

@@ -71,9 +71,16 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
+### [`check-internal-links.js`](check-internal-links.js)
+
+This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
+
+---
+
+
 ### [`check-s3-images.js`](check-s3-images.js)
 
-Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
 
 ---
 
@@ -86,6 +93,13 @@ Run this script in your branch to check whether any images referenced in content
 
 
 ### [`content-migrations/octicon-tag.js`](content-migrations/octicon-tag.js)
+
+
+
+---
+
+
+### [`content-migrations/remove-html-comments-from-index-files.js`](content-migrations/remove-html-comments-from-index-files.js)
 
 
 
@@ -120,9 +134,51 @@ This script finds and lists all the Heroku staging apps and deletes any leftover
 ---
 
 
+### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
+
+This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.
+
+---
+
+
+### [`early-access/clone-locally`](early-access/clone-locally)
+
+This script is run on a writer's machine to begin developing Early Access content locally.
+
+---
+
+
+### [`early-access/create-branch`](early-access/create-branch)
+
+This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
+
+---
+
+
+### [`early-access/symlink-from-local-repo.js`](early-access/symlink-from-local-repo.js)
+
+This script is run on a writer's machine while developing Early Access content locally. You must pass the script the location of your local copy of the `github/docs-early-access` git repo as the first argument.
+
+---
+
+
+### [`early-access/update-data-and-image-paths.js`](early-access/update-data-and-image-paths.js)
+
+This script is run on a writer's machine while developing Early Access content locally. It updates the data and image paths to either include `early-access` or remove it.
+
+---
+
+
 ### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
 
 Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+
+---
+
+
+### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
+
+This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
 
 ---
 
@@ -137,6 +193,13 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
 
 This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
+
+This script creates new static openAPI files for a new version and modifies the info.version.
 
 ---
 
@@ -182,7 +245,7 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ---
 
 
-### [`graphql/build-changelog-from-markdown.js`](graphql/build-changelog-from-markdown.js)
+### [`graphql/build-changelog.js`](graphql/build-changelog.js)
 
 
 
@@ -282,7 +345,7 @@ This script finds all Heroku staging apps and pings them to make sure they're al
 
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
-This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccesfully and prevent the push.
+This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
 
 ---
 
@@ -294,23 +357,23 @@ This script is run as a git precommit hook (installed by husky after npm install
 ---
 
 
-### [`preview-openapi-changes`](preview-openapi-changes)
-
-
-
----
-
-
 ### [`purge-fastly`](purge-fastly)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn). Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
+Run this script to manually purge the Fastly cache. Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
 
 ---
 
 
 ### [`purge-fastly-by-url.js`](purge-fastly-by-url.js)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn) for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+Run this script to manually purge the Fastly cache for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+
+---
+
+
+### [`purge-redis-pages.js`](purge-redis-pages.js)
+
+Run this script to manually purge the Redis rendered page cache. This will typically only be run by Heroku during the deployment process, as triggered via our Procfile's "release" phase configuration.
 
 ---
 
@@ -370,6 +433,41 @@ reset all language variants of a single English file (using a full path): $ scri
 ---
 
 
+### [`rest/update-files.js`](rest/update-files.js)
+
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+
+---
+
+
+### [`rest/utils/create-code-samples.js`](rest/utils/create-code-samples.js)
+
+
+
+---
+
+
+### [`rest/utils/get-operations.js`](rest/utils/get-operations.js)
+
+
+
+---
+
+
+### [`rest/utils/operation-schema.js`](rest/utils/operation-schema.js)
+
+
+
+---
+
+
+### [`rest/utils/operation.js`](rest/utils/operation.js)
+
+
+
+---
+
+
 ### [`sample-unix-commands.md`](sample-unix-commands.md)
 
 
@@ -386,14 +484,14 @@ Starts the local development server with all of the available languages enabled.
 
 ### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
 
-Run this script to standardize frontmatter fields in all content files, per the order decided in https://github.com/github/docs-internal/issues/9658#issuecomment-485536265.
+Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
 
 ---
 
 
-### [`sync-algolia-search-indices.js`](sync-algolia-search-indices.js)
+### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run automatically via GitHub Actions on every push to `master` to generate searchable data and upload it to our Algolia account. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 
 ---
 
@@ -407,15 +505,7 @@ List all the TODOs in our JavaScript files and stylesheets.
 
 ### [`update-enterprise-dates.js`](update-enterprise-dates.js)
 
-Run this script during Enterprise releases and deprecations. It uses the GitHub API to get dates from [`enterprise-releases`](https://github.com/github/enterprise-releases/blob/master/releases.json) and updates `lib/enterprise-dates.json`. The help site uses this JSON to display dates at the top of some Enterprise versions.
-
-This script requires that you have a GitHub Personal Access Token in a `.env` file. If you don't have a token, get one [here](https://github.com/settings/tokens/new?scopes=repo&description=docs-dev). If you don't have an `.env` file in your docs checkout, run this command in Terminal:
-
-`cp .env.example .env`
-
-Open the `.env` file in a text editor, and find the `GITHUB_TOKEN=` placeholder. Add your token after the equals sign.
-
-Do not commit the `.env` file; just leave it in your checkout.
+This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
 
 ---
 
@@ -429,7 +519,7 @@ This script crawls the script directory, hooks on special comment markers in eac
 
 ### [`update-s3cmd-config.js`](update-s3cmd-config.js)
 
-This script is used by other scripts to update temporary AWS credentials and authenticate to S3. See docs at [Setting up awssume and S3cmd](https://github.com/github/product-documentation/tree/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+This script is used by other scripts to update temporary AWS credentials and authenticate to S3.
 
 ---
 

@@ -53,7 +53,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
 
 Na próxima vez que você aplicar `git fetch`, `git pull` ou `git push` no repositório remote, precisará fornecer seu nome de usuário e a senha do GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
+Você pode [usar um auxiliar de credenciais](/github/using-git/caching-your-github-credentials-in-git) para que o Git lembre seu nome de usuário e token de acesso pessoal toda vez que conversar com o GitHub.
 
 ### Mudar as URLs remotas de HTTPS para SSH
 

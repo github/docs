@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+      - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 14.x
       - name: cache node modules
@@ -24,8 +24,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: npm ci
+      - name: Install dependencies
         run: npm ci
+      - name: Run build scripts
+        run: npm run build
       - name: sync indices
         env:
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
@@ -33,8 +35,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run sync-search
       - name: Send slack notification if workflow run fails
-        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: failure()
-        env:
-          SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: The last Algolia workflow run for ${{github.repository}} failed. See https://github.com/github/docs-internal/actions?query=workflow%3AAlgolia
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last Algolia workflow run for ${{github.repository}} failed. Search actions for `workflow:Algolia`

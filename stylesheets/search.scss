@@ -3,7 +3,7 @@
 
 /* Global styles
 Gets applied to both the search input on homepage and in the header nav
-Form and inputs using .ais- prefix gets added by Algolia InstantSearch.js */
+Form and inputs using .ais- prefix gets added by search.js */
 .ais-SearchBox {
   position: relative;
 }
@@ -51,6 +51,7 @@ Form and inputs using .ais- prefix gets added by Algolia InstantSearch.js */
 
 .ais-Hits-item {
   list-style: none;
+  overflow: hidden;
 
   &:hover {
     background: $blue-000;
@@ -86,6 +87,11 @@ mark,
     text-decoration: none;
     border-bottom: 1px dotted $gray-500;
   }
+}
+
+.search-result-content {
+  max-height: 4rem;
+  overflow: hidden;
 }
 
 .search-result-title em {

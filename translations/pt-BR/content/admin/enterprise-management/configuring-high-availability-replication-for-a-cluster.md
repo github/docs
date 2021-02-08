@@ -10,7 +10,7 @@ versions:
 
 ### Sobre a alta disponibilidade de replicação de clusters
 
-Você pode configurar uma implantação de cluster de {% data variables.product.prodname_ghe_server %} para alta disponibilidade, em que um conjunto idêntico de nós passivos estejam sincronizados com os nós no seu cluster ativo. Se falhas no hardware ou software afetarem o centro de dados com o seu cluster ativo, você pode gerar uma falha manualmente nos nós de réplica e continuar processando solicitações de usuário sem perda de dados.
+Você pode configurar uma implantação de cluster de {% data variables.product.prodname_ghe_server %} para alta disponibilidade, em que um conjunto idêntico de nós passivos estejam sincronizados com os nós no seu cluster ativo. Se falhas no hardware ou software afetarem o centro de dados com o seu cluster ativo, você poderá transferir a falha manualmente para os nós da réplica e continuar processando as solicitações do usuário, minimizando o impacto da interrupção.
 
 Em modo de alta disponibilidade, cada nó ativo é sincronizado regularmente com um nó passivo correspondente. O nó passivo é executado em modo de espera e não atende a aplicativos nem processa solicitações de usuário.
 
@@ -57,32 +57,36 @@ Antes de definir um centro de dados secundário para seus nós passivos, certifi
       mysql-master = <em>HOSTNAME</em>
       redis-master = <em>HOSTNAME</em>
       <strong>primary-datacenter = default</strong>
-  ```
+    ```
 
     - Opcionalmente, altere o nome do centro de dados primário para algo mais descritivo ou preciso, editando o valor do `primary-datacenter`.
 
 4. {% data reusables.enterprise_clustering.configuration-file-heading %} Embaixo do cabeçalho de cada nó, adicione um novo par chave-valor para atribuir o nó a um centro de dados. Use o mesmo valor do `primary-datacenter` da etapa 3 acima. Por exemplo, se você quiser usar o nome-padrão (`padrão`) adicionar o seguinte par de chave-valor à seção para cada nó.
 
-      centro de dados = padrão
+    ```
+    centro de dados = padrão
+    ```
 
     Ao concluir, a seção para cada nó no arquivo de configuração de cluster deve parecer-se com o exemplo a seguir. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
-  ```shell
-  [cluster "<em>HOSTNAME</em>"]
-    <strong>datacenter = default</strong>
-    hostname = <em>HOSTNAME</em>
-    ipv4 = <em>IP ADDRESS</em>
+    ```shell
+    [cluster "<em>HOSTNAME</em>"]
+      <strong>datacenter = default</strong>
+      hostname = <em>HOSTNAME</em>
+      ipv4 = <em>IP ADDRESS</em>
+      ...
     ...
-  ...
-  ```
+    ```
 
-  {% note %}
+    {% note %}
 
-  **Observação**: Se você alterou o nome do centro de dados primário no passo 3, encontre o par chave-valor `consul-datacenter` chave-valor na seção para cada nó e altere o valor para o centro de dados primário renomeado. Por exemplo, se você nomeou o centro de dados `primário`, use o seguinte par de chave-valor para cada nó.
+    **Observação**: Se você alterou o nome do centro de dados primário no passo 3, encontre o par chave-valor `consul-datacenter` chave-valor na seção para cada nó e altere o valor para o centro de dados primário renomeado. Por exemplo, se você nomeou o centro de dados `primário`, use o seguinte par de chave-valor para cada nó.
 
-      consul-datacenter = primary
+    ```
+    consul-datacenter = primary
+    ```
 
-  {% endnote %}
+    {% endnote %}
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 
@@ -103,31 +107,37 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 
 1. Para cada nó no seu cluster, forneça uma máquina virtual correspondente com especificações idênticas, executando a mesma versão do  {% data variables.product.prodname_ghe_server %}. Observe o endereço de host e endereço IPv4 para cada novo nó de cluster. Para obter mais informações, consulte "[Pré-requisitos](#prerequisites)".
 
-  {% note %}
+    {% note %}
 
-  **Observação**: Se você estiver reconfigurando alta disponibilidade após um failover, você poderá usar os nós antigos do centro de dados principal.
+    **Observação**: Se você estiver reconfigurando alta disponibilidade após um failover, você poderá usar os nós antigos do centro de dados principal.
 
-  {% endnote %}
+    {% endnote %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 3. Faça o backup da sua configuração de cluster existente.
-   
-        cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
+
+    ```
+    cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
+    ```
 
 4. Crie uma cópia do seu arquivo de configuração de cluster existente em um local temporário, como _/home/admin/cluster-passive.conf_. Excluir pares de chave-valor únicos para endereços IP (`ipv*`), UUIDs (`uid`) e chaves públicas para WireGuard (`wireguard-pubkey`).
-   
-        grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
+
+    ```
+    grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
+    ```
 
 5. Remova a seção `[cluster]` do arquivo de configuração temporário do cluster que você copiou na etapa anterior.
-   
-        git config -f ~/cluster-passive.conf --remove-section cluster
+
+    ```
+    git config -f ~/cluster-passive.conf --remove-section cluster
+    ```
 
 6. Defina um nome para o centro de dados secundário onde você forneceu seus nós passivos e, em seguida, atualize o arquivo de configuração temporário do cluster com o novo nome do centro de dados. Substitua `SEGUNDÁRIO` pelo nome escolhido.
 
     ```shell
-  sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
-  ```
+    sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
+    ```
 
 7. Defina um padrão para os nomes de host dos nós passivos.
 
@@ -140,7 +150,7 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 8. Abra o arquivo de configuração temporário do cluster da etapa 3 em um editor de texto. Por exemplo, você pode usar o Vim.
 
     ```shell
-        sudo vim ~/cluster-passive.conf
+    sudo vim ~/cluster-passive.conf
     ```
 
 9. Em cada seção dentro do arquivo de configuração temporária, atualize as configurações do nó. {% data reusables.enterprise_clustering.configuration-file-heading %}
@@ -150,37 +160,37 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
     - Adicione um novo par de chave-valor, `réplica = habilitado`.
 
     ```shell
-  [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
+    [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
+      ...
+      hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
+      ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
+      <strong>replica = enabled</strong>
+      ...
     ...
-    hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
-    ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
-    <strong>replica = enabled</strong>
-    ...
-  ...
     ```
 
 10. Adicione o conteúdo do arquivo de configuração de cluster temporário que você criou na etapa 4 ao arquivo de configuração ativo.
 
     ```shell
-  cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
-  ```
+    cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
+    ```
 
 11. Nomeie os nós primários do MySQL e Redis no centro de dados secundário. Substitua `MYSQL REPLICA PRIMARY HOSTNAME` e `REPLICA REDIS PRIMARY HOSTNAME` pelos nomes de host do nó passivo que você forneceu para corresponder aos seus MySQL e Redis primários.
 
     ```shell
-  git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
-  git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
-  ```
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
+    ```
 
 12. Habilite o MySQL para falhar automaticamente quando você gerar uma falha para os nós de réplica passiva.
 
     ```shell
-  git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
+    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
     ```
 
-  {% warning %}
+    {% warning %}
 
-  **Aviso**: Revise seu arquivo de configuração de cluster antes de prosseguir.
+    **Aviso**: Revise seu arquivo de configuração de cluster antes de prosseguir.
 
     - Na seção de nível superior `[cluster]`, certifique-se de que os valores para `mysql-master-replica` e `redis-master-replica` são os nomes corretos para os nós passivos no centro de dados secundário que servirão como MySQL e Redis primários após um failover.
     - Em cada seção para um nó ativo denominado `[cluster "<em>ACTIVE NODE HOSTNAME</em>"]`, verifique novamente os seguintes pares de chave-valor.
@@ -194,9 +204,9 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
       - A `réplica` deve ser configurada como `habilitada`.
     - Aproveite a oportunidade para remover seções para nós off-line que não estão mais sendo usados.
 
-  Para revisar uma configuração de exemplo, consulte "[Exemplo de confoguração](#example-configuration)".
+    Para revisar uma configuração de exemplo, consulte "[Exemplo de confoguração](#example-configuration)".
 
-  {% endwarning %}
+    {% endwarning %}
 
 13. Inicializar a nova configuração de cluster. {% data reusables.enterprise.use-a-multiplexer %}
 
@@ -207,7 +217,7 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 14. Após a conclusão da inicialização , {% data variables.product.prodname_ghe_server %} exibirá a seguinte mensagem.
 
     ```shell
-        Inicialização de cluster concluída
+    Inicialização de cluster concluída
     ```
 
 {% data reusables.enterprise_clustering.apply-configuration %}
@@ -293,20 +303,28 @@ A replicação inicial entre os nós ativos e passivos do seu cluster leva tempo
 Você pode monitorar o progresso em qualquer nó do cluster, usando ferramentas de linha de comando disponíveis através do shell administrativo do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o shell administrativa, consulte "[Acessar o shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)".
 
 - Monitorar replicação dos bancos de dados:
-  
-      /usr/local/share/enterprise/ghe-cluster-status-mysql
+
+  ```
+  /usr/local/share/enterprise/ghe-cluster-status-mysql
+  ```
 
 - Monitorar replicação do repositório e dos dados do Gist:
-  
-      ghe-spokes status
+
+  ```
+  ghe-spokes status
+  ```
 
 - Monitorar replicação dos anexo e dos dados de LFS:
-  
-      ghe-storage replication-status
+
+  ```
+  ghe-storage replication-status
+  ```
 
 - Monitorar replicação dos dados das páginas:
-  
-      ghe-dpages replication-status
+
+  ```
+  ghe-dpages replication-status
+  ```
 
 Você pode usar `ghe-cluster-status` para revisar a saúde geral do seu cluster. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)".
 

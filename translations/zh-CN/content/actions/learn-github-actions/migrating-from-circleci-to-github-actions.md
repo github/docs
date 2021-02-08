@@ -1,11 +1,17 @@
 ---
 title: 从 CircleCI 迁移到 GitHub 操作
-intro: 'GitHub 操作和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub 操作相对简单。'
+intro: GitHub 操作和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub 操作相对简单。
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -101,7 +107,7 @@ GitHub Actions
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% data variables.product.prodname_actions %} 没有 CircleCI 的 Docker 层缓存（或 DLC）的等效项。
 
@@ -257,24 +263,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -411,35 +417,35 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>
