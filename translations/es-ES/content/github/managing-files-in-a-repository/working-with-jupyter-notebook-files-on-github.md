@@ -24,7 +24,7 @@ Si tienes problemas para representar los archivos notebook Jupyter en HTML está
 $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ```
 
-### Further reading
+### Leer más
 
 - [Repositorio GitHub de notebook Jupyter](https://github.com/jupyter/jupyter_notebook)
 - [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)

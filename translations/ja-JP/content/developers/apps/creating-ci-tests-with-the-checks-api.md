@@ -435,7 +435,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 ### ステップ 2.3. RuboCop を実行する
 
-これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 それではいよいよ [RuboCop 文法チェッカー](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) と [Checks API アノテーション](/rest/reference/checks#create-a-check-run)の核心に迫ります。
+これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
 
 次のコードは、RuboCop を実行し、スタイル コード エラーを JSON フォーマットで保存します。 [前のステップ](#step-22-cloning-the-repository) で追加した`clone_repository` への呼び出しの下と、チェック実行を更新するコードの上に追加して完了です。
 
@@ -447,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 JSON フォーマットの詳細および例については、[RuboCop ドキュメント](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter)を参照してください。
+上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
 
 このコードは RuboCop の結果を `@report` 変数に格納するため、リポジトリのチェックアウトを安全に削除できます。 また、このコードは JSON も解析するため、`@output` 変数を使用して GitHub App のキーと変数に簡単にアクセスできます。
 
@@ -588,7 +588,7 @@ end
 
 `offense_count` が 0 の場合、CI テストは `success` となります。 エラーがある場合、このコードは結果を `neutral` に設定します。これは、コードの文法チェッカーによるエラーを厳格に強制することを防ぐためです。 ただし、文法エラーがある場合にチェックスイートが失敗になるようにしたい場合は、結果を `failure` に変更できます。
 
-エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 さらに細かく、[RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/) の各タイプに特定の警告レベルを設定することもできますが、このクイックスタートでは簡単さを優先し、すべてのエラーを `notice` のレベルに設定します。
+エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
 
 このコードはまた、`offenses` 配列の各エラーを反復処理し、違反の場所とエラー メッセージを収集します。 必要な情報を抽出後、コードは各エラーに対してアノテーションを作成し、それを `annotations` 配列に格納します。 アノテーションは同一行の開始列と終了列のみをサポートしているため、開始行と終了行の値が同じである場合にのみ `annotation` オブジェクトに `start_column` と `end_column` が追加されます。
 
@@ -718,13 +718,13 @@ $ ruby template_server.rb
 
 ここまで来たのはすごいですよ！ 👏 あなたはもう CI テストを作成しました。 このセクションでは、もう 1 つの機能を追加します。RuboCop を使用して、見つけたエラーを自動的に修正するために使用するための機能です。 すでに[前のセクション](#step-25-updating-the-check-run-with-ci-test-results)で、[Fix this] ボタンを追加しました。 ここでは、ユーザが [Fix this] ボタンをクリックしたときにトリガーされる、`requested_action` チェック実行イベントを処理するコードを追加します。
 
-RuboCop ツールには、見つけたエラーを自動的に修正する `--auto-correct` コマンドラインオプションの [機能](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) があります。 `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
+The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
 
 リポジトリにブッシュするには、アプリケーションに [Repository contents] への書き込み権限が必要です。 この権限については、[ステップ 2.2. リポジトリをクローンする](#step-22-cloning-the-repository)で既に [**Read & write**] に設定しているので、もう準備は整っています。
 
 ファイルをコミットするには、どの[ユーザ名](/articles/setting-your-username-in-git/)と[メールアドレス](/articles/setting-your-commit-email-address-in-git/)をコミットに関連付けるか Git が知っている必要があります。 `.env` ファイルにあと 2 つの環境変数を追加して、名前 (`GITHUB_APP_USER_NAME`) とメールアドレス (`GITHUB_APP_USER_EMAIL`) の設定を保存します。 アプリケーションにはあなたの名前を付けることもできます。この例では、メールアドレスは何でも構いません。 例:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

@@ -78,7 +78,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            constFilesArr = [
+            const badFilesArr = [
               'translations/**',
               'lib/rest/static/**',
               '.github/workflows/**',

@@ -104,7 +104,7 @@ Devuelve los datos del blob sin procesar.
 
 La [API de confirmaciones](/rest/reference/repos#commits) y la [API de solicitudes de cambios](/rest/reference/pulls) soportan los formatos de [diff][git-diff] y de [parche][git-patch]:
 
-#### diff
+#### diferencia
 
     application/vnd.github.VERSION.diff
 

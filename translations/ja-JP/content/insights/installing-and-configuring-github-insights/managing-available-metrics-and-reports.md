@@ -12,5 +12,5 @@ versions:
 メトリクスを無効化すると、そのメトリクスはどのユーザからも、{% data variables.product.prodname_insights %}のどこからも見えなくなります。
 
 {% data reusables.github-insights.settings-tab %}
-2. **{% octicon "gear" aria-label="The gear icon" %} Settings（{{ octicon-gear The gear icon }}設定）**の下で、**Toggle reports（レポートの切り替え）**をクリックしてください。 ![レポートの切り替えタブ](/assets/images/help/insights/toggle-reports-tab.png)
+2. **{% octicon "gear" aria-label="The gear icon" %} Settings（設定）**の下で、**Toggle reports（レポートの切り替え）**をクリックしてください。 ![レポートの切り替えタブ](/assets/images/help/insights/toggle-reports-tab.png)
 3. 管理したいメトリクスの右で、** Enabled（有効）**あるいは**Disabled（無効）**ドロップダウンメニューを使ってください。 ![メトリクスの切り替えのドロップダウンメニュー](/assets/images/help/insights/toggle-report-drop-down.png)

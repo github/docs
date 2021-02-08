@@ -1,21 +1,21 @@
 ---
-title: 自己ホストランナーの追加
-intro: '{{ site.data.variables.product.prodname_actions }}にセルフホストランナーを追加できます。'
+title: セルフホストランナーの追加
+intro: リポジトリ、Organization、Enterpriseにセルフホストランナーを追加できます。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{{ site.data.variables.product.prodname_actions }}にセルフホストランナーを追加できます。
+リポジトリ、Organization、Enterpriseにセルフホストランナーを追加できます。
 
-If you are an organization or enterprise administrator, you might want to add your self-hosted runners at the organization or enterprise level. This approach makes the runner available to multiple repositories in your organization or enterprise, and also lets you to manage your runners in one place.
+Organization または Enterprise 管理者の場合は、Organization または Enterprise レベルでセルフホストランナーを追加することをお勧めします。 このアプローチにより、Organization または Enterprise 内の複数のリポジトリでランナーを使用できるようになり、ランナーを1か所で管理することもできます。
 
 セルフホストランナーでサポートされているオペレーティングシステム、あるいはプロキシサーバーとセルフホストランナーを使う方法に関する情報については、「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
 
@@ -53,13 +53,13 @@ If you are an organization or enterprise administrator, you might want to add yo
 
 ### セルフホストランナーを Enterprise に追加する
 
-セルフホストランナーを Enterprise に追加して、複数の Organization に割り当てることができます。 Organization の管理者は、そのリポジトリの使用対象を制御できます。
+セルフホストランナーを Enterprise に追加して、複数の Organization に割り当てることができます。 Organization の管理者は、そのランナーを使用できるリポジトリを制御できます。
 
 {% if currentVersion == "free-pro-team@latest" %}
 セルフホストランナーを Enterprise アカウントに追加するには、Enterprise のオーナーである必要があります。
 {% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 セルフホストランナーを
-{% data variables.product.product_location %} の Enterprise レベルでを追加するには、サイト管理者である必要があります。
+{% data variables.product.product_location %} の Enterprise レベルで削除するには、サイト管理者である必要があります。
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -72,10 +72,10 @@ If you are an organization or enterprise administrator, you might want to add yo
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
 
-#### Making enterprise runners available to repositories
+#### Enterprise ランナーをリポジトリで利用可能にする
 
-By default, runners in an enterprise's "Default" self-hosted runner group are available to all organizations in the enterprise, but are not available to all repositories in each organization.
+デフォルトでは、Enterprise の「デフォルト」のセルフホストランナーグループのランナーは、Enterprise 内のすべての Organization で使用できますが、各 Organization のすべてのリポジトリで使用できるわけではありません。
 
-To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
+Enterprise レベルのセルフホストランナーグループを Organization リポジトリで使用できるようにするには、ランナーグループの Organization の継承設定を変更して、Organization 内のリポジトリでランナーを使用できるようにする必要がある場合があります。
 
-For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+ランナーグループのアクセス設定の変更に関する詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。

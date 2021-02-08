@@ -24,7 +24,7 @@ Um código de host do servidor de CI que executa testes de CI, como, por exemplo
 
 A [API de verificação](/rest/reference/checks) permite que você configure testes de CI executados automaticamente em cada commit de código em um repositório. A API de verificação relata informações detalhadas sobre cada verificação no GitHub na aba **Verificações** do pull request. Com a API de Verificações, você pode criar anotações com detalhes adicionais para linhas específicas de código. As anotações são visíveis na aba **Verificações**. Ao criar uma anotação para um arquivo que faz parte do pull request, as anotações também são exibidas na aba **Arquivos alterados**.
 
-Um _conjunto de verificações_ é um grupo de _execuções de verificação _ (testes de CI individuais). Tanto o conjunto quanto a execução contêm _status_ visíveis em um pull request no GitHub. Você pode usar os status para determinar quando um commit de código introduz erros. Usar esses status com [branches protegidos](/rest/reference/repos#branches) pode impedir que as pessoas mesclem de pull requests prematuramente. Consulte "[Habilitando as verificações de status necessárias](/articles/enabling-required-status-checks/)" para mais detalhes.
+Um _conjunto de verificações_ é um grupo de _execuções de verificação _ (testes de CI individuais). Tanto o conjunto quanto a execução contêm _status_ visíveis em um pull request no GitHub. Você pode usar os status para determinar quando um commit de código introduz erros. Usar esses status com [branches protegidos](/rest/reference/repos#branches) pode impedir que as pessoas mesclem de pull requests prematuramente. Veja "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" para mais informações.
 
 A API de verificações envia o evento do webhook [`check_suite` webhook](/webhooks/event-payloads/#check_suite) para todos os aplicativos GitHub instalados em um repositório sempre que um novo código for enviado para o repositório. Para receber todas as ações do evento de verificações da API, o aplicativo deverá ter a permissão de `checks:write`. O GitHub cria automaticamente eventos `check_suite` para novos códigos de commits em um repositório usando o fluxo-padrão, embora [Atualizar preferências do repositório para o conjunto de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites) esteja disponível se desejar. Veja como funciona o fluxo-padrão:
 
@@ -435,7 +435,7 @@ O código acima obtém o nome completo do repositório e o SHA principal do comm
 
 ### Etapa 2.3. Executar o RuboCop
 
-Ótimo! Você está clonando o repositório e criando execuções de verificação usando seu servidor de CI. Agora você irá entrar nas informações principais do [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) e das [anotações da API de verificação](/rest/reference/checks#create-a-check-run).
+Ótimo! Você está clonando o repositório e criando execuções de verificação usando seu servidor de CI. Agora você irá entrar nas informações principais do [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) e das [anotações da API de verificação](/rest/reference/checks#create-a-check-run).
 
 O código a seguir executa RuboCop e salva os erros do código de estilo no formato JSON. Adicione este código abaixo da chamada para `clone_repository` que você adicionou na [etapa anterior](#step-22-cloning-the-repository) e acima do código que atualiza a execução de verificação para concluir.
 
@@ -447,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-O código acima executa o RuboCop em todos os arquivos no diretório do repositório. A opção `--format json` é uma maneira útil de salvar uma cópia dos resultados de linting, em um formato analisável por máquina. Consulte a [documentação do RuboCop](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter) para obter informações e um exemplo do formato JSON.
+O código acima executa o RuboCop em todos os arquivos no diretório do repositório. A opção `--format json` é uma maneira útil de salvar uma cópia dos resultados de linting, em um formato analisável por máquina. Consulte a [documentação do RuboCop](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) para obter informações e um exemplo do formato JSON.
 
 Como esse código armazena os resultados do RuboCop em uma variável `@report`, ele pode remover o checkout do repositório com segurança. Este código também analisa o JSON para que possa acessar facilmente as chaves e valores no seu aplicativo GitHub usando a variável `@output`.
 
@@ -588,7 +588,7 @@ Este código limita o número total de anotações a 50. Mas você pode modifica
 
 Quando o `offense_count` é zero, o teste de CI é um `sucesso`. Se houver erros, este código definirá a conclusão como `neutro` para evitar estritamente a imposição de erros dos linters do código. Mas você pode alterar a conclusão para `falha` se desejar garantir que o conjunto de verificações falhe quando houver erros de linting.
 
-Quando os erros são relatados, o código acima afirma por meio da array de `arquivos` no relatório do RuboCop. Para cada arquivo, ele extrai o caminho do arquivo e define o nível de anotação como `aviso`. Você pode ir além e definir os níveis específicos de aviso para cada tipo de [RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/), mas simplificar as coisas neste início rápido, todos os erros são definidos para um nível de `aviso`.
+Quando os erros são relatados, o código acima afirma por meio da array de `arquivos` no relatório do RuboCop. Para cada arquivo, ele extrai o caminho do arquivo e define o nível de anotação como `aviso`. Você pode ir além e definir os níveis específicos de aviso para cada tipo de [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), mas simplificar as coisas neste início rápido, todos os erros são definidos para um nível de `aviso`.
 
 Este código também é afirmado por meio de cada erro no array de `ofensas` e coleta o local da mensagem de erro e de ofensa. Após extrair as informações necessárias, o código cria uma anotação para cada erro e a armazena no array de `anotações`. Uma vez que as anotações são compatíveis apenas com colunas iniciais e finais na mesma linha, `start_column` e `end_column` só são adicionados ao objeto `anotação` se os valores da linha inicial e final forem iguais.
 
@@ -718,13 +718,13 @@ Se as anotações estiverem relacionadas a um arquivo já incluído no PR, as an
 
 Se você chegou até aqui, parabéns! 👏 Você já criou um teste de CI. Nesta seção, você irá adicionar mais um recurso que usa RuboCop para corrigir automaticamente os erros que encontra. Você já adicionou o botão "Corrija isso" na [seção anterior](#step-25-updating-the-check-run-with-ci-test-results). Agora você irá adicionar o código para lidar com o evento de execução de verificação `requested_action` acionado quando alguém clica no botão "Corrija isso".
 
-A ferramenta do RuboCop [oferece](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) a opção de linha de comando `--auto-correct` para corrigir automaticamente os erros que encontra. Ao usar o recurso `--auto-correct`, as atualizações são aplicadas aos arquivos locais do servidor. Você deverá fazer push das alterações no GitHub depois que o RuboCop fizer sua mágica.
+A ferramenta do RuboCop [oferece](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) a opção de linha de comando `--auto-correct` para corrigir automaticamente os erros que encontra. Ao usar o recurso `--auto-correct`, as atualizações são aplicadas aos arquivos locais do servidor. Você deverá fazer push das alterações no GitHub depois que o RuboCop fizer sua mágica.
 
 Para fazer push para um repositório, seu aplicativo deve ter permissões de "conteúdo do repositório". Você redefiniu essa permissão na [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para **Leitura & gravação**. Agora, você está pronto.
 
 Para enviar arquivos do commit, o Git deve saber qual o [nome de usuário](/articles/setting-your-username-in-git/) e [e-mail](/articles/setting-your-commit-email-address-in-git/) devem ser associados ao commit. Adicione mais duas variáveis de ambiente ao seu arquivo `.env` para armazenar as configurações do nome (`GITHUB_APP_USER_NAME`) e do e-mail (`GITHUB_APP_USER_EMAIL`). Seu nome pode ser o nome do seu aplicativo e o e-mail pode ser qualquer e-mail que desejar para este exemplo. Por exemplo:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

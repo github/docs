@@ -8,7 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - パッケージ化
+  - Publishing
+  - ノード
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -45,7 +50,7 @@ Node.jsプロジェクトのためのCIワークフローの作成に関する�
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればnpmレジストリにパッケージを公開します。
 
-To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. たとえば、`NPM_TOKEN` というリポジトリシークレットを作成します。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+ワークフロー中で npm レジストリに対して認証を受けた操作を行うためには、npm の認証トークンをシークレットとして保存しなければなりません。 たとえば、`NPM_TOKEN` というリポジトリシークレットを作成します。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 デフォルトでは、npmは*package.json*ファイルの`name`フィールドを使ってnpmレジストリを決めます。 グローバルな名前空間に公開する場合は、パッケージ名だけを含める必要があります。 たとえば`https://www.npmjs.com/package/npm-hello-world-test`に`npm-hello-world-test`という名前のパッケージを公開できます。
 
@@ -54,7 +59,7 @@ To perform authenticated operations against the npm registry in your workflow, y
 以下の例は、`NPM_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -78,7 +83,7 @@ jobs:
 
 上の例では、`setup-node`アクションは以下の内容でランナー上に*.npmrc*ファイルを作成します。
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 registry=https://registry.npmjs.org/
 always-auth=true
@@ -88,11 +93,11 @@ always-auth=true
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。
 
-#### Configuring the destination repository
+#### 宛先リポジトリの設定
 
-If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+*package.json* ファイルで `repository` キーを指定しない場合、{% data variables.product.prodname_registry %} は *package.json* ファイルの `name` フィールドで指定した {% data variables.product.prodname_dotcom %} リポジトリにパッケージを公開します。 たとえば、`@my-org/test` という名前のパッケージは、`my-org/test` {% data variables.product.prodname_dotcom %} というリポジトリに公開されます。
 
-However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
+ただし、`repository` キーを指定すると、そのキーのリポジトリが {% data variables.product.prodname_registry %} の宛先 npm レジストリとして使用されます。 たとえば、以下の *package.json* を公開すると、`my-amazing-package` という名前のパッケージが `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} リポジトリに公開されます。
 
 ```json
 {
@@ -103,18 +108,18 @@ However, if you do provide the `repository` key, then the repository in that key
   },
 ```
 
-#### Authenticating to the destination repository
+#### 宛先リポジトリへの認証
 
-To authenticate to the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN` from your repository. It is created automatically and has _read_ and _write_ permissions for packages in the repository where the workflow runs. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)."
+ワークフローで {% data variables.product.prodname_registry %} レジストリに対して認証するには、リポジトリから `GITHUB_TOKEN` を使用できます。 これは自動的に作成され、ワークフローが実行されるリポジトリ内のパッケージに対する_読み取り_および_書き込み_権限があります。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」を参照してください。
 
-If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+パッケージを別のリポジトリに公開する場合は、宛先リポジトリ内のパッケージに書き込む権限を持つ個人アクセストークン (PAT) を使用する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
-#### Example workflow
+#### ワークフローの例
 
 以下の例は、`GITHUB_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -140,7 +145,7 @@ jobs:
 
 `setup-node`アクションは、ランナー上で*.npmrc*ファイルを作成します。 `setup-node`アクションで`scope`インプットを使うと、*.npmrc*ファイルにはスコーププレフィックスが含まれます。 デフォルトでは、`setup-node`アクションは*.npmrc*ファイルのスコープを、ワークフローファイルを含むアカウントに設定します。
 
-```
+```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://npm.pkg.github.com
 always-auth=true
@@ -151,7 +156,7 @@ always-auth=true
 パッケージマネージャーのYarnを使う場合、Yarnを使ってパッケージのインストールと公開が行えます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -161,13 +166,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # npm に公開する .npmrc ファイルを設定する
+    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-        # デフォルトはワークフローファイルを所有するユーザまたは Organization
-        scope: '@octocat' 
+        # Defaults to the user or organization that owns the workflow file
+        scope: '@octocat'
     - run: yarn
     - run: yarn publish
       env:
@@ -179,7 +184,7 @@ jobs:
 
 {% note %}
 
-**ノート：** 異なるスコーププレフィックスを持つレジストリへ公開する必要がある倍は、ランナー上の*package.json*ファイルを修正してスコーププレフィックスを変更しなければなりません。 たとえばnpmに対しては`@mona`スコープで、{% data variables.product.prodname_registry %}に対しては`@octocat`スコープでパッケージを公開する場合は、npmへの公開後、{% data variables.product.prodname_registry %}への公開前にランナー上の*package.json*ファイルの`@mona`スコープを`@octocat`で置き換えることができます。
+**ノート：** 異なるスコーププレフィックスを持つレジストリへ公開する必要がある場合は、ランナー上の*package.json*ファイルを修正してスコーププレフィックスを変更しなければなりません。 たとえばnpmに対しては`@mona`スコープで、{% data variables.product.prodname_registry %}に対しては`@octocat`スコープでパッケージを公開する場合は、npmへの公開後、{% data variables.product.prodname_registry %}への公開前にランナー上の*package.json*ファイルの`@mona`スコープを`@octocat`で置き換えることができます。
 
 {% endnote %}
 
@@ -196,7 +201,7 @@ jobs:
 このワークフローは、`setup-node`アクションを2回呼びます。 `setup-node`アクションは、実行されるたびに*.npmrc*ファイルを上書きします。 *.npmrc*ファイルは、パッケージレジストリに対する認証を受けた操作を行えるようにしてくれるトークンを、環境変数の`NODE_AUTH_TOKEN`から参照します。 このワークフローは、環境変数の`NODE_AUTH_TOKEN`を`npm publish`コマンドが実行されるたびに設定します。初回はnpmへの公開のためのトークン（`NPM_TOKEN`）が、続いて{% data variables.product.prodname_registry %}への公開のためのトークン（`GITHUB_TOKEN`）が使われます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:

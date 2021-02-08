@@ -19,7 +19,7 @@ Em vez disso, eles devem usar o [Fluxo web do OAuth](/apps/building-oauth-apps/a
 
 {% if currentVersion == "github-ae@latest" %}
 
-To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a personal access token through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+Para efetuar a autenticação, recomendamos usar tokens do [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) como um token de acesso pessoal por meio do [fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
@@ -43,16 +43,16 @@ Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Auten
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% data variables.product.prodname_dotcom %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+**Observação:** {% data variables.product.prodname_dotcom %} suspendeu a autenticação da senha para a API a partir de 13 de novembro 2020 para todas as contas de {% data variables.product.prodname_dotcom_the_website %}, incluindo as que estão em um plano de {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. Você deve efetuar a autenticação para a API de {% data variables.product.prodname_dotcom %} com um token da API, como um token de acesso do OAuth, token de acesso de instalação do aplicativo GitHub ou token de acesso pessoal, dependendo do que você precisa fazer com o token. Para obter mais informações, consulte "[Solução de problemas](/rest/overview/troubleshooting#basic-authentication-errors)".
 
 {% endnote %}
 
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-To use Basic Authentication with the
-{% data variables.product.product_name %} API, simply send the username and
-password associated with the account.
+Para usar Autenticação Básica com a
+API de {% data variables.product.product_name %}, basta enviar o nome de usuário e
+a senha associada à conta.
 
 Por exemplo, se você estiver acessando a API via [cURL][curl], o comando a seguir faria a sua autenticação se substituísse `<username>` pelo seu nome de usuário de {% data variables.product.product_name %}. (cURL solicitará que você insira a senha.)
 
@@ -98,9 +98,9 @@ O valor das `organizações` é uma lista de ID de organizações separada por v
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Trabalhar com autenticação de dois fatores
 
-When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% if enterpriseServerVersions contains currentVersion %} or OAuth token instead of your username and password{% endif %}.
+Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pntos de extremidade na API REST exige que você use um token de acesso pessoal{% if enterpriseServerVersions contains currentVersion %} ou token do OAuth em vez do seu nome de usuário e senha{% endif %}.
 
-You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} or with the "\[Create a new authorization\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% data variables.product.prodname_dotcom %} API.{% if enterpriseServerVersions contains currentVersion %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}usando [ as configurações de desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} ou com o ponto de extremidade "\[Criar uma nova autorização\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" na API de Autorizações OAuth para gerar um novo token OAuth{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API de {% data variables.product.prodname_dotcom %}. {% if enterpriseServerVersions contains currentVersion %} A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.{% endif %}
 
 {% endif %}
 

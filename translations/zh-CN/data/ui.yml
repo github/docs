@@ -138,9 +138,19 @@ product_sublanding:
   learning_paths: 学习路径
   learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
   more_guides: 更多指南
-  guideTypes:
+  load_more: 加载更多指南
+  all_guides: 所有指南
+  no_result: 抱歉，没有与过滤条件匹配的指南。
+  filters:
+    type: 类型
+    topic: Topic
+    all: 所有
+  guide_types:
     overview: 概览
     quick_start: 快速入门
     tutorial: 教程
     how_to: 操作方法指南
     reference: 参考
+learning_track_nav:
+  prevGuide: 上一个指南
+  nextGuide: 下一个指南

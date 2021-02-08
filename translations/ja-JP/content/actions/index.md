@@ -1,7 +1,7 @@
 ---
 title: GitHub Actionsのドキュメント
 shortTitle: GitHub Actions
-intro: '{% data variables.product.prodname_actions %}で、ソフトウェア開発ワークフローをリポジトリの中で自動化、カスタマイズ実行しましょう。 CI/CDを含む好きなジョブを実行してくれるアクションを、見つけたり、作成したり、共有したり、完全にカスタマイズされたワークフロー中でアクションを組み合わせたりできます。'
+intro: '{% data variables.product.prodname_actions %}で、ソフトウェア開発ワークフローをリポジトリの中で自動化し、カスタマイズし、実行しましょう。 CI/CDを含む好きなジョブを実行してくれるアクションを、見つけたり、作成したり、共有したり、完全にカスタマイズされたワークフロー中でアクションを組み合わせたりできます。'
 introLinks:
   quickstart: /actions/quickstart
   reference: /actions/reference
@@ -10,33 +10,30 @@ featuredLinks:
     - /actions/learn-github-actions
     - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
-  gettingStarted:
-    - /actions/managing-workflow-runs
-    - /actions/hosting-your-own-runners
   guideCards:
     - /actions/guides/setting-up-continuous-integration-using-workflow-templates
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
-    - /actions/reference/events-that-trigger-workflows
     - /actions/learn-github-actions
+    - /actions/reference/events-that-trigger-workflows
     - /actions/reference/context-and-expression-syntax-for-github-actions
-    - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
+    - /actions/reference/encrypted-secrets
 changelog:
   - 
-    title: Workflow visualization
+    title: 環境、環境の保護ルール、環境のシークレット（ベータ）
+    date: '2020-12-15'
+    href: https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/
+  - 
+    title: ワークフローの視覚化
     date: '2020-12-08'
     href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
   - 
-    title: Removing set-env and add-path commands on November 16
+    title: 11月16日に set-env コマンドと add-path コマンドを削除します
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
-  - 
-    title: Ubuntu-latest workflows will use Ubuntu-20.04
-    date: '2020-10-29'
-    href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
@@ -63,23 +60,23 @@ versions:
 {% assign actionsCodeExamples = site.data.variables.action_code_examples %}
 {% if actionsCodeExamples %}
 <div class="my-6 pt-6">
-  <h2 class="mb-2 font-mktg h1">Code examples</h2>
+  <h2 class="mb-2 font-mktg h1">コード例</h2>
 
   <div class="pr-lg-3 mb-5 mt-3">
-    <input class="js-filter-card-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Search code examples" type="search" autocomplete="off" aria-label="Search code examples"/>
+    <input class="js-filter-card-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="検索コードの例" type="search" autocomplete="off" aria-label="Search code examples"/>
   </div>
 
   <div class="d-flex flex-wrap gutter">
     {% render 'code-example-card' for actionsCodeExamples as example %}
   </div>
 
-  <button class="js-filter-card-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
+  <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">詳細を表示 {% octicon "arrow-right" %}</button>
 
   <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>
-    <h3 class="text-normal">Sorry, there is no result for <strong class="js-filter-card-value"></strong></h3>
-    <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
-    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">Learn how to add a code example {% octicon "arrow-right" %}</a>
+    <h3 class="text-normal">検索結果はありません <strong class="js-filter-card-value"></strong></h3>
+    <p class="my-3 f4">フィルタに適合する例がないようです。<br>別のフィルタを試すか、コード例を追加してください</p>
+    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">コード例を追加する方法 {% octicon "arrow-right" %}</a>
   </div>
 </div>
 {% endif %}

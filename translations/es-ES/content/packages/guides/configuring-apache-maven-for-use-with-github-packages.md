@@ -38,7 +38,7 @@ Si deseas interactuar con múltiples repositorios, puedes agregar cada repositor
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -80,7 +80,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
 {% if enterpriseServerVersions contains currentVersion %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -138,7 +138,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
   {% if enterpriseServerVersions contains currentVersion %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -149,7 +149,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -176,7 +176,7 @@ Para instalar un paquete de Apache Maven desde {% data variables.product.prodnam
 {% data reusables.package_registry.authenticate-step %}
 2. Agrega las dependencias del paquete al elemento `dependencias` del archivo *pom.xml* de tu proyecto, reemplazando `com.example:test` con tu paquete.
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>
@@ -191,7 +191,7 @@ Para instalar un paquete de Apache Maven desde {% data variables.product.prodnam
   $ mvn install
   ```
 
-### Further reading
+### Leer más
 
 - "[Configurar Gradle para usar con {% data variables.product.prodname_registry %}](/packages/guides/configuring-gradle-for-use-with-github-packages)"
 - "[Eliminar un paquete](/packages/manage-packages/deleting-a-package/)"

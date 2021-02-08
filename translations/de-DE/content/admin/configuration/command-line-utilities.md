@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 Dadurch können Sie den UUID Ihres Knotens in `cluster.conf` ermitteln.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -545,8 +545,8 @@ ghe-dpages status
 ```
 
 Um einen {% data variables.product.prodname_pages %}-Speicherdienst zu evakuieren, bevor ein Cluster-Knoten evakuiert wird:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -571,16 +571,16 @@ ghe-spokes route
 
 Um Speicherdienste auf einem Cluster-Knoten zu evakuieren:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Mit diesem Dienstprogramm können Sie alle Speicherdienste evakuieren, bevor Sie einen Clusterknoten evakuieren.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

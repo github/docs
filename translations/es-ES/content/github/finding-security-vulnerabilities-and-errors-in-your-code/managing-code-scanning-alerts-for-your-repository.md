@@ -20,6 +20,8 @@ Puedes configurar el {% data variables.product.prodname_code_scanning %} para qu
 
 Predeterminadamente, el {% data variables.product.prodname_code_scanning %} analiza tu código periódicamente en la rama predeterminada y durante las solicitudes de cambios. Para obtener información acerca de la administración de alertas en una solicitud de cambios, consulta la sección "[Clasificar las alertas del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 ### Acerca de los detalles de las alertas
 
 Cada alerta resalta un problema en el código y el nombre de la herramienta que lo identificó. Puedes ver la línea de código que activó la alerta, así como las propiedades de la misma, tales como la severidad y la naturaleza de dicho problema. Las alertas también te dicen si el problema se introdujo por primera vez. Para las alertas que identificó el análisis de {% data variables.product.prodname_codeql %}, también verás información de cómo arreglar elproblema.
@@ -122,7 +124,7 @@ Si un proyecto tiene varias alertas que quieras descartar por la misma razón, p
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Clasificar las alertas del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)"
 - "[Habilitar el {% data variables.product.prodname_code_scanning %} para un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)"

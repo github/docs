@@ -8,7 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - 打包
+  - Publishing
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,7 +59,7 @@ type: 'tutorial'
 此示例将 `NPM_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -78,7 +83,7 @@ jobs:
 
 在上面的示例中，`setup-node` 操作在运行器上创建一个包含以下内容的 *.npmrc* 文件：
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 registry=https://registry.npmjs.org/
 always-auth=true
@@ -114,7 +119,7 @@ If you want to publish your package to a different repository, you must use a pe
 此示例将 `GITHUB_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -140,7 +145,7 @@ jobs:
 
 `setup-node` 操作在运行器上创建 *.npmrc* 文件。 使用 `scope` 输入到 `setup-node` 操作时，*.npmrc* 文件包含作用域前缀。 默认情况下，`setup-node` 操作在 *.npmrc* 文件中将作用域设置为包含该工作流程文件的帐户。
 
-```
+```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://npm.pkg.github.com
 always-auth=true
@@ -151,7 +156,7 @@ always-auth=true
 如果您使用 Yarn 包管理器，可以使用 Yarn 安装和发布包。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -161,13 +166,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # 设置 .npmrc 文件以发布到 npm
+    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-        # 默认为拥有工作流程文件的用户或组织
-        scope: '@octocat' 
+        # Defaults to the user or organization that owns the workflow file
+        scope: '@octocat'
     - run: yarn
     - run: yarn publish
       env:
@@ -196,7 +201,7 @@ jobs:
 此工作流程将调用 `setup-node` 操作两次。 每当 `setup-node` 操作运行时，都会覆盖 *.npmrc* 文件。 *.npmrc* 文件引用的令牌允许您对 `NODE_AUTH_TOKEN` 环境变量中的包注册表执行验证的操作。 工作流程在 `npm publish` 命令每次运行时设置 `NODE_AUTH_TOKEN` 环境变量，先通过令牌发布到 npm (`NPM_TOKEN`)，然后通过令牌发布到 {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`)。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:

@@ -25,7 +25,7 @@ Solo puedes utilizar tu contraseña para ingresar en {% data variables.product.p
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
 
-### Further reading
+### Leer más
 
 - [Almacenar tus credenciales de {% data variables.product.product_name %} en la caché en Git](/github/using-git/caching-your-github-credentials-in-git/)"
 - "[Preservar la seguridad de tu cuenta y tus datos](/articles/keeping-your-account-and-data-secure/)"
