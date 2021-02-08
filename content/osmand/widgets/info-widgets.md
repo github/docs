@@ -5,13 +5,13 @@ versions: '*'
 ---
 
 ## Altitude
-An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet). 
 
-Altitude widget shows the height above sea level.
-It has three states 
-Show – allows user to see altitude widget on the map
-Hide – allows user to hide altitude widget from the map
-Collapse – allows user to see altitude widget on the map and hide it when it is not used
+Altitude widget shows the height above sea level.<br>
+An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet). <br>
+It has three states <br>
+* Show – allows user to see altitude widget on the map <br>
+* Hide – allows user to hide altitude widget from the map <br>
+* Collapse – allows user to see altitude widget on the map and hide it when it is not used <br>
 
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS
 
@@ -36,7 +36,7 @@ It has three states 
 Show – allows user to see Speed widget on the map
 Hide – allows user to hide Speed widget from the map
 Collapse – allows user to see Speed widget on the map and hide it when it is not used
-OsmAnd takes Speed data from a device. It depend on accelerometer and gyroscope sensors on mobile device
+OsmAnd takes Speed data from a device. It depend on accelerometer, gyroscope sensors on mobile device and GPS
 
 User could find Speed widget in Configure screen menu
 
@@ -51,7 +51,7 @@ OsmAnd takes Battery level from a device.
 Battery level widget can be found in Configure screen menu
 
 ## GPS Info (Android)
-GPS info widget shows number of satellites. <!--You can click to this widget for adding GPS - applications.-->
+GPS (Global Positioning System) info widget shows number of satellites. <!--You can click to this widget for adding GPS - applications.-->
 It has three states 
 Show – allows user to see GPS info widget on the map
 Hide – allows user to hide GPS info widget from the map
@@ -65,9 +65,16 @@ User could find GPS info widget in Configure screen menu
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} .-->
 
 ## FPS-info (Development plugin)
-- Purpose
-- How to use
-- How to configure
+FPS debug info widget shows Frames per Second (FPS) of your screen.
+Where the The left number  is the maps Frames per Second (FPS) and the rigt one is general layer Frames per Second (FPS)
+When an application sets its preferred frame rate, the view chooses a frame rate as close to that as possible based on the capabilities of the screen the view is displayed on. To provide a consistent frame rate, the actual frame rate chosen is usually a factor of the maximum refresh rate of the screen. 
+An application should choose a frame rate that it can consistently maintain. The default value is 60 frames per second.
+It has three states 
+Show – allows user to see FPS debug info widget on the map
+Hide – allows user to hide FPS debug info widget from the map
+Collapse – allows user to see FPS debug info widget on the map and hide it when it is not used
+User could find FPS debug info widget in Configure screen menu
+To debug the map speed drawing needed to choose Menu – Plugins – three vertical dots – Settings – enable Rendering debug info
 
 ## Read more
 {% link_with_intro /radius-ruler %}
