@@ -4,14 +4,17 @@ intro: "OsmAnd gives you great possibilities for using the maps. You can customi
 versions: '*'
 ---
 
-{% data variables.android-values.configure_map %} menu (Android) or {% data variables.ios-values.map_settings_map %} menu (iOS) contains two sections menu:
+_{% data variables.android-values.configure_map %}_ menu (Android) or _{% data variables.ios-values.map_settings_map %}_ menu (iOS) contains two sections menu:
 
-The first is {% data variables.android-values.recording_context_menu_show %}(Android) or {% data variables.ios-values.map_settings_show %}(iOS), in this part we set parameters for visualisation data on the map. 
+The first is _{% data variables.android-values.recording_context_menu_show %}_(Android) or _{% data variables.ios-values.map_settings_show %}_(iOS), in this part we set parameters for visualisation data on the map. 
 
 The second is {% data variables.android-values.map_widget_map_rendering %} for Android or {% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %} for iOS, in the second part we change map view.
 
 - **"{% data variables.android-values.map_widget_map_rendering %}"**:
-   - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map), [Transport](/osmand/map/map-styles-and-parameters#transport), [Tracks](/osmand/map/tracks-on-map)
+   - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
+   - [Transport](/osmand/map/map-styles-and-parameters#transport)
+   - [Tracks](/osmand/map/tracks-on-map)
+   - [Map markers](/osmand/map/point-layers-on-map)
    - [Map sources](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer)
    - [Street level imagery](/osmand/map/street-level-imagery)
    - [Wikipedia](/osmand/map/wikipedia)
