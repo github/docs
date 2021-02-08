@@ -8,14 +8,14 @@ versions: '*'
 
 Altitude widget shows the height above sea level.<br>
 
-*_An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet)._* <br>
+<p>*_An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet)._*</p> <br>
 
 It has three states <br>
 * Show – allows user to see altitude widget on the map <br>
 * Hide – allows user to hide altitude widget from the map <br>
 * Collapse – allows user to see altitude widget on the map and hide it when it is not used <br>
 
-*_OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS_* <br>
+<font size="1">*_OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS_* <font size><br>
 
 User could find Altitude widget in Configure screen menu <br>
 
