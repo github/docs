@@ -4,6 +4,8 @@ intro: "Informational widgets allow user see information about current location,
 versions: '*'
 ---
 
+<!--Надо написать, что часть виджетов кликабельны. + добавить картинки-->
+
 ## Altitude
 
  Altitude widget shows the height above sea level. <br>
