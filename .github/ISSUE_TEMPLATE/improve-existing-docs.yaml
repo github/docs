@@ -3,61 +3,59 @@ name: Improve existing docs
 about: Make a suggestion to improve our existing documentation.
 labels: content
 inputs:
-  - type: description
-    attributes:
-      value: |
-        HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+- type: description
+  attributes:
+    value: |
+      HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 
-        For questions, ask in Discussions: https://github.com/github/docs/discussions
-  - type: dropdown
-    label: Code of Conduct
-    attributes:
-      choices:
-        - description: 'I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md'
-          required: true
-          multi-select: false
-          free-text: false
-          choices:
-            - description: I agree
-              value: I agree
-  - type: dropdown
-    label: Contributing
-    attributes:
-      choices:
-        - description: 'I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md'
-          required: true
-          multi-select: false
-          free-text: false
-          choices:
-            - description: I agree
-              value: I agree
-  - type: dropdown
-    label: Similar issue
-    attributes:
-      choices:
-        - description: 'There is not a similar issue that has been already opened: https://github.com/github/docs/issues'
-          required: true
-          multi-select: false
-          free-text: false
-          choices:
-            - description: No similar issues
-              value: No similar issues
-  - type: textarea
-    attributes:
-      label: which article
-      description: What article on docs.github.com is affected?
-      required: true
-      placeholder: Add a link to the article you'd like to see updated
-      value:
-  - type: textarea
-    attributes:
-      label: desired updates
-      description: What part(s) of the article would you like to see updated?
-      required: true
-      placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
-  - type: textarea
-    attributes:
-      label: additional info
-      description: Additional information
-      required: false
-      placeholder: Add any other context or screenshots about the feature request here.
+      For questions, ask in Discussions: https://github.com/github/docs/discussions
+- type: checkboxes
+  label: Code of Conduct
+  attributes:
+    label: 'I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md'
+    required: true
+    multi-select: false
+    free-text: false
+    choices:
+      - label: I agree
+- type: dropdown
+  label: Contributing
+  attributes:
+    choices:
+      - description: 'I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md'
+        required: true
+        multi-select: false
+        free-text: false
+        choices:
+          - description: I agree
+            value: I agree
+- type: dropdown
+  label: Similar issue
+  attributes:
+    choices:
+      - description: 'There is not a similar issue that has been already opened: https://github.com/github/docs/issues'
+        required: true
+        multi-select: false
+        free-text: false
+        choices:
+          - description: No similar issues
+            value: No similar issues
+- type: textarea
+  attributes:
+    label: which article
+    description: What article on docs.github.com is affected?
+    required: true
+    placeholder: Add a link to the article you'd like to see updated
+    value:
+- type: textarea
+  attributes:
+    label: desired updates
+    description: What part(s) of the article would you like to see updated?
+    required: true
+    placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+- type: textarea
+  attributes:
+    label: additional info
+    description: Additional information
+    required: false
+    placeholder: Add any other context or screenshots about the feature request here.
