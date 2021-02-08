@@ -748,7 +748,7 @@ when 'check_run'
 end
 ```
 
-Add another `when` statement after the `rerequested` case to handle the `rerequested_action` event:
+Add another `when` statement after the `rerequested` case to handle the `requested_action` event:
 
 ``` ruby
 when 'requested_action'
