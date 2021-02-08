@@ -31,7 +31,7 @@ After you enable SCIM, the following provisioning features are available for any
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
 {% data reusables.saml.search-ghec-okta %}
-4. To the right of "GitHub Enterprise Cloud - Organization", click **Add**.
+4. To the right of "Github Enterprise Cloud - Organization", click **Add**.
   ![Clicking "Add" for the {% data variables.product.prodname_ghe_cloud %} application](/assets/images/help/saml/okta-add-ghec-application.png)
 
 5. In the **GitHub Organization** field, type the name of your {% data variables.product.prodname_dotcom %} organization. For example, if your organization's URL is https://github.com/octo-org, the organization name would be `octo-org`.
@@ -57,8 +57,8 @@ After you enable SCIM, the following provisioning features are available for any
 {% data reusables.saml.okta-enable-api-integration %}
 
 
-6. Click **Authenticate with GitHub Enterprise Cloud - Organization**.
-  !["Authenticate with GitHub Enterprise Cloud - Organization" button for Okta application](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
+6. Click **Authenticate with Github Enterprise Cloud - Organization**.
+  !["Authenticate with Github Enterprise Cloud - Organization" button for Okta application](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
 
 7. To the right of your organization's name, click **Grant**.
   !["Grant" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
