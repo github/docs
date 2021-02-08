@@ -1,4 +1,5 @@
-name: 'dekhrDotcom'
+name: master 
+ 
 
 on:
   workflow_dispatch:
