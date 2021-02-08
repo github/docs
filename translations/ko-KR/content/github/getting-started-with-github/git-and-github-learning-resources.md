@@ -25,15 +25,13 @@ Familiarize yourself with Git by visiting the [official Git project site](https:
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [bootcamp](/categories/bootcamp/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Branches, forks, and pull requests
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}.
-
-Access quick references about the [command line](https://hub.github.com) as well as {% data variables.product.prodname_dotcom %} [checklists, cheat sheets, and more](https://services.github.com/on-demand/resources).
+Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 #### Tune in
 
@@ -41,9 +39,9 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ### 연습
 
-#### Free classes
+#### Free courses
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://services.github.com/on-demand/) including {% data variables.product.prodname_dotcom %} 101: [Introduction](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %} 102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop), and {% data variables.product.prodname_dotcom %} 103: [Command Line](https://services.github.com/on-demand/github-cli).
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 #### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 

@@ -1,11 +1,12 @@
 const path = require('path')
 const slash = require('slash')
-const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
+const { firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
-const findPage = require('../lib/find-page')
+const archvivedRedirects = require('../lib/redirects/static/archived-redirects-from-213-to-217')
+const archivedFrontmatterFallbacks = require('../lib/redirects/static/archived-frontmatter-fallbacks')
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
@@ -27,7 +28,7 @@ module.exports = async (req, res, next) => {
   // starting with 2.18, we updated the archival script to create stubbed HTML redirect files
   if (versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutStubbedRedirectFiles}`)) {
-    const redirect = req.context.redirects[req.path]
+    const redirect = archvivedRedirects[req.path]
     if (redirect && redirect !== req.path) {
       return res.redirect(301, redirect)
     }
@@ -45,7 +46,7 @@ module.exports = async (req, res, next) => {
       res.set('location', staticRedirect[1])
     }
 
-    res.send(r.body)
+    return res.send(r.body)
   } catch (err) {
     for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
       try {
@@ -53,7 +54,7 @@ module.exports = async (req, res, next) => {
         return res.redirect(301, fallbackRedirect)
       } catch (err) { } // noop
     }
-    next()
+    return next()
   }
 }
 
@@ -74,23 +75,5 @@ function getFallbackRedirects (req, requestedVersion) {
   if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) return
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutStubbedRedirectFiles}`)) return
 
-  const pathWithNewVersion = req.path.replace(requestedVersion, latest)
-
-  // look for a page with the same path on a currently supported version
-  const currentlySupportedPage = findPage(pathWithNewVersion, req.context.pages, req.context.redirects)
-  if (!currentlySupportedPage) return
-
-  // get an array of viable old paths
-  return Object.keys(currentlySupportedPage.redirects)
-    // filter for just languageless and versionless enterprise old paths
-    // example: [
-    //   '/enterprise/user/articles/viewing-contributions',
-    //   '/enterprise/user/articles/viewing-contributions-on-your-profile-page',
-    //   '/enterprise/user/articles/viewing-contributions-on-your-profile'
-    // ]
-    .filter(oldPath => oldPath.startsWith('/enterprise') && patterns.enterpriseNoVersion.test(oldPath))
-    // add in the current language and version
-    .map(oldPath => slash(path.join('/', req.context.currentLanguage, oldPath.replace('/enterprise/', `/enterprise/${requestedVersion}/`))))
-    // ignore paths that match the requested path
-    .filter(oldPath => oldPath !== req.path)
+  return archivedFrontmatterFallbacks.find(arrayOfFallbacks => arrayOfFallbacks.includes(req.path))
 }

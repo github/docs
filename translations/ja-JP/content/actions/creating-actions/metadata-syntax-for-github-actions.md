@@ -11,10 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: reference
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### {% data variables.product.prodname_actions %}のYAML構文について
 
@@ -26,11 +27,11 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 **必須**アクションの名前。 {% data variables.product.prodname_dotcom %}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
 
-### `作者`
+### `author`
 
 **オプション** アクションの作者の名前。
 
-### `説明`
+### `description`
 
 **必須** アクションの短い説明。
 
@@ -71,7 +72,7 @@ inputs:
 
 #### `inputs.<input_id>.default`
 
-**オプション** デフォルト値を示す`文字列`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されたなかった場合に使われます。
+**オプション** デフォルト値を示す`文字列`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
 
 ### `outputs`
 
@@ -95,7 +96,7 @@ outputs:
 
 **必須** 出力パラメーターの`文字列`での説明。
 
-### `outputs` for composite run steps actions
+### 複合実行ステップアクションのための`outputs`
 
 **オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{% data variables.product.prodname_actions %} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
 
@@ -104,12 +105,12 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -122,7 +123,7 @@ runs:
 
 コンテキストと式の構文の使用方法について詳しくは、「[{% data variables.product.prodname_actions %} のコンテキストと式の構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-### `runs` for JavaScript actions
+### JavaScriptアクションのための`runs`
 
 **必須** アクションのコードと、コードを実行するのに使われるアプリケーションへのパスを設定します。
 
@@ -193,7 +194,7 @@ runs:
   post-if: 'runner.os == linux'
 ```
 
-### `runs` for composite run steps actions
+### 複合実行ステップアクションのための`runs`
 
 **必須** 複合アクションへのパス、およびコードの実行に使用されるアプリケーションを設定します。
 
@@ -213,7 +214,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
@@ -224,7 +225,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -251,14 +252,14 @@ runs:
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-### `runs` for Docker actions
+### Dockerアクションのための`runs`
 
 **必須** Dockerアクションのために使われるイメージを設定します。
 
 #### リポジトリでのDockerfileの利用例
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -266,7 +267,7 @@ runs:
 #### パブリックなDockerレジストリコンテナを利用する例
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```
@@ -369,7 +370,7 @@ branding:
 
 <table>
 <tr>
-<td>アクティビティ</td>
+<td>activity</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -384,7 +385,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>アーカイブ</td>
+<td>archive</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -463,10 +464,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>コード</td>
+<td>code</td>
 </tr>
 <tr>
-<td>コマンド</td>
+<td>command</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -516,12 +517,12 @@ branding:
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>ファイル</td>
+<td>file</td>
 <td>film</td>
 </tr>
 <tr>
 <td>filter</td>
-<td>フラグ</td>
+<td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 </tr>
@@ -539,7 +540,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>ハッシュ</td>
+<td>hash</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -641,7 +642,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>巻き戻し</td>
+<td>rewind</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -666,7 +667,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>サイドバー</td>
+<td>sidebar</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -688,7 +689,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>タグ</td>
+<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -718,14 +719,14 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>アップロード</td>
+<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>ユーザ</td>
+<td>user</td>
 <td>users</td>
 <td>video-off</td>
 </tr>

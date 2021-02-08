@@ -35,7 +35,7 @@
 - 
   term: 略歴
   description: >-
-    プロフィール（ https://help.github.com/ja/github/setting-up-and-managing-your-github-profile/personalizing-your-profile ）に存在する、ユーザが生成した記述。
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: 支払いサイクル
   description: 特定の支払いプランの時間間隔。
@@ -123,7 +123,7 @@
 - 
   term: コミット
   description: >-
-    コミット、または「リビジョン」とは、ファイル（またはファイルのセット）に対する個々の変更です。コミットをして変更を保存すると、Git では一意の ID（別名「SHA」または「ハッシュ」）が作成され、コミットした特定の変更に加え、誰がいつ変更したかの記録を保持できます。コミットには通常、何の変更が加えられたかを手短に記載したコミットメッセージ が含まれます。
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: コミット作者
   description: コミットをするユーザ。
@@ -137,7 +137,7 @@
 - 
   term: コミットメッセージ
   description: >-
-    コミットに付随し、コミットで導入されてくる変更について伝達する、手短な説明のテキスト。
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: 比較ブランチ
   description: >-
@@ -156,7 +156,7 @@
 - 
   term: コントリビューション
   description: >-
-    GitHub で次のことを行う特定のアクティビティ。- ユーザのコントリビューショングラフに正方形を追加：「[コントリビューションとしてカウントされるもの](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)」- ユーザのプロフィール上でタイムラインにアクティビティを追加：「[コントリビューションアクティビティ](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)」
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: コントリビューター
   description: >-
@@ -229,7 +229,7 @@
     新しい機能の実験や本番環境にない Issue の修正に使用されるブランチ。トピックブランチともいいます。
 - 
   term: コードブロック
-  description: 'コードのインデントされているブロック。GitHub Flavored Markdown でコードブロックの前後に 3 つのバッククォート（\`\`\`）を使用することで作成できます。[例](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)を参照。'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: フェッチ
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    Gist とは共有可能なファイルであり、GitHub 上で編集、クローン作成、フォークできます。Gist はパブリックにすることもシークレットにすることもできますが、シークレット Gist は URL のある個人なら誰でも使用できます。
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    興味のあるアクティビティについての情報を提供するアップデート。設定によってウェブかメールのいずれかで配布されます。
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth App
   description: >-
