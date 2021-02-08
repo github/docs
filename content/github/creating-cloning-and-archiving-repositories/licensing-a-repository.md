@@ -92,3 +92,7 @@ The goal of GitHub's open source licensing efforts is to provide a starting poin
 
 - The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+
+### Please check with Licenser for more
+
+Please always refer to the Licenser (for example Apache if you are using the Apache License) for more if you are stuck or need further advise that we cannot provide.
