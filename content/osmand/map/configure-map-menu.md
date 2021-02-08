@@ -8,7 +8,7 @@ _{% data variables.android-values.configure_map %}_ menu (Android) or _{% data v
 
 The first is _{% data variables.android-values.recording_context_menu_show %}_(Android) or _{% data variables.ios-values.map_settings_show %}_(iOS), in this part we set parameters for visualisation data on the map. 
 
-The second is {% data variables.android-values.map_widget_map_rendering %} for Android or {% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %} for iOS, in the second part we change map view.
+The second is _{% data variables.android-values.map_widget_map_rendering %}_ for Android or _{% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %}_ for iOS, in the second part we change map view.
 
 - **"{% data variables.android-values.map_widget_map_rendering %}"**:
    - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
