@@ -90,7 +90,7 @@ It has three states <br>
 
 User could find FPS debug info widget in Configure screen menu <br>
 
-*_To debug the map speed drawing needed to choose _* 
+*_To debug the map speed drawing needed to choose _* <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → *_tap three vertical dots_* → {% data variables.android-values.open_settings %} → *_enable_* {% data variables.android-values.trace_rendering %} . <br>
 In a second it will update. <br> 
 
