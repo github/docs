@@ -6,7 +6,7 @@ versions: '*'
 
 ## Altitude
 
-# Altitude widget shows the height above sea level.#<br>
+###### Altitude widget shows the height above sea level.######<br>
 
 *_An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet)._* <br>
 
