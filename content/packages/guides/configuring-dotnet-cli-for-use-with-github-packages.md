@@ -220,4 +220,4 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 ### Further reading
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- 
