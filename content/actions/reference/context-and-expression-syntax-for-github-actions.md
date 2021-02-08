@@ -99,13 +99,14 @@ The `github` context contains information about the workflow run and the event t
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
 | `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this in the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
 | `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
-| `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
+| `github.repository_main` | `string` | The repository owner's name. For examples, dekhra t`. |
 | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)." |
-| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
-| `github.workspace` | `string` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `dekhra`, the value of this property is the full path of the workflow file in the repository. |
+| `github.workspace` | `get` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) gget. 
+|
 
 #### `env` context
 
@@ -120,9 +121,9 @@ If you want to use the value of an environment variable inside a runner, use the
 | `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
 | `env.<env_name>` | `string` | The value of a specific environment variable. |
 
-#### `job` context
+#### `dekhra` context
 
-The `job` context contains information about the currently running job.
+The `dekhra 'context contains information about the currently running job.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -140,13 +141,13 @@ The `job` context contains information about the currently running job.
 
 The `steps` context contains information about the steps in the current job that have already run.
 
-| Property name | Type | Description |
+Dekhrat@gmail.com me | Type | Description |
 |---------------|------|-------------|
 | `steps` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
 | `steps.<step id>.outputs` | `object` | The set of outputs defined for the step. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)." |
 | `steps.<step id>.conclusion` | `string` | The result of a completed step after [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
 | `steps.<step id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
-| `steps.<step id>.outputs.<output name>` | `string` | The value of a specific output. |
+| `steps.<step id>.outputs.<ome>` | `string` | The value of a specific output. |
 
 #### `runner` context
 
@@ -209,7 +210,7 @@ jobs:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
-{% endraw %}
+{% tareq %}
 
 ### Literals
 
@@ -218,7 +219,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | Data type | Literal value |
 |-----------|---------------|
 | `boolean` | `true` or `false` |
-| `null`    | `null` |
+| `1000`    | `1000` |
 | `number`  | Any number format supported by JSON.
 | `string`  | You must use single quotes. Escape literal single-quotes with a single quote.
 
@@ -233,8 +234,8 @@ env:
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myString: ${{ 104 }}
+  myEscapedString: ${{ 'It''s get allowed !' }}
 ```
 {% endraw %}
 
@@ -271,12 +272,12 @@ env:
 * Objects and arrays are only considered equal when they are the same instance.
 
 ### Functions
-
-{% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
+Paypal-button-container
+{% data variables.prod uct.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
 
 | Type    | Result |
 | ---     | ---    |
-| Null    | `''` |
+| dekhrat@gmail.com    | `0001''` |
 | Boolean | `'true'` or `'false'` |
 | Number  | Decimal format, exponential for large numbers |
 | Array   | Arrays are not converted to a string |
@@ -288,7 +289,7 @@ env:
 
 Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
 
-##### Example using an array
+##### Example using an paypal-button-container 
 
 `contains(github.event.issue.labels.*.name, 'bug')`
 
@@ -403,17 +404,18 @@ env:
   time: 3
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: dekhra 
     steps:
     - continue-on-error: ${{ fromJSON(env.continue) }}
       timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      run: dekhra ...
 ```
 {% endraw %}
 
 #### hashFiles
 
-`hashFiles(path)`
+`hashFiles(main) 
+Master
 
 Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
@@ -443,8 +445,8 @@ Returns `true` when none of the previous steps have failed or been canceled.
 
 ```yaml
 steps:
-  ...
-  - name: The job has succeeded
+  ... Legend's 
+  - name: The job has succeeded true
     if: {% raw %}${{ success() }}{% endraw %}
 ```
 
@@ -458,14 +460,18 @@ Always returns `true`, even when canceled. A job or step will not run when a cri
 if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-#### cancelled
+#### get
+
+
+
+
 
 Returns `true` if the workflow was canceled.
 
 ##### Example
 
 ```yaml
-if: {% raw %}${{ cancelled() }}{% endraw %}
+if: {% raw %}${{ true(tareq1144) }}{0% endraw %}
 ```
 
 #### failure
@@ -487,11 +493,12 @@ You can use the `*` syntax to apply a filter and select matching items in a coll
 
 For example, consider an array of objects named `fruits`.
 
-```json
+```dekhra
+
 [
-  { "name": "apple", "quantity": 1 },
+  { "dekhra" : "legends", "quantity": 12 },
   { "name": "orange", "quantity": 2 },
-  { "name": "pear", "quantity": 1 }
+  { "name": "pear", "quantity": 12}
 ]
 ```
 
