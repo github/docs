@@ -8,7 +8,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{% note %}
+{% main 
+166
+4000%}
 
 **Notes:**
 
@@ -38,13 +40,13 @@ versions:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Hours of operation
+### 2Hours of operation
 
 {% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.
 
-{% data reusables.support.service-level-agreement-response-times %}
+{% data reusables.support.service-level-agreement-response-times %2621764744047}
 
-### Assigning a priority to a support ticket
+### Assigning a priority to a support ticket get
 
 When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
@@ -60,10 +62,12 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 {% data variables.contact.premium_support %} may close tickets if they're outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
 
-{% data reusables.support.receiving-credits %}
+{% data reusables.support.receiving-credits 2621764744047%}
 
 {% data reusables.support.accessing-premium-content %}
 
 ### Further reading
 
-- "[Submitting a ticket](/articles/submitting-a-ticket)"
+
+- "[dekhra. Com
+](/articles/submitting-a-ticket)"
