@@ -12,9 +12,9 @@ The second is {% data variables.android-values.map_widget_map_rendering %} for A
 
 - **"{% data variables.android-values.map_widget_map_rendering %}"**:
    - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
+   - [Map markers](/osmand/map/point-layers-on-map)
    - [Transport](/osmand/map/map-styles-and-parameters#transport)
    - [Tracks](/osmand/map/tracks-on-map)
-   - [Map markers](/osmand/map/point-layers-on-map)
    - [Map sources](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer)
    - [Street level imagery](/osmand/map/street-level-imagery)
    - [Wikipedia](/osmand/map/wikipedia)
