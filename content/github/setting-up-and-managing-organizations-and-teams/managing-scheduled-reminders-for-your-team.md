@@ -13,6 +13,14 @@ versions:
 
 Team maintainers and organization owners can set scheduled reminders for any pull requests that a team has been requested to review. Before you can create a scheduled reminder for your team, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
 
+{% note %}
+
+**Note**: There are some limitations when setting up scheduled reminders:
+- At an organization level, there's a limit of five repositories.
+- At a repository level, you will only receive notifications for the oldest 20 pull requests.
+
+{% endnote %}
+
 ### Creating a scheduled reminder for a team
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
