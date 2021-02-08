@@ -64,8 +64,9 @@ To see a GPS status menu user has to click on GPS info widget. GPS status menu p
 
 User could find GPS info widget in Configure screen menu
 
-<!--User could make GPS correction to make sure the up-to-date data is used. 
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} .-->
+User could make GPS correction to make sure the up-to-date data is used. <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ long tao on the {% data variables.android-values.agps_info %}. <br>
+In a second it will update. <br> 
 
 ## FPS-info (Development plugin)
 FPS debug info widget shows Frames per Second (FPS) of your screen.
@@ -78,6 +79,8 @@ Hide – allows user to hide FPS debug info widget from the map
 Collapse – allows user to see FPS debug info widget on the map and hide it when it is not used
 User could find FPS debug info widget in Configure screen menu
 To debug the map speed drawing needed to choose Menu – Plugins – three vertical dots – Settings – enable Rendering debug info
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap three vertical dots → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %} . <br>
+In a second it will update. <br> 
 
 ## Read more
 {% link_with_intro /radius-ruler %}
