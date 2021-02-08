@@ -51,9 +51,9 @@ User could find Speed widget in Configure screen menu <br>
 Battery level widget shows battery level of your device. <br>
 
 It has three states: <br> 
-* Show – allows user to see altitude widget on the map <br>
-* Hide – allows user to hide altitude widget from the map <br>
-* Collapse – allows user to see altitude widget on the map and hide it when it is not used <br>
+* Show – allows user to see Battery level widget on the map <br>
+* Hide – allows user to hide Battery level widget from the map <br>
+* Collapse – allows user to see Battery level widget on the map and hide it when it is not used <br>
 
 *_OsmAnd takes Battery level from a device. _* <br>
 
