@@ -1,5 +1,5 @@
 ---
-title: "Contour lines / Hillshade / Terrain"
-intro: "How to display contour lines, hillshade, terrain information on the map"
+title: "Contour lines / Terrain"
+intro: "How to display contour lines, hillshade, slopes information on the map"
 versions: '*'
 ---
