@@ -119,6 +119,16 @@ describe('POST /events', () => {
       }, 400)
     )
 
+    it('should allow page_event_id', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          page_event_id: baseExample.context.event_id
+        }
+      }, 201)
+    )
+
     it('should not allow a honeypot token', () =>
       checkEvent({
         ...pageExample,
@@ -281,7 +291,6 @@ describe('POST /events', () => {
     const exitExample = {
       ...baseExample,
       type: 'exit',
-      exit_page_id: 'c93c2d16-8e07-43d5-bc3c-eacc999c184d',
       exit_first_paint: 0.1,
       exit_dom_interactive: 0.2,
       exit_dom_complete: 0.3,
@@ -291,14 +300,6 @@ describe('POST /events', () => {
 
     it('should record an exit event', () =>
       checkEvent(exitExample, 201)
-    )
-
-    it('should require exit_page_id', () =>
-      checkEvent({ ...exitExample, exit_page_id: undefined }, 400)
-    )
-
-    it('should require exit_page_id is a uuid', () =>
-      checkEvent({ ...exitExample, exit_page_id: 'afjdskalj' }, 400)
     )
 
     it('exit_first_paint is a number', () =>
