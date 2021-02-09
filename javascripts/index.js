@@ -18,6 +18,7 @@ import allArticles from './all-articles'
 import devToc from './dev-toc'
 import releaseNotes from './release-notes'
 import showMore from './show-more'
+import airgapLinks from './airgap-links'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   allArticles()
   devToc()
   showMore()
+  airgapLinks()
   releaseNotes()
   initializeEvents()
   experiment()
