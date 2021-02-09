@@ -1,8 +1,8 @@
 {% if page.permalinks and page.permalinks.length > 1 %}
   <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
-    <summary class="d-flex flex-items-center flex-justify-between f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
       <!-- GitHub.com, Enterprise Server 2.16, etc -->
-      <span class="d-md-none d-xl-inline-block mr-1">{% data ui.pages.article_version %}</span> {{ allVersions[currentVersion].versionTitle }}
+      <span class="d-md-none d-xl-inline-block">{% data ui.pages.article_version %}</span> {{ allVersions[currentVersion].versionTitle }}
       <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
     </summary>
 
