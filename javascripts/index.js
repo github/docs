@@ -12,7 +12,6 @@ import localization from './localization'
 import helpfulness from './helpfulness'
 import experiment from './experiment'
 import copyCode from './copy-code'
-import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
 import filterCards from './filter-cards'
 import allArticles from './all-articles'
@@ -35,9 +34,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   allArticles()
   devToc()
   showMore()
-  await fillCsrf() // this must complete before any POST calls
-  initializeEvents() // requires fillCsrf to complete
-  experiment() // requires fillCsrf to complete
-  helpfulness() // requires fillCsrf to complete
   releaseNotes()
+  initializeEvents()
+  experiment()
+  helpfulness()
 })

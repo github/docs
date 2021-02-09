@@ -1,5 +1,6 @@
 const request = require('supertest')
 const nock = require('nock')
+const cheerio = require('cheerio')
 const app = require('../../server')
 
 describe('POST /events', () => {
@@ -14,8 +15,9 @@ describe('POST /events', () => {
     process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
     process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
     agent = request.agent(app)
-    const csrfRes = await agent.get('/csrf')
-    csrfToken = csrfRes.body.token
+    const csrfRes = await agent.get('/en')
+    const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
+    csrfToken = $('meta[name="csrf-token"]').attr('content')
     nock('http://example.com')
       .post('/hydro')
       .reply(200, {})
