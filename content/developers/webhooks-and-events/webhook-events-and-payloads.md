@@ -162,7 +162,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is the GitHub organization for all other actions.
 
 #### Webhook payload example
 
@@ -426,7 +426,7 @@ Key | Type | Description
 
 {% note %}
 
-**Note:** This event replaces the deprecated `integration_installation` event.  
+**Note:** This event replaces the deprecated `integration_installation` event.
 
 {% endnote %}
 
