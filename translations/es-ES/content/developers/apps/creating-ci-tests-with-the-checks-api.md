@@ -12,7 +12,7 @@ versions:
 
 ### Introducción
 
-Esta guía te dará una introducción a las [GitHub Apps](/apps/) y a la [API de verificaciones](/rest/reference/checks), las cuales utilizarás para crear un servidor de Integración contínua (CI) que ejecute pruebas.
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 La IC es una práctica de software que requiere código confirmado frecuente en un repositorio compartido. El código de confirmación generar errores de manera temprana frecuentemente, así como reduce la cantidad de código que necesita un desarrollador para hacer depuraciones cuando encuentra la fuente de un error. Las actualizaciones frecuentes de código facilitan también la fusión de cambios de diferentes miembros de un equipo de desarrollo de software. Esto es excelente para los desarrolladores, que pueden dedicar más tiempo a escribir código y menos tiempo a depurar errores o resolver conflictos de fusión. 🙌
 
@@ -49,7 +49,7 @@ Para obtener una idea de lo que hará tu servidor de IC para la API de Verificac
 
 ### Prerrequisitos
 
-Antes de que inicies, tal vez quieras familiarizarte con las [GitHub Apps](/apps/), los [Webhooks](/webhooks), y con la [API de Verificaciones](/rest/reference/checks), si aún no lo has hecho. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL](/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones](/graphql/reference/objects#checksuite) y [Ejecución de Verificación](/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL](/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones](/graphql/reference/objects#checksuite) y [Ejecución de Verificación](/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
 
 Utilizarás el [Lenguaje de Programación Ruby](https://www.ruby-lang.org/en/), el servicio de entrega de carga útil para el webhook de [Smee](https://smee.io/), la [biblioteca de Ruby Ocktokit.rb](http://octokit.github.io/octokit.rb/) para la API de REST de GitHub, y el [marco de trabajo web Sinatra](http://sinatrarb.com/) para crear tu aplicación de servidor de IC para la API de Verificaciones.
 
@@ -203,7 +203,7 @@ Si ves otras apps en la pestaña de verificaciones, significa que tienes otras a
 
 ### Paso 1.4. Actualizar una ejecución de verificación
 
-Cuando tu método de `create_check_run` se ejecuta, éste solicita a GitHub crear una ejecución de verificación nueva. Cuando GitHub termine de crear la ejecución de verificación, recibirás un evento de webhook de `check_run` con la acción como `created`. Este evento es tu señal para comenzar a ejecutar la verificación.
+Cuando tu método de `create_check_run` se ejecuta, éste solicita a GitHub crear una ejecución de verificación nueva. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. Este evento es tu señal para comenzar a ejecutar la verificación.
 
 Necesitas actualizar tu gestor de eventos para buscar la acción que se encuentra como `created`. Mientras actualizas el gestor de eventos, puedes agregar una condicional para la acción que se encuentra como `rerequested`. Cuando alguien re-ejecuta una sola prueba en GitHub, al dar clic en el botón de "Re-ejecutar", GitHub envía a tu app el evento de ejecución de verificación que está como `rerequested`. Cuando una ejecución de verificación se pone como `rerequested`, necesitarás iniciar el proceso desde cero y crear una ejecución de verificación nueva.
 
@@ -435,7 +435,7 @@ El código anterior obtiene el nombre completo del repositorio y el SHA de encab
 
 ### Paso 2.3. Ejecutar RuboCop
 
-¡Genial! Estás clonando el repositorio y creando ejecuciones de verificación al utilizar tu servidor de IC. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
+¡Genial! Estás clonando el repositorio y creando ejecuciones de verificación al utilizar tu servidor de IC. Ahora te meterás en los detalles más minusciosos del [Limpiador de RuboCop](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) y de las [Anotaciones de la API de Verificaciones](/rest/reference/checks#create-a-check-run).
 
 El siguiente código ejecuta RuboCop y guarda los errores de estilo en el código con un formato JSON. Agrega el código siguiente debajo de la llamada a `clone_repository` que agregaste en el [paso anterior](#step-22-cloning-the-repository) y sobre el código que actualiza la ejecución de verificación para completarse.
 
@@ -447,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-Este código utiliza RuboCop en todos los archivos dentro del directorio del repositorio. La opción `--format json` es una manera útil de guardar una copia de los resultados que se han limpiado en un formato que pueda analizar la máquina. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
+Este código utiliza RuboCop en todos los archivos dentro del directorio del repositorio. La opción `--format json` es una manera útil de guardar una copia de los resultados que se han limpiado en un formato que pueda analizar la máquina. Consulta los [Documentos de RuboCop](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) para obtener más detalles y un ejemplo del formato en JSON.
 
 Ya que este código almacena los resultados de RuboCop en una variable de `@report`, puede eliminar la salida del repositorio con seguridad. Este código también analiza el JSON para que puedas acceder fácilmente a las claves y valores en tu GitHub App utilizando la variable `@output`.
 
@@ -588,7 +588,7 @@ Este código limita la cantidad total de anotaciones a 50. Pero puedes modificar
 
 Cuando la `offense_count` es de cero, la prueba de IC se muestra como `success`. Si hay errores, este código configura la conclusión como `neutral` para prevenir los errores estrictamente implementados desde los limpiadores de código. Pero puedes cambiar la conclusión a `failure` si quisieras garantizar que el conjunto de verificaciones falle cuando existan errores de limpieza.
 
-Cuando se reportan los errores, el código anterior itera a través de la matriz de `files` en el reporte de RuboCop. Para cada archivo, extrae la ruta del mismo y configura el nivel de anotcación en `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+Cuando se reportan los errores, el código anterior itera a través de la matriz de `files` en el reporte de RuboCop. Para cada archivo, extrae la ruta del mismo y configura el nivel de anotcación en `notice`. Puedes incluso ir más allá y especificar ls niveles de advertencia para cada tipo de [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), pero para simplificar todo aún más en esta guía rápida, todos los errores se configurarán en un nivel de `notice`.
 
 Este código también itera a través de cada error en la matriz de `offenses` y recolecta la ubicación de la falta y el mensaje de error. Después de extraer la información requerida, el código crea una anotación para cada error y lo almacena en la matriz de `annotations`. Ya que las anotaciones solo son compatibles con las columnas de inicio y fin en la misma línea, `start_column` y `end_column` se agregarán únicamente al objeto `annotation` si los valores iniciales y finales de la línea son los mismos.
 
@@ -718,7 +718,7 @@ Si las anotaciones se relacionan con un archivo que ya se incluya en la solicitu
 
 Si has llegado hasta aquí, ¡excelente! 👏 Ya creaste una prueba de IC. En esta sección vas a agregar una característica más que utiliza a RuboCop para corregir automáticamente los errores que encuentre. Ya agregaste el botón de "Corregir esto" en la [sección anterior](#step-25-updating-the-check-run-with-ci-test-results). Ahora agregarás el código para gestionar el evento de ejecución de verificación `requested_action` que se activa cuando alguien da clic en dicho botón.
 
-The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. Cuado utilizas la característica de `--auto-correct`, se aplican las actualizaciones en los archivos locales del servidor. Necesitarás cargar los cambios a GitHub después de que RuboCop haga su magia.
+La herramienta de RuboCop [ofrece](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) la opción de línea de comandos `--auto-correct` para corregir automáticamente los errores que encuentre. Cuado utilizas la característica de `--auto-correct`, se aplican las actualizaciones en los archivos locales del servidor. Necesitarás cargar los cambios a GitHub después de que RuboCop haga su magia.
 
 Para cargar un repositorio, tu app debe tener permisos de escritura para "contenido de repositorio". Estos permisos los configuraste en el [Paso 2.2. Clonar el repositorio](#step-22-cloning-the-repository) como **Lectura & escritura**, así que estás listo.
 
