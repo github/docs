@@ -12,7 +12,6 @@ const router = express.Router()
 
 router.post('/', async (req, res, next) => {
   const isDev = process.env.NODE_ENV === 'development'
-  const referrer = req.get('referrer')
   const fields = omit(req.body, '_csrf')
 
   if (!ajv.validate(schema, fields)) {
@@ -34,18 +33,20 @@ router.post('/', async (req, res, next) => {
     if (!hydroRes.ok) {
       const err = new Error('Hydro request failed')
       err.status = hydroRes.status
+      err.path = fields.path
+
+      await FailBot.report(err, {
+        path: fields.path,
+        hydroStatus: hydroRes.status,
+        hydroText: await hydroRes.text()
+      })
+
       throw err
     }
 
     return res.status(201).json(fields)
   } catch (err) {
     if (isDev) console.error(err)
-
-    await FailBot.report(err, {
-      path: req.path,
-      referrer
-    })
-
     return res.status(502).json({})
   }
 })
