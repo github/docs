@@ -120,7 +120,7 @@
 
             <div class="d-lg-flex gutter-lg flex-items-stretch">
               {% assign guideCards = featuredLinks.guideCards %}
-              {% render "guide-card" for guideCards as guide %}
+              {% render guide-card for guideCards as guide %}
             </div>
 
             <a href="{{ currentPath }}/guides" class="btn btn-outline float-right">Explore guides {% octicon "arrow-right" %}</a>
