@@ -34,7 +34,9 @@ module.exports = {
   testPathIgnorePatterns: [
     'node_modules/',
     'vendor/',
+    'tests/fixtures/',
     'tests/helpers/',
+    'tests/javascripts/',
     ...isBrowser ? [] : ['tests/browser/browser.js']
   ],
   testMatch: [
