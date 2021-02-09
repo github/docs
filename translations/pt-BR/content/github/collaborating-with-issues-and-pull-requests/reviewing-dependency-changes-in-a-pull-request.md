@@ -36,7 +36,7 @@ A revisão de dependências é compatível com as mesmas linguagens e os mesmos 
 
    ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. À direita do cabeçalho para um manifesto ou arquivo de bloqueio, mostre a revisão de dependências clicando no botão de diff avançado.
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
@@ -69,6 +69,4 @@ A revisão de dependências é compatível com as mesmas linguagens e os mesmos 
    * A gravidade da vulnerabilidade.
    * A versão da dependência na qual a vulnerabilidade foi corrigida. Se você estiver revisando um pull request para alguém, você pode pedir ao contribuidor para atualizar a dependência para a versão corrigida ou para uma versão posterior.
 
-1. Você pode retornar para a visualização original do arquivo clicando no botão de diff de fonte.
-
-   ![Botão de diff de fonte](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+{% data reusables.repositories.return-to-source-diff %}

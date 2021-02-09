@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -44,10 +45,10 @@ versions:
        runs-on: ubuntu-latest
 
        steps:
-       - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
 
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
 1. 在 `workflow-templates` 目录中创建元数据文件。 元数据文件必须与工作流程文件同名，但扩展名不是 `.yml`，而必须附加 `.properties.json`。 例如，下面这个名为 `octo-organization-ci.properties.json` 的文件包含名为 `octo-organization-ci.yml` 的工作流程文件的元数据：
    ```yaml
@@ -75,7 +76,7 @@ versions:
 
 ![工作流程模板文件](/assets/images/help/images/workflow-template-files.png)
 
-### 使用工作流程模板
+### Using a workflow template from your organization
 
 此程序展示组织成员如何查找并使用工作流程模板来创建新的工作流程。 只要是组织成员，都可以使用组织的工作流程模板。
 

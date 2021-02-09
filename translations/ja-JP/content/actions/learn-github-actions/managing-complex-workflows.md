@@ -1,14 +1,17 @@
 ---
 title: 複雑なワークフローを管理する
 shortTitle: 複雑なワークフローを管理する
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} environments,{% endif %} and labels.'
+intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} の高度な機能を使用する方法を説明します。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
+topics:
+  - 'ワークフロー'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 概要
 
@@ -110,7 +113,7 @@ jobs:
 
 ### データベースとサービスコンテナの利用
 
-ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
+ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。そして、作成されたコンテナはそのジョブ内のすべてのステップで利用でき、ジョブが完了すると削除されます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
 
 ```yaml
 jobs:
@@ -136,7 +139,7 @@ jobs:
 
 ### ラベルを使用してワークフローを転送する
 
-この機能は、特定のセルフホストランナーにジョブを割り当てるのに役立ちます。 特定のタイプのランナーがジョブを処理することを確認したい場合は、ラベルを使用してジョブの実行場所を制御できます。 セルフホストランナーにラベルを割り当ててから、YAML ワークフローでこれらのラベルを参照して、ジョブが予測可能な方法で転送されるようにすることができます。
+この機能は、特定のセルフホストランナーにジョブを割り当てるのに役立ちます。 特定のタイプのランナーがジョブを処理するようにしたい場合は、ラベルを使用してジョブの実行場所を制御できます。 セルフホストランナーにラベルを割り当ててから、YAML ワークフローでこれらのラベルを参照して、ジョブが予測可能な方法で転送されるようにすることができます。
 
 この例は、ワークフローがラベルを使用して必要なランナーを指定する方法を示しています。
 
@@ -149,10 +152,19 @@ jobs:
 詳しい情報については、「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Using environments
+### 環境の使用
 
-You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+保護のルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
 {% endif %}
+
+### ワークフロー テンプレートの使用
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. リポジトリに既存のワークフローが既に存在する場合: 左上隅にある [**New workflow（新しいワークフロー）**] をクリックします。 ![新規ワークフローの選択](/assets/images/help/repository/actions-new-workflow.png)
+1. 使いたいテンプレート名の下で、**Set up this workflow（このワークフローをセットアップする）**をクリックしてください。 ![このワークフローを設定します](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### 次のステップ
 

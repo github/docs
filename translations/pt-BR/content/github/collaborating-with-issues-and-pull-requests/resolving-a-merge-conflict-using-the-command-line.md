@@ -46,14 +46,14 @@ Por exemplo, se você e outra pessoa editarem as mesmas linhas do arquivo _style
 4. Abra o editor de texto de sua preferência, como o [Atom](https://atom.io/), e navegue até o arquivo que tem conflitos de merge.
 5. Para ver o começo do conflito de merge no arquivo, pesquise o marcador de conflito `<<<<<<<` no arquivo. Quando abrir o arquivo no editor de texto, você verá as alterações do branch HEAD ou base após a linha `<<<<<<< HEAD`. Em seguida, você verá `=======`, que divide suas alterações das alterações no outro branch, seguido por `>>>>>>> BRANCH-NAME`. Neste exemplo, uma pessoa escreveu "open an issue" (abrir um problema) no branch base ou HEAD e outra pessoa escreveu "ask your question in IRC" (faça sua pergunta no IRC) no branch de comparação ou `branch-a`.
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} Neste exemplo, as duas alterações são incorporadas ao merge final:
 
   ```shell

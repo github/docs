@@ -41,12 +41,6 @@ For more information about contacting support, see "[About {% data variables.con
     - Wählen Sie im Dropdownmenü **Authentication** (Authentifizierung) den von Ihrem SMTP-Server verwendeten Verschlüsselungstyp aus.
     - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
 
-    {% note %}
-
-    **Hinweis:** Wenn Sie das Kontrollkästchen **Send from author** (Über Autor senden) im E-Mail-Webhook **Services** (Dienste) in einem Repository aktivieren, werden ausgehende E-Mails für dieses Repository über den Autor und nicht über die „no-reply“-E-Mail-Adresse gesendet. Weitere Informationen findest Du unter "[Informationen zu E-Mail-Benachrichtigungen für Pushes in Dein Repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
-
-    {% endnote %}
-
 6. Wenn Sie alle eingehenden E-Mails verwerfen möchten, die an die „no-reply“-E-Mail-Adresse adressiert sind, sollten Sie **Discard email addressed to the no-reply email address** (An die „no-reply“-E-Mail-Adresse adressierte E-Mails verwerfen) aktivieren. ![Kontrollkästchen zum Verwerfen der an die „no-reply“-E-Mail-Adresse adressierten E-Mails](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. Wählen Sie unter **Support** (Unterstützung) einen Linktyp aus, um Ihren Benutzern zusätzliche Unterstützung zu bieten:
     - **Email** (E-Mail): Eine interne E-Mail-Adresse.
@@ -155,7 +149,7 @@ Sie werden feststellen, dass `metroplex` die eingehende Nachricht empfängt, sie
 
 #### Ihre DNS-Einstellungen verifizieren
 
-Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine gültigen A-Datensatz (oder CNAME) und einen MX-Datensatz konfigurieren. Weitere Informationen finden Sie unter „[DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)“.
+Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine gültigen A-Datensatz (oder CNAME) und einen MX-Datensatz konfigurieren. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### Einstellungen der Firewall oder der AWS-Sicherheitsgruppe überprüfen
 
