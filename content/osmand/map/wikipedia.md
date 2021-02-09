@@ -8,6 +8,8 @@ versions: '*'
 
 ![Wikipedia](/assets/images/map/ms-45.png)
 
+### Enable Wikipedia
+
 At first, you can download Wikipedia articles for the country for using it Offline:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.regions %}
@@ -27,6 +29,8 @@ Next, you can enable Wikipedia POI on the map:
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.poi_overlay %} → {% data variables.ios-values.res_wiki %} 
 
 ![Wikipedia](/assets/images/map/ms-46.png)
+
+### Article language
 
 In OsmAnd for Android, you can select languages for Wikipedia articles on the map:
 
