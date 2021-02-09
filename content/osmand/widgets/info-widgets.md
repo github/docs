@@ -26,7 +26,7 @@ User could find Altitude widget in Configure screen menu. <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
-![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png)
+![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png)<br>
 <!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
 Current time widget shows current time. <br>
 
