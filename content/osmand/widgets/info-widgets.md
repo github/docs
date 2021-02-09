@@ -7,6 +7,8 @@ versions: '*'
 <!--Надо написать, что часть виджетов кликабельны. + добавить картинки-->
 
 ## Altitude
+ ![Altitude Android widget](/assets/images/docs/widgets/altitude.jpeg)
+ <!-- {% link /map %} -->
 
  Altitude widget shows the height above sea level. <br>
 
@@ -76,7 +78,7 @@ User could find GPS info widget in Configure screen menu. <br>
 
 *_User could make GPS correction to make sure the up-to-date data is used._* <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ long tao on the {% data variables.android-values.agps_info %}. <br>
-*_In a second it will update. _* <br> 
+*_In a second it will update. _* <br>
 
 ## FPS-info (Development plugin)
 FPS debug info widget shows Frames per Second (FPS) of your screen. <br>
@@ -94,7 +96,7 @@ User could find FPS debug info widget in Configure screen menu <br>
 
 *_To debug the map speed drawing needed to choose _* <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → *_tap three vertical dots_* → {% data variables.android-values.open_settings %} → *_enable_* {% data variables.android-values.trace_rendering %} . <br>
-In a second it will update. <br> 
+In a second it will update. <br>
 
 ## Read more
 {% link_with_intro /radius-ruler %}
