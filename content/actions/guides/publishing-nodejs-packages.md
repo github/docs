@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Packaging'
+  - 'Publishing'
+  - 'Node'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,7 +59,7 @@ If you're publishing a package that includes a scope prefix, include the scope i
 This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -65,7 +70,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -114,7 +119,7 @@ If you want to publish your package to a different repository, you must use a pe
 This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -125,7 +130,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to GitHub Packages
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
@@ -151,7 +156,7 @@ always-auth=true
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -162,12 +167,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
         # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat' 
+        scope: '@octocat'
     - run: yarn
     - run: yarn publish
       env:
@@ -196,7 +201,7 @@ When you use the `scope` input to the `setup-node` action, the action creates an
 This workflow calls the `setup-node` action two times. Each time the `setup-node` action runs, it overwrites the *.npmrc* file. The *.npmrc* file references the token that allows you to perform authenticated operations against the package registry from the `NODE_AUTH_TOKEN` environment variable. The workflow sets the `NODE_AUTH_TOKEN` environment variable each time the `npm publish` command is run, first with a token to publish to npm (`NPM_TOKEN`) and then with a token to publish to {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:

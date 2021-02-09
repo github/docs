@@ -2,18 +2,24 @@ const path = require('path')
 const slash = require('slash')
 const fs = require('fs')
 const walk = require('walk-sync')
-const { zip } = require('lodash')
+const { zip, groupBy } = require('lodash')
 const yaml = require('js-yaml')
+const revalidator = require('revalidator')
+const generateMarkdownAST = require('mdast-util-from-markdown')
+const visit = require('unist-util-visit')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
-const revalidator = require('revalidator')
+const renderContent = require('../../lib/render-content')
+const { execSync } = require('child_process')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
+const glossariesDir = path.join(rootDir, 'data/glossaries')
+const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes')
 
 const languageCodes = Object.keys(languages)
 
@@ -145,13 +151,26 @@ const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. 
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 
-describe('lint-files', () => {
-  const mdWalkOptions = {
-    globs: ['**/*.md'],
-    ignore: ['**/README.md'],
-    directories: false,
-    includeBasePath: true
-  }
+const mdWalkOptions = {
+  globs: ['**/*.md'],
+  ignore: ['**/README.md'],
+  directories: false,
+  includeBasePath: true
+}
+
+// Also test the "data/variables/" YAML files
+
+const yamlWalkOptions = {
+  globs: ['**/*.yml'],
+  directories: false,
+  includeBasePath: true
+}
+
+// different lint rules apply to different content types
+let mdToLint, ymlToLint, releaseNotesToLint
+
+if (!process.env.TEST_TRANSLATION) {
+  // compile lists of all the files we want to lint
 
   const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
   const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
@@ -161,19 +180,90 @@ describe('lint-files', () => {
   const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
-  describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
-    'in "%s"',
+  mdToLint = [...contentMarkdownTuples, ...reusableMarkdownTuples]
+
+  // data/variables
+  const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
+  const variableYamlRelPaths = variableYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
+
+  // data/glossaries
+  const glossariesYamlAbsPaths = walk(glossariesDir, yamlWalkOptions).sort()
+  const glossariesYamlRelPaths = glossariesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
+
+  ymlToLint = [...variableYamlTuples, ...glossariesYamlTuples]
+
+  // GHES release notes
+  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
+  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
+  releaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+} else {
+  console.log('testing translations.')
+
+  // get all translated markdown or yaml files by comparing files changed to main branch
+  const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"').toString().split('\n')
+  console.log(`Found ${changedFilesRelPaths.length} translated files.`)
+
+  const { mdRelPaths, ymlRelPaths, releaseNotesRelPaths } = groupBy(changedFilesRelPaths, (path) => {
+    // separate the changed files to different groups
+    if (path.endsWith('README.md')) {
+      return 'throwAway'
+    } else if (path.endsWith('.md')) {
+      return 'mdRelPaths'
+    } else if (path.match(/\/data\/(variables|glossaries)\//i)) {
+      return 'ymlRelPaths'
+    } else if (path.match(/\/data\/release-notes\//i)) {
+      return 'releaseNotesRelPaths'
+    } else {
+      // we aren't linting the rest
+      return 'throwAway'
+    }
+  })
+
+  const [mdTuples, ymlTuples, releaseNotesTuples] = [mdRelPaths, ymlRelPaths, releaseNotesRelPaths].map(relPaths => {
+    const absPaths = relPaths.map(p => path.join(rootDir, p))
+    return zip(relPaths, absPaths)
+  })
+
+  mdToLint = mdTuples
+  ymlToLint = ymlTuples
+  releaseNotesToLint = releaseNotesTuples
+}
+
+function formatLinkError (message, links) {
+  return `${message}\n  - ${links.join('\n  - ')}`
+}
+
+// Returns `content` if its a string, or `content.description` if it can.
+// Used for getting the nested `description` key in glossary files.
+function getContent (content) {
+  if (typeof content === 'string') return content
+  if (typeof content.description === 'string') return content.description
+  return null
+}
+
+describe('lint markdown content', () => {
+  describe.each(mdToLint)(
+    '%s',
     (markdownRelPath, markdownAbsPath) => {
-      let content, isHidden, isEarlyAccess, isSitePolicy
+      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
-        const { data, content: bodyContent } = frontmatter(fileContents)
+        const { data, content: bodyContent, errors } = frontmatter(fileContents)
 
         content = bodyContent
+        frontmatterErrors = errors
+        ast = generateMarkdownAST(content)
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
         isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
+
+        links = []
+        visit(ast, ['link', 'definition'], node => {
+          links.push(node.url)
+        })
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -184,58 +274,16 @@ describe('lint-files', () => {
       })
 
       test('relative URLs must start with "/"', async () => {
-        const initialMatches = (content.match(relativeArticleLinkRegex) || [])
+        const matches = links.filter(link => {
+          if (
+            link.startsWith('http://') ||
+            link.startsWith('https://') ||
+            link.startsWith('tel:') ||
+            link.startsWith('mailto:') ||
+            link.startsWith('#') ||
+            link.startsWith('/')
+          ) return false
 
-        // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(match => {
-          if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/overview.md') {
-            if (match === '[A-Z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/constraints.md') {
-            if (match === '[a-z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/editing-wiki-content.md') {
-            if (match === '[Link Text](full-URL-of-wiki-page)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
-            if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md') {
-            if (/^\[\d+\]: (?:Starting|Started|√|\d{4}-\d{2}-\d{2})\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning.md') {
-            if (/^\[(?:here|ruleIndex|ruleID)\]\(\d+\)\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository.md') {
-            if (match === '[DATE]: [FEATURE ') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/rest/overview/libraries.md') {
-            if (
-              match === '[pithub-github] ([CPAN][pithub-cpan])' ||
-              match === '[net-github-github] ([CPAN][net-github-cpan])'
-            ) {
-              return false
-            }
-          } else if (markdownRelPath === 'data/reusables/repositories/relative-links.md') {
-            if (match === '[Contribution guidelines for this project](docs/CONTRIBUTING.md)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/constraints.md') {
-            if (match === '[a-z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/overview.md') {
-            if (match === '[A-Z]([a-z]|-)') {
-              return false
-            }
-          }
           return true
         })
 
@@ -244,7 +292,10 @@ describe('lint-files', () => {
       })
 
       test('URLs must not contain a hard-coded language code', async () => {
-        const matches = (content.match(languageLinkRegex) || [])
+        const matches = links.filter(link => {
+          return /\/(?:${languageCodes.join('|')})\//.test(link)
+        })
+
         const errorMessage = formatLinkError(languageLinkErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
@@ -327,22 +378,29 @@ describe('lint-files', () => {
           }
         })
       })
+
+      test('contains valid Liquid', async () => {
+        // If Liquid can't parse the file, it'll throw an error.
+        // For example, the following is invalid and will fail this test:
+        // {% if currentVersion ! "github-ae@latest" %}
+        await expect(renderContent.liquid.parse(content))
+          .resolves
+          .toBeTruthy()
+      })
+
+      if (!markdownRelPath.includes('data/reusables')) {
+        test('contains valid frontmatter', () => {
+          const errorMessage = frontmatterErrors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
+          expect(frontmatterErrors.length, errorMessage).toBe(0)
+        })
+      }
     }
   )
+})
 
-  // Also test the "data/variables/" YAML files
-  const yamlWalkOptions = {
-    globs: ['**/*.yml'],
-    directories: false,
-    includeBasePath: true
-  }
-
-  const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
-  const variableYamlRelPaths = variableYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
-
-  describe.each(variableYamlTuples)(
-    'in "%s"',
+describe('lint yaml content', () => {
+  describe.each(ymlToLint)(
+    '%s',
     (yamlRelPath, yamlAbsPath) => {
       let dictionary, isEarlyAccess
 
@@ -357,8 +415,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(relativeArticleLinkRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(relativeArticleLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -372,8 +431,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(languageLinkRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(languageLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -387,8 +447,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(versionLinkRegEx) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(versionLinkRegEx) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -402,8 +463,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(domainLinkRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(domainLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -419,8 +481,9 @@ describe('lint-files', () => {
           const matches = []
 
           for (const [key, content] of Object.entries(dictionary)) {
-            if (typeof content !== 'string') continue
-            const valMatches = (content.match(earlyAccessLinkRegex) || [])
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = (contentStr.match(earlyAccessLinkRegex) || [])
             if (valMatches.length > 0) {
               matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
             }
@@ -437,8 +500,9 @@ describe('lint-files', () => {
           const matches = []
 
           for (const [key, content] of Object.entries(dictionary)) {
-            if (typeof content !== 'string') continue
-            const valMatches = (content.match(earlyAccessImageRegex) || [])
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = (contentStr.match(earlyAccessImageRegex) || [])
             if (valMatches.length > 0) {
               matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
             }
@@ -455,8 +519,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(badEarlyAccessImageRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(badEarlyAccessImageRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -470,8 +535,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldVariableRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(oldVariableRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => {
               const example = match
@@ -489,8 +555,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldOcticonRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(oldOcticonRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -504,8 +571,9 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldExtendedMarkdownRegex) || [])
+          const contentStr = getContent(content)
+          if (!contentStr) continue
+          const valMatches = (contentStr.match(oldExtendedMarkdownRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
           }
@@ -516,16 +584,12 @@ describe('lint-files', () => {
       })
     }
   )
+})
 
-  // GHES release notes
-  const ghesReleaseNotesDir = path.join(__dirname, '../../data/release-notes')
-  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
-  const ghesReleaseNotesYamlTuples = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
-
-  if (ghesReleaseNotesYamlTuples.length > 0) {
-    describe.each(ghesReleaseNotesYamlTuples)(
-      'in "%s"',
+describe('lint release notes', () => {
+  if (releaseNotesToLint.length > 0) {
+    describe.each(releaseNotesToLint)(
+      '%s',
       (yamlRelPath, yamlAbsPath) => {
         let dictionary
 
@@ -536,14 +600,10 @@ describe('lint-files', () => {
 
         it('matches the schema', () => {
           const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
-          const errorMessage = errors.map(error => `- [${error.property}]: ${error.attribute}, ${error.message}`).join('\n')
+          const errorMessage = errors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
           expect(errors.length, errorMessage).toBe(0)
         })
       }
     )
   }
 })
-
-function formatLinkError (message, links) {
-  return `${message}\n  - ${links.join('\n  - ')}`
-}

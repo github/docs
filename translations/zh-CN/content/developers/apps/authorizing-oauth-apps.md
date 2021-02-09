@@ -72,13 +72,13 @@ versions:
 
 ##### 参数
 
-| 名称              | 类型    | 描述                                                                                                                  |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端 ID。 |
-| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端密钥。  |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                              |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                             |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                               |
+| 名称              | 类型    | 描述                                                                                                                 |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。 |
+| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端密钥。  |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                             |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                            |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                              |
 
 ##### 响应
 

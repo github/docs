@@ -5,7 +5,7 @@ O modelo de fluxo de trabalho inicial configura o `PATH` para conter OpenJDK 8 p
 Por exemplo, para usar a versão 9.0. do JDK para a plataforma x64, você pode usar os parâmetros `setup-java` e configurar os de `java-version` e `architecture` para `'9.0.4'` e `x64`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 9.0.4 for x64

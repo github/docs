@@ -61,9 +61,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branches: graphql-schema-update
-      - if: ${{ steps.create-pull-request.outputs.pr_number }}
+      - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.create-pull-request.outputs.pr_number }}
+          number: ${{ steps.create-pull-request.outputs.pull-request-number }}

@@ -21,7 +21,7 @@ Para integrar {% data variables.product.prodname_code_scanning %} ao seu sistema
 
 De modo geral, você invoca o {% data variables.product.prodname_codeql_runner %} da seguinte forma.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
@@ -39,7 +39,7 @@ O {% data variables.product.prodname_codeql_runner %} detecta e faz a varredura 
 
 Para substituir a detecção automática de idioma, execute o comando `init` com o sinalizador `--languages`, seguido de uma lista de palavras-chave de linguagem separada por vírgulas. As palavras-chave para as linguagens compatíveis são `cpp`, `csharp`, `go`, `java`, `javascript` e `python`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -55,7 +55,7 @@ Se você também estiver usando um arquivo de configuração para configuraçõe
 
 No exemplo a seguir,. o símbolo `+` garante que o {% data variables.product.prodname_codeql_runner %} usará as consultas adicionais junto com quaisquer consultas especificadas no arquivo de configuração referenciado.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -68,7 +68,7 @@ O arquivo de configuração é um arquivo YAML. Ele usa uma sintaxe semelhante �
 
 Use o sinalizador `--config-file` do comando `init` para especificar o arquivo de configuração. O valor de <nobr>`--config-file`</nobr> é o caminho para o arquivo de configuração que você deseja usar. Este exemplo carrega o arquivo de configuração _.github/codeql/codeql-config.yml_.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
@@ -84,7 +84,7 @@ Para muitos sistemas de criação comuns, o {% data variables.product.prodname_c
 
 O processo `autobuild` sempre tenta criar _uma_ linguagem compilada para um repositório. A linguagem selecionada automaticamente para análise é a linguagem com mais arquivos. Se você quiser escolher um idioma explicitamente, use o sinalizador `--language` do comando `autobuild`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const authenticateToAWS = require('../lib/authenticate-to-aws.js')
+const authenticateToAWS = require('./helpers/authenticate-to-aws.js')
 
 // [start-readme]
 //

@@ -1,0 +1,1 @@
+7. Lee la información acerca de las características a las que tu organización ya no tendrá acceso en tu próxima fecha de facturación y luego haz clic en **Comprendo. Bajar de categoría mi organización**. ![Botón Bajar de categoría](/assets/images/help/billing/downgrade-confirm-button.png)
