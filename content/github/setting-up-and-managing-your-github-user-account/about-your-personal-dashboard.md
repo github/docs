@@ -51,6 +51,9 @@ For more information about starring repositories and following people, see "[Sav
 
 In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
+### You can make new realeases and packages 
+On the right-hand side of your personal dashboard, we have included a place where you can make new releases and make new packages. This is where people can find out more about your files and make major releases seen by everyone!
+
 ### Further reading
 
 - "[About your organization dashboard](/articles/about-your-organization-dashboard)"
