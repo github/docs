@@ -383,9 +383,9 @@ describe('lint markdown content', () => {
         // If Liquid can't parse the file, it'll throw an error.
         // For example, the following is invalid and will fail this test:
         // {% if currentVersion ! "github-ae@latest" %}
-        await expect(renderContent.liquid.parse(content))
-          .resolves
-          .toBeTruthy()
+        expect(() => renderContent.liquid.parse(content))
+          .not
+          .toThrow()
       })
 
       if (!markdownRelPath.includes('data/reusables')) {

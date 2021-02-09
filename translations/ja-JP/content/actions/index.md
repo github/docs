@@ -67,7 +67,7 @@ versions:
   </div>
 
   <div class="d-flex flex-wrap gutter">
-    {% render 'code-example-card' for actionsCodeExamples as example %}
+    {% render code-example-card for actionsCodeExamples as example %}
   </div>
 
   <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">詳細を表示 {% octicon "arrow-right" %}</button>
