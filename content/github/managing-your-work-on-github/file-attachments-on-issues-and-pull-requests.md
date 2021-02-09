@@ -25,7 +25,8 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% endtip %}
 
-The maximum size for files is 25MB and the maximum size for images is 10MB.
+The maximum size for files is 25MB and the maximum size for images is 10MB.  
+Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan.
 
 We support these files:
 
@@ -37,5 +38,6 @@ We support these files:
 * Text files (*.txt*)
 * PDFs (*.pdf*)
 * ZIP (*.zip*, *.gz*)
+* Video (*.mp4*, *.mov*)
 
 ![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
