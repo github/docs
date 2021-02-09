@@ -31,7 +31,6 @@ export function sendEvent ({
   type,
   version = '1.0.0',
   page_render_duration,
-  exit_page_id,
   exit_first_paint,
   exit_dom_interactive,
   exit_dom_complete,
@@ -60,6 +59,7 @@ export function sendEvent ({
       user: getUserEventsId(),
       version,
       created: new Date().toISOString(),
+      page_event_id: pageEventId,
 
       // Content information
       path: location.pathname,
@@ -84,7 +84,6 @@ export function sendEvent ({
     page_render_duration,
 
     // Exit event
-    exit_page_id,
     exit_first_paint,
     exit_dom_interactive,
     exit_dom_complete,
@@ -149,7 +148,6 @@ function trackScroll () {
 function sendExit () {
   if (sentExit) return
   if (document.visibilityState !== 'hidden') return
-  if (!pageEventId) return
   sentExit = true
   const {
     firstContentfulPaint,
@@ -158,7 +156,6 @@ function sendExit () {
   } = getPerformance()
   return sendEvent({
     type: 'exit',
-    exit_page_id: pageEventId,
     exit_first_paint: firstContentfulPaint,
     exit_dom_interactive: domInteractive,
     exit_dom_complete: domComplete,
@@ -167,22 +164,24 @@ function sendExit () {
   })
 }
 
-export default function initializeEvents () {
-  // Page event
+function initPageEvent () {
   const { render } = getPerformance()
   const pageEvent = sendEvent({
     type: 'page',
     page_render_duration: render
   })
+  pageEventId = pageEvent?.context?.event_id
+}
 
-  // Clipboard event
-  ;['copy', 'cut', 'paste'].forEach(verb => {
+function initClipboardEvent () {
+  ['copy', 'cut', 'paste'].forEach(verb => {
     document.documentElement.addEventListener(verb, () => {
       sendEvent({ type: 'clipboard', clipboard_operation: verb })
     })
   })
+}
 
-  // Link event
+function initLinkEvent () {
   document.documentElement.addEventListener('click', evt => {
     const link = evt.target.closest('a[href^="http"]')
     if (!link) return
@@ -191,10 +190,16 @@ export default function initializeEvents () {
       link_url: link.href
     })
   })
+}
 
+function initExitEvent () {
+  window.addEventListener('scroll', trackScroll)
+  document.addEventListener('visibilitychange', sendExit)
+}
+
+function initNavigateEvent () {
   if (!document.querySelector('.sidebar-products')) return
 
-  // Navigate event
   Array.from(
     document.querySelectorAll('.sidebar-products details')
   ).forEach(details => details.addEventListener(
@@ -213,9 +218,17 @@ export default function initializeEvents () {
       navigate_label: `link: ${link.href}`
     })
   })
+}
 
-  // Exit event
-  pageEventId = pageEvent?.context?.event_id
-  window.addEventListener('scroll', trackScroll)
-  document.addEventListener('visibilitychange', sendExit)
+export default function initializeEvents () {
+  initPageEvent() // must come first
+  initExitEvent()
+  initLinkEvent()
+  initClipboardEvent()
+  initNavigateEvent()
+  // print event in ./print.js
+  // survey event in ./helpfulness.js
+  // experiment event in ./experiment.js
+  // search event in ./search.js
+  // redirect event in middleware/record-redirect.js
 }
