@@ -7,10 +7,9 @@ versions: '*'
 <!--Надо написать, что часть виджетов кликабельны. + добавить картинки-->
 
 ## Altitude
- ![Altitude Android widget](/assets/images/docs/widgets/altitude_android_widget.png)
- <!-- {% link /map %} -->
+![Altitude Android widget](/assets/images/docs/widgets/altitude_android_widget.png)
 
- Altitude widget shows the height above sea level. <br>
+Altitude widget shows the height above sea level. <br>
 
 *_An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet)._* <br>
 
@@ -27,7 +26,7 @@ User could find Altitude widget in Configure screen menu. <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
-  ![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png)
+![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png)
 <!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
 Current time widget shows current time. <br>
 
@@ -43,6 +42,8 @@ User could find Current time widget in Configure screen menu <br>
 ## Speed
 ![Speed Android widget](/assets/images/docs/widgets/speed_a_widget.png)
 
+Speed widget shows your current speed.<br>
+
 It has three states: <br> 
 * {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
 * {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
@@ -54,6 +55,8 @@ User could find Speed widget in Configure screen menu <br>
 
 ## Battery level (Android)
 ![Battery level Android widget](/assets/images/docs/widgets/battery_level_a_widget.png)
+
+Battery level widget shows battery level of your device. <br>
 
 It has three states: <br> 
 * {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
