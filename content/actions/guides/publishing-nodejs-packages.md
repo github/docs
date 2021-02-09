@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Packaging'
+  - 'Publishing'
+  - 'Node'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -167,7 +172,7 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
         # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat' 
+        scope: '@octocat'
     - run: yarn
     - run: yarn publish
       env:

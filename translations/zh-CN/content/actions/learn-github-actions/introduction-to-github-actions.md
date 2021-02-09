@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'overview'
+topics:
+  - '基础'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -147,7 +149,7 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
   ```
 </td>
 <td>
-  将 <code>check-bats-version</code> 作业中运行的所有步骤组合在一起。 此部分下嵌套的每行都是一个单独的操作。
+  将 <code>check-bats-version</code> 作业中运行的所有步骤组合在一起。 Each item nested under this section is a separate action or shell command.
 </td>
 </tr>
 <tr>
@@ -180,7 +182,7 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
   ```
 </td>
 <td>
-  <code>run</code> 关键字指示作业在运行器上执行命令。 在这种情况下，使用 <code>npm</code> 来安装 <code>bats</code> 软件测试包。 
+  <code>run</code> 关键字指示作业在运行器上执行命令。 在这种情况下，使用 <code>npm</code> 来安装 <code>bats</code> 软件测试包。
 </td>
 </tr>
 <tr>

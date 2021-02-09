@@ -66,6 +66,6 @@ Para descongelar tu empresa después de que hayas borrado tu llave de cifrado, c
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Further reading
+### Leer más
 
 - "[Cifrado estático](/rest/reference/enterprise-admin#encryption-at-rest)" en la documentación de la API de REST 

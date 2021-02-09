@@ -21,7 +21,7 @@ Para integrar el {% data variables.product.prodname_code_scanning %} en tu siste
 
 En general, se invoca el {% data variables.product.prodname_codeql_runner %} de la siguiente manera.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
@@ -39,7 +39,7 @@ El {% data variables.product.prodname_codeql_runner %} detecta automáticamente 
 
 Para anular la detección automática de lenguajes, ejecuta el comando `init` con el marcador `--languages`, seguido de una lista separada por comas de las palabras clave de los lenguajes. Las palabras clave para los lenguajes compatibles son `cpp`, `csharp`, `go`, `java`, `javascript`, y `python`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -55,7 +55,7 @@ Si también estás usando un archivo de configuración para los ajustes personal
 
 En el siguiente ejemplo, el símbolo `+` garantiza que el {% data variables.product.prodname_codeql_runner %} utilizará consultas adicionales junto con cualquier otra consulta que se especifique en el archivo de configuración referenciado.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -68,7 +68,7 @@ El archivo de configuración es un archivo de YAML. Utiliza una sintaxis similar
 
 Utiliza el marcador `--config-file` del comando `init` para especificar el archivo de configuración. El valor de <nobr>`--config-file`</nobr> es la ruta al archivo de configuración que quieres utilizar. Este ejemplo carga el archivo de configuración _.github/codeql/codeql-config.yml_.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
@@ -84,7 +84,7 @@ Para varios sistemas de compilación comunes, el {% data variables.product.prodn
 
 El proceso de `autobuild` solo intenta siempre compilar _un_ solo lenguaje compilado para un repositorio. El lenguaje que se selecciona automáticamente para su análisis es aquél presente en más archivos. Si quieres elegir un lenguaje explícitamente, utiliza el marcador `--language` del comando `autobuild`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
@@ -148,7 +148,7 @@ Analiza el código en las bases de datos de {% data variables.product.prodname_c
 | `--debug`                        |           | Ninguno. Imprime una salida más verbosa.                                                                                                                                                                   |
 | `-h`, `--help`                   |           | Ninguno. Muestra la ayuda para el comando.                                                                                                                                                                 |
 
-#### `upload`
+#### `cargar`
 
 Carga los archivos SARIF a {% data variables.product.product_location %}.
 

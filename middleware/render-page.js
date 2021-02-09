@@ -18,11 +18,21 @@ const pageCache = new RedisAccessor({
   allowSetFailures: true
 })
 
+// a list of query params that *do* alter the rendered page, and therefore should be cached separately
+const cacheableQueries = ['learn']
+
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
 
   // Remove any query string (?...) and/or fragment identifier (#...)
-  const originalUrl = new URL(req.originalUrl, 'https://docs.github.com').pathname
+  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
+
+  for (const queryKey in req.query) {
+    if (!cacheableQueries.includes(queryKey)) {
+      searchParams.delete(queryKey)
+    }
+  }
+  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
 
   // Serve from the cache if possible (skip during tests)
   const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
@@ -105,6 +115,7 @@ module.exports = async function renderPage (req, res, next) {
   const output = await liquid.parseAndRender(layout, context)
 
   // First, send the response so the user isn't waiting
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
   res.send(output)
 
   // Finally, save output to cache for the next time around

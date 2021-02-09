@@ -20,7 +20,7 @@ La API de Verificaciones te permite crear GitHub Apps que ejecuten verificacione
   {% if operation.subcategory == 'runs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Check Suites
+## Conjuntos de Verificaciones
 
 {% note %}
 

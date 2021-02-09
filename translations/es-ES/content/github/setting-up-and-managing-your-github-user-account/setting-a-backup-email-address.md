@@ -14,7 +14,7 @@ versions:
 3. Dentro de "Backup email address" (Dirección de correo electrónico de respaldo), selecciona la dirección que deseas configurar como tu dirección de correo electrónico de respaldo utilizando el menú desplegable. ![Dirección de correo electrónico de respaldo](/assets/images/help/settings/backup-email-address.png)
 4. Haz clic en **Save ** (guardar).
 
-### Further reading
+### Leer más
 
 - "[Administrar preferencias de correo electrónico](/articles/managing-email-preferences/)"
 - "[Actualizar tus credenciales de acceso de GitHub](/articles/updating-your-github-access-credentials/)"
