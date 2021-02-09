@@ -10,7 +10,7 @@ The first is _{% data variables.android-values.recording_context_menu_show %}_(A
 
 The second is _{% data variables.android-values.map_widget_map_rendering %}_ for Android or _{% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %}_ for iOS, in the second part we change map view.
 
-- **"{% data variables.android-values.map_widget_map_rendering %}"**:
+- **"{% data variables.android-values.shared_string_show %}"**:
    - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
    - [Map markers](/osmand/map/point-layers-on-map)
    - [Transport](/osmand/map/map-styles-and-parameters#transport)
