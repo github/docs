@@ -8,12 +8,9 @@ versions: '*'
 
 ## Use cases
 
-These instruments are good for:
-
--Field area measure
--Boat trip calculation
--Trekking, walking, hiking.
-
+- Field area measure
+- Boat trip calculation
+- Trekking, walking, hiking.
 
 ## How to use it
 
