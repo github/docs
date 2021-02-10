@@ -33,14 +33,18 @@ versions:
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. 输入 `O` 以保存选择。
+7. Enter `O` to confirm your selections.
 8. 输入密钥的密码。
-9. 输入 `gpg --armor --export GPG key ID`，替换要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
+9. Enter `gpg> save` to save the changes
+  ```shell
+  $ gpg> save
+  ```
+10. 输入 `gpg --armor --export GPG key ID`，替换要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-10. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)以上传该 GPG 密钥。
+11. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)以上传该 GPG 密钥。
 
 ### 延伸阅读
 

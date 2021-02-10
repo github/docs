@@ -8,7 +8,7 @@ The following table shows, for each package manager:
 | --------------- | ---------------- | ------------------------- |:--------------------:|:---------:|
 | 번들러             | `bundler`        | v1                        |                      |   **✓**   |
 | Cargo           | `cargo`          | v1                        |        **✓**         |           |
-| Composer        | `composer`       | v1,v2                     |        **✓**         |           |
+| Composer        | `composer`       | v1, v2                    |        **✓**         |           |
 | Docker          | `docker`         | v1                        |        **✓**         |           |
 | Elixir          | `mix`            | v1                        |        **✓**         |           |
 | Elm             | `elm`            | v0.18, v0.19              |        **✓**         |           |
@@ -17,7 +17,7 @@ The following table shows, for each package manager:
 | Go modules      | `gomod`          | v1                        |        **✓**         |   **✓**   |
 | Gradle          | `gradle`         | see (A) below             |        **✓**         |           |
 | Maven           | `maven`          | see (B) below             |        **✓**         |           |
-| npm             | `npm`            | v6                        |        **✓**         |           |
+| npm             | `npm`            | v6, v7                    |        **✓**         |           |
 | NuGet           | `nuget`          | <= 4.8.</br>see (C) below |        **✓**         |           |
 | pip             | `pip`            | v20                       |                      |           |
 | pipenv          | `pip`            | <= 2018.11.26             |                      |           |

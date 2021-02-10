@@ -25,8 +25,6 @@ Bevor Sie mit Jekyll eine {% data variables.product.prodname_pages %}-Website er
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -35,6 +33,8 @@ Bevor Sie mit Jekyll eine {% data variables.product.prodname_pages %}-Website er
 ### Eine Website erstellen
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wenn Du noch keine lokale Kopie Deines Repositorys besitzt, navigiere zu dem Speicherort, an dem Du die Quelldateien Deiner Website speichern möchtest, und ersetze dabei _PARENT-FOLDER_ durch den Ordner, der den Ordner für Dein Repository enthalten soll.

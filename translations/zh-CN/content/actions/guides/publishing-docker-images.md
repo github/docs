@@ -10,7 +10,7 @@ versions:
 type: tutorial
 topics:
   - 打包
-  - Publishing
+  - 发布
   - Docker
 ---
 

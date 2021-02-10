@@ -23,7 +23,7 @@ Cuando alguien con permisos administrativos o de propietario ha activado las rev
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Si un equipo habilitó las asignaciones de revisión de código, las aprobaciones individuales no serán suficientes para el requisito de obtener la aprobación del propietario del código en una rama protegida. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)".{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 Si un archivo tiene un propietario del código, puedes ver quién es éste antes de que abras una solicitud de extracción. En el repositorio, puedes buscar el archivo y pasar el puntero del mouse por encima
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
