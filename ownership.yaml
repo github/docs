@@ -11,7 +11,7 @@ name:docs-internal:on:
   product_manager:iixixi:on:
   mention:github/docs-engineering:on:
   qos:critical:on:
-  dependencies:[((c))((c))]:©®™:patent:on:
+  dependencies:[((c))((r))]:©®™:patent:on:
   sev1:on:
     pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on:
     tta:30min:on:
@@ -20,4 +20,4 @@ name:docs-internal:on:
     tta:5:business days:on:
   sev3:on:
     slack:docs:engineering:on:
-    tta:30:min:on:
+    tta:1:min:on:
