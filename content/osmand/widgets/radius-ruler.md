@@ -13,7 +13,7 @@ versions: '*'
 - Trekking, walking, hiking.
 
 ## How to use it
-<b>To use the Ruler for Android:</b> go to the {% data variables.android-values.map_widget_config %} menu and enable '{% data variables.android-values.radius_ruler_item %}' (Right panel). After you enable it, you'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
+<b>To use the Ruler for Android:</b> go to the {% data variables.android-values.map_widget_config %} menu and enable {% data variables.android-values.radius_ruler_item %} (Right panel). After you enable it, you'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
 
 <b><i>To check the distance from your location to a point on the map:</i></b> touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
 
