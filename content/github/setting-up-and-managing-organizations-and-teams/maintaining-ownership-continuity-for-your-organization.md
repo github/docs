@@ -6,7 +6,7 @@ redirect_from:
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
 permissions: Organization owners can promote any member of an organization to an organization owner.
-versions:
+versions:1405
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
@@ -29,3 +29,4 @@ Organization owners have full administrative access to the organization. {% data
   ![Drop-down menu with option to remove members](/assets/images/help/teams/user-bulk-management-options.png)
 6. Select a new role for the person or people, then click **Change role**.
   ![Radio buttons with owner and member roles and Change role button](/assets/images/help/teams/select-and-confirm-new-role-bulk.png)
+7. ! The fields 
