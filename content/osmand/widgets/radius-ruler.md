@@ -8,8 +8,12 @@ versions: '*'
 
 ## Use cases
 
-Hiking, Azimuth..... to know distance between two point
-- rule of the thumb
+These instruments are good for:
+
+-Field area measure
+-Boat trip calculation
+-Trekking, walking, hiking.
+
 
 ## How to use it
 
@@ -29,5 +33,5 @@ You can also adjust this setting and the way the widget looks in Configure scree
 Menu.
 
 On your iOS device: Press the widget to select one of three modes - the black scale, the white one, or no scale (only ruler).
-You can show or hide Compass Ruler: menu -> Configure scree -> Radius ruler -> Settings (Show or Hide compass ruler).
+You can show or hide Compass Ruler: menu -> Configure screen -> Radius ruler -> Settings (Show or Hide compass ruler).
 
