@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
-const frontmatter = require('../lib/read-frontmatter')
+const frontmatter = require('@github-docs/frontmatter')
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 

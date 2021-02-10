@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
-const frontmatter = require('../../lib/read-frontmatter')
+const frontmatter = require('@github-docs/frontmatter')
 const { loadPages, loadPageMap } = require('../../lib/pages')
 const patterns = require('../../lib/patterns')
 const loadRedirects = require('../../lib/redirects/precompile')

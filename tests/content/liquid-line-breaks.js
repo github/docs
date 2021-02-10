@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('../../lib/read-frontmatter')
+const matter = require('@github-docs/frontmatter')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
 

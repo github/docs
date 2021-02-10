@@ -2,7 +2,7 @@ const { isEqual, get, uniqWith } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
 const { loadPages } = require('../../lib/pages')
 const getDataReferences = require('../../lib/get-liquid-data-references')
-const frontmatter = require('../../lib/read-frontmatter')
+const frontmatter = require('@github-docs/frontmatter')
 const fs = require('fs').promises
 const path = require('path')
 

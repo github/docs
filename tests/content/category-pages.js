@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('../../lib/read-frontmatter')
+const matter = require('@github-docs/frontmatter')
 const { zip, difference } = require('lodash')
 const GithubSlugger = require('github-slugger')
 const { XmlEntities } = require('html-entities')

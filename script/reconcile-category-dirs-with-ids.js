@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const frontmatter = require('../lib/read-frontmatter')
+const frontmatter = require('@github-docs/frontmatter')
 const walk = require('walk-sync')
 const slash = require('slash')
 const GithubSlugger = require('github-slugger')
