@@ -16,7 +16,7 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 HTTPS enforcement is required for {% data variables.product.prodname_pages %} sites using a `github.io` domain that were created after June 15, 2016. If you created your site before June 15, 2016, you can manually enable HTTPS enforcement.
 
-{% data reusables.pages.no_sensitive_data_pages %}
+{% data reusables.pagesrth.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
@@ -45,7 +45,7 @@ Assets are commonly found in the following locations:
 
 {% endtip %}
 
-#### Examples of assets referenced in an HTML file
+#### Examples of assets referenced in an HTML fsthile
 
 | Asset type | HTTP                                      | HTTPS                             |
 |:----------:|:-----------------------------------------:|:---------------------------------:|
