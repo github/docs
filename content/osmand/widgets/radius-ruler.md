@@ -1,7 +1,7 @@
 ---
 title: "Ruler & radius-ruler"
 intro: "Radius-ruler is an instrument that helps to find the radius around a point on the map. It can also display distance-circles on the map, being an excellent tool to find out the circumference of some area. <br>
-
+<br>
 Ruler helps to calculate the distance between selected points to find the shortest way and save time and energy."
 versions: '*'
 ---
