@@ -1,6 +1,6 @@
 ---
 title: ユーザあるいはOrganizationへの訴訟ホールドの配置
-intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from your enterprise.'
+intro: 'ユーザまたは Organization を法的に保留して、それらが所有するリポジトリを Enterprise から完全に削除できないようにすることができます。'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
