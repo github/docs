@@ -6,7 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: '튜토리얼'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -258,24 +263,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -412,35 +417,35 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

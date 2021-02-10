@@ -1,6 +1,6 @@
 ---
-title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the past 90 days, including details such as who performed the action, what the action was, and when the action was performed.'
+title: Enterprise にわたるユーザの監査
+intro: 'Audit log ダッシュボードには、サイト管理者に、過去 90 日間に企業全体のすべてのユーザと Organization によって実行されたアクションが表示されます。これには、アクションを実行したユーザ、アクションの内容、アクションの実行時期などの詳細が含まれます。'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -12,7 +12,7 @@ versions:
 
 ### Audit log にアクセスする
 
-The audit log dashboard gives you a visual display of audit data across your enterprise.
+Audit log ダッシュボードには、Enterprise 全体の監査データが表示されます。
 
 ![インスタンスにわたるAudit logのダッシュボード](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
@@ -22,9 +22,9 @@ The audit log dashboard gives you a visual display of audit data across your ent
 
 地図内では、世界中のイベントを見るためにパンやズームができます。 国にカーソルを合わせれば、その国のイベントの簡単な集計が表示されます。
 
-### Searching for events across your enterprise
+### Enterprise にわたるイベントの検索
 
-The audit log lists the following information about actions made within your enterprise:
+Audit log には、Enterprise 内で行われたアクションに関する次の情報が一覧表示されます。
 
 * アクションが行われた[リポジトリ](#search-based-on-the-repository)
 * アクションを行った[ユーザ](#search-based-on-the-user)
@@ -37,7 +37,7 @@ The audit log lists the following information about actions made within your ent
 
 **ノート:**
 
-- Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
+- Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 {% data variables.product.product_name %} は、{% data variables.product.product_name %} 全体を検索するための多くの演算子をサポートしています。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
 - 90日よりも古いイベントの検索には、`created`修飾子を使ってください。
 
 {% endwarning %}
@@ -66,13 +66,13 @@ The audit log lists the following information about actions made within your ent
 
 `org` 修飾子は、特定の Organization にアクションを限定します。 例:
 
-* `org:my-org` finds all events that occurred for the `my-org` organization.
+* `org:my-org` は `my-org` という Organization で生じたすべてのイベントを検索します。
 * `org:my-org action:team`は`my-org`というOrganization内で行われたすべてのteamイベントを検索します。
-* `-org:my-org` excludes all events that occurred for the `my-org` organization.
+* `-org:my-org` は `my-org` という Organization で生じたすべてのイベントを除外します。
 
 #### 実行されたアクションに基づく検索
 
-`action`修飾子は、特定のイベントをカテゴリ内でグループ化して検索します。 For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+`action`修飾子は、特定のイベントをカテゴリ内でグループ化して検索します。 以下のカテゴリに関連するイベントの詳しい情報については「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
 
 | カテゴリ名  | 説明                                           |
 | ------ | -------------------------------------------- |

@@ -30,6 +30,6 @@ Para ayudar a los candidatos a encontrar tu publicación del empleo, verifica **
 
 Puedes usar Markdown para dar formato a tu publicación del empleo. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)".
 
-### Further reading
+### Leer más
 
 - [Cómo funiona {% data variables.product.prodname_jobs %} ](https://jobs.github.com/faq) en {% data variables.product.prodname_jobs %}

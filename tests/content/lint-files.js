@@ -2,7 +2,7 @@ const path = require('path')
 const slash = require('slash')
 const fs = require('fs')
 const walk = require('walk-sync')
-const { zip } = require('lodash')
+const { zip, groupBy } = require('lodash')
 const yaml = require('js-yaml')
 const revalidator = require('revalidator')
 const generateMarkdownAST = require('mdast-util-from-markdown')
@@ -12,12 +12,14 @@ const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
 const renderContent = require('../../lib/render-content')
+const { execSync } = require('child_process')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
 const glossariesDir = path.join(rootDir, 'data/glossaries')
+const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes')
 
 const languageCodes = Object.keys(languages)
 
@@ -149,13 +151,26 @@ const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. 
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 
-describe('lint-files', () => {
-  const mdWalkOptions = {
-    globs: ['**/*.md'],
-    ignore: ['**/README.md'],
-    directories: false,
-    includeBasePath: true
-  }
+const mdWalkOptions = {
+  globs: ['**/*.md'],
+  ignore: ['**/README.md'],
+  directories: false,
+  includeBasePath: true
+}
+
+// Also test the "data/variables/" YAML files
+
+const yamlWalkOptions = {
+  globs: ['**/*.yml'],
+  directories: false,
+  includeBasePath: true
+}
+
+// different lint rules apply to different content types
+let mdToLint, ymlToLint, releaseNotesToLint
+
+if (!process.env.TEST_TRANSLATION) {
+  // compile lists of all the files we want to lint
 
   const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
   const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
@@ -165,16 +180,81 @@ describe('lint-files', () => {
   const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
-  describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
-    'in "%s"',
+  mdToLint = [...contentMarkdownTuples, ...reusableMarkdownTuples]
+
+  // data/variables
+  const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
+  const variableYamlRelPaths = variableYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
+
+  // data/glossaries
+  const glossariesYamlAbsPaths = walk(glossariesDir, yamlWalkOptions).sort()
+  const glossariesYamlRelPaths = glossariesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
+
+  ymlToLint = [...variableYamlTuples, ...glossariesYamlTuples]
+
+  // GHES release notes
+  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
+  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
+  releaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+} else {
+  console.log('testing translations.')
+
+  // get all translated markdown or yaml files by comparing files changed to main branch
+  const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"').toString().split('\n')
+  console.log(`Found ${changedFilesRelPaths.length} translated files.`)
+
+  const { mdRelPaths, ymlRelPaths, releaseNotesRelPaths } = groupBy(changedFilesRelPaths, (path) => {
+    // separate the changed files to different groups
+    if (path.endsWith('README.md')) {
+      return 'throwAway'
+    } else if (path.endsWith('.md')) {
+      return 'mdRelPaths'
+    } else if (path.match(/\/data\/(variables|glossaries)\//i)) {
+      return 'ymlRelPaths'
+    } else if (path.match(/\/data\/release-notes\//i)) {
+      return 'releaseNotesRelPaths'
+    } else {
+      // we aren't linting the rest
+      return 'throwAway'
+    }
+  })
+
+  const [mdTuples, ymlTuples, releaseNotesTuples] = [mdRelPaths, ymlRelPaths, releaseNotesRelPaths].map(relPaths => {
+    const absPaths = relPaths.map(p => path.join(rootDir, p))
+    return zip(relPaths, absPaths)
+  })
+
+  mdToLint = mdTuples
+  ymlToLint = ymlTuples
+  releaseNotesToLint = releaseNotesTuples
+}
+
+function formatLinkError (message, links) {
+  return `${message}\n  - ${links.join('\n  - ')}`
+}
+
+// Returns `content` if its a string, or `content.description` if it can.
+// Used for getting the nested `description` key in glossary files.
+function getContent (content) {
+  if (typeof content === 'string') return content
+  if (typeof content.description === 'string') return content.description
+  return null
+}
+
+describe('lint markdown content', () => {
+  describe.each(mdToLint)(
+    '%s',
     (markdownRelPath, markdownAbsPath) => {
-      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy
+      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
-        const { data, content: bodyContent } = frontmatter(fileContents)
+        const { data, content: bodyContent, errors } = frontmatter(fileContents)
 
         content = bodyContent
+        frontmatterErrors = errors
         ast = generateMarkdownAST(content)
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
@@ -307,34 +387,20 @@ describe('lint-files', () => {
           .resolves
           .toBeTruthy()
       })
+
+      if (!markdownRelPath.includes('data/reusables')) {
+        test('contains valid frontmatter', () => {
+          const errorMessage = frontmatterErrors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
+          expect(frontmatterErrors.length, errorMessage).toBe(0)
+        })
+      }
     }
   )
+})
 
-  // Also test the "data/variables/" YAML files
-  const yamlWalkOptions = {
-    globs: ['**/*.yml'],
-    directories: false,
-    includeBasePath: true
-  }
-
-  const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
-  const variableYamlRelPaths = variableYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
-
-  const glossariesYamlAbsPaths = walk(glossariesDir, yamlWalkOptions).sort()
-  const glossariesYamlRelPaths = glossariesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
-
-  // Returns `content` if its a string, or `content.description` if it can.
-  // Used for getting the nested `description` key in glossary files.
-  function getContent (content) {
-    if (typeof content === 'string') return content
-    if (typeof content.description === 'string') return content.description
-    return null
-  }
-
-  describe.each([...variableYamlTuples, ...glossariesYamlTuples])(
-    'in "%s"',
+describe('lint yaml content', () => {
+  describe.each(ymlToLint)(
+    '%s',
     (yamlRelPath, yamlAbsPath) => {
       let dictionary, isEarlyAccess
 
@@ -518,16 +584,12 @@ describe('lint-files', () => {
       })
     }
   )
+})
 
-  // GHES release notes
-  const ghesReleaseNotesDir = path.join(__dirname, '../../data/release-notes')
-  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
-  const ghesReleaseNotesYamlTuples = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
-
-  if (ghesReleaseNotesYamlTuples.length > 0) {
-    describe.each(ghesReleaseNotesYamlTuples)(
-      'in "%s"',
+describe('lint release notes', () => {
+  if (releaseNotesToLint.length > 0) {
+    describe.each(releaseNotesToLint)(
+      '%s',
       (yamlRelPath, yamlAbsPath) => {
         let dictionary
 
@@ -538,14 +600,10 @@ describe('lint-files', () => {
 
         it('matches the schema', () => {
           const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
-          const errorMessage = errors.map(error => `- [${error.property}]: ${error.attribute}, ${error.message}`).join('\n')
+          const errorMessage = errors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
           expect(errors.length, errorMessage).toBe(0)
         })
       }
     )
   }
 })
-
-function formatLinkError (message, links) {
-  return `${message}\n  - ${links.join('\n  - ')}`
-}

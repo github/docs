@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 Te permite encontrar el uuid de tu nodo en `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -545,8 +545,8 @@ estado ghe-dpages
 ```
 
 Para evacuar un servicio de almacenamiento {% data variables.product.prodname_pages %} antes de evacuar un nodo de agrupación:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -571,16 +571,16 @@ ruta ghe-spokes
 
 Para evacuar los servicios de almacenamiento en un nodo de la agrupación:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Esta utilidad te permite evacuar todos los servicios de almacenamiento antes de evacuar un nodo de agrupación.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

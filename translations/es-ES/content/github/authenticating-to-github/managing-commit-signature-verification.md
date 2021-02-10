@@ -5,7 +5,7 @@ redirect_from:
   - /articles/generating-a-gpg-key/
   - /articles/signing-commits-with-gpg/
   - /articles/managing-commit-signature-verification
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
