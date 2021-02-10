@@ -23,5 +23,11 @@ Hiking, Azimuth..... to know distance between two point
 
 ## How to configure it
 
-- Configure screen
-- Tap on the widget
+On your Androind device: Press the widget to select one of three modes - the black scale, the gray one, or no scale (only ruler). 
+
+You can also adjust this setting and the way the widget looks in Configure screen - 'Radius ruler' 
+Menu.
+
+On your iOS device: Press the widget to select one of three modes - the black scale, the white one, or no scale (only ruler).
+You can show or hide Compass Ruler: menu -> Configure scree -> Radius ruler -> Settings (Show or Hide compass ruler).
+
