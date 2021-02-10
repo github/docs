@@ -130,4 +130,5 @@ As instâncias primária e de réplica devem receber EIPs separados nas configur
 
 ### Leia mais
 
-- [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

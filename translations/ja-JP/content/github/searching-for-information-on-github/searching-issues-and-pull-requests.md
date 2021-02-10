@@ -131,7 +131,8 @@ You can filter by the visibility of the repository containing the issues and pul
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされている Issue に一致します。                                   |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされた可能性がある Issue にリンクされていた、クローズされたプルリクエストに一致します。          |
 | `-linked:pr`    | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされていない Issue に一致します。                                 |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。 |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。 
+{% endif %}
 
 ### ラベルで検索
 

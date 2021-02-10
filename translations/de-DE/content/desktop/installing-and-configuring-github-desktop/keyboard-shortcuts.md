@@ -51,6 +51,7 @@ GitHub Desktop-Tastenkürzel auf macOS
 | <kbd>⌘</kbd><kbd>2</kbd>             | Commit-Verlauf anzeigen                                                          |
 | <kbd>⌘</kbd><kbd>B</kbd>             | Alle Ihre Branches anzeigen                                                      |
 | <kbd>⌘</kbd><kbd>G</kbd>             | Zum Commit-Zusammenfassungsfeld navigieren                                       |
+| <kbd>⌘</kbd><kbd>Enter</kbd>         | Commit changes when summary or description field is active                       |
 | <kbd>space (Leerzeichen)</kbd>       | Select or deselect all highlighted files                                         |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | Neuen Branch erstellen                                                           |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | Aktuellen Branch umbenennen                                                      |
@@ -104,6 +105,7 @@ GitHub Desktop-Tastenkürzel auf Windows
 | <kbd>STRG</kbd><kbd>2</kbd>                    | Commit-Verlauf anzeigen                                                          |
 | <kbd>STRG</kbd><kbd>B</kbd>                    | Alle Ihre Branches anzeigen                                                      |
 | <kbd>STRG</kbd><kbd>G</kbd>                    | Zum Commit-Zusammenfassungsfeld navigieren                                       |
+| <kbd>Ctrl</kbd><kbd>Enter</kbd>                | Commit changes when summary or description field is active                       |
 | <kbd>space (Leerzeichen)</kbd>                 | Select or deselect all highlighted files                                         |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>N</kbd> | Neuen Branch erstellen                                                           |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>R</kbd> | Aktuellen Branch umbenennen                                                      |
