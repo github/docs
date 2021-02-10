@@ -13,17 +13,17 @@ versions: '*'
 - Trekking, walking, hiking.
 
 ## How to use it
-<b><i>To use the Ruler for Android:</i></b> go to the Configure screen menu and enable 'Radius ruler' (Right panel). You can show or hide Compass Ruler. After you enable it, you'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
+<b>To use the Ruler for Android:</b> go to the Configure screen menu and enable 'Radius ruler' (Right panel). You can show or hide Compass Ruler. After you enable it, you'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
 
-<b>To check the distance from your location to a point on the map:</b> touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
+<b><i>To check the distance from your location to a point on the map:</i></b> touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
 
-<b>To check the distance between two random points:</b> touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds. 
+<b><i>To check the distance between two random points:</i></b> touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds. 
 
-<b><i>To use the Ruler fo iOS:</i></b> follow to Configure screen-> Radius ruler (Right panel), enable it. You'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
+<b>To use the Ruler fo iOS:</b> follow to Configure screen-> Radius ruler (Right panel), enable it. You'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
 
-<b>To check the distance from your location to a point on the map:</b> touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
+<b><i>To check the distance from your location to a point on the map:</i></b> touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
 
-<b>To check the distance between two random points:</b> touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds.
+<b><i>To check the distance between two random points:</i></b> touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds.
 
 ## How to configure it
 
