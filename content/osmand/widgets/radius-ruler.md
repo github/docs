@@ -15,12 +15,13 @@ versions: '*'
 ## How to use it
 To use the Ruler for Android, go to the Configure screen menu and enable 'Radius ruler' (Right panel). You can show or hide Compass Ruler. After you enable it, you'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
 
-To check the distance from your location to a point on the map, just touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
+To check the distance from your location to a point on the map, touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
 
-To check the distance between two random points, touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds. - Tap with 2 fingers on map
+To check the distance between two random points, touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds. 
+
 To set up the Ruler fo iOS, follow to Configure screen-> Radius ruler (Right panel), enable it. You'll see the circles showing distance on the map. You will also be able to check the distance from your current location to the map center on the widget above.
 
-To check the distance from your location to a point on the map, just touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
+<b>To check the distance from your location to a point on the map</b>, touch a spot on the map. You'll see the measurement and the line connecting the two points. The line will stay on screen as long as you are touching it.
 
 To check the distance between two random points, touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds.
 
