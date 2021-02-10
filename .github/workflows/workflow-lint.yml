@@ -6,11 +6,10 @@ on:
   #   branches:
   #     - main
   # pull_request:
-  #   branches-ignore:
-  #     - translations
 
 jobs:
   lint:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
