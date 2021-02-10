@@ -27,7 +27,7 @@ versions: '*'
 
 ## How to configure it
 
-On your Androind device: Press the widget to select one of three modes - the black scale, the gray one, or no scale (only ruler). 
+<b>On your Androind device:</b> Press the widget to select one of three modes - the black scale, the gray one, or no scale (only ruler). 
 
 You can also adjust this setting and the way the widget looks in 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.radius_ruler_item %}
