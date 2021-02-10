@@ -9,7 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -147,7 +149,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Agrupa todos los pasos que se ejecutan en el job <code>check-bats-version</code>. Cada línea anidada bajo esta sección es una acción por separado.
+  Agrupa todos los pasos que se ejecutan en el job <code>check-bats-version</code>. Cada elemento anidado bajo esta sección es un comando de shell o acción separada.
 </td>
 </tr>
 <tr>
@@ -180,7 +182,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  La palabra clave <code>run</code> le dice al job que ejecute un comando en el ejecutor. Ene ste caso, estás utilizando <code>npm</code> para instalar el paquete de pruebas del software <code>bats</code>. 
+  La palabra clave <code>run</code> le dice al job que ejecute un comando en el ejecutor. Ene ste caso, estás utilizando <code>npm</code> para instalar el paquete de pruebas del software <code>bats</code>.
 </td>
 </tr>
 <tr>

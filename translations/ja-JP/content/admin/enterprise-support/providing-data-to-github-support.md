@@ -87,7 +87,7 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 
 #### SSHを使ったSupport Bundleの作成
 
-You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
+{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -104,7 +104,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. [{% data variables.product.prodname_enterprise %} Help] の下にある [**Upload a support bundle**] をクリックします。 ![Support Bundle リンクをアップロードする](/assets/images/enterprise/support/upload-support-bundle.png)
+4. [{% data variables.product.prodname_enterprise %} Help] にある [**Upload a support bundle**] をクリックします。 ![Support Bundle リンクをアップロードする](/assets/images/enterprise/support/upload-support-bundle.png)
 5. [Select an enterprise account] で、ドロップダウンメニューから Support Bundle に関連付けられているアカウントを選択します。 ![Support Bundle の Enterprise アカウントを選択する](/assets/images/enterprise/support/support-bundle-account.png)
 6. [Upload a support bundle for {% data variables.contact.enterprise_support %}] で Support Bundle を選択するには、[**Choose file**] をクリックするか、Support Bundle ファイルを [**Choose file**] にドラッグします。 ![Support Bundle ファイルをアップロードする](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. [**Upload**] をクリックします。
@@ -112,8 +112,8 @@ You can use these steps to create and share a support bundle if you have SSH acc
 #### SSHを使ったSupport Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- {% data variables.product.product_location %} への SSH アクセス権がある。
+- TCP ポート 443 を介したアウトバウンド HTTPS 接続が、{% data variables.product.product_location %} から許可されている。
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell
@@ -128,7 +128,7 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 
 #### SSHを使った拡張Support Bundleの作成
 
-You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
+{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
 
 1. `ghe-support-bundle`コマンドに`-x`フラグを追加して、SSH経由で拡張Support Bundleをダウンロードしてください。
   ```shell
@@ -140,8 +140,8 @@ You can use these steps to create and share an extended support bundle if you ha
 #### SSHを使った拡張Support Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- {% data variables.product.product_location %} への SSH アクセス権がある。
+- TCP ポート 443 を介したアウトバウンド HTTPS 接続が、{% data variables.product.product_location %} から許可されている。
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell

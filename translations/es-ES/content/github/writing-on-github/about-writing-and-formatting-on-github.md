@@ -21,7 +21,7 @@ Cada campo de comentario en {% data variables.product.product_name %} contiene u
 
 ![Barra de herramientas de Markdown](/assets/images/help/writing/markdown-toolbar.gif)
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

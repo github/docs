@@ -8,7 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -77,7 +81,7 @@ The template includes a matrix strategy that builds and tests your code with fou
 每个作业都可以使用 `matrix` 上下文访问矩阵 `node-version` 阵列中定义的值。 `setup-node` 操作使用上下文作为 `node-version` 输入。 `setup-node` 操作在构建和测试代码之前使用不同的 Node.js 版本配置每个作业。 有关矩阵策略和上下文的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)”和“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
@@ -93,7 +97,7 @@ steps:
 
 您也可以构建和测试精确的 Node.js 版本。
 
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [8.16.2, 10.17.0]
@@ -102,7 +106,7 @@ strategy:
 或者，您也可以使用单个版本的 Node.js 构建和测试。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]
@@ -136,7 +140,7 @@ jobs:
 
 此示例安装 *package.json* 文件中定义的依赖项。 更多信息请参阅 [`npm install`](https://docs.npmjs.com/cli/install)。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -150,7 +154,7 @@ steps:
 使用 `npm ci` 将版本安装到 *package-lock.json* 或 *npm-shrinkwraw.json* 文件并阻止更新锁定文件。 使用 `npm ci` 通常比运行 `npm install` 更快。 更多信息请参阅 [`npm ci`](https://docs.npmjs.com/cli/ci.html) 和“[引入 `npm ci` 以进行更快、更可靠的构建](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)”。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -166,7 +170,7 @@ steps:
 
 此示例安装 *package.json* 文件中定义的依赖项。 更多信息请参阅 [`yarn install`](https://yarnpkg.com/en/docs/cli/install)。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -179,7 +183,7 @@ steps:
 
 或者，您可以传递 `--frozen-lockfile` 来安装 *yarn.lock* 文件中的版本，并阻止更新 *yarn.lock* 文件。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -201,7 +205,7 @@ steps:
 在安装依赖项之前，使用 `setup-node` 操作创建 *.npmrc* 文件。 该操作有两个输入参数。 `node-version` 参数设置 Node.js 版本，`registry-url` 参数设置默认注册表。 如果包注册表使用作用域，您必须使用 `scope` 参数。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope)。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -220,7 +224,7 @@ steps:
 
 上面的示例创建了一个包含以下内容的 *.npmrc* 文件：
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true
@@ -231,7 +235,7 @@ always-auth=true
 使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存依赖项， 并在使用`缓存`操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -256,7 +260,7 @@ steps:
 
 您可以使用与本地相同的命令来构建和测试代码。 例如，如果您运行 `npm run build` 来运行 *package.json* 文件中定义的构建步骤，运行 `npm test` 来运行测试套件，则要在工作流程文件中添加以下命令。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js

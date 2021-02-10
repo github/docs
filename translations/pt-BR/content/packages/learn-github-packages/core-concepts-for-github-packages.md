@@ -1,5 +1,5 @@
 ---
-title: Core concepts for GitHub Packages
+title: Conceitos principais para GitHub Packages
 intro: 'Abaixo está uma lista de termos comuns de {% data variables.product.prodname_registry %} que usamos em todos os nossos sites e documentação.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:

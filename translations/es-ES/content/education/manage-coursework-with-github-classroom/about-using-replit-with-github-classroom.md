@@ -28,6 +28,6 @@ Predeterminadamente, Repl.it se configura para subir información al repositorio
 
 Para obtener más información sobre cómo utilizar Git en Repl.it, consulta el [Tutorial de Repl.it + Git](https://repl.it/talk/learn/Replit-Git-Tutorial/23331) en el sitio web de Repl.it.
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

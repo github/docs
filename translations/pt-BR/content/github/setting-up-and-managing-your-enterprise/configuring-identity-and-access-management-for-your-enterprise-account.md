@@ -1,6 +1,6 @@
 ---
-title: Configuring identity and access management for your enterprise account
-intro: You can manage SAML single sign-on, user provisioning, and team synchronization for your enterprise.
+title: Configurar identidade e gestão de acesso para a sua conta corporativa
+intro: Você pode gerenciar o login único SAML, o provisionamento do usuário e a sincronização de equipes para a sua empresa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 mapTopic: true
 versions:

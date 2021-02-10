@@ -6,7 +6,7 @@ redirect_from:
   - /articles/additional-customizations-for-github-pages/
   - /articles/getting-started-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
