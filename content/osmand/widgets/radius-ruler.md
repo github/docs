@@ -24,14 +24,13 @@ To check the distance from your location to a point on the map, just touch a spo
 
 To check the distance between two random points, touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds.
 
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.radius_ruler_item %}
-
 ## How to configure it
 
 On your Androind device: Press the widget to select one of three modes - the black scale, the gray one, or no scale (only ruler). 
 
-You can also adjust this setting and the way the widget looks in Configure screen - 'Radius ruler' 
-Menu.
+You can also adjust this setting and the way the widget looks in 
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.radius_ruler_item %}
+
 
 On your iOS device: Press the widget to select one of three modes - the black scale, the white one, or no scale (only ruler).
 You can show or hide Compass Ruler: menu -> Configure screen -> Radius ruler -> Settings (Show or Hide compass ruler).
