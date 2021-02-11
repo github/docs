@@ -57,7 +57,7 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 ![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+### Leer más
 
 - "[Administrar los recordatorios programados para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)"
 - "[Administrar tus recordatorios programados](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"

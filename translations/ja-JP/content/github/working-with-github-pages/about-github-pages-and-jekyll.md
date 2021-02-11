@@ -38,7 +38,7 @@ Windows は、Jekyll を公式にはサポートしていません。 For more i
 
 一部の設定は、{% data variables.product.prodname_pages %}サイトで変更できません。
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ Jekyllプラグインをダウンロードまたは作成すると、サイト�
 
 `highlight.js`など、他のハイライターを使用したい場合は、プロジェクトの*_config.yml*ファイルを更新して、Jekyllの構文強調表示を無効にする必要があります。
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

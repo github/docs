@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Para comenzar rápidamente, puedes elegir la plantilla Maven preconfigurada cuan
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ El flujo de trabajo de inicio ejecutará el `paquete` destino por defecto. En la
 Si usas diferentes comandos para compilar tu proyecto, o si quieres usar un destino diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el objetivo `verify (verificar)` que está configurado en un archivo _pom-ci.xml_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar tus dependencias en el caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu repositorio Maven local se almacenará en la infraestructura de acciones de GitHub. En las ejecuciones de flujo de trabajo futuras, el caché se restaurará para que las dependencias no necesiten descargarse desde los repositorios remotos de Maven. Para obtener más información, consulta "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar en caché las dependencias para agilizar los flujos de trabajo</a>" y la acción [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -122,7 +126,7 @@ Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es po
 Por lo general, Maven creará archivos de salida como tarros, orejas o guerras en el `Objetivo` Directorio. Para cargarlos como artefactos, puedes copiarlos en un nuevo directorio que contenga artefactos para cargar. Por ejemplo, puedes crear un directorio llamado `staging` (preparación). Luego puedes cargar los contenidos de ese directorio usando la acción `upload-artifact (cargar artefacto)`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

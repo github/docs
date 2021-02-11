@@ -1,10 +1,11 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers/supertest')
+const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -45,12 +46,14 @@ describe('server', () => {
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
     expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
     expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
+    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
@@ -59,10 +62,10 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers', async () => {
+  test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('no-store, must-revalidate')
-    expect(res.headers['surrogate-control']).toBe('max-age=86400, stale-if-error=600, stale-while-revalidate=600')
+    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['surrogate-control']).toBe('private, no-store')
     expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
@@ -109,6 +112,13 @@ describe('server', () => {
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
+  })
+
+  test('returns a 400 when POST-ed invalid JSON', async () => {
+    const res = await post('/')
+      .send('not real JSON')
+      .set('Content-Type', 'application/json')
+    expect(res.statusCode).toBe(400)
   })
 
   test('converts Markdown in intros', async () => {
@@ -483,8 +493,9 @@ describe('server', () => {
 
 describe('URLs by language', () => {
   // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
-  test.skip('heading IDs and links on translated pages are in English', async () => {
+  test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/github/getting-started-with-github/verifying-your-email-address')
+    expect($.res.statusCode).toBe(200)
     expect($('h3[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
     expect($('h3 a[href="#further-reading"]').length).toBe(1)

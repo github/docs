@@ -16,7 +16,7 @@ Repl.it es un ambiente de desarrollo integrado (IDE) compatible con diversos len
 
 La primera vez que el alumno d aclic en el botón para visitar Repl.it, deberá ingresar con sus credenciales de {% data variables.product.product_name %}. Después de ingresar, el alumno deberá acceder al ambiente de desarrollo que contiene el código del repositorio de tareas, completamente configurado en Repl.it.
 
-Para obtener más información sobre cómo trabajar con Repl.it, consulta la [Guía de acceso rápido de Repl.it](https://docs.repl.it/misc/quick-start#the-repl-environment).
+Para obtener más información sobre cómo trabajar con Repl.it, consulta la [Guía de acceso rápido de Repl.it](https://docs.repl.it/repls/quick-start#the-repl-environment).
 
 Para las tareas grupales, los alumnos pueden utilizar Repl.it Multiplayer para trabajar en colaboración. Para obtener más información, consulta el sitio web de [Repl.it Multiplayer](https://repl.it/site/multiplayer).
 
@@ -28,6 +28,6 @@ Predeterminadamente, Repl.it se configura para subir información al repositorio
 
 Para obtener más información sobre cómo utilizar Git en Repl.it, consulta el [Tutorial de Repl.it + Git](https://repl.it/talk/learn/Replit-Git-Tutorial/23331) en el sitio web de Repl.it.
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

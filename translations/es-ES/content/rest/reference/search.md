@@ -1,5 +1,5 @@
 ---
-title: Search
+title: Buscar
 redirect_from:
   - /v3/search
 versions:
@@ -94,7 +94,7 @@ Cuando proporcionas el tipo de medios `text-match`, recibirás una clave extra e
 | `object_url`  | La URL del recurso que contiene una propiedad de secuencia que empata con uno de los términos de búsqueda.                                                                                                                                                                                    |
 | `object_type` | El nombre del tipo de recurso que existe en la `object_url` específica.                                                                                                                                                                                                                       |
 | `property`    | El nombre de la propiedad del recurso que existe en la `object_url`. Esa propiedad es una secuencia que empata con uno de los términos de la búsqueda. (En el JSON que se devuelve de la `object_url`, el contenido entero para el `fragment` se encontrará en la propiedad con este nombre.) |
-| `fragment`    | Un subconjunto del valor de `property`. Este es el fragmento de texto que empata con uno o más de los términos de búsqueda.                                                                                                                                                                   |
+| `fragmento`   | Un subconjunto del valor de `property`. Este es el fragmento de texto que empata con uno o más de los términos de búsqueda.                                                                                                                                                                   |
 | `matches`     | Una matriz de uno o más términos de búsqueda presentes en el `fragment`. Los índices (es decir, "intervalos") son relativos al fragmento. (No son relativos al contenido _completo_ de `property`.)                                                                                           |
 
 #### Ejemplo

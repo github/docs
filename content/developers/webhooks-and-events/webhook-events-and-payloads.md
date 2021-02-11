@@ -430,14 +430,6 @@ Key | Type | Description
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**Note:** {% data reusables.pre-release-program.suspend-installation-beta %} For more information, see "[Suspending a {% data variables.product.prodname_github_app %} installation](/apps/managing-github-apps/suspending-a-github-app-installation/)."
-
-{% endnote %}
-{% endif %}
-
 #### Availability
 
 - {% data variables.product.prodname_github_app %}s

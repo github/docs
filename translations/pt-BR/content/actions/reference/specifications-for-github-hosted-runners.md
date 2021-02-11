@@ -41,10 +41,15 @@ As máquinas virtuais do Windows estão configuradas para ser executadas como ad
 
 ### Executores e recursos de hardware compatíveis
 
-Cada máquina virtual tem os mesmos recursos de hardware disponíveis.
 
+Hardware specification for Windows and Linux virtual machines:
 - CPU dual core
 - 7 GB de memória RAM
+- 14 GB de espaço de disco SSD
+
+Hardware specification for macOS virtual machines:
+- 3-core CPU
+- 14 GB de memória RAM
 - 14 GB de espaço de disco SSD
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -71,9 +76,13 @@ As ferramentas do software incluídas em executores hospedados em {% data variab
 
 Executores hospedados no {% data variables.product.prodname_dotcom %} incluem as ferramentas integradas padrão do sistema operacional, além dos pacotes listados nas referências acima. Por exemplo, os executores do Ubuntu e do macOS incluem `grep`, `find` e `which`, entre outras ferramentas-padrão.
 
-Os registros do fluxo de trabalho incluem um link para as ferramentas pré-instaladas no executor. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-Se houver uma ferramenta que você queira solicitar, abra um problema em [actions/virtual-environments](https://github.com/actions/virtual-environments).
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+Se houver uma ferramenta que você queira solicitar, abra um problema em [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
 ### Endereços IP
 
@@ -83,44 +92,11 @@ Se houver uma ferramenta que você queira solicitar, abra um problema em [action
 
 {% endnote %}
 
-Executores do Windows e Ubuntu são hospedados no Azure e têm os mesmos intervalos de endereços IP dos centros de dados Azure. Atualmente, todos os executores hospedados em {% data variables.product.prodname_dotcom %} do Windows e Ubuntu encontram-se nas seguintes regiões do Azure:
+Os executores do Windows e Ubuntu são hospedados no Azure e, consequentemente, têm as mesmas faixas de endereços IP que os centros de dados do Azure. Os executores do macOS estão hospedados na própria nuvem do macOS de {% data variables.product.prodname_dotcom %}.
 
-- Leste dos EUA (`eastus`)
-- Leste dos EUA 2 (`eastus2`)
-- Oeste dos EU 2 (`westus2`)
-- Centro dos EUA (`centralus`)
-- Centro-sul dos EUA (`southcentralus`)
+Para obter uma lista de intervalos de endereços IP que {% data variables.product.prodname_actions %} usa para executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá usar a API REST de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a chave de `ações` na resposta do ponto de extremidade "[Obtenha as metainformações do GitHub](/rest/reference/meta#get-github-meta-information)". Você pode usar essa lista de endereços IP se precisar de uma lista de permissão para evitar acesso não autorizado para os seus recursos internos.
 
-A Microsoft atualiza os intervalos de endereços IP Azure semanalmente em um arquivo JSON que você pode baixar no site [Azure intervalos IP e tags de serviço - nuvem pública](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Você pode usar esse intervalo de endereços IP se precisar de uma lista de permissão para evitar acesso não-autorizado em seus recursos internos.
-
-O arquivo JSON contém um array chamado `values` (valores). Dentro desse array, você pode encontrar os endereços IP suportados em um objeto com `name` e `id` da região Azure, por exemplo `"AzureCloud. astus2"`.
-
-Você pode encontrar os intervalos de endereços IP compatíveis no objeto `"addressPrefixes"`. Este é um exemplo resumido do arquivo JSON.
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
+A lista de endereços IP de {% data variables.product.prodname_actions %} retornados pela API é atualizada uma vez por semana.
 
 ### Sistemas de arquivos
 
