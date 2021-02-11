@@ -13,14 +13,13 @@ Organization の設定内、もしくはユーザが作成した特定のコメ�
 
 {% tip %}
 
-**ヒント:**過熱した会話を鎮めるためにユーザをブロックする場合、コラボレータだけがコメントできるように[会話をロックする](/articles/locking-conversations)ことを検討してください。
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
 
 {% endtip %}
 
 ユーザを Organization からブロックすると、以下のようになります:
 - そのユーザによる Organization のリポジトリの Watch は停止します。
 - そのユーザによる Star 付けや Issue 割り当てはリポジトリから削除されます。
-- Organization のリポジトリのユーザのフォークが削除されます
 - Organization のリポジトリ内のディスカッションまたはコメントに対するユーザの投票が削除されます
 - そのユーザは、Organization のリポジトリのコラボレーターではなくなります。
 - Organization のリポジトリへのユーザのコントリビューションがカウントされなくなります

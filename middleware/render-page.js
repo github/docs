@@ -115,6 +115,7 @@ module.exports = async function renderPage (req, res, next) {
   const output = await liquid.parseAndRender(layout, context)
 
   // First, send the response so the user isn't waiting
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
   res.send(output)
 
   // Finally, save output to cache for the next time around

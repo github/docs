@@ -103,7 +103,7 @@ Puedes generar un token de recuperación de cuenta y almacenarlo con un proveedo
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
 - [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"

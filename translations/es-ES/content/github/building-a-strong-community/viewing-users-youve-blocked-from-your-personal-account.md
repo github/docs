@@ -12,7 +12,7 @@ versions:
 {% data reusables.user_settings.blocked_users %}
 3. Dentro de "Blocked users" (Usuarios bloqueados), revisa la lista de usuarios que has bloqueado de tu cuenta. ![Lista de usuarios bloqueados](/assets/images/help/settings/list-of-blocked-users.png)
 
-### Further reading
+### Leer más
 
 - "[Bloquear a un usuario desde tu cuenta personal](/articles/blocking-a-user-from-your-personal-account)"
 - "[Desbloquear a un usuario desde tu cuenta personal](/articles/unblocking-a-user-from-your-personal-account)"

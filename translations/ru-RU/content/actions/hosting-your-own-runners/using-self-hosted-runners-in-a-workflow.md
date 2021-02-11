@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -64,8 +64,11 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 
 ### Routing precedence for self-hosted runners
 
-If you use both repository-level and organization-level runners, {% data variables.product.prodname_dotcom %} follows an order of precedence when routing jobs to self-hosted runners:
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. The job's `runs-on` labels are processed. {% data variables.product.prodname_dotcom %} then attempts to locate a runner that matches the label requirements:
-2. The job is sent to a repository-level runner that matches the job labels. If no repository-level runner is available (either busy, offline, or no matching labels):
-3. The job is sent to an organization-level runner that matches the job labels. If no organization-level runner is available, the job request fails with an error.
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
+2. The job is then sent to the first matching runner that is online and idle.
+   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
+   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
+   - If there are no matching runners at any level, the job will fail.
+   - If the job remains queued for more than 24 hours, the job will fail.

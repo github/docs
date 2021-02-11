@@ -42,20 +42,20 @@ Si no se habilitan las actualizaciones de seguridad para tu repositorio y no sab
 
 ### Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tus repositorios
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository (see below).
+Puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual (ver a continuación).
 
 También puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para todos los repositorios que pertenezcan atu cuenta de usuario u organización. Para obtener más información, consulta la sección "[Administrar la seguridad y la configuración de análisis para tu cuenta de usuario](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" o la sección "[Administrar la configuración de seguridad y análisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)".
 
 Las {% data variables.product.prodname_dependabot_security_updates %} requieren de configuraciones de repositorio específicas. Para obtener más información, consulta "[Repositorios soportados](#supported-repositories)".
 
-#### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
+#### Habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-1. Under "Configure security and analysis features", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** or **Disable**. !["Configure security and analysis features" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
+1. Debajo de "Configurar las características de seguridad y análisis", a la derecha de "actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}", da clic en **Habilitar** o **Inhabilitar**. ![Sección "Configurar las características de seguridad y análisis" con botón para habilitar las {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
 - "[Administrar la configuración de uso de datos para tu repositorio privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".

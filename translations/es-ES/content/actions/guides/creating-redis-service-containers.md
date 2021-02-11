@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Containers'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ También puede ser útil tener una comprensión básica de YAML, la sintaxis par
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -89,7 +92,7 @@ jobs:
 
 {% data reusables.github-actions.redis-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Etiqueta del trabajo del contenedor
   container-job:
@@ -115,7 +118,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Descarga una copia del código en tu repositorio antes de ejecutar pruebas de CI
   - name: Check out repository code
@@ -149,7 +152,7 @@ Cuando ejecutes un trabajo directamente en la máquina del ejecutor, deberás as
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis runner example
 on: push
 
@@ -207,7 +210,7 @@ jobs:
 
 El flujo de trabajo asigna el puerto 6379 en el contenedor del servicio Redis al host Docker. Para obtener más información acerca de la palabra clave `ports`, consulta "[Acerca de los contenedores de servicio](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
-```yaml
+```yaml{:copy}
 jobs:
   # Etiqueta del trabajo del ejecutor
   runner-job:
@@ -235,7 +238,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Descarga una copia del código en tu repositorio antes de ejecutra pruebas de CI
   - name: Check out repository code
@@ -271,7 +274,7 @@ Puedes modificar *client.js* para incluir cualquier operación de Redis que nece
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const redis = require("redis");
 
 // Crea un nuevo cliente Redis

@@ -85,7 +85,7 @@ Si te es imposible recuperar el acceso a tu cuenta, genera una contraseña de un
 {% data variables.contact.contact_support %} para hacerles saber que tu token de recuperación de cuenta está listo para revisión.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
 - [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"

@@ -20,6 +20,8 @@ redirect_from:
 
 默认情况下， {% data variables.product.prodname_code_scanning %} 定期在默认分支和拉取请求中分析您的代码。 有关管理拉取请求中的警报的更多信息，请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”。
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 ### 关于警报详细信息
 
 每个警报都会高亮显示代码的问题以及识别该问题的工具名称。 您可以看到触发警报的代码行以及警报的属性，例如问题的严重程度和性质。 警报还会告知该问题第一次被引入的时间。 对于由 {% data variables.product.prodname_codeql %} 分析确定的警报，您还会看到如何解决问题的信息。

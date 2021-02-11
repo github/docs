@@ -9,7 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本�
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -91,7 +94,7 @@ jobs:
 
 {% data reusables.github-actions.redis-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # コンテナジョブのラベル
   container-job:
@@ -118,7 +121,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # CIテストの実行前にリポジトリのコードのコピーをダウンロード
   - name: Check out repository code
@@ -152,7 +155,7 @@ Redisサービスのホスト名は、ワークフロー中で設定されたラ
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis runner example
 on: push
 
@@ -210,7 +213,7 @@ jobs:
 
 このワークフローはRedisサービスコンテナ上のポート6379をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
-```yaml
+```yaml{:copy}
 jobs:
   # ランナージョブのラベル
   runner-job:
@@ -238,7 +241,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # CIテストの実行前にリポジトリのコードのコピーをダウンロード
   - name: Check out repository code
@@ -274,7 +277,7 @@ steps:
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const redis = require("redis");
 
 // 新しいRedisクライアントの作成
