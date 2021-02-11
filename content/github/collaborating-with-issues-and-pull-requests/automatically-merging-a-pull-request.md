@@ -19,7 +19,7 @@ You can provide feedback about auto-merge by [contacting us](https://support.git
 
 People with write permissions to a repository can enable auto-merge for a pull request.
 
-{% data reusables.repositories.navigate-to-settings %}
+{% data reusables.repositories.sidebar-settings %}
 1. Enable auto-merge in the repository settings
   !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
   
