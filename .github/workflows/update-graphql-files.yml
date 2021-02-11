@@ -1,17 +1,18 @@
 name: Update GraphQL files
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here.
-# This workflow runs every hour. To temporarily disable it (for example, during
-# a docs freeze), add a secret to the docs repo settings called `FREEZE`
-# with a value of `true`. To reenable GraphQL updates, delete the secret in
-# the repo settings. The env variable here will evaluate whether the secret exists.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
+
+# **IMPORTANT:** Do not change the FREEZE environment variable set here!
+# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
+# during a docs deployment freeze), add an Actions Secret to the repo settings
+# called `FREEZE` with a value of `true`. To re-enable GraphQL updates, simply
+# delete that Secret from the repo settings. The environment variable here
+# will duplicate that Secret's value for later evaluation.
+env:
+  FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
   update_graphql_files:

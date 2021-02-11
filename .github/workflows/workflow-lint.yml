@@ -2,10 +2,10 @@ name: Lint workflows
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   lint:
@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Run linter
-        uses: cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576
+        uses: cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be
         with:
           workflows: '[".github/workflows/*.yml"]'
