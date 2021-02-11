@@ -21,7 +21,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
 
 {% data reusables.repositories.navigate-to-settings %}
 1. Enable auto-merge in the repository settings
-  !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/enable-auto-merge-in-settings.png)
+  !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request you'd like to auto-merge.
