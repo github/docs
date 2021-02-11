@@ -13,6 +13,8 @@ You can rename a branch in a repository on {% data variables.product.product_loc
 
 If you rename a branch, {% data variables.product.prodname_dotcom %} will automatically redirect links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %} that contain the old branch name to the equivalent link on the renamed branch. {% data variables.product.prodname_dotcom %} will also update branch protection policies, as well as the base branch for open pull requests and draft releases.
 
+Note that if you use [remote themes](/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll), you will need to explicitly nominate the branch if it is not `master`; e.g., `remote_theme: my_repo/my_theme@main`.
+
 ### Renaming a branch
 
 {% data reusables.repositories.navigate-to-repo %}
