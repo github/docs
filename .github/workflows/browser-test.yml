@@ -32,13 +32,19 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Setup Node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 14.x
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install
-        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        uses: ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17
         with:
           args: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Test
-        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        uses: ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17
         with:
           args: npm run browser-test
