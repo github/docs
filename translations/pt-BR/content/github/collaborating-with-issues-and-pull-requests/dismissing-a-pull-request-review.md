@@ -1,6 +1,6 @@
 ---
 title: Ignorar uma revisão de pull request
-intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
+intro: 'Se seu repositório exigir revisões, você poderá descartar revisões de pull request que não são mais válidas ou não podem ser aprovadas pelo revisor.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:

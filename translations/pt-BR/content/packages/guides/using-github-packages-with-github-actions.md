@@ -37,13 +37,13 @@ Você pode fazer referência ao `GITHUB_TOKEN` no seu arquivo de fluxo de trabal
 
 ### Publicar um pacote usando uma ação
 
-You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
+Você pode usar {% data variables.product.prodname_actions %} para publicar automaticamente pacotes como parte do fluxo de integração contínua (CI). Esta abordagem da implantação contínua (CD) permite que você automatize a criação de novas versões do pacote, se o código atender aos seus padrões de qualidade. Por exemplo, você pode criar um fluxo de trabalho que executa testes CI toda vez que um desenvolvedor faz push do código para um branch específico. Se os testes passarem, o fluxo de trabalho poderá publicar uma nova versão do pacote em {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build and test your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}:
+O exemplo a seguir demonstra como você pode usar {% data variables.product.prodname_actions %} para criar e testar seu aplicativo e, em seguida, criar automaticamente uma imagem do Docker e publicá-la em {% data variables.product.prodname_registry %}:
 
-- Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
+- Crie um novo arquivo de fluxo de trabalho no repositório (como `.github/workflows/deploy-image.yml`) e adicione o YAML a seguir:
   {% raw %}
   ```
   name: Create and publish a package
@@ -106,7 +106,7 @@ The following example demonstrates how you can use {% data variables.product.pro
   ```
   {% endraw %}
 
-  The relevant settings are explained in the following table: <table>
+  As configurações relevantes são explicadas na seguinte tabela: <table>
   <tr>
   <td>
 
@@ -119,7 +119,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Configures the <code>Create and publish a package</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
+    Configura o fluxo de trabalho <code>Criar e publicar um pacote</code> para ser executado toda vez que uma alteração é enviada para o branch denominado <code>versão</code>.
   </td>
   </tr>
   <tr>
@@ -143,7 +143,7 @@ on:
   {% endraw %}
   </td>
   <td>
-    This job installs NPM and uses it to build the app.
+    Este trabalho instala o NPM e o usa para criar o aplicativo.
   </td>
   </tr>
   <tr>
@@ -178,7 +178,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
+    Este trabalho usa <code>teste do npm</code> para testar o código. O comando <code>needs: run-npm-build</code> torna esse trabalho dependente do trabalho <code>run-npm-build</code>.
   </td>
   </tr>
   <tr>
@@ -191,7 +191,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Creates a new step called <code>Build container image</code>. This step runs as part of the <code>build-and-push-image</code> job. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+    Cria uma nova etapa denominada <code>Build container image</code>. Esta etapa é executada como parte do trabalho <code>build-and-push-image</code>. O comando <code>needs: run-npm-test</code> torna essa tarefa dependente do trabalho <code>run-npm-test</code>.
   </td>
   </tr>
   <tr>
@@ -204,7 +204,7 @@ uses: docker/build-push-action@v1
 {% endraw %}
   </td>
   <td>
-    Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+    Usa a ação <code>build-push-action</code> do Docker para criar a imagem com base no <code>arquivo Docker</code> do seu repositório. Se a criação for bem-sucedida, ela faz p push da imagem para {% data variables.product.prodname_registry %}.
   </td>
   </tr>
   <tr>
@@ -217,7 +217,7 @@ with:
 {% endraw %}
   </td>
   <td>
-    Sends the required parameters to the <code>build-push-action</code> action. This are defined in the subsequent lines.
+    Envia os parâmetros necessários para a ação </code>build-push-action<code>. Isto é definido nas linhas subsequentes.
   </td>
   </tr>
   <tr>
@@ -230,7 +230,7 @@ username: ${{ github.actor }}
 {% endraw %}
   </td>
   <td>
-    Defines the user account that will publish the packages. Once published, the packages are owned by the account defined here.
+    Define a conta de usuário que publicará os pacotes. Uma vez publicados, os pacotes pertencem à conta definida aqui.
   </td>
   </tr>
   <tr>
@@ -243,7 +243,7 @@ password: ${{ secrets.GITHUB_TOKEN }}
 {% endraw %}
   </td>
   <td>
-    Defines the password that is used to access {% data variables.product.prodname_registry %}.
+    Define a senha usada para acessar {% data variables.product.prodname_registry %}.
   </td>
   </tr>
   <tr>
@@ -256,7 +256,7 @@ registry: docker.pkg.github.com
 {% endraw %}
   </td>
   <td>
-    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.
+    Define o registro que hospedará os pacotes resultantes. Este exemplo usa {% data variables.product.prodname_registry %}.
   </td>
   </tr>
   <tr>
@@ -269,7 +269,7 @@ repository: ${{ github.repository }}/octo-image
 {% endraw %}
   </td>
   <td>
-    Defines which repository will host the resulting package, and sets the name of the published package. Replace <code>octo-image</code> with the name you want for your package.
+    Define qual repositório hospedará o pacote resultante e define o nome do pacote publicado. Substitui <code>octo-image</code> pelo nome que você deseja para o seu pacote.
   </td>
   </tr>
   <tr>
@@ -282,7 +282,7 @@ tag_with_sha: true
 {% endraw %}
   </td>
   <td>
-    Tags the published package with the first seven characters of the commit's SHA. For example, <code>sha-2f2d842</code>.
+    Marca o pacote publicado com os primeiros sete caracteres do SHA do commit. Por exemplo, <code>sha-2f2d842</code>.
   </td>
   </tr>
   <tr>
@@ -295,13 +295,13 @@ tag_with_ref: true
 {% endraw %}
   </td>
   <td>
-    Tags the published package with the git ref. This can be the name of the branch used to create the package.
+    Tags o pacote publicado com a referência do Git. Este pode ser o nome do branch usado para criar o pacote.
   </td>
   </tr>
   </table>
 
-- This new workflow will run automatically every time you push a change to the repository. You can view the progress in the **Actions** tab.
-- A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+- Este novo fluxo de trabalho será executado automaticamente toda vez que você fizer uma alteração no repositório. Você pode visualizar o progresso na aba **Ações**.
+- Alguns minutos após a conclusão do fluxo de trabalho, o novo pacote ficará visível no seu repositório. Para encontrar seus pacotes disponíveis, consulte "[Visualizar os pacotes de um repositório](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)".
 
 ### Instalar um pacote usando uma ação
 

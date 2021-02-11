@@ -173,7 +173,7 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
 {% if enterpriseServerVersions contains currentVersion %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only Docker supported option for GHES 2.22 so it can be misleading.-->
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-These examples assume your instance has subdomain isolation enabled.
+Esses exemplos assumem que sua instância tem o isolamento de subdomínio habilitado.
 {% endif %}
 
 

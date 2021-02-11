@@ -128,17 +128,17 @@ Em projetos muito grandes,
 {% if currentVersion == "free-pro-team@latest" %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 
-### Warning: "git checkout HEAD^2 is no longer necessary"
+### Aviso: "git checkout HEAD^2 is no longer necessary"
 
-If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+Se você estiver usando um fluxo de trabalho antigo de {% data variables.product.prodname_codeql %}, você poderá receber o aviso a seguir na saída "Inicializar {% data variables.product.prodname_codeql %}" da ação:
 
 ```
-Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
+Aviso: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
 necessary. Please remove this step as Code Scanning recommends analyzing the merge 
 commit for best results.
 ```
 
-Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+Corrija isto removendo as seguintes linhas do fluxo de trabalho {% data variables.product.prodname_codeql %}. Essas linhas foram incluídas na seção `etapas` do trabalho `Analyze` nas versões iniciais do fluxo de trabalho de {% data variables.product.prodname_codeql %}.
 
 ```yaml
       with:
@@ -152,7 +152,7 @@ Fix this by removing the following lines from the {% data variables.product.prod
       if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-The revised `steps` section of the workflow will look like this:
+A seção revisada de `etapas` do fluxo de trabalho será parecida com esta:
 
 ```yaml
     steps:
@@ -166,4 +166,4 @@ The revised `steps` section of the workflow will look like this:
     ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)."
+Para obter mais informações sobre a edição do arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %}, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".

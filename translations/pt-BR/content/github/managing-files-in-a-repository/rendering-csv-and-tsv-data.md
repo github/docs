@@ -18,7 +18,7 @@ Você pode criar um link para uma linha específica clicando no número da linha
 
 ### Pesquisar dados
 
-Para encontrar um valor específico no conjunto de dados, comece a inserir o valor na barra de pesquisa logo acima do arquivo. The rows will filter automatically:
+Para encontrar um valor específico no conjunto de dados, comece a inserir o valor na barra de pesquisa logo acima do arquivo. As linhas serão filtradas automaticamente:
 
 ![Pesquisa de valores](/assets/images/help/repository/searching_csvs.gif)
 

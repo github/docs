@@ -14,7 +14,7 @@ versions:
 
 Depois de configurar o SAML SSO, os integrantes da sua organização de {% data variables.product.prodname_dotcom %} continuarão a fazer login em suas contas de usuário no {% data variables.product.prodname_dotcom %}. Quando um membro acessa recursos dentro de sua organização que usa o SAML SSO, o {% data variables.product.prodname_dotcom %} redireciona o integrante para o seu IdP para efetuar a autenticação. Após a autenticação bem-sucedida, seu IdP redireciona o integrante para {% data variables.product.prodname_dotcom %}, onde poderá acessar os recursos da sua organização.
 
-Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. Para obter mais informações, consulte "[Habilitar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+Os proprietários da organização podem aplicar o SSO do SAML para uma organização individual ou os proprietários corporativos podem aplicar o SSO do SAML para todas as organizações em uma conta corporativa. Para obter mais informações, consulte "[Habilitar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 

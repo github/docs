@@ -15,7 +15,7 @@ versions:
 
 Você pode conectar até cinco grupos de IdP a uma equipe do {% data variables.product.prodname_dotcom %}. Um grupo de IdP pode ser atribuído a várias equipes do {% data variables.product.prodname_dotcom %} sem restrição.
 
-Team synchronization does not support IdP groups with more than 5000 members.
+A sincronização de equipes não é compatível com grupos de IdP com mais de 5000 integrantes.
 
 Uma vez que uma equipe do {% data variables.product.prodname_dotcom %} está conectada a um grupo de IdP, o administrador do IdP deve efetuar as alterações da associação da equipe por meio do provedor de identidade. Você não pode gerenciar a associação na equipe em {% data variables.product.product_name %} ou usar a API.
 
@@ -29,22 +29,22 @@ Você também pode gerenciar a sincronização de equipe com a API. Para obter m
 
 ### Requisitos para integrantes de equipes sincronizadas
 
-After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.prodname_dotcom %} only if:
-- The person is a member of the organization on {% data variables.product.prodname_dotcom %}.
-- The person has already logged in with their user account on {% data variables.product.prodname_dotcom %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
-- The person's SSO identity is a member of the IdP group.
+Após conectar uma equipe a um grupo de IdP, a sincronização da equipe adicionará cada integrante do grupo IdP à equipe correspondente em {% data variables.product.prodname_dotcom %} apenas se:
+- A pessoa for integrante da organização em {% data variables.product.prodname_dotcom %}.
+- A pessoa já efetuou o login com sua conta de usuário em {% data variables.product.prodname_dotcom %} e efetuou a autenticação na conta corporativa ou corporativa via logon único SAML pelo menos uma vez.
+- A identidade SSO da pessoa é um integrante do grupo IdP.
 
-Existing teams or group members who do not meet these criteria will be automatically removed from the team on {% data variables.product.prodname_dotcom %} and lose access to repositories. Revoking a user's linked identity will also remove the user from from any teams mapped to IdP groups. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+As equipes ou integrantes de grupo que não atenderem a esses critérios serão automaticamente removidos da equipe em {% data variables.product.prodname_dotcom %} e perderão o acesso aos repositórios. Revogar a identidade vinculada a um usuário também removerá o usuário de quaisquer equipes mapeadas com os grupos de IdP. Para obter mais informações consulte "[Visualizar e gerenciar o acesso de SAML de um integrante da sua organização](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" e "[Visualizar e gerenciar o acesso de SAML de um usuário à sua conta corporativa](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)".
 
 Um integrante removido da equipe pode ser adicionado de volta a uma equipe automaticamente após efetuar a autenticação na conta da organização ou na conta corporativa usando SSO e será movidos para o grupo de IdP conectado.
 
-Para evitar a remoção involuntária dos integrantes da equipe, recomendamos a aplicar SSO SAML na conta da organização ou da empresa. criar novas equipes para sincronizar dados da associação e verificar a associação de grupo de IdP antes de sincronizar as equipes existentes. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Para evitar a remoção involuntária dos integrantes da equipe, recomendamos a aplicar SSO SAML na conta da organização ou da empresa. criar novas equipes para sincronizar dados da associação e verificar a associação de grupo de IdP antes de sincronizar as equipes existentes. Para mais informações, consulte "[Aplicar logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)" e "[Habilitar o logon único SAML para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
-Se sua organização pertencer a uma conta corporativa, habilitar a sincronização de equipes para a conta corporativa irá substituir as configurações de sincronização de equipe no nível da organização. For more information, see "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+Se sua organização pertencer a uma conta corporativa, habilitar a sincronização de equipes para a conta corporativa irá substituir as configurações de sincronização de equipe no nível da organização. Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 ### Pré-requisitos
 
-Antes poder conectar uma equipe a um grupo de provedores de identidade, uma organização ou dono da empresa deve habilitar a sincronização de equipes para sua organização ou conta corporativa. For more information, see "[Managing team synchronization for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+Antes poder conectar uma equipe a um grupo de provedores de identidade, uma organização ou dono da empresa deve habilitar a sincronização de equipes para sua organização ou conta corporativa. Para mais informações, consulte "[Gerenciar a sincronização de equipes para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)" e "[Gerenciando a sincronização de equipes para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 Para evitar a remoção involuntária dos integrantes da equipe, visite o portal administrativo do seu IdP e confirme se cada integrante atual da equipe está também nos grupos de IdP aos quais você deseja conectar a esta equipe. Se você não tiver acesso ao provedor de identidade, entre em contato com o administrador do IdP.
 

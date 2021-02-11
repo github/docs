@@ -34,7 +34,7 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **Dica:** Se você estiver usando um editor de texto na linha de comando para digitar sua mensagem de commit, certifique-se de que existem duas novas linhas entre o final da sua descrição do commit e o indicador `on-behalf-of:`.
 
   {% endtip %}
 

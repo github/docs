@@ -19,7 +19,7 @@ versions:
 
 ![La página de ramas para el repositorio Atom](/assets/images/help/branches/branches-overview-atom.png)
 
-### Further reading
+### Leer más
 
 - "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository/)"
 - "[Eliminar ramas no utilizadas](/articles/deleting-unused-branches)"

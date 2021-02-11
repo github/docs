@@ -1,6 +1,6 @@
 ---
-title: Deleting files in a repository
-intro: 'You can delete an individual file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
+title: Borrar los archivos en un repositorio
+intro: 'Puedes borrar un archivo individual{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o un directorio completo{% endif %} en tu repositorio de {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -9,18 +9,18 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.
+permissions: Las personas con permisos de escritura pueden borrar los archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorios{% endif %} de un repositorio.
 ---
 
-### About file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} and directory{% endif %} deletion
+### Acerca del borrado de archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} y directorios{% endif %}
 
-You can delete an individual file in your repository{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory, including all the files in the directory{% endif %}.
+Puedes borrar un archivo individual en tu repositorio{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o un directorio completo, incluyendo los archivos de dicho directorio{% endif %}.
 
-If you try to delete a file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+Si borras un archivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorio{% endif %} en un repositorio en el que no tengas permisos de escritura, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar una solicitud de cambios al repositorio original después de que confirmas tu cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. Para obtener más información, consulta "[Eliminar datos confidenciales de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
+Si el archivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorio{% endif %} que borraste contiene datos sensibles, éstos aún estarán disponibles en el historial de Git del repositorio. Para eliminar el archivo por completo de {% data variables.product.product_name %}, debes eliminar el archivo del historial de tu repositorio. Para obtener más información, consulta "[Eliminar datos confidenciales de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 
-### Deleting a file
+### Borrar un archivo
 
 1. Dirígete al archivo que deseas eliminar de tu repositorio.
 2. En la parte superior del archivo, da clic en
@@ -31,11 +31,11 @@ If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_
 {% data reusables.files.propose_file_change %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Deleting a directory
+### Borrar un directorio
 
-1. Browse to the directory in your repository that you want to delete.
-1. In the top-right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete directory**. ![Button to delete a directory](/assets/images/help/repository/delete-directory-button.png)
-1. Review the files you will delete.
+1. Navega hasta el directorio que deseas borrar en tu repositorio.
+1. En la esquina superior derecha, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Borrar directorio**. ![Botón para borrar un directorio](/assets/images/help/repository/delete-directory-button.png)
+1. Revisa los archivos que borrarás.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

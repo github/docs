@@ -39,6 +39,8 @@ A ação `upload-sarif` pode ser configurada para ser executada quando ocorrem o
 
 Se o seu arquivo SARIF não incluir `partialFingerprints`, a ação `upload-sarif` calculará o campo `parcialFingerprints` para você e tentará evitar alertas duplicados. O {% data variables.product.prodname_dotcom %} só pode criar `partialFingerprints` quando o repositório contiver o arquivo SARIF e o código-fonte usado na análise estática. Para obter mais informações sobre a prevenção de alertas duplicados, consulte "[Sobre o suporte SARIF para a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)".
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 #### Exemplo de fluxo de trabalho para arquivos SARIF gerados fora de um repositório
 
 Você pode criar um novo fluxo de trabalho que faz o upload de arquivos SARIF após fazer o commit deles no seu repositório. Isso é útil quando o arquivo SARIF é gerado como um artefato fora do seu repositório.

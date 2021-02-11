@@ -33,3 +33,14 @@ versions:
   ![Ein Tag in der Historie anzeigen](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. Alle dem Commit zugeordneten Tags sind in den Metadaten dieses Commits sichtbar. ![Ein Tag im Commit anzeigen](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Deleting tags
+
+{% note %}
+
+**Note**: You can only delete tags associated with commits that have not yet been pushed.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}

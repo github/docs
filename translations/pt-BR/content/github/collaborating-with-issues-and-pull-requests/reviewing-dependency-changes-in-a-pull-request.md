@@ -36,7 +36,7 @@ A revisão de dependências é compatível com as mesmas linguagens e os mesmos 
 
    ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 

@@ -4,6 +4,8 @@ const { get, getDOM, head } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
+const builtAssets = require('../../lib/built-asset-urls')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -44,14 +46,15 @@ describe('server', () => {
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
     expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
     expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
+    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
-    expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
@@ -59,10 +62,10 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers', async () => {
+  test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('no-store, must-revalidate')
-    expect(res.headers['surrogate-control']).toBe('max-age=86400, stale-if-error=600, stale-while-revalidate=600')
+    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['surrogate-control']).toBe('private, no-store')
     expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
@@ -329,8 +332,8 @@ describe('server', () => {
     })
 
     test('admin articles that link to Enterprise user articles have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/configuring-email-for-notifications`)
-      expect($('article a[href*="about-email-notifications-for-pushes-to-your-repository"]').length).toBe(1)
+      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/customizing-user-messages-for-your-enterprise`)
+      expect($('article a[href*="about-writing-and-formatting-on-github"]').length).toBe(1)
     })
 
     test('articles that link to external links that contain /articles/ are not rewritten', async () => {
@@ -483,8 +486,9 @@ describe('server', () => {
 
 describe('URLs by language', () => {
   // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
-  test.skip('heading IDs and links on translated pages are in English', async () => {
+  test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/github/getting-started-with-github/verifying-your-email-address')
+    expect($.res.statusCode).toBe(200)
     expect($('h3[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
     expect($('h3 a[href="#further-reading"]').length).toBe(1)
@@ -694,7 +698,8 @@ describe('?json query param for context debugging', () => {
 
 describe('stylesheets', () => {
   it('compiles and sets the right content-type header', async () => {
-    const res = await get('/dist/index.css')
+    const stylesheetUrl = builtAssets.main.css
+    const res = await get(stylesheetUrl)
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('text/css; charset=UTF-8')
   })
@@ -703,7 +708,8 @@ describe('stylesheets', () => {
 describe('client-side JavaScript bundle', () => {
   let res
   beforeAll(async (done) => {
-    res = await get('/dist/index.js')
+    const scriptUrl = builtAssets.main.js
+    res = await get(scriptUrl)
     done()
   })
 

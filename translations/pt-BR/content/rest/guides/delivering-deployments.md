@@ -13,7 +13,7 @@ versions:
  
   
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combinado com [a API de Status][status API], você será capaz de coordenar suas implantações no momento em que seu código chegar ao branch-padrão.
+A [API de Implantações][deploy API] fornece seus projetos hospedados em {% data variables.product.product_name %} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você será capaz de coordenar suas implantações no momento em que seu código chegar ao branch-padrão.
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 

@@ -17,13 +17,13 @@ versions:
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Limits for published npm versions
+### Límites para las versiónes de npm publicadas
 
-If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+Si estableces más de 1,000 versiones de paquetes de npm en el {% data variables.product.prodname_registry %}, podrías notar que ocurren problemas de rendimiento y de tiempos excedidos durante el uso.
 
-To reduce the number of versions you have published for your npm package, consider deleting package versions. Para obtener más información, consulta "[Eliminar un paquete](/packages/manage-packages/deleting-a-package)".
+En el futuro, para mejorar el rendimiento del servicio, no podrás publicar más de 1,000 versiones de un paquete en {% data variables.product.prodname_dotcom %}. Cualquier versión que se publique antes de llegar a este límite aún será legible.
 
-In the future,  {% data variables.product.company_short %} will enforce a hard limit on publishing more than 1,000 versions of an npm package.  When we start enforcing the 1,000 versions limit for each npm package hosted on {% data variables.product.prodname_registry %}, we will offer more guidance on how to manage your package versions.
+Si llegas a este límite, considera borrar las versiones del paquete o contacta a soporte para recibir ayuda. Cuando se aplique este límite, actualizaremos nuestra documentación con una forma de dar soluciones para él. Para obtener más información, consulta la sección "[Borrar un paquete](/packages/manage-packages/deleting-a-package)" o "[Contactar a soporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
 
 {% endif %}
 
@@ -166,7 +166,7 @@ También debes agregar el archivo *.npmrc* a tu proyecto por lo que todas las so
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. Configura *package.json* en tu proyecto para usar el paquete que estás instalando. Para agregar las dependencias de tu paquete al archivo *package.json* para {% data variables.product.prodname_registry %}, especifica el nombre del paquete de alcance completo, como `@my-org/server`. Para paquetes de *npmjs.com*, especifica el nombre completo, como `@babel/core` o `@lodash`. Por ejemplo, el archivo *package.json* a continuación utiliza el paquete `@octo-org/octo-app` como una dependencia.
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",
@@ -210,11 +210,11 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 {% endif %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Using the official NPM registry
+### Utilizar el registro oficial de NPM
 
-{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+El {% data variables.product.prodname_registry %} te permite acceder al registro oficial de NPM en `registry.npmjs.com`, si tu administrador de {% data variables.product.prodname_ghe_server %} habilitó esta característica. Para obtener más información, consulta la sección [Conectarse al registro oficial de NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

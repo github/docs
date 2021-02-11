@@ -257,7 +257,7 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 **Aviso:** O Powershell não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -272,11 +272,19 @@ Cria ou atualiza uma variável de ambiente para quaisquer ações a serem execut
 
 #### Exemplo
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
-
-Executar `$action_state` em uma etapa futura agora retornará `amarelo`
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
 #### Strings de linha múltipla
 
@@ -291,7 +299,7 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 ##### Exemplo
 
 Neste exemplo, usamos `EOF` como um delimitador e definimos a variável de ambiente `JSON_RESPONSE` como o valor da resposta de curl.
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one

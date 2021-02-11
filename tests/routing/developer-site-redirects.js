@@ -120,7 +120,7 @@ describe('developer redirects', () => {
           newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location).toBe(newPath)
+          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
         }
       )
     })
@@ -136,7 +136,7 @@ describe('developer redirects', () => {
           newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location).toBe(newPath)
+          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
         }
       )
     })

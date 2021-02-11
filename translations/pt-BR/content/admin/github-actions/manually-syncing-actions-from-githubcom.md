@@ -63,7 +63,7 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
      * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
 1. Depois que o repositório de ação é criada na instância corporativa, as pessoas da sua empresa podem usar o repositório de destino para fazer referência à ação nos fluxos de trabalho. Para o exemplo da ação mostrado acima:
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

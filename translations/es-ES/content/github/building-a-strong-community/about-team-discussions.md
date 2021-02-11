@@ -37,7 +37,7 @@ Para apagar las notificaciones para los debates del equipo, puedes cancelar la s
 
 Para obtener más información, consulta las secciones{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Suscribirte y desuscribirte de las notificaciones](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las conversaciones en {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
 - [Acerca de los equipos](/articles/about-teams)"

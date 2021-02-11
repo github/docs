@@ -213,7 +213,7 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 #### Limites de taxa para o fluxo do dispositivo
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+Quando um usuário envia o código de verificação no navegador, há um limite de taxa de 50 envios por hora por aplicativo.
 
 Se você fizer mais de uma solicitação de token de acesso (`POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`) no período mínimo necessário entre solicitações (ou `intervalo`), você atingirá o limite de taxa e receberá uma resposta de erro `slow_down`. A resposta de erro `slow_down`adiciona 5 segundos ao último `intervalo`. Para obter mais informações, consulte [Erros para o fluxo do dispositivo](#errors-for-the-device-flow).
 

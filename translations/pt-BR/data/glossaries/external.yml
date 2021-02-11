@@ -35,7 +35,7 @@
 - 
   term: bio
   description: >-
-    Descrição gerada pelo usuário em um perfil: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    A descrição gerada pelo usuário em um perfil: [Adicionando uma biografia ao seu perfil](/articles/adding-a-bio-to-your-profile)
 - 
   term: ciclo de cobrança
   description: Intervalo de tempo do seu plano de cobrança.
@@ -123,7 +123,7 @@
 - 
   term: commit
   description: >-
-    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
+    Commit, ou "revisão", é uma alteração individual em um arquivo (ou conjunto de arquivos). Quando você faz um commit para salvar seu trabalho, o Git cria um ID exclusivo (também conhecido como "SHA" ou "hash") que permite que você mantenha um registro das alterações, dos autores e de quando as alterações foram feitas. Em geral, os commits têm uma mensagem que mostra uma breve descrição das alterações.
 - 
   term: autor do commit
   description: Usuário que fez o commit.
@@ -137,7 +137,7 @@
 - 
   term: mensagem do commit
   description: >-
-    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
+    Texto breve e descritivo que acompanha um commit e comunica a alteração que o commit apresenta.
 - 
   term: comparar branches
   description: >-
@@ -156,7 +156,7 @@
 - 
   term: contribuições
   description: >-
-    Atividades específicas no GitHub que: - Adicionarão um quadrado ao gráfico de contribuição de um usuário: "[O que conta como contribuição](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Adicionarão atividades à linha do tempo de um usuário no perfil: "[Atividade de contribuição](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Atividades específicas no GitHub que irão: - Adicionar um quadrado ao gráfico de contribuição de um usuário: "[O que conta como uma contribuição](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Adicionar atividades à linha do tempo de um usuário em seu perfil: "[Atividade de contribuição](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: contribuidor
   description: >-
@@ -229,7 +229,7 @@
     Branch usado para testar novos recursos ou corrigir problemas que não estejam em produção. Também é conhecido como branch de tópico.
 - 
   term: bloco de código isolado
-  description: 'Bloco de código com recuo que você pode criar com markdown em estilo GitHub usando barra inversa tripla \`\`\ antes e depois do bloco de código. Consulte este [example] (https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'Um bloco de código recuado que você pode criar com Markdown em estilo GitHub usando barras inversas triplas \`\`\` antes e depois do bloco de código. Veja este [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: fetch
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% if currentVersion == "github-ae@latest" %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
 - 
   term: Git
   description: >-
@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    Branch de desenvolvimento padrão. Sempre que um repositório do Git é criado, um branch "principal" também é criado e passa a ser o branch ativo. Contém o desenvolvimento local na maioria dos casos, embora isso ocorra meramente por convenção e não seja obrigatório.
 - 
   term: mestre
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: notificação
   description: >-
-    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
+    Atualizações, entregues pela web ou e-mail dependendo de suas configurações, que dão a você informações sobre as atividades em que você tem interesse.
 - 
   term: aplicativo OAuth
   description: >-

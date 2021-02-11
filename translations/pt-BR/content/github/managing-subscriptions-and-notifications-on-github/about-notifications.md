@@ -54,7 +54,7 @@ Para cancelar a inscrição de conversas que você se inscreveu automaticamente,
 
 ### Personalizando notificações e assinaturas
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+Você pode optar por visualizar as notificações por meio da caixa de entrada [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} e no aplicativo de {% data variables.product.prodname_mobile %}{% endif %}, por meio do seu e-mail ou alguma combinação dessas opções.
 
 Para personalizar os tipos de atualizações que você gostaria de receber e para onde enviar essas atualizações, configure suas configurações de notificação. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
@@ -93,7 +93,7 @@ Em sua caixa de entrada, você também pode fazer triagem de várias notificaç�
 
 ### Personalizando sua caixa de entrada de notificações
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Por exemplo, você pode criar um filtro personalizado para um projeto de código aberto para o qual contribui e somente visualizar notificações para esse repositório em que você é mencionado. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para mais exemplos de como personalizar a triagem de seu fluxo de trabalho, consulte "[Personalizando um fluxo de trabalho para triagem de suas notificações.](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)
+Para se concentrar em um grupo de notificações na sua caixa de entrada em {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} ou {% data variables.product.prodname_mobile %}{% endif %}, você pode criar filtros personalizados. Por exemplo, você pode criar um filtro personalizado para um projeto de código aberto para o qual contribui e somente visualizar notificações para esse repositório em que você é mencionado. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para mais exemplos de como personalizar a triagem de seu fluxo de trabalho, consulte "[Personalizando um fluxo de trabalho para triagem de suas notificações.](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)
 
 ### Política de retenção de notificações
 
