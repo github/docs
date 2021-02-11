@@ -38,7 +38,7 @@ If you select **Request user authorization (OAuth) during installation** when cr
 
 #### 1. Request a user's GitHub identity
 
-    GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
+    GET {% data variables.product.oauth_host_code %}/login/
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
