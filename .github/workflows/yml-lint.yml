@@ -5,7 +5,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
   pull_request:
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
 
 jobs:
   lint:
