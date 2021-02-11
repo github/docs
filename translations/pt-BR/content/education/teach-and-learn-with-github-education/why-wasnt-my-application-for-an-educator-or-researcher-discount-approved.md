@@ -42,4 +42,4 @@ Educadores e pesquisadores não estão qualificados para as ofertas de parceiros
 
 ### Leia mais
 
-- "[Apply for an educator or researcher discount](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Solicite desconto para educador ou pesquisador](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)"

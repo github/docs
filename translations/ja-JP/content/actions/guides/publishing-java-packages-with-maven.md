@@ -7,10 +7,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - パッケージ化
+  - Publishing
+  - Java
+  - Maven
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -41,12 +47,12 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればMaven Central Repositoryにパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{% data variables.product.prodname_registry %}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリが酢デイあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{% data variables.product.prodname_registry %}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリがすでにあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
 
 たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、_pom.xml_ は`ossrh`の`id`で配布管理リポジトリを指定できます。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,7 +72,7 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -112,7 +118,7 @@ Mavenベースのプロジェクトでは、{% data variables.product.prodname_r
 たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_pom.xml_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -129,7 +135,7 @@ Mavenベースのプロジェクトでは、{% data variables.product.prodname_r
 この設定で、自動的に生成された_settings.xml_を利用して{% data variables.product.prodname_registry %}にパッケージを公開するワークフローを作成できます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -164,7 +170,7 @@ jobs:
 _pom.xml_ファイルに、{% data variables.product.prodname_dotcom %}リポジトリとMaven Central Repositoryプロバイダの双方に対する配布管理リポジトリを確実に含めてください。 たとえば、OSSRHホスティングプロジェクトを通じてCentral Repositoryへデプロイするなら、それを`id`を`ossrh`に設定して配布管理リポジトリ内で指定し、`id`を`github`に設定して配布管理リポジトリ内で{% data variables.product.prodname_registry %}を指定することになるかもしれません。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:

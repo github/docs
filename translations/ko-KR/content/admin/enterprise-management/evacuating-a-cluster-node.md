@@ -25,9 +25,11 @@ If you're taking a node offline that has any data services (like git, pages, or 
     ghe-spokes evac-status
     ```
     For {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     For storage
     ```
     ghe-storage evacuation-status
@@ -36,18 +38,26 @@ If you're taking a node offline that has any data services (like git, pages, or 
 3. After the copying is complete, you can evacuate the storage service. Run any of the following commands:
 
     For Git
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     For {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     For storage, take the node offline
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       then evacuate
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

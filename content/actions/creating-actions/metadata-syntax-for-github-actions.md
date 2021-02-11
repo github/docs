@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -104,12 +105,12 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -159,7 +160,7 @@ runs:
 #### `pre-if`
 
 **Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
-Note that the `step` context is unavailable, as no steps have run yet. 
+Note that the `step` context is unavailable, as no steps have run yet.
 
 In this example, `cleanup.js` only runs on Linux-based runners:
 
@@ -209,20 +210,23 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 ##### `runs.steps[*].run`
 
 **Required** The command you want to run. This can be inline or a script in your action repository:
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -251,12 +255,12 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 ### `runs` for Docker actions
 
-**Required** Configures the image used for the Docker action. 
+**Required** Configures the image used for the Docker action.
 
 #### Example using a Dockerfile in your repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -264,7 +268,7 @@ runs:
 #### Example using public Docker registry container
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```

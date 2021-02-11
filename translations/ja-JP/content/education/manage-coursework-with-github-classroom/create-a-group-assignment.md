@@ -1,94 +1,94 @@
 ---
-title: Create a group assignment
-intro: 'You can create a collaborative assignment for teams of students who participate in your course.'
+title: グループ課題の作成
+intro: 'コースに参加している学生のチームのために、共同課題を作成できます。'
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
 ---
 
-### About group assignments
+### グループ課題について
 
-{% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
+{% data reusables.classroom.assignments-group-definition %}学生は、プロフェッショナルな開発者チームと同じように、共有リポジトリでグループ課題に協力して取り組むことができます。
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+グループ課題を受け入れた学生は、新しいTeamを作成するか、既存のTeamに参加できます。 {% data variables.product.prodname_classroom %}は、課題のためのTeamをセットとして保存します。 課題を作成する際、特定の課題に対するTeamのセットに名前を付けることができます。また、後の課題でTeamのセットを再利用できます。
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. 詳細は「[Team について](/github/setting-up-and-managing-organizations-and-teams/about-teams)」を参照してください。
+1つの課題に取り組むチームの数と、各Teamのメンバーの数を決めることができます。 学生が課題ために作成する各グループは、{% data variables.product.product_name %}のOrganization内のTeamです。 Teamの可視性はシークレットとなります。 {% data variables.product.product_name %}上で作成したTeamは、{% data variables.product.prodname_classroom %}では表示されません。 詳細は「[Team について](/github/setting-up-and-managing-organizations-and-teams/about-teams)」を参照してください。
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+グループ課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 
 ### 必要な環境
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-### Creating an assignment
+### 課題を作成する
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-### Setting up the basics for an assignment
+### 課題の基本情報をセットアップする
 
-Name your assignment, decide whether to assign a deadline, define teams, and choose the visibility of assignment repositories.
+課題に名前を付け、期限を設定するか、Teamを定義するかを決定し、課題リポジトリの可視性を選択します。
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Defining teams for an assignment](#defining-teams-for-an-assignment)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [課題に名前を付ける](#naming-an-assignment)
+- [課題に期限を設定する](#assigning-a-deadline-for-an-assignment)
+- [課題のタイプを選択する](#choosing-an-assignment-type)
+- [課題のTeamを定義する](#defining-teams-for-an-assignment)
+- [課題リポジトリの可視性を選択する](#choosing-a-visibility-for-assignment-repositories)
 
-#### Naming an assignment
+#### 課題に名前を付ける
 
-For a group assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the name of the team. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the team's name on {% data variables.product.product_name %} is "student-team", the name of the assignment repository for members of the team will be `assignment-1-student-team`.
+グループ課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスとTeamの名前から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に「assignment-1」と名付け、{% data variables.product.product_name %}のチーム名が「student-team」である場合、そのTeamのメンバーの課題リポジトリ名は「`assignment-1-student-team`」となります。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-#### Assigning a deadline for an assignment
+#### 課題に期限を設定する
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-#### Choosing an assignment type
+#### 課題のタイプを選択する
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Group assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 個人課題を作成する場合は、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」を参照してください。
 
-#### Defining teams for an assignment
+#### 課題のTeamを定義する
 
-If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
+すでにクラスルームに対してグループ課題を作成している場合は、新しい課題にTeamのセットを再利用できます。 学生が課題用に作成したTeamで新しいセットを作成するには、そのセットの名前を入力します。 必要に応じて、Teamメンバーと合計チーム数の上限を入力してください。
 
 {% tip %}
 
 **ヒント**:
 
-- We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+- セットの名前には、Teamのセットについの情報を含めることをお勧めします。 たとえば、1つの課題用にTeamのセットを使う場合は、その課題にちなんだ名前を付けます。 学期またはコースを通じてセットを再利用する場合は、学期またはコースにちなんだ名前を付けます。
 
-- If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
+- 特定のTeamに学生を割り当てる場合は、学生にTeamの名前を伝え、メンバーのリストを提供します。
 
 {% endtip %}
 
 ![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
 
-#### Choosing a visibility for assignment repositories
+#### 課題リポジトリの可視性を選択する
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-### Adding starter code and configuring a development environment
+### スターターコードを追加し、開発環境を構成する
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an online integrated development environment (IDE)](#choosing-an-online-integrated-development-environment-ide)
+- [テンプレートリポジトリを作成する](#choosing-a-template-repository)
+- [オンライン統合開発環境 (IDE) を選択する](#choosing-an-online-integrated-development-environment-ide)
 
-#### Choosing a template repository
+#### テンプレートリポジトリを作成する
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} For more information about template repositories, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
+デフォルトでは、新しい課題では学生が作成した各Teamに対し、空のリポジトリが作成されます。 {% data reusables.classroom.you-can-choose-a-template-repository %}テンプレートリポジトリに関する詳しい情報については、「[テンプレートリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)」を参照してください。
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-#### Choosing an online integrated development environment (IDE)
+#### オンライン統合開発環境 (IDE) を選択する
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
@@ -140,6 +140,6 @@ You can see the teams that are working on or have submitted an assignment in the
 
 ### 参考リンク
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community

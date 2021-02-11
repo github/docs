@@ -1,0 +1,763 @@
+---
+- 
+  term: '@mención'
+  description: para notificar a una persona en GitHub usando "@" antes de su nombre de usuario. Los usuarios en una organización en GitHub también pueden ser parte de un equipo que puede ser mencionado.
+- 
+  term: token de acceso
+  description: >-
+    Un token que se usa en lugar de una contraseña cuando se realizan operaciones Git a través de HTTPS con Git en la línea de comandos o la API. También denominado un token de acceso personal.
+- 
+  term: token de recuperación de cuenta
+  description: >-
+    La credencial de autenticación almacenada como parte de la configuración de recuperación de una cuenta denominada Recuperar cuentas en otro lugar que te permite almacenar esta credencial de respaldo.
+- 
+  term: Vista previa de API
+  description: >-
+    Una manera de probar nuevas API y cambiar a métodos API existentes antes de que se vuelvan parte de la API de GitHub oficial.
+- 
+  term: aplicativo
+  description: >-
+    Una aplicación de software combinada con Sólo lo Necesario de un Sistema Operativo (JeOS) para funcionar de manera óptima en el hardware estándar de la industria (generalmente, un servidor) o en una máquina virtual.
+- 
+  term: asignatario
+  description: El usuario que es asignado a una propuesta.
+- 
+  term: código de autenticación
+  description: >-
+    Un código que suministrarás, además de tu contraseña GitHub, cuando inicias sesión con 2FA a través del buscador. Este código se genera ya sea mediante una aplicación o se envía a tu teléfono mediante un mensaje de texto. También denominado "Código de autenticación 2FA".
+- 
+  term: rama base
+  description: La rama en la que los cambios se combinan cuando fusionas una solicitud de extracción. Cuando creas una solicitud de extracción, puedes cambiar la rama base desde la rama predeterminada del repositorio a otra rama si lo requieres.
+- 
+  term: autenticación básica
+  description: >-
+    Un método de autenticación en donde las credenciales se envían como texto sin cifrar.
+- 
+  term: biografía
+  description: >-
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
+- 
+  term: ciclo de facturación
+  description: El intervalo de tiempo para tu plan de facturación específico.
+- 
+  term: correo electrónico de facturación
+  description: >-
+    La dirección de correo electrónico de la organización donde GitHub envía los recibos, los cargos de tarjeta de crédito o PayPal y otras comunicaciones relacionadas a la facturación.
+- 
+  term: gerente de facturación
+  description: El miembro de la oranización que administra los parámetros de facturación para una organización.
+- 
+  term: plan de facturación
+  description: >-
+    Los planes de pago para usuarios y organizaciones que incluyen características establecidas para cada tipo de plan.
+- 
+  term: último responsable
+  description: >-
+    La función "último responsable" en Git describe las últimas modificaciones para cada línea e un archivo, que generalmente muestra la revisión, el autor y la hora. Esto es útil, por ejemplo, para detectar cuándo se agregó una función o qué confirmación de cambios llevó a un error en particular.
+- 
+  term: bloquear
+  description: >-
+    Eliminar la posibilidad de un usuario de colaborar con los repositorios de una organización.
+- 
+  term: rama
+  description: >-
+    Una rama es una versión paralela de un repositorio. El repositorio la contiene, pero no afecta la rama primaria o principal, lo que te permite trabajar libremente sin interrumpir la versión "activa". Una vez que haz hecho las modificaciones que deseabas, puedes fusionar tu rama de nuevo en la rama principal para publicar tus modificaciones.
+- 
+  term: restricción de rama
+  description: >-
+    Una restricción que los administradores de repositorio pueden activar para que solo ciertos usuarios o equipos puedan subir o hacer ciertas modificaciones en la rama.
+- 
+  term: Plane de negocios
+  description: >-
+    Un plan de facturación de la organización donde puedes colaborar en repositorios públicos y privados ilimitados, permitir o solicitar a los miembros de la organización autenticar GitHub usando SSO de SAML y aprovisionar y desaprovisionar acceso con SAML o SCIM.
+- 
+  term: Certificado CA
+  description: >-
+    Un certificado digital emitido por una entidad de certificación (CA) que garantiza que hay conexiones válidas entre dos máquinas, como el equipo de un usuario y GitHub.com y que verifica la titularidad de un sitio.
+- 
+  term: tarjeta
+  description: Un cuadrado móvil dentro del tablero de proyecto asociado con una propuesta o una solicitud de extracción.
+- 
+  term: Verificación
+  description: >-
+    Una revisión es un tipo de revisión de estado en {% data variables.product.product_name %}. Ver "[Revisiones de estado](#status-checks)."
+- 
+  term: control
+  description: >-
+    Puedes usar el "control Git" en la línea de comandos para crear una nueva rama, modificar tu rama de trabajo actual a una rama diferente o incluso cambiar a una versión diferente de un archivo desde una rama diferente con "control git [branchname] [path to file]". La acción "control" actualiza todo a parte del árbol de trabajo con un objeto de árbol o blob desde la base de datos de objetos y actualiza el índice y HEAD si todo el árbol de trabajo apunta a una rama nueva.
+- 
+  term: selección minusciosa
+  description: >-
+    Para elegir un subconjunto de modificaciones de una serie de modificaciones (generalmente, confirmaciones de cambios) y registrarlas como una nueva serie de modificaciones además de un código base diferente. En Git, esto lo realiza el comando "cherry-pick Git" para extraer el cambio introducido por una confirmación de cambios en otra rama y para registrarlo en función de la sugerencia de la rama actual como una confirmación de cambios nueva.
+- 
+  term: equipo hijo
+  description: >-
+    Dentro de los equipos anidados, el subequipo que hereda los permisos de acceso y las @menciones del equipo padre.
+- 
+  term: limpio
+  description: >-
+    Un árbol de trabajo está limpio si corresponde a la revisión referenciada en el HEAD actual. Consulta también "sucio".
+- 
+  term: clon
+  description: >-
+    Un clon es una copia de un repositorio que vive en tu equipo en vez de en algún lugar del servidor del sitio web o el acto de realizar dicha copia. Cuando haces un clon, puedes editar los archivos en tu editor preferido y usar Git para hacer un seguimiento de tus modificaciones sin tener que estar en línea. El repositorio que clonas sigue conectado a la versión remota para que puedas subir tus modificaciones locales al remoto para mantenerlos sincronizados cuando estás en línea.
+- 
+  term: agrupar
+  description: >-
+    La posibilidad de ejecutar los servicios GitHub Enterprise en varios nodos y equilibrar la carga de las solicitudes entre ellos.
+- 
+  term: Gráfico de frecuencia de código
+  description: >-
+    Un gráfico del repositorio que muestra las adiciones y las eliminaciones de contenido para cada semana en el historial de un repositorio.
+- 
+  term: código de conducta
+  description: Documento que define las normas para participar en una comunidad.
+- 
+  term: propietario del código
+  description: >-
+    Persona designada como propietario de una parte del código del repositorio. Se le solicita automáticamente al propietario del código que realice una revisión cuando alguien abre una solicitud de extracción (no en el modo borrador) que introduce cambios en el código que posee el propietario.
+- 
+  term: colaborador
+  description: >-
+    Un colaborador es una persona con acceso de escritura a un repositorio que ha sido invitada a contribuir a dicho repositorio por su propietario.
+- 
+  term: confirmación
+  description: >-
+    Una confirmación de cambios o "revisión", es una modificación individual a un archivo (o conjunto de archivos). Cuando realizas una confirmación de cambios para guardar tu trabajo, Git crea un ID único (también conocido como, "SHA" o "hash") que te permite mantener un registro de los cambios específicos confirmados junto con quién los realizó y cuándo. Las confirmaciones de cambios generalmente contienen un mensaje de confirmación que es una descripción breve de las modificaciones que fueron realizadas.
+- 
+  term: autor de la confirmación
+  description: El usuario que realiza la confirmación de cambios.
+- 
+  term: Gráfico de confirmación
+  description: >-
+    Un gráfico del repositorio que muestra todas las confirmaciones de cambios realizadas a un repositorio durante en el último año.
+- 
+  term: ID de confirmación
+  description: También conocido como SHA. Un hash de suma de comprobación de 40 caracteres que identifica la confirmación de cambios.
+- 
+  term: mensaje de confirmación
+  description: >-
+    Texto corto y descriptivo que acompaña una confirmación de cambios y comunica el cambio que presenta la confirmación de cambios.
+- 
+  term: rama de comparación
+  description: >-
+    La rama que utilizas para crear una solicitud de extracción. Esta rama se compara con la rama base que escojas para la solicitud de extracción, y los cambios se identifican. Cuando la solicitud de extracción se fusiona, esta rama se actualiza con los cambios de la rama de comparación, también conocida como la "rama principal" de la solicitud de extracción.
+- 
+  term: integración continua
+  description: >-
+    También conocida como CI. Un proceso que ejecuta pruebas y compilaciones automatizadas una vez que una persona confirma los cambios para un repositorio configurado en GitHub. La CI es una buena práctica común en el desarrollo de software que ayuda a detectar errores.
+- 
+  term: gráfico de contribución
+  description: >-
+    La parte del perfil de un usuario que muestra sus contribuciones en un período de hasta un año, día a día.
+- 
+  term: pautas de contribución
+  description: Un documento que explica cómo las persona deberían contribuir con tu proyecto.
+- 
+  term: contribuciones
+  description: >-
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+- 
+  term: contribuyente
+  description: >-
+    Un colaborador es alguien que no tiene acceso de colaborador a un repositorio, pero ha contribuido en un proyecto y tenía una solicitud de extracción que había abierto fusionada en el repositorio.
+- 
+  term: Gráfico de contribuyentes
+  description: Un gráfico del repositorio que muestra los principales 100 colaboradores de un repositorio.
+- 
+  term: cupón
+  description: >-
+    Un código proporcionado por GitHub que los usuarios o las organizaciones pueden usar para pagar el total o parte de su suscripción.
+- 
+  term: cron
+  description: Un programador de trabajo con límite de tiempo en los sistemas operativos de los equipos tipo Unix.
+- 
+  term: cURL
+  description: Se usa en las líneas de comandos o scripts para transferir datos.
+- 
+  term: Tablero
+  description: >-
+    Tu tablero personal es el concentrador principal para tu actividad en GitHub. Desde éste, puedes llevar el control de incidentes y solicitudes de extracción en los que estás trabajando o a los que estás siguiendo, navegar a tus repositorios y páginas de equipo principales, y aprender sobre la actividad reciente en los repositorios que estás observando o en los que estás participando. También puedes descubrir nuevos repositorios, los cuales se recomiendan con base en los usuarios que sigues y en los repositorios que has marcado con una estrella. Para ver únicamente la actividad de una organización específica, visita tu tablero de organización. Para obtener más información, consulta la sección "[Acerca de tu tablero profesional](/articles/about-your-personal-dashboard)" o "[Acerca de tu tablero de organización](/articles/about-your-organization-dashboard)."
+- 
+  term: rama predeterminada
+  description: >-
+    La rama base para las solicitudes de cambios nuevas y las confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. Habitualmente, la primera rama se llama `main`, y a menudo es la predeterminada.
+- 
+  term: Gráfico de dependencias
+  description: >-
+    Un gráfico del repositorio que muestra los paquetes, los proyectos y los repositorios que dependen de un repositorio público.
+- 
+  term: Gráfico de dependencias
+  description: >-
+    Un gráfico del repositorio que muestra los paquetes y los proyectos de los que depende el respositorio.
+- 
+  term: clave de despliegue
+  description: >-
+    Una clave de implementación es una clave SSH que se almacena en tu servidor y concede acceso a un único repositorio GitHub. Esta clave se adjunta directamente al repositorio en lugar de a una cuenta de usuario personal.
+- 
+  term: HEAD separado
+  description: >-
+    Git te advertirá si estás trabajando en un HEAD separado, lo que significa que Git no apunta a una rama y que cualquier confirmación de cambios que realices, no aparecerá en el historial de confirmaciones de cambios. Por ejemplo, cuando revisas una confirmación de cambios arbitraria que no es la última confirmación de cualquier rama en particular, estás trabajando en un "HEAD separado".
+- 
+  term: diagnóstico
+  description: Una descripción de los parámetros y el entorno de una instancia de GitHub Enterprise.
+- 
+  term: diferencia
+  description: >-
+    Una diferencia es la diferencia en cambios entre dos confirmaciones de cambios o los cambios guardados. La diferencia describirá visualmente lo que se agregó o se eliminó de un archivo desde su última confirmación de cambios.
+- 
+  term: sucio
+  description: >-
+    Un árbol de trabajo se considera "sucio" si contiene modificaciones que no han sido confirmadas en la rama actual.
+- 
+  term: notificaciones por correo electrónico
+  description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
+- 
+  term: Cuenta empresarial
+  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+- 
+  term: Explorer
+  description: >-
+    Una instancia de GraphiQL, que es una "IDE GraphQL en el explorador interactiva gráfica".
+- 
+  term: avance rápido
+  description: >-
+    Un avance rápido es un tipo especial de fusión donde tienes una revisión y se "fusionan" los cambios de otra rama que resulta ser un descendiente de lo que tienes. En este caso, no realizas una confirmación de cambios de fusión nueva, si no que, en cambio, solo actualizas esta revisión. Esto sucederá con frecuencia en una rama de seguimiento remoto de un repositorio remoto.
+- 
+  term: rama de característica
+  description: >-
+    Una rama usada para experimentar con una nueva función o corregir una propuesta que no está en producción. También llamada rama de tema.
+- 
+  term: bloque de código cercado
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+- 
+  term: recuperar
+  description: >-
+    Cuando usas `git fetch`, estás agregando cambios desde el repositorio remoto a tu rama de trabajo local sin confirmarlos. A diferencia de `git pull`, la recuperación te permite revisar los cambios antes de confirmarlos en tu rama local.
+- 
+  term: siguiendo (usuarios)
+  description: Obtener notificaciones acerca de la actividad y las contribuciones de otros usuarios.
+- 
+  term: subida forzada
+  description: >-
+    Un empuje Git que sobreescribe el repositorio remoto con los cambios locales sin tener en cuenta los conflictos.
+- 
+  term: bifurcación
+  description: >-
+    Una bifurcación es una copia personal del repositorio de otro usuario que vive en tu cuenta. Las bifurcaciones te permiten realizar cambios libremente en un proyecto sin afectar el repositorio ascendente original. También puedes abrir una solicitud de extracción en el repositorio ascendente y mantener tu bifurcación sincronizada con los últimos cambios ya que ambos repositorios aún están conectados.
+- 
+  term: Plan gratuito
+  description: >-
+    El plan de facturación de la cuenta de un usuario que es gratuito. Los usuarios pueden colaborar en repositorios públicos ilimitados con colaboradores ilimitados.
+- 
+  term: Gist
+  description: >-
+    Un gist es un archivo que se puede compartir y que editas, clonas y bifurcas en GitHub. Puedes hacer que un gist sea {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o secreto, aunque los gists secretos estarán disponibles para {% if currentVersion == "github-ae@latest" %}cualquier miembro de la empresa{% else %}cualquiera{% endif %} que tenga la URL.
+- 
+  term: Git
+  description: >-
+    Git es un programa de código abierto para hacer un seguimiento de los cambios en los archivos de texto. Fue escrito por el autor del sistema operativo Linux y es la tecnología principal sobre la cual está contruida GitHub, la interfaz social y de usuario.
+- 
+  term: GitHub App
+  description: >-
+    Las Apps GitHub ofrecen un servicio a toda una organización y usan su propia identidad cuando desempeñan su función. Pueden ser instaladas directamente en las cuentas de usuario y de las organizaciones y pueden garantizar acceso a repositorios específicos. Vienen con permisos exhaustivos y webhooks integrados.
+- 
+  term: Lenguaje de Marcado Enriquecido de GitHub
+  description: Markdown específico de GitHub usado para dar formato a la prosa y al código en GitHub. Consulta [Formato Markdown específico de GitHub](https://github.github.com/gfm/) o [Introducción a la escritura y el formato en GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- 
+  term: Importador GitHub
+  description: >-
+    Una herramienta que importa de forma rápida repositorios de código fuente, incluido el historial de revisiones y confirmaciones de cambios, a GitHub para los usuarios.
+- 
+  term: Empleos GitHub
+  description: >-
+    Un sitio de GitHub donde los empleadores pueden publicar empleos en los que los usuarios de GitHub pueden estar interesados.
+- 
+  term: GitHub Marketplace
+  description: >-
+    Un subsitio para que los usuarios y las organizaciones de GitHub compren e instalen aplicaciones que extiendan y complementen su flujo de trabajo.
+- 
+  term: Páginas de GitHub
+  description: >-
+    También se las conoce como Páginas. Un servicio de alojamiento del sitio estático diseñado para alojar tus páginas del proyecto, de la organización o personales directamente desde un repositorio de GitHub.
+- 
+  term: Wiki de GitHub
+  description: Una sección para alojar documentación de estilo wiki en un repositorio de GitHub.
+- 
+  term: archivo git
+  description: >-
+    Un archivo `.git` simple, que siempre está en la raíz de un árbol de trabajo y apunta al directorio de Git, que tiene el repositorio completo de Git y sus meta datos. Puedes ver este archivo para tu repositorio en la línea de comandos con `git rev-parse --git-dir`. que es el repositorio real.
+- 
+  term: GraphQL
+  description: >-
+    Un lenguaje de consulta para las API y un tiempo de ejecución para cumplir con esas consultas con tus datos existentes.
+- 
+  term: HEAD
+  description: Una confirmación definida de una rama, a menudo la confirmación más reciente en la punta de la rama.
+- 
+  term: rama principal
+  description: La rama cuyos cambios se combinaron en la rama base cuando fusionas una solicitud de extracción. También conocida como la "rama de comparación".
+- 
+  term: 'Hello, World'
+  description: >-
+    Un programa "Hola, Mundo" es un programa que genera o muestra "Hola, Mundo" para un usuario. Como este programa generalmente es muy simple, se suele usar como un ejemplo de una sintaxis básica de lenguaje de programación y sirve como un primer ejercicio común para aprender un lenguaje de programación nuevo.
+- 
+  term: alta disponibilidad
+  description: >-
+    Un sistema o componente que está continuamente operativo por un conveniente largo período de tiempo.
+- 
+  term: gancho
+  description: >-
+    Durante la ejecución normal de varios comandos Git, se realizan llamadas a scripts opcionales que le permiten a un programador agregar funcionalidad o comprobación. Generalmente, los ganchos permiten que un comando sea preverificado y potencialmente interrumpido y permite una notificación posterior una vez realizada la operación.
+- 
+  term: nombre del host
+  description: >-
+    Sobrenombres en lenguaje natural que corresponden a la dirección de un dispositivo conectado a una red.
+- 
+  term: identicon
+  description: >-
+    Una imagen autogenerada usada como foto de perfil predeterminada cuando el usuario inicia sesión en GitHub. Los usuarios pueden reemplazar su identicon con su propia foto de perfil.
+- 
+  term: proveedor de identidad
+  description: >-
+    También conocido como IdP. Un proveedor de confianza que te permite usar el inicio de sesión único (SSO) de SAML para acceder a otros sitios web.
+- 
+  term: instancia
+  description: >-
+    La copia privada de GitHub de una organización contenida dentro de una máquina virtual que ellos configuran y controlan.
+- 
+  term: integración
+  description: >-
+    Una aplicación de terceros que se integra con GitHub. Estas pueden ser Apps GitHub, Apps OAuth o webhooks.
+- 
+  term: propuesta
+  description: >-
+    Las propuestas son preguntas, tareas o mejoras sugeridas relacionadas al repositorio. Las propuestas pueden ser creadas por cualquiera (para repositorios públicos) y son moderadas por los colaboradores del repositorio. Cada propuesta contiene su propio hilo de debate. También puedes categorizar una propuesta con etiquetas y asignársela a alguien.
+- 
+  term: Jekyll
+  description: Un generador de sitio estático para sitios de una organización, de un proyecto o personales.
+- 
+  term: selector de tema de Jekyll
+  description: >-
+    Una manera automatizada de seleccionar un tema visual para tu sitio Jekyll sin editar ni copiar archivos CSS.
+- 
+  term: clave de huella digital
+  description: Una secuencia corta de bytes usados para identificar una clave pública más larga.
+- 
+  term: keychain
+  description: Un sistema de administración de contraseñas en macOS.
+- 
+  term: palabra clave
+  description: Una palabra específica que cierra una propuesta cuando se usa dentro de una solicitud de extracción.
+- 
+  term: etiqueta
+  description: >-
+    Una etiqueta en una propuesta o solicitud de extracción. Los repositorios vienen con una serie de etiquetas predeterminadas, pero los usuarios pueden crear etiquetas personalizadas.
+- 
+  term: LFS
+  description: >-
+    Large File Storage de Git. Una extensión de Git de código abierto para controlar las versiones de archivos de gran tamaño.
+- 
+  term: licencia
+  description: >-
+    Un documento que puedes incluir con tu proyecto para hacerle saber a las personas qué pueden y qué no pueden hacer con tu código fuente.
+- 
+  term: Lingüista
+  description: >-
+    Una biblioteca usada en GitHub para detectar lenguajes blob, ignorar archivos binarios o vendorizado, suprimir los archivos generados en diffs y generar gráficos de desglose del lenguaje.
+- 
+  term: comentario en la línea
+  description: Un comentario dentro de una solicitud de extracción es una línea de código específica.
+- 
+  term: fin de línea
+  description: >-
+    Un caracter o caracteres invisibles que simbolizan el final de una línea en un archivo de texto.
+- 
+  term: cuenta personal bloqueada
+  description: >-
+    Una cuenta personal a la que el usuario no puede acceder. Las cuentas se bloquean cuando los usuarios degradan su cuenta paga a una gratis o si su plan de pago se venció.
+- 
+  term: Consola de administración
+  description: >-
+    Una sección dentro de la interfaz GitHub Enterprise que contiene funciones administrativas.
+- 
+  term: Markdown
+  description: >-
+    Markdown es un formato de archivo semántico increíblemente simple, no muy diferente a .doc, .rtf y .txt. Markdown que hace que sea fácil incluso para aquellos sin una formación en publicación web escribir prosa (incluso con enlaces, listas, viñetas, etc.) y mostrarla como un sitio web. GitHub admite Markdown y usa un formulario particular de Markdown llamado formato Markdown de GitHub. Consulta [Formato Markdown específico de GitHub](https://github.github.com/gfm/) o [Introducción a la escritura y el formato en GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- 
+  term: Markup
+  description: Un sistema para anotar y dar formato a un documento.
+- 
+  term: main
+  description: >-
+    La rama predeterminada de desarrollo. Cuando creas un repositorio de Git, se crea una rama que se llama `main` y se convierte en la rama activa. En la mayoría de los casos, esta contiene el desarrollo local, aunque esto es puramente por convención y no es forzoso.
+- 
+  term: principal
+  description: >-
+    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se crea una rama que se llama `master`. Muchas de las herramientas ahora utilizan un nombre alterno para la rama predeterminada. Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama `main`.
+- 
+  term: Gráfico de miembros
+  description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.
+- 
+  term: mención
+  description: >-
+    Una notificación enviada a un usuario anteponiendo el símbolo @ al nombre de usuario. Los usuarios de una organización de GitHub también pueden ser parte de un equipo que puede ser mencionado.
+- 
+  term: fusionar
+  description: >-
+    La fusión toma los cambios de una rama (en el mismo repositorio o de una bifurcación) y los aplica en otra. Esto suele suceder como una "solicitud de extracción" (que puede considerarse como una solicitud a fusionar) o mediante la línea de comandos. Una fusión se puede realizar mediante una solicitud de extracción a través de la interfaz web GitHub.com si no hay cambios conflictivos o bien siempre se puede realizar a través de la línea de comandos.
+- 
+  term: conflicto de fusión
+  description: >-
+    Una diferencia que ocurre entre ramas fusionadas. Los conflictos de fusión suceden cuando las personas realizan diferentes cambios en la misma línea del mismo archivo o cuando una persona edita un archivo y otra persona elimina el mismo archivo. El conflicto de fusión se debe resolver antes de que puedas fusionar las ramas.
+- 
+  term: hito
+  description: >-
+    Una manera de hacer un seguimiento del progreso en grupos de propuestas o solicitudes de extracción en un repositorio.
+- 
+  term: espejo
+  description: Una copia nueva de un repositorio.
+- 
+  term: equipo anidado
+  description: >-
+    Un equipo hijo de un equipo padre. Puedes tener varios equipos hijo (o anidados).
+- 
+  term: Gráfico de red
+  description: >-
+    Un gráfico del repositorio que muestra el historial de la rama de toda la red del repositorio, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones de cambios únicas para la red.
+- 
+  term: Fuente de noticias
+  description: >-
+    Una vista de la actividad de los repositorios o de las personas que ves. Las Noticias de una organización muestran la actividad en los repositorios que son propiedad de la organización.
+- 
+  term: sin avance rápido
+  description: >-
+    Cuando la copia local de un repositorio no está sincronizada con el repositorio ascendente y necesitas extraer los cambios ascendentes antes de subir tus cambios locales.
+- 
+  term: notificación
+  description: >-
+    Actualizaciones que se entregan ya sea por la web o por correo electrónico, dependiendo de tus parámetros, las cuales te brindan información acerca de las actividades en las que estás interesado.
+- 
+  term: App OAuth
+  description: >-
+    Una aplicación de terceros que usa tokens de acceso en lugar de contraseñas para acceder a información para usuarios.
+- 
+  term: token de OAuth
+  description: El token de acceso usado en Apps OAuth para acceder a información para usuarios.
+- 
+  term: colaborador externo
+  description: >-
+    Un usuario al que se le ha dado acceso a uno o más repositorios de una organización, pero no tiene otro acceso a la organización y no es un miembro de la organización.
+- 
+  term: código abierto
+  description: >-
+    El software de código abierto es un software que se puede usar, modificar y compartir (tanto de la forma modificada como no modificada) libremente por cualquiera. Hoy en día el concepto de "código abierto" suele extenderse más allá del software, para representar una filosofía de colaboración en la cual se facilitan los materiales de trabajo en línea para que cualquiera los bifurque, los modifique y debata y contribuya con ellos.
+- 
+  term: organization
+  description: >-
+    Las organizaciones son un grupo de dos o más usuarios que generalmente imitan a organizaciones del mundo real. Son administradas por usuarios y pueden contener tanto repositorios como equipos.
+- 
+  term: propietario de la organización
+  description: Usuarios que tienen un acceso administrativo completo a la organización que poseen.
+- 
+  term: origen
+  description: >-
+    El repositorio ascendente predeterminado. La mayoría de los proyectos tienen al menos un proyecto ascendente al que le hacen un seguimiento. Por defecto, el origen se usa con ese fin.
+- 
+  term: propietario
+  description: >-
+    Miembros de una organización que tienen acceso administrativo completo a la organización.
+- 
+  term: equipo padre
+  description: >-
+    Dentro de los equipos anidados, el equipo principal desde el cual los equipos hijo heredan los permisos de acceso y @menciones.
+- 
+  term: notificaciones de participación
+  description: >-
+    Una notificación acerca de una actualización en una conversación en una propuesta o solicitud de extracción donde tu nombre de usuario o equipo fue mencionado o donde previamente has respondido a un comentario.
+- 
+  term: enlace permanente
+  description: Un hipervínculo estático permanente a una página web en particular.
+- 
+  term: cuenta personal
+  description: >-
+    Una cuenta de GitHub que pertenece a un usuario individual.
+- 
+  term: dirección principal de correo electrónico
+  description: >-
+    La dirección principal de correo electrónico donde GitHub envía los recibos, los cargos de tarjeta de crédito o PayPal y otras comunicaciones relacionadas a la facturación.
+- 
+  term: repositorio anclado
+  description: >-
+    Un repositorio que un usuario ha decidido mostrar de forma prominente en su perfil.
+- 
+  term: ganchos de pre-recepción
+  description: >-
+    Los scripts que se ejecutan en el servidor GitHub Enterprise que puedes usar para implementar controles de calidad.
+- 
+  term: contribuciones privadas
+  description: Contribuciones hechas a un repositorio privado (vs. público).
+- 
+  term: repositorio privado
+  description: >-
+    Los repositorios privados solo son visibles para el propietario del repositorio y los colaboradores que el propietario especifique.
+- 
+  term: rama productiva
+  description: >-
+    Una rama con cambios finales que está lista para ser usada o implementada en una aplicación o un sitio.
+- 
+  term: perfil
+  description: La página que muestra información acerca de la actividad de un usuario.
+- 
+  term: foto de perfil
+  description: >-
+    Una imagen personalizada que los usuarios suben a GitHub para identificar su actividad, generalmente junto con su nombre de usuario. También se lo conoce como un avatar.
+- 
+  term: tablero de proyecto
+  description: >-
+    Los tableros dentro de GitHub que están hechos de propuestas, solicitudes de extracción y notas que son categorizados como tarjetas en columnas.
+- 
+  term: rama protegida
+  description: >-
+    Las ramas protegidas bloquean varias funciones de Git en una rama la cual un administrador de repositorio elige proteger. No pueden tener un empuje forzado, ni ser eliminadas, ni fusionarles cambios sin la aprobación de controles requerida ni las revisiones aprobadas requeridas ni cargarle archivos a esta desde la interfaz web de GitHub. Una rama protegida generalmente es la rama por defecto.
+- 
+  term: contribuciones públicas
+  description: Contribuciones hechas a un repositorio público (vs. privado).
+- 
+  term: repositorio público
+  description: >-
+    Un repositorio público puede ser visto por cualquiera, incluso por personas que no son usuarios de GitHub.
+- 
+  term: extraer
+  description: >-
+    Extraer se refiere a cuando se recuperan cambios y se fusionan. Por ejemplo, si alguien ha editado el archivo remoto en el que ambos están trabajando, querrás extraer esos cambios para tu copia local para que esté actualizado. También consulta recuperar.
+- 
+  term: acceso de lectura
+  description: Un sinónimo para acceso de lectura.
+- 
+  term: solicitud de cambios
+  description: >-
+    Las solicitudes de extracción son cambios propuestos para un repositorio enviado por un usuario y aceptado o rechazado por los colaboradores de un repositorio. Como las propuestas, las solicitudes de extracción tienen sus propios foros de debate.
+- 
+  term: revisión de solicitud de cambios
+  description: >-
+    Los comentarios de los colaboradores en una solicitud de extracción que aprueban los cambios o solicitan otros cambios antes de fusionar la solicitud de extracción.
+- 
+  term: Gráfico de pulso
+  description: Un gráfico del repositorio que te brinda una descripción de la actividad de un repositorio.
+- 
+  term: Gráfico de perforado
+  description: >-
+    Un gráfico del repositorio que muestra la frecuencia de las actualizaciones para un repositorio en función del día de la semana y la hora del día.
+- 
+  term: subir
+  description: >-
+    Subir significa enviar tus cambios confirmados a un repositorio remoto en GitHub.com. Por ejemplo, si cambias algo de forma local, puedes subir esos cambios para que otros puedan acceder a ellos.
+- 
+  term: subir una rama
+  description: >-
+    Cuando subes una rama a un repositorio remoto, actualizas la rama remota con cambios de tu rama local. Cuando "subes una rama", Git buscará el HEAD ref en el repositorio remoto y verificará que sea un ancestro directo de el HEAD ref local de la rama. Una vez que se verifique, Git extrae todos los objetos (alcanzables desde el HEAD ref local y que no estén en el repositorio remoto) en la base de datos de objetos remotos y después actualiza el HEAD ref remoto. Si el HEAD remoto no es un ancestro del HEAD local, la subida fallará.
+- 
+  term: acceso de escritura
+  description: Un sinónimo para acceso de escritura.
+- 
+  term: acceso de lectura
+  description: >-
+    Un nivel de permiso en un repositorio que permite al usuario extraer o leer información desde el repositorio. Todos los repositorios públicos otorgan acceso de lectura a todos los usuarios de GitHub. Un sinónimo para acceso de lectura.
+- 
+  term: README
+  description: Un archivo de texto que contiene información acerca de los archivos en un repositorio que, generalmente, es el primer archivo que verá un visitante de tu repositorio. Un archivo README, junto con una licencia de repositorio, las pautas de contribución y un código de conducta, te ayuda a compartir expectativas y administrar contribuciones para tu proyecto.
+- 
+  term: rebase
+  description: >-
+    Volver a aplicar una serie de cambios de una rama a una base diferente y restablecer el HEAD de esa rama al resultado.
+- 
+  term: Recuperar cuentas en otro lugar
+  description: >-
+    Le permite a los usuarios agregar un factor de seguridad extra a su cuenta de GitHub en caso de que pierdan acceso a su método de autenticación de dos factores o a sus códigos de recuperación. Los usuarios pueden asociar su cuenta de GitHub con su cuenta de Facebook almacenando una credencial de autenticación en forma de token de recuperación de cuenta para su cuenta de GitHub con Facebook.
+- 
+  term: código de recuperación
+  description: Un código que te ayuda a volver a tener acceso a tu cuenta de GitHub.
+- 
+  term: lanzamiento
+  description: El modo que tiene GitHub de empaquetar y proporcionar el software a tus usuarios.
+- 
+  term: remoto
+  description: >-
+    Esta es la versión de un repositorio o rama que está alojada en un servidor, probablemente GitHub.com. Las versiones remotas se pueden conectar a clones locales para poder sincronizar los cambios.
+- 
+  term: repositorio remoto
+  description: >-
+    Un repositorio que se usa para hacer un seguimiento del mismo proyecto, pero reside en otro lugar.
+- 
+  term: URL remota
+  description: >-
+    El lugar donde se almacena tu código: un repositorio en GitHub, la bifurcación de otro usuario o incluso un servidor diferente.
+- 
+  term: réplica
+  description: >-
+    Una instancia de GitHub Enterprise que ofrece redundancia para la instancia principal de GitHub Enterprise.
+- 
+  term: repositorio
+  description: >-
+    Un repositorio es el elemento más básico de GitHub. Son más fáciles de imaginar como la carpeta de un proyecto. Un repositorio contiene todos los archivos del proyecto (incluida la documentación) y almacena el historial de revisión de cada archivo. Los repositorios pueden tener varios colaboradores y pueden ser públicos o privados.
+- 
+  term: gráfico del repositorio
+  description: Una representación visual de los datos de tu repositorio.
+- 
+  term: mantenedor del repositorio
+  description: >-
+    Alguien que administra un repositorio. Esta persona puede ayudar a evaluar prioridades de las propuestas y usar etiquetas y otras funciones para administrar el funcionamiento del repositorio. Esta persona también puede ser responsable de mantener los archivos README y de contribución actualizados.
+- 
+  term: revisión de solicitud de extracción requerida
+  description: >-
+    Las revisiones requeridas garantizan que las solicitudes de extracción tengan, al menos, una revisión aprobada antes de que los colaboradores puedan realizar cambios en una rama protegida.
+- 
+  term: verificación de estado requerida
+  description: >-
+    Verificaciones de las solicitudes de extracción que garantizan que todas las pruebas de integración continua (CI) requeridas sean aprobadas antes de que los colaboradores puedan realizar cambios en una rama protegida.
+- 
+  term: resolver
+  description: La acción de solucionar de forma manual lo que dejó una fusión automática fallida.
+- 
+  term: revertir
+  description: >-
+    Cuando reviertes una solicitud de extracción en GitHub, automáticamente se abre una solicitud de extracción nueva, que tiene una confirmación de cambios que revierte la confirmación de fusión de la solicitud de extracción original fusionada. En Git, puedes revertir las confirmaciones de cambio con `revertir git`.
+- 
+  term: revisar
+  description: >-
+    Las revisiones le permiten a otros con acceso a tu repositorio comentar los cambios propuestos en las solicitudes de extracción, aprobar los cambios o solicitar más cambios antes de que se fusione la solicitud de extracción.
+- 
+  term: directorio raíz
+  description: El primer directorio en jerarquía.
+- 
+  term: sistema de archivos raíz
+  description: El sistema operativo base y el entorno de la aplicación GitHub Enterprise.
+- 
+  term: respuesta guardada
+  description: >-
+    Un comentario que puedes guardar y agregar a tu cuenta de usuario de GitHub para que puedas usar en GitHub en las propuestas y en las solicitudes de extracción.
+- 
+  term: alcance
+  description: >-
+    Grupos de permisos con nombre que una App OAuth puede solicitar para acceder tanto a los datos públicos como los no públicos.
+- 
+  term: plaza
+  description: >-
+    Un usuario dentro de la organización de GitHub Enterprise. Se lo puede conocer como "cómputo de asientos".
+- 
+  term: equipo secreto
+  description: >-
+    Un equipo que solo es visible para otras personas del equipo y personas con premisos de propietario.
+- 
+  term: bitácora de seguridad
+  description: >-
+    Un registro que enumera las últimas 50 acciones o las realizadas dentro de los últimos 90 días.
+- 
+  term: gancho de servicio
+  description: >-
+    También llamado "webhook". Los webhooks ofrecen una manera de enviar las notificaciones a un servidor web externo siempre que ciertas acciones ocurran en un repositorio o una organización.
+- 
+  term: inicio de sesión único
+  description: >-
+    También llamado SSO. Le permite a los usuarios iniciar sesión en una única ubicación - un proveedor de identidad (IdP)- que luego le da acceso al usuario a otros proveedores de servicios.
+- 
+  term: captura de pantalla
+  description: Un punto de control de una máquina virtual a partir de un momento específico.
+- 
+  term: combinar
+  description: Combinar varias confirmaciones de cambios en una única confirmación. También un comando Git.
+- 
+  term: Llave SSH
+  description: >-
+    Las claves SSH son una manera de identificarte a ti mismo en un servidor en línea, usando un mensaje cifrado. Es como si tu computadora tuviera su propia contraseña única para otro servicio. {% data variables.product.product_name %} utiliza claves SSH para transferir información de forma segura a tu computadora.
+- 
+  term: instancia de preparación
+  description: >-
+    Un modo de evaluar modificaciones antes de que sean aplicadas a tu instancia actual de GitHub Enterprise.
+- 
+  term: estado
+  description: >-
+    Una representación visual dentro de una solicitud de extracción de que tus confirmaciones cumplen las condiciones establecidas para el repositorio con el que estás contribuyendo.
+- 
+  term: Verificaciones de estado
+  description: >-
+    Las verificaciones de estado son procesos externos, como compilaciones de integración continua, que se ejecutan para cada confirmación que realices en un repositorio. Para obtener más información, consulta "[acerca de las verificaciones de Estado] (/articles/about-status-checks)."
+- 
+  term: estrella
+  description: >-
+    Un marcador o una muestra de reconocimiento para un repositorio. Las estrellas son un modo manual de clasificar la popularidad de los proyectos.
+- 
+  term: suscripción
+  description: Un plan GitHub de un usuario o una organización.
+- 
+  term: equipo
+  description: >-
+    Un grupo de miembros de una organización que refleja la estructura de tu empresa o grupo con menciones y permisos de acceso en cascada.
+- 
+  term: mantenedor del equipo
+  description: >-
+    Miembros de la organización que tienen un subconjunto de permisos disponibles para los propietarios de la organización para administrar equipos.
+- 
+  term: Plan de equipo
+  description: >-
+    El plan de facturación de una organización que te da repositorios públicos y privados ilimitados.
+- 
+  term: cronología
+  description: Una serie de eventos en una solicitud de extracción o en el perfil de un usuario.
+- 
+  term: rama de tema
+  description: >-
+    Una rama Git normal que usa un programador para identificar una línea conceptual de desarrollo. Como las ramas son muy fáciles de usar y económicas, suele ser conveniente tener varias ramas pequeñas y que cada una contenga conceptos muy bien definidos o cambios pequeños incrementales pero relacionados. También se puede denominar rama de característica.
+- 
+  term: temas
+  description: >-
+    Un modo de explorar repositorios en una área temática en particular, encontrar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico en GitHub.
+- 
+  term: Gráfico de tráfico
+  description: >-
+    Un gráfico del repositorio que muestra el tráfico de un repositorio, incluso clones completos (no recuperaciones), los visitantes de los últimos 14 días, sitios de referencia y contenido popular.
+- 
+  term: transferencia
+  description: >-
+    Transferir un repositorio significa cambiar el propietario de un repositorio. El nuevo propietario podrá administrar de inmediato los contenidos, las propuestas, las solicitudes de extracción, los lanzamientos y los parámetros del repositorio.
+- 
+  term: ascendente
+  description: >-
+    Cuando se habla de una rama o una bifurcación, la rama principal en el repositorio original suele conocerse como "ascendente", ya que es el lugar principal desde donde vendrán otros cambios. La rama/bifurcación en la que estás trabajando entonces se llama "descendente ". También llamada origen.
+- 
+  term: rama ascendente
+  description: >-
+    La rama por defecto que se fusiona en la rama en cuestión (o la rama en cuestión en la que es rebasada). Se configura mediante `branch.<name>.remote` y `branch.<name>.merge`. Si la rama ascendente de A es la origen/B, a veces, decimos "A hace un seguimiento de la origen/B".
+- 
+  term: usuario
+  description: >-
+    Los usuarios son personas con cuentas personales de GitHub. Cada usuario tiene un perfil personal y puede poseer varios repositorios, públicos o privados. Pueden crear o ser invitados a unirse a organizaciones o colaborar con el repositorio de otro usuario.
+- 
+  term: nombre de usuario
+  description: El identificador de un usuario en GitHub.
+- 
+  term: equipo visible
+  description: Un equipo que puede ser visto y @mencionado por cada miembro de la organización.
+- 
+  term: observar
+  description: >-
+    Puedes ver un repositorio o una propuesta para recibir notificaciones cuando se realizan actualizaciones a una propuesta o una solicitud de extracción.
+- 
+  term: ver notificaciones
+  description: Una notificación acerca de la actividad en un repositorio al que se ha subscripto un usuario.
+- 
+  term: notificaciones web
+  description: >-
+    Las notificaciones que se muestran en la interfaz web en GitHub: https://github.com/notifications
+- 
+  term: webhooks
+  description: >-
+    Los webhooks te permiten generar o configurar Apps GitHub que se suscriben a ciertos eventos en GitHub.com. Los webhooks ofrecen una manera de enviar las notificaciones a un servidor web externo siempre que ciertas acciones ocurran en un repositorio o una organización. También llamado gancho de servicio.
+- 
+  term: Compatible con GitHub
+  description: Un listado de integraciones que son compatibles con GitHub.
+- 
+  term: acceso de escritura
+  description: >-
+    Un nivel de permiso en un repositorio que le permite al usuario subir o escribir cambios para un repositorio.

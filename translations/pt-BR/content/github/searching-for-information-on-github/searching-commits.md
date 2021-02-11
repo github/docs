@@ -51,7 +51,7 @@ Use os qualificadores `author-date` e `committer-date` para identificar commits 
 | Qualifier                 | Exemplo                                                                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) identifica os commits criados antes de 01-01-2016.       |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A<2016-01-01&type=Commits) identifica os commits feitos depois de 01-01-2016. |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) corresponde a commits confirmados após 2016-01-01. |
 
 ### Filtrar commits de merge
 
@@ -96,11 +96,11 @@ Para pesquisar commits em todos os repositórios de um determinado usuário ou o
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) identifica as mensagens do commit com a palavra "test" nos repositórios de @github.                                                  |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) identifica as mensagens do commit com a palavra "language" no repositório "gibberish" de @defunkt. |
 
-### Filter by repository visibility
+### Filtrar por visibilidade do repositório
 
-The `is` qualifier matches commits from repositories with the specified visibility. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
+O qualificador `is` corresponde a commits dos repositórios com a visibilidade especificada. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
+| Qualificador | Exemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) corresponde aos dos repositórios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) corresponde aos commits dos repositórios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) corresponde aos commits dos repositórios privados.
 
 ### Leia mais
 
