@@ -15,15 +15,4 @@ button.arrow-for-scrolling-top {
         border: none;
         transition: 1s;
     }
-    span.arrow {
-        width: 10px;
-        display: inline-block;
-        height: 10px;
-        border-top: 1px solid #fff;
-        border-left: 1px solid #fff;
-        position: absolute;
-        top: 56%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-    }
 }
