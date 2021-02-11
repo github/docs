@@ -1,10 +1,6 @@
 button.arrow-for-scrolling-top {
     opacity: 0;
     transition: 1s;
-    -webkit-transition:1s;
-    -moz-transition:1s;
-    -ms-transition:1s;
-    -o-transition:1s;
     background-color: #0367d6;
     color: #fff;
     position: fixed;
@@ -14,18 +10,10 @@ button.arrow-for-scrolling-top {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
     &.show {
         opacity: 1;
         border: none;
         transition: 1s;
-        -webkit-transition: 1s;
-        -moz-transition: 1s;
-        -ms-transition: 1s;
-        -o-transition: 1s;
     }
     span.arrow {
         width: 10px;
@@ -37,9 +25,5 @@ button.arrow-for-scrolling-top {
         top: 56%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
-        -webkit-transform: translate(-50%, -50%) rotate(45deg);
-        -moz-transform: translate(-50%, -50%) rotate(45deg);
-        -ms-transform: translate(-50%, -50%) rotate(45deg);
-        -o-transform: translate(-50%, -50%) rotate(45deg);
     }
 }
