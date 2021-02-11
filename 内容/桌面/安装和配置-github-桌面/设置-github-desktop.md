@@ -39,5 +39,7 @@ You can adjust defaults and settings to tailor {% data variables.product.prodnam
 #### Choosing a default text editor
 You can open a text editor from {% data variables.product.prodname_desktop %} to manipulate files and repositories. {% data variables.product.prodname_desktop %} supports a variety of text editors and integrated development environments (IDEs) for Windows and macOS. You can choose a default editor in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
 
+fork jianjun1121/docs
+
 #### Choosing a theme
 {% data variables.product.prodname_desktop %} has multiple themes available to customize the look and feel of the app. You can choose a theme in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)."
