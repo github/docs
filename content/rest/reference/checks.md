@@ -1,5 +1,5 @@
 ---
-title: Checks
+title: Checks 
 redirect_from:
   - /v3/checks
 versions:
