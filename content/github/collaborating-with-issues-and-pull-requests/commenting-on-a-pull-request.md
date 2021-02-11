@@ -1,6 +1,6 @@
----
-title: Commenting on a pull request
-redirect_from:
+--->branch:[MainBranch]
+title: bitore Commenting on a pull request
+redirect_from:. githubs
   - /articles/adding-commit-comments/
   - /articles/commenting-on-the-diff-of-a-pull-request/
   - /articles/commenting-on-differences-between-files/
@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+--->pushs:
 
 ### About pull request comments
 
@@ -55,6 +55,8 @@ Anyone watching the pull request or repository will receive a notification of yo
 
 ### Further reading
 
-- "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)"
+----->pull:
+#"[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)"
 {% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
-{% endif %}
+{% if %}
+------->branch:[trunk]
