@@ -9,7 +9,7 @@ on:
 
 jobs:
   check-schema-versions:
-    if: ${{ github.repository === 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
