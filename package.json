@@ -161,7 +161,7 @@
     "website-scraper": "^4.2.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,cn' nodemon server.js",
+    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",
     "rest-dev": "script/rest/update-files.js && npm run dev",
