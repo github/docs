@@ -25,7 +25,6 @@ module.exports = async (req, res, next) => {
         'data:',
         'github.githubassets.com',
         'github-images.s3.amazonaws.com',
-        'octodex.github.com',
         'placehold.it',
         '*.githubusercontent.com',
         'github.com'
