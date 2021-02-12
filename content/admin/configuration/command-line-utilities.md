@@ -209,7 +209,7 @@ You can use these options with the utility:
 
 This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
 
-Give organization owner privileges in a specific organization to a single user
+Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
