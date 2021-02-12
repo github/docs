@@ -3,7 +3,9 @@ title: "Informational widgets"
 intro: "Informational widgets allow user see information about current location, speed, time, battery level on the map display."
 versions: '*'
 ---
+Informational widgets is a text in the top right-hand corner in frame over the map. Some of them can be clickable.
 
+![Altitude Android widget](/assets/images/docs/widgets/altitude_android_widget_all.png)
 <!--Надо написать, что часть виджетов кликабельны. + добавить картинки-->
 
 ## Altitude
