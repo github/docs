@@ -12,6 +12,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Code blocks](#code-blocks)
   - [Commands](#commands)
   - [Examples](#examples)
+  - [Indentation](#indentation)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -127,6 +128,21 @@ on:
 ```
 schedule:
   - cron:  "40 19 * * *"
+```
+
+### Indentation
+
+In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
+
+- **Use:**
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
 ```
 
 ## Headers
@@ -260,7 +276,7 @@ Take care to distinguish between product names and product elements. For more in
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the data directory in the github/docs repository and the “Product names” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
 ## Tables
 

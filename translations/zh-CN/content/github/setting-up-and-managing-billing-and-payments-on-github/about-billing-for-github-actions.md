@@ -8,7 +8,9 @@ versions:
 
 ### 关于 {% data variables.product.prodname_actions %} 的计费
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
 
 分钟数每月都会重置，而存储使用量不重置。
 
@@ -51,7 +53,7 @@ versions:
 在月末，{% data variables.product.prodname_dotcom %} 会计算您使用的超过帐户自带限额的分钟数和存储空间费用。 例如，如果您的组织使用 {% data variables.product.prodname_team %} 并允许无限制支出，则使用 15,000 分钟可能会产生 56 美元的总存储空间和分钟数超额费用，具体取决于用于运行作业的操作系统。
 
 - 5,000（3,000 Linux 加 2,000 Windows）分钟 = $56 ($24 + $32)。
-  - 3,000 Linux minutes at $0.008 per minute = $24.
+  - 3,000 Linux 分钟（每分钟 $0.008）= $24。
   - 2,000 Windows 分钟（每分钟 $0.016）= $32。
 
 到月底，{% data variables.product.prodname_dotcom %} 会将您的数据传输舍入到最接近的 GB。
@@ -69,8 +71,8 @@ versions:
 
 ### 关于支出限制
 
-默认情况下，您的帐户对 {% data variables.product.prodname_actions %} 使用的支出限额为 0 美元。 要为私有仓库启用超过帐户自带量使用分钟数和存储空间，您可以增加支出限额或允许无限制支出。 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

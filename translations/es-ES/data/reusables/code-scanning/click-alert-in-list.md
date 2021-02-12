@@ -1,0 +1,1 @@
+1. Debajo de "Code scanning", da clic en la alerta que quieras explorar. ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-click-alert.png)

@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 デフォルトでは、{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} ワークフローは {% data variables.product.prodname_dotcom_the_website %} または [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) から直接アクションを使用できません。
 
-{% data variables.product.prodname_dotcom_the_website %} からのすべてのアクションを Enterprise インスタンスで使用できるようにするには、{% data variables.product.prodname_github_connect %} を使用して{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_ghe_cloud %} に接続します。 {% data variables.product.prodname_dotcom_the_website %} からアクションにアクセスする他の方法については、「[{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_dotcom_the_website %} アクションの使用について](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)」を参照してください。
+To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %}. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using actions on {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server)."
 
 ### すべての {% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスを有効化する
 
@@ -23,3 +23,4 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "Server can use actions from GitHub.com in workflows runs", use the drop-down menu and select **Enabled**. ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
+1. {% data reusables.actions.enterprise-limit-actions-use %}

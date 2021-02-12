@@ -1,10 +1,12 @@
 <div class="border-bottom border-gray-light no-print">
+  {% unless error == '404' %}
   {% include header-notification %}
+  {% endunless %}
 
   <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full {% if error == '404' %} d-md-none {% endif %}">
 
-    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile">
-      <a href="/{{ currentLanguage }}" aria-hidden="true">
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="/{{ currentLanguage }}" aria-hidden="true" tabindex="-1">
         {% octicon "mark-github" height="32" class="text-black" %}
       </a>
       <a href="/{{ currentLanguage }}" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">{% data ui.header.github_docs %}</a>

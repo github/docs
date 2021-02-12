@@ -1,6 +1,6 @@
 ---
 title: SAMLシングルサインオンで認証する
-intro: 'You can authenticate to {% if currentVersion == "free-pro-team@latest" %}a {% data variables.product.product_name %} organization {% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_location %} {% endif %}with SAML single sign-on (SSO){% if currentVersion == "free-pro-team@latest" %} and view your active sessions{% endif %}.'
+intro: 'SAML シングルサインオン (SSO) {% if currentVersion == "free-pro-team@latest" %}を使用して {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.product_name %} Organization{% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_location %} {% endif %} に対して認証し、アクティブなセッションを表示できます{% endif %}。'
 mapTopic: true
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:

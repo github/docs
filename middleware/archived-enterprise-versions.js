@@ -4,12 +4,12 @@ const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedire
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const isArchivedVersion = require('../lib/is-archived-version')
-const got = require('got')
 const findPage = require('../lib/find-page')
+const got = require('got')
+const archvivedRedirects = require('../lib/redirects/static/archived-redirects-from-213-to-217')
 
 // This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in
-// https://github.com/github/help-docs-archived-enterprise-versions
+// by routing them to static content in help-docs-archived-enterprise-versions
 
 module.exports = async (req, res, next) => {
   const { isArchived, requestedVersion } = isArchivedVersion(req)
@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
   // starting with 2.18, we updated the archival script to create stubbed HTML redirect files
   if (versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutStubbedRedirectFiles}`)) {
-    const redirect = req.context.redirects[req.path]
+    const redirect = archvivedRedirects[req.path]
     if (redirect && redirect !== req.path) {
       return res.redirect(301, redirect)
     }
@@ -37,7 +37,7 @@ module.exports = async (req, res, next) => {
   try {
     const r = await got(getProxyPath(req.path, requestedVersion))
     res.set('content-type', r.headers['content-type'])
-    res.set('x-robots-tag', 'none')
+    res.set('x-robots-tag', 'noindex')
 
     // make the stubbed redirect files added in >=2.18 return 301 instead of 200
     const staticRedirect = r.body.match(patterns.staticRedirect)

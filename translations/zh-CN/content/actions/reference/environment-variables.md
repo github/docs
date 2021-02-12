@@ -18,7 +18,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %} 设置适用于工作流程运行中每个步骤的默认环境变量。 环境变量区分大小写。 在操作或步骤中运行的命令可以创建、读取和修改环境变量。
 
-要设置自定义环境变量，您需要在工作流程文件中指定变量。 您可以使用 [`jobs.<job_id>.steps.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv) 和 [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) 关键字定义步骤、作业或整个工作流程的环境变量。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
+要设置自定义环境变量，您需要在工作流程文件中指定变量。 您可以使用 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv) 和 [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) 关键字定义步骤、作业或整个工作流程的环境变量。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
 
 ```yaml
 steps:
@@ -51,11 +51,21 @@ steps:
 | `GITHUB_WORKSPACE`   | {% data variables.product.prodname_dotcom %} 工作空间目录路径。 如果您的工作流程使用 [actions/checkout](https://github.com/actions/checkout) 操作，则工作空间目录是仓库的副本。 如果不使用 `actions/checkout` 操作，该目录将为空。 例如 `/home/runner/work/my-repo-name/my-repo-name`。 |
 | `GITHUB_SHA`         | 触发工作流程的提交 SHA。 例如 `ffac537e6cbbf934b08745a378932722df287a53`。                                                                                                                                                                     |
 | `GITHUB_REF`         | 触发工作流程的分支或标记参考。 例如 `refs/heads/feature-branch-1`。 如果分支或标记都不适用于事件类型，则变量不会存在。                                                                                                                                                       |
-| `GITHUB_HEAD_REF`    | 仅为复刻的仓库设置。 头部仓库的分支。                                                                                                                                                                                                               |
-| `GITHUB_BASE_REF`    | 仅为复刻的仓库设置。 基础仓库的分支。                                                                                                                                                                                                               |
+| `GITHUB_HEAD_REF`    | 仅为拉取请求事件设置。 头部分支的名称。                                                                                                                                                                                                              |
+| `GITHUB_BASE_REF`    | 仅为拉取请求事件设置。 基础分支的名称。                                                                                                                                                                                                              |
 | `GITHUB_SERVER_URL`  | 返回 {% data variables.product.product_name %} 服务器的 URL。 当 {% data variables.product.prodname_actions %} 运行工作流程时，始终设置为 `true`。                                                                                                    |
 | `GITHUB_API_URL`     | 返回 API URL。 返回 {% data variables.product.product_name %} 服务器的 URL。 例如：`https://github.com`。                                                                                                                                       |
 | `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 例如：`https://api.github.com/graphql`。                                                                                                                                                                          |
+
+{% tip %}
+
+**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
+
+#### Determining when to use default environment variables or contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
 
 ### 环境变量命名约定
 

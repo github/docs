@@ -25,6 +25,7 @@ Mithilfe von Suchbegriffen zu Issues und Pull Requests kannst Du:
 - Issues und Pull Requests filtern, die bestimmte Personen umfassen, sie jedoch nicht zwangsläufig [**@erwähnen**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams): `state:open type:issue involves:octocat`,
 - Issues und Pull Requests nach Bearbeiter filtern: `state:open type:issue assignee:octocat`,
 - Issues und Pull Requests nach Kennzeichnung filtern: `state:open type:issue label:"bug"`.
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Für Issues kannst Du die Suche auf für folgendes benutzen:
@@ -35,7 +36,7 @@ Für Issues kannst Du die Suche auf für folgendes benutzen:
 Bei Pull Requests kannst Du die Suche auch verwenden, um:
 - Pull Requests mit dem Status [Entwurf](/articles/about-pull-requests#draft-pull-requests) zu filtern: `is:draft`
 - Pull Requests zu filtern, die noch keinem [Review](/articles/about-pull-request-reviews) unterzogen wurden: `state:open type:pr review:none`
-- Pull Requests zu filtern, für die ein [Review erforderlich ist](/articles/about-required-reviews-for-pull-requests), bevor sie zusammengeführt werden können: `state:open type:pr review:required`
+- Pull Requests zu filtern, für die ein [Review erforderlich ist](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging), bevor sie gemergt werden können: `state:open type:pr review:required`,
 - Von einem Reviewer genehmigte Pull Requests zu filtern: `state:open type:pr review:approved`
 - Pull Requests zu filtern, in denen ein Reviewer um Änderungen gebeten hat: `state:open type:pr review:changes_requested`
 - Pull Requests nach [Reviewer](/articles/about-pull-request-reviews/) zu filtern: `state:open type:pr reviewed-by:octocat`

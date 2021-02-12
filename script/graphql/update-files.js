@@ -14,6 +14,7 @@ const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
+const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -57,6 +58,7 @@ async function main () {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
+    const previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
     upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
@@ -64,6 +66,7 @@ async function main () {
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
     const schemaPath = getDataFilepath('schemas', graphqlVersion)
+    const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
     updateFile(schemaPath, safeForPublicSchema)
@@ -73,6 +76,21 @@ async function main () {
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
     prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
+
+    // 5. UPDATE CHANGELOG
+    if (allVersions[version].nonEnterpriseDefault) {
+      // The Changelog is only build for free-pro-team@latest
+      const changelogEntry = await createChangelogEntry(
+        previousSchemaString,
+        safeForPublicSchema,
+        safeForPublicPreviews,
+        previousUpcomingChanges.upcoming_changes,
+        yaml.safeLoad(safeForPublicChanges).upcoming_changes
+      )
+      if (changelogEntry) {
+        prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
+      }
+    }
   }
 
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))

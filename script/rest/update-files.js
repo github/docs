@@ -35,7 +35,7 @@ async function main () {
       process.exit(1)
     }
 
-    getDereferencedFiles()
+    await getDereferencedFiles()
   }
 
   await decorate()
@@ -58,7 +58,13 @@ async function getDereferencedFiles () {
   mkdirp(tempDocsDir)
 
   console.log(`\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`)
-  execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle ${tempDocsDir}`, { stdio: 'inherit' })
+  try {
+    execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle ${tempDocsDir}`, { stdio: 'inherit' })
+  } catch (error) {
+    console.error(error)
+    console.log('🛑 Whoops! It looks like the `bin/openapi bundle` command failed to run in your `github/github` repository checkout. To troubleshoot, ensure that your OpenAPI schema YAML is formatted correctly. A CI test runs on your `github/github` PR that flags malformed YAML. You can check the PR diff view for comments left by the openapi CI test to find and fix any formatting errors.')
+    process.exit(1)
+  }
 
   execSync(`find ${tempDocsDir} -type f -name "*deref.json" -exec mv '{}' ${dereferencedPath} ';'`)
 

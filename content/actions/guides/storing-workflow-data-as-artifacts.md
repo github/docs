@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -78,7 +79,7 @@ This example shows you how to create a workflow for a Node.js project that build
 
 The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also and uploads the `code-coverage.html` report as another artifact.
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -108,14 +109,12 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-![Image of workflow upload artifact workflow run](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -184,7 +183,7 @@ Job 3 displays the result uploaded in the previous job:
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
@@ -238,7 +237,12 @@ jobs:
           echo The result is $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -21,6 +21,7 @@ versions:
     {% link_in_list /editing-a-security-advisory %}
     {% link_in_list /withdrawing-a-security-advisory %}
 {% topic_link_in_list /managing-vulnerabilities-in-your-projects-dependencies %}
+    {% link_in_list /about-managing-vulnerable-dependencies %}
     {% link_in_list /browsing-security-vulnerabilities-in-the-github-advisory-database %}
     {% link_in_list /about-alerts-for-vulnerable-dependencies %}
     {% link_in_list /configuring-notifications-for-vulnerable-dependencies %}

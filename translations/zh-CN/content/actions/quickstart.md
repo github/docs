@@ -59,12 +59,16 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. 在 **Jobs（作业）**下或可视化图中，单击 **Lint code base（Lint 代码基础）**作业。 ![Lint 代码库作业](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
+{% else %}
 1. 在左侧边栏中，单击 **Lint code base（Lint 代码库）**作业。 ![Lint 代码库作业](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### 更多入门工作流程
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} 提供预配置的工作流程模板，您可以从这些模板开始自动执行或创建持续集成工作流程。 您可以在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) 仓库{% else %} {% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览工作流程模板的完整列表。
+{% data reusables.actions.workflow-template-overview %}
 
 ### 后续步骤
 
@@ -101,7 +105,7 @@ versions:
     # When the event is triggered, GitHub Actions will run the jobs indicated
     jobs:
       say_hello:
-        # Uses a ubuntu-lates runner to complete the requested steps
+        # Uses a ubuntu-latest runner to complete the requested steps
         runs-on: ubuntu-latest
         steps:
         - run: |
@@ -116,7 +120,7 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 在左侧边栏中，单击您想要运行的工作流程。
+1. In the left sidebar, click the workflow you want to run.
    ![选择 say hello 作业](/assets/images/help/repository/say-hello-job.png)
 1. 在右侧，单击 **Run workflow（运行工作流程）**下拉菜单，然后单击 **Run workflow（运行工作流程）**。 （可选）您可以在运行工作流程之前在“问候的人（Person to greet）”输入中输入自定义消息。
    ![触发手动工作流程](/assets/images/help/repository/manual-workflow-trigger.png)
@@ -125,15 +129,15 @@ versions:
 1. 在左侧栏中，单击 "say_hello" 作业。
    ![工作流程作业列表](/assets/images/help/repository/workflow-job-listing.png)
 1. 在工作流程日志中，展开 'Run echo "Hello World!"' 部分。
-   ![工作流程详细信息](/assets/images/help/repository/workflow-log-listing.png)
+   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
 
-### More starter workflows
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} 提供预配置的工作流程模板，可用于开始自动化或创建持续集成工作流程。 您可以在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) 仓库{% else %} {% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览工作流程模板的完整列表。
+{% data reusables.actions.workflow-template-overview %}
 
 ### Next steps
 
-您刚才添加的 hello-world 工作流程是手动触发的工作流程的简单示例。 这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 下面是一些可帮助您执行 {% data variables.product.prodname_actions %} 后续步骤的有用资源：
+The hello-world workflow you just added is a simple example of a manually triggered workflow. 这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 下面是一些可帮助您执行 {% data variables.product.prodname_actions %} 后续步骤的有用资源：
 
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，用于深入的教程
 - “[Guides](/actions/guides)”，用于特定的使用情况和示例

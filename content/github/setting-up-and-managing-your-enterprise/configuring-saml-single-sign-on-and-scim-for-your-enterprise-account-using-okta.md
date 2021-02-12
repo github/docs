@@ -56,7 +56,7 @@ After you enable SCIM, the following provisioning features are available for any
 1. To the right of the drop-down menu, type `.*.*`.
 1. Click **Save**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 ### Creating groups in Okta
 
@@ -76,7 +76,7 @@ To configure user provisioning with SCIM in Okta, you must authorize an OAuth ap
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
-1. Click **Authenticate with Github Enterprise Cloud - Enterprise Accounts**.
+1. Click **Authenticate with GitHub Enterprise Cloud - Enterprise Accounts**.
   ![Button to authenticate with {% data variables.product.prodname_dotcom %}](/assets/images/help/business-accounts/authenticate-with-github-button.png)
 1. To the right of your enterprise account's name, click **Grant**.
 1. Click **Authorize okta-oauth**.

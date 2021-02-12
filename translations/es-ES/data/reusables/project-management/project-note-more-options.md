@@ -1,0 +1,1 @@
+1. En la esquina superior derecha de las notas, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.![Icono de kebab horizontal en la esquina superior derecha de la nota](/assets/images/help/projects/note-more-options.png)
