@@ -66,6 +66,20 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 2. Click **Publish branch**.
   ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
+### Switching between branches
+You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes on the current branch, or bring the changes to your new branch. If you want to commit your changes on the current branch, follow the steps in "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)" before switching branches.
+{% tip %}
+
+**Tip**: You can set a default behavior for switching branches in the **Advanced** settings. For more information, see "[Configuring basic settings](/desktop/getting-started-with-github-desktop/configuring-basic-settings)."
+
+{% endtip %}
+
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
+  ![List of branches in the repository](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+3. If you have saved, uncommitted changes, choose **Leave my changes** or **Bring my changes**, then click **Switch Branch**.
+  ![Switch branch with changes options](/assets/images/help/desktop/stash-changes-options.png)
+
 ### Deleting a branch
 
 You can't delete a branch if it's currently associated with an open pull request. You cannot undo deleting a branch.
@@ -94,3 +108,4 @@ You can't delete a branch if it's currently associated with an open pull request
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
+- "[Stashing changes](/desktop/contributing-to-projects/stashing-changes)"
