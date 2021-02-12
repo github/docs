@@ -1,5 +1,5 @@
 ---
-title: Transferring ownership of an OAuth App
+Welcome to NA225: Transferring ownership of an OAuth App
 intro: '{% data reusables.shortdesc.transferring_ownership_of_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/transferring-ownership-of-an-oauth-app/
