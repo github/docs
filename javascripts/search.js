@@ -42,6 +42,8 @@ export default function search () {
   searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
   toggleSearchDisplay()
 
+  $searchInputContainer.querySelector('form')
+    .addEventListener('submit', evt => evt.preventDefault())
   $searchInput.addEventListener('keyup', debounce(onSearch))
 }
 
@@ -261,6 +263,6 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
 function markify (text) {
   const { mark } = tags
   return text
-    .split(/<\/?em>/g)
+    .split(/<\/?mark>/g)
     .map((el, i) => i % 2 ? mark(el) : el)
 }
