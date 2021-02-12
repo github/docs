@@ -268,19 +268,11 @@ Creates or updates an environment variable for any actions running next in a job
 
 #### Example
 
-{% raw %}
+```bash
+echo "action_state=yellow" >> $GITHUB_ENV
 ```
-steps:
-  - name: Set the value
-    id: step_one
-    run: |
-        echo "action_state=yellow" >> $GITHUB_ENV
-  - name: Use the value
-    id: step_two
-    run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
-```
-{% endraw %}
+
+Running `$action_state` in a future step will now return `yellow`
 
 #### Multiline strings
 

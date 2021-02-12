@@ -1,3 +1,4 @@
+const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
 const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
@@ -8,19 +9,11 @@ const enterpriseReleases = require('../../lib/enterprise-server-releases').suppo
  */
 function sortPatchKeys (release, version) {
   const keys = Object.keys(release)
-    .map(key => {
-      const keyWithDots = key.replace(/-/g, '.')
-      return {
-        version: `${version}.${keyWithDots}`,
-        patchVersion: keyWithDots,
-        downloadVersion: `${version}.${keyWithDots.replace(/\.rc\d*$/, '')}`,
-        ...release[key]
-      }
-    })
+    .map(key => ({ version: `${version}.${key}`, patchVersion: key, ...release[key] }))
   return keys
     .sort((a, b) => {
-      if (a.version > b.version) return -1
-      if (a.version < b.version) return 1
+      if (semver.gt(a.version, b.version)) return -1
+      if (semver.lt(a.version, b.version)) return 1
       return 0
     })
 }
