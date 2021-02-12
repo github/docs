@@ -8,6 +8,7 @@ permissions: 'Personen mit Administratorberechtigungen für ein Repository könn
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Vorrausetzungen
@@ -80,7 +81,7 @@ gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. Speichere und schließe das Gemfile.
 11. Teste Deine Website optional lokal. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_pages %}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
-12. Fügen Sie Ihr {% data variables.product.product_name %}-Repository als Remote-Repository hinzu. Ersetzen Sie dabei {% if enterpriseServerVersions contains currentVersion %}_HOSTNAME_ durch den Hostnamen Ihrer Appliance,{% endif %} _USER_ durch das Konto, das das Repository besitzt{% if enterpriseServerVersions contains currentVersion %},{% endif %} und _REPOSITORY_ durch den Namen des Repositorys.
+12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

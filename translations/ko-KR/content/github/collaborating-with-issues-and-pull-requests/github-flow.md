@@ -8,12 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Following the GitHub flow
 
 1. [Create a branch](/articles/creating-and-deleting-branches-within-your-repository) from the repository.
-2. [Create](/articles/creating-new-files), [edit](/articles/editing-files), [rename](/articles/renaming-a-file), [move](/articles/moving-a-file-to-a-new-location), or [delete](/articles/deleting-files) files.
+2. [Create](/articles/creating-new-files), [edit](/articles/editing-files), [rename](/articles/renaming-a-file), [move](/articles/moving-a-file-to-a-new-location), or [delete](/github/managing-files-in-a-repository/deleting-files-in-a-repository) files.
 3. [Send a pull request](/articles/creating-a-pull-request) from your branch with your proposed changes to kick off a discussion.
 4. Make changes on your branch as needed. Your pull request will update automatically.
 5. [Merge the pull request](/articles/merging-a-pull-request) once the branch is ready to be merged.

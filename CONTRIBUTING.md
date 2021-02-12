@@ -27,7 +27,12 @@ Fork using GitHub Desktop:
 - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
 
 Fork using the command line:
+
 - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
+
+Fork with [GitHub Codespaces](https://github.com/features/codespaces):
+
+- [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
@@ -45,7 +50,7 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-Once your PR is merged, you can be added as a contributor in the [readme](README.md#contributors-).
+Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
 
 ### Keep contributing as you use GitHub Docs
 
@@ -89,7 +94,7 @@ A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and
 When we merge those changes, they should be deployed to the live site within 24 hours. :earth_africa: To learn more about opening a pull request in this repo, see [Opening a pull request](#opening-a-pull-request) below.
 
 ### :question: Support
-We are a small team working hard to keep up with the documentation demands of a continously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
+We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 
@@ -109,7 +114,8 @@ You can browse existing issues to find something that needs help!
 
 ### Labels
 Labels can help you find an issue you'd like to help with.
-- The [`good-first-issue` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) is for problems or updates we think are ideal for beginners.
+- The [`help wanted` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) is for problems or updates that anyone in the community can start working on.
+- The [`good first issue` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) is for problems or updates we think are ideal for beginners.
 - The [`content` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Acontent) is for problems or updates in the content on docs.github.com. These will usually require some knowledge of Markdown.
 - The [`engineering` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) is for problems or updates in the docs.github.com website. These will usually require some knowledge of JavaScript/Node.js or YAML to fix.
 
@@ -129,7 +135,7 @@ Here's some information that might be helpful while working on a Docs PR:
 
 - [Variables](/data/variables/README.md) - We use variables the same way we use reusables. Variables are for short strings of reusable text.
 
-- [Liquid](/contribution/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
+- [Liquid](/contributing/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
 
 - [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
 
@@ -146,7 +152,7 @@ We (usually the docs team, but sometimes GitHub product managers, engineers, or 
 You should always review your own PR first.
 
 For content changes, make sure that you:
-- [ ] Confirm that the changes address every part of the content strategy plan from your issue (if there are differences, explain them).
+- [ ] Confirm that the changes address every part of the content design plan from your issue (if there are differences, explain them).
 - [ ] Review the content for technical accuracy.
 - [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
 - [ ] Copy-edit the changes for grammar, spelling, and adherence to the style guide.

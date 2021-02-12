@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 搜索 {% data variables.product.product_name %} 主题
@@ -25,7 +26,7 @@ versions:
 
 `is:featured` 搜索限定符会将搜索结果范围缩小为 {% data variables.product.product_name %} 上具有最多仓库的主题。 这些主题还会在 https://github.com/topics/ 上提供。
 
-`is:curated` 搜索限定符可将搜索结果范围缩小到社区成员已向其添加额外信息的主题。 更多信息请参阅位于 https://github.com/github/explore 的探索仓库。
+`is:curated` 搜索限定符可将搜索结果范围缩小到社区成员已向其添加额外信息的主题。 更多信息请参阅[探索仓库](https://github.com/github/explore)。
 
 您可以使用日期参数和 `created:` 根据创建时间过滤主题，也可以使用 `repositories:n` 根据与此主题关联的仓库数量过滤主题。 这两个限定符都可以使用[大于和小于范围限定符](/articles/understanding-the-search-syntax)。
 

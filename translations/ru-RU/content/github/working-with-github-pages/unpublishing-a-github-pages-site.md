@@ -12,6 +12,7 @@ permissions: 'People with admin or maintainer permissions for a repository can u
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Unpublishing a project site

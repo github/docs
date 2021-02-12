@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员在私有与公开之间更改仓库可见性。
+您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员也可以更改仓库可见性。
 
 {% warning %}
 
@@ -23,3 +24,7 @@ versions:
 {% data reusables.organizations.member-privileges %}
 5. 在“Repository visibility change（仓库可见性更改）”下，取消选择 **Allow members to change repository visibilities for this organization（允许成员为此组织更改仓库可见性）**。 ![允许成员更改仓库可见性的复选框](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. 单击 **Save（保存）**。
+
+### 延伸阅读
+
+- "[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

@@ -1,11 +1,12 @@
 ---
 title: About repositories
-intro: A repository is like a folder for your project. Your project's repository contains all of your project's files and stores each file's revision history. You can also discuss and manage your project's work within the repository.
+intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can own repositories individually, or you can share ownership of repositories with other people in an organization.
@@ -20,9 +21,11 @@ With {% data variables.product.prodname_free_team %} for user accounts and organ
 Each person and organization can own unlimited repositories and invite an unlimited number of collaborators to all repositories.
 {% endif %}
 
-You can collaborate on your project with others using your repository's issues, pull requests, and project boards.
-
-![Main page of the octocat/Hello-World repository](/assets/images/help/repository/repo-main-page.png)
+You can use repositories to manage your work and collaborate with others.
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
 
 {% data reusables.repositories.repo-size-limit %}
 

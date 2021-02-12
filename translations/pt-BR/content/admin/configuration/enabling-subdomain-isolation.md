@@ -11,7 +11,7 @@ versions:
 
 ### Sobre isolamento de subdomínio
 
-O isolamento de subdomínios reduz os problemas de script entre sites e outras vulnerabilidades relacionadas. Para obter mais informações, leia mais sobre [scripts entre sites](http://en.wikipedia.org/wiki/Cross-site_scripting) na Wikipedia. É altamente recomendável habilitar o isolamento de subdomínio para a {% data variables.product.product_location_enterprise %}.
+O isolamento de subdomínios reduz os problemas de script entre sites e outras vulnerabilidades relacionadas. Para obter mais informações, leia mais sobre [scripts entre sites](http://en.wikipedia.org/wiki/Cross-site_scripting) na Wikipedia. É altamente recomendável habilitar o isolamento de subdomínio para a {% data variables.product.product_location %}.
 
 Quando o isolamento do subdomínio está ativado, o {% data variables.product.prodname_ghe_server %} substitui vários caminhos pelos subdomínios.
 

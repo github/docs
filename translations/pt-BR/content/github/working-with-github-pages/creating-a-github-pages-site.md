@@ -2,12 +2,16 @@
 title: Criar um site do GitHub Pages
 intro: 'É possível criar um site do {% data variables.product.prodname_pages %} em um repositório novo ou existente.'
 redirect_from:
+  - /articles/creating-pages-manually/
+  - /articles/creating-project-pages-manually/
+  - /articles/creating-project-pages-from-the-command-line/
   - /articles/creating-project-pages-using-the-command-line/
   - /articles/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Criar um repositório para seu site

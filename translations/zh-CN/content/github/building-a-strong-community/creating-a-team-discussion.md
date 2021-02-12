@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。

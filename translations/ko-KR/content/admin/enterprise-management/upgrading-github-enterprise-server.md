@@ -49,7 +49,7 @@ There are two types of snapshots:
 | 플랫폼                   | Snapshot method | Snapshot documentation URL                                                                                                                                                                             |
 | --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | Disk            | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM              | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM              | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM              | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disk            | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM              | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +150,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location_enterprise %}.
+7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
   {% note %}
 
@@ -203,7 +203,7 @@ Appliances configured for high-availability and geo-replication use replica inst
    1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location_enterprise %}.
+6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ### Restoring from a failed upgrade
 
@@ -218,3 +218,9 @@ For more information, see "[Command-line utilities](/enterprise/{{ currentVersio
 #### Rolling back a feature release
 
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 더 읽을거리
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

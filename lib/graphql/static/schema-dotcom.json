@@ -935,6 +935,40 @@
       ]
     },
     {
+      "name": "addEnterpriseSupportEntitlement",
+      "kind": "mutations",
+      "id": "addenterprisesupportentitlement",
+      "href": "/graphql/reference/mutations#addenterprisesupportentitlement",
+      "description": "<p>Adds a support entitlement to an enterprise member.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseSupportEntitlementInput!",
+          "id": "addenterprisesupportentitlementinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterprisesupportentitlementinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of adding the support entitlement.</p>"
+        }
+      ]
+    },
+    {
       "name": "addLabelsToLabelable",
       "kind": "mutations",
       "id": "addlabelstolabelable",
@@ -1243,6 +1277,40 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#starrable",
           "description": "<p>The starrable.</p>"
+        }
+      ]
+    },
+    {
+      "name": "addVerifiableDomain",
+      "kind": "mutations",
+      "id": "addverifiabledomain",
+      "href": "/graphql/reference/mutations#addverifiabledomain",
+      "description": "<p>Adds a verifiable domain to an owning account.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddVerifiableDomainInput!",
+          "id": "addverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was added.</p>"
         }
       ]
     },
@@ -1685,7 +1753,7 @@
           "Mutation.createContentAttachment"
         ],
         "owning_teams": [
-          "@github/ce-extensibility"
+          "@github/feature-lifecycle"
         ],
         "accept_header": "application/vnd.github.corsair-preview+json",
         "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -2725,6 +2793,40 @@
       ]
     },
     {
+      "name": "deleteVerifiableDomain",
+      "kind": "mutations",
+      "id": "deleteverifiabledomain",
+      "href": "/graphql/reference/mutations#deleteverifiabledomain",
+      "description": "<p>Deletes a verifiable domain.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteVerifiableDomainInput!",
+          "id": "deleteverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "VerifiableDomainOwner",
+          "id": "verifiabledomainowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#verifiabledomainowner",
+          "description": "<p>The owning account from which the domain was deleted.</p>"
+        }
+      ]
+    },
+    {
       "name": "dismissPullRequestReview",
       "kind": "mutations",
       "id": "dismisspullrequestreview",
@@ -3292,6 +3394,40 @@
       ]
     },
     {
+      "name": "regenerateVerifiableDomainToken",
+      "kind": "mutations",
+      "id": "regenerateverifiabledomaintoken",
+      "href": "/graphql/reference/mutations#regenerateverifiabledomaintoken",
+      "description": "<p>Regenerates a verifiable domain's verification token.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RegenerateVerifiableDomainTokenInput!",
+          "id": "regenerateverifiabledomaintokeninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#regenerateverifiabledomaintokeninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "verificationToken",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The verification token that was generated.</p>"
+        }
+      ]
+    },
+    {
       "name": "removeAssigneesFromAssignable",
       "kind": "mutations",
       "id": "removeassigneesfromassignable",
@@ -3464,6 +3600,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#user",
           "description": "<p>The viewer performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "removeEnterpriseSupportEntitlement",
+      "kind": "mutations",
+      "id": "removeenterprisesupportentitlement",
+      "href": "/graphql/reference/mutations#removeenterprisesupportentitlement",
+      "description": "<p>Removes a support entitlement from an enterprise member.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveEnterpriseSupportEntitlementInput!",
+          "id": "removeenterprisesupportentitlementinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#removeenterprisesupportentitlementinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of removing the support entitlement.</p>"
         }
       ]
     },
@@ -3828,6 +3998,108 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#enterpriseidentityprovider",
           "description": "<p>The identity provider for the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "setOrganizationInteractionLimit",
+      "kind": "mutations",
+      "id": "setorganizationinteractionlimit",
+      "href": "/graphql/reference/mutations#setorganizationinteractionlimit",
+      "description": "<p>Set an organization level interaction limit for an organization's public repositories.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetOrganizationInteractionLimitInput!",
+          "id": "setorganizationinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setorganizationinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
+      "name": "setRepositoryInteractionLimit",
+      "kind": "mutations",
+      "id": "setrepositoryinteractionlimit",
+      "href": "/graphql/reference/mutations#setrepositoryinteractionlimit",
+      "description": "<p>Sets an interaction limit setting for a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetRepositoryInteractionLimitInput!",
+          "id": "setrepositoryinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setrepositoryinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
+      "name": "setUserInteractionLimit",
+      "kind": "mutations",
+      "id": "setuserinteractionlimit",
+      "href": "/graphql/reference/mutations#setuserinteractionlimit",
+      "description": "<p>Set a user level interaction limit for an user's public repositories.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetUserInteractionLimitInput!",
+          "id": "setuserinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setuserinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user that the interaction limit was set for.</p>"
         }
       ]
     },
@@ -5455,7 +5727,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -5708,6 +5980,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The updated repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "verifyVerifiableDomain",
+      "kind": "mutations",
+      "id": "verifyverifiabledomain",
+      "href": "/graphql/reference/mutations#verifyverifiabledomain",
+      "description": "<p>Verify that a verifiable domain has the expected DNS record.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "VerifyVerifiableDomainInput!",
+          "id": "verifyverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#verifyverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was verified.</p>"
         }
       ]
     }
@@ -6056,6 +6362,214 @@
           "href": "/graphql/reference/objects#user",
           "isDeprecated": true,
           "deprecationReason": "<p>Assignees can now be mannequins. Use the <code>assignee</code> field instead. Removal on 2020-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeDisabledEvent",
+      "kind": "objects",
+      "id": "automergedisabledevent",
+      "href": "/graphql/reference/objects#automergedisabledevent",
+      "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "disabler",
+          "description": "<p>The user who disabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "reasonCode",
+          "description": "<p>The reason_code relating to why auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeEnabledEvent",
+      "kind": "objects",
+      "id": "automergeenabledevent",
+      "href": "/graphql/reference/objects#automergeenabledevent",
+      "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoRebaseEnabledEvent",
+      "kind": "objects",
+      "id": "autorebaseenabledevent",
+      "href": "/graphql/reference/objects#autorebaseenabledevent",
+      "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (rebase) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoSquashEnabledEvent",
+      "kind": "objects",
+      "id": "autosquashenabledevent",
+      "href": "/graphql/reference/objects#autosquashenabledevent",
+      "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (squash) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
         }
       ]
     },
@@ -6607,6 +7121,22 @@
       ],
       "fields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -6849,6 +7379,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -8411,7 +8949,7 @@
         },
         {
           "name": "committedViaWeb",
-          "description": "<p>Check if commited via GitHub web UI.</p>",
+          "description": "<p>Check if committed via GitHub web UI.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -8419,7 +8957,7 @@
         },
         {
           "name": "committer",
-          "description": "<p>Committership details of the commit.</p>",
+          "description": "<p>Committer details of the commit.</p>",
           "type": "GitActor",
           "id": "gitactor",
           "kind": "objects",
@@ -9840,6 +10378,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "contributionLevel",
+          "description": "<p>Indication of contributions, relative to other days. Can be used to indicate\nwhich color to represent this day on a calendar.</p>",
+          "type": "ContributionLevel!",
+          "id": "contributionlevel",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#contributionlevel"
         },
         {
           "name": "date",
@@ -14245,6 +14791,76 @@
           ]
         },
         {
+          "name": "domains",
+          "description": "<p>A list of domains owned by the enterprise.</p>",
+          "type": "VerifiableDomainConnection!",
+          "id": "verifiabledomainconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isVerified",
+              "description": "<p>Filter whether or not the domain is verified.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for verifiable domains returned.</p>",
+              "type": {
+                "name": "VerifiableDomainOrder",
+                "id": "verifiabledomainorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#verifiabledomainorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "enterpriseServerInstallations",
           "description": "<p>Enterprise Server installations owned by the enterprise.</p>",
           "type": "EnterpriseServerInstallationConnection!",
@@ -15579,6 +16195,66 @@
                 "id": "identityproviderconfigurationstate",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#identityproviderconfigurationstate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "supportEntitlements",
+          "description": "<p>A list of members with a support entitlement.</p>",
+          "type": "EnterpriseMemberConnection!",
+          "id": "enterprisememberconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for support entitlement users returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseMemberOrder",
+                "id": "enterprisememberorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterprisememberorder"
               }
             }
           ]
@@ -19009,6 +19685,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
+              }
             }
           ]
         },
@@ -21548,6 +22234,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasVerifiedOwner",
+          "description": "<p>Whether the creator of the app is a verified org.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "howItWorks",
           "description": "<p>A technical description of how this app works with GitHub.</p>",
           "type": "String",
@@ -22842,7 +23536,7 @@
         },
         {
           "name": "progressPercentage",
-          "description": "<p>Indentifies the percentage complete for the milestone.</p>",
+          "description": "<p>Identifies the percentage complete for the milestone.</p>",
           "type": "Float!",
           "id": "float",
           "kind": "scalars",
@@ -27177,7 +27871,7 @@
         },
         {
           "name": "restoredIssueAssignmentsCount",
-          "description": "<p>The number of issue assignemnts for the restored member.</p>",
+          "description": "<p>The number of issue assignments for the restored member.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -28496,12 +29190,98 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "domains",
+          "description": "<p>A list of domains owned by the organization.</p>",
+          "type": "VerifiableDomainConnection",
+          "id": "verifiabledomainconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isVerified",
+              "description": "<p>Filter by if the domain is verified.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for verifiable domains returned.</p>",
+              "type": {
+                "name": "VerifiableDomainOrder",
+                "id": "verifiabledomainorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#verifiabledomainorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "email",
           "description": "<p>The organization's public email.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "hasSponsorsListing",
+          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this organization.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
         },
         {
           "name": "ipAllowListEnabledSetting",
@@ -28570,6 +29350,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "isSponsoringViewer",
+          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "isVerified",
@@ -29285,7 +30073,7 @@
         },
         {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -29644,8 +30432,24 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanSponsor",
+          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerIsAMember",
           "description": "<p>Viewer is an active member of this organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerIsSponsoring",
+          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -29867,7 +30671,7 @@
         },
         {
           "name": "idpCertificate",
-          "description": "<p>The x509 certificate used by the Identity Provder to sign assertions and responses.</p>",
+          "description": "<p>The x509 certificate used by the Identity Provider to sign assertions and responses.</p>",
           "type": "X509Certificate",
           "id": "x509certificate",
           "kind": "scalars",
@@ -33042,6 +33846,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -37404,6 +38218,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isLatest",
+          "description": "<p>Whether or not the release is the latest releast.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isPrerelease",
           "description": "<p>Whether or not the release is a prerelease.</p>",
           "type": "Boolean!",
@@ -41129,7 +41951,7 @@
         },
         {
           "name": "forkSourceName",
-          "description": "<p>The name of the root repository for this netork.</p>",
+          "description": "<p>The name of the root repository for this network.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -42599,6 +43421,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this repository.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
+        },
+        {
           "name": "isArchived",
           "description": "<p>Indicates if the repository is unmaintained.</p>",
           "type": "Boolean!",
@@ -42981,6 +43811,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "latestRelease",
+          "description": "<p>Get the latest release for the repository if one exists.</p>",
+          "type": "Release",
+          "id": "release",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#release"
         },
         {
           "name": "licenseInfo",
@@ -44354,7 +45192,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission the user has on the repository.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission the user has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -44478,6 +45316,39 @@
       ]
     },
     {
+      "name": "RepositoryInteractionAbility",
+      "kind": "objects",
+      "id": "repositoryinteractionability",
+      "href": "/graphql/reference/objects#repositoryinteractionability",
+      "description": "<p>Repository interaction limit that applies to this object.</p>",
+      "fields": [
+        {
+          "name": "expiresAt",
+          "description": "<p>The time the currently active limit expires.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The current limit that is enabled on this object.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "origin",
+          "description": "<p>The origin of the currently active interaction limit.</p>",
+          "type": "RepositoryInteractionLimitOrigin!",
+          "id": "repositoryinteractionlimitorigin",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitorigin"
+        }
+      ]
+    },
+    {
       "name": "RepositoryInvitation",
       "kind": "objects",
       "id": "repositoryinvitation",
@@ -44525,7 +45396,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission granted on this repository by this invitation.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission granted on this repository by this invitation.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -45137,7 +46008,7 @@
         },
         {
           "name": "dismissedAt",
-          "description": "<p>When was the alert dimissed?.</p>",
+          "description": "<p>When was the alert dismissed?.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -45169,7 +46040,7 @@
         },
         {
           "name": "securityVulnerability",
-          "description": "<p>The associated security vulnerablity.</p>",
+          "description": "<p>The associated security vulnerability.</p>",
           "type": "SecurityVulnerability",
           "id": "securityvulnerability",
           "kind": "objects",
@@ -46965,7 +47836,7 @@
         },
         {
           "name": "sponsorEntity",
-          "description": "<p>The user or organization that is sponsoring. Returns null if the sponsorship is private.</p>",
+          "description": "<p>The user or organization that is sponsoring, if you have permission to view them.</p>",
           "type": "Sponsor",
           "id": "sponsor",
           "kind": "unions",
@@ -51056,7 +51927,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission level the team has on the repository</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission level the team has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -52292,6 +53163,14 @@
           ]
         },
         {
+          "name": "hasSponsorsListing",
+          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hovercard",
           "description": "<p>The hovercard information for this user in a given context.</p>",
           "type": "Hovercard!",
@@ -52310,6 +53189,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this user.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
         },
         {
           "name": "isBountyHunter",
@@ -52354,6 +53241,14 @@
         {
           "name": "isSiteAdmin",
           "description": "<p>Whether or not this user is a site administrator.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isSponsoringViewer",
+          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -52413,6 +53308,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -53413,7 +54318,7 @@
         },
         {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -53747,8 +54652,24 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanSponsor",
+          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerIsFollowing",
           "description": "<p>Whether or not this user is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerIsSponsoring",
+          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -54308,6 +55229,176 @@
           "id": "userstatus",
           "kind": "objects",
           "href": "/graphql/reference/objects#userstatus"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomain",
+      "kind": "objects",
+      "id": "verifiabledomain",
+      "href": "/graphql/reference/objects#verifiabledomain",
+      "description": "<p>A domain that can be verified for an organization or an enterprise.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "dnsHostName",
+          "description": "<p>The DNS host name that should be used for verification.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "domain",
+          "description": "<p>The unicode encoded domain.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "hasFoundHostName",
+          "description": "<p>Whether a TXT record for verification with the expected host name was found.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasFoundVerificationToken",
+          "description": "<p>Whether a TXT record for verification with the expected verification token was found.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isRequiredForPolicyEnforcement",
+          "description": "<p>Whether this domain is required to exist for an organization policy to be enforced.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isVerified",
+          "description": "<p>Whether or not the domain is verified.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "owner",
+          "description": "<p>The owner of the domain.</p>",
+          "type": "VerifiableDomainOwner!",
+          "id": "verifiabledomainowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#verifiabledomainowner"
+        },
+        {
+          "name": "punycodeEncodedDomain",
+          "description": "<p>The punycode encoded domain.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "tokenExpirationTime",
+          "description": "<p>The time that the current verification token will expire.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "verificationToken",
+          "description": "<p>The current verification token for the domain.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainConnection",
+      "kind": "objects",
+      "id": "verifiabledomainconnection",
+      "href": "/graphql/reference/objects#verifiabledomainconnection",
+      "description": "<p>The connection type for VerifiableDomain.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[VerifiableDomainEdge]",
+          "id": "verifiabledomainedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[VerifiableDomain]",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainEdge",
+      "kind": "objects",
+      "id": "verifiabledomainedge",
+      "href": "/graphql/reference/objects#verifiabledomainedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain"
         }
       ]
     },
@@ -56334,8 +57425,24 @@
       "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
+          "name": "hasSponsorsListing",
+          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isSponsoringViewer",
+          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -56471,6 +57578,22 @@
               }
             }
           ]
+        },
+        {
+          "name": "viewerCanSponsor",
+          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerIsSponsoring",
+          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -56777,6 +57900,10 @@
           "description": "<p>The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
         },
         {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check suite or run has failed at startup.</p>"
+        },
+        {
           "name": "SUCCESS",
           "description": "<p>The check suite or run has succeeded.</p>"
         },
@@ -56825,6 +57952,10 @@
         {
           "name": "REQUESTED",
           "description": "<p>The check suite or run has been requested.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -56945,6 +58076,35 @@
       ]
     },
     {
+      "name": "ContributionLevel",
+      "kind": "enums",
+      "id": "contributionlevel",
+      "href": "/graphql/reference/enums#contributionlevel",
+      "description": "<p>Varying levels of contributions from none to many.</p>",
+      "values": [
+        {
+          "name": "FIRST_QUARTILE",
+          "description": "<p>Lowest 25% of days of contributions.</p>"
+        },
+        {
+          "name": "FOURTH_QUARTILE",
+          "description": "<p>Highest 25% of days of contributions. More contributions than the third quartile.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>No contributions occurred.</p>"
+        },
+        {
+          "name": "SECOND_QUARTILE",
+          "description": "<p>Second lowest 25% of days of contributions. More contributions than the first quartile.</p>"
+        },
+        {
+          "name": "THIRD_QUARTILE",
+          "description": "<p>Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.</p>"
+        }
+      ]
+    },
+    {
       "name": "DefaultRepositoryPermissionField",
       "kind": "enums",
       "id": "defaultrepositorypermissionfield",
@@ -57024,6 +58184,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The deployment has queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
         }
       ]
     },
@@ -57061,6 +58225,10 @@
         {
           "name": "SUCCESS",
           "description": "<p>The deployment was successful.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
         }
       ]
     },
@@ -57517,7 +58685,7 @@
         },
         {
           "name": "OCSP_ERROR",
-          "description": "<p>Valid siganture, though certificate revocation check failed.</p>"
+          "description": "<p>Valid signature, though certificate revocation check failed.</p>"
         },
         {
           "name": "OCSP_PENDING",
@@ -57601,6 +58769,19 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order IP allow list entries by creation time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueCommentOrderField",
+      "kind": "enums",
+      "id": "issuecommentorderfield",
+      "href": "/graphql/reference/enums#issuecommentorderfield",
+      "description": "<p>Properties by which issue comment connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order issue comments by update time.</p>"
         }
       ]
     },
@@ -58762,6 +59943,22 @@
           "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
         },
         {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
           "name": "BASE_REF_CHANGED_EVENT",
           "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
         },
@@ -59287,6 +60484,81 @@
       ]
     },
     {
+      "name": "RepositoryInteractionLimit",
+      "kind": "enums",
+      "id": "repositoryinteractionlimit",
+      "href": "/graphql/reference/enums#repositoryinteractionlimit",
+      "description": "<p>A repository interaction limit.</p>",
+      "values": [
+        {
+          "name": "COLLABORATORS_ONLY",
+          "description": "<p>Users that are not collaborators will not be able to interact with the repository.</p>"
+        },
+        {
+          "name": "CONTRIBUTORS_ONLY",
+          "description": "<p>Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.</p>"
+        },
+        {
+          "name": "EXISTING_USERS",
+          "description": "<p>Users that have recently created their account will be unable to interact with the repository.</p>"
+        },
+        {
+          "name": "NO_LIMIT",
+          "description": "<p>No interaction limits are enabled.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryInteractionLimitExpiry",
+      "kind": "enums",
+      "id": "repositoryinteractionlimitexpiry",
+      "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry",
+      "description": "<p>The length for a repository interaction limit to be enabled for.</p>",
+      "values": [
+        {
+          "name": "ONE_DAY",
+          "description": "<p>The interaction limit will expire after 1 day.</p>"
+        },
+        {
+          "name": "ONE_MONTH",
+          "description": "<p>The interaction limit will expire after 1 month.</p>"
+        },
+        {
+          "name": "ONE_WEEK",
+          "description": "<p>The interaction limit will expire after 1 week.</p>"
+        },
+        {
+          "name": "SIX_MONTHS",
+          "description": "<p>The interaction limit will expire after 6 months.</p>"
+        },
+        {
+          "name": "THREE_DAYS",
+          "description": "<p>The interaction limit will expire after 3 days.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryInteractionLimitOrigin",
+      "kind": "enums",
+      "id": "repositoryinteractionlimitorigin",
+      "href": "/graphql/reference/enums#repositoryinteractionlimitorigin",
+      "description": "<p>Indicates where an interaction limit is configured.</p>",
+      "values": [
+        {
+          "name": "ORGANIZATION",
+          "description": "<p>A limit that is configured at the organization level.</p>"
+        },
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A limit that is configured at the repository level.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A limit that is configured at the user-wide level.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryInvitationOrderField",
       "kind": "enums",
       "id": "repositoryinvitationorderfield",
@@ -59442,6 +60714,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The check suite or run has been queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -60005,6 +61281,19 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainOrderField",
+      "kind": "enums",
+      "id": "verifiabledomainorderfield",
+      "href": "/graphql/reference/enums#verifiabledomainorderfield",
+      "description": "<p>Properties by which verifiable domain connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "DOMAIN",
+          "description": "<p>Order verifiable domains by the domain name.</p>"
         }
       ]
     }
@@ -60868,7 +62157,7 @@
       "kind": "unions",
       "id": "pullrequesttimelineitem",
       "href": "/graphql/reference/unions#pullrequesttimelineitem",
-      "description": "<p>An item in an pull request timeline.</p>",
+      "description": "<p>An item in a pull request timeline.</p>",
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -61053,6 +62342,26 @@
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
+        },
+        {
+          "name": "AutoMergeDisabledEvent",
+          "id": "automergedisabledevent",
+          "href": "/graphql/reference/objects#automergedisabledevent"
+        },
+        {
+          "name": "AutoMergeEnabledEvent",
+          "id": "automergeenabledevent",
+          "href": "/graphql/reference/objects#automergeenabledevent"
+        },
+        {
+          "name": "AutoRebaseEnabledEvent",
+          "id": "autorebaseenabledevent",
+          "href": "/graphql/reference/objects#autorebaseenabledevent"
+        },
+        {
+          "name": "AutoSquashEnabledEvent",
+          "id": "autosquashenabledevent",
+          "href": "/graphql/reference/objects#autosquashenabledevent"
         },
         {
           "name": "AutomaticBaseChangeFailedEvent",
@@ -61455,7 +62764,7 @@
       "kind": "unions",
       "id": "sponsor",
       "href": "/graphql/reference/unions#sponsor",
-      "description": "<p>Entites that can sponsor others via GitHub Sponsors.</p>",
+      "description": "<p>Entities that can sponsor others via GitHub Sponsors.</p>",
       "possibleTypes": [
         {
           "name": "Organization",
@@ -61485,6 +62794,25 @@
           "name": "StatusContext",
           "id": "statuscontext",
           "href": "/graphql/reference/objects#statuscontext"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainOwner",
+      "kind": "unions",
+      "id": "verifiabledomainowner",
+      "href": "/graphql/reference/unions#verifiabledomainowner",
+      "description": "<p>Types that can own a verifiable domain.</p>",
+      "possibleTypes": [
+        {
+          "name": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
         }
       ]
     }
@@ -61616,6 +62944,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddEnterpriseSupportEntitlementInput",
+      "kind": "inputObjects",
+      "id": "addenterprisesupportentitlementinput",
+      "href": "/graphql/reference/input-objects#addenterprisesupportentitlementinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseSupportEntitlement.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the Enterprise which the admin belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of a member who will receive the support entitlement.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -62008,6 +63370,40 @@
         {
           "name": "starrableId",
           "description": "<p>The Starrable ID to star.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "addverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#addverifiabledomaininput",
+      "description": "<p>Autogenerated input type of AddVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "domain",
+          "description": "<p>The URL of the domain.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner to add the domain to.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -62793,6 +64189,22 @@
       "description": "<p>Autogenerated input type of CreateBranchProtectionRule.</p>",
       "inputFields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -62876,6 +64288,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -63879,7 +65299,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visiblity of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -64344,6 +65764,32 @@
         {
           "name": "id",
           "description": "<p>The discussion ID to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "deleteverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#deleteverifiabledomaininput",
+      "description": "<p>Autogenerated input type of DeleteVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to delete.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64835,6 +66281,31 @@
       ]
     },
     {
+      "name": "IssueCommentOrder",
+      "kind": "inputObjects",
+      "id": "issuecommentorder",
+      "href": "/graphql/reference/input-objects#issuecommentorder",
+      "description": "<p>Ways in which lists of issue comments can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order issue comments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order issue comments by.</p>",
+          "type": "IssueCommentOrderField!",
+          "id": "issuecommentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuecommentorderfield"
+        }
+      ]
+    },
+    {
       "name": "IssueFilters",
       "kind": "inputObjects",
       "id": "issuefilters",
@@ -65034,7 +66505,7 @@
         },
         {
           "name": "lockReason",
-          "description": "<p>A reason for why the issue or pull request will be locked.</p>",
+          "description": "<p>A reason for why the item will be locked.</p>",
           "type": "LockReason",
           "id": "lockreason",
           "kind": "enums",
@@ -65042,7 +66513,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the issue or pull request to be locked.</p>",
+          "description": "<p>ID of the item to be locked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65674,7 +67145,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -65732,6 +67203,32 @@
         {
           "name": "enterpriseId",
           "description": "<p>The ID of the enterprise on which to set an identity provider.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "RegenerateVerifiableDomainTokenInput",
+      "kind": "inputObjects",
+      "id": "regenerateverifiabledomaintokeninput",
+      "href": "/graphql/reference/input-objects#regenerateverifiabledomaintokeninput",
+      "description": "<p>Autogenerated input type of RegenerateVerifiableDomainToken.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to regenerate the verification token of.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65892,6 +67389,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "RemoveEnterpriseSupportEntitlementInput",
+      "kind": "inputObjects",
+      "id": "removeenterprisesupportentitlementinput",
+      "href": "/graphql/reference/input-objects#removeenterprisesupportentitlementinput",
+      "description": "<p>Autogenerated input type of RemoveEnterpriseSupportEntitlement.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the Enterprise which the admin belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of a member who will lose the support entitlement.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -66407,6 +67938,132 @@
       ]
     },
     {
+      "name": "SetOrganizationInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setorganizationinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setorganizationinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetOrganizationInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SetRepositoryInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setrepositoryinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setrepositoryinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetRepositoryInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SetUserInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setuserinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setuserinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetUserInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "userId",
+          "description": "<p>The ID of the user to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "SponsorsTierOrder",
       "kind": "inputObjects",
       "id": "sponsorstierorder",
@@ -66796,7 +68453,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the issue or pull request to be unlocked.</p>",
+          "description": "<p>ID of the item to be unlocked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66960,6 +68617,22 @@
       "description": "<p>Autogenerated input type of UpdateBranchProtectionRule.</p>",
       "inputFields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleId",
           "description": "<p>The global relay id of the branch protection rule to be updated.</p>",
           "type": "ID!",
@@ -67043,6 +68716,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -68470,7 +70151,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -68780,7 +70461,7 @@
         },
         {
           "name": "id",
-          "description": "<p>The Node ID of the team to update review assginments of.</p>",
+          "description": "<p>The Node ID of the team to update review assignments of.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68863,6 +70544,57 @@
           "href": "/graphql/reference/enums#userstatusorderfield"
         }
       ]
+    },
+    {
+      "name": "VerifiableDomainOrder",
+      "kind": "inputObjects",
+      "id": "verifiabledomainorder",
+      "href": "/graphql/reference/input-objects#verifiabledomainorder",
+      "description": "<p>Ordering options for verifiable domain connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order verifiable domains by.</p>",
+          "type": "VerifiableDomainOrderField!",
+          "id": "verifiabledomainorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#verifiabledomainorderfield"
+        }
+      ]
+    },
+    {
+      "name": "VerifyVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "verifyverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#verifyverifiabledomaininput",
+      "description": "<p>Autogenerated input type of VerifyVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to verify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
     }
   ],
   "scalars": [
@@ -68916,7 +70648,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -68960,7 +70692,7 @@
       "kind": "scalars",
       "id": "precisedatetime",
       "href": "/graphql/reference/scalars#precisedatetime",
-      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precison.</p>"
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>"
     },
     {
       "name": "String",

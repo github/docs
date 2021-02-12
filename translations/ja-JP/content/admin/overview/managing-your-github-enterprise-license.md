@@ -36,8 +36,7 @@ versions:
 4. [Enterprise Server Instances] で、{% octicon "download" aria-label="The download icon" %} をクリックしてライセンスファイルをダウンロードします。 ![GitHub Enterprise Server ライセンスをダウンロードする](/assets/images/help/business-accounts/download-ghes-license.png)
 5. サイト管理者として
 {% data variables.product.prodname_ghe_server %} インスタンスにログインします。
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. [Quick links] で [**Update license**] をクリックする。 ![ライセンス更新のリンク](/assets/images/enterprise/business-accounts/update-license-link.png)
@@ -59,8 +58,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} から JSON ファイルをダウンロードして {% data variables.product.prodname_ghe_cloud %} にそのファイルをアップロードし、2 つのデプロイメント間でユーザライセンスの使用状況を手動で同期できます。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. [Quick links] で、

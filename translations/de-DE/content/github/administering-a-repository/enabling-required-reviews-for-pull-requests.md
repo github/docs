@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du erforderliche Reviews auf einem Branch aktivierst, musst Du zunächst den Branch als geschützten Branch aufsetzen. Weitere Informationen finden Sie unter „[Geschützte Branches konfigurieren](/github/administering-a-repository/configuring-protected-branches)“.

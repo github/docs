@@ -1,11 +1,12 @@
 ---
 title: Informationen zu Repositorys
-intro: Ein Repository ist wie ein Ordner für Dein Projekt. Das Repository Deines Projekts enthält alle Dateien Deines Projekts und speichert den Revisionsverlauf jeder Datei. Im Repository kannst Du außerdem die Arbeit Deines Projekts diskutieren und verwalten.
+intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst Repositorys einzeln besitzen oder die Inhaberschaft an Repositorys mit anderen Personen in einer Organisation teilen.
@@ -21,9 +22,11 @@ With
 Jede Person und Organisation kann unbegrenzte Repositorys besitzen und eine unbegrenzte Anzahl von Mitarbeitern in alle Repositorys einladen.
 {% endif %}
 
-Mithilfe der Issues, Pull Requests und Projektboards Ihres Repositorys können Sie mit anderen an Ihrem Projekt zusammenarbeiten.
-
-![Hauptseite des Octocat-/Hello-World-Repositorys](/assets/images/help/repository/repo-main-page.png)
+You can use repositories to manage your work and collaborate with others.
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- You can use pull requests to propose changes to a repository. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests).“
+- You can use project boards to organize and prioritize your issues and pull requests. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/github/managing-your-work-on-github/about-project-boards).“
 
 {% data reusables.repositories.repo-size-limit %}
 

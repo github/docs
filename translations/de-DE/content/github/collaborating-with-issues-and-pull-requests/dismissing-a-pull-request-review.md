@@ -1,11 +1,12 @@
 ---
 title: Einen Pull-Request-Review verwerfen
-intro: 'Wenn Dein Repository [Reviews voraussetzt](/articles/about-required-reviews-for-pull-requests), kannst Du Pull-Request-Reviews verwerfen, die nicht mehr gültig sind oder vom Reviewer nicht genehmigt werden können.'
+intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -23,4 +24,4 @@ Dies ändert den Status des Reviews zu einem Review-Kommentar. Wenn Du einen Rev
 
 - „[Informationen zu Pull-Request-Reviews](/articles/about-pull-request-reviews)“
 - „[Vorgeschlagene Änderungen in einem Pull Request prüfen](/articles/reviewing-proposed-changes-in-a-pull-request)“
-- „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests)“
+- „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)“

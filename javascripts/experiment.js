@@ -1,5 +1,6 @@
 import murmur from 'imurmurhash'
 import { getUserEventsId, sendEvent } from './events'
+// import h from './hyperscript'
 
 const TREATMENT = 'TREATMENT'
 const CONTROL = 'CONTROL'
@@ -19,26 +20,9 @@ export async function sendSuccess (test) {
   })
 }
 
-const xmlns = 'http://www.w3.org/2000/svg'
-
-export function h (tagName, attributes = {}, children = []) {
-  const el = ['svg', 'path'].includes(tagName)
-    ? document.createElementNS(xmlns, tagName)
-    : document.createElement(tagName)
-  Object.entries(attributes).forEach(
-    ([key, value]) => el.setAttribute(key, value)
-  )
-  children.forEach(child =>
-    typeof child === 'string'
-      ? el.append(document.createTextNode(child))
-      : el.append(child)
-  )
-  return el
-}
-
 export default function () {
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
   // if (xbucket === TREATMENT) { ... }
-  // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
+  // x.addEventListener('click', () => { sendSuccess(testName) })
 }

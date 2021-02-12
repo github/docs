@@ -9,7 +9,7 @@ versions:
 
 Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。
 
-Teamは、企業内のグループを表したり、特定の関心や専門分野を持つ人々を含めたりできます。 たとえば{% data variables.product.product_location_enterprise %}のアクセシビリティの専門家のTeamは、様々な部署からの人々で構成されるといったことがあります。 Teamは、企業の既存の部門階層を補完する機能的な関心事項を表します。
+Teamは、企業内のグループを表したり、特定の関心や専門分野を持つ人々を含めたりできます。 たとえば{% data variables.product.product_location %}のアクセシビリティの専門家のTeamは、様々な部署からの人々で構成されるといったことがあります。 Teamは、企業の既存の部門階層を補完する機能的な関心事項を表します。
 
 Organizationには、企業やグループの階層構造を反映させた入れ子チームを複数レベルで作成できます。 詳しい情報については"[Teamについて](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)"を参照してください。
 
@@ -28,7 +28,7 @@ Teamの良く考えられた組み合わせは、リポジトリへのアクセ�
 
 ### LDAP Syncを有効化したTeamの作成
 
-ユーザ認証にLDAPを使っているインスタンスでは、Teamのメンバー管理にLDAP Syncが使えます。 **LDAP group** フィールド内のグループの **Distinguished Name** (DN) を設定すれば、Team を LDAP サーバ上の LDAP グループにマッピングできます。 Teamのメンバー管理にLDAP Syncを使う場合、{% data variables.product.product_location_enterprise %}内でTeamを管理することはできません。 LADP Syncを有効化すると、マッピングされたTeamはそのメンバーをバックグラウンドで定期的に設定された間隔で同期します。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
+ユーザ認証にLDAPを使っているインスタンスでは、Teamのメンバー管理にLDAP Syncが使えます。 **LDAP group** フィールド内のグループの **Distinguished Name** (DN) を設定すれば、Team を LDAP サーバ上の LDAP グループにマッピングできます。 Teamのメンバー管理にLDAP Syncを使う場合、{% data variables.product.product_location %}内でTeamを管理することはできません。 LADP Syncを有効化すると、マッピングされたTeamはそのメンバーをバックグラウンドで定期的に設定された間隔で同期します。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

@@ -32,7 +32,7 @@ If none of these files are found, then any files or folders in `dotfiles` starti
 
 Any changes to your `dotfiles` repository will apply only to each new codespace, and do not affect any existing codespace.
 
-For more information, see [Personalizing](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing) in the {% data variables.product.prodname_vscode %} documentation.
+For more information, see [Personalizing](https://docs.microsoft.com/visualstudio/online/reference/personalizing) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% note %}
 
@@ -40,6 +40,7 @@ For more information, see [Personalizing](https://docs.microsoft.com/en-us/visua
 
 {% endnote %}
 
+You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
 
 ### 더 읽을거리
 

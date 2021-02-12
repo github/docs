@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Überblick über die Berechtigungen
@@ -21,7 +22,7 @@ Für Projektboard-Mitarbeiter gibt es drei Berechtigungsstufen:
 Der Projektboard-Inhaber und die Mitarbeiter mit Administratorzugriff besitzen die vollständige Kontrolle über das Projektboard. Neben den Berechtigungen, die auch Projektboard-Mitarbeitern erteilt werden, stehen einem Projektboard-Inhaber und Mitarbeitern mit Administratorzugriff zusätzlich folgende Möglichkeiten zur Verfügung:
 
 - [Mitarbeiter verwalten, anzeigen und hinzufügen](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Ein Projektboard als öffentliches oder privates Projektboard konfigurieren](/articles/changing-project-board-visibility)
+- [Configure a project board as {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private](/articles/changing-project-board-visibility)
 - [Ein Projektboard löschen](/articles/deleting-a-project-board/)
 - [Ein Projektboard schließen](/articles/closing-a-project-board/)
 - [Ein geschlossenes Projektboard erneut öffnen](/articles/reopening-a-closed-project-board)
@@ -50,7 +51,7 @@ Mitarbeiter mit Schreibzugriff auf ein Benutzer-Projektboard können Folgendes t
 
 ### Sichtbarkeit des Projektboards
 
-Du kannst die Sichtbarkeit des Projektboards von privat in öffentlich und umgekehrt ändern. Standardmäßig sind Benutzer-Projektboards privat. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
+You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. Standardmäßig sind Benutzer-Projektboards privat. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
 
 ### Weiterführende Informationen
 

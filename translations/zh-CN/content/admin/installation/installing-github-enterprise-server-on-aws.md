@@ -12,7 +12,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - 您必须具有能够启动 EC2 实例和创建 EBS 卷的 AWS 帐户。 更多信息请参阅 [Amazon Web Services 网站](https://aws.amazon.com/)。
-- 启动 {% data variables.product.product_location_enterprise %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
+- 启动 {% data variables.product.product_location %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
 
 本指南假定您已熟悉以下 AWS 概念：
 
@@ -28,7 +28,7 @@ versions:
 
 ### 确定实例类型
 
-在 AWS 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
+在 AWS 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
 
 #### 支持的实例类型
 
@@ -130,4 +130,5 @@ aws ec2 run-instances \
 
 ### 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

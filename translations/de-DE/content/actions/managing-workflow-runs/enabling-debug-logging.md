@@ -13,6 +13,9 @@ versions:
 Diese zusätzlichen Protokolle werden aktiviert, indem Geheimnisse im Repository, die den Workflow enthalten, gesetzt werden, sodass die gleichen Berechtigungsanforderungen gelten:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- {% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 

@@ -27,6 +27,7 @@
 @import "@primer/css/tooltips/index.scss";
 @import "@primer/css/truncate/index.scss";
 @import "@primer/css/utilities/index.scss";
+@import "@primer/css/avatars/index.scss";
 // END CUSTOM CORE IMPORT
 
 @import "@primer/css/markdown/index.scss";
@@ -52,3 +53,9 @@ $marketing-font-path: "/dist/fonts/";
 @import "tables.scss";
 @import "opacity.scss";
 @import "print.scss";
+@import "shadows.scss";
+@import "product-landing.scss";
+@import "dev-toc.scss";
+@import "gradient.scss";
+@import "product-sublanding.scss";
+@import "release-notes.scss";

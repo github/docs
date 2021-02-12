@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Muitas vezes, o Git pode resolver diferenças entre branches e fazer merge deles automaticamente. Normalmente, as alterações são em linhas diferentes, ou até mesmo em arquivos diferentes, o que facilita o entendimento do merge pelos computadores. No entanto, às vezes, há alterações conflitantes que o Git não pode resolver sem a sua ajuda. Geralmente, os conflitos de merge acontecem quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo.

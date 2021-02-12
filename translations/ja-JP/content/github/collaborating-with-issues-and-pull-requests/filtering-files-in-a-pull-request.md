@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
+プルリクエスト内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子の欠如、コードの所有権、ドットファイルでフィルタリングできます。
 
 {% tip %}
 
-**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
+**ヒント:** ファイルのフィルタドロップダウンメニューから、プルリクエストの diff 内の削除されたファイル、または既に表示したファイルを一時的に非表示にして、プルリクエストの diff 表示を簡素化できます。
 
 {% endtip %}
 

@@ -1,11 +1,12 @@
 ---
 title: Einen Commit mit mehreren Autoren erstellen
-intro: 'Du kannst einen Commit mehreren Autoren zuordnen, indem Du einen oder mehrere `Co-authored-by`-Trailer zur Commit-Mitteilung hinzufügst. Commits mit Co-Autor sind auf {% data variables.product.product_name %} sichtbar{% if enterpriseServerVersions contains currentVersion %} und können in das Beteiligungsdiagramm des Profils sowie in die Statistik des Repositorys aufgenommen werden{% endif %}.'
+intro: 'Du kannst einen Commit mehreren Autoren zuordnen, indem Du einen oder mehrere `Co-authored-by`-Trailer zur Commit-Mitteilung hinzufügst. Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Erforderliche Co-Autor-Informationen
@@ -30,7 +31,7 @@ Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen
 
 ### Commits mit Co-Autor mit {% data variables.product.prodname_desktop %} erstellen
 
-Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
+Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
 
 ![Einen Co-Autor zur Commit-Mitteilung hinzufügen](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -38,7 +39,17 @@ Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit e
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tipp:** Wenn Du auf der Befehlszeile einen Texteditor verwendest, um Deine Commit-Mitteilung einzugeben, stelle sicher, dass es zwei Zeilenumbrüche hat zwischen dem Ende Deiner Commit-Beschreibung und dem `Co-authored-by:` Commit-Trailer.
+
+  {% endtip %}
 
 3. Gib in der nächsten Zeile der Commit-Mitteilung `Co-authored-by: name <name@example.com>` mit spezifischen Informationen zu jedem Co-Autor ein. Füge nach den Angaben zu den Co-Autoren ein abschließendes Anführungszeichen ein.
 
@@ -67,10 +78,10 @@ Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.pro
 Der neue Commit samt Mitteilung wird auf {% data variables.product.product_location %} angezeigt.
 
 ### Weiterführende Informationen
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - „"[Beiträge auf Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile)“
 - „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“{% endif %}
 - „[Eine Zusammenfassung der Repository-Aktivitäten anzeigen](/articles/viewing-a-summary-of-repository-activity)“
 - „[Die Mitarbeiter eines Projekts anzeigen](/articles/viewing-a-projects-contributors)“
 - „[Eine Commit-Mitteilung ändern](/articles/changing-a-commit-message)“
-- „[Änderungen an Deinem Projekt freigeben und überprüfen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ in der {% data variables.product.prodname_desktop %}-Dokumentation
+- „[Änderungen an Deinem Projekt freigeben und überprüfen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)“ in der {% data variables.product.prodname_desktop %}-Dokumentation

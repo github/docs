@@ -1,9 +1,10 @@
 ---
-title: Webhooks and events
-intro: 'You can set up, test, and secure webhooks so your integrations can subscribe and react to events on {% data variables.product.prodname_dotcom %}.'
+title: Web 挂钩和事件
+intro: '您可以设置、测试和保护 web 挂钩，使您的集成可以订阅和响应 {% data variables.product.prodname_dotcom %} 上的事件。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 目录

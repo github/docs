@@ -7,22 +7,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### 目录
 
 {% topic_link_in_list /managing-files-on-github %}
-<!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /navigating-code-on-github %}
-<!-- endif -->
     {% link_in_list /creating-new-files %}
     {% link_in_list /adding-a-file-to-a-repository %}
     {% link_in_list /moving-a-file-to-a-new-location %}
     {% link_in_list /editing-files-in-your-repository %}
     {% link_in_list /editing-files-in-another-users-repository %}
     {% link_in_list /tracking-changes-in-a-file %}
-    {% link_in_list /deleting-files %}
+    {% link_in_list /deleting-files-in-a-repository %}
     {% link_in_list /renaming-a-file %}
     {% link_in_list /getting-permanent-links-to-files %}
 {% topic_link_in_list /managing-files-using-the-command-line %}

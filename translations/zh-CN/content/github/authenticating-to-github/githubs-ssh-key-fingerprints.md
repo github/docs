@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
+以下是 {% data variables.product.prodname_dotcom %} 的公钥指纹：
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)
 - `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)

@@ -1,1 +1,1 @@
-ローカルアクションのみを有効化した場合、ワークフローはリポジトリあるいはOrganization内のアクションだけを実行できるようになります。
+When you enable local actions only, workflows can only run actions located in your repository, organization, or enterprise.

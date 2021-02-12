@@ -1,37 +1,37 @@
 ---
-title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+title: GitHub開発者プログラム
+intro: '{% data variables.product.prodname_dotcom %}と統合されるツールを構築するなら、{% data variables.product.prodname_dotcom %}開発者プログラムに参加できます。'
 redirect_from:
-  - /プログラム
+  - /program
 versions:
   free-pro-team: '*'
 ---
 
-Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
+GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録を](https://github.com/developer/register)
 
-## Stay in the know
+## 把握し続けてください
 
-Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
+[開発者ブログ](https://developer.github.com/changes/)でAPIの変更について最初に知り、公開されるより先に新機能を試してください。
 
-## Scratch an itch
+## かゆいところに手を届ける
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+毎日コードをプッシュするところとシームレスに統合される独自のツールを構築してください。
 
-## Take on the enterprise
+## エンタープライズへの挑戦
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %}あるいは{% data variables.product.prodname_ghe_managed %}に対してアプリケーションを構築してテストするために、[開発者ライセンスを取得](http://github.com/contact?form%5Bsubject%5D=Development+licenses)してください。
 
 
-## Have an integration that works with GitHub?
+## GitHubと連携するインテグレーションがありますか？
 
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
+素晴らしいです！ プログラムに参加していただければ嬉しく思います。 以下のようにすれば、情報を展開できます。</p>
+* [あなたのインテグレーションについてお知らせください。](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* [OctocatもしくはGitHubロゴ](https://github.com/logos)を使って、あなたの製品がGitHubと動作することを示してください。
+* Webサイトにインテグレーションに関するビデオあるいはブログをポストしてください。
 
-## Ready to join the GitHub Developer Program?</h3>
+## GitHub開発者プログラムに参加する準備はできましたか？</h3>
 
-Membership is open to individual developers and companies who have:
+メンバーシップは、以下をお持ちの個人開発者及び企業に対して開かれています。
 
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+* GitHub APIを使用した、実働中あるいは開発中のインテグレーション。
+* GitHubユーザがサポートのために連絡できるメールアドレス。

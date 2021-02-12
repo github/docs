@@ -14,8 +14,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフローコマンドについて
 
@@ -164,6 +164,25 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### サンプル
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+
 ### ログ中での値のマスク
 
 `::add-mask::{value}`
@@ -259,7 +278,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 将来のステップで `$action_state` を実行すると `yellow` が返されるようになりました
 
-#### 複数行の文字列
+#### Multiline strings
+
 複数行の文字列の場合、次の構文で区切り文字を使用できます。
 
 ```
@@ -268,7 +288,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 {delimiter}
 ```
 
-#### サンプル
+##### サンプル
+
 この例では、区切り文字として `EOF` を使用し、`JSON_RESPONSE` 環境変数を cURL レスポンスの値に設定します。
 ```
 steps:
@@ -284,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-現在のジョブ内にある、続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### サンプル
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

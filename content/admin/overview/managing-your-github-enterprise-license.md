@@ -18,11 +18,13 @@ versions:
 
 ### About {% data variables.product.prodname_enterprise %} licenses
 
-When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you download and install {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use.
+When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you [download](https://enterprise.github.com/releases/) and [install](https://docs.github.com/en/enterprise-server/admin/installation/setting-up-a-github-enterprise-server-instance) {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use. 
 
 You can allocate the user licenses included in your {% data variables.product.prodname_enterprise %} license to users in {% data variables.product.product_location_enterprise %} and a {% data variables.product.prodname_ghe_cloud %} enterprise account. When you add a user to either environment, they will consume a license. If a user has accounts in both environments, to consume only one license, their primary {% data variables.product.prodname_enterprise %} email address must be the same as their verified {% data variables.product.prodname_ghe_cloud %} email address. You can sync license count and usage between the environments.
 
 If your {% data variables.product.prodname_ghe_server %} license expires, you won't be able to access {% data variables.product.product_location_enterprise %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data. For more information, see "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)." If you have any questions about renewing your license, contact {% data variables.contact.contact_enterprise_sales %}.
+
+You can download your {% data variables.product.prodname_ghe_server %} license from your [Enterprise Account](https://docs.github.com/en/enterprise-server/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server), if you do not have an Enterprise Account you can login to our [Enterprise Portal](https://enterprise.github.com/download) and download your license. 
 
 ### Uploading a new license to {% data variables.product.prodname_ghe_server %}  
 
@@ -37,8 +39,7 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file.
   ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
 5. Log into your {% data variables.product.prodname_ghe_server %} instance as a site administrator.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Under "Quick links", click **Update license**.
@@ -64,8 +65,7 @@ You can use {% data variables.product.prodname_github_connect %} to automaticall
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.

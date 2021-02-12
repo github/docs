@@ -1,15 +1,16 @@
 ---
 title: Zugriff eines ehemaligen externen Mitarbeiters auf Deine Organisation wieder einsetzen
-intro: 'Wenn Du in Deiner Organisation die Zwei-Faktor-Authentifizierung eingeführt hast und ein externer Mitarbeiter aus der Organisation entfernt wurde, weil er die 2FA nicht aktiviert hatte, kannst Du dessen Zugriffsberechtigungen für die Repositorys, Forks und Einstellungen der Organisation wiederherstellen.'
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Wenn der Zugriff eines externen Mitarbeiters auf die privaten Repositorys Deiner Organisation entfernt wurde, weil Du von Deinen [Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

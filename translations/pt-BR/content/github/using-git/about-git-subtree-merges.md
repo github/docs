@@ -8,6 +8,7 @@ intro: 'Se precisar gerenciar vários projetos em um único repositório, você 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Normalmente, um merge de subárvore é usado para conter um repositório dentro de outro repositório. O "sub-repositório" é armazenado em uma pasta do repositório principal.
@@ -104,5 +105,5 @@ $ git pull -s subtree spoon-knife main
 
 ### Leia mais
 
-- [O capítulo "Subtree Merging" no livro do _Pro Git_](https://git-scm.com/book/en/Git-Tools-Subtree-Merging)
+- [O capítulo "Mesclagem avançada" do livro _Pro Git_](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[Como usar a estratégia de merge de subárvore](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

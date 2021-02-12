@@ -40,8 +40,9 @@ Zum Einrichten einer `www`- oder benutzerdefinierten Subdomäne wie `www.example
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.save-custom-domain %}
-5. Navigiere zu Deinem DNS-Provider, und erstelle einen `CNAME` Datensatz, welcher Deine Subdomäne auf die Standarddomäne Deiner Website verweist. Soll beispielsweise die Subdomäne `www.example.com` für Deine Benutzer-Website verwendet werden, erstelle einen `CNAME`-Datensatz, mit dem `www.example.com` auf `<user>.github.io` verweist. If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` file should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name.
-{% data reusables.pages.contact-dns-provider %}{% data reusables.pages.default-domain-information %}
+5. Navigiere zu Deinem DNS-Provider, und erstelle einen `CNAME` Datensatz, welcher Deine Subdomäne auf die Standarddomäne Deiner Website verweist. Soll beispielsweise die Subdomäne `www.example.com` für Deine Benutzer-Website verwendet werden, erstelle einen `CNAME`-Datensatz, mit dem `www.example.com` auf `<user>.github.io` verweist. If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+
+{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. Prüfe die korrekte Konfiguration des DNS-Datensatzes mit dem Befehl `dig`, und ersetze _WWW.EXAMPLE.COM_ dabei durch Deine Subdomäne.
 ```shell
@@ -72,6 +73,8 @@ Zum Einrichten einer Apex-Domäne, beispielsweise `example.com`, musst Du eine _
       185.199.110.153
       185.199.111.153
       ```
+
+{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. Prüfe die korrekte Konfiguration des DNS-Datensatzes mit dem Befehl `dig`, und ersetze _EXAMPLE.COM_ dabei durch Deine Apex-Domäne. Prüfe, ob die Ergebnisse mit den obigen IP-Adressen für {% data variables.product.prodname_pages %} übereinstimmen.
   ```shell

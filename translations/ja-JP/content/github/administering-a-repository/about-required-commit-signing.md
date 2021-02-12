@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリでブランチ保護を強制している場合、必須コミット署名をセットアップできます。 詳しい情報については[保護されたブランチの設定](/articles/configuring-protected-branches/)を参照してください。

@@ -1,6 +1,6 @@
 ---
 title: 启用 GitHub Insights 与 GitHub Enterprise 之间的链接
-intro: '您可以启用一个允许用户从 {% data variables.product.prodname_ghe_server %} 导航到 {{  site.data.variables.product.prodname_insights }} 的链接。'
+intro: '您可以启用一个允许用户从 {% data variables.product.prodname_ghe_server %} 导航到 {% data variables.product.prodname_insights %} 的链接。'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员可启用 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_insights %} 之间的链接。'
 redirect_from:
@@ -19,8 +19,7 @@ versions:
   ```
 3. 返回到
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. 在
 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**下，单击 **{% data variables.product.prodname_insights %}**。

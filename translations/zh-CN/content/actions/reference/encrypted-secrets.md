@@ -1,6 +1,6 @@
 ---
 title: Encrypted secrets
-intro: 加密密码允许您在仓库或组织中存储敏感信息。
+intro: Encrypted secrets allow you to store sensitive information in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or repository environments{% else %} or repository{% endif %}.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -12,87 +12,115 @@ versions:
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.environments-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 关于加密密码
+### About encrypted secrets
 
-密码是在仓库或组织中创建的加密环境变量。 您创建的密码可用于 {% data variables.product.prodname_actions %} 工作流程。 在密码到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对密码加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+Secrets are encrypted environment variables that you create in an organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-#### 命名您的密码
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+{% endif %}
 
-以下规则适用于密码名称：
+#### Naming your secrets
 
-* 密码名称只能包含字母数字字符（`[a-z]`、`[A-Z]`、`[0-9]`）或下划线 (`_`)。 不允许空格。
-* 密码名称不能以 `GITHUB_` 前缀开头。
-* 密码名称不能以数字开头。
-* 密码名称在所创建的级别上必须是唯一的。 例如，在组织级别创建的密码必须在该级别具有唯一名称，而在仓库级别创建的密码必须在该仓库具有唯一名称。 如果组织级别密码的名称与仓库级别的密码相同，则仓库级别的密码优先。
+The following rules apply to secret names:
 
-为帮助确保 {% data variables.product.prodname_dotcom %} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
+* Secret names can only contain alphanumeric characters (`[a-z]`, `[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed.
+* Secret names must not start with the `GITHUB_` prefix.
+* Secret names must not start with a number.
+* Secret names are not case-sensitive.
+* Secret names must be unique at the level they are created at. For example, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level. 
+  
+  If a secret with the same name exists at multiple levels, the secret at the lower level takes precedence. For example, if an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
-#### 访问您的密码
+To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
 
-为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
+#### Accessing your secrets
 
-如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
+To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+
+You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
 {% warning %}
 
-**警告：**{% data variables.product.prodname_dotcom %} 自动将密码编写到日志，但您应避免有意将密码打印到日志。
+**Warning:** {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to the log, but you should avoid printing secrets to the log intentionally.
 
 {% endwarning %}
 
-您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/v3/actions/secrets/)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
+{% endif %}
 
-#### 限制凭据权限
+You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
-生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/v3/guides/managing-deploy-keys/#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
+#### Limiting credential permissions
 
-### 为仓库创建加密密码
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+
+### Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. 单击 **Add a new secret（添加新机密）**。
-1. 在 **Name（名称）**输入框中键入密码的名称。
-1. 输入密码的值。
-1. 单击 **Add secret（添加密码）**。
+1. Click **New repository secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
-如果您的仓库可以从父级组织访问密码，则此页上也会列出这些密码。
+If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
-### 为组织创建加密密码
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Creating encrypted secrets for an environment
 
-在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
+{% data reusables.github-actions.permissions-statement-secrets-environment %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-environment %}
+1. Click on the environment that you want to add a secret to.
+1. Under **Environment secrets**, click **Add secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
+{% endif %}
+
+### Creating encrypted secrets for an organization
+
+When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. 单击 **New secret（新建密码）**。
-1. 在 **Name（名称）**输入框中键入密码的名称。
-1. 输入密码的 **Value（值）**。
-1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
-1. 单击 **Add secret（添加密码）**。
+1. Click **New organization secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the **Value** for your secret.
+1. From the **Repository access** dropdown list, choose an access policy.
+1. Click **Add secret**.
 
-### 审查对组织级别密码的访问权限
+### Reviewing access to organization-level secrets
 
-您可以检查哪些访问策略正被应用于组织中的密码。
+You can check which access policies are being applied to a secret in your organization.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. 密码列表包括任何已配置的权限和策略。 例如： ![密码列表](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 有关已为每个密码配置的权限的更多信息，请单击 **Update（更新）**。
+1. The list of secrets includes any configured permissions and policies. For example:
+![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+1. For more details on the configured permissions for each secret, click **Update**.
 
-### 在工作流程中使用加密密码
+### Using encrypted secrets in a workflow
 
-除了 `GITHUB_TOKEN` 以外，从复刻的仓库触发工作流程时密码不会传递给运行程序。
+{% data reusables.actions.forked-secrets %}
 
-要提供以密码作为输入或环境变量的操作，可以使用 `secrets` 上下文访问您在仓库中创建的密码。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”和“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" and "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 {% raw %}
 ```yaml
@@ -105,11 +133,11 @@ steps:
 ```
 {% endraw %}
 
-尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)获取。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
+Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
 
-如果必须在命令行中传递密码，则将它们包含在适当的引用规则中。 密码通常包含可能意外影响 shell 的特殊字符。 要转义这些特殊字符，请引用环境变量。 例如：
+If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
 
-#### 使用 Bash 的示例
+#### Example using Bash
 
 {% raw %}
 ```yaml
@@ -122,7 +150,7 @@ steps:
 ```
 {% endraw %}
 
-#### 使用 PowerShell 的示例
+#### Example using PowerShell
 
 {% raw %}
 ```yaml
@@ -135,7 +163,7 @@ steps:
 ```
 {% endraw %}
 
-#### 使用 Cmd.exe 的示例
+#### Example using Cmd.exe
 
 {% raw %}
 ```yaml
@@ -148,44 +176,44 @@ steps:
 ```
 {% endraw %}
 
-### 密码的限制
+### Limits for secrets
 
-您的工作流程最多可以有 100 个密码。 密码环境变量的名称在仓库中必须是唯一的。
+You can store up to 1,000 secrets per organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, 100 secrets per repository, and 100 secrets per environment{% else %} and 100 secrets per repository{% endif %}. A workflow may use up to 100 organization secrets and 100 repository secrets.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Additionally, a job referencing an environment may use up to 100 environment secrets.{% endif %}
 
-密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
+Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB, you can store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt your credentials locally before checking the file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 
 {% warning %}
 
-**警告**：请注意，您的密码在操作运行时不会印出。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
+**Warning**: Be careful that your secrets do not get printed when your action runs. When using this workaround, {% data variables.product.prodname_dotcom %} does not redact secrets that are printed in logs.
 
 {% endwarning %}
 
-1. 从终端运行以下命令，以使用 `gpg` 和 AES256 密码算法对 `my_secret.json` 文件加密。
+1. Run the following command from your terminal to encrypt the `my_secret.json` file using `gpg` and the AES256 cipher algorithm.
 
  ``` shell
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. 将会提示您输入密码短语。 请记住该密码短语，因为需要在使用该密码短语作为值的 {% data variables.product.prodname_dotcom %} 上创建新密码。
+1. You will be prompted to enter a passphrase. Remember the passphrase, because you'll need to create a new secret on {% data variables.product.prodname_dotcom %} that uses the passphrase as the value.
 
-1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新密码，并将密码的值设为上一步所选的密码短语。
+1. Create a new secret that contains the passphrase. For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you selected in the step above.
 
-1. 将加密的文件复制到仓库并提交。 在本例中，加密的文件是 `my_secret.json.gpg`。
+1. Copy your encrypted file into your repository and commit it. In this example, the encrypted file is `my_secret.json.gpg`.
 
-1. 创建 shell 脚本对密码解密。 将此文件另存为 `decrypt_secret.sh`。
+1. Create a shell script to decrypt the password. Save this file as `decrypt_secret.sh`.
 
   ``` shell
   #!/bin/sh
 
-  # 解密文件
+  # Decrypt the file
   mkdir $HOME/secrets
-  # --批处理以防止交互式命令
-  # --是以假定问题的回答是“是”
+  # --batch to prevent interactive command
+  # --yes to assume "yes" for questions
   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
   --output $HOME/secrets/my_secret.json my_secret.json.gpg
   ```
 
-1. 确保 shell 脚本在检入仓库之前可执行。
+1. Ensure your shell script is executable before checking it in to your repository.
 
   ``` shell
   $ chmod +x decrypt_secret.sh
@@ -194,7 +222,7 @@ steps:
   $ git push
   ```
 
-1. 从工作流程使用 `step` 调用 shell 脚本并对密码解密。 要在工作流程运行的环境中创建仓库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与仓库根目录相关的 `run` 命令引用 shell 脚本。
+1. From your workflow, use a `step` to call the shell script and decrypt the secret. To have a copy of your repository in the environment that your workflow runs in, you'll need to use the [`actions/checkout`](https://github.com/actions/checkout) action. Reference your shell script using the `run` command relative to the root of your repository.
 
 {% raw %}
   ```yaml

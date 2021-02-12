@@ -28,6 +28,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Troubleshooting build errors
@@ -77,7 +78,7 @@ This error means that your code references a symlinked file that does not exist 
 This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
 
 To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
-```
+```yaml
 encoding: UTF-8
 ```
 
@@ -182,6 +183,6 @@ To troubleshoot, make sure all output tags in the file in the error message are 
 
 This error means that your code contains an unrecognized Liquid tag.
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default varibles, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
 
 Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."

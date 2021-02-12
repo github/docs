@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Überschriften
@@ -170,7 +171,7 @@ Weitere Informationen findest Du unter „[Informationen zu Aufgabenlisten](/art
 
 ### Personen und Teams erwähnen
 
-Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support Wie findet ihr diese Aktualisierungen?`
 
@@ -214,7 +215,7 @@ Du kannst Emojis einfügen, indem Du `:EMOJICODE:` eingeben.
 
 Bei der Eingabe von `:` wird eine Liste mit Vorschlägen für Emojis angezeigt. Die Liste wird während der Eingabe gefiltert. Wenn Du den gewünschten Emoji siehst, drücke die **Tabulator-** oder **Eingabetaste**, um das markierte Ergebnis zu vervollständigen.
 
-Eine komplette Liste der verfügbaren Emojis und Codes findest Du unter [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### Paragraphen
 

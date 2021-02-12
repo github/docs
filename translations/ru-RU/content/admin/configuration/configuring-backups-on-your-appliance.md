@@ -12,14 +12,14 @@ redirect_from:
   - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location_enterprise %} by configuring automated backups.'
+intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
 versions:
   enterprise-server: '*'
 ---
 
 ### About {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.product.product_location_enterprise %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
+{% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.product.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
 
 Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
 
@@ -27,11 +27,11 @@ For more detailed information on features, requirements, and advanced usage, see
 
 ### Требования
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.product.product_location_enterprise %}.
+To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.product.product_location %}.
 
 You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
 
-We recommend that the backup host and {% data variables.product.product_location_enterprise %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
+We recommend that the backup host and {% data variables.product.product_location %} be geographically distant from each other. This ensures that backups are available for recovery in the event of a major disaster or network outage at the primary site.
 
 Physical storage requirements will vary based on Git repository disk usage and expected growth patterns:
 
@@ -59,7 +59,7 @@ More resources may be required depending on your usage, such as user activity an
 3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
 5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-5. Verify SSH connectivity with {% data variables.product.product_location_enterprise %} with the `ghe-host-check` command.
+5. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
   ```shell
   $ bin/ghe-host-check        
   ```
@@ -78,9 +78,17 @@ If backup attempts overlap, the `ghe-backup` command will abort with an error me
 
 ### Restoring a backup
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location_enterprise %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
+In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
 
-To restore {% data variables.product.product_location_enterprise %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
+To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
 
 ```shell
 $ ghe-restore -c 169.154.1.1

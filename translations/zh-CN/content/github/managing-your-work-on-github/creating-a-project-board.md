@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -30,6 +31,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -49,6 +51,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -82,7 +85,7 @@ versions:
 ### 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- “[编辑项目板](/articles/editing-a-project-board)”{% if currentVersion == "free-pro-team@latest" %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”

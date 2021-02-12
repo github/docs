@@ -11,13 +11,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %}のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}及びWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
+{% data variables.product.product_name %} のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}およびWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
 
 アプリケーションをテストする場合のように、標準的な方法でのアプリケーションの認可をスキップしたい場合には[非Webアプリケーションフロー](#non-web-application-flow)を利用できます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 OAuthアプリケーションを認可する場合は、そのアプリケーションにどの認可フローが最も適切かを考慮してください。
 
@@ -71,13 +72,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ##### パラメータ
 
-| 名前              | 種類       | 説明                                                                                                                          |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
-| `client_secret` | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
-| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                             |
-| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                 |
-| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                   |
+| 名前              | 種類       | 説明                                                                                                                         |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
+| `client_secret` | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
+| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                            |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                  |
 
 ##### レスポンス
 
@@ -110,14 +111,16 @@ Acceptヘッダに応じて、異なる形式でコンテンツを受け取る�
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### デバイスフロー
 
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**ノート:** デバイスフローはパブリックベータであり、変更されることがあります。{% if currentVersion == "free-pro-team@latest" %} このベータの機能を有効化するには、「[アプリケーションのベータ機能のアクティベート](/developers/apps/activating-beta-features-for-apps)」を参照してください。{% endif %}
+**注釈:** デバイスフローは現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
+{% endif %}
 
 デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
@@ -210,7 +213,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### デバイスフローのレート制限
 
-ユーザがブラウザ上で検証コードをサブミットする場合、アプリケーションごとに1時間に50回のサブミットというレート制限があります。
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 リクエスト間で要求される最小の時間間隔（あるいは`interval`）内で複数のアクセストークンリクエスト（`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`）を発行すると、レート制限に達し、`slow_down`のエラーレスポンスが返されます。 `slow_down`エラーレスポンスは、最後の`interval`に5秒を追加します。 詳しい情報については[デバイスフローのエラー](#errors-for-the-device-flow)を参照してください。
 
@@ -232,13 +235,15 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ### 非Webアプリケーションフロー
 
-テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[個人アクセストークン設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[Basic認証](/v3/auth#basic-authentication)を利用して個人アクセストークンを作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
+テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[個人アクセストークン設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[Basic認証](/rest/overview/other-authentication-methods#basic-authentication)を利用して個人アクセストークンを作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
-**ノート:** 非Webアプリケーションフローを使ってOAuth2トークンを作成する場合で、ユーザが2要素認証を有効化しているなら[2要素認証の利用](/v3/auth/#working-with-two-factor-authentication)方法を必ず理解しておいてください。
+**ノート:** 非Webアプリケーションフローを使ってOAuth2トークンを作成する場合で、ユーザが2要素認証を有効化しているなら[2要素認証の利用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を必ず理解しておいてください。
 
 {% endnote %}
+{% endif %}
 
 ### リダイレクトURL
 
@@ -260,7 +265,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 `http://localhost/path`というコールバックURLに対して、以下の`redirect_uri`が利用できます。
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### OAuthアプリケーションに複数のトークンを作成する
 
@@ -284,7 +291,7 @@ OAuthアプリケーションへの認可情報へリンクし、ユーザがア
 
 {% tip %}
 
-**Tip:** OAuthアプリケーションがユーザのためにアクセスできるリソースについてさらに学ぶには、「[ユーザのためにリソースを見つける](/v3/guides/discovering-resources-for-a-user/)」を参照してください。
+**Tip:** OAuthアプリケーションがユーザのためにアクセスできるリソースについてさらに学ぶには、「[ユーザのためにリソースを見つける](/rest/guides/discovering-resources-for-a-user)」を参照してください。
 
 {% endtip %}
 
@@ -292,6 +299,6 @@ OAuthアプリケーションへの認可情報へリンクし、ユーザがア
 
 * 「[認可リクエストエラーのトラブルシューティング](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)」
 * 「[OAuthアプリケーションのアクセストークンのリクエストエラー](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)」
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * 「[デバイスフローのエラー](#errors-for-the-device-flow)」
 {% endif %}

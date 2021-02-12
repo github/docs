@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Esses comandos são muito úteis ao interagir com [um repositório remote](/articles/about-remote-repositories). `clone` e `fetch` baixam códigos remote de uma URL remota do repositório para seu computador, `merge` é usado para mesclar o trabalho de diferentes pessoas com o seu e `pull` é uma combinação de `fetch` e `merge`.

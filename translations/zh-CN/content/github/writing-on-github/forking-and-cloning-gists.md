@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 复刻 Gist
 
-每个 Gist 都指示哪些复刻中有活动，使您更容易找到来自同事或陌生人的有趣更改。
+每个 Gist 都指示哪些复刻中有活动，使您更容易找到他人的有趣更改。
 
 ![Gist 复刻](/assets/images/help/gist/gist_forks.png)
 

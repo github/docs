@@ -15,7 +15,6 @@ versions:
     {% link_in_list /recommended-alert-thresholds %}
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
-    {% link_in_list /log-forwarding %}
     {% link_in_list /monitoring-using-snmp %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}
@@ -24,7 +23,6 @@ versions:
     {% link_in_list /increasing-storage-capacity %}
     {% link_in_list /increasing-cpu-or-memory-resources %}
     {% link_in_list /migrating-from-github-enterprise-1110x-to-2123 %}
-    {% link_in_list /migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later %}
 {% topic_link_in_list /configuring-clustering %}
     {% link_in_list /about-clustering %}
     {% link_in_list /differences-between-clustering-and-high-availability-ha %}

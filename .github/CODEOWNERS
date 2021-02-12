@@ -20,6 +20,10 @@ package.json @github/docs-engineering
 # Site Policy
 /content/github/site-policy/ @github/site-policy-admins
 
+# Content strategy
+/contributing/content-markup-reference.md @github/docs-content-strategy
+/contributing/content-style-guide.md @github/docs-content-strategy
+
 # Make sure that Octokit maintainers get notified about changes
 # relevant to the Octokit libraries (https://github.com/octokit)
 /content/rest/reference @github/octokit-maintainers

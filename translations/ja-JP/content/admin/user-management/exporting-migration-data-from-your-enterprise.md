@@ -86,7 +86,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. {% data variables.product.product_location_enterprise %} への接続をクローズします。
+8. {% data variables.product.product_location %} への接続をクローズします。
   ```shell
   $ exit
   > logout

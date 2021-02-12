@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在拉取请求分支上进行提交必须满足以下条件：
 - 该拉取请求分支在您拥有推送权限的仓库中打开，并且是从仓库的复刻创建的
 - 在用户拥有的复刻上
 - 拥有拉取请求创建者授予的许可
-- 没有阻止您提交的[分支限制](/articles/about-branch-restrictions)
+- 没有阻止您提交的[分支限制](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches)
 
 只有创建拉取请求的用户才能授予您向用户拥有的复刻推送提交的权限。 更多信息请参阅“[允许更改从复刻创建的拉取请求分支](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)”。
 
@@ -24,7 +25,7 @@ versions:
 
 1. 在
 
-{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+{% data variables.product.product_name %} 上，导航到创建拉取请求分支的复刻（或仓库副本）的主页面。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

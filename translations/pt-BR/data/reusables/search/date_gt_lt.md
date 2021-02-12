@@ -1,1 +1,1 @@
-Datas são compatíveis com os [qualificadores maior que, menor que e de intervalo](/articles/understanding-the-search-syntax).
+When you search for a date, you can use greater than, less than, and range qualifiers to further filter results. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 É simples identificar esse erro; o Git avisará quando você tentar clonar o repositório:

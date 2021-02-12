@@ -88,11 +88,11 @@
     "deprecationDate": "2021-06-09"
   },
   "2.22": {
-    "releaseDate": "2020-09-08",
-    "deprecationDate": "2021-09-08"
+    "releaseDate": "2020-09-23",
+    "deprecationDate": "2021-09-23"
   },
-  "2.23": {
-    "releaseDate": "2020-11-10",
-    "deprecationDate": "2021-11-10"
+  "3.0": {
+    "releaseDate": "2021-01-12",
+    "deprecationDate": "2022-01-20"
   }
 }

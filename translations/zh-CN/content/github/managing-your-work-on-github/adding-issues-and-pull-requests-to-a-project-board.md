@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可通过以下方式将议题或拉取请求卡添加到项目板：
@@ -54,7 +55,7 @@ versions:
 1. 在议题或拉取请求右侧单击 **Projects（项目）{% octicon "gear" aria-label="The Gear icon" %}**。 ![侧栏中的项目板按钮](/assets/images/help/projects/sidebar-project.png)
 2. 单击要添加到其中的项目板对应的 **Recent（最近）**、**Repository（仓库）**、**User（用户）**或 **Organization（组织）**选项卡。 ![最近、仓库和组织选项卡](/assets/images/help/projects/sidebar-project-tabs.png)
 3. 在 **Filter projects（过滤项目）**字段中输入项目的名称。 ![项目板搜索框](/assets/images/help/projects/sidebar-search-project.png)
-4. Select one or more project boards where you want to add the issue or pull request. ![选择的项目板](/assets/images/help/projects/sidebar-select-project.png)
+4. 选择要添加议题或拉取请求的一个或多个项目板。 ![选择的项目板](/assets/images/help/projects/sidebar-select-project.png)
 5. 单击 {% octicon "triangle-down" aria-label="The down triangle icon" %}，然后单击您希望议题或拉取请求所在的列。 该卡将移到您选择的项目板列的底部。 ![将卡移至列菜单](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ### 延伸阅读

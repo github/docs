@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -20,16 +21,16 @@ versions:
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
+**Tip**: You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 {% data reusables.repositories.create_new %}
-2. Um optional ein Repository mit der Verzeichnisstruktur und den Dateien eines vorhandenen Repositorys zu erstellen, verwende eine Repository-Vorlage aus dem Dropdownmenü **Choose a template** (Eine Vorlage auswählen). Angezeigt werden Repository-Vorlagen, die im Besitz von Dir und von Organisationen sind, bei denen Du Mitglied bist, oder die Du bereits früher verwendet hast. Weitere Informationen finden Sie unter „[Ein Repository anhand einer Vorlage erstellen](/articles/creating-a-repository-from-a-template)“. ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+2. Um optional ein Repository mit der Verzeichnisstruktur und den Dateien eines vorhandenen Repositorys zu erstellen, verwende eine Repository-Vorlage aus dem Dropdownmenü **Choose a template** (Eine Vorlage auswählen). Angezeigt werden Repository-Vorlagen, die im Besitz von Dir und von Organisationen sind, bei denen Du Mitglied bist, oder die Du bereits früher verwendet hast. Weitere Informationen finden Sie unter „[Ein Repository anhand einer Vorlage erstellen](/articles/creating-a-repository-from-a-template)“. ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 3. Optional, wenn Du eine Vorlage verwendest, um die Verzeichnisstruktur und die Dateien aller Branches in der Vorlage einzubinden, und nicht nur den Standard-Branch, wähle **Alle Branches einbeziehen**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 3. Wähle im Dropdownmenü „Owner“ (Inhaber) das Konto aus, unter dem Du das Repository erstellen möchtest. ![Dropdownmenü „Owner" (Inhaber)](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}

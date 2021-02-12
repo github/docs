@@ -8,6 +8,9 @@ intro: 'There are a lot of helpful Git and {% data variables.product.product_nam
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Using Git

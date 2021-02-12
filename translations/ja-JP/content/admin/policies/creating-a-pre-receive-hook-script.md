@@ -70,19 +70,19 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
 
    ```shell
    $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
-  ```
-  Windows ユーザは、スクリプトに実行権限を持たせてください。
+   ```
+   Windows ユーザは、スクリプトに実行権限を持たせてください。
 
-  ```shell
-  git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
-  ```
+   ```shell
+   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   ```
 
 2. {% data variables.product.prodname_ghe_server %} インスタンス上の対象となる pre-receive フックのリポジトリにコミットおよびプッシュしてください。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
-  ```
+   ```
 
 3. {% data variables.product.prodname_ghe_server %} のインスタンス上で [pre-receive フックを作成](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/#creating-pre-receive-hooks)してください。
 
@@ -93,40 +93,40 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
 
 2. 以下を含む `Dockerfile.dev` というファイルを作成してください。
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN \
-      apk add --no-cache git openssh bash && \
-      ssh-keygen -A && \
-      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-      adduser git -D -G root -h /home/git -s /bin/bash && \
-      passwd -d git && \
-      su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
-      mkdir /home/git/test.git && \
-      git --bare init /home/git/test.git"
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN \
+     apk add --no-cache git openssh bash && \
+     ssh-keygen -A && \
+     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+     adduser git -D -G root -h /home/git -s /bin/bash && \
+     passwd -d git && \
+     su git -c "mkdir /home/git/.ssh && \
+     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+     mkdir /home/git/test.git && \
+     git --bare init /home/git/test.git"
 
-    VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-    WORKDIR /home/git
+   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+   WORKDIR /home/git
 
-    CMD ["/usr/sbin/sshd", "-D"]
-    ```
+   CMD ["/usr/sbin/sshd", "-D"]
+   ```
 
 3. `always_reject.sh` というテストのpre-receiveスクリプトを作成してください。 このスクリプト例では、全てのプッシュを拒否します。これは、リポジトリをロックする場合に役立ちます。
 
-    ```
-    #!/usr/bin/env bash
+   ```
+   #!/usr/bin/env bash
 
-    echo "error: rejecting all pushes"
-    exit 1
-    ```
+   echo "error: rejecting all pushes"
+   exit 1
+   ```
 
 4. `always_reject.sh`スクリプトが実行権限を持つことを確認してください。
 
    ```shell
    $ chmod +x always_reject.sh
-  ```
+   ```
 
 5. `Dockerfile.dev` を含むディレクトリからイメージをビルドしてください。
 
@@ -135,7 +135,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,38 +143,38 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....出力を省略....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
-  ```
+   ```
 
 6. 生成された SSH キーを含むデータコンテナを実行してください。
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
-  ```
+   ```
 
 7. テスト pre-receive フックの `always_reject.sh` をデータコンテナにコピーしてください:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
-  ```
+   ```
 
 8. `sshd` を実行しフックを動作させるアプリケーションコンテナを実行してください。 返されたコンテナ ID をメモしておいてください:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
-  ```
+   ```
 
 9. 生成された SSH キーをデータコンテナからローカルマシンにコピーしてください:
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
-  ```
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
+   ```
 
 10. テストリポジトリのリモートを修正して、Docker コンテナ内の `test.git` リポジトリにプッシュしてください。 この例では `git@github.com:octocat/Hello-World.git` を使っていますが、どのリポジトリを使ってもかまいません。 この例ではローカルマシン (127.0.0.1) がポート 52311 をバインドしているものとしていますが、docker がリモートマシンで動作しているなら異なる IP アドレスを使うことができます。
 
@@ -182,7 +182,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -193,9 +193,9 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > To git@192.168.99.100:test.git
    >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
-  ```
+   ```
 
-  pre-receive フックの実行後にプッシュが拒否され、スクリプトからの出力がエコーされていることに注意してください。
+   pre-receive フックの実行後にプッシュが拒否され、スクリプトからの出力がエコーされていることに注意してください。
 
 ### 参考リンク
  - *Pro Git Webサイト*の「[Gitのカスタマイズ - Gitポリシーの実施例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)」

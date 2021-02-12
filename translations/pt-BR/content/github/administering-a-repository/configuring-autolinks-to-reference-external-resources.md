@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Qualquer pessoa com permissões de administrador para um repositório pode configurar referências de link automático para vincular problemas, pull requests{% if currentVersion == "free-pro-team@latest" ou currentVersion ver_gt "enterprise-server@2. 1" %} mensagens de commit e descrições de versão{% else %} e mensagens de commit{% endif %} para serviços externos de terceiros.
+Qualquer pessoa com permissões de administrador em um repositório pode configurar referências de link automático para vincular problemas, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} mensagens de commit e versão{% else %} e mensagens do commit{% endif %} para serviços externos de terceiros.
 
 Se você usa o Zendesk para acompanhar tíquetes relatados pelo usuário, por exemplo, é possível fazer referência a um número de tíquete na pull request que você abre para corrigir o problema.
 

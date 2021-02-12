@@ -1,1 +1,1 @@
-Two-factor authentication (2FA) is an extra layer of security used when logging into websites or apps.
+双重身份验证 (2FA) 是登录网站或应用时使用的额外保护层。

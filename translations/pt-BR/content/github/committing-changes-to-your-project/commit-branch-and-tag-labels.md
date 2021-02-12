@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se seu commit não estiver no branch padrão, um indicador mostrará os branches que contêm o commit. Se o commit fizer parte de uma pull request sem merge, ele mostrará um link.

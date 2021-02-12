@@ -49,7 +49,7 @@ versions:
 | 平台                    | 快照方法 | 快照文档 URL                                                                                                                                                                                               |
 | --------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | 磁盘   | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM   | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM   | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM   | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | 磁盘   | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +150,7 @@ versions:
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
   {% note %}
 
@@ -203,7 +203,7 @@ versions:
    1. 在副本实例上，再次运行 `ghe-repl-setup <primary-instance-ip>`。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
 ### 从失败的升级中恢复
 
@@ -218,3 +218,9 @@ versions:
 #### 回滚功能版本
 
 要从功能版本回滚，请从 VM 快照恢复，以确保根分区和数据分区处于一致的状态。 更多信息请参阅“[生成快照](#taking-a-snapshot)”。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 延伸阅读
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

@@ -12,7 +12,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - Sie müssen über ein AWS-Konto verfügen, mit dem EC2 Instances gestartet und EBS-Volumes erstellt werden können. Weitere Informationen finden Sie auf der „[Amazon Web Services-Website](https://aws.amazon.com/)“.
-- Die meisten Aktionen, die zum Starten von {% data variables.product.product_location_enterprise %} erforderlich sind, können auch mithilfe der AWS Management Console ausgeführt werden. Zur Ersteinrichtung sollten Sie jedoch die AWS-Befehlszeilen-Schnittstelle (CLI) installieren. Im Folgenden finden Sie Beispiele zur Verwendung der AWS-Befehlszeilen-Schnittstelle. Weitere Informationen finden Sie in den Leitfäden von Amazon unter „[Arbeiten mit der AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)“ und „[Was ist die AWS Command Line Interface?](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)“.
+- Die meisten Aktionen, die zum Starten von {% data variables.product.product_location %} erforderlich sind, können auch mithilfe der AWS Management Console ausgeführt werden. Zur Ersteinrichtung sollten Sie jedoch die AWS-Befehlszeilen-Schnittstelle (CLI) installieren. Im Folgenden finden Sie Beispiele zur Verwendung der AWS-Befehlszeilen-Schnittstelle. Weitere Informationen finden Sie in den Leitfäden von Amazon unter „[Arbeiten mit der AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)“ und „[Was ist die AWS Command Line Interface?](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)“.
 
 In diesem Leitfaden wird davon ausgegangen, dass Sie mit den folgenden AWS-Konzepten vertraut sind:
 
@@ -28,7 +28,7 @@ In diesem Leitfaden wird davon ausgegangen, dass Sie mit den folgenden AWS-Konze
 
 ### Instanztyp bestimmen
 
-Bevor Sie {% data variables.product.product_location_enterprise %} auf AWS starten, müssen Sie den Typ der virtuellen Maschine ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
+Bevor Sie {% data variables.product.product_location %} auf AWS starten, müssen Sie den Typ der virtuellen Maschine ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
 
 #### Unterstützte Instanztypen
 
@@ -130,4 +130,5 @@ Den primären und Replikatinstanzen sollten in Hochverfügbarkeitskonfiguratione
 
 ### Weiterführende Informationen
 
-- „[Systemübersicht](/enterprise/admin/guides/installation/system-overview)“
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -7,9 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
 
 Esta seção da documentação tem o objetivo de ajudá-lo a começar a operar os aplicativos da API de {% data variables.product.product_name %} reais. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos.
 

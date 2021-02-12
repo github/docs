@@ -8,6 +8,7 @@ intro: 'We design {% data variables.product.product_name %} to support the lates
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox Extended Support Release

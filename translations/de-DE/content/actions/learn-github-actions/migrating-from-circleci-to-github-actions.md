@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -101,7 +102,7 @@ GitHub Actions
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)“.
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 {% data variables.product.prodname_actions %} hat kein Äquivalent zum „Docker Layer Caching“ („DLC“, im Cache auf Docker-Ebene zwischenspeichern).
 

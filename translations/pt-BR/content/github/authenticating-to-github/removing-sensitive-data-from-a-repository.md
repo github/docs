@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O comando `git filter-branch` e o BFG Repo-Cleaner regravam o histórico do repositório, o que altera os SHAs dos commits existentes que você altera e quaisquer commits dependentes. Os SHAs do commit alterados podem afetar as pull requests abertas no repositório. Recomendamos que você faça merge ou feche todas todas as pull requests abertas antes de remover os arquivos do repositório.
@@ -37,6 +38,12 @@ Para substituir todo o texto relacionado no `passwords.txt` sempre que ele for e
 
 ```shell
 $ bfg --replace-text passwords.txt
+```
+
+Depois que os dados confidenciais são removidos, você deve fazer push forçado das suas alterações para {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
 ```
 
 Consulte as instruções completas de download e uso na documentação do [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/).

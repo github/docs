@@ -24,6 +24,7 @@ A API de Artefatos permite que você faça o download, exclua e recupere informa
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ## Permissões
 
 A API de Permissões permite que você defina permissões para quais organizações e repositórios têm permissão para executar {% data variables.product.prodname_actions %}, e quais ações podem ser executadas. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".
@@ -33,6 +34,7 @@ Você também pode definir permissões para uma empresa. Para obter mais informa
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## Segredos
 

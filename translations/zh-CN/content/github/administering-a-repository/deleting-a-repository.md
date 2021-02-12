@@ -8,21 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 删除组织仓库。 如果已禁用 **Allow members to delete or transfer repositories for this organization（允许成员删除或转让此组织的仓库）**，仅组织所有者可删除组织仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentversion != "github-ae@latest" %}删除公共仓库不会删除该仓库的任何复刻。{% endif %}
+
 {% warning %}
 
-**警告**：删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
+**警告**：
+
+- 删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
+- 删除私有 {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}或内部{% endif %}仓库将会删除该仓库的所有复刻。
 
 {% endwarning %}
-{% endif %}
-
-请同时记住进行以下内容：
-- 删除私有仓库将删除其所有复刻。
-- 删除公共仓库不会删除其复刻。
 
 {% if currentVersion == "free-pro-team@latest" %}
 您可以在 90 天内恢复一些已删除的仓库。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。

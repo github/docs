@@ -24,7 +24,7 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 パッケージが Organization の所有でかつプライベートである場合、他の Organization のメンバーまたは Team にのみアクセス権を付与できます。
 
-Organization イメージコンテナに対しては、Organization の管理者がパッケージを有効にしないと、可視性をパブリックに設定できません。 詳しい情報については、「[GitHub Container Registry を Organization に対して有効化する](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)」を参照してください。
+Organization イメージコンテナに対しては、Organization の管理者がパッケージを有効にしないと、可視性をパブリックに設定できません。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 1. パッケージ設定ページで [**Invite teams or people**] をクリックして、アクセス権を付与するユーザの名前、ユーザ名、またはメールアドレスを入力します。 また、Organization から Team 名を入力して、全 Team メンバーにアクセスを付与することもできます。 ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
@@ -54,7 +54,7 @@ Organization イメージコンテナに対しては、Organization の管理者
 
 パブリックパッケージは認証なしに匿名でアクセスできます。 いったんパッケージをパブリックに設定すると、そのパッケージをプライベートに戻すことはできません。
 
-Organization イメージコンテナに対しては、Organization の管理者がパブリックパッケージを有効にしないと、可視性をパブリックに設定できません。 詳しい情報については、「[GitHub Container Registry を Organization に対して有効化する](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)」を参照してください。
+Organization イメージコンテナに対しては、Organization の管理者がパブリックパッケージを有効にしないと、可視性をパブリックに設定できません。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 5. [Danger Zone] の下で、可視性の設定を選択します。

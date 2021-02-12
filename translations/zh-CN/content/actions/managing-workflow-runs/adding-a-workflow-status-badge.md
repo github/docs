@@ -1,6 +1,6 @@
 ---
-title: Adding a workflow status badge
-intro: You can display a status badge in your repository to indicate the status of your workflows.
+title: 添加工作流程状态徽章
+intro: 您可以在您的仓库中显示状态徽章，以指示您的工作流程状态。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -30,7 +30,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_NAME>/badge.svg
 https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 ```
 
-### Using a workflow name
+### 使用工作流程名称
 
 此 Markdown 示例为名为 "Greet Everyone" 的工作流程添加状态徽章。 仓库的 `OWNER` 为 `actions` 组织，`REPOSITORY` 名称为 `hello-world`。
 
@@ -38,7 +38,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 ![example workflow name](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
-### Using a workflow file path
+### 使用工作流程文件路径
 
 此 Markdown 示例为文件路径为 `.github/workflows/main.yml` 的工作流程添加状态徽章。 仓库的 `OWNER` 为 `actions` 组织，`REPOSITORY` 名称为 `hello-world`。
 
@@ -46,7 +46,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 ![example workflow file path](https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
-### Using the `branch` parameter
+### 使用 `branch` 参数
 
 此 Markdown 示例为名为 `feature-1` 的分支添加状态徽章。
 
@@ -54,7 +54,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 ![example branch parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
-### Using the `event` parameter
+### 使用 `event` 参数
 
 此 Markdown 示例添加显示通过 `pull_request` 事件触发运行的工作流程状态的徽章。
 

@@ -6,15 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. 在锁定对话时，也可公开说明锁定的原因。
+当整个对话没有建设性或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %} 时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。
 
 锁定对话会创建对仓库具有读取权限的所有人可见的时间表事件。 但对话锁定者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 
 ![已锁定对话的匿名化时间表事件](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-当对话锁定时，仅[具有写入权限的人员](/articles/repository-permission-levels-for-an-organization/)以及[仓库所有者和协作者](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)才可添加、隐藏和删除评论。
+当对话锁定时，仅[具有写入权限的人员](/articles/repository-permission-levels-for-an-organization/)以及[仓库所有者和协作者](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)才可添加、隐藏和删除评论。
 
 要搜索仓库中未存档的已锁定对话，可以使用搜索限定符 `is:locked` 和 `archived:false`。 对话在存档的仓库中会自动锁定。 更多信息请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)”。
 
@@ -28,7 +29,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 
 - "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[管理破坏性评论](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/github/building-a-strong-community/maintaining-your-safety-on-github)”
 - “[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
 - “[限制仓库中的交互](/github/building-a-strong-community/limiting-interactions-in-your-repository)”

@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -41,7 +42,7 @@ Azure Pipelinesのジョブとステップは、{% data variables.product.prodna
 
 ### スクリプトのステップの移行
 
-スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
+スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
 
 {% data variables.product.prodname_actions %}では、すべてのスクリプトは`run`キーを使って指定されます。 特定のシェルを選択するには、スクリプトを提供する際に`shell`キーを指定します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
@@ -328,4 +329,3 @@ jobs:
 </table>
 
 ワークフロー中で利用できるアクションは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)で見つけることも、独自のactionsを作成することもできます。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
-

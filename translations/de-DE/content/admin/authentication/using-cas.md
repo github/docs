@@ -32,7 +32,7 @@ Die folgenden Attribute sind verfügbar.
 ### CAS konfigurieren
 {% warning %}
 
-**Warnung:** Bevor Sie CAS auf {% data variables.product.product_location_enterprise %} konfigurieren, sollten Sie beachten, dass Benutzer ihre CAS-Benutzernamen und -Passwörter nicht verwenden können, um API-Anforderungen oder Git-Vorgänge über HTTP/HTTPS zu authentifizieren. Stattdessen müssen sie ein [Zugriffstoken erstellen](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
+**Warnung:** Bevor Sie CAS auf {% data variables.product.product_location %} konfigurieren, sollten Sie beachten, dass Benutzer ihre CAS-Benutzernamen und -Passwörter nicht verwenden können, um API-Anforderungen oder Git-Vorgänge über HTTP/HTTPS zu authentifizieren. Stattdessen müssen sie ein [Zugriffstoken erstellen](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
 
 {% endwarning %}
 

@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 包含散文文档的提交和拉取请求能够使用*源*视图和*呈现*视图来表示这些文档。

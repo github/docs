@@ -1,6 +1,6 @@
 ---
 title: 取消发布 GitHub Pages 站点
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available to {% if currentVersion == "free-pro-team@latest" %}the public{% else %}everyone using {% data variables.product.product_location %}{% endif %}.'
+intro: '您可以取消发布 {% data variables.product.prodname_pages %} 站点，使该站点不再对{% if currentVersion == "free-pro-team@latest" %}公众{% else %}所有 {% data variables.product.product_location %} 用户{% endif %}开放。'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/
@@ -12,6 +12,7 @@ permissions: '拥有仓库管理员或维护员权限的人可取消发布 {% da
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 取消发布项目站点
@@ -19,10 +20,10 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 2. 如果仓库中存在 `gh-pages` 分支，请删除 `gh-pages` 分支。 更多信息请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
 3. 如果 `gh-pages` 分支是您的发布源，
-{% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
+{% if currentVersion == "free-pro-team@latest" %}跳到步骤 6{% else %}您的站点现已取消发布，您可以跳过其余步骤{% endif %}。
 {% data reusables.repositories.sidebar-settings %}
 5. 在“
-{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
+{% data variables.product.prodname_pages %}”下，使用 **Source（源）**下拉菜单并选择 **None（无）**。
   ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 

@@ -11,11 +11,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Sie müssen den privaten Modus aktivieren, wenn {% data variables.product.product_location_enterprise %} über das Internet öffentlich zugänglich ist. Im privaten Modus ist es Benutzern nicht möglich, Repositorys anonym über `git://` zu klonen. Wenn die integrierte Authentifizierung aktiviert ist, muss ein Administrator neue Benutzer einladen, um ein Konto auf der Instanz zu erstellen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)“.
+Sie müssen den privaten Modus aktivieren, wenn {% data variables.product.product_location %} über das Internet öffentlich zugänglich ist. Im privaten Modus ist es Benutzern nicht möglich, Repositorys anonym über `git://` zu klonen. Wenn die integrierte Authentifizierung aktiviert ist, muss ein Administrator neue Benutzer einladen, um ein Konto auf der Instanz zu erstellen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)“.
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-Wenn der private Modus aktiviert ist, können Sie festlegen, dass nicht authentifizierte Git-Vorgänge (und jedermann mit Netzwerkzugriff auf {% data variables.product.product_location_enterprise %}) mit aktiviertem anonymem Git-Lesezugriff den Code eines öffentlichen Repositorys auf Ihrer Instanz lesen können. Weitere Informationen finden Sie unter „[Administratoren das Aktivieren des anonymen Git-Lesezugriffs auf öffentliche Repositorys erlauben](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)“.
+Wenn der private Modus aktiviert ist, können Sie festlegen, dass nicht authentifizierte Git-Vorgänge (und jedermann mit Netzwerkzugriff auf {% data variables.product.product_location %}) mit aktiviertem anonymem Git-Lesezugriff den Code eines öffentlichen Repositorys auf Ihrer Instanz lesen können. Weitere Informationen finden Sie unter „[Administratoren das Aktivieren des anonymen Git-Lesezugriffs auf öffentliche Repositorys erlauben](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)“.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

@@ -1,5 +1,5 @@
 ---
-title: Setting permissions for GitHub Apps
+title: 设置 GitHub 应用程序的权限
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
@@ -8,12 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-When you create a GitHub App, you can select the permissions it needs to access end user data. Permissions can also be added and removed. For more information, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+创建 GitHub 应用程序时，您可以选择访问最终用户数据所需的权限。 还可以添加和删除权限。 更多信息请参阅“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
 
 ### 元数据权限
 
-By default, GitHub Apps have `Read-only` access to metadata endpoints. Metadata is a collection of read-only endpoints that provide general information about resources that the authorized installation can access.
+默认情况下，GitHub 应用程序对元数据端点具有 `Read-only` 权限。 元数据是只读终结点的集合，提供有关授权安装设施可访问资源的一般信息。
 
-{% data reusables.apps.metadata-permissions %} For a list of metadata endpoints, see "[Metadata permissions](/v3/apps/permissions/#metadata-permissions)."
+{% data reusables.apps.metadata-permissions %} 有关元数据端点的列表，请参阅“[元数据权限](/rest/reference/permissions-required-for-github-apps#metadata-permissions)”。

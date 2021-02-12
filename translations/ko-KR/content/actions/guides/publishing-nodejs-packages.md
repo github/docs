@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '튜토리얼'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -44,7 +45,7 @@ If you add steps in your workflow to configure the `publishConfig` fields in you
 
 Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the npm registry if CI tests pass.
 
-To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret in your repository settings. For example, create a secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 By default, npm uses the `name` field of the *package.json* file to determine the npm registry. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `npm-hello-world-test` to the `https://www.npmjs.com/package/npm-hello-world-test`.
 
@@ -87,9 +88,28 @@ always-auth=true
 
 Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs anytime the `release` event with type `created` occurs. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass.
 
-By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope) in the npm documentation.
+#### Configuring the destination repository
 
-To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. The `GITHUB_TOKEN` exists in your repository by default and has read and write permissions for packages in the repository where the workflow runs. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+
+However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
+
+```json
+{
+  "name": "@octocat/my-amazing-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octocat/my-other-repo.git"
+  },
+```
+
+#### Authenticating to the destination repository
+
+To authenticate to the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN` from your repository. It is created automatically and has _read_ and _write_ permissions for packages in the repository where the workflow runs. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)."
+
+If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+#### Example workflow
 
 This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
