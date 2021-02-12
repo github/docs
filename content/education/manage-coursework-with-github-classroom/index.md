@@ -19,6 +19,7 @@ versions:
     {% link_in_list /create-an-assignment-from-a-template-repository %}
     {% link_in_list /leave-feedback-with-pull-requests %}
     {% link_in_list /use-autograding %}
+    {% link_in_list /configure-default-settings-for-assignment-repositories %}
     {% link_in_list /connect-a-learning-management-system-to-github-classroom %}
 
 {% topic_link_in_list /integrate-github-classroom-with-an-ide %}

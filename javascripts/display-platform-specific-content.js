@@ -1,17 +1,15 @@
-import parseUserAgent from './user-agent'
+const { getPlatformFromUserAgent } = require('platform-utils')
 const supportedPlatforms = ['mac', 'windows', 'linux']
 const detectedPlatforms = new Set()
 
 // Emphasize content for the visitor's OS (inferred from user agent string)
 
 export default function displayPlatformSpecificContent () {
-  let platform = getDefaultPlatform() || parseUserAgent().os
+  let platform = getDefaultPlatform() || getPlatformFromUserAgent()
 
   // adjust platform names to fit existing mac/windows/linux scheme
   if (!platform) platform = 'mac' // default to 'mac' on mobile
   if (platform === 'darwin') platform = 'mac'
-  if (platform === 'ios') platform = 'mac'
-  if (platform === 'android') platform = 'linux'
   if (platform.startsWith('win')) platform = 'windows'
 
   const platformsInContent = findPlatformSpecificContent(platform)
