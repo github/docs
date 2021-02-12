@@ -31,4 +31,4 @@ versions:
 
 ### 3. 他のサイトポリシーについての限定的な免責
 
-セキュリティ調査活動が当社の[関連するサイトポリシー](/categories/site-policy/)に反しているものの、当社のBug Bounty Programの規約には従っている限りにおいて、本Bug Bounty Programの下、セキュリティ調査を許可するという限定された目的のみに限り、これらの制限を免除します。 前述の通り、疑問がある場合は、まずご質問ください。
+To the extent that your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. 前述の通り、疑問がある場合は、まずご質問ください。

@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **December 30, 2020**
+Effective date: **January 6, 2021**
 
 GitHub bietet viel Transparenz darüber, wie wir Ihre Daten verwenden, wie wir Ihre Daten sammeln und mit wem wir Ihre Daten teilen. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -25,12 +25,9 @@ Wenn wir Ihre Daten an Unterauftragsverarbeiter, wie z. B. unsere Anbieter und D
 | Braintree (PayPal)                 | Kreditkarten-Zahlungsabwicklung                       | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Clearbit                           | Marketing-Datenanreicherungsservice                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Discourse                          | Community-Forum-Softwareanbieter                      | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
-| DiscoverOrg                        | Marketing-Datenanreicherungsservice                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Eloqua                             | Automatisierung von Marketingkampagnen                | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Google Apps                        | Interne Unternehmensinfrastruktur                     | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Google Analytics                   | Analytics and performance                             | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
-| LinkedIn Navigator                 | Data enrichment service                               | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
-| Magic Robot                        | Kampagnenberichte (Salesforce Add-on)                 | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | MailChimp                          | Kunden-Ticketing-E-Mail Dienstanbieter                | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Mailgun                            | Transaktions-Mail-Dienstanbieter                      | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Microsoft                          | Microsoft Services                                    | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |

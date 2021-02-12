@@ -5,6 +5,7 @@ intro: 'This guide shows you how to use the advanced features of {% data variabl
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -153,6 +154,15 @@ For more information, see  ["Using labels with self-hosted runners](/actions/hos
 
 You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
 {% endif %}
+
+### Verwenden einer Workflowvorlage
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. Wenn Ihr Repository bereits über vorhandene Workflows verfügt: Klicken Sie in der linken oberen Ecke auf **Neuer Workflow**. ![Erstelle einen neuen Workflow](/assets/images/help/repository/actions-new-workflow.png)
+1. Klicke unter dem Namen der zu verwendenden Vorlage auf **Set up this workflow** (Workflow einrichten). ![Einrichten dieses Workflows](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### Nächste Schritte:
 
