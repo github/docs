@@ -108,4 +108,4 @@ You can't delete a branch if it's currently associated with an open pull request
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
-- "[Stashing changes](/desktop/contributing-to-projects/stashing-changes)"
+- "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"
