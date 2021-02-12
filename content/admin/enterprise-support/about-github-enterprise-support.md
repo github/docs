@@ -16,7 +16,7 @@ versions:
 
 ### About {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %}and Japanese{% endif %}.
+{% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %} and Japanese{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
 You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
