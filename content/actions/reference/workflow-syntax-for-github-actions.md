@@ -608,6 +608,7 @@ jobs:
 
 Your workflow must checkout the private repository and reference the action locally.
 
+{% raw %}
 ```yaml
 jobs:
   my_first_job:
@@ -622,6 +623,7 @@ jobs:
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
 ```
+{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
