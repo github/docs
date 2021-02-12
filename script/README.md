@@ -71,9 +71,16 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
+### [`check-internal-links.js`](check-internal-links.js)
+
+This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
+
+---
+
+
 ### [`check-s3-images.js`](check-s3-images.js)
 
-Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
+Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
 
 ---
 
@@ -86,6 +93,13 @@ Run this script in your branch to check whether any images referenced in content
 
 
 ### [`content-migrations/octicon-tag.js`](content-migrations/octicon-tag.js)
+
+
+
+---
+
+
+### [`content-migrations/remove-html-comments-from-index-files.js`](content-migrations/remove-html-comments-from-index-files.js)
 
 
 
@@ -116,6 +130,41 @@ This script turns a Google Sheets CSV spreadsheet into a YAML file.
 ### [`delete-unused-staging-apps.js`](delete-unused-staging-apps.js)
 
 This script finds and lists all the Heroku staging apps and deletes any leftover apps that have closed PRs
+
+---
+
+
+### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
+
+This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.
+
+---
+
+
+### [`early-access/clone-locally`](early-access/clone-locally)
+
+This script is run on a writer's machine to begin developing Early Access content locally.
+
+---
+
+
+### [`early-access/create-branch`](early-access/create-branch)
+
+This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
+
+---
+
+
+### [`early-access/symlink-from-local-repo.js`](early-access/symlink-from-local-repo.js)
+
+This script is run on a writer's machine while developing Early Access content locally. You must pass the script the location of your local copy of the `github/docs-early-access` git repo as the first argument.
+
+---
+
+
+### [`early-access/update-data-and-image-paths.js`](early-access/update-data-and-image-paths.js)
+
+This script is run on a writer's machine while developing Early Access content locally. It updates the data and image paths to either include `early-access` or remove it.
 
 ---
 
@@ -192,6 +241,12 @@ Examples:
 Given: /github/getting-started-with-github/using-github Returns: /free-pro-team@latest/github/getting-started-with-github/using-github
 
 Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /enterprise-server@2.22/admin/installation/upgrading-github-enterprise
+
+---
+
+
+### [`graphql/build-changelog.js`](graphql/build-changelog.js)
+
 
 
 ---
@@ -316,6 +371,13 @@ Run this script to manually purge the Fastly cache for all language variants of 
 ---
 
 
+### [`purge-redis-pages.js`](purge-redis-pages.js)
+
+Run this script to manually purge the Redis rendered page cache. This will typically only be run by Heroku during the deployment process, as triggered via our Procfile's "release" phase configuration.
+
+---
+
+
 ### [`reconcile-category-dirs-with-ids.js`](reconcile-category-dirs-with-ids.js)
 
 An automated test checks for discrepancies between category directory names and slugified category titles as IDs.
@@ -362,11 +424,11 @@ Examples:
 
 reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
 
-reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs/translations/es-XL/content/actions/index.md
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
 
 reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
 
-reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs/data/ui.yml
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
 
 ---
 
@@ -422,14 +484,14 @@ Starts the local development server with all of the available languages enabled.
 
 ### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
 
-Run this script to standardize frontmatter fields in all content files.
+Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
 
 ---
 
 
-### [`sync-algolia-search-indices.js`](sync-algolia-search-indices.js)
+### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run automatically via GitHub Actions on every push to `master` to generate searchable data and upload it to our Algolia account. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 
 ---
 
@@ -443,15 +505,7 @@ List all the TODOs in our JavaScript files and stylesheets.
 
 ### [`update-enterprise-dates.js`](update-enterprise-dates.js)
 
-Run this script during Enterprise releases and deprecations. It uses the GitHub API to get dates from `enterprise-releases` and updates `lib/enterprise-dates.json`. The help site uses this JSON to display dates at the top of some Enterprise versions.
-
-This script requires that you have a GitHub Personal Access Token in a `.env` file. If you don't have a token, get one [here](https://github.com/settings/tokens/new?scopes=repo&description=docs-dev). If you don't have an `.env` file in your docs checkout, run this command in Terminal:
-
-`cp .env.example .env`
-
-Open the `.env` file in a text editor, and find the `GITHUB_TOKEN=` placeholder. Add your token after the equals sign.
-
-Do not commit the `.env` file; just leave it in your checkout.
+This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
 
 ---
 
@@ -482,3 +536,5 @@ This script is used by other scripts to update temporary AWS credentials and aut
 Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
 
 ---
+
+
