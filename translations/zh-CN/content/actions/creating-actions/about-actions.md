@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,8 +34,8 @@ versions:
 | 类型         | 操作系统                |
 | ---------- | ------------------- |
 | Docker 容器  | Linux               |
-| JavaScript | Linux、MacOS、Windows |
-| 组合运行步骤     | Linux、MacOS、Windows |
+| JavaScript | Linux、macOS、Windows |
+| 组合运行步骤     | Linux、macOS、Windows |
 
 #### Docker 容器操作
 

@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### パッケージングのステップについて
 
@@ -21,13 +22,17 @@ versions:
 
 ### 継続的インテグレーションワークフロー内でのパッケージング
 
-継続的インテグレーションワークフローの終わりにパッケージを作成すれば、プルリクエストに対するコードレビューの間に役立つことがあります。 コードをビルドしてテストした後、パッケージングのステップで実行可能な、あるいはデプロイ可能な成果物を生成できます。 そしてワークフローはワークフローの一部として、この成果物をアップロードできます。
+継続的インテグレーションワークフローの終わりにパッケージを作成すれば、Pull Requestに対するコードレビューの間に役立つことがあります。 コードをビルドしてテストした後、パッケージングのステップで実行可能な、あるいはデプロイ可能な成果物を生成できます。 そしてワークフローはワークフローの一部として、この成果物をアップロードできます。
 
-そうすれば、プルリクエストをレビューする際には、ワークフローの実行を見て生成された成果物をダウンロードできるでしょう。
+そうすれば、Pull Requestをレビューする際には、ワークフローの実行を見て生成された成果物をダウンロードできるでしょう。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down-updated.png)
+{% else %}
 ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
+{% endif %}
 
-こうすれば、プルリクエスト中のコードを自分のマシン上で実行できるので、プルリクエストのデバッグやテストに役立ちます。
+こうすれば、Pull Request中のコードを自分のマシン上で実行できるので、Pull Requestのデバッグやテストに役立ちます。
 
 ### パッケージを公開するためのワークフロー
 
@@ -38,7 +43,8 @@ versions:
 
   デフォルトブランチへのプッシュごとに、パッケージを {% data variables.product.prodname_registry %} に公開することをお勧めします。 そうすれば、プロジェクトの開発者は常にmasterからの最新のビルドを{% data variables.product.prodname_registry %}からインストールして実行及びテストできるようになります。
 
-* **パッケージレジストリへのパッケージの公開** 多くのプロジェクトで、新しいバージョンのプロジェクトがリリースされたときにパッケージレジストリへの公開が行われます。 たとえば、JARファイルを生成するプロジェクトは、新しいリリースをMaven Centralリポジトリにアップロードするかもしれません。 あるいは、.NETのプロジェクトはnugetのパッケージを生成し、NuGet Galleryへアップロードするかもしれません。
+* **パッケージレジストリへのパッケージの公開**  
+  多くのプロジェクトで、新しいバージョンのプロジェクトがリリースされたときにパッケージレジストリへの公開が行われます。 たとえば、JARファイルを生成するプロジェクトは、新しいリリースをMaven Centralリポジトリにアップロードするかもしれません。 あるいは、.NETのプロジェクトはnugetのパッケージを生成し、NuGet Galleryへアップロードするかもしれません。
 
   これは、リリースが作成される度にパッケージをパッケージレジストリに公開するワークフローを作成すれば、自動化できます。 詳しい情報については「[リリースの作成](/github/administering-a-repository/creating-releases)」を参照してください。
 

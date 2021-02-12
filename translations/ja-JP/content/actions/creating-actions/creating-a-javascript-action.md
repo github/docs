@@ -10,10 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -54,7 +55,7 @@ versions:
 `hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 
-**アクション.yml**
+**action.yml**
 ```yaml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -176,7 +177,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-`node_modules` ディレクトリをチェックインする代わりに、[`@vercel/ncc`](https://github.com/vercel/ncc) というツールを使用して、コードとモジュールを配信用の 1 つのファイルにコンパイルすることができます。
+`node_modules` ディレクトリをチェックインすると、問題が発生する可能性があります。 別の方法として、[`@vercel/ncc`](https://github.com/vercel/ncc) というツールを使用して、コードとモジュールを配布に使用する 1 つのファイルにコンパイルできます。
 
 1. ターミナルで次のコマンドを実行し、`vercel/ncc` をインストールします: `npm i -g @vercel/ncc`
 
@@ -196,7 +197,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-### ワークフローでアクションを試す
+### ワークフローでアクションをテストする
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
@@ -204,10 +205,10 @@ git push --follow-tags
 
 #### パブリックアクションを使用する例
 
-次のワークフローコードでは、`actions/hello-world-javascript-action` というリポジトリにある完全な hello world アクションを使っています。 ワークフローコードを `.github/workflows/main.yml` ファイルにコピーし、`actions/hello-world-javascript-action` リポジトリをあなたが作成したリポジトリに置き換えます。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+次のワークフローコードでは、`actions/hello-world-javascript-action` というリポジトリにある完全な hello world アクションを使っています。 ワークフローコードを `.github/workflows/main.yml` ファイルにコピーし、`actions/hello-world-javascript-action` リポジトリをあなたが作成したリポジトリに置き換えます。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 オン
   hello_world_job: [push]
@@ -229,10 +230,10 @@ git push --follow-tags
 
 #### プライベートアクションを使用する例
 
-ワークフローコードを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+ワークフローコードを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -256,9 +257,11 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -74,8 +74,8 @@ Exchange this `code` for an access token:
 
 Name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `code` | `string` | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users are sent after authorization.
 `state` | `string` | The unguessable random string you provided in Step 1.
@@ -214,7 +214,7 @@ Name | Type | Description
 
 #### Rate limits for the device flow
 
-When a user submits the verification code on the browser, there is a there is a rate limit of 50 submissions in an hour per application.
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
 
@@ -272,7 +272,9 @@ The optional `redirect_uri` parameter can also be used for localhost URLs. If th
 
 For the `http://localhost/path` callback URL, you can use this `redirect_uri`:
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### Creating multiple tokens for OAuth Apps
 

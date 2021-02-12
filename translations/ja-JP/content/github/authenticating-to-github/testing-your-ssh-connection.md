@@ -31,7 +31,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 表示されているメッセージにあるフィンガープリントがステップ 2 のいずれかのメッセージに一致していることを確認し、`yes` と入力します:
+3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

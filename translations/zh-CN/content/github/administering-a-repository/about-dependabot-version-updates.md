@@ -1,5 +1,5 @@
 ---
-title: About Dependabot version updates
+title: 关于 Dependabot 版本更新
 intro: '您可以使用 {% data variables.product.prodname_dependabot %} 来确保您使用的包更新到最新版本。'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
@@ -18,7 +18,7 @@ versions:
 
 当 {% data variables.product.prodname_dependabot %} 发现过时的依赖项时，它会发起拉取请求以将清单更新到依赖项的最新版本。 对于供应和依赖项，{% data variables.product.prodname_dependabot %} 提出拉取请求以直接将过时的依赖项替换为新版本。 检查测试是否通过，查看拉取请求摘要中包含的更改日志和发行说明，然后合并它。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
 
-如果启用安全更新，{% data variables.product.prodname_dependabot %} 还会发起拉取请求以更新易受攻击依赖项。 For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+如果启用安全更新，{% data variables.product.prodname_dependabot %} 还会发起拉取请求以更新易受攻击依赖项。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -32,14 +32,18 @@ versions:
 
 ### 支持的仓库和生态系统
 
+您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 详见下表。
 
 {% endnote %}
-
-您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
 
 {% data reusables.dependabot.supported-package-managers %}
 
 如果您的仓库已使用集成进行依赖项管理，则在启用 {% data variables.product.prodname_dependabot %} 前需要禁用此集成。 更多信息请参阅“[关于集成](/github/customizing-your-github-workflow/about-integrations)”。
+
+### 关于 {% data variables.product.prodname_dependabot %} 版本更新通知
+
+您可以在 {% data variables.product.company_short %} 上过滤通知以显示 {% data variables.product.prodname_dependabot %} 版本更新。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。

@@ -15,12 +15,12 @@ versions:
   github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion ver_gt "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
 ### 关于发行版管理
 
-{% if currentVersion == "free-pro-team@latest" %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
+{% if currentversion == "free proteam@latest" %}
+您也可以在 {% data variables.product.prodname_marketplace %} 中发布特定版本的操作。 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
 {% endif %}
 您可以选择是否
 
