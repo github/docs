@@ -28,6 +28,6 @@ Si alguien acepta el crédito, el nombre de usuario de la persona aparecerá en 
 9. Da clic en **Actualizar asesoría de seguridad**". ![Botón Add (Agregar)](/assets/images/help/security/update-advisory-button.png)
 10. Las personas listadas en la sección de "Créditos" recibirán una notificación web o por correo electrónico que los invita a aceptar el crédito. Si la persona acepta, su nombre de usuario estará visible al público una vez que la asesoría de seguridad se publique.
 
-### Further reading
+### Leer más
 
 - "[retirar una asesoría de seguridad](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

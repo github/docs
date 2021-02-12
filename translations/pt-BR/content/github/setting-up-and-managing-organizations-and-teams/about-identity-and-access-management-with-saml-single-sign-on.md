@@ -14,7 +14,7 @@ versions:
 
 Depois de configurar o SAML SSO, os integrantes da sua organização de {% data variables.product.prodname_dotcom %} continuarão a fazer login em suas contas de usuário no {% data variables.product.prodname_dotcom %}. Quando um membro acessa recursos dentro de sua organização que usa o SAML SSO, o {% data variables.product.prodname_dotcom %} redireciona o integrante para o seu IdP para efetuar a autenticação. Após a autenticação bem-sucedida, seu IdP redireciona o integrante para {% data variables.product.prodname_dotcom %}, onde poderá acessar os recursos da sua organização.
 
-Os proprietários das empresas também podem aplicar SAML SSO para todas as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+Os proprietários da organização podem aplicar o SSO do SAML para uma organização individual ou os proprietários corporativos podem aplicar o SSO do SAML para todas as organizações em uma conta corporativa. Para obter mais informações, consulte "[Habilitar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,6 +32,8 @@ Se os integrantes estiverem conectados com uma sessão SAML SSO, ao criarem um n
 
 Os integrantes da organização também devem ter uma sessão de SAML ativa para autorizar um {% data variables.product.prodname_oauth_app %}. Você pode optar por não participar deste requisito entrando em contato com {% data variables.contact.contact_support %}. {% data variables.product.product_name %} não recomenda a exclusão deste requisito, o que irá expor sua organização a um maior risco de aquisições de conta e perda potencial de dados.
 
+{% data reusables.saml.saml-single-logout-not-supported %}
+
 ### Serviços SAML compatíveis
 
 {% data reusables.saml.saml-supported-idps %}
@@ -42,11 +44,11 @@ Alguns IdPs suportam acesso de provisionamento a uma organização do {% data va
 
 Depois que o SAML SSO é habilitado, há várias maneiras possíveis de adicionar novos integrantes à organização. Os proprietários da organização podem convidar novos integrantes manualmente no {% data variables.product.product_name %} ou usando a API. Para obter mais informações, consulte "[Convidar usuários para juntar-se à sua organização](/articles/inviting-users-to-join-your-organization)" e "[Integrantes](/rest/reference/orgs#add-or-update-organization-membership)".
 
-{% data reusables.organizations.team-synchronization %}
-
 Para provisionar novos usuários sem o convite de um proprietário da organização, você pode usar a URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, substituindo _ORGANIZATION_ pelo nome da sua organização. Por exemplo, é possível configurar o IdP para que qualquer pessoa que tenha acesso possa clicar em um link no painel do IdP para ingressar na sua organização do {% data variables.product.prodname_dotcom %}.
 
 Se o seu IdP é compatível com o SCIM, o {% data variables.product.prodname_dotcom %} poderá convidar automaticamente integrantes para participarem da sua organização ao conceder acesso no seu IdP. Se você remover o acesso de um integrante à organização do seu {% data variables.product.prodname_dotcom %} no seu IdP de SAML, o integrante será removido automaticamente da organização de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

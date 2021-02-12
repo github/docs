@@ -22,7 +22,7 @@ versions:
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Modifica el nombre y la descripción del tablero de proyecto según sea necesario y luego haz clic en **Guardar proyecto**. ![Campos con el nombre y la descripción del tablero de proyecto y botón Guardar proyecto](/assets/images/help/projects/edit-project-board-save-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

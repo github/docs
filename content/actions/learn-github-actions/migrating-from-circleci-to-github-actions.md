@@ -7,6 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CircleCI'
+  - 'Migration'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}

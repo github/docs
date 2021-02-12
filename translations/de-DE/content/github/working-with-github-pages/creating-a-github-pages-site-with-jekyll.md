@@ -11,9 +11,11 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### Vorrausetzungen
 
-Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen kannst, musst Du Jekyll und Git installieren. Weitere Informationen finden Sie unter „[Installation](https://jekyllrb.com/docs/installation/)“ in der Jekyll-Dokumentation und unter „[Git einrichten](/articles/set-up-git)“.
+Bevor Sie mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen können, müssen Sie Jekyll und Git installieren. Weitere Informationen findest Du unter „[Installation](https://jekyllrb.com/docs/installation/)“ in der Jekyll-Dokumentation und unter „[Git einrichten](/articles/set-up-git).“
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -58,7 +60,7 @@ Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website ers
  # Erstellt einen neuen Ordner mit dem Namen docs
  $ cd docs
  ```
- Wenn Du Deine Website aus dem `gh-pages`-Branch veröffentlichen möchtest, erstelle den `gh-pages`-Branch und checke ihn aus.
+ Wenn Sie Ihre Website aus dem `gh-pages`-Branch veröffentlichen möchten, erstellen Sie den `gh-pages`-Branch und checken ihn aus.
  ```shell
  $ git checkout --orphan gh-pages
  # Erstellt einen neuen Branch, ohne Verlauf und Inhalte, mit dem namen gh-pages und wechselt zum gh-pages-Branch
@@ -95,13 +97,14 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}
 
 ### Nächste Schritte:
 
-Informationen dazu, wie Du eine neue Seite oder einen neuen Beitrag zu Deiner Website hinzufügst, findest Du unter „[Inhalte zur {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-content-to-your-github-pages-site-using-jekyll).“
+Informationen dazu, wie Sie eine neue Seite oder einen neuen Beitrag zu Ihrer Website hinzufügen, finden Sie unter „[Inhalte zur {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-content-to-your-github-pages-site-using-jekyll)“.
 
 {% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“

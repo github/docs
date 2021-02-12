@@ -35,7 +35,7 @@
 - 
   term: биография
   description: >-
-    Описание, созданное пользователем, которое находится в профиле: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: расчётный период
   description: Период времени для вашего конкретного плана выставления счетов.
@@ -156,7 +156,7 @@
 - 
   term: вклад
   description: >-
-    Конкретные действия в GitHub, в результате которых: – Добавляется квадрат к графику вклада пользователя: «[Что считается вкладом] (https://help.github.com/articles/viewing-contributions-on-your-profile/#what -counts-as-a-impact)» – Добавляются действия в историю действий пользователя в его профиле: «[Связанные с вкладом действия](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)»
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: участник
   description: >-
@@ -229,7 +229,7 @@
     Ветвь, используемая для тестирования новой функции или исправления проблемы, которая не находится в эксплуатации. Также называется тематической ветвью.
 - 
   term: огороженный блок кода
-  description: 'Специальный блок кода можно создать в GitHub Flavored Markdown с помощью трех апострофов \`\`\` до и после блока кода. См. [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: выбрать
   description: >-

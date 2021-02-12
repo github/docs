@@ -5,7 +5,7 @@
 たとえば、x64プラットフォーム用のバージョン9.0.4のJDKを使いたい場合、 `setup-java`アクションを使って `java-version`及び`architecture`パラメーターを`'9.0.4'`と`x64`に設定できます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 9.0.4 for x64

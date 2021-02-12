@@ -48,20 +48,21 @@ La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec
 
 Si configuras tu contenedor para que utilice la forma _exec_ de la instrucción `ENTRYPOINT`, entonces el `args` configurado en el archivo de metadatos de la acción no se ejecutará en un shell de comandos. Si el `args` de la accion contiene una variable de ambiente, ésta no se sustituirá. Por ejemplo, utilizar el siguiente formato _exec_ no imprimirá los valores almacenados en `$GITHUB_SHA`, si no que imprimirá `"$GITHUB_SHA"`.
 
-```
+```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
  Si quieres la sustitución de variables, entonces puedes utilizar la forma _shell_ o ejecutar el shell directamente. Por ejemplo, al utilizar el siguiente formato _exec_ puedes ejecutar un shell para imprimir el valor almacenado en la variable de ambiente `GITHUB_SHA`.
 
-```
+```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
  Para proporcionar el `args` que se definió en el archivo de metadatos de la acción en un contenedor de Docker que utiliza la forma _exec_ en el `ENTRYPOINT`, recomendamos crear un script de shell llamado `entrypoint.sh` al que puedas llamar desde la instrucción `ENTRYPOINT`:
 
 ##### *Dockerfile* de ejemplo
-```
+
+```dockerfile
 # Container image that runs your code
 FROM debian:9.5-slim
 

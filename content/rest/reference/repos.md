@@ -144,7 +144,7 @@ Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-
 
 ### Inactive deployments
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 

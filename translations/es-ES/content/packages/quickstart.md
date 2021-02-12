@@ -1,7 +1,7 @@
 ---
 title: Guía de inciio rápido para GitHub Packages
 intro: 'Publica en el {% data variables.product.prodname_registry %} en 5 minutos o menos con {% data variables.product.prodname_actions %}.'
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

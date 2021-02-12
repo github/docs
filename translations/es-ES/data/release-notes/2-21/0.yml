@@ -1,5 +1,4 @@
----
-date: '09-06-2020'
+date: '2020-06-09'
 sections:
   features:
     - 'Los usuarios pueden [administrar las notificaciones](https://help.github.com/en/enterprise/2.21/user/github/managing-subscriptions-and-notifications-on-github/about-notifications) en las propuestas, solicitudes decambios y otros temas cuando navegan desde una notificación web. {% comment %} https://github.com/github/enterprise-releases/issues/2135#issuecomment-633905096 {% endcomment %}'
@@ -14,13 +13,13 @@ sections:
   security_fixes:
     - 'Se identificó una vulnerabilidad de control de accesos impropia en la API de GitHub Enterprise Server que permitió a un miembro de una organización escalar los permisos y obtener acceso a repositorios no autorizados dentro de la organización. Dicha vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server antes de la 2.21. Hemos emitido el [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) como respuesta a este problema. La vulnerabilidad se reportó a través del [programa de recompensas por errores de GitHub](https://bounty.github.com/). {% comment %} https://developer.github.com/changes/2020-02-26-new-delete-reactions-endpoints/ {% endcomment %}'
   bugs:
-    - "Si un usuario con acceso de subida minimiza el comentario de otro usuairio, el autor del comentario podría dejar de minimizarlo aún si tuviese privilegios insuficientes. {% comment %} https://github.com/github/github/pull/141237 {% endcomment %}"
+    - 'Si un usuario con acceso de subida minimiza el comentario de otro usuairio, el autor del comentario podría dejar de minimizarlo aún si tuviese privilegios insuficientes. {% comment %} https://github.com/github/github/pull/141237 {% endcomment %}'
     - 'Los usuarios podrían fusionar accidentalmente hacia la rama principal desde el editor de plantillas de propuesta y de blobs. {% comment %} https://github.com/github/github/pull/134483, https://github.com/github/github/pull/134323 {% endcomment %}'
     - 'Cuando un usuario borró una cuenta de GitHub, los registros de la bitácora de auditoría no mostraron correctamente los registros de eliminación de la organización. {% comment %} https://github.com/github/github/pull/140940 {% endcomment %}'
     - 'El avatar de gist para el usuario actual enlazó a una URL inexistente. {% comment %} https://github.com/github/github/pull/140925 {% endcomment %}'
     - 'La pestaña de repositorios de la organización no incluyó los repositorios internos. {% comment %} https://github.com/github/github/pull/136323 {% endcomment %}'
     - 'Dar clic en el botón de "Mostrar todos los equipos" cuando se transfiere un repositorio causó un error 500. {% comment %} https://github.com/github/github/pull/134455 {% endcomment %}'
-    - "Los nombres de archivo grandes causan problemas de desbordamiento cuando se muestra la etiqueta 'Cambió desde la última vista' o la alternación de diff de 'Mostrar enriquecido' en la vista de archivos diff. {% comment %} https://github.com/github/github/pull/134453 {% endcomment %}"
+    - 'Los nombres de archivo grandes causan problemas de desbordamiento cuando se muestra la etiqueta ''Cambió desde la última vista'' o la alternación de diff de ''Mostrar enriquecido'' en la vista de archivos diff. {% comment %} https://github.com/github/github/pull/134453 {% endcomment %}'
     - 'Las tarjetas de visita virtual para los equipos de la organización reportó mal su capacidad de miembros. {% comment %} https://github.com/github/github/pull/133879 {% endcomment %}'
     - 'La ventana emergente del comentario de la revisión de solicitudes de cambios tenía un problema desplazamiento. {% comment %} https://github.com/github/github/pull/141157 {% endcomment %}'
     - 'Haproxy podría saturarse y causar una ralentización en las opreaciones de git. {% comment %} https://github.com/github/enterprise2/issues/19322 {% endcomment %}'
