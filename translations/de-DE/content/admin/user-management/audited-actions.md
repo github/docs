@@ -107,32 +107,36 @@ versions:
 
 #### Teams
 
-|           Name | Beschreibung                                                        |
-| --------------:| ------------------------------------------------------------------- |
-|  `team.create` | Einem Team wurde ein Benutzerkonto oder ein Repository hinzugefügt. |
-|  `team.delete` | Ein Benutzerkonto oder Repository wurde aus einem Team entfernt.    |
-| `team.destroy` | Ein Team wurde gelöscht.                                            |
+|                      Name | Beschreibung                                                                                                                                         |
+| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             `team.create` | Einem Team wurde ein Benutzerkonto oder ein Repository hinzugefügt.                                                                                  |
+|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
+|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
+
 
 #### Benutzer
 
-|                        Name | Beschreibung                                                                                                                                             |
-| ---------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            `user.add_email` | Einem Benutzerkonto wurde eine E-Mail-Adresse hinzugefügt.                                                                                               |
-|         `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
-|      `user.change_password` | A user changed his or her password.{% endif %}
-|               `user.create` | Ein neues Benutzerkonto wurde erstellt.                                                                                                                  |
-|               `user.delete` | Ein Benutzerkonto wurde durch einen asynchronen Auftrag vernichtet.                                                                                      |
-|               `user.demote` | Ein Websiteadministrator wurde auf ein gewöhnliches Benutzerkonto zurückgestuft.                                                                         |
-|              `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
-|         `user.failed_login` | Ein Benutzer hat versucht, sich mit einem falschen Benutzernamen, Passwort oder Zwei-Faktor-Authentifizierungscode anzumelden.                           |
-|      `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
-|                `user.login` | Ein Benutzer hat sich angemeldet.                                                                                                                        |
-|              `user.promote` | Ein gewöhnliches Benutzerkonto wurde auf einen Websiteadministrator hochgestuft.                                                                         |
-|         `user.remove_email` | Eine E-Mail-Adresse wurde aus einem Benutzerkonto entfernt.                                                                                              |
-|               `user.rename` | Ein Benutzernamen wurde geändert.                                                                                                                        |
-|              `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
-| `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
-|            `user.unsuspend` | Ein Websiteadministrator hat die Sperrung eines Benutzerkontos aufgehoben.                                                                               |
+|                            Name | Beschreibung                                                                                                                                                         |
+| -------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                `user.add_email` | Einem Benutzerkonto wurde eine E-Mail-Adresse hinzugefügt.                                                                                                           |
+|             `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+|          `user.change_password` | A user changed his or her password.{% endif %}
+|                   `user.create` | Ein neues Benutzerkonto wurde erstellt.                                                                                                                              |
+|                   `user.delete` | Ein Benutzerkonto wurde durch einen asynchronen Auftrag vernichtet.                                                                                                  |
+|                   `user.demote` | Ein Websiteadministrator wurde auf ein gewöhnliches Benutzerkonto zurückgestuft.                                                                                     |
+|                  `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+|             `user.failed_login` | Ein Benutzer hat versucht, sich mit einem falschen Benutzernamen, Passwort oder Zwei-Faktor-Authentifizierungscode anzumelden.                                       |
+|          `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
+|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+|                  `user.promote` | Ein gewöhnliches Benutzerkonto wurde auf einen Websiteadministrator hochgestuft.                                                                                     |
+|             `user.remove_email` | Eine E-Mail-Adresse wurde aus einem Benutzerkonto entfernt.                                                                                                          |
+|                   `user.rename` | Ein Benutzernamen wurde geändert.                                                                                                                                    |
+|                  `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
+|     `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
+|                `user.unsuspend` | Ein Websiteadministrator hat die Sperrung eines Benutzerkontos aufgehoben.                                                                                           |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [Deployment-Schlüssel]: /guides/managing-deploy-keys/#deploy-keys

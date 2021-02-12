@@ -1,0 +1,1 @@
+1. En {% data variables.product.product_location_enterprise %}, en el ángulo superior derecho de cualquier página, haz clic en tu foto de perfil y luego haz clic en **Settings** (Parámetros). ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/help/settings/userbar-account-settings.png)
