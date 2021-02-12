@@ -4,7 +4,12 @@ intro: '{% data variables.product.prodname_actions %} 和 GitLab CI/CD 具有一
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - GitLab
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,8 +65,8 @@ job1:
 jobs:
   job1:
     steps:
-    - uses: actions/checkout@v2
-    - run: echo "Run your script here"
+      - uses: actions/checkout@v2
+      - run: echo "Run your script here"
 ```
 {% endraw %}
 </td>
@@ -257,24 +262,24 @@ jobs:
   build_a:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
 
   build_b:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first, in parallel with build_a"
+      - run: echo "This job will be run first, in parallel with build_a"
 
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
     steps:
-    - run: echo "This job will run after build_a and build_b have finished"
+      - run: echo "This job will run after build_a and build_b have finished"
 
   deploy_ab:
     runs-on: ubuntu-latest
     needs: [test_ab]
     steps:
-    - run: echo "This job will run after test_ab is complete"
+      - run: echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
 </td>
@@ -335,12 +340,12 @@ test_async:
 ```yaml
 jobs:
   test_async:
-  - name: Cache node modules
-    uses: actions/cache@v2
-    with:
-      path: ~/.npm
-      key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
-      restore-keys: v1-npm-deps-
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: v1-npm-deps-
 ```
 {% endraw %}
 </td>
@@ -371,7 +376,7 @@ GitLab CI/CD
 script:
 artifacts:
   paths:
-  - math-homework.txt
+    - math-homework.txt
 ```
 {% endraw %}
 </td>
@@ -424,12 +429,12 @@ container-job:
   services:
     - postgres
   script:
-  # Performs a clean installation of all dependencies
-  # in the `package.json` file
-   - npm ci
-   # Runs a script that creates a PostgreSQL client,
-   # populates the client with data, and retrieves data
-   - node client.js
+    # Performs a clean installation of all dependencies
+    # in the `package.json` file
+    - npm ci
+    # Runs a script that creates a PostgreSQL client,
+    # populates the client with data, and retrieves data
+    - node client.js
   tags:
     - docker
 ```

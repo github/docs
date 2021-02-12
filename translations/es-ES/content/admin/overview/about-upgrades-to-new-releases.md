@@ -24,10 +24,10 @@ Utilizaremos tu retroalimentación para aplicar las correcciones de errores y cu
 
 {% endwarning %}
 
-Los lanzamientos menores, los cuales consisten únicamente de parches y correcciones de errores, ocurren con mayor frecuencia. Minor releases are generally available when first released, with no release candidates. Upgrading to a minor release typically requires less than five minutes of downtime.
+Los lanzamientos menores, los cuales consisten únicamente de parches y correcciones de errores, ocurren con mayor frecuencia. Los lanzamientos menores se encuentran generalmente disponibles cuando se lanzan por primera vez, sin candidatos de lanzamiento. El mejorar a un lanzamiento menor habitualmente requiere menos de cinco minutos de tiempo de inactividad.
 
-To upgrade your enterprise to a new release, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
+Para mejorar tu empresa a un lanzamiento nuevo, consulta las secciones "[Notas de lanzamiento](/enterprise-server/admin/release-notes)" y "[Mejorar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)".
 
-### Further reading
+### Leer más
 
 - [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`

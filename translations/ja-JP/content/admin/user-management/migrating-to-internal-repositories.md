@@ -33,11 +33,11 @@ versions:
 
 1. 管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
 2. `/data/github/current`ディレクトリにアクセスしてください。
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. 移行コマンドを実行してください。
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

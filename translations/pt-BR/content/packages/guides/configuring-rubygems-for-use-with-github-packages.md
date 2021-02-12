@@ -107,7 +107,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
 
 Para publicar vários gems no mesmo repositório, você pode incluir a URL no repositório de {% data variables.product.prodname_dotcom %} no campo `github_repo` em `gem.metadata`. Se você incluir este campo, {% data variables.product.prodname_dotcom %} irá corresponde ao repositório baseado neste valor, em vez de usar o nome do gem.{% if enterpriseServerVersions contains currentVersion %} Substitua o *NOME DE HOST* pelo nome do host da sua instância {% data variables.product.prodname_ghe_server %}.{% endif %}
 
-```
+```ruby
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
@@ -118,7 +118,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 {% data reusables.package_registry.authenticate-step %}
 2. Para o Bundler, adicione seu usuário ou organização {% data variables.product.prodname_dotcom %} como uma fonte no seu *Gemfile* para buscar gems a partir desta nova fonte. Por exemplo, você pode adicionar um novo bloco`de fonte`ao seu *Gemfile* que usa {% data variables.product.prodname_registry %} apenas para os pacotes que você especificar, substituindo *GEM NOME* pelo pacote que deseja instalar de {% data variables.product.prodname_registry %} e *OWNER* pelo usuário ou organização que possui o repositório que contém a gema que deseja instalar.{% if enterpriseServerVersions contains currentVersion %} substitua `URL REGISTRY` pelo URL do registro Rubygems da sua instância. Se sua instância tiver o isolamento de subdomínio habilitado, use `rubygems.HOSTNAME`. Se a sua instância estiver com o isolamento de subdomínio desabilitado, use `HOSTNAME/registry/rubygems`. Em ambos os casos, substitua *HOSTNAME* pelo nome de host da sua instância do {% data variables.product.prodname_ghe_server %} .{% endif %}
 
-  ```
+  ```ruby
   source "https://rubygems.org"
 
   gem "rails"
@@ -130,7 +130,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 
 3. Para versões do Bundler anteriores à 1.7.0, você deve adicionar uma nova `fonte` global. Para obter mais informações sobre como usar o Bundler, consulte a [documentação bundler.io](http://bundler.io/v1.5/gemfile.html).
 
-  ```
+  ```ruby
   source "https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 

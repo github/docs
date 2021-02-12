@@ -72,13 +72,13 @@ Troque este `código` por um token de acesso:
 
 ##### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                     |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente que você recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_github_app %}. |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente que recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_github_app %}. |
-| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                          |
-| `redirect_uri`  | `string` | A URL do seu aplicativo para onde os usuários são enviados após a autorização.                                                                                |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                 |
+| Nome            | Tipo     | Descrição                                                                                                                                                    |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente que você recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_oauth_app %}. |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente que recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_oauth_app %}. |
+| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                         |
+| `redirect_uri`  | `string` | A URL do seu aplicativo para onde os usuários são enviados após a autorização.                                                                               |
+| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                |
 
 ##### Resposta
 
@@ -213,7 +213,7 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 #### Limites de taxa para o fluxo do dispositivo
 
-Quando um usuário envia o código de verificação no navegador, existe um limite de taxa máximo de 50 submissões em uma hora por aplicativo.
+Quando um usuário envia o código de verificação no navegador, há um limite de taxa de 50 envios por hora por aplicativo.
 
 Se você fizer mais de uma solicitação de token de acesso (`POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`) no período mínimo necessário entre solicitações (ou `intervalo`), você atingirá o limite de taxa e receberá uma resposta de erro `slow_down`. A resposta de erro `slow_down`adiciona 5 segundos ao último `intervalo`. Para obter mais informações, consulte [Erros para o fluxo do dispositivo](#errors-for-the-device-flow).
 

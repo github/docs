@@ -19,7 +19,7 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-誰でも {% data variables.product.prodname_marketplace %} に無料の {% data variables.product.prodname_github_app %} または {% data variables.product.prodname_oauth_app %} をリストできます。 有料アプリケーションのパブリッシャーは {% data variables.product.company_short %} によって検証され、これらのアプリケーションのリストには検証済みの作者バッジ {% octicon "verified" aria-label="Verified creator badge" %} が表示されます。 未検証および検証済みのアプリケーションのバッジも表示されます。 これらのアプリケーションは、個々のアプリケーションを検証する以前の方法を使用して公開されました。 現在のプロセスの詳細については、「[検証済みの作者について](/developers/github-marketplace/about-verified-creators)」および「[アプリケーションを一覧表示するための要件](/developers/github-marketplace/requirements-for-listing-an-app)」を参照してください。
+誰でも {% data variables.product.prodname_marketplace %} に無料の {% data variables.product.prodname_github_app %} または {% data variables.product.prodname_oauth_app %} をリストできます。 Publishers of paid apps are verified by {% data variables.product.company_short %} and listings for these apps are shown with a marketplace badge {% octicon "verified" aria-label="Verified creator badge" %}. 未検証および検証済みのアプリケーションのバッジも表示されます。 これらのアプリケーションは、個々のアプリケーションを検証する以前の方法を使用して公開されました。 For more information about the current process, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
 
 ### {% data variables.product.prodname_marketplace %} でツールを構築およびリストする
 

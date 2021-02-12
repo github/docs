@@ -59,7 +59,7 @@ Si se inhabilita el aislamiento de subdominios para tu empresa, también deberá
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Further reading
+### Leer más
 
 - "[Habilitar el modo privado](/admin/configuration/enabling-private-mode)"
 {% endif %}

@@ -30,4 +30,4 @@ For more information about teaching with {% data variables.product.prodname_clas
 
 ### Дополнительная литература
 
-- "[Teach and learn with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

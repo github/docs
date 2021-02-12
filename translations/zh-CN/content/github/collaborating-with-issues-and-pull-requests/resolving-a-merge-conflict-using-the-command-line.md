@@ -46,14 +46,14 @@ versions:
 4. 打开您首选的文本编辑器，例如 [Atom](https://atom.io/)，然后导航到有合并冲突的文件。
 5. 要在文件中查看合并冲突的开头，请在文件中搜索冲突标记 `<<<<<<<`。 当您在文本编辑器中打开文件时，您会在行 `<<<<<<< HEAD` 后看到头部或基础分支。 接下来，您将看到 `=======`，它将您的更改与其他分支中的更改分开，后跟 `>>>>>>> BRANCH-NAME`。 在本例中，一个人在基础或头部分支中编写“open an issue”，而另一个人在比较分支或 `branch-a` 中编写“ask your question in IRC”。
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} 在本例中，两个更改均整合到最终合并：
 
   ```shell

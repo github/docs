@@ -50,7 +50,7 @@ Bajo ninguna circunstancia recibirás pagos o recabarás fondos que involucren:
 
 * actividades con países, regiones, gobiernos, personas o entidades que no estén permitidas conforme a las sanciones impuestas por los EE. UU. y demás sanciones económicas que imponga la ley correspondiente, o actividades dentro de ellos o que los involucren. Y otras sanciones económicas bajo la legislación aplicable.
 
-#### 2.2. GitHub Sponsors Matching Fund
+#### 2.2. Fondo Compensatorio para Patrocinios de GitHub
 El Fondo Compensatorio para Patrocinios de GitHub pretende alentar a la comunidad que participa en el ecosistema de Software de Código Abierto (OSS, por sus siglas en inglés) para contribuir con fondos sostenibles para los individuos elegibles con Cuentas de Desarrollador Patrocinado. Todos los individuos que apliquen al Programa antes del 1 de enero de 2020 se revisarán para elegibilidad para el fondo Compensatorio, pero no todas las Cuentas de Desarrollador Patrocinado elegibles se escogerán. Las organizaciones no pueden participar en el Fondo Compensatorio para Patrocinios de GitHub, y no se escogerán las Cuentas de Desarrollador Patrocinadas elegibles que ya se encuentren patrocinadas por una organización. Encuentra las reglas adicionales a continuación.
 
 ##### 2.2.1. Condiciones para el Fondo Compensatorio.
@@ -158,7 +158,7 @@ ACEPTAS DE MANERA EXPLÍCITA QUE LAS SECCIONES O (DESCARGO DE GARANTÍAS), P (LI
 Los presentes Términos adicionales comienzan en la fecha de entrada en vigor y seguirán rigiendo siempre que participes del Programa.
 
 #### 6.2. Suspensión.
-GitHub puede suspender tu Cuenta de programador patrocinado de inmediato si violas de cualquier manera los presentes Términos adicionales o el Acuerdo, o si eres colocado o ubicado en una lista comercial restringida, o si eres residente habitual de un país o territorio sujeto a las sanciones generales que administra la Oficina de Control de Activos Extranjeros (OFAC, por sus siglas en inglés) de los EE. UU. Office of Foreign Assets Control (OFAC). No poder corregir o solucionar el motivo de la suspensión puede dar lugar a la terminación de tu Cuenta de programador patrocinado.
+GitHub puede suspender tu Cuenta de programador patrocinado de inmediato si violas de cualquier manera los presentes Términos adicionales o el Acuerdo, o si eres colocado o ubicado en una lista comercial restringida, o si eres residente habitual de un país o territorio sujeto a las sanciones generales que administra la Oficina de Control de Activos Extranjeros (OFAC, por sus siglas en inglés) de los EE.UU. No poder corregir o solucionar el motivo de la suspensión puede dar lugar a la terminación de tu Cuenta de programador patrocinado.
 
 #### 6.4. Terminación.
 Cualquiera de las partes podrá rescindir estos Términos Adicionales y tu Cuenta de Desarrollador Patrocinado en cualquier momento con o sin causa, con o sin previo aviso. Si incumples los presentes Términos adicionales o el Acuerdo, podemos ofrecerte un período para solucionar el incumplimiento, aunque no estamos obligados a hacerlo.

@@ -22,7 +22,7 @@ featuredLinks:
     - /discussions/guides/finding-discussions-across-multiple-repositories
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
-product_video: https://www.youtube-nocookie.com/embed/DbTWBP3_RbM
+product_video: https://www.youtube-nocookie.com/embed/IpBw2SJkFyk
 layout: product-landing
 versions:
   free-pro-team: '*'
@@ -43,12 +43,12 @@ versions:
     {% render 'discussions-community-card' for discussionsCommunityExamples as example %}
   </div>
   {% if discussionsCommunityExamples.length > 6 %}
-    <button class="js-filter-card-show-more btn btn-outline float-right">さらに表示 {% octicon "arrow-right" %}</button>
+    <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">さらに表示 {% octicon "arrow-right" %}</button>
   {% endif %}
   <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>
-    <h3 class="text-normal">Sorry, there is no result for <strong class="js-filter-card-value"></strong></h3>
-    <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
+    <h3 class="text-normal">検索結果はありません <strong class="js-filter-card-value"></strong></h3>
+    <p class="my-3 f4">フィルタに適合する例がないようです。<br>別のフィルタを試すか、コード例を追加してください</p>
     <a href="https://github.com/github/docs/blob/main/data/variables/discussions_community_examples.yml">コミュニティを追加 {% octicon "arrow-right" %}</a>
   </div>
 </div>

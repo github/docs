@@ -322,6 +322,81 @@
             "description": "<p>A list of severities to filter vulnerabilities by.</p>"
           }
         ]
+      },
+      {
+        "name": "sponsorables",
+        "type": "SponsorableItemConnection!",
+        "kind": "objects",
+        "id": "sponsorableitemconnection",
+        "href": "/graphql/reference/objects#sponsorableitemconnection",
+        "description": "<p>Users and organizations who can be sponsored via GitHub Sponsors.</p>",
+        "args": [
+          {
+            "name": "after",
+            "type": "String",
+            "id": "string",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#string",
+            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+          },
+          {
+            "name": "before",
+            "type": "String",
+            "id": "string",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#string",
+            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+          },
+          {
+            "name": "dependencyEcosystem",
+            "type": "SecurityAdvisoryEcosystem",
+            "id": "securityadvisoryecosystem",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryecosystem",
+            "description": "<p>Optional filter for which dependencies should be checked for sponsorable\nowners. Only sponsorable owners of dependencies in this ecosystem will be\nincluded. Used when onlyDependencies = true.</p>"
+          },
+          {
+            "name": "first",
+            "type": "Int",
+            "id": "int",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#int",
+            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+          },
+          {
+            "name": "last",
+            "type": "Int",
+            "id": "int",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#int",
+            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+          },
+          {
+            "name": "onlyDependencies",
+            "defaultValue": false,
+            "type": "Boolean",
+            "id": "boolean",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#boolean",
+            "description": "<p>Whether only sponsorables who own the viewer's dependencies will be\nreturned. Must be authenticated to use. Can check an organization instead\nfor their dependencies owned by sponsorables by passing\norgLoginForDependencies.</p>"
+          },
+          {
+            "name": "orderBy",
+            "type": "SponsorableOrder",
+            "id": "sponsorableorder",
+            "kind": "input-objects",
+            "href": "/graphql/reference/input-objects#sponsorableorder",
+            "description": "<p>Ordering options for users and organizations returned from the connection.</p>"
+          },
+          {
+            "name": "orgLoginForDependencies",
+            "type": "String",
+            "id": "string",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#string",
+            "description": "<p>Optional organization username for whose dependencies should be checked.\nUsed when onlyDependencies = true. Omit to check your own dependencies. If\nyou are not an administrator of the organization, only dependencies from its\npublic repositories will be considered.</p>"
+          }
+        ]
       }
     ],
     "fields": [
@@ -2827,6 +2902,48 @@
       ]
     },
     {
+      "name": "disablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "disablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#disablepullrequestautomerge",
+      "description": "<p>Disable auto merge on the given pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DisablePullRequestAutoMergeInput!",
+          "id": "disablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto merge was disabled on.</p>"
+        }
+      ]
+    },
+    {
       "name": "dismissPullRequestReview",
       "kind": "mutations",
       "id": "dismisspullrequestreview",
@@ -2857,6 +2974,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The dismissed pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "enablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#enablepullrequestautomerge",
+      "description": "<p>Enable the default auto-merge on a pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "EnablePullRequestAutoMergeInput!",
+          "id": "enablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto-merge was enabled on.</p>"
         }
       ]
     },
@@ -6505,6 +6664,71 @@
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeRequest",
+      "kind": "objects",
+      "id": "automergerequest",
+      "href": "/graphql/reference/objects#automergerequest",
+      "description": "<p>Represents an auto-merge request for a pull request.</p>",
+      "fields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address of the author of this auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>The commit message of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>The commit title of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enabledAt",
+          "description": "<p>When was this auto-merge request was enabled.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabledBy",
+          "description": "<p>The actor who created the auto-merge request.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method of the auto-merge request.</p>",
+          "type": "PullRequestMergeMethod!",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that this auto-merge request is set against.</p>",
+          "type": "PullRequest!",
           "id": "pullrequest",
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest"
@@ -29394,6 +29618,26 @@
           ]
         },
         {
+          "name": "isSponsoredBy",
+          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "accountLogin",
+              "description": "<p>The target account's login.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "isSponsoringViewer",
           "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
           "type": "Boolean!",
@@ -30128,6 +30372,14 @@
           "id": "sponsorslisting",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsor",
+          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -33732,6 +33984,14 @@
           "href": "/graphql/reference/enums#commentauthorassociation"
         },
         {
+          "name": "autoMergeRequest",
+          "description": "<p>Returns the auto-merge request object if one exists for this pull request.</p>",
+          "type": "AutoMergeRequest",
+          "id": "automergerequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#automergerequest"
+        },
+        {
           "name": "baseRef",
           "description": "<p>Identifies the base Ref associated with the pull request.</p>",
           "type": "Ref",
@@ -35082,6 +35342,22 @@
         {
           "name": "viewerCanDeleteHeadRef",
           "description": "<p>Check if the viewer can restore the deleted head ref.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDisableAutoMerge",
+          "description": "<p>Whether or not the viewer can disable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanEnableAutoMerge",
+          "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -47485,6 +47761,72 @@
       ]
     },
     {
+      "name": "SponsorableItemConnection",
+      "kind": "objects",
+      "id": "sponsorableitemconnection",
+      "href": "/graphql/reference/objects#sponsorableitemconnection",
+      "description": "<p>The connection type for SponsorableItem.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorableItemEdge]",
+          "id": "sponsorableitemedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorableitemedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorableItem]",
+          "id": "sponsorableitem",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsorableitem"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorableItemEdge",
+      "kind": "objects",
+      "id": "sponsorableitemedge",
+      "href": "/graphql/reference/objects#sponsorableitemedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorableItem",
+          "id": "sponsorableitem",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsorableitem"
+        }
+      ]
+    },
+    {
       "name": "SponsorsListing",
       "kind": "objects",
       "id": "sponsorslisting",
@@ -53305,6 +53647,26 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isSponsoredBy",
+          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "accountLogin",
+              "description": "<p>The target account's login.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "isSponsoringViewer",
           "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
           "type": "Boolean!",
@@ -54381,6 +54743,14 @@
           "id": "sponsorslisting",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsor",
+          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -57491,6 +57861,26 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isSponsoredBy",
+          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "accountLogin",
+              "description": "<p>The target account's login.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "isSponsoringViewer",
           "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
           "type": "Boolean!",
@@ -57505,6 +57895,14 @@
           "id": "sponsorslisting",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsor",
+          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -60986,6 +61384,19 @@
       ]
     },
     {
+      "name": "SponsorableOrderField",
+      "kind": "enums",
+      "id": "sponsorableorderfield",
+      "href": "/graphql/reference/enums#sponsorableorderfield",
+      "description": "<p>Properties by which sponsorable connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order sponsorable entities by login (username).</p>"
+        }
+      ]
+    },
+    {
       "name": "SponsorsTierOrderField",
       "kind": "enums",
       "id": "sponsorstierorderfield",
@@ -62840,6 +63251,25 @@
       "id": "sponsor",
       "href": "/graphql/reference/unions#sponsor",
       "description": "<p>Entities that can sponsor others via GitHub Sponsors.</p>",
+      "possibleTypes": [
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "SponsorableItem",
+      "kind": "unions",
+      "id": "sponsorableitem",
+      "href": "/graphql/reference/unions#sponsorableitem",
+      "description": "<p>Entities that can be sponsored via GitHub Sponsors.</p>",
       "possibleTypes": [
         {
           "name": "Organization",
@@ -65899,6 +66329,32 @@
       ]
     },
     {
+      "name": "DisablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "disablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of DisablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to disable auto merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DismissPullRequestReviewInput",
       "kind": "inputObjects",
       "id": "dismisspullrequestreviewinput",
@@ -66019,6 +66475,64 @@
           "id": "diffside",
           "kind": "enums",
           "href": "/graphql/reference/enums#diffside"
+        }
+      ]
+    },
+    {
+      "name": "EnablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "enablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of EnablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address to associate with this merge.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method to use. If omitted, defaults to 'MERGE'.</p>",
+          "type": "PullRequestMergeMethod",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to enable auto-merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -68135,6 +68649,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SponsorableOrder",
+      "kind": "inputObjects",
+      "id": "sponsorableorder",
+      "href": "/graphql/reference/input-objects#sponsorableorder",
+      "description": "<p>Ordering options for connections to get sponsorable entities for GitHub Sponsors.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsorable entities by.</p>",
+          "type": "SponsorableOrderField!",
+          "id": "sponsorableorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorableorderfield"
         }
       ]
     },

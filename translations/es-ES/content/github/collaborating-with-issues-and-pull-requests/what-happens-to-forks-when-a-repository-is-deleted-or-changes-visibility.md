@@ -72,7 +72,7 @@ Si cambias la visibilidad de un repositorio interno y luego lo borras, las bifur
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)"
 - "[Acerca de las bifurcaciones](/articles/about-forks)"

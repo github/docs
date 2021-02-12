@@ -11,7 +11,7 @@ versions:
 
 ### Acerca de la administración de los parámetros de seguridad y análisis
 
-{% data variables.product.prodname_dotcom %} puede ayudarte a asegurar los repositorios en tu organización. Puedes administrar las características de seguridad y de análisis para todos los repositorios existentes que los miembros creen en tu organización. {% if currentVersion == "free-pro-team@latest" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+{% data variables.product.prodname_dotcom %} puede ayudarte a asegurar los repositorios en tu organización. Puedes administrar las características de seguridad y de análisis para todos los repositorios existentes que los miembros creen en tu organización. {% if currentVersion == "free-pro-team@latest" %}Si tienes una licencia para {% data variables.product.prodname_GH_advanced_security %}, entonces también podrás administrar el acceso a estas características. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
@@ -23,20 +23,20 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization. {% if currentVersion == "free-pro-team@latest" %}If your organization, or the enterprise that owns it, has a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.
+La página que se muestra te permite habilitar o inhabilitar todas las características de seguridad y de análisis para los repositorios de tu organización. {% if currentVersion == "free-pro-team@latest" %}Si tu organización, o la empresa a la que pertenece, tiene una licencia para {% data variables.product.prodname_GH_advanced_security %}, la págna también contendrá opciones para habilitar e inhabilitar las características de {% data variables.product.prodname_advanced_security %}.
 
-![{% data variables.product.prodname_GH_advanced_security %} features](/assets/images/help/organizations/security-and-analysis-highlight-ghas.png)
+![Características de la {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/organizations/security-and-analysis-highlight-ghas.png)
 {% endif %}
 
 ### Habilitar o inhabilitar una característica para todos los repositorios existentes
 
-You can enable or disable features for all repositories. {% if currentVersion == "free-pro-team@latest" %}The impact of your changes on repositories in your organization is determined by their visibility:
+Puedes habilitar o inhabilitar las características para todos los repositorios. {% if currentVersion == "free-pro-team@latest" %}El impacto de tus cambios en los repositorios de tu organización se determina de acuerdo con su visibilidad:
 
-- **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
-- **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
-- **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
-- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect only private repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. {% data variables.product.prodname_secret_scanning_caps %} is always enabled for public repositories.{% endif %}
+- **Gráfica de dependencias** - Tus cambios solo afectan a repositorios privados porque la característica siempre está habilitada para los repositorios públicos.
+- **{% data variables.product.prodname_dependabot_alerts %}** - Tus cambios afectan a todos los repositorios.
+- **{% data variables.product.prodname_dependabot_security_updates %}** - Tus cambios afectan a todos los repositorios.
+- **{% data variables.product.prodname_GH_advanced_security %}** - Tus cambios afectan únicamente a los repositorios privados, ya que la {% data variables.product.prodname_GH_advanced_security %} y las características relacionadas siempre se encuentran habilitadas para los repositorios públicos.
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Tus cambios afectan únicamente a los repositorios privados en donde la {% data variables.product.prodname_GH_advanced_security %} también se encuentra habilitada. El {% data variables.product.prodname_secret_scanning_caps %} siempre se encuentra habilitado para los repositorios públicos.{% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
@@ -63,11 +63,11 @@ You can enable or disable features for all repositories. {% if currentVersion ==
    ![Botón para inhabilitar o habilitar la característica](/assets/images/help/organizations/security-and-analysis-enable-secret-scanning-ghe.png)
    {% endif %}
 
-### Enabling or disabling a feature automatically when new repositories are added
+### Habilitar o inhabilitar una característica automáticamente cuando se agregan repositorios nuevos
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
-1. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories
-{% if currentVersion == "free-pro-team@latest" %}, or all new private repositories,{% endif %} in your organization.
+1. Debajo de "Configurar las características de seguridad y análisis", a la derecha de la característica, habilítala o inhabilítala para los repositorios nuevos
+{% if currentVersion == "free-pro-team@latest" %}, o para todos los repositorios privados nuevos,{% endif %} en tu organización.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
@@ -83,7 +83,7 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 
 {% data reusables.dependabot.beta-note %}
 
-El {% data variables.product.prodname_dependabot %} puede verificar si hay referencias obsoletas de las dependencias en un proyecto y generar automáticamente una solicitud de cambios para actualizarlas. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible.
+El {% data variables.product.prodname_dependabot %} puede verificar si hay referencias obsoletas de las dependencias en un proyecto y generar automáticamente una solicitud de cambios para actualizarlas. Para hacerlo, el {% data variables.product.prodname_dependabot %} debe tener acceso a todos los archivos de dependencia que sean el objetivo. Habitualmente, las actualizaciones de versión fallarán si una o más dependencias son inaccesibles.
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} no puede actualizar las dependencias que se ubican en los repositorios privados. Sin embargo, si una dependencia se encuentra en un repositorio privado de {% data variables.product.prodname_dotcom %} dentro de la misma organización que el proyecto que la utiliza, puedes permitir al {% data variables.product.prodname_dependabot %} actualizar la versión exitosamente si le otorgas acceso al repositorio en el que se hospeda. Para obtener más información, incluyendo los detalles de las limitaciones para el soporte de la dependencia privada, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates)".
 
@@ -93,10 +93,10 @@ Predeterminadamente, el {% data variables.product.prodname_dependabot %} no pued
 1. Da clic en **Seleccionar repositorios**.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository)"
-- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+- "[Acerca del escaneo de secretos](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Mantener tus dependencias actualizacas automáticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Administrar las vulnerabilidades en las dependencias de tu proyecto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"

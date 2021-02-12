@@ -14,7 +14,7 @@ versions:
 {% data reusables.pull_requests.default_merge_option %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Exigindo um histórico de commit linear](/github/administering-a-repository/requiring-a-linear-commit-history)".{% endif %}
+O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
 
 ### Combinar por squash os commits de merge
 

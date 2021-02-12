@@ -5,7 +5,9 @@ intro: 'Las {% data variables.product.prodname_actions %} se diseñaron para ayu
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

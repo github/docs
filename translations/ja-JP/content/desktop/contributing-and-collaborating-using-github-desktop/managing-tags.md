@@ -33,3 +33,14 @@ versions:
   ![履歴でタグを表示する](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. コミットに関連付けられているすべてのタグは、そのコミットのメタデータに表示されます。 ![コミットでタグを表示する](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Deleting tags
+
+{% note %}
+
+**Note**: You can only delete tags associated with commits that have not yet been pushed.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}

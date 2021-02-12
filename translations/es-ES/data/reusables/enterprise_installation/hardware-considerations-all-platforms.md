@@ -1,6 +1,6 @@
-- [Minimum requirements](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
-- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- [Optional features](#optional-features){% endif %}
+- [Requisitos mínimos](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- [Caracteristicas opcionales](#optional-features){% endif %}
 - [Almacenamiento](#storage)
 - [CPU y memoria](#cpu-and-memory)
 
@@ -8,7 +8,7 @@
 
 Te recomendamos utilizar configuraciones de hardware diferentes dependiendo de la cantidad de licencias de usuario que tengas para {% data variables.product.product_location %}. Si aprovisionaste más recursos que los de los requisitos mínimos, tu instancia funcionrá y escalará mejor.
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} If you enable {% if currentVersion == "enterprise-server@2.22" %}the beta for {% endif %}{% data variables.product.prodname_actions %}, review the following requirements and recommendations.
+{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} Si habilitas {% if currentVersion == "enterprise-server@2.22" %}el beta para {% endif %}{% data variables.product.prodname_actions %}, revisa los siguientes requisitos y recomendaciones.
 
 - Debes configurar por lo menos un ejecutor para los flujos de trabajo de {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 - Debes configurar un almacenamiento externo de blobs. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
@@ -31,7 +31,7 @@ Tu instancia requiere un disco de datos persistentes independiente del disco ra�
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-If you enable{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you'll need to configure external blob storage. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+Si habilitas{% if currentVersion == "enterprise-server@2.22" %} el beta de {% endif %} {% data variables.product.prodname_actions %}, necesitarás configurar un almacenamiento de blobs externo. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 
 {% endif %}
 

@@ -56,6 +56,6 @@ Puedes subir la categoría a licencias totales en el [{% data variables.product.
 
 Si no has subido la categoría para el último día de tu prueba, recibirás un correo electrónico notificando que tu prueba ha terminado. Si necesitas más tiempo para evaluar {% data variables.product.prodname_enterprise %}, contacta a {% data variables.contact.contact_enterprise_sales %} para solicitar una extensión.
 
-### Further reading
+### Leer más
 
 - "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/articles/setting-up-a-trial-of-github-enterprise-cloud)"

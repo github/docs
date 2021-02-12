@@ -14,6 +14,6 @@ Tus tableros de propuestas y solicitudes de extracción están disponibles en la
 1. En la partes superior de cualquier página, haz clic en **Pull requests (Solicitudes de extracción)** o **Issues (Propuestas)**. ![Tableros de solicitudes de extracción o propuestas globales](/assets/images/help/overview/issues_and_pr_dashboard.png)
 2. Como alternativa, elige un filtro o [utiliza la barra de búsqueda para filtrar resultados más específicos](/articles/using-search-to-filter-issues-and-pull-requests). ![Lista de solicitudes de extracción con el filtro "Created" (Creado) seleccionado](/assets/images/help/overview/pr_dashboard_created.png)
 
-### Further reading
+### Leer más
 
 - {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listar los repositorios que estás observando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

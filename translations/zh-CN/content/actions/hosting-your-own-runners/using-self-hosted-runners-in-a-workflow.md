@@ -1,13 +1,13 @@
 ---
 title: 在工作流程中使用自托管的运行器
-intro: '要在工作流程中使用自托管的运行器，您可以使用标签为作业指定运行器类型。'
+intro: 要在工作流程中使用自托管的运行器，您可以使用标签为作业指定运行器类型。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -64,8 +64,11 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### 自托管运行器的路由优先级
 
-如果同时使用仓库级和组织级的运行器，{% data variables.product.prodname_dotcom %} 在将作业传送给自托管运行器时遵循优先顺序：
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. 作业的 `runs-on` 标签经过处理。 {% data variables.product.prodname_dotcom %} 然后会尝试查找符合标签要求的运行器：
-2. 作业将发送到与作业标签匹配的仓库级运行器。 如果没有仓库级运行程序可用（忙、脱机或没有匹配的标签）：
-3. 作业将发送到与作业标签匹配的组织级运行器。 如果没有组织级运行器可用，作业请求将失败并出错。
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
+2. The job is then sent to the first matching runner that is online and idle.
+   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
+   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
+   - If there are no matching runners at any level, the job will fail.
+   - If the job remains queued for more than 24 hours, the job will fail.

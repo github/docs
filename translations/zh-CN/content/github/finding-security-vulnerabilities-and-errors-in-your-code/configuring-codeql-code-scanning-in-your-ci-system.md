@@ -21,7 +21,7 @@ versions:
 
 一般情况下，调用 {% data variables.product.prodname_codeql_runner %} 如下所示。
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
@@ -40,7 +40,7 @@ $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 
 要覆盖自动语言检测，请运行 `init` 命令：带 `--languages` 标志，后跟以逗号分隔的语言关键字列表。 受支持语言的关键字是 `cpp`、`csharp`、`go`、`java`、`javascript` 和 `python`。
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -56,7 +56,7 @@ $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 
 在下面的示例中，`+` 符号可确保 {% data variables.product.prodname_codeql_runner %} 结合使用额外查询与所引用配置文件中指定的任何查询。
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -69,7 +69,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 使用 `init` 命令的 `--config-file` 标志指定配置文件。 标志 <nobr>`--config-file`</nobr> 的值是您要使用的配置文件的路径。 此示例加载配置文件 _.github/codeql/codeql-config.yml_。
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
@@ -85,7 +85,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 `autobuild` 进程仅尝试为仓库构建_一种_编译语言。 自动选择用于分析的语言是涵盖文件最多的语言。 如果您要明确选择某种语言，请使用 `autobuild` 命令的 `--language` 标志。
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 

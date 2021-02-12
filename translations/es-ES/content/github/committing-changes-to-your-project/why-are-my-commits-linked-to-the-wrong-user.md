@@ -49,6 +49,6 @@ Si tu configuración de Git local contiene una dirección de correo electrónico
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 * "[Buscar confirmaciones](/articles/searching-commits)"

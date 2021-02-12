@@ -4,6 +4,40 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `AutoMergeRequest` was added",
+          "Type `SponsorableOrder` was added",
+          "Type `SponsorableOrderField` was added",
+          "Type `SponsorableItemConnection` was added",
+          "Type `SponsorableItemEdge` was added",
+          "Type `SponsorableItem` was added",
+          "Type `DisablePullRequestAutoMergeInput` was added",
+          "Type `DisablePullRequestAutoMergePayload` was added",
+          "Type `EnablePullRequestAutoMergeInput` was added",
+          "Type `EnablePullRequestAutoMergePayload` was added",
+          "Field `sponsorables` was added to object type `Query`",
+          "Field `isSponsoredBy` was added to object type `Organization`",
+          "Field `sponsorshipForViewerAsSponsor` was added to object type `Organization`",
+          "Field `isSponsoredBy` was added to object type `User`",
+          "Field `sponsorshipForViewerAsSponsor` was added to object type `User`",
+          "Field `autoMergeRequest` was added to object type `PullRequest`",
+          "Field `viewerCanDisableAutoMerge` was added to object type `PullRequest`",
+          "Field `viewerCanEnableAutoMerge` was added to object type `PullRequest`",
+          "Field `isSponsoredBy` was added to interface `Sponsorable`",
+          "Field `sponsorshipForViewerAsSponsor` was added to interface `Sponsorable`",
+          "Field `disablePullRequestAutoMerge` was added to object type `Mutation`",
+          "Field `enablePullRequestAutoMerge` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `NotificationRestrictionSettingValue` was added",
           "Type `UpdateNotificationRestrictionSettingInput` was added",
           "Type `UpdateNotificationRestrictionSettingPayload` was added",

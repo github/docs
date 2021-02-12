@@ -1,7 +1,7 @@
 ---
 title: Comenzar con Git y GitHub
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/getting-started-with-git-and-github
 versions:

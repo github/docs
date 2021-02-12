@@ -88,7 +88,7 @@ Hay algunas reglas de sintaxis para los archivos de gitignore que no funcionan c
 
 
 
-### Further reading
+### Leer más
 
 - "[Crear archivos nuevos](/articles/creating-new-files)"
 - "[Invitar colaboradores a un repositorio personal](/articles/inviting-collaborators-to-a-personal-repository)"

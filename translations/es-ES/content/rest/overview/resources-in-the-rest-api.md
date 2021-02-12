@@ -215,7 +215,7 @@ Todos los objetos de error tienen propiedades de campo y de recurso para que tu 
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `missing`                  | Un recurso no existe.                                                                                                                             |
 | `missing_field`            | No se ha configurado un campo requerido en un recurso.                                                                                            |
-| `no válida`                | El formato de un campo es inválido.  Review the documentation for more specific information.                                                      |
+| `no válida`                | El formato de un campo es inválido.  Revisa la documentación para encontrar información más específica.                                           |
 | `already_exists`           | Otro recurso tiene el mismo valor que este campo.  Esto puede suceder en recursos que deben tener claves únicas (tales como nombres de etiqueta). |
 | `unprocessable`            | Las entradas proporcionadas son inválidas.                                                                                                        |
 
@@ -236,14 +236,14 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
 
-| Verbo    | Descripción                                                                                                                                                                                                                      |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                    |
-| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                              |
-| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                  |
-| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. A `PATCH` request may accept one or more of the attributes to update the resource. |
-| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                         |
-| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                 |
+| Verbo    | Descripción                                                                                                                                                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                                |
+| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                                          |
+| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                              |
+| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. Una solicitud de `PATCH` podría aceptar uno o más de los atributos para actualizar el recurso. |
+| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                                     |
+| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                             |
 
 ### Hypermedia
 

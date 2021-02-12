@@ -32,11 +32,11 @@ El {% data variables.product.prodname_codeql_runner %} es una herramienta de lí
 
 **Notas:**
 {% if currentVersion == "free-pro-team@latest" %}
-* The {% data variables.product.prodname_codeql_runner %} uses the {% data variables.product.prodname_codeql %} CLI to analyze code and therefore has the same license conditions. Se puede utilizar gratuitamente en los repositorios que mantiene {% data variables.product.prodname_dotcom_the_website %}, y está disponible para utilizarse en aquellos que pertenecen a los clientes con una licencia de {% data variables.product.prodname_advanced_security %}. Para obtener información, consulta la sección "[Términos y condiciones del {% data variables.product.prodname_codeql %} de {% data variables.product.product_name %}](https://securitylab.github.com/tools/codeql/license)" y [CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+* El {% data variables.product.prodname_codeql_runner %} utiliza el CLI de {% data variables.product.prodname_codeql %} para analizar el código y, por lo tanto, tiene las mismas condiciones de licencia. Se puede utilizar gratuitamente en los repositorios que mantiene {% data variables.product.prodname_dotcom_the_website %}, y está disponible para utilizarse en aquellos que pertenecen a los clientes con una licencia de {% data variables.product.prodname_advanced_security %}. Para obtener información, consulta la sección "[Términos y condiciones del {% data variables.product.prodname_codeql %} de {% data variables.product.product_name %}](https://securitylab.github.com/tools/codeql/license)" y [CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% else %}
-* The {% data variables.product.prodname_codeql_runner %} is available to customers with an {% data variables.product.prodname_advanced_security %} license.
+* El {% data variables.product.prodname_codeql_runner %} se encuentra disponible para los clientes con una licencia de {% data variables.product.prodname_advanced_security %}.
 {% endif %}
-* The {% data variables.product.prodname_codeql_runner %} shouldn't be confused with the {% data variables.product.prodname_codeql %} CLI. The {% data variables.product.prodname_codeql %} CLI is an interactive command-line interface that lets you create {% data variables.product.prodname_codeql %} databases for security research and run {% data variables.product.prodname_codeql %} queries. For more information, see "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
+* El {% data variables.product.prodname_codeql_runner %} no debe confundirse con el CLI de {% data variables.product.prodname_codeql %}. El CLI de {% data variables.product.prodname_codeql %}es una interface de línea de comandos que te permite crear bases de datos de {% data variables.product.prodname_codeql %} para la investigación de seguridad y ejecutar consultas de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% endnote %}
 
 ### Descargar el {% data variables.product.prodname_codeql_runner %}
@@ -60,7 +60,7 @@ En Windows, el archivo `codeql-runner-win.exe` habitualmente no necesita que se 
 
 ### Agregar el {% data variables.product.prodname_codeql_runner %} a tu sistema de IC
 
-Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from GitHub, for example:
+Una vez que descargas el {% data variables.product.prodname_codeql_runner %} y verificas que puede ejecutarse, debes poner el ejecutor disponible para cada servidor de IC que pretendas utilizar para el {% data variables.product.prodname_code_scanning %}. Por ejemplo, podrías configurar cada servidor para que copie el ejecutor desde una ubicación interna y central. Como alternativa, podrías utilizar la API de REST para obtener el ejecutor directamente desde GitHub, por ejemplo:
 
 ```shell
 wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
@@ -69,8 +69,8 @@ chmod +x codeql-runner-linux
 
 Además, cada servidor de IC necesitará también:
 
-- Un token de acceso personal o de {% data variables.product.prodname_github_app %} para que utilice el {% data variables.product.prodname_codeql_runner %}. You must use an access token with the `security_events` scope, or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. Para obtener más información, consulta las secciones "[Crear {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" y "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
-- Acceso al paquete de {% data variables.product.prodname_codeql %} asociado con este lanzamiento del {% data variables.product.prodname_codeql_runner %}. This package contains queries and libraries needed for {% data variables.product.prodname_codeql %} analysis, plus the {% data variables.product.prodname_codeql %} CLI, which is used internally by the runner. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+- Un token de acceso personal o de {% data variables.product.prodname_github_app %} para que utilice el {% data variables.product.prodname_codeql_runner %}. Debes utilizar un token de acceso con el alcance `security_events` o una {% data variables.product.prodname_github_app %} con el permiso de escritura de `security_events`. Para obtener más información, consulta las secciones "[Crear {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" y "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+- Acceso al paquete de {% data variables.product.prodname_codeql %} asociado con este lanzamiento del {% data variables.product.prodname_codeql_runner %}. Este paquete contiene consultas y bibliotecas necesarias para el análisis de {% data variables.product.prodname_codeql %}, adicionado con el CLI de {% data variables.product.prodname_codeql %}, el cual utiliza internamente el ejecutor. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 
 Las opciones para proporcionar acceso al paquete de {% data variables.product.prodname_codeql %} son:
 
@@ -92,6 +92,8 @@ Para ambos comandos, debes especificar la URL de {% data variables.product.produ
 Puedes configurar la ubicación en la que {% data variables.product.prodname_codeql_runner %} almacenará el paquete de CodeQL para un análisis futuro un un servidor utilizando el marcador <nobr>`--tools-dir`</nobr> , así como en dónde almacena archivos temporales utilizando el marcador <nobr>`--temp-dir`</nobr>.
 
 Para ver la referencia de línea de comandos para el ejecutor, utiliza el marcador `-h`. Por ejemplo, para listar todos los comandos, ejecuta: `codeql-runner-OS -h`, o para listar todos los marcadores disponibles para el comando `init`, ejecuta: `codeql-runner-OS init -h` (en donde el `OS` variará de acuerdo con el ejecutable que estés utilizando). Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)".
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### Ejemplo básico
 
@@ -167,7 +169,7 @@ Este ejemplo es similar al anterior, sin embargo, esta vez el repositorio tiene 
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Configurar el {% data variables.product.prodname_code_scanning %} en tu sistema](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
 - "[Solucionar problemas del {% data variables.product.prodname_code_scanning %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"

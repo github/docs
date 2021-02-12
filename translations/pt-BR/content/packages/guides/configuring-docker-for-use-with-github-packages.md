@@ -22,15 +22,13 @@ versions:
 
 Ao instalar ou publicar uma imagem do docker, o {% data variables.product.prodname_registry %} não é compatível camadas externas, como imagens do Windows.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 Antes de poder usar o registro do Docker no {% data variables.product.prodname_registry %}, o administrador do site para {% data variables.product.product_location %} deve habilitar o suporte do Docker e o isolamento do subdomínio para a sua instância. Para obter mais informações, consulte "[Gerenciar pacotes do GitHub para a sua empresa](/enterprise/admin/packages)".
 
 {% endif %}
 
 ### Autenticar-se no {% data variables.product.prodname_registry %}
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -51,11 +49,25 @@ Para manter suas credenciais seguras, recomendamos que você salve seu token de 
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
+<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+Se sua instância tem o isolamento de subdomínio habilitado:
+{% endif %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+Se sua instância tem o isolamento de subdomínio desabilitado:
+
+{% raw %}
+ ```shell
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
+```
+{% endraw %}
+{% endif %}
+
 {% endif %}
 
 Para usar este exemplo de comando de login, substitua `NOME DE USUÁRIO` pelo seu nome de usuário de {% data variables.product.product_name %} {% if enterpriseServerVersions contains currentVersion %}, `NOME DE HOST` pela URL para {% data variables.product.product_location %},{% endif %} e `~/TOKEN. xt` pelo caminho do arquivo para o seu token de acesso pessoal para {% data variables.product.product_name %}.
@@ -94,9 +106,19 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% endif %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio desabilitado:
+  ```shell
+  $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
 3. Se você ainda não criou uma imagem do docker para o pacote, crie a imagem, substituindo *PROPRIETÁRIO* pelo nome do usuário ou conta de organização proprietária do repositório, *REPOSITÓRIO* pelo o nome do repositório que contém o seu projeto, *IMAGE_NAME* pelo o nome do pacote ou imagem, *VERSÃO* com a versão do pacote no momento da criação,
 {% if enterpriseServerVersions contains currentVersion %} *NOME DE HOST* pelo o nome de host de {% data variables.product.product_location %},{% endif %} e *PATH* para a imagem se não estiver no diretório de trabalho atual.
@@ -105,9 +127,19 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
+  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio desabilitado:
+  ```shell
+  $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
+  ```
+  {% endif %}
   {% endif %}
 4. Publicar a imagem em
 {% data variables.product.prodname_registry %}.
@@ -116,9 +148,19 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio habilitado:
+  {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  Se sua instância tem o isolamento de subdomínio desabilitado:
+  ```shell
+  $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
   {% note %}
 
@@ -128,7 +170,14 @@ O {% data variables.product.prodname_registry %} aceita várias imagens do Docke
 
 #### Exemplo de publicação de uma imagem do Docker
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+{% if enterpriseServerVersions contains currentVersion %}
+<!--Versioning out this "subdomain isolation enabled" line because it's the only Docker supported option for GHES 2.22 so it can be misleading.-->
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+Esses exemplos assumem que sua instância tem o isolamento de subdomínio habilitado.
+{% endif %}
+
+
+{% endif %}
 
 Você pode publicar a versão 1.0 da imagem de `monalisa` para o repositório `octocat/octo-app` usando um ID de imagem.
 
@@ -198,9 +247,19 @@ Você pode usar o comando `docker pull` para instalar uma imagem docker a partir
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
+<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+Se sua instância tem o isolamento de subdomínio habilitado:
+{% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+Se sua instância tem o isolamento de subdomínio desabilitado:
+```shell
+$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+```
+{% endif %}
 {% endif %}
 
 {% note %}

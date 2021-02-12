@@ -220,7 +220,7 @@ Para obtener más información, consulta "[Herramientas de línea de comando](/e
 Para revertir un lanzamiento de característica, restaura desde una instantánea de VM para garantizar que las particiones raíz y de datos estén en un estado consistente. Para obtener más información, consulta "[Tomar una instantánea](#taking-a-snapshot)."
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Further reading
+### Leer más
 
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

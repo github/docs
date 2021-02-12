@@ -222,5 +222,5 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### 参考リンク
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
 {% endif %}

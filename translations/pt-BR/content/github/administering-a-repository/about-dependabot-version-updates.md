@@ -43,3 +43,7 @@ Se tiver habilitado atualizações de segurança, às vezes você verá atualiza
 {% data reusables.dependabot.supported-package-managers %}
 
 Se o seu repositório já usa uma integração para gerenciamento de dependências, você precisará desativar isso antes de habilitar o {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Sobre integrações](/github/customizing-your-github-workflow/about-integrations)".
+
+### Sobre notificações para atualizações de versão para {% data variables.product.prodname_dependabot %}
+
+Você pode filtrar suas notificações em {% data variables.product.company_short %} para mostrar atualizações de versão de {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

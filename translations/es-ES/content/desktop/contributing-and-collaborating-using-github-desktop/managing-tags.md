@@ -33,3 +33,14 @@ versions:
   ![Visualizar una etiqueta en el historial](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. Todas las etiquetas asociadas con la confirmación se pueden ver en los metadatos de dicha confirmación. ![Visualizar una etiqueta en la confirmación](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Borrar las etiquetas
+
+{% note %}
+
+**Nota**: Solo puedes borrar las etiquetas que se asocian con las confirmaciones que aún no se hayan subido.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}

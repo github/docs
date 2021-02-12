@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Entrada em vigor: **30 de dezembro de 2020**
+Effective date: **January 29, 2021**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -18,31 +18,26 @@ O GitHub fornece um grande acordo de transparência em relação à forma como u
 
 Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)).
 
-| Nome do subprocessador | Descrição do processamento                                            | Local do Processamento | Localização corporativa |
-|:---------------------- |:--------------------------------------------------------------------- |:---------------------- |:----------------------- |
-| Automattic             | Serviço de blogs                                                      | Estados Unidos         | Estados Unidos          |
-| AWS Amazon             | Hospedagem de dados                                                   | Estados Unidos         | Estados Unidos          |
-| Braintree (PayPal)     | Processador de pagamento de assinatura com cartão de crédito          | Estados Unidos         | Estados Unidos          |
-| Clearbit               | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
-| Discourse              | Provedor de software do fórum comunitário                             | Estados Unidos         | Estados Unidos          |
-| DiscoverOrg            | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
-| Eloqua                 | Automatização da campanha marketing                                   | Estados Unidos         | Estados Unidos          |
-| Google Apps            | Infraestrutura interna da empresa                                     | Estados Unidos         | Estados Unidos          |
-| Google Analytics       | Análise e desempenho                                                  | Estados Unidos         | Estados Unidos          |
-| LinkedIn Navigator     | Data enrichment service                                               | Estados Unidos         | Estados Unidos          |
-| Magic Robot            | Relatórios de campanha (Complemento para Vendas)                      | Estados Unidos         | Estados Unidos          |
-| MailChimp              | Fornecedor de serviços de correio para emissão de bilhetes a clientes | Estados Unidos         | Estados Unidos          |
-| Mailgun                | Provedor de serviços de correio transacional                          | Estados Unidos         | Estados Unidos          |
-| Microsoft              | Microsoft Services                                                    | Estados Unidos         | Estados Unidos          |
-| Monday.com             | Colaboração da equipe e plataforma de gerenciamento de projetos       | Estados Unidos         | Israel                  |
-| Nexmo                  | Provedor de notificação de SMS                                        | Estados Unidos         | Estados Unidos          |
-| Salesforce.com         | Gerenciamento de relacionamento com clientes                          | Estados Unidos         | Estados Unidos          |
-| Sendgrid               | Provedor de serviços de correio transacional                          | Estados Unidos         | Estados Unidos          |
-| Sentry.io              | Provedor de monitoramento de aplicativo                               | Estados Unidos         | Estados Unidos          |
-| Stripe                 | Provedor de pagamentos                                                | Estados Unidos         | Estados Unidos          |
-| Twilio                 | Provedor de notificação de SMS                                        | Estados Unidos         | Estados Unidos          |
-| Zendesk                | Sistema de bilhetagem de suporte ao cliente                           | Estados Unidos         | Estados Unidos          |
-| Zuora                  | Sistema de faturamento corporativo                                    | Estados Unidos         | Estados Unidos          |
+| Nome do subprocessador   | Descrição do processamento                                            | Local do Processamento | Localização corporativa |
+|:------------------------ |:--------------------------------------------------------------------- |:---------------------- |:----------------------- |
+| Automattic               | Serviço de blogs                                                      | Estados Unidos         | Estados Unidos          |
+| AWS Amazon               | Hospedagem de dados                                                   | Estados Unidos         | Estados Unidos          |
+| Braintree (PayPal)       | Processador de pagamento de assinatura com cartão de crédito          | Estados Unidos         | Estados Unidos          |
+| Clearbit                 | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
+| Discourse                | Provedor de software do fórum comunitário                             | Estados Unidos         | Estados Unidos          |
+| Eloqua                   | Automatização da campanha marketing                                   | Estados Unidos         | Estados Unidos          |
+| Google Apps              | Infraestrutura interna da empresa                                     | Estados Unidos         | Estados Unidos          |
+| MailChimp                | Fornecedor de serviços de correio para emissão de bilhetes a clientes | Estados Unidos         | Estados Unidos          |
+| Mailgun                  | Provedor de serviços de correio transacional                          | Estados Unidos         | Estados Unidos          |
+| Microsoft                | Microsoft Services                                                    | Estados Unidos         | Estados Unidos          |
+| Monday.com               | Colaboração da equipe e plataforma de gerenciamento de projetos       | Estados Unidos         | Israel                  |
+| Nexmo                    | Provedor de notificação de SMS                                        | Estados Unidos         | Estados Unidos          |
+| Salesforce.com           | Gerenciamento de relacionamento com clientes                          | Estados Unidos         | Estados Unidos          |
+| Sentry.io                | Provedor de monitoramento de aplicativo                               | Estados Unidos         | Estados Unidos          |
+| Stripe                   | Provedor de pagamentos                                                | Estados Unidos         | Estados Unidos          |
+| Twilio & Twilio Sendgrid | SMS notification provider & transactional mail service provider       | Estados Unidos         | Estados Unidos          |
+| Zendesk                  | Sistema de bilhetagem de suporte ao cliente                           | Estados Unidos         | Estados Unidos          |
+| Zuora                    | Sistema de faturamento corporativo                                    | Estados Unidos         | Estados Unidos          |
 
 Quando trouxermos um novo subprocessador que lida com as Informações Pessoais de nossos Usuários, ou removermos um subprocessador, ou mudarmos a forma como usamos um subprocessador, atualizaremos esta página. Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos felizes em ajudar. Entre em contato conosco via {% data variables.contact.contact_privacy %}.
 
@@ -50,7 +45,7 @@ Quando trouxermos um novo subprocessador que lida com as Informações Pessoais 
 
 GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Consulte nossa [Declaração de privacidade](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) se você quiser saber mais informações sobre cookies e sobre como e por que os usamos.
 
-Como o número e os nomes dos cookies podem mudar, a tabela abaixo pode ser atualizada de vez em quando.
+Since the number and names of cookies may change, the table below may be updated from time to time.
 
 | Provedor de serviço | Nome do cookie                       | Descrição                                                                                                                                                                   | Vencimento*                                                                  |
 |:------------------- |:------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------- |

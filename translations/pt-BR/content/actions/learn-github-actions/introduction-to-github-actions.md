@@ -9,7 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Princípios básicos
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -147,7 +149,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada linha aninhada nesta seção é uma ação separada.
+  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada item aninhado nesta seção é uma ação separada ou comando de shell.
 </td>
 </tr>
 <tr>
@@ -180,7 +182,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>. 
+  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>.
 </td>
 </tr>
 <tr>

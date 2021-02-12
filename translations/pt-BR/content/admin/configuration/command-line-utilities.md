@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 Permite encontrar o uuid do nó em `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -468,18 +468,21 @@ ghe-webhook-logs
 ```
 
 Para exibir todas as entregas de hook falhas do último dia:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+O formato da data deve ser `AAAA-MM-DD`, `AAAA-MM-DD HH:MM:SS`, ou `AAAA-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 Para exibir a carga útil total do hook, o resultado e quaisquer exceções para a entrega:
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-Para exibir entregas globais do webhook:
-```shell
-ghe-webhook-logs --global
 ```
 
 ### Clustering
@@ -542,8 +545,8 @@ ghe-dpages status
 ```
 
 Para evacuar um serviço de armazenamento {% data variables.product.prodname_pages %} antes de evacuar um nó de cluster:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -568,16 +571,16 @@ ghe-spokes route
 
 Para evacuar os serviços de armazenamento em um nó de cluster:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Este utilitário permite remover todos os serviços de armazenamento antes de remover um nó de cluster.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

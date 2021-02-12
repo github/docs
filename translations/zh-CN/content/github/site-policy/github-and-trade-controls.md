@@ -27,7 +27,9 @@ GitHub 的愿景是成为开发者合作的全球平台，不管开发者居住�
 
 GitHub 现在获得了 OFAC 的许可，可以为位于或居住在伊朗的开发者提供云服务。 这包括为个人和组织提供的一切免费和有偿的公共和私人服务。
 
-特别指定国民 (SDN) 、根据美国和其他适用法律被拒绝或封锁的其他方 以及某些政府官员可能会被限制访问或使用 GitHub.com。 此外，用户不得为包括受制裁国政府在内的这类当事方或代表他们使用 GitHub.com。 此外，GitHub.com 不得用于适用的出口管制法律所禁止的目的，包括 [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5) 中所述的被禁止最终用途。
+GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
+
+特别指定国民 (SDN) 、根据美国和其他适用法律被拒绝或封锁的其他方 以及某些政府官员可能会被限制访问或使用 GitHub.com。 此外，用户不得为通常包括受制裁国政府在内的这类当事方或代表他们使用 GitHub.com。 此外，GitHub.com 不得用于适用的出口管制法律所禁止的目的，包括 [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5) 中所述的被禁止最终用途。
 
 #### GitHub Enterprise Server
 
@@ -41,13 +43,13 @@ GitHub Enterprise Server 不能出售、出口或再出口到 EAR 的补充编�
 
 #### 美国政府对哪些国家和地区 实行制裁？
 
-克里米亚、古巴、伊朗、朝鲜和叙利亚。 但是，就伊朗而言，GitHub 现在已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，可为位于该国或居住在该国的开发者提供云服务。
+克里米亚、古巴、伊朗、朝鲜和叙利亚。 但是，就伊朗而言，GitHub 现在已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，可为位于该国或居住在该国的开发者提供云服务。 GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
 
 #### GitHub 如何确保不在受制裁国家及地区生活和/或与受制裁国家及地区有专业联系的民间团体仍然能够访问或上诉？
 
 在很少的情况下，会有帐户无意或错误地受到影响，此时我们有上诉流程来处理这种情况。
 
-如果个别用户或组织管理员认为他们被错误标记，则该用户有机会向 GitHub 提供验证信息，对该标记提出上诉。 如果 GitHub 收到充分的信息，能够核实用户或组织不属于美国制裁的地区或美国经济制裁限制的地区，则会撤销该标记。 经济制裁限制的地区，则会撤销该标记。 请参阅[个别帐户上诉申请表](https://airtable.com/shrGBcceazKIoz6pY)和[组织帐户上诉申请表](https://airtable.com/shrB2je5RBkqLEt5D)。
+如果个别用户或组织管理员认为他们被错误标记，则该用户有机会向 GitHub 提供验证信息，对该标记提出上诉。 如果 GitHub 收到充分的信息，能够核实用户或组织不属于我们未获得许可的美国制裁地区或美国 经济制裁限制的地区，则会撤销该标记。 请参阅[个别帐户上诉申请表](https://airtable.com/shrGBcceazKIoz6pY)和[组织帐户上诉申请表](https://airtable.com/shrB2je5RBkqLEt5D)。
 
 #### 到这些地区旅行是否会受到影响？
 
@@ -55,13 +57,17 @@ GitHub Enterprise Server 不能出售、出口或再出口到 EAR 的补充编�
 
 #### 什么可用和不可用？
 
-GitHub 现在获得了 OFAC 的许可，可以向位于或居住在美国制裁国家——伊朗的开发者提供云服务。 该许可为个人和组织提供的一切免费和有偿的公共和私人服务。 但是，特别指定国民 (SDN) 、根据美国和其他适用法律被拒绝或封锁的其他方 以及某些政府官员可能会被限制访问或使用 GitHub。
+GitHub 现在获得了 OFAC 的许可，可以向位于或居住在美国制裁国家——伊朗的开发者提供云服务。 该许可为个人和组织提供的一切免费和有偿的公共和私人服务。 GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
 
-GitHub 承诺继续向受美国制裁地区拥有个人和组织帐户的开发者免费提供公共仓库服务。 包括有限制地访问免费服务，例如用于开源项目（和相关公共页面）的公共仓库、公共Gist 以及分配的免费操作分钟数，但只能用于个人通信，而不得用于商业目的。
+GitHub 承诺继续向叙利亚和克里米亚拥有个人和组织帐户的开发者免费提供公共仓库服务。 包括有限制地访问免费服务，例如用于开源项目（和相关公共页面）的公共仓库、公共Gist 以及分配的免费操作分钟数，但只能用于个人通信，而不得用于商业目的。
 
 对于这些受制裁地区的付费组织级帐户，用户对其公共仓库的访问有限，这些仓库已降级为存档的只读仓库。 但是，对于这些受制裁地区的免费组织级帐户，用户仍然可以完全访问用于开源项目（和相关公共页面）的免费公共仓库、公共 Gist 和分配的免费操作分钟数。
 
-GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions. 监管机构提倡让受制裁地区的开发者尽可能获得代码协作服务，例如 Syria 和 Crimea，包括访问私有仓库。 我们相信，提供这些服务可以促进人类进步、国际交流和美国一贯的 促进言论自由和信息自由流通的一贯外交政策。
+GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions. 监管机构提倡让叙利亚和克里米亚的开发者尽可能获得代码协作服务，包括访问私有仓库。 我们相信，提供这些服务可以促进人类进步、国际交流和美国一贯的 促进言论自由和信息自由流通的一贯外交政策。
+
+特别指定国民 (SDN) 、根据美国和其他适用法律被拒绝或封锁的其他方 以及某些政府官员可能会被限制访问或使用 GitHub。 用户不得为通常包括受制裁国政府在内的这类当事方或代表他们使用 GitHub.com。
+
+GitHub 服务不适用于位于朝鲜或以其他方式居住在朝鲜的开发者。
 
 #### 如何定义这些特定用户？
 
@@ -89,8 +95,13 @@ GitHub will continue advocating with U.S. regulators for the greatest possible a
 
 特别指定国民 (SDN) 、根据美国和其他适用法律被拒绝或封锁的其他方 以及某些政府官员可能会被限制访问或使用 GitHub。
 
-如果 GitHub 确定某人属于受限制类别（SDN、其他被阻止的当事方或某些政府官员），则他们的帐户将被标记，并且他们将无法使用任何 GitHub 功能。 如果他们认为自己被错误标记，他们有机会使用我们的[个人帐户申诉申请表](https://airtable.com/shrGBcceazKIoz6pY)向 GitHub 提供验证信息，对此类标记提出申诉。 如果 GitHub 收到足够的信息，核实此人不属于受美国限制的类别 经济制裁限制的地区，则会撤销该标记。
+如果 GitHub 确定个人或组织属于受限制类别（SDN、其他被阻止的当事方或某些政府官员），则他们的帐户将被标记，并且他们将无法使用任何 GitHub 功能。 如果他们认为自己被错误标记，他们有机会使用我们的[个人帐户申诉申请表或组织帐户申诉申请表](https://airtable.com/shrGBcceazKIoz6pY)向 GitHub 提供验证信息，对此类标记提出申诉。 如果 GitHub 收到足够的信息，核实此人不属于受美国限制的类别 经济制裁限制的地区，则会撤销该标记。
 
 #### 伊朗 GitHub 用户能否在许可下使用付费服务？
 
 根据我们从 OFAC 获得的许可，我们正在为伊朗用户恢复所有云服务，包括付费服务。 我们接受所有主要的信用卡，但是第三方为我们处理付款，因此付款受付款处理方的条款和条件的约束。 这些第三方可能规定阻止伊朗付款的限制。
+
+#### 您能向古巴开发者说明 GitHub 的可用性吗？
+
+GitHub 云服务（包括付费和免费）向位于古巴的开发者普遍开放。  
+特别指定国民 (SDN) 、被美国拒绝或阻止的其他方 以及某些政府官员可能会被限制访问或使用 GitHub。 此外，用户不得为通常包括受制裁国政府在内的这类当事方或代表他们使用 GitHub.com。

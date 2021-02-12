@@ -8,7 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -47,7 +50,7 @@ Você pode usar a palavra-chave `serviços` para criar contêineres de serviço 
 Este exemplo cria um serviço denominado `redis` em um trabalho denominado `container-job`. O host do Docker, neste exemplo, é o contêiner `node:10.18-jessie`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Exemplo de contêiner Redis
 em: push
 
@@ -89,7 +92,7 @@ Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta
 Este exemplo mapeia a porta 6379 do contêiner de serviço `redis` com a porta 6379 do host do Docker.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Exemplo de serviço Redis
 em: push
 

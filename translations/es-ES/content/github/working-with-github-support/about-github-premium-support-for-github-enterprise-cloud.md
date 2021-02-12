@@ -64,6 +64,6 @@ Si usas un complemento personalizado o no compatible, módulo o código personal
 
 {% data reusables.support.accessing-premium-content %}
 
-### Further reading
+### Leer más
 
 - "[Enviar un ticket](/articles/submitting-a-ticket)"

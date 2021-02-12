@@ -33,3 +33,14 @@ O {% data variables.product.prodname_desktop %} permite que você crie tags anot
   ![Visualizar uma tag no histórico](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. Todas as tags associadas ao commit são visíveis nos metadados desse commit. ![Visualizar uma tag no commit](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Excluir tags
+
+{% note %}
+
+**Observação**: Você só pode excluir tags associadas a commits que ainda não foram enviados por push.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}

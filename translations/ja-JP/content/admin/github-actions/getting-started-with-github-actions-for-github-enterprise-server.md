@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Actions for GitHub Enterprise Server
-intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
+title: GitHub Enterprise Server の GitHub Actions を使い始める
+intro: '{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の有効化と設定について初めて学びます。'
 permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
@@ -21,19 +21,19 @@ versions:
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-This article explains how site administrators can configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %}. It covers the hardware and software requirements, presents the storage options, and describes the security management policies.
+この記事では、サイト管理者が {% data variables.product.prodname_actions %} を使用するように {% data variables.product.prodname_ghe_server %} を設定する方法について説明しています。 ハードウェアとソフトウェアの要件、ストレージオプション、セキュリティ管理ポリシーについて説明します。
 
-### Review hardware considerations
+### ハードウェアについての留意点を確認する
 
 {% data reusables.actions.enterprise-hardware-considerations %}
 
 {% endif %}
 
-### External storage requirements
+### 外部ストレージの要件
 
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にするには、外部 Blob ストレージにアクセスできる必要があります。
 
-{% data variables.product.prodname_actions %} は、blob ストレージを使用して、ワークフローログやユーザがアップロードしたビルドアーティファクトなど、ワークフロー実行によって生成されたアーティファクトを保存します。 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況によって異なります。 Only a single external storage configuration is supported, and you can't use multiple storage providers at the same time.
+{% data variables.product.prodname_actions %} は、blob ストレージを使用して、ワークフローログやユーザがアップロードしたビルドアーティファクトなど、ワークフロー実行によって生成されたアーティファクトを保存します。 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況によって異なります。 単一の外部ストレージ設定のみがサポートされており、複数のストレージプロバイダを同時に使用することはできません。
 
 {% data variables.product.prodname_actions %} は、次のストレージプロバイダをサポートしています。
 
@@ -43,7 +43,7 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% note %}
 
-**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
+**注釈:** これらは、{% data variables.product.company_short %} がサポートし、支援を提供できる唯一のストレージプロバイダです。 他の S3 API 互換のストレージプロバイダは、S3 API との違いにより、機能しない可能性があります。 追加のストレージプロバイダのサポートをリクエストするには、[お問い合わせ](https://support.github.com/contact)ください。
 
 {% endnote %}
 
@@ -65,32 +65,32 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-### Enabling {% data variables.product.prodname_actions %} with your storage provider
+### ストレージプロバイダで {% data variables.product.prodname_actions %} を有効化する
 
-Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
+以下の手順のいずれかに従って、選択したストレージプロバイダで {% data variables.product.prodname_actions %} を有効にします。
 
-* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
-* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Azure Blob ストレージで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
+* [Amazon S3 ストレージで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
+* [NAS ストレージ用の MinIO ゲートウェイで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
-### Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+### Enterprise 内の {% data variables.product.prodname_actions %} のアクセス権限を管理する
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+ポリシーを使用して、{% data variables.product.prodname_actions %} へのアクセスを管理できます。 詳しい情報については、「[Enterprise に GitHub Actions のポリシーを施行する](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。
 
-### 自己ホストランナーの追加
+### セルフホストランナーの追加
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. 詳しい情報については「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
+{% data variables.product.prodname_actions %} ワークフローを実行するには、セルフホストランナーを追加する必要があります。 Enterprise、Organization、リポジトリレベルでセルフホストランナーを追加できます。 詳しい情報については「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
 
-### Managing which actions can be used in your enterprise
+### Enterprise で使用できるアクションを管理する
 
-You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
+ユーザーが Enterprise で使用できるアクションを制御できます。 これには、{% data variables.product.prodname_dotcom_the_website %} からのアクションへの自動アクセス用の {% data variables.product.prodname_github_connect %} の設定、または {% data variables.product.prodname_dotcom_the_website %} からのアクションの手動同期が含まれます。
 
-For more information, see "[About using actions on {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server)."
+詳しい情報については、「[{% data variables.product.prodname_ghe_server %} でのアクションの使用について](/admin/github-actions/about-using-actions-on-github-enterprise-server)」を参照してください。
 
-### General security hardening for {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} の一般的なセキュリティ強化
 
-If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
+{% data variables.product.prodname_actions %} のセキュリティプラクティスについて詳しく学ぶには、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions)」を参照してください。
 
 {% endif %}

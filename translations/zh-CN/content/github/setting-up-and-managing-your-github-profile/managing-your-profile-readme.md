@@ -49,6 +49,8 @@ versions:
 
   生成的自述文件用模板预先填充，为您创建个人资料自述文件提供一些启发。 ![带有预填充模板的自述文件](/assets/images/help/repository/personal-repository-readme-template.png)
 
+有关所有可用表情符号及其代码的摘要，请参阅“[表情符号备忘清单](http://www.emoji-cheat-sheet.com/)” 。
+
 ### 删除个人资料自述文件
 
 如果以下任何一项适用，个人资料自述文件将从您的 {% data variables.product.prodname_dotcom %} 个人资料中被删除：

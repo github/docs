@@ -22,8 +22,8 @@ Para obter mais informações sobre como administrar gerentes de cobrança, cons
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-4. Em
+1. Em
 {% if currentVersion == "free-pro-team@latest" %}Licenças{% else %}licenças{% endif %} do usuário", visualize o seu total de licenças, o número de licenças consumidas e a data de expiração da assinatura.
   {% if currentVersion == "free-pro-team@latest" %}![License and subscription information in enterprise billing settings](/assets/images/help/business-accounts/billing-license-info.png){% else %}
   ![Informações de assinaturas e licenças nas configurações de cobrança da empresa](/assets/images/enterprise/enterprises/enterprise-server-billing-license-info.png){% endif %}
-5. Para ver os detalhes das licenças dos usuários em uso atualmente, clique em **Ver {% if currentVersion == "free-pro-team@latest" %}detalhes{% else %}de usuários{% endif %}**.
+1. Opcionalmente, para visualizar os detalhes para o uso da licença ou para fazer o download de um arquivo {% if currentVersion == "free-pro-team@latest" %}CSV{% elsif enterpriseServerVersions contains currentVersion %}JSON{% endif %} com detalhes da licença{% if currentVersion == "free-pro-team@latest" %}, à direita de "LIcenças do usuário" {% endif %}, clique em **Visualizar {% if currentVersion == "free-pro-team@latest" %}detalhes{% elsif enterpriseServerVersions contains currentVersion %}usuários{% endif %}** ou {% if currentVersion == "free-pro-team@latest" %}{% octicon "download" aria-label="The download icon" %}{% elsif enterpriseServerVersions contains currentVersion %}**Exportar uso da licença**{% endif %}.{% if currentVersion == "free-pro-team@latest" %} !["View details" button and button with download icon to the right of "User Licenses"](/assets/images/help/business-accounts/billing-license-info-click-view-details-or-download.png){% endif %}
