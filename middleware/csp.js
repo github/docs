@@ -19,14 +19,12 @@ module.exports = async (req, res, next) => {
       fontSrc: [
         "'self'",
         'data:',
-        'github-images.s3.amazonaws.com',
         AZURE_STORAGE_URL
       ],
       imgSrc: [
         "'self'",
         'data:',
         'github.githubassets.com',
-        'github-images.s3.amazonaws.com',
         AZURE_STORAGE_URL,
         'placehold.it',
         '*.githubusercontent.com',
