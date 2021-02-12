@@ -28,4 +28,4 @@ You can also stash changes when you switch branches. For more information, see "
 {% data reusables.desktop.navigate-to-stashed-changes %}
 {% data reusables.desktop.click-stashed-changes %}
 1. Click **Discard**.
-  ![Discard stashed changes button](assets/images/help/desktop/discard-stashed-changes-button.png)
+  ![Discard stashed changes button](/assets/images/help/desktop/discard-stashed-changes-button.png)
