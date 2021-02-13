@@ -6,39 +6,30 @@ function matchCardBySearch (card, searchString) {
 
 function matchCardByAttribute (card, attribute, value) {
   if (attribute in card.dataset) {
-    const allValues = card.dataset[attribute].split(',')
-    return allValues.some(key => key === value)
+    return card.dataset[attribute] === value
   }
   return false
 }
 
 export default function cardsFilter () {
   const inputFilter = document.querySelector('.js-filter-card-filter')
-  const dropdownFilters = document.querySelectorAll('.js-filter-card-filter-dropdown')
+  const dropdownFilter = document.querySelector('.js-filter-card-filter-dropdown')
   const cards = Array.from(document.querySelectorAll('.js-filter-card'))
   const showMoreButton = document.querySelector('.js-filter-card-show-more')
   const noResults = document.querySelector('.js-filter-card-no-results')
   // if jsFilterCardMax not set, assume no limit (well, at 99)
   const maxCards = showMoreButton ? parseInt(showMoreButton.dataset.jsFilterCardMax || 99) : null
 
-  const noFilter = () => {
-    showMoreButton.classList.remove('d-none')
-    for (let index = 0; index < cards.length; index++) {
-      const card = cards[index]
-      // Hide all but the first n number of cards
-      if (index > maxCards - 1) {
-        card.classList.add('d-none')
-      } else {
-        card.classList.remove('d-none')
-      }
-    }
-  }
-
   const filterEventHandler = (evt) => {
     const { currentTarget } = evt
     const value = currentTarget.value
 
-    showMoreButton.classList.add('d-none')
+    // Show or hide the "Show more" button if there is a value
+    if (value) {
+      showMoreButton.classList.add('d-none')
+    } else {
+      showMoreButton.classList.remove('d-none')
+    }
 
     // Track whether or not we had at least one match
     let hasMatches = false
@@ -46,34 +37,29 @@ export default function cardsFilter () {
     for (let index = 0; index < cards.length; index++) {
       const card = cards[index]
 
+      // Filter was emptied
+      if (!value) {
+        // Make sure we don't show the "No results" blurb
+        hasMatches = true
+
+        // Hide all but the first n number of cards
+        if (index > maxCards - 1) {
+          card.classList.add('d-none')
+        } else {
+          card.classList.remove('d-none')
+        }
+
+        continue
+      }
+
       let cardMatches = false
 
       if (currentTarget.tagName === 'INPUT') {
-        // Filter was emptied
-        if (!value) {
-          noFilter()
-          // return hasMatches = true, so we don't show the "No results" blurb
-          hasMatches = true
-          continue
-        }
         cardMatches = matchCardBySearch(card, value)
       }
 
       if (currentTarget.tagName === 'SELECT' && currentTarget.name) {
-        const matches = []
-        // check all the other dropdowns
-        dropdownFilters.forEach(({ name, value }) => {
-          if (!name || !value) return
-          matches.push(matchCardByAttribute(card, name, value))
-        })
-        // if none of the filters is selected
-        if (matches.length === 0) {
-          noFilter()
-          // return hasMatches = true, so we don't show the "No results" blurb
-          hasMatches = true
-          continue
-        }
-        cardMatches = matches.every(value => value)
+        cardMatches = matchCardByAttribute(card, currentTarget.name, value)
       }
 
       if (cardMatches) {
@@ -103,8 +89,8 @@ export default function cardsFilter () {
     })
   }
 
-  if (dropdownFilters) {
-    dropdownFilters.forEach(filter => filter.addEventListener('change', filterEventHandler))
+  if (dropdownFilter) {
+    dropdownFilter.addEventListener('change', filterEventHandler)
   }
 
   if (showMoreButton) {
