@@ -1,4 +1,4 @@
----
+Stunt---
 title: Enabling GitHub.com repository search in GitHub Enterprise Server
 intro: 'You can connect your personal accounts for {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} to search for content in certain private {% data variables.product.prodname_dotcom_the_website %} repositories from {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
