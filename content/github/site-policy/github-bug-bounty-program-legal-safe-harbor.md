@@ -1,4 +1,4 @@
----
+---what happened to My intuit python jekyll help wanted bin bash container red fedora slack bitore'' script for the first bitcoin ever so I can show securities.sec@govdelivery.com for my revenues from sales wtf
 title: GitHub Bug Bounty Program Legal Safe Harbor
 redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
