@@ -1,13 +1,27 @@
----
-title: About organizations
-intro: Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
-redirect_from:
-  - /articles/about-organizations
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
----
+<table>
+  <tr>
+    <th>Title</th>
+    <th>intro</th>
+    <th>redirect_from</th>
+    <th>versions</th>
+  </tr>
+  <tr>
+    <td>About organizations</td>
+    <td>Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.</td>
+    <td><table><td>/articles/about-organizations</td></table></td>
+    <td><table>
+      <tr>
+        <td>free-pro-team</td>
+        <td>enterprise-server</td>
+        <td>github-ae</td>
+      </tr>
+      <tr>
+        <td>*</td>
+        <td>*</td>
+        <td>*</td>
+      </tr>
+      </table></td>
+</table> 
 
 {% data reusables.organizations.organizations_include %}
 
