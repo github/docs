@@ -1,3 +1,4 @@
+G
 # Localization Prep Checklist
 
 Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).
