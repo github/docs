@@ -31,7 +31,7 @@ Für den Test Deiner Verbindung musst Du diese Aktion mit Deinem Passwort authen
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Vergewissere Dich, dass der in dieser Meldung angegebene Fingerprint mit einem der Fingerprints der Meldungen aus Schritt 2 übereinstimmt, und gib dann `yes` ein:
+3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

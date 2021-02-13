@@ -99,4 +99,4 @@ Para configurar o {% data variables.product.prodname_insights %} para conectar-s
 ### Leia mais
 
 - "[Gerenciar repositórios](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- "[{% data variables.product.prodname_insights %} e proteção de dados para sua organização](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} e proteção de dados para sua organização</a>"

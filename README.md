@@ -1,4 +1,5 @@
-## GitHub Docs <!-- omit in toc -->
+#
+# GitHub Docs <!-- omit in toc -->
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
@@ -18,7 +19,7 @@ We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contribut
 
 #### Click **make a contribution** from docs
 
-As you're using the GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 

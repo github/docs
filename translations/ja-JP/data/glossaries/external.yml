@@ -123,7 +123,7 @@
 - 
   term: コミット
   description: >-
-    コミット、または「リビジョン」とは、ファイル（またはファイルのセット）に対する個々の変更です。コミットをして変更を保存すると、Git では一意の ID（別名「SHA」または「ハッシュ」）が作成され、コミットした特定の変更に加え、誰がいつ変更したかの記録を保持できます。コミットには通常、何の変更が加えられたかを手短に記載したコミットメッセージ が含まれます。
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: コミット作者
   description: コミットをするユーザ。
@@ -137,7 +137,7 @@
 - 
   term: コミットメッセージ
   description: >-
-    コミットに付随し、コミットで導入されてくる変更について伝達する、手短な説明のテキスト。
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: 比較ブランチ
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    Gist とは共有可能なファイルであり、GitHub 上で編集、クローン作成、フォークできます。Gist はパブリックにすることもシークレットにすることもできますが、シークレット Gist は URL のある個人なら誰でも使用できます。
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
 - 
   term: master
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    興味のあるアクティビティについての情報を提供するアップデート。設定によってウェブかメールのいずれかで配布されます。
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth App
   description: >-
@@ -449,7 +449,7 @@
   description: >-
     Organization の 1 つ以上のリポジトリに対するアクセス権が付与されているが、その Organization に対する他のアクセス権がなく、その Organization のメンバーでもないユーザ。
 - 
-  term: Открытое программное обеспечение, sometimes used untranslated
+  term: オープンソース
   description: >-
     オープンソースソフトウェアとは、誰でも自由に使用、修正、および（修正済みと未修正のいずれの形式でも）共有できるソフトウェアです。今日では、「オープンソース」の概念はソフトウェアの枠を超えてコラボレーションの哲学をいうことが多く、そのコラボレーションの素材について誰でもオンラインでフォーク、修正、ディスカッション、コントリビューションができます。
 - 

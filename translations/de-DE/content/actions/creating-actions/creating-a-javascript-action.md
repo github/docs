@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -176,7 +177,7 @@ git tag -a -m "Mein erstes Aktions-Release" v1
 git push --follow-tags
 ```
 
-As an alternative to checking in your `node_modules` directory you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. Install `vercel/ncc` by running this command in your terminal. `npm i -g @vercel/ncc`
 
@@ -256,9 +257,11 @@ Jobs:
 ```
 {% endraw %}
 
-Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. Es sollten „Hello Mona the Octocat“ oder der von Dir für die Eingabe `who-to-greet` verwendete Name und der im Protokoll ausgegebene Zeitstempel angezeigt werden.
+Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

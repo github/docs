@@ -101,7 +101,7 @@
 - term: CPU
   description: Central processing unit.
 - term: credential helper
-  description: A program that stores and fets Git credentials.
+  description: A program that stores and fetches Git credentials.
 - term: creole
   description: >-
     A lightweight markup language, aimed at being a common markup language for
@@ -683,7 +683,7 @@
     made but not yet committed.
 - term: WYSIWYG
   description: >-
-    What You See Is What You Get. An acryonym meaning the text on the screen
+    What You See Is What You Get. An acronym meaning the text on the screen
     looks exactly as it will when it's rendered.
 - term: XenServer
   description: A virtualization platform.

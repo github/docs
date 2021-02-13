@@ -12,18 +12,18 @@ versions:
 {% data variables.product.product_name %}で解決できるマージコンフリクトは、Git リポジトリの別々のブランチで、同じファイルの同じ行に異なる変更がなされた場合など、互いに矛盾する行変更を原因とするもののみです。 その他すべての種類のマージ コンフリクトについては、コマンド ラインでコンフリクトをローカルに解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on
-{% data variables.product.product_name %} and must resolve merge conflicts on the command line. たとえば、マージ コンフリクト エディターが無効な場合、フォークと上流リポジトリの間の Pull Request ではそれを使用できません。
+サイト管理者がリポジトリ間のプルリクエストのマージコンフリクトエディタを無効にすると、
+{% data variables.product.product_name %} でコンフリクトエディタを使用できず、コマンドラインでマージコンフリクトを解決する必要があります。 たとえば、マージ コンフリクト エディターが無効な場合、フォークと上流リポジトリの間の Pull Request ではそれを使用できません。
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on
-{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. このブランチにコミットすることが間違いでないことを確認してください。
+**警告:** マージコンフリクトを
+{% data variables.product.product_name %} で解決すると、[head ブランチ](/github/getting-started-with-github/github-glossary#head-branch)がリポジトリのデフォルトブランチまたは保護されたブランチであっても、プルリクエストの[ベースブランチ](/github/getting-started-with-github/github-glossary#base-branch)全体が head ブランチにマージされます。 このブランチにコミットすることが間違いでないことを確認してください。
 {% else %}
-**Warning:** When you resolve a merge conflict on
-{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). このブランチにコミットすることが間違いでないことを確認してください。 If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. head ブランチが保護されている場合、コンフリクトの解決をマージすることができないため、新しい head ブランチを作成するように求められます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
+**警告:** マージコンフリクトを
+{% data variables.product.product_name %} でマージコンフリクト解決すると、プルリクエストの[ベースブランチ](/github/getting-started-with-github/github-glossary#base-branch)全体が [head ブランチ](/github/getting-started-with-github/github-glossary#head-branch)にマージされます。 このブランチにコミットすることが間違いでないことを確認してください。 head ブランチがリポジトリのデフォルトブランチである場合、プルリクエストの head ブランチとして機能する新しいブランチを作成するオプションが表示されます。 head ブランチが保護されている場合、コンフリクトの解決をマージすることができないため、新しい head ブランチを作成するように求められます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
 {% endif %}
 
 {% endwarning %}
@@ -34,7 +34,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
  {% tip %}
 
- **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
+ **ヒント:** [**Resolve conflicts**] ボタンが無効になっている場合、プルリクエストのマージコンフリクトが複雑すぎて {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} で解決できないか、サイト管理者がリポジトリ間のプルリクエストのコンフリクトエディタを無効にしています{% endif %}。 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

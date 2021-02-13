@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -87,7 +88,7 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
 

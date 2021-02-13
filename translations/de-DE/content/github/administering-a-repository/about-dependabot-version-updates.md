@@ -18,7 +18,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to directly replace the outdated dependency with the new version. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
-If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. Weitere Informationen findest Du unter „[ Über {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -32,14 +32,18 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 ### Supported repositories and ecosystems
 
+You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
-
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
 
 {% data reusables.dependabot.supported-package-managers %}
 
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."
+
+### About notifications for {% data variables.product.prodname_dependabot %} version updates
+
+You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. Weitere Informationen findest Du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."

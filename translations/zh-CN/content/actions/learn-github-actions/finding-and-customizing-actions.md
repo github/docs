@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -76,7 +77,7 @@ steps:
 
 #### 使用分支
 
-引用特定分支意味着操作将始终使用包括目标分支上的最新更新，但如果这些更新包括重大更改，则可能会造成问题。 此示例针对名为 `@main`的分支：
+Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. 此示例针对名为 `@main`的分支：
 
 ```yaml
 steps:

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '튜토리얼'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -84,7 +85,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -143,7 +144,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -182,7 +183,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -191,7 +192,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
