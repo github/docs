@@ -31,9 +31,7 @@ jobs:
 
   test:
     needs: see_if_should_skip
-    # Run on self-hosted if the private repo or ubuntu-latest if the public repo
-    # See pull # 17442 in the private repo for context
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -74,15 +72,15 @@ jobs:
         name: Install dependencies
         run: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
-        name: Clone early access
+      - name: Clone early access
+        if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         run: npm run heroku-postbuild
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.ref }}
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository != 'github/docs-internal' }}
-        name: Run build script
+      - name: Run build script
+        if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository != 'github/docs-internal' }}
         run: npm run build
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
