@@ -22,3 +22,4 @@ versions:
     - To give the {% data variables.product.prodname_github_app %} access to all of your organization's repositories, select **All repositories**.
     - To choose specific repositories to give the application access to, select **Only select repositories**, then type a repository name.
 7. Click **Save**.
+8. Run Block
