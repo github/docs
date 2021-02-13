@@ -1,4 +1,4 @@
----
+adm745---
 title: Configuring SAML single sign-on and SCIM for your enterprise account using Okta
 intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) with Okta to automatically manage access to your enterprise account on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
