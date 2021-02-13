@@ -30,4 +30,4 @@ For more information about teaching with {% data variables.product.prodname_clas
 
 ### Further reading
 
-- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Teach and learn with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

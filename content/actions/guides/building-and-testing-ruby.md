@@ -6,9 +6,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
-topics:
-  - 'CI'
-  - 'Ruby'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -86,7 +83,7 @@ Alternatively, you can check a `.ruby-version` file  into the root of your repos
 
 ### Testing with multiple versions of Ruby
 
-You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
+You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version. 
 
 {% raw %}
 ```yaml
@@ -319,3 +316,4 @@ jobs:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 ```
 {% endraw %}
+
