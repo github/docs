@@ -18,5 +18,5 @@ Los Términos de servicio estándar son un acuerdo entre {% data variables.produ
 5. Escribe el nombre de la empresa, organización sin fines de lucro o grupo al que le pertenece la cuenta de la organización. Esta es la entidad que celebrará el acuerdo con {% data variables.product.prodname_dotcom %}. ![Campo del nombre de la empresa](/assets/images/help/organizations/business-name-field.png)
 6. Para aceptar los Términos de servicio corporativos en nombre de tu entidad, haz clic en **Accept terms** (Aceptar términos). ![Botón Accept terms (Aceptar términos)](/assets/images/help/organizations/accept-terms-button.png)
 
-### Further reading
+### Leer más
 - "[Términos de servicio corporativos de GitHub](/articles/github-corporate-terms-of-service/)"

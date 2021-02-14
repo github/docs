@@ -12,7 +12,7 @@ versions:
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Organization
+## Organización
 
 La API de Migraciones solo está disponible para los propietarios autenticados de la organización. Para obtener más información, consulta las secciones "[Niveles de permiso para una organización](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#permission-levels-for-an-organization)." y "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 

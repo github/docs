@@ -44,6 +44,6 @@ Puedes configurar las actualizaciones de versión para los repositorios que cont
 
 Si tu repositorio ya utiliza una integración para la administración de dependencias, necesitarás inhabilitarlo antes de habilitar el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulta la sección "[Acerca de las integraciones](/github/customizing-your-github-workflow/about-integrations)".
 
-### About notifications for {% data variables.product.prodname_dependabot %} version updates
+### Acerca de las notificaciones para las actualizaciones de versión del {% data variables.product.prodname_dependabot %}
 
-You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las actualizaciones de versión del {% data variables.product.prodname_dependabot %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

@@ -47,7 +47,7 @@ Si solo quieres eliminar un colaborador externo de determinados repositorios de 
 7. Para eliminar por completo el acceso del colaborador externo al repositorio, en la esquina superior derecha, haz clic en **Remove access to this repository** (Eliminar acceso a este repositorio). ![Botón Remove access to this repository (Eliminar acceso a este repositorio)](/assets/images/help/organizations/remove-access-to-this-repository.png)
 8. Para confirmar, haz clic en **Remove access** (Eliminar acceso). ![Confirmar el colaborador externo que se eliminará del repositorio](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-### Further reading
+### Leer más
 
 - "[Agregar colaboradores externos a repositorios de tu organización](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
 - "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"

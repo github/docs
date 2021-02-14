@@ -8,7 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'обзор'
+type: overview
+topics:
+  - Упаковка
 ---
 
 {% data reusables.actions.enterprise-beta %}

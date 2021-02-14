@@ -12,6 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Fluxos de trabalho'
+  - 'CI'
 ---
 
 {% data reusables.actions.enterprise-beta %}

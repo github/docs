@@ -13,6 +13,6 @@ Si tu clave está vencida, debes [actualizar el vencimiento](https://www.gnupg.o
 
 Si tu clave es inválida y no utilizas otra clave válida de tu conjunto de claves, pero en su lugar generas una llave GPG nueva con un conjunto nuevo de credenciales, tus confirmaciones hechas con la clave revocada o vencida se seguirán mostrando como no verificadas. Asimismo, tus credenciales nuevas no podrán volver a firmar o verificar tus confirmaciones y etiquetas antiguas.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"

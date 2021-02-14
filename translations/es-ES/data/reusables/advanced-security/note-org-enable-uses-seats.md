@@ -1,7 +1,7 @@
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Note:** If you enable {% data variables.product.prodname_GH_advanced_security %}, committers to these repositories will use seats on your {% data variables.product.prodname_GH_advanced_security %} license.
+**Nota:** Si habilitas la {% data variables.product.prodname_GH_advanced_security %}, las personas que hagan confirmaciones en estos repositorios utilizarán plazas de tu licencia de {% data variables.product.prodname_GH_advanced_security %}.
 
 {% endnote %}
 {% endif %}

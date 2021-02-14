@@ -103,6 +103,7 @@ As mutações são estruturadas da seguinte forma:
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 Neste exemplo, o objeto de entrada é `MutationNameInput` e o objeto de carga é `MutationNamePayload`.

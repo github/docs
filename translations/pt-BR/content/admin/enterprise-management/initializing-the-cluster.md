@@ -45,7 +45,7 @@ Os nomes dos nós podem ser qualquer nome de host válido. Cada nome é definido
 
 Especifique o primeiro nó do cluster que você configurou como principal do MySQL via `mysql-server` e `mysql-master`.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1
