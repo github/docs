@@ -1,4 +1,4 @@
----
+submitting change---
 title: Refreshing user-to-server access tokens
 intro: 'To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens.'
 redirect_from:
