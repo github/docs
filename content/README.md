@@ -276,7 +276,7 @@ These characters are especially important in [index pages](#index-pages) compris
 
 ## Links and image paths
 
-Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. These links undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/rewrite-local-links`](lib/rewrite-local-links.js) and [`lib/rewrite-asset-paths-to-s3`](lib/rewrite-asset-paths-to-s3.js).
+Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -292,16 +292,7 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-The transformation is a little different for image paths. If you include the following image path in a content file:
-
-```
-/assets/images/help/profile/follow-user-button.png
-```
-when viewed on GitHub Enterprise Server docs, the path gets rewritten to include S3:
-
-```
-https://github-images.s3.amazonaws.com/enterprise/2.20/assets/images/help/profile/follow-user-button.png
-```
+There are transformations for image paths in GitHub Enterprise Server (versions 2.20-3.0) only. Once those versions are deprecation, there will no longer be any transformations for image paths. For more information, see [/assets/images/enterprise/legacy-format/README.md](/assets/images/enterprise/legacy-format/README.md).
 
 ### Preventing transformations
 

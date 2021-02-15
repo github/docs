@@ -2,14 +2,14 @@
 date: '2020-10-20'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/23096, https://github.com/github/enterprise2/pull/23081 {% endcomment %}'
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23096, https://github.com/github/enterprise2/pull/23081 {% endcomment %}'
   bugs:
-    - 'The enterprise account "Confirm two-factor requirement policy" messaging was incorrect. {% comment %} https://github.com/github/github/pull/158736 {% endcomment %}'
+    - 'Enterpriseアカウントの"Confirm two-factor requirement policy"メッセージが正しくありませんでした。{% comment %} https://github.com/github/github/pull/158736 {% endcomment %}'
   known_issues:
-    - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
-    - 'Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
-    - 'Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
-    - 'Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
-    - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
-    - 'Audit logs may be attributed to 127.0.0.1 instead of the actual source IP address. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - '監査ログは実際のソースIPアドレスの代わりに127.0.0.1に起因する可能性があります。(updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
