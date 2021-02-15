@@ -71,14 +71,14 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    # Creates a Jekyll site in the current directory
    ```
 8. Open the Gemfile that Jekyll created.
-9. Add the github-pages gem: update the line starting with `# gem "github-pages"`so that it looks like this, replacing _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. This can be found on the "[Dependency versions](https://pages.github.com/versions/)" page of the {% data variables.product.prodname_pages %} site:
+1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
+1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
+
    ```shell
-   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
-   ```
-   Comment out the Gemfile line which starts with:
-  ```shell
-   gem "jekyll"
-   ```
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins```
+
+Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+
   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
 11. From the command line, run `bundle update`.
