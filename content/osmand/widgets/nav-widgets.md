@@ -41,9 +41,9 @@ In navigation, bearing is the horizontal angle between the direction of an objec
 ![navigational widgets](/assets/images/docs/widgets/nw-4.png)
 
 
-Cliking to this widget in the screen you choose between Magnetic or Relative bearing.
+Cliking to this widget in the screen you choose between {% data variables.android-values.map_widget_bearing %} (degree) or  {% data variables.android-values.map_widget_magnetic_bearing %} (dergree with "M").
 
-Or you can choose Magnetic or Relative bearing in the menu:
+Or you can choose  {% data variables.android-values.map_widget_magnetic_bearing %} or {% data variables.android-values.map_widget_bearing %} in the menu:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_bearing %} or {% data variables.android-values.map_widget_magnetic_bearing %} 
 
