@@ -18,19 +18,15 @@ For showing Compass widget on the screen:
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
 
-![navigational widgets](/assets/images/docs/widgets/nw-2.png)
-
 Clicking to Compass widget changes {% data variables.android-values.rotate_map_to_bearing %}:
 
 - {% data variables.android-values.rotate_map_none_opt %}
 - {% data variables.android-values.rotate_map_bearing_opt %}
 - {% data variables.android-values.rotate_map_compass_opt %}
 
+![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
 
-- Purpose
-- How to use
-- How to configure
 
 ## Relative / magnetic bearing
 - Purpose
