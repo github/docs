@@ -4,11 +4,9 @@ intro: "OsmAnd gives you great possibilities for using the maps. You can customi
 versions: '*'
 ---
 
-_{% data variables.android-values.configure_map %}_ menu (Android) or _{% data variables.ios-values.map_settings_map %}_ menu (iOS) contains two sections menu:
-
-The first is _{% data variables.android-values.recording_context_menu_show %}_(Android) or _{% data variables.ios-values.map_settings_show %}_(iOS), in this part we set parameters for visualisation data on the map. 
-
-The second is _{% data variables.android-values.map_widget_map_rendering %}_ for Android or _{% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %}_ for iOS, in the second part we change map view.
+**{% data variables.android-values.configure_map %}** menu (Android) or **{% data variables.ios-values.map_settings_map %}** menu (iOS) contains two sections menu:
+- **{% data variables.android-values.recording_context_menu_show %}** or **{% data variables.ios-values.map_settings_show %}**, in this part we set parameters for visualisation data on the map. 
+- **{% data variables.android-values.map_widget_map_rendering %}** or **{% data variables.ios-values.map_settings_type %}**, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %}_ for iOS, in the second part we change map view.
 
 - **"{% data variables.android-values.shared_string_show %}"**:
    - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
