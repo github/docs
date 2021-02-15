@@ -1,4 +1,10 @@
----
+--- sinatra'
+require 'json'
+
+post '/payload' do
+  push = JSON.parse(request.body.read)
+  puts "I got some JSON: #{push.inspect}"
+end
 title: About comparing branches in pull requests
 intro: Pull requests display diffs to compare the changes you made in your topic branch against the base branch that you want to merge your changes into.
 redirect_from:
