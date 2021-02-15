@@ -10,7 +10,7 @@ versions: '*'
 
 
 ## Radius-ruler widget
-<--![Radius-ruler widget](/assets/images/docs/widgets/radius_ruler_widget.png)-->
+<!--![Radius-ruler widget](/assets/images/docs/widgets/radius_ruler_widget.png)-->
 
 Radius-ruler widget  shows distance on the map. <br>
 
