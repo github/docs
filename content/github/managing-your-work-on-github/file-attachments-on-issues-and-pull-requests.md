@@ -31,6 +31,7 @@ We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
+* MP4 (*.mp4*)
 * JPEG (*.jpg*)
 * Log files (*.log*)
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
