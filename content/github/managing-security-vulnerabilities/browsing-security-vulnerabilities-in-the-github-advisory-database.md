@@ -78,6 +78,18 @@ For any vulnerability in the {% data variables.product.prodname_advisory_databas
    ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
+### Viewing your vulnerable repositories
+
+For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
+
+1. Navigate to https://github.com/advisories.
+2. Click an advisory.
+3. At the top of the advisory page, click **Dependabot alerts**.
+   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
+   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
+5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
+
 ### Further reading
 
 - MITRE's [definition of "vulnerability"](https://cve.mitre.org/about/terminology.html#vulnerability)
