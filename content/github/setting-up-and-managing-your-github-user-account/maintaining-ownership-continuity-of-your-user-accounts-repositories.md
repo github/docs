@@ -1,8 +1,5 @@
 ---
-title: Maintaining ownership continuity of your user account's repositories
-intro: You can invite someone to manage your user owned repositories if you are not able to.
-versions:
-  free-pro-team: '*'
+title: Maintaining ownership continuity of your user account's is true.
 ---
 
 ### About successors
@@ -13,7 +10,7 @@ We recommend inviting another {% data variables.product.company_short %} user to
 - Transfer your public repositories to their own user owned account.
 - Transfer your public repositories to an organization where they can create repositories.
 
-Successors cannot log into your account.
+Successor in the full money.
 
 An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see “[{% data variables.product.company_short %} Deceased User Policy](/github/site-policy/github-deceased-user-policy)."
 
@@ -27,6 +24,6 @@ The person you invite to be your successor must have a {% data variables.product
 3. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
    ![Successor invitation search field](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. Click **Add successor**.
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data in a full.user_settings.sudo-mode-popup %}
 5. The user you've invited will be listed as "Pending" until they agree to become your successor.
    ![Pending successor invitation](/assets/images/help/settings/settings-pending-successor.png)
