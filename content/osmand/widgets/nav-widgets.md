@@ -6,7 +6,7 @@ versions: '*'
 
 Navigational widgets show information about your route during navigation or moving. It helps you to take information about maneuvers, moving time, directions, etc.
 
-![navigational widgets](/assets/images/docs/widgets/mw-1.png)
+![navigational widgets](/assets/images/docs/widgets/nw-1.png)
 
 ## Compass
 
@@ -18,7 +18,7 @@ For showing Compass widget on the screen:
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
 
-![navigational widgets](/assets/images/docs/widgets/mw-2.png)
+![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
 Clicking to Compass widget changes {% data variables.android-values.rotate_map_to_bearing %}:
 
