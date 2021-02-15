@@ -49,13 +49,10 @@ Or you can choose  {% data variables.android-values.map_widget_magnetic_bearing 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_magnetic_bearing %} or {% data variables.ios-values.map_widget_bearing %}
 
-In this menu you can choose tree parameters for this widget:
-
--{% data variables.android-values.shared_string_show %}
-
--{% data variables.android-values.shared_string_hide %}
-
--{% data variables.android-values.shared_string_collapse %}
+In this menu you can choose tree parameters for this widget: <br>
+* {% data variables.android-values.shared_string_show %} – allows user to see the widget on the map.<br>
+* {% data variables.android-values.shared_string_hide %} – allows user to hide the widget from the map.<br>
+* {% data variables.android-values.shared_string_collapse %} – allows user to see the widget on the map and hide it when it is not used.<br>
 
 
 
