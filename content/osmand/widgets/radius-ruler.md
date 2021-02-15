@@ -1,8 +1,7 @@
 ---
 title: "Ruler & radius-ruler"
-intro: "Radius-ruler instrument helps to determine the radius around the selected point on the map via  displaying distance-circles on the map. <br>
-<br>
-Ruler instrument helps to calculate the distance between selected points to find the shortest distance." <br>
+intro: "Radius-ruler instrument helps to determine the radius around the selected point on the map via  displaying distance-circles on the map.
+Ruler instrument helps to calculate the distance between selected points to find the shortest distance."
 versions: '*'
 ---
 
