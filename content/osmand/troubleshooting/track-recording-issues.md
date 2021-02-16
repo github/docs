@@ -13,6 +13,11 @@ Typically there are 2 sort of issues that leads of creating messy track.
 - Standing still on same place 
 - Bad GPS signal and switching to network signal
 
+Obviously it's better not to record track in bad conditions and use "Pause", also it's possible to edit messy track later and remove "noisy" points. 
+**Proper solution**: use [Track settings](/osmand/plugins/trip-recording) to filter "noisy" points based on your **experience** and **recording device**. You can filter out points by various criterias: 
+- Points without speed
+- Points with bad precision (GPS hdoop)
+- Points closer than a threshold in meters
 
 ## The system may kill background apps to save power
 Starting with Android 4.4 (or maybe before), new Android power saving options limit CPU max speed, screen brightness, and may kill running apps. Mitigations:
@@ -51,7 +56,7 @@ I have successfully tested the following Power saving settings under Android 9 a
 
 ## OsmAnd 3.9 - Google Play Services (Altitude issues)
 Since OsmAnd 3.9 Google Play has changed their policy and in order to comply, OsmAnd had to use Google Play Services to obtain locations while running in background (as a foreground service by Android terminology - notification is always visible). Note: this change didn't affect Nightly, F-Droid, Huawei, Amazon builds. 
-We've discovered that after that change there is a problem of recording altitude (Github issue related to altitude problems)[https://github.com/osmandapp/OsmAnd/issues/10864], looks like Google Play Services very aggressively interpolate altitude and leads to a problem.
+We've discovered that after that change there is a problem of recording altitude [Github issue related to altitude problems](https://github.com/osmandapp/OsmAnd/issues/10864), looks like Google Play Services very aggressively interpolate altitude and leads to a problem.
 
 So far during our tests, we've noticed that **Android 11 doesn't have issue** recording altitude, but **Android 10 does have that issue**.
 
