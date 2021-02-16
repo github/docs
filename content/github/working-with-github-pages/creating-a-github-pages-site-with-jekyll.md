@@ -75,11 +75,12 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
 
    ```shell
-   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins```
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
+   ```
 
-Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
 
-  The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
+   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
 11. From the command line, run `bundle update`.
 11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
