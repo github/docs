@@ -12,16 +12,16 @@ versions:
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### About disclosing vulnerabilities
+### About disclosing vulnerabilities in the software industry
 
-When someone lets an organization maintainer know privately about a vulnerability, the maintainer tipically develops a fix, validates it, and notifies the repository users. The initial report of a vulnerability is made privately, and the full details are only published once a patch has been made available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)."
+When someone lets an organization maintainer know privately about a vulnerability, the maintainer typically develops a fix, validates it, and notifies the repository users. The initial report of a vulnerability is made privately, and the full details are only published once a patch has been made available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
 
 Maintainers should disclose vulnerabilities in a timely manner, if there is a security vulnerability in their repository. It's not acceptable to:
 - Not disclose the vulnerability
 - Not identify the vulnerability as a security issue 
 - Wait an unacceptably long time to create a fix
 
-Publishing the details of a security vulnerability on your code doesn't make you look bad. Security vulnerabilities are present everywhere in sofware nowadays, and your users will thank you if you demonstrate a clear and established process for disclosing security vulnerabilities in your software instead of hiding issues with your code.
+Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in sofware nowadays, and users will be grateful for maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
 
 Security researchers should disclose vulnerabilities privately to maintainers. It's not acceptable to:
 - Disclose the vulnerability publicly
