@@ -28,7 +28,7 @@ También puedes habilitar los límites de actividad en todos los repositorios qu
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
-### Further reading
+### Leer más
 - "[Informar abuso o spam](/articles/reporting-abuse-or-spam)"
 - "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)"

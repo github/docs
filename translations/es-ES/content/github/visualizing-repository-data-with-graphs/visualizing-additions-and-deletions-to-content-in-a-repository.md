@@ -12,7 +12,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-![Code frequency graph](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
+![Gráfico de frecuencia de código](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 
 {% endif %}
 

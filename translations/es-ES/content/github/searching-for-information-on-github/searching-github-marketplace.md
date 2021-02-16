@@ -26,7 +26,7 @@ Cada vez que buscas en todo {% data variables.product.prodname_dotcom_the_websit
 2. Teclea cualquier palabra clave y presiona **Enter**. ![campo buscar](/assets/images/help/search/search-field.png)
 3. En la barra lateral, da clic en **Mercado**. ![Buscar resultados para linter con la opción del menú lateral del Mercado resaltada](/assets/images/help/search/marketplace-left-side-navigation.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.product.prodname_marketplace %}](/github/customizing-your-github-workflow/about-github-marketplace)"
 - "[Utilizar acciones de {% data variables.product.prodname_marketplace %} en tu flujo de trabajo](/actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow)"

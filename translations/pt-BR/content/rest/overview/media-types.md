@@ -21,7 +21,7 @@ Os tipos mais básicos de mídia que a API suporta são:
     application/json
     application/vnd.github+json
 
-Neither of these specify a [version][versions], so you will always get the current default JSON representation of resources.
+Nenhum desses parâmetros especifica a versão [][versions]. Portanto, você sempre receberá a representação atual do JSON padrão atual de recursos.
 
 {% note %}
 
@@ -57,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Propriedades do texto do comentário
 
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
+O texto de um comentário pode ser escrito no [Linguagem de Markdown enriquecido][gfm], [problemas](/rest/reference/issues), [comentários do problema](/rest/reference/issues#comments), [comentários de pull request](/rest/reference/pulls#comments) e as APIs dos [comentários de gist](/rest/reference/gists#comments) aceitam todos esses mesmos tipos de mídia:
 
 #### Sem processar
 
@@ -85,7 +85,7 @@ Retorna as representações de HTML e texto sem processar. A resposta incluirá 
 
 ### Propriedades do Git blob
 
-The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
+Os seguintes tipos de mídia são permitidos ao [receber um blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -102,7 +102,7 @@ Retorna os dados do blob sem processamento.
 
 ### Commits, comparação de commit e pull requests
 
-The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
+A [API de commits](/rest/reference/repos#commits) e [API de pull requests](/rest/reference/pulls) são compatíveis com os formatos [diff][git-diff] e [patch][git-patch]:
 
 #### diff
 
@@ -147,4 +147,5 @@ O conteúdo do gist é codificado em base64 antes de ser enviado. Isso pode ser 
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
+[versions]: /developers/overview/about-githubs-apis
 [versions]: /developers/overview/about-githubs-apis

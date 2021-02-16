@@ -131,7 +131,8 @@ versions:
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) 匹配 `desktop/desktop` 仓库中通过关闭引用链接到拉取请求的开放议题。                          |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) 匹配 `desktop/desktop` 仓库中链接到拉取请求可能已关闭的议题的已关闭拉取请求。           |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) 匹配 `desktop/desktop` 仓库中未通过关闭引用链接到拉取请求的开放议题。                       |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。 |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。 
+{% endif %}
 
 ### 按标签搜索
 

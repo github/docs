@@ -1,6 +1,6 @@
 ---
 title: GitHub Support への連絡
-intro: 'Contact {% data variables.contact.enterprise_support %} using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
+intro: '{% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% endif %}GitHub Enterprise サポートページから {% data variables.contact.enterprise_support %} に連絡してください。'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
   - /enterprise/admin/enterprise-support/reaching-github-support
@@ -14,7 +14,7 @@ versions:
 
 ### {% data variables.contact.enterprise_support %} への連絡
 
-{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.contact_ae_portal %}{% endif %}. チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
+{% data variables.contact.enterprise_support %} のお客様は、{% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または {% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.contact_ae_portal %}サポートチケットをオープンできます{% endif %}。 チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} としてマークします。 詳しい情報については、「[サポートチケットに優先度を割り当てる](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)」および「[チケットをサブミットする](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)」を参照してください。
 
 ### {% data variables.contact.enterprise_support %} への連絡
 

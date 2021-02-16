@@ -31,4 +31,4 @@ Dicho esto, si un tercero inicia una acción legal, incluyendo las fuerzas del o
 
 ### 3. Exención limitada de otras políticas del sitio
 
-To the extent that your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. De la misma forma que se menciona anteriormente, si tienes dudas, ¡Pregúntanos primero!
+En medida en que tus actividades de investigación de seguridad sean inconsistentes con ciertas restricciones en nuestras [políticas relevantes de sitio](/categories/site-policy/) pero consistentes con las condiciones de nuestro programa de recompensas por errores, renunciamos a estas restricciones por el solo y único propósito de permitir tu investigación de seguridad bajo este programa. De la misma forma que se menciona anteriormente, si tienes dudas, ¡Pregúntanos primero!

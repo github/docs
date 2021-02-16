@@ -11,7 +11,7 @@ versions:
 
 {% topic_link_in_list /github-marketplace-overview %}
     {% link_in_list /about-github-marketplace %}
-    {% link_in_list /about-verified-creator-badges %}
+    {% link_in_list /about-marketplace-badges %}
     {% link_in_list /applying-for-publisher-verification-for-your-organization %}
 
 {% topic_link_in_list /creating-apps-for-github-marketplace %}

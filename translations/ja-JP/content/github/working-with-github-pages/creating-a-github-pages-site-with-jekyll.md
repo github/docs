@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### 必要な環境
 
 Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する前に、Jekyll と Git をインストールする必要があります。 詳しい情報については、Jekyll ドキュメンテーションの [Installation](https://jekyllrb.com/docs/installation/) および「[Git のセットアップ](/articles/set-up-git)」を参照してください。
@@ -95,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

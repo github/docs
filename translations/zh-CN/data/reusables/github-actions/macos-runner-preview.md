@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The macOS 11.0 virtual environment is currently provided as a preview only. The `macos-latest` YAML workflow label still uses the macOS 10.15 virtual environment.
+**注：**MacOS 11.0 虚拟环境目前仅作为私人预览提供。 任何已经在使用此运行器的用户或组织都可以继续使用它。 但我们目前不接受任何其他用户或组织。 `macos-latest` YAML 工作流程标签仍使用 MacOS 10.15 虚拟环境。
 
 {% endnote %}

@@ -55,7 +55,7 @@ Las acciones y cualquier elemento del servicio de ellas no puede utilizarse para
 - cualquier actividad que coloque un peso en nuestros servidores, ya sea que dicho peso sea excesivo para los beneficios que se proporcionan a los usuarios (por ejemplo, no utilizamos acciones como una red de entrega de contenido o como parte de una aplicación sin servidores, pero una acción de beneficio mínimo podría estar bien si también implica un peso mínimo); o
 - cualquier otra actividad no relacionada con la producción, prueba, despliegue o publicación del proyecto de software asociado con el repositorio donde se utilizan las Acciones de GitHub.
 
-Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. El uso indebido de Acciones de GitHub puede resultar en la terminación de trabajos o restricciones en tu capacidad de usar Acciones de GitHub.
+Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
 
 #### b. Uso de paquetes
 GitHub Packages se factura de acuerdo con su uso. La [Documentación de paquetes](/packages) incluye los detalles como las cantidades de ancho de banda y almacenamiento (dependiendo del plan de tu cuenta), y la forma en la que puedes monitorear el uso de los paquetes y configurar los límites de uso. El uso de ancho de banda de los paquetes se limita por las [Políticas de uso aceptable de GitHub](/github/site-policy/github-acceptable-use-policies).
