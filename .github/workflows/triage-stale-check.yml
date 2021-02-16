@@ -9,24 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
+      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 7 days with no activity. To keep this PR open, add a comment or push a commit within 3 days.'
-          days-before-stale: 7
-          days-before-close: 3
+          days-before-pr-stale: 7
+          days-before-pr-close: 3
           stale-pr-label: 'stale'
           exempt-pr-labels: 'waiting for review'
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
+      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
-          days-before-stale: 14
-          days-before-close: -1 # Never close
+          days-before-pr-stale: 14
+          days-before-pr-close: -1 # Never close
           only-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
