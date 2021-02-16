@@ -9,7 +9,7 @@ module.exports = [
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
   'actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e', //actions/setup-node@v2.1.4
-  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
+  'ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262', //ruby/setup-ruby@vv1.64.1
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
