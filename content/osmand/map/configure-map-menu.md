@@ -38,7 +38,7 @@ In order to change screen information (widgets, icons) you can set parametres in
    
 ## UI Customization
    
-In order to cusomize the quantity of items in {% data variables.android-values.configure_map %}:
+In order to reorder or hide items from the {% data variables.android-values.configure_map %}:
    
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.ui_customization %} → {% data variables.android-values.configure_map %} 
    
