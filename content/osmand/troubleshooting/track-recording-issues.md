@@ -5,8 +5,10 @@ versions: '*'
 ---
 
 This article addresses OsmAnd's GPS track recording issues. **'Background'** refers to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.
-Note: Since Android 11 (2020/12) there is no option "Always allow" to use location in background but this **doesn't limit** background track recording, according to Google docummentation it's considered **foreground usage** because internally foreground service permission is used and notification about track being recorded is always visible.
 The following issues have been observed over time in different Android versions.
+
+**Note**: Since Android 11 (2020/12) there is no option "Always allow" to use location in background but this **doesn't limit** background track recording, according to Google docummentation it's considered **foreground usage** because internally foreground service permission is used and notification about track being recorded is always visible.
+
 
 ## Recorded track is not accurate
 
