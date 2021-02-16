@@ -15,10 +15,10 @@ Altitude widget shows the height above sea level. <br>
 
 An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet). <br>
 
-It has three states: <br>
+<!--It has three states: <br>
 * {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
 * {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>
+* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>-->
 
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS <br>
 
@@ -33,11 +33,6 @@ User could make Altitude correction to make sure the up-to-date data is used. <b
 <!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
 Current time widget shows current time. <br>
 
-It has three states: <br>
-* {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
-* {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>
-
 OsmAnd takes Current time data from a device. <br>
 
 User could find Current time widget in Configure screen menu <br>
@@ -46,11 +41,6 @@ User could find Current time widget in Configure screen menu <br>
 <!-- ![Speed Android widget](/assets/images/docs/widgets/speed_a_widget.png) -->
 
 Speed widget shows your current speed.<br>
-
-It has three states: <br> 
-* {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
-* {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>
 
 OsmAnd takes Speed data from a device. It depend on accelerometer, gyroscope sensors on mobile device and GPS <br>
 
@@ -61,11 +51,6 @@ User could find Speed widget in Configure screen menu <br>
 
 Battery level widget shows battery level of your device. <br>
 
-<!--It has three states: <br> 
-* {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
-* {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>-->
-
 OsmAnd takes Battery level from a device.  <br>
 
 Battery level widget can be found in Configure screen menu <br>
@@ -74,13 +59,8 @@ Battery level widget can be found in Configure screen menu <br>
 <!-- ![GPS Info Android widget](/assets/images/docs/widgets/gps_info_a_widget.png) -->
 
 GPS (Global Positioning System) info widget shows number of satellites. <br>
-<!--You can click to this widget for adding GPS - applications.-->
-<!--It has three states: <br> 
-* {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
-* {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>-->
 
-*_OsmAnd takes GPS info from a device. <!--Then on the main screen tap on GPS widget. You can see GPS status.-->  The more satellites a device can see, the better positioning will be provided. <br>
+OsmAnd takes GPS info from a device. <!--Then on the main screen tap on GPS widget. You can see GPS status.-->  The more satellites a device can see, the better positioning will be provided. <br>
 To see a GPS status menu user has to click on GPS info widget. GPS status menu provides additional tools for tuning onboard GPS device. _* <br>
 
 User could find GPS info widget in Configure screen menu. <br>
@@ -95,13 +75,8 @@ In a second it will update.  <br>
 FPS debug info widget shows Frames per Second (FPS) of your screen. <br>
 Where the The left number  is the maps Frames per Second (FPS) and the rigt one is general layer Frames per Second (FPS) <br>
 
-*_When an application sets its preferred frame rate, the view chooses a frame rate as close to that as possible based on the capabilities of the screen the view is displayed on. To provide a consistent frame rate, the actual frame rate chosen is usually a factor of the maximum refresh rate of the screen. <br>
+When an application sets its preferred frame rate, the view chooses a frame rate as close to that as possible based on the capabilities of the screen the view is displayed on. To provide a consistent frame rate, the actual frame rate chosen is usually a factor of the maximum refresh rate of the screen. <br>
 An application should choose a frame rate that it can consistently maintain. The default value is 60 frames per second. _* <br>
-
-<!--It has three states <br>
-* {% data variables.android-values.shared_string_show %} – allows user to see Altitude widget on the map <br>
-* {% data variables.android-values.rendering_category_hide %} – allows user to hide Altitude widget from the map <br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see Altitude widget on the map and hide it when it is not used <br>-->
 
 User could find FPS debug info widget in Configure screen menu <br>
 
