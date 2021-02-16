@@ -41,6 +41,10 @@ I have successfully tested the following Power saving settings under Android 9 a
   * Optimize Settings = OFF
 * **Apps / ... / Special access / Optimize battery usage / All** = Leave all unchanged (looks like OsmAnd does not need to have Battery optimization disabled here)
 
+
+### OsmAnd 3.9 - Google Play Services (Altitude issues)
+Here is a (Github issue related to altitude problems)[https://github.com/osmandapp/OsmAnd/issues/10864].
+
 ### OsmAnd 3.9 Changes - GPS wakeup (2020/12)
 Subsequent statements (B) and (C) are now outdated, GPS Wake-Up has been removed from our code (commit [Drop waking navigation service on alarm](https://github.com/osmandapp/OsmAnd/commit/950a9cc8f8660b3f3d750391ddc1429d5dc38b34)). The changes are related to new Google Play restrictions on Background location access: Since OsmAnd doesn't want to access any location in background and doesn't need that permission, we were forced to delete that doze method anyway.
 Track recording will keep GPX on continuously via an Android foreground service. 
