@@ -60,6 +60,16 @@ $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 $ sudo xcodebuild -license accept
 $ sudo xcode-select --switch /Library/Developer/CommandLineTools
 ```
+If you still have an error `Xcode not set up properly. You may need to confirm the license...` then need check if xcrun is available:
+```
+/usr/bin/xcrun -find xcrun
+```
+If you got:
+```
+xcrun: error: unable to find utility "xcrun", not a developer tool or in PATH
+```
+Then open Xcode > Preferences > Locations and in field "Command Line Tools" select your command line tools "Xcode 12.4"
+
 Or in case of another errors:
 Get your XCode CLang version number.
 ```
