@@ -9,9 +9,10 @@ versions: '*'
 - **{% data variables.android-values.recording_context_menu_show %}** or **{% data variables.ios-values.map_settings_show %}**, in this part we set parameters of Overlay/Underlay layers, points for visualisation its on the map. 
 - **{% data variables.android-values.map_widget_map_rendering %} for Android** or **{% data variables.ios-values.map_settings_type %}, {% data variables.ios-values.map_settings_style %}, {% data variables.ios-values.map_settings_overunder %}, {% data variables.ios-values.language %} for iOS**, in the second part we change parameters of offline vector map.
 
-In order to change screen information (widgets, icons) you can set parametres in [{% data variables.android-values.layer_map_appearance %}](/osmand/widgets/general).
-
 ![Map styles](/assets/images/map/cm-1.png)
+
+**Note:** In order to change screen information (widgets, icons) you can set parametres in [{% data variables.android-values.layer_map_appearance %}](/osmand/widgets/general).
+
 
    ## Menu content
 
