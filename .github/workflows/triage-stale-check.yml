@@ -13,8 +13,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 7 days with no activity. To keep this PR open, add a comment or push a commit within 3 days.'
-          days-before-pr-stale: 7
-          days-before-pr-close: 3
+          days-before-stale: 7
+          days-before-close: 3
           stale-pr-label: 'stale'
           exempt-pr-labels: 'waiting for review'
   stale_staff:
@@ -25,8 +25,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
-          days-before-pr-stale: 14
-          days-before-pr-close: -1 # Never close
+          days-before-stale: 14
+          days-before-close: -1 # Never close
           only-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
