@@ -1,6 +1,6 @@
 ---
 title: "Wikipedia"
-intro: "In your travel, it is very useful when Wikipedia is always with you and offline on the map. Here we tell you how to display wikipedia articles on the map."
+intro: "In travel, it is very useful when Wikipedia is always with you and offline on the map. Here we tell you how to display wikipedia articles on the map."
 versions: '*'
 ---
 
@@ -8,8 +8,14 @@ versions: '*'
 
 ![Wikipedia](/assets/images/map/ms-45.png)
 
-### Purchase wikipedia
-....
+### Purchase Wikipedia
+
+Wikipedia offline is a paid service for Android version and a free service for iOS version.
+
+**Android:** need to buy OsmAnd+ application (or OsmAnd Unlimited in-app for Free version) or OsmAnd live subscription.
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.plugins %} → {% data variables.ios-values.product_title_wiki %}
+
 
 ### Download Wikipedia
 
@@ -35,7 +41,7 @@ Next, you can enable Wikipedia POI on the map:
 
 ![Wikipedia](/assets/images/map/ms-46.png)
 
-### Search wikipedia
+### Search Wikipedia
 ...
 
 ### Filter by language
