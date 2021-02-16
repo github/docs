@@ -19,7 +19,7 @@ Wikipedia offline is a paid service for Android version and a free service for i
 
 ### Download Wikipedia
 
-At first, you can download Wikipedia articles for the country for using it Offline:
+In order to download Wikipedia articles for the country for using it Offline:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.regions %}
 
@@ -42,11 +42,28 @@ Next, you can enable Wikipedia POI on the map:
 ![Wikipedia](/assets/images/map/ms-46.png)
 
 ### Search Wikipedia
-...
+
+In OsmAnd you can find something on the map by searching menu: left-corner of the screen.
+
+![Wikipedia](/assets/images/map/ms-49.png)
+
+In {% data variables.android-values.search_categories %} search menu you need choose {% data variables.android-values.shared_string_wikipedia %} category:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.map_widget_search %} → {% data variables.android-values.search_categories %} → {% data variables.android-values.shared_string_wikipedia %}
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.shared_string_search %} → {% data variables.ios-values.categories %} → {% data variables.ios-values.res_wiki %}
+
+You see all nearest {% data variables.android-values.shared_string_wikipedia %} articles. You can click to "{% data variables.ios-values.show_something_on_map %}" for showing POI on the map:
+
+![Wikipedia](/assets/images/map/ms-50.png)
+
+
+
 
 ### Filter by language
 
 In OsmAnd for Android, you can select languages for Wikipedia articles on the map:
+
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.shared_string_show %} → {% data variables.android-values.shared_string_wikipedia %} → {% data variables.android-values.shared_string_language %}
 
 ![Wikipedia](/assets/images/map/ms-48.png)
