@@ -34,15 +34,13 @@ It's seen as fine for security researchers to disclose a vulnerability publicly 
 
 Here at {% data variables.product.company_short %}, the process for disclosing vulnerabilities is as follows:
 
- If you are a security researcher who would like report a vulnerability:
- - First check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." 
- - If there is one, follow it to understand the process before contacting the security team for that repository. 
+ If you are a security researcher who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. 
 
  If you are a maintainer, it's likely that a security researcher will email you or otherwise privately contact you. This can be, for example, based on information in your _security.md_ file. Alternatively, someone may open a (public) issue with details of a security issue. 
  
 {% note %}
 
-**Note**: For npm only—if you report a vulnerability to npm, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" in the npm Docs website.
+**Note**: _For npm only_ If you report a vulnerability to npm, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" in the npm Docs website.
 
 {% endnote %}
 
@@ -74,7 +72,9 @@ You can give credit to individuals who contributed to a security advisory. For m
 
 ### CVE identification numbers
 
-{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format. {% data variables.product.prodname_dotcom %} is a CVE Numbering Authority (CNA) and is authorized to assign CVE identification numbers. For more information, see "[About CVE](https://cve.mitre.org/about/index.html)" and "[CVE Numbering Authorities](https://cve.mitre.org/cve/cna.html)" on the CVE website.
+{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format. 
+
+{% data variables.product.prodname_dotcom %} is a CVE Numbering Authority (CNA) and is authorized to assign CVE identification numbers. For more information, see "[About CVE](https://cve.mitre.org/about/index.html)" and "[CVE Numbering Authorities](https://cve.mitre.org/cve/cna.html)" on the CVE website.
 
 When you create a security advisory for a public repository on {% data variables.product.prodname_dotcom %}, you have the option of providing an existing CVE identification number for the security vulnerability. {% data reusables.repositories.request-security-advisory-cve-id %}
 
@@ -84,4 +84,3 @@ For more information, see "[Publishing a security advisory](/github/managing-sec
 ### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
-
