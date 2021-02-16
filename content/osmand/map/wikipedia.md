@@ -43,17 +43,17 @@ Next, you can enable Wikipedia POI on the map:
 
 ### Search Wikipedia
 
-In OsmAnd you can find something on the map by searching menu: left-corner of the screen.
+In OsmAnd you can find Wiki-articles on the map by searching the menu in the left corner of the screen.
 
 ![Wikipedia](/assets/images/map/ms-49.png)
 
-In {% data variables.android-values.search_categories %} search menu you need choose {% data variables.android-values.shared_string_wikipedia %} category:
+In {% data variables.android-values.search_categories %} search menu you need to choose {% data variables.android-values.shared_string_wikipedia %} category:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.map_widget_search %} → {% data variables.android-values.search_categories %} → {% data variables.android-values.shared_string_wikipedia %}
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.shared_string_search %} → {% data variables.ios-values.categories %} → {% data variables.ios-values.res_wiki %}
 
-You see all nearest {% data variables.android-values.shared_string_wikipedia %} articles. You can click to "{% data variables.ios-values.show_something_on_map %}" for showing POI on the map:
+You see all the nearest {% data variables.android-values.shared_string_wikipedia %} articles. You can click to "{% data variables.ios-values.show_something_on_map %}" for showing POI on the map:
 
 ![Wikipedia](/assets/images/map/ms-50.png)
 
@@ -68,7 +68,7 @@ In OsmAnd for Android, you can select languages for Wikipedia articles on the ma
 
 ![Wikipedia](/assets/images/map/ms-48.png)
 
-In OsmAnd for iOS, you can click to Wikipedia POI on the map, click to description and select available language for Wikipedia article.
+In OsmAnd for iOS, you can click on Wikipedia POI on the map, click to description and select an available language for Wikipedia article.
 
 ![Wikipedia](/assets/images/map/ms-47.png)
 
