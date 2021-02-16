@@ -54,7 +54,7 @@ jobs:
             syncs up the GraphQL data in this repo.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack."
-          labels: automerge
+          labels: automerge,autoupdate
           branch: graphql-schema-update
       - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)
