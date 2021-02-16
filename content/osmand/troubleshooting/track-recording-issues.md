@@ -5,7 +5,14 @@ versions: '*'
 ---
 
 This article addresses OsmAnd's GPS track recording issues. *'Background'* refers to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.
-The following issues have been observed over time in different Android versions:
+The following issues have been observed over time in different Android versions.
+
+## Track is messy while recorded
+
+Typically there are 2 sort of issues that leads of creating messy track.
+- Standing still on same place 
+- Bad GPS signal and switching to network signal
+
 
 ## The system may kill background apps to save power
 Starting with Android 4.4 (or maybe before), new Android power saving options limit CPU max speed, screen brightness, and may kill running apps. Mitigations:
@@ -43,9 +50,15 @@ I have successfully tested the following Power saving settings under Android 9 a
 
 
 ## OsmAnd 3.9 - Google Play Services (Altitude issues)
-Here is a (Github issue related to altitude problems)[https://github.com/osmandapp/OsmAnd/issues/10864].
+Since OsmAnd 3.9 Google Play has changed their policy and in order to comply, OsmAnd had to use Google Play Services to obtain locations while running in background (as a foreground service by Android terminology - notification is always visible). Note: this change didn't affect Nightly, F-Droid, Huawei, Amazon builds. 
+We've discovered that after that change there is a problem of recording altitude (Github issue related to altitude problems)[https://github.com/osmandapp/OsmAnd/issues/10864], looks like Google Play Services very aggressively interpolate altitude and leads to a problem.
 
-## OsmAnd 3.9 Changes - GPS wakeup (2020/12)
+So far during our tests, we've noticed that **Android 11 doesn't have issue** recording altitude, but **Android 10 does have that issue**.
+
+**Workaround**:  Use Nightly, F-Droid, Huawei, Amazon builds and switch from Google Play version. 
+
+
+## OsmAnd 3.9 - GPS wakeup (2020/12)
 Subsequent statements (B) and (C) are now outdated, GPS Wake-Up has been removed from our code (commit [Drop waking navigation service on alarm](https://github.com/osmandapp/OsmAnd/commit/950a9cc8f8660b3f3d750391ddc1429d5dc38b34)). The changes are related to new Google Play restrictions on Background location access: Since OsmAnd doesn't want to access any location in background and doesn't need that permission, we were forced to delete that doze method anyway.
 Track recording will keep GPX on continuously via an Android foreground service. 
 
