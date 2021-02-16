@@ -4,17 +4,18 @@ intro: 'Common issues with track recording: interruptions while recording the tr
 versions: '*'
 ---
 
-This article addresses OsmAnd's GPS track recording issues. *'Background'* refers to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.
+This article addresses OsmAnd's GPS track recording issues. **'Background'** refers to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.
+Note: Since Android 11 (2020/12) there is no option "Always allow" to use location in background but this **doesn't limit** background track recording, according to Google docummentation it's considered **foreground usage** because internally foreground service permission is used and notification about track being recorded is always visible.
 The following issues have been observed over time in different Android versions.
 
-## Track is messy while recorded
+## Recorded track is not accurate
 
 Typically there are 2 sort of issues that leads of creating messy track.
 - Standing still on same place 
 - Bad GPS signal and switching to network signal
 
 Obviously it's better not to record track in bad conditions and use "Pause", also it's possible to edit messy track later and remove "noisy" points. 
-**Proper solution**: use [Track settings](/osmand/plugins/trip-recording) to filter "noisy" points based on your **experience** and **recording device**. You can filter out points by various criterias: 
+**Proper solution**: use [Track settings](/osmand/plugins/trip-recording) to filter "noisy" points based on your **experience** and **recording device**. You can filter out points by various criteria: 
 - Points without speed
 - Points with bad precision (GPS hdoop)
 - Points closer than a threshold in meters
