@@ -58,9 +58,12 @@ In this menu you can choose tree parameters for this widget: <br>
 
 
 ## Destinations
-- Purpose
-- How to use
-- How to configure
+
+The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %}, in order to change it just click to widget on the screen or choose it in menu:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.access_arrival_time %} or {% data variables.ios-values.map_widget_time %}
 
 ## Arrival time
 - Purpose
