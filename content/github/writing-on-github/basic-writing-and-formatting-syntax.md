@@ -32,6 +32,7 @@ You can indicate emphasis with bold, italic, or strikethrough text.
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+| Underline | `^^ ^^` | command/control+u | `^^This text is underlined^^` | ^^This text is underlined |
 
 ### Quoting text
 
