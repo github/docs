@@ -17,7 +17,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_codeql_workflow %} 和编译语言
 
-To enable {% data variables.product.prodname_code_scanning %} for your repository, you add to the repository a {% data variables.product.prodname_actions %}  workflow which includes {% data variables.product.prodname_codeql %} analysis. 更多信息请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”。 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 默认 {% data variables.product.prodname_code_scanning %} 工作流程使用 `on.push` 事件触发代码扫描 - 每次推送到任何包含工作流程文件的分支时触发。
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %}
 有关配置
