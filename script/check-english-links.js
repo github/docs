@@ -14,7 +14,7 @@ const { deprecated } = require('../lib/enterprise-server-releases')
 const got = require('got')
 
 // Links with these codes may or may not really be broken.
-const retryStatusCodes = [429, 503]
+const retryStatusCodes = [429, 503, 'Invalid']
 
 // [start-readme]
 //
@@ -27,7 +27,8 @@ const retryStatusCodes = [429, 503]
 program
   .description('Check all links in the English docs.')
   .option('-d, --dry-run', 'Turn off recursion to get a fast minimal report (useful for previewing output).')
-  .option('-p, --path <PATH>', 'Provide an optional path to check. Best used with --dry-run. If not provided, defaults to the homepage.')
+  .option('-r, --do-not-retry', `Do not retry broken links with status codes ${retryStatusCodes.join(', ')}.`)
+  .option('-p, --path <PATH>', `Provide an optional path to check. Best used with --dry-run. Default: ${englishRoot}`)
   .parse(process.argv)
 
 // Skip excluded links defined in separate file.
@@ -79,23 +80,28 @@ async function main () {
   // Scan is complete! Filter the results for broken links.
   const brokenLinks = result
     .filter(link => link.state === 'BROKEN')
+    // Coerce undefined status codes into `Invalid` strings so we can display them.
+    // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
+    .map(link => { link.status = link.status || 'Invalid'; return link })
 
-  // Links to retry individually.
-  const linksToRetry = brokenLinks
-    .filter(link => !link.status || retryStatusCodes.includes(link.status))
+  if (!program.doNotRetry) {
+    // Links to retry individually.
+    const linksToRetry = brokenLinks
+      .filter(link => retryStatusCodes.includes(link.status))
 
-  await Promise.all(linksToRetry
-    .map(async (link) => {
-      try {
-        // got throws an HTTPError if response code is not 2xx or 3xx.
-        // If got succeeds, we can remove the link from the list.
-        await got(link.url)
-        pull(brokenLinks, link)
-      // If got fails, do nothing. The link is already in the broken list.
-      } catch (err) {
-        // noop
-      }
-    }))
+    await Promise.all(linksToRetry
+      .map(async (link) => {
+        try {
+          // got throws an HTTPError if response code is not 2xx or 3xx.
+          // If got succeeds, we can remove the link from the list.
+          await got(link.url)
+          pull(brokenLinks, link)
+        // If got fails, do nothing. The link is already in the broken list.
+        } catch (err) {
+          // noop
+        }
+      }))
+  }
 
   // Exit successfully if no broken links!
   if (!brokenLinks.length) {
