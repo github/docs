@@ -63,7 +63,7 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 {% data reusables.github-actions.usage-api-requests %}
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Sistemas operacionais compatíveis com executores auto-hospedados
+### Supported architectures and operating systems for self-hosted runners
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
 
@@ -91,6 +91,14 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 #### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
+
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
 {% if enterpriseServerVersions contains currentVersion %}
 

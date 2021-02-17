@@ -65,4 +65,4 @@ versions:
 ### 参考リンク
 
 - 「[学生開発者パックに応募する](/articles/applying-for-a-student-developer-pack)」
-- "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"
+- 「[学生向け開発者パックへの応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)」

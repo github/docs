@@ -72,7 +72,7 @@ By default, a new assignment will create an empty repository for each student on
 
 #### オンライン統合開発環境 (IDE) を選択する
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
@@ -80,19 +80,19 @@ By default, a new assignment will create an empty repository for each student on
 
 Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Preventing changes to important files](#preventing-changes-to-important-files)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [課題を自動的にテストする](#testing-assignments-automatically)
+- [重要なファイルへの変更を防ぐ](#preventing-changes-to-important-files)
+- [フィードバックのためにプルリクエストを作成する](#creating-a-pull-request-for-feedback)
 
-#### Testing assignments automatically
+#### 課題を自動的にテストする
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-#### Preventing changes to important files
+#### 重要なファイルへの変更を防ぐ
 
 {% data reusables.classroom.assignments-guide-prevent-changes %}
 
-#### Creating a pull request for feedback
+#### フィードバックのためにプルリクエストを作成する
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -100,7 +100,7 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-### Inviting students to an assignment
+### 学生を課題に招待する
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
@@ -112,7 +112,7 @@ You can see whether a student has joined the classroom and accepted or submitted
 
 ### 次のステップ
 
-- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
 - When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
 
