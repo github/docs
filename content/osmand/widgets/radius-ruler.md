@@ -38,7 +38,7 @@ intro: "Radius-ruler is an instrument that helps to find the radius around a poi
 <br>
 Ruler helps to calculate the distance between selected points to find the shortest way and save time and energy."
 
-## Use cases
+### Use cases
 
 - Field area measure
 - Boat trip calculation
@@ -57,7 +57,7 @@ Ruler helps to calculate the distance between selected points to find the shorte
 
 <b><i>To check the distance between two random points:</i></b> touch them simultaneously and see the information in the same widget. The line will fade by itself after 2 seconds.
 
-## How to configure it
+### How to configure it
 
 <b>On your Androind device:</b> Press the widget to select one of three modes - the black scale, the gray one, or no scale (only ruler).
 
@@ -67,3 +67,10 @@ You can also adjust this setting and the way the widget looks in
 
 <b>On your iOS device:</b> Press the widget to select one of three modes - the black scale, the white one, or no scale (only ruler).
 You can show or hide Compass Ruler: menu -> Configure screen -> Radius ruler -> Settings (Show or Hide compass ruler).-->
+
+## Ruler 
+
+Линейка внизу экрана показывает масштаб: сколько метров/километров в заданном отрезке. Это помогает понять расстояния на карте. 
+Масштабная линейка позволяет визуально оценивать на карте размер объектов и расстояние между ними. Масштабная линейка - это линия или полоса, разделенная на части. Это линия или панель, разделенная на части и подписанная согласно реальным расстояниям на местности, обычно в кратных единицах карты, таких как десятки километров или сотни миль. Масштабные линейки связаны с фреймом карты в компоновке. Если масштаб карты данного фрейма изменился, масштабная линейка также изменится, чтобы оставаться корректной.
+
+
