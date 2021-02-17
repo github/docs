@@ -1,7 +1,7 @@
 1. Create a new personal access token (PAT) with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
   {% warning %}
 
-  **Note:** If you select the `write:packages` scope, deselect the `repo` scope when creating the PAT. Adding a PAT with the `repo` scope as a secret in your repository allows the credential to be accessible to all collaborators in the repository. This gives unnecessary additional access when a PAT with the `repo` scope is used within an action. For more information on security best practices for actions, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
+  **Note:** Granting the `write:packages` scope on the PAT also grants the `repo` scope! If you save this PAT for use from an Action, any collaborators can configure an Actions workflow to use this PAT to get full permissions to all repositories accessable from the PAT owner's account. We recommend creating a separate account with access only to the specific repositories that want to push Docker images (see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)").
 
   {% endwarning %}
 
