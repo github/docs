@@ -26,7 +26,7 @@ export default function search () {
     languages,
     versions,
     nonEnterpriseDefaultVersion
-  } = JSON.parse(document.getElementById('search-options').text)
+  } = JSON.parse(document.getElementById('expose').text).searchOptions
   version = deriveVersionFromPath(versions, nonEnterpriseDefaultVersion)
   language = deriveLanguageCodeFromPath(languages)
 

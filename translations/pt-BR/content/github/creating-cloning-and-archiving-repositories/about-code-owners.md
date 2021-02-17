@@ -23,7 +23,7 @@ Quando alguém com permissões de administrador ou proprietário tiver habilitad
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se uma equipe habilitou as atribuições de revisão de código, as aprovações individuais não vão atender ao requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 

@@ -42,7 +42,7 @@ COPY --chown=node:node --from=install /usr/src/docs/dist /usr/src/docs/dist
 ENV NODE_ENV production
 
 # Use Lunr instead of Algolia
-ENV USE_LUNR true
+ENV AIRGAP true
 
 # Copy only what's needed to run the server
 COPY --chown=node:node assets ./assets
