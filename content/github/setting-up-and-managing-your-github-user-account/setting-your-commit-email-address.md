@@ -69,7 +69,7 @@ You can use the `git config` command to change the email address you associate w
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. {% data reusables.user_settings.set_your_email_address_in_git %}
    ```shell
-   $ git config --global user.email "<em>email@example.com</em>"
+   $ git config - -global user.email "<em>email@example.com</em>"
    ```
 3. {% data reusables.user_settings.confirm_git_email_address_correct %}
    ```shell
