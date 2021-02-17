@@ -1,4 +1,4 @@
-date: '2021-02-12'
+date: '2021-02-16'
 sections:
   features:
     - heading: GitHub Actions
@@ -105,7 +105,7 @@ sections:
         - Generating a support bundle resulted in an error in the orchestrator logs.
         - A large restore could result in Redis running out of memory.
         - The checkbox to enable GitHub Actions in the Management Console is now visible with any authentication method.
-        - GitHub Actions can could be enabled if the required storage was also configured.
+        - GitHub Actions could be enabled if the required storage was also configured.
         - '`ghe-repl-status` could silently fail if MSSQL replication was not configured.'
         - The format of several log files have changed, including the addition of a PID for different log types. This does not affect how GitHub Enterprise Support uses support bundles to troubleshoot issues.
         - A PATCH request to the webhook configuration API no longer erases the webhook secret.
@@ -117,6 +117,7 @@ sections:
     - Git LFS tracked files [uploaded through the web interface](https://github.blog/2016-02-18-upload-files-to-your-repositories/) are incorrectly added directly to the repository.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact {% data variables.contact.contact_ent_support %}.
+    - When GitHub Actions is enabled, use '`ghe-maintenance -u`' to unset maintenance mode.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19
