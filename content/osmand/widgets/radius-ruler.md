@@ -1,7 +1,7 @@
 ---
 title: "Ruler & radius-ruler"
-intro: "Radius-ruler instrument helps to determine the radius around the selected point on the map via  displaying distance-circles on the map.
-Ruler instrument helps to calculate the distance between selected points to find the shortest distance."
+intro: "Radius-ruler tool helps to determine the radius around the selected point on the map via  displaying distance-circles on the map.
+The additional function of the Radius-ruler  tool is helping to calculate the distance between selected points to find the shortest distance. The Ruler tool displays scale "
 versions: '*'
 ---
 
@@ -68,9 +68,16 @@ You can also adjust this setting and the way the widget looks in
 <b>On your iOS device:</b> Press the widget to select one of three modes - the black scale, the white one, or no scale (only ruler).
 You can show or hide Compass Ruler: menu -> Configure screen -> Radius ruler -> Settings (Show or Hide compass ruler).-->
 
-## Ruler 
+## Ruler
 
-Линейка внизу экрана показывает масштаб: сколько метров/километров в заданном отрезке. Это помогает понять расстояния на карте. 
-Масштабная линейка позволяет визуально оценивать на карте размер объектов и расстояние между ними. Масштабная линейка - это линия или полоса, разделенная на части. Это линия или панель, разделенная на части и подписанная согласно реальным расстояниям на местности, обычно в кратных единицах карты, таких как десятки километров или сотни миль. Масштабные линейки связаны с фреймом карты в компоновке. Если масштаб карты данного фрейма изменился, масштабная линейка также изменится, чтобы оставаться корректной.
+![Ruler tool](/assets/images/docs/widgets/ruler_tool.png)
 
+The Ruler tool displays scale and shows the number of meters/kilometers (other units of measure) in a segment. <br>
 
+User can find Ruler at the bottom of the map. <br>
+
+The Ruler gives a visual estimate of the objects on the map and distance between them. The Ruler will change the display value during map  zooming.   <br>
+
+To change units format follow {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. <br>
+<!--Линейка внизу экрана показывает масштаб: сколько метров/километров в заданном отрезке. Это помогает понять расстояния на карте. 
+Масштабная линейка позволяет визуально оценивать на карте размер объектов и расстояние между ними. Масштабная линейка - это линия или полоса, разделенная на части. Это линия или панель, разделенная на части и подписанная согласно реальным расстояниям на местности, обычно в кратных единицах карты, таких как десятки километров или сотни миль. Масштабные линейки связаны с фреймом карты в компоновке. Если масштаб карты данного фрейма изменился, масштабная линейка также изменится, чтобы оставаться корректной.-->
