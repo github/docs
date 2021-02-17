@@ -33,7 +33,7 @@ You can manage the security and analysis features for your {% if currentVersion 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. {% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}If the control for "{% data variables.product.prodname_secret_scanning_caps %}" is not active, you need to enable {% data variables.product.prodname_GH_advanced_security %} first.
   !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
   {% note %}
 
