@@ -71,6 +71,14 @@ versions:
   enterprise-server: '*'
 ```
 
+You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
+
+```yml
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.22 <3.1'
+```
+
 ### `redirect_from`
 
 - Purpose: List URLs that should redirect to this page.
