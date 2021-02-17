@@ -61,7 +61,7 @@ Battery level widget can be found in Configure screen menu <br>
 GPS (Global Positioning System) info widget shows number of satellites. <br>
 
 OsmAnd takes GPS info from a device. <!--Then on the main screen tap on GPS widget. You can see GPS status.-->  The more satellites a device can see, the better positioning will be provided. <br>
-To see a GPS status menu user has to click on GPS info widget. GPS status menu provides additional tools for tuning onboard GPS device. _* <br>
+To see a GPS status menu user has to click on GPS info widget. GPS status menu provides additional tools for tuning onboard GPS device.  <br>
 
 User could find GPS info widget in Configure screen menu. <br>
 
@@ -76,7 +76,7 @@ FPS debug info widget shows Frames per Second (FPS) of your screen. <br>
 Where the The left number  is the maps Frames per Second (FPS) and the rigt one is general layer Frames per Second (FPS) <br>
 
 When an application sets its preferred frame rate, the view chooses a frame rate as close to that as possible based on the capabilities of the screen the view is displayed on. To provide a consistent frame rate, the actual frame rate chosen is usually a factor of the maximum refresh rate of the screen. <br>
-An application should choose a frame rate that it can consistently maintain. The default value is 60 frames per second. _* <br>
+An application should choose a frame rate that it can consistently maintain. The default value is 60 frames per second.  <br>
 
 User could find FPS debug info widget in Configure screen menu <br>
 
