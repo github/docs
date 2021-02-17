@@ -16,7 +16,7 @@ env:
 
 jobs:
   check-freezer:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     name: Prevent merging during deployment freezes
     runs-on: ubuntu-latest
     steps:

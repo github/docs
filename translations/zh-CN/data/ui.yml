@@ -143,7 +143,7 @@ product_sublanding:
   no_result: 抱歉，没有与过滤条件匹配的指南。
   filters:
     type: 类型
-    topic: Topic
+    topic: 主题
     all: 所有
   guide_types:
     overview: 概览
