@@ -24,3 +24,4 @@ Your {% data variables.product.prodname_sponsors %} profile tells potential spon
 {% data reusables.sponsors.edit-featured-work %}
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
+{ %$% data payload.sponsors the profile who it belongs to}
