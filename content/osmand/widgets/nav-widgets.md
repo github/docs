@@ -55,17 +55,17 @@ In this menu you can choose tree parameters for this widget: <br>
 * {% data variables.android-values.shared_string_collapse %} – allows user to see the widget on the map and hide it when it is not used.<br>
 
 
-
-
 ## Destination
 
-The widget shows current distance to the finish line:
+The widget shows current distance to the finish line. Clicking to this widget move to finish point:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.route_descr_destination %}
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_distance%}
 
-## Arrival time
+![navigational widgets](/assets/images/docs/widgets/nw-5.png)
+
+## Arrival time or Time to go
 
 The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %}, in order to change it just click to widget on the screen or choose it in menu:
 
@@ -73,10 +73,14 @@ The widget shows {% data variables.android-values.access_arrival_time %} or {% d
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.access_arrival_time %} or {% data variables.ios-values.map_widget_time %}
 
-## Max speed
+![navigational widgets](/assets/images/docs/widgets/nw-6.png)
+
+## Speed and Speed limit
 - Purpose
 - How to use
 - How to configure
+
+![navigational widgets](/assets/images/docs/widgets/nw-7.png)
 
 ## Lanes
 - Purpose
