@@ -134,13 +134,13 @@ To use or manage a package hosted by a package registry, you must use a token wi
 
 For example:
 -  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository.
-- To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)."
+- {% if currentVersion == "free-pro-team@latest" or if currentVersion ver_gt "enterprise-server@3.0" %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages.{% endif %}{% if currentVersion ver_lt "enterprise-server@3.1" %}To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted.{% endif %} For more information, see "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."
 
 | Scope | Description | Repository permissions |
 | --- | --- | --- |
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %} | admin |
+| `delete:packages` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Delete packages from {% data variables.product.prodname_registry %} {% endif %}{% if currentVersion ver_lt "enterprise-server@3.1" %} Delete specified versions of private packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
@@ -152,7 +152,19 @@ For more information, see:
 
 ### Managing packages
 
-You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+{% if currentVersion == "free-pro-team@latest" %}
+You can delete a package in the {% data variables.product.product_name %} user interface or using the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+{% endif %}
+
+{% if currentVersion ver_gt "enterprise-server@3.0" %}
+You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
+You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
+{% endif %}
+
+When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 
