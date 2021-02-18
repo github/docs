@@ -28,7 +28,7 @@ versions:
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-4. If "{% data variables.product.prodname_secret_scanning_caps %}" is not shown on the page, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+4. You may need to enable {% data variables.product.prodname_GH_advanced_security %} to activate the button for "{% data variables.product.prodname_secret_scanning_caps %}". To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
    ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-dotcom.png)
 5. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
    ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-confirmation-dotcom.png)

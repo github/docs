@@ -24,7 +24,7 @@ The severity level is one of four possible levels defined in the "[Common Vulner
 - High
 - Critical
 
-Some advisories have a specific CVSS score, which is assigned according to the "[Common Vulnerability Scoring System Calculator](https://www.first.org/cvss/calculator)." The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1 standards.
+The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
 
 {% data reusables.repositories.github-security-lab %}
 
