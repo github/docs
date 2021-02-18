@@ -30,3 +30,4 @@ A project board's automation is also enabled by default. For more information, s
 {% data reusables.project-management.choose-visibility %}
 9. Click **Copy project**.
 ![Confirm Copy button](/assets/images/help/projects/confirm-copy-project-board.png)
+Ok
