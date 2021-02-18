@@ -61,7 +61,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [javascripts/README.md](javascripts/README.md)
 - [layouts/README.md](layouts/README.md)
 - [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
+- [middleware/README.md](middleware/README.md) 
 - [script/README.md](script/README.md)
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
