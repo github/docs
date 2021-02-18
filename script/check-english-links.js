@@ -21,6 +21,8 @@ const retryStatusCodes = [429, 503, 'Invalid']
 // This script runs once per day via a scheduled GitHub Action to check all links in
 // English content, not including deprecated Enterprise Server content. It opens an issue
 // if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
+// Note that linkinator somtimes returns 429 and 503 errors for links that are not actually
+// broken, so this script double-checks those using `got`.
 //
 // [end-readme]
 
