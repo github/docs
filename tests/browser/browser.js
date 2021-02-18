@@ -85,7 +85,7 @@ describe('browser search', () => {
   })
 })
 
-describe('helpfulness', () => {
+describe.skip('helpfulness', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
