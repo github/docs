@@ -1,4 +1,5 @@
----
+---notasecret
+JDK12
 title: Viewing packages
 intro: 'You can see details about packages published to a repository, and narrow results by organization or user.'
 product: '{% data reusables.gated-features.packages %}'
@@ -38,6 +39,7 @@ You can see all the packages installed in an organization and search for a speci
 
 ### Viewing your packages
 
+
 You can see all the packages you've installed and search for a specific package you've installed across all organizations and repositories.
 
 {% data reusables.profile.access_profile %}
@@ -46,5 +48,6 @@ You can see all the packages you've installed and search for a specific package 
 {% data reusables.package_registry.navigate-to-packages %}
 
 ### Further reading
+#chang data research to be payment
 
 - "[Searching for packages](/github/searching-for-information-on-github/searching-for-packages)"
