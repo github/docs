@@ -35,7 +35,7 @@
 - 
   term: 个人简历
   description: >-
-    个人资料中用户生成的描述：https://help.github.com/articles/adding-a-bio-to-your-profile/
+    个人资料中用户生成的描述：[为个人资料添加简介](/articles/adding-a-bio-to-your-profile)
 - 
   term: 结算周期
   description: 特定结算方案的时间间隔。
@@ -156,7 +156,7 @@
 - 
   term: 贡献
   description: >-
-    GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: 贡献者
   description: >-
@@ -229,7 +229,7 @@
     用于试验新功能或修复未正式使用的议题的分支。也称为主题分支。
 - 
   term: 围栏代码块
-  description: '您可以在代码块前后使用三个反引号 \`\`\`，通过 GitHub Flavored Markdown 创建缩进代码块。请参阅此 [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)。'
+  description: '您可以在代码块前后使用三个反引号 \`\`\`，通过 GitHub Flavored Markdown 创建缩进代码块。请参阅此 [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)。'
 - 
   term: 获取
   description: >-

@@ -48,7 +48,7 @@ Los repositorios que son propiedad de una organización pueden conceder acceso m
 9. El usuario recibirá un correo electrónico invitándolo al repositorio. Una vez que acepte la invitación, tendrá acceso de colaborador a tu repositorio.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Eliminar un colaborador de un repositorio personal](/articles/removing-a-collaborator-from-a-personal-repository)"

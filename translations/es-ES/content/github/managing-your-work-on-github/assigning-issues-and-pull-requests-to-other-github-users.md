@@ -19,6 +19,6 @@ Puedes asignar hasta 10 personas a cada propuesta o solicitud de cambios, incluy
 4. En el margen superior derecho, haz clic en **Assignee** (Asignatario).
 5. Para asignar los elementos a un usuario, comienza escribiendo su nombre de usuario, luego haz clic en su nombre cuando aparezca. Puedes seleccionar y asignar hasta 10 asignatarios a una propuesta o solicitud de extracción. ![Desplegable de la asignación de propuestas](/assets/images/help/issues/issues_assigning_dropdown.png)
 
-### Further reading
+### Leer más
 
 * "[Filtrar propuestas y solicitudes de extracción por asignatarios](/articles/filtering-issues-and-pull-requests-by-assignees)"

@@ -107,7 +107,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
 
 複数のgemを同じリポジトリに公開したい場合は、{% data variables.product.prodname_dotcom %}リポジトリの`gem.metadata`にある`github_repo`フィールドに、URL を記述できます。 If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% if enterpriseServerVersions contains currentVersion %} Replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
 
-```
+```ruby
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
@@ -118,7 +118,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 {% data reusables.package_registry.authenticate-step %}
 2. Bundlerについては、{% data variables.product.prodname_dotcom %}ユーザもしくはOrganizationをソースとして*Gemfile*に追加して、この新しいソースからgemsをフェッチするようにしてください。 For example, you can add a new `source` block to your *Gemfile* that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing *GEM NAME* with the package you want to install from {% data variables.product.prodname_registry %} and *OWNER* with the user or organization that owns the repository containing the gem you want to install.{% if enterpriseServerVersions contains currentVersion %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% endif %}
 
-  ```
+  ```ruby
   source "https://rubygems.org"
 
   gem "rails"
@@ -130,7 +130,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 
 3. 1.7.0以前のバージョンのBundlerの場合、新しいグローバルな`source`を追加する必要があります。 Bundlerの利用に関する詳しい情報については[bundler.ioのドキュメンテーション](http://bundler.io/v1.5/gemfile.html)を参照してください。
 
-  ```
+  ```ruby
   source "https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 

@@ -46,14 +46,14 @@ Por ejemplo, si usted y otra persona editaron el archivo _styleguide.md_ en las 
 4. Abre tu editor de texto preferido, como [Atom](https://atom.io/), y navega hasta el archivo que tiene los conflictos de fusión.
 5. Para ver el origen de un conflicto de fusión en tu archivo, busca el archivo para el marcador de conflicto `<<<<<<<`. Cuando abras el archivo en tu editor de texto, verás los cambios desde la rama HEAD (encabezado) o base después de la línea `<<<<<<< HEAD`. Luego verás `=======`, que separa tus cambios de los cambios en la otra rama, seguido de `>>>>>>> BRANCH-NAME`. En este ejemplo, una persona escribió "abrir una propuesta" en la rama base o HEAD (encabezado), y otra persona escribió "haz tu pregunta en IRC" en la rama de comparación o `branch-a`.
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}En este ejemplo, ambos cambios se incorporaron en la fusión final:
 
   ```shell
@@ -119,7 +119,7 @@ Por ejemplo, si editaste un archivo, como *README.md*, y otra persona eliminó e
 
 Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/articles/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
 
-### Further reading
+### Leer más
 
 - "[Acerca de los conflictos de fusión](/articles/about-merge-conflicts)"
 - "[Revisar las solicitudes de extracción de forma local](/articles/checking-out-pull-requests-locally/)"

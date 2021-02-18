@@ -47,10 +47,10 @@
                     </h2>
 
                     {% if patch.release_candidate %}
-                      <span class="IssueLabel bg-orange text-white ml-3">Release Candidate</span>
+                      <span class="IssueLabel bg-orange text-white ml-3" style="white-space: pre">Release Candidate</span>
                     {% endif %}
 
-                    <a href="https://enterprise.github.com/releases/{{ patch.version | replace: '-rc', '' }}/download" class="ml-3 text-small text-bold">
+                    <a href="https://enterprise.github.com/releases/{{ patch.downloadVersion }}/download" class="ml-3 text-small text-bold">
                       Download
                     </a>
 
@@ -68,7 +68,7 @@
                   {% for section in patch.sections %}
                     <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
                       <div class="col-12 col-xl-3 mb-5">
-                        {% include 'release-notes-category-label' %}
+                        {% include release-notes-category-label %}
                       </div>
 
                       <ul class="col-12 col-xl-9 release-notes-list">
