@@ -67,7 +67,7 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
   ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
 ### Switching between branches
-You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes on the current branch, or bring the changes to your new branch. If you want to commit your changes on the current branch, follow the steps in "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)" before switching branches.
+You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
 **Tip**: You can set a default behavior for switching branches in the **Advanced** settings. For more information, see "[Configuring basic settings](/desktop/getting-started-with-github-desktop/configuring-basic-settings)."
