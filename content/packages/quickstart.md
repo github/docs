@@ -13,7 +13,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 
 ### Publishing your package
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. Create a private repository if you’d like to delete this package later, public packages cannot be deleted. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. {% if currentVersion ver_lt "enterprise-server@3.1" %} Create a private repository if you’d like to delete this package later, public packages cannot be deleted.{% endif %} For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     {% raw %}
     ```shell
@@ -36,7 +36,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
       ...
       test command: <em>exit 0</em>
       ...
-    
+
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
@@ -44,7 +44,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
     ```
     {% endraw %}
 5. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `release-package.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-6. Copy the following YAML content into the `release-package.yml` file. 
+6. Copy the following YAML content into the `release-package.yml` file.
     {% raw %}
     ```yaml{:copy}
     name: Node.js Package
@@ -96,7 +96,7 @@ Packages are published at the repository level. You can see all the packages in 
 
 ### Installing a published package
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Configuring npm for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)." 
+Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Configuring npm for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)."
 
 ### Next steps
 
