@@ -1,0 +1,24 @@
+.feature-track {
+  li {
+    width: 280px;
+  }
+}
+
+.learning-track {
+  &--description {
+    min-height: 1em * $body-line-height * 3
+  }
+}
+
+@mixin truncate($maxLine) {
+  .truncate-overflow-#{$maxLine} {
+    display: -webkit-box;
+    -webkit-line-clamp: $maxLine;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@include truncate(3);
+@include truncate(8);

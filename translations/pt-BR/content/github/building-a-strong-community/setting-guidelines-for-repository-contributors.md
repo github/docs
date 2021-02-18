@@ -58,4 +58,4 @@ Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribui�
 ### Leia mais
 - A seção "Guias de código aberto"[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}
+- "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"{% endif %}

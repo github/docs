@@ -11,7 +11,7 @@ Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assi
 
 {% note %}
 
-**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você está identificando abuso e deseja ignorar um repositório, [entre em contato com o suporte](/contact) para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
+**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver passando por abuso e deseja ignorar um repositório, entre em contato com {% data variables.contact.contact_support %} para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desapar
 
 {% data reusables.notifications.access_notifications %}
 1. Na caixa de entrada de notificações, selecione as notificações das quais você deseja cancelar sua assinatura.
-2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar inscrição.** ![Opção de cancelamento de assinatura da caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar inscrição.** ![Cancele a assinatura na caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Cancelar assinatura de notificações na página de assinaturas
 
@@ -63,5 +63,5 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
 {% if currentVersion == "free-pro-team@latest" %}
     - deixar de inspecionar um repositório
     - ignorar todas as notificações de um repositório
-    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+    - personalizar os tipos de eventos para os quais você recebe notificações (problemas, pull requests, versões ou discussões, se habilitado)
 {% endif %}

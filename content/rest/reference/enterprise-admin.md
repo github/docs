@@ -27,7 +27,7 @@ You can use these endpoints to administer your enterprise.
 REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}

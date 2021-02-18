@@ -20,22 +20,22 @@ Para incluir bifurcações nos resultados da pesquisa, você precisará adiciona
 
 Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Quando você omite esse qualificador, somente o nome e a descrição do repositório são pesquisados.
 
-| Qualifier         | Exemplo                                                                                                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) matches repositories with "jquery" in the repository name.                                          |
-| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) matches repositories with "jquery" in the repository name or description. |
-| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) matches repositories mentioning "jquery" in the repository's README file.                       |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                   |
+| Qualifier         | Exemplo                                                                                                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) corresponde aos repositórios com "jquery" no nome do respositório.                                       |
+| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) corresponde aos repositórios com "jquery" no nome ou descrição do repositório. |
+| `in:readme`       | [**jquery em:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "jquery" no arquivo LEIAME do repositório.                |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                        |
 
 ### Pesquisar com base no conteúdo do repositório
 
-You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. Para obter mais informações, consulte "[Sobre LEIAME](/github/creating-cloning-and-archiving-repositories/about-readmes)".
+Você pode encontrar um repositório pesquisando pelo conteúdo no arquivo LEIAME do repositório usando o qualificador `in:readme`. Para obter mais informações, consulte "[Sobre LEIAME](/github/creating-cloning-and-archiving-repositories/about-readmes)".
 
 Além de usar o `in:readme`, não é possível encontrar repositórios pesquisando um conteúdo específico no repositório. Para pesquisar um arquivo ou conteúdo específico em um repositório, você pode usar o localizador de arquivos os qualificadores de pesquisa específicos para código. Para obter mais informações, consulte "[Localizar arquivos no {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" e "[Pesquisar códigos](/articles/searching-code)".
 
-| Qualifier   | Exemplo                                                                                                                                                               |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) matches repositories mentioning "octocat" in the repository's README file. |
+| Qualifier   | Exemplo                                                                                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "octocat" no arquivo LEIAME do repositório. |
 
 ### Pesquisar nos repositórios de um usuário ou uma organização
 
@@ -48,7 +48,7 @@ Para pesquisar em todos os repositórios de um determinado usuário ou organiza�
 
 ### Pesquisar por tamanho do repositório
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+O qualificador `size` procura repositórios que têm um tamanho específico (em kilobytes) usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ The `size` qualifier finds repositories that match a certain size (in kilobytes)
 
 ### Pesquisar por número de seguidores
 
-You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+É possível filtrar repositórios com base no número de usuários que seguem os repositórios, usando o qualificador `followers` com os qualificadores com maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                                  |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -68,7 +68,7 @@ You can filter repositories based on the number of users who follow the reposito
 
 ### Pesquisar por número de bifurcações
 
-The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+O qualificador `forks` especifica o número de bifurcações que um repositório deve ter usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                            |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +79,7 @@ The `forks` qualifier specifies the number of forks a repository should have, us
 
 ### Pesquisar por número de estrelas
 
-You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see "[Saving repositories with stars](/github/getting-started-with-github/saving-repositories-with-stars)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+Você pode pesquisar repositórios com base no número de estrelas que os repositórios têm, usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/github/getting-started-with-github/saving-repositories-with-stars)" e "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,7 +103,7 @@ Os dois usam uma data como parâmetro. {% data reusables.time_date.date_format %
 
 ### Pesquisar por linguagem
 
-You can search repositories based on the language of the code in the repositories.
+Você pode pesquisar repositórios com base na linguagem do código nos repositórios.
 
 | Qualifier                 | Exemplo                                                                                                                                                                                      |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -111,7 +111,7 @@ You can search repositories based on the language of the code in the repositorie
 
 ### Pesquisar por tópico
 
-You can find all of the repositories that are classified with a particular topic. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)".
+Você pode encontrar todos os repositórios classificados com um determinado tópico. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                     |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,7 +119,7 @@ You can find all of the repositories that are classified with a particular topic
 
 ### Pesquisar por número de tópicos
 
-You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+Você pode pesquisar repositórios pelo número de tópicos que foram aplicados aos repositórios, usando o qualificador `topics` junto com os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)" e "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                  | Exemplo                                                                                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -130,7 +130,7 @@ You can search repositories by the number of topics that have been applied to th
 
 ### Pesquisar por licença
 
-You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. Para obter mais informações, consulte "[Licenciar um repositório](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)".
+Você pode pesquisar repositórios pelo tipo de licença nos repositórios. É preciso usar uma palavra-chave de licença para filtrar repositórios por uma determinada licença ou família de licenças. Para obter mais informações, consulte "[Licenciar um repositório](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)".
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -138,33 +138,33 @@ You can search repositories by the type of license in the repositories. You must
 
 {% endif %}
 
-### Search by repository visibility
+### Pesquisar por visibilidade do repositório
 
-You can filter your search based on the visibility of the repositories. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+Você pode filtrar sua pesquisa com base na visibilidade dos repositórios. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
-| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
+| Qualificador | Exemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) corresponde aos repositórios públicos que pertencem a {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) corresponde aos repositórios internos que você pode acessar e que contêm a palavra "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) corresponde a repositórios privados que você pode acessar e que contêm a palavra "pages".
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Pesquisar com base no fato de o repositório ser um espelho
 
-You can search repositories based on whether the repositories are mirrors and hosted elsewhere. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+Você pode pesquisar repositórios com base no fato de os repositórios serem espelhos e hospedados em outro lugar. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
-| Qualifier      | Exemplo                                                                                                                                                                 |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) identifica os repositórios que são espelhos e contêm a palavra "GNOME".   |
-| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) matches repositories that are not mirrors and contain the word "GNOME." |
+| Qualifier      | Exemplo                                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) identifica os repositórios que são espelhos e contêm a palavra "GNOME".         |
+| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) corresponde aos repositórios que não são espelhos e contêm a palavra "GNOME". |
 
 {% endif %}
 
 ### Pesquisar com base no fato de o repositório estar arquivado
 
-You can search repositories based on whether or not the repositories are archived. For more information, see "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
+Você pode pesquisar repositórios com base no fato de os repositórios estarem ou não arquivados. Para obter mais informações, consulte "[Sobre o arquivamento de repositórios](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
 
-| Qualifier        | Exemplo                                                                                                                                                                       |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) identifica os repositórios que estão arquivados e contêm a palavra "GNOME". |
-| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) matches repositories that are not archived and contain the word "GNOME."  |
+| Qualifier        | Exemplo                                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) identifica os repositórios que estão arquivados e contêm a palavra "GNOME".         |
+| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) corresponde aos repositórios que não estão arquivados e contêm a palavra "GNOME". |
 
 {% if currentVersion == "free-pro-team@latest" %}
 

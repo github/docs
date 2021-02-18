@@ -9,11 +9,11 @@ versions:
 
 ### 关于阻止用户
 
-您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。 如果要避免与您阻止的用户参与相同的项目，您可以选择对于被阻止用户先前参与的任何仓库[显示警告](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
+您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。 如果要避免与您阻止的人参与同一个项目，您可以选择针对被阻止用户先前参与的任何仓库显示警告。 更多信息请参阅“[在帐户设置中阻止用户](#blocking-a-user-in-your-account-settings)”。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
 
 {% tip %}
 
-**提示：** 如果您因为言辞激烈的对话而阻止用户，请考虑[锁定对话](/articles/locking-conversations)，以限制为只有协作者才能评论。
+**提示：** 如果您因为言辞激烈的对话而阻止用户，请考虑锁定对话，以限制为只有协作者才能评论。 更多信息请参阅“[锁定对话](/github/building-a-strong-community/locking-conversations)”。
 
 {% endtip %}
 
@@ -22,8 +22,6 @@ versions:
 - 该用户停止关注并取消固定您的仓库
 - 用户无法加入您是所有者的任何组织
 - 该用户的星标和议题分配从您的仓库中删除
-- 该用户对您的仓库的复刻被删除
-- 您删除用户仓库的任何复刻
 - 该用户对您仓库中的讨论或评论的投票将被删除
 - 该用户在您的仓库中的协作者身份被删除
 - 该用户对您仓库的贡献不再计为他们的贡献

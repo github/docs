@@ -16,7 +16,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% endif %}
 
@@ -58,7 +58,7 @@ When you created your new repository, you initialized it with a *README* file. *
 Let's commit a change to the *README* file.
 
 1. In your repository's list of files, click ***README.md***.
-  ![Readme file in file list](/assets/images/help/repository/create-commit-open-readme.png)
+  ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
 2. Above the file's content, click {% octicon "pencil" aria-label="The edit icon" %}.
 3. On the **Edit file** tab, type some information about yourself.
   ![New content in file](/assets/images/help/repository/edit-readme-light.png)

@@ -40,7 +40,7 @@ When you unsubscribe from notifications in your inbox, they will automatically d
 {% data reusables.notifications.access_notifications %}
 1. From the notifications inbox, select the notifications you want to unsubscribe to.
 2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.**
-  ![Unsubcribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+  ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Unsubscribing from notifications on the subscriptions page
 

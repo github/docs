@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 `cluster.conf`で有効なUUIDを検索できます。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -283,7 +283,7 @@ $ ghe-saml-mapping-csv -u -n -f /path/to/file
 
 新しい値でSAMLマッピングを更新するには、次のようにします。
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+$ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
 #### ghe-service-list
@@ -467,18 +467,21 @@ ghe-webhook-logs
 ```
 
 過去1日の失敗したフックデリバリーを表示するには、以下のようにします。
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 フックのペイロードの全体や結果、デリバリーの例外を表示するには、以下のようにします。
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-グローバルな webhook のデリバリーを表示するには、以下のようにします。
-```shell
-ghe-webhook-logs --global
 ```
 
 ### クラスタリング
@@ -541,8 +544,8 @@ ghe-dpages status
 ```
 
 クラスタノードの退避に先立って{% data variables.product.prodname_pages %}ストレージサービスを退避するには、以下のようにします。
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -567,16 +570,16 @@ ghe-spokes route
 
 クラスタノード上のストレージサービスを退避するには、以下のようにします。
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 このユーティリティを使用すると、クラスタノードからの待避の前にストレージサービスをすべて待避させることができます。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

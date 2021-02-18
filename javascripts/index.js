@@ -12,11 +12,13 @@ import localization from './localization'
 import helpfulness from './helpfulness'
 import experiment from './experiment'
 import copyCode from './copy-code'
-import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
 import filterCards from './filter-cards'
 import allArticles from './all-articles'
 import devToc from './dev-toc'
+import releaseNotes from './release-notes'
+import showMore from './show-more'
+import airgapLinks from './airgap-links'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -32,8 +34,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   filterCards()
   allArticles()
   devToc()
-  await fillCsrf() // this must complete before any POST calls
-  initializeEvents() // requires fillCsrf to complete
-  experiment() // requires fillCsrf to complete
-  helpfulness() // requires fillCsrf to complete
+  showMore()
+  airgapLinks()
+  releaseNotes()
+  initializeEvents()
+  experiment()
+  helpfulness()
 })
