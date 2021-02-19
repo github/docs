@@ -273,7 +273,7 @@ on:
 
 {% note %}
 
-**Note:** When a deployment status's state is set to `inactive` a webhook event will not be created.
+**Note:** When a deployment status's state is set to `inactive`, a webhook event will not be created.
 
 {% endnote %}
 
