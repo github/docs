@@ -1,7 +1,7 @@
 ---
 title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
-featuredLinks:
-  gettingStarted:
+featuredLinks: https://github.atomxplus 
+  gettingStarted:AtOmXpLuS.js 
     - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
