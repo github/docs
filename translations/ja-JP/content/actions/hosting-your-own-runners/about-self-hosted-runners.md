@@ -63,7 +63,7 @@ type: overview
 {% data reusables.github-actions.usage-api-requests %}
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### セルフホストランナーをサポートするオペレーティングシステム
+### Supported architectures and operating systems for self-hosted runners
 
 セルフホストランナーアプリケーション用には、以下のオペレーティングシステムがサポートされています。
 
@@ -92,17 +92,25 @@ type: overview
 
 - macOS 10.13 (High Sierra)以降
 
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 
-{% data variables.product.prodname_ghe_server %}とあわせて{% data variables.product.prodname_dotcom_the_website %}からアクションを使う場合、あるいはインターネットアクセスのないセルフホストランナーで`actions/setup-LANGUAGE`アクションを使う場合には、多少の追加設定が必要になるかもしれません。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
+そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
 
 {% endif %}
 
 ### セルフホストランナーと{% data variables.product.product_name %}との通信
 
-セルフホストランナーは{% data variables.product.product_name %}をポーリングして、アプリケーションのアップデートを取得し、処理のためにジョブがキューイングされていないかチェックします。 セルフホストランナーはHTTPSの_ロングポーリング_を使います。これは{% data variables.product.product_name %}に対して50秒間接続を開き、レスポンスがなければタイムアウトして新しいロングポーリングを生成します。 アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
+The self-hosted runner polls {% data variables.product.prodname_dotcom %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.prodname_dotcom %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

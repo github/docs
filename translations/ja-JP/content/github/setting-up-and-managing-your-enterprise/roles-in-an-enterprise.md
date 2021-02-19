@@ -31,7 +31,7 @@ Enterprise owners have complete control over the enterprise and can take every a
 
 Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
 
-You can add as many enterprise owners as you'd like to your enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
 
 ### Enterprise メンバー
 
@@ -52,7 +52,7 @@ Billing managers only have access to your enterprise's billing settings. Billing
 - 支払いマネージャーのリストを閲覧
 - 他の支払いマネージャーの追加または削除
 
-Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
+Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
 
 ### 参考リンク
 
