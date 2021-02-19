@@ -12,47 +12,15 @@ versions:
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### About disclosing vulnerabilities in the software industry
-
-When someone lets an organization maintainer know privately about a vulnerability, the maintainer typically develops a fix, validates it, and notifies the repository users. The initial report of a vulnerability is made privately, and the full details are only published once a patch has been made available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
-
-Maintainers should disclose vulnerabilities in a timely manner, if there is a security vulnerability in their repository. It's not acceptable to:
-- Not disclose the vulnerability
-- Not identify the vulnerability as a security issue 
-- Wait an unacceptably long time to create a fix
-
-Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in sofware nowadays, and users will be grateful for maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
-
-Security researchers should disclose vulnerabilities privately to maintainers. It's not acceptable to:
-- Disclose the vulnerability publicly
-- Not contact the maintainer, 
-- Disclose the vulnerability before patching the code
-
-It's seen as fine for security researchers to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
-
 ### About {% data variables.product.prodname_security_advisories %}
 
-Here at {% data variables.product.company_short %}, the process for disclosing vulnerabilities is as follows:
-
- If you are a security researcher who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. 
-
- If you are a maintainer, it's likely that a security researcher will email you or otherwise privately contact you. This can be, for example, based on information in your _security.md_ file. Alternatively, someone may open a (public) issue with details of a security issue. 
- 
-{% note %}
-
-**Note**: _For npm only_ If you report a vulnerability to npm, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" in the npm Docs website.
-
-{% endnote %}
-
- As a maintainer, to disclose a vulnerability that exists in your repository (for example if someone got in touch and reported a vulnerability to you), you create a draft {% data variables.product.prodname_dotcom %} security advisory in your package's {% data variables.product.prodname_dotcom %} repository. 
-
-{% data variables.product.prodname_security_advisories %} allows repository maintainers to privately discuss and fix a security vulnerability in a project. After collaborating on a fix, repository maintainers can publish the security advisory to publicly disclose the security vulnerability to the project's community. By publishing security advisories, repository maintainers make it easier for their community to update package dependencies and research the impact of the security vulnerabilities.
+{% data reusables.security-advisory.security-advisory-overview %}
 
 With {% data variables.product.prodname_security_advisories %}, you can:
 
-1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project.
+1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
 2. Privately collaborate to fix the vulnerability in a temporary private fork.
-3. Publish the security advisory to alert your community of the vulnerability once a patch is released.
+3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[Publishing a security advisory](/github/managing-security-vulnerabilities/publishing-a-security-advisory)."
 
 {% note %}
 
@@ -61,8 +29,6 @@ With {% data variables.product.prodname_security_advisories %}, you can:
 {% endnote %}
 
 {% data reusables.repositories.security-advisories-republishing %}
-
-To get started, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
 
 You can give credit to individuals who contributed to a security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory#about-credits-for-security-advisories)."
 

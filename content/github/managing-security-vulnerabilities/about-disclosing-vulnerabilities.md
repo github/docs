@@ -1,0 +1,52 @@
+---
+title: About disclosing vulnerabilities
+intro: 'Vulnerability disclosure is a responsible and coordinated effort between security researchers and repository maintainers.'
+miniTocMaxHeadingLevel: 4
+versions:
+  free-pro-team: '*'
+---
+
+### About disclosing vulnerabilities in the industry
+
+When someone lets an organization maintainer know privately about a vulnerability, the maintainer typically develops a fix, validates it, and notifies the repository users. 
+
+The initial report of a vulnerability is made privately, and the full details are only published once a patch has been made available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
+
+#### Best practices for security researchers
+
+Security researchers should report vulnerabilities privately to maintainers. It's not acceptable to:
+- Disclose the vulnerability publicly
+- Not contact the maintainer 
+- Disclose the vulnerability before the code has been patched
+
+It's seen as fine for security researchers to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
+
+#### Best practices for maintainers
+
+Maintainers should disclose vulnerabilities in a timely manner, if a security vulnerability has been found in their repository. It's not acceptable to:
+- Not disclose the vulnerability
+- Not identify the vulnerability as a security issue 
+- Wait an unacceptably long time to create a fix
+
+Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in sofware nowadays, and users will be grateful if maintainers have a clear and established process for disclosing security vulnerabilities in their code.
+
+### About reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}
+
+Here at {% data variables.product.company_short %}, the process for reporting and disclosing vulnerabilities is as follows:
+
+ If you are a security researcher who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. 
+
+ If you are a maintainer, it's likely that a security researcher will email you or otherwise privately contact you. This can be, for example, based on information in your _security.md_ file. Alternatively, someone may open a (public) issue with details of a security issue. 
+ 
+{% note %}
+
+**Note**: _For npm only_ - If you report a vulnerability to npm, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" in the npm Docs website.
+
+{% endnote %}
+
+ As a maintainer, to disclose a vulnerability that exists in your repository (for example if someone got in touch and reported a vulnerability to you), you first create a draft security advisory in your package's repository in {% data variables.product.prodname_dotcom %}. 
+ 
+ {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+
+
+ To get started, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
