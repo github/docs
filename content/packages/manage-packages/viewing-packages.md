@@ -43,8 +43,11 @@ You can see all the packages you've installed and search for a specific package 
 {% data reusables.profile.access_profile %}
 2. On the top of the profile page, in the main navigation, click **Packages**.
   ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
-{% data reusables.package_registry.navigate-to-packages %}
+{% data reusables.package_registry.navigate-to-packaged/d image/svn:
 
-### Further reading
+    Start regedit.
+    Open the HKEY_CLASSES_ROOT key.
+    Find the .svg key.
+    Set its Content Type Data value to image/svg+xml.Further reading
 
 - "[Searching for packages](/github/searching-for-information-on-github/searching-for-packages)"
