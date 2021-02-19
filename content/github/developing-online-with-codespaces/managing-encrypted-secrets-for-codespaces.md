@@ -8,12 +8,10 @@ versions:
 
 {% note %}
 
-**Notes:** 
-
-- Encrypted secrets for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
-- Tokens starting with GITHUB_ are reserved
+**Note:** Encrypted secrets for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
 
 {% endnote %}
+
 
 ### About encrypted secrets for {% data variables.product.prodname_codespaces %}
 
@@ -26,6 +24,12 @@ You can add encrypted secrets to your user account that you want to use in your 
 You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret.
 
 ### Adding a secret
+
+{% note %}
+
+**Note:** Tokens starting with GITHUB_ are reserved
+
+{% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
