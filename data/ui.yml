@@ -2,8 +2,10 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    ghe_release_candidate:
-      GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate:
+      # The version name is rendered before the below text via includes/header-notification.html
+      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
     localization_complete:
       We publish frequent updates to our documentation, and translation of this page may still be in progress.
       For the most current information, please visit the
@@ -15,9 +17,7 @@ header:
       still in translation. For the most up-to-date and accurate information,
       please visit our
       <a id="to-english-doc" href="/en">English documentation</a>.
-    product_in_progress:
-      👋 Hello, explorer! This page is under active development. For the
-      most up-to-date and accurate information, please visit our <a href="https://developer.github.com">developer documentation</a>.
+    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
 search:
   need_help: Need help?
   placeholder: Search topics, products...
@@ -26,10 +26,11 @@ homepage:
   version_picker: Version
 toc:
   getting_started: Getting started
-  popular_articles: Popular articles
+  popular_articles: Popular
   guides: Guides
+  whats_new: What's new
 pages:
-  article_version: "Article version:"
+  article_version: 'Article version:'
   miniToc: In this article
 errors:
   oops: Ooops!
@@ -47,12 +48,6 @@ helpfulness:
   yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
   email_placeholder: email@example.com
   no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  category_label: What problem did you have?
-  category_default: Choose an option
-  category_unclear: Information was unclear
-  category_confusing: The content was confusing
-  category_unhelpful: The article didn't answer my question
-  category_other: Other
   comment_label: Let us know what we can do better
   optional: Optional
   required: Required
@@ -65,6 +60,14 @@ contribution_cta:
   button: Make a contribution
   or: Or,
   to_guidelines: learn how to contribute.
+enterprise_releases_list:
+  title: Enterprise Server Releases
+  currently_supported: Currently supported
+  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for information about the latest release.
+  deprecated: Deprecated
+  deprecated_message: 'These docs remain available but are no longer maintained:'
+  deprecated_developer: Deprecated on developer.github.com
+  deprecated_developer_message: 'These docs remain available on the legacy <a href="https://developer.github.com">developer site</a> but are no longer maintained:'
 products:
   graphql:
     reference:
@@ -129,3 +132,29 @@ footer:
       careers: Careers
       press: Press
       shop: Shop
+product_landing:
+  quick_start: Quickstart
+  reference_guides: Reference guides
+  overview: Overview
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: more guides
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: Type
+    topic: Topic
+    all: All
+  guide_types:
+    overview: Overview
+    quick_start: Quickstart
+    tutorial: Tutorial
+    how_to: How-to guide
+    reference: Reference
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

@@ -1,5 +1,8 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for private repositories is currently in beta and subject to change. Para solicitar acesso ao beta, [join the waitlist](https://github.com/features/security/advanced-security/signup).
+**Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned{% if currentVersion ver_gt "enterprise-server@2.22" %} public and{% endif %} private repositories is currently in beta and subject to change.
 
 {% endnote %}
+
+{% endif %}

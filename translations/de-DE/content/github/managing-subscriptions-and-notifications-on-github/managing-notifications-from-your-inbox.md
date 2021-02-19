@@ -1,24 +1,28 @@
 ---
 title: Benachrichtigungen über Deinen Posteingang verwalten
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
+
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
 
 ### Über Deinen Posteingang
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings).“
 {% endif %}
 
 Um auf Deinen Posteingang für Benachrichtigungen zuzugreifen, klicke in der rechten oberen Ecke einer beliebigen Seite auf {% octicon "bell" aria-label="The notifications bell" %}.
 
   ![Benachrichtigung, die auf eine ungelesene Mitteilung hinweist](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-
 
 Dein Posteingang zeigt alle Benachrichtigungen, die Du nicht abgemeldet oder als **Done** (Erledigt) markiert hast. Du kannst Deinen Posteingang so anpassen, dass er Deinem Workflow am besten entspricht, indem Du Filter verwendest, alle oder nur ungelesene Benachrichtigungen anzeigst und Deine Benachrichtigungen gruppierst, um eine schnelle Übersicht zu erhalten.
 
@@ -82,15 +86,47 @@ Benutzerdefinierte Filter unterstützen im Moment nicht:
   - Die Unterscheidung zwischen `is:issue`-, `is:pr`-, und `is:pull-request`-Abfragefiltern. Diese Abfragen werden sowohl Issues wie Pull Request zurückgeben.
   - Das Erstellen von mehr als 15 benutzerdefinierten Filtern.
   - Das Ändern der Standardfilter oder deren Reihenfolge.
+  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ### Unterstützte Abfragen für benutzerdefinierte Filter
 
-Es gibt drei Arten von Filtern, die Du verwenden kannst:
+These are the types of filters that you can use:
   - Nach Repository filtern mit `Repo:`
   - Nach Diskussionstyp filtern mit `is:`
-  - Nach Benachrichtigungsgrund filtern mit `reason:`
+  - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
+  - Filter by notification author with `author:`
+  - Filter by organization with `org:`{% endif %}
 
-Um einen `repo:`-Filter hinzuzufügen, musst Du den Inhaber des Repository in der Abfrage einschließen. Beispielsweise repräsentiert `repo:atom/atom` alle Atom-Repositorys, die im Besitz der Atom-Organisation sind.
+#### Supported `repo:` queries
+
+To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
+
+#### Unterstützte `is:`-Abfragen
+
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+
+- `is:check-suite`
+- `is:commit`
+- `is:gist`
+- `is:issue-or-pull-request`
+- `is:release`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
+- `is:repository-vulnerability-alert`
+- `is:repository-advisory`{% endif %}
+- `is:team-discussion`{% if currentVersion == "free-pro-team@latest" %}
+- `is:discussions`{% endif %}
+
+{% if currentVersion != "github-ae@latest" %}
+For information about reducing noise from notifications for
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
+
+Du kannst die Abfrage `is:` auch verwenden, um zu beschreiben, wie die Benachrichtigung selektiert wurde.
+
+- `is:saved`
+- `is:done`
+- `is:unread`
+- `is:read`
 
 #### Unterstützte `reason:`-Abfragen
 
@@ -105,29 +141,45 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 | `reason:invitation`       | Wenn Du in ein Team, eine Organisation oder ein Repository eingeladen wirst.                                                                  |
 | `reason:manual`           | Wenn Du auf einem Issue oder Pull Request **Subscribe** (Abonnieren) klickst, die Du noch nicht abonniert hattest.                            |
 | `reason:mention`          | Du wurdest direkt @erwähnt.                                                                                                                   |
-| `reason:review-requested` | Du oder ein Team, in dem du angehörst, wurden gebeten, einen Pull Request zu überprüfen.                                                      |
-| `reason:security-alert`   | Wenn eine Sicherheitswarnung für ein Repository ausgegeben wird.                                                                              |
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`     | Wenn der Status eines Pull Request oder Issue geändert wird. Beispielsweise wird ein Issue geschlossen oder ein Pull Request zusammengeführt. |
 | `reason:team-mention`     | Wenn ein Team, dem Du angehörst, @erwähnt wird.                                                                                               |
 | `reason:ci-activity`      | Wenn ein Repository CI-Aktualisierungen hat, wie beispielsweise einen neuen Status für eine Workflow-Ausführung.                              |
 
-#### Unterstützte `is:`-Abfragen
+{% if currentVersion == "free-pro-team@latest" %}
+#### Supported `author:` queries
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. Um beispielsweise nur Aktualisierungen zu Repository-Einladungen zu sehen, benutze die Abfrage `is:repository-invitation`.
+To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
 
-- `is:check-suite`
-- `is:commit`
-- `is:gist`
-- `is:issue-or-pull-request`
-- `is:release`
-- `is:repository-invitation`
-- `is:repository-vulnerability-alert`
-- `is:repository-advisory`
-- `is:team-discussion`
+#### Supported `org:` queries
 
-Du kannst die Abfrage `is:` auch verwenden, um zu beschreiben, wie die Benachrichtigung selektiert wurde.
+To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
-- `is:saved`
-- `is:done`
-- `is:unread`
-- `is:read`
+For example, to see notifications from the octo-org organization, use `org:octo-org`.
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+### {% data variables.product.prodname_dependabot %} custom filters
+
+{% if currentVersion == "free-pro-team@latest" %}
+If you use
+{% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
+- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
+- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
+For more information about
+
+{% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+If you use
+{% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+For more information about
+
+{% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+{% endif %}
+
+{% endif %}

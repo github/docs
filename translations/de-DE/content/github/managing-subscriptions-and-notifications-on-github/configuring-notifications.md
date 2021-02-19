@@ -1,6 +1,6 @@
 ---
-title: Configuring notifications
-intro: 'Choose the type of activity on {% data variables.product.product_name %} that you want to receive notifications for and how you want these updates delivered.'
+title: Benachrichtigungen konfigurieren
+intro: 'Wähle die Art der Aktivitäten auf {% data variables.product.product_name %} , für die Du Benachrichtigungen erhalten möchtest und wie Du diese Aktualisierungen erhalten möchtest.'
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails/
@@ -16,64 +16,84 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
-### Notification delivery options
-
-You have three basic options for notification delivery:
-  - the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}
-  - the notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
-  - an email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-{% data reusables.notifications-v2.tip-for-syncing-email-and-your-inbox-on-github %}
+### Zustellungsoptionen für Benachrichtigungen
+
+You can receive notifications for activity on {% data variables.product.product_name %} in the following locations.
+
+  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} Weitere Informationen findest Du auf „[Deine Benachrichtigungseinstellungen wählen](#choosing-your-notification-settings)."
+{% endif %}
+
+{% data reusables.notifications.shared_state %}
 
 #### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
-  - Triage multiple notifications at once.
-  - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
-  - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
-  - Unsubscribe and remove a notification from your inbox.
-  - Preview the issue, pull request, or team discussion where the notification originates on {% data variables.product.product_name %} from within the notifications inbox.
-  - See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
-  - Create custom filters to focus on different notifications when you want.
-  - Group notifications in your inbox by repository or date to get a quick overview with less context switching
+The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+  - Selektieren mehrerer Benachrichtigungen auf einmal.
+  - Erledigte Benachrichtigungen als **Done** (Erledigt) markieren und aus dem Posteingang entfernen. Um alle Deine Benachrichtigungen anzuzeigen, die als **Done** markiert sind, verwende die Abfrage mit `is:done`.
+  - Sichere eine Benachrichtigung für späteren Review. Gesicherte Benachrichtigungen sind in Deinem Posteingang markiert und werden auf unbestimmte Zeit gehalten. Um alle Deine gesicherten Benachrichtigungen zu sehen, benutze die Abfrage mit `is:saved`.
+  - Melde eine Benachrichtigung ab und entferne sie aus dem Posteingang.
+  - Vorschau des Issue, Pull Request oder der Team-Diskussion, aus der die Benachrichtigung auf {% data variables.product.product_name %} erstellt wurde, direkt aus dem Posteingang der Benachrichtigungen.
+  - Siehe einen der neuesten Gründe, weshalb Du eine Benachrichtigung erhältst, über die Kennzeichnung `reasons` (Grund) in Deinem Posteingang.
+  - Erstelle benutzerdefinierte Filter, um auf Wunsch auf verschiedene Benachrichtigungen fokussieren zu können.
+  - Gruppiere Benachrichtigungen in Deinem Posteingang nach Repository oder Datum, um einen schnellen Überblick mit weniger Kontextwechseln zu erhalten
 
-{% if currentVersion == "free-pro-team@latest" %}
-In addition, the notifications inbox on {% data variables.product.prodname_mobile %} allows you to triage notifications in dark mode and receive push notifications for direct mentions. For more information, see "[Enabling push notifications with GitHub for mobile](#enabling-push-notifications-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+In addition, the notifications inbox on
+{% data variables.product.prodname_mobile %} allows you to triage notifications in dark mode and receive push notifications for direct mentions. Weitere Informationen findest Du auf „[Push-Benachrichtigungen mit GitHub for mobile einrichten](#enabling-push-notifications-with-github-for-mobile)" oder auf „[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
 
-#### Benefits of using an email client for notifications
+#### Vorteile beim Benutzen eines E-Mail-Client für Benachrichtigungen
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
+Ein Vorteil der Verwendung eines E-Mail-Clients ist, dass alle Deine Benachrichtigungen unbegrenzt aufbewahrt werden können, abhängig von der Speicherkapazität Deines E-Mail-Clients. In Deinem Posteingang für Benachrichtigungen hingegen werden Benachrichtigungen nur für 5 Monate aufbewahrt, außer wenn du sie mit **Saved** (Gesichert) markiert hast. Mit **Saved** (Gesichert) markierte Benachrichtigungen werden unbegrenzt gespeichert. Weitere Informationen zur Aufbewahrungsrichtlinie Deines Posteingangs findest Du unter „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
 
-Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
+Benachrichtigungen an Deinen E-Mail-Client zu senden erlaubt Dir auch, Deinen Posteingang mit allen Einstellungen deines E-Mail-Clients anzupassen, welche allenfalls benutzerdefinierte oder farbcodierte Kennzeichnungen beinhalten.
 
-Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a  verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
+E-Mail-Benachrichtigungen ermöglichen auch Flexibilität bei der Art von Benachrichtigungen, die Du erhältst und erlauben Dir die Auswahl verschiedener E-Mail-Adressen für Aktualisierungen. Beispielsweise kannst Du bestimmte Benachrichtigungen für ein Repository an die verifizierte persönliche E-Mail-Adresse senden. Weitere Informationen über E-Mail-Anpassungsoptionen findest Du unter „[Deine E-Mail-Benachrichtigungen anpassen](#customizing-your-email-notifications)."
 
-### About participating and watching notifications
+### Über die Teilnahme und das Beobachten von Benachrichtigungen
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. To see repositories that you're watching, see [https://github.com/watching](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+Wenn Du ein Repository beobachtest, abonnierst Du Aktualisierungen für Aktivitäten in diesem Repository. Ebenfalls, wenn Du die Diskussionen eines bestimmten Teams verfolgst, abonnierst Du alle Aktualisierungen der Unterhaltung auf der Seite dieses Teams. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/github/building-a-strong-community/about-team-discussions)“.
 
-Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
+To see repositories that you're watching, go to your [watching page](https://github.com/watching). Weitere Informationen findest Du unter „[Abonnements und Benachrichtigungen auf GitHub verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+#### Benachrichtigungen konfigurieren
+{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
+#### About custom notifications
+{% data reusables.notifications-v2.custom-notifications-beta %}
+You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+{% endif %} For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)."
 
-![Participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png)
+#### Participating in conversations
+Jedes Mal, wenn Du in einer Unterhaltung kommentierst oder wenn jemand Deinen Benutzernamen @erwähnt, bist Du _Teilnehmer_ in einer Unterhaltung. Standardmäßig abonnierst Du automatisch eine Unterhaltung, wenn Du daran teilnimmst. Du kannst Dich manuell von einer Unterhaltung abmelden, an der Du teilgenommen hast, indem Du auf dem Issue oder Pull Request auf **Unsubscribe** (Abmelden) klickst oder durch die Option **Unsubscribe** (Abmelden) im Posteingang für Benachrichtigungen.
 
-For example:
-  - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
-  - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}.
 
-If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+![Optionen für Teilnahme- und Beobachtungs-Benachrichtigungen](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
-### Customizing your email notifications
+Ein Beispiel:
+  - Wenn Du nicht möchtest, dass Benachrichtigungen an Deine E-Mail gesendet werden, deaktiviere **email** (E-Mail) für die Teilnahme und das Beobachten von Benachrichtigungen.
+  - Wenn Du Benachrichtigungen per E-Mail erhalten möchtest, wenn Du an einer Unterhaltung teilgenommen hast, kannst du **email** (E-Mail) unter „Participating" (Teilnehmen) auswählen.
 
-After enabling email notifications, {% data variables.product.product_name %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.product.product_name %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+
+### E-Mail-Benachrichtigungen anpassen
+
+Nach der Aktivierung von E-Mail-Benachrichtigungen sendet Dir {% data variables.product.product_name %} Benachrichtigungen als mehrteilige E-Mails, die sowohl HTML als auch reine Textkopien des Inhalts enthalten. Der Inhalt der E-Mail-Benachrichtigung umfasst alle Markdowns, @Erwähnungen, Emojis, Hash-Links usw., die im ursprünglichen Inhalt auf {% data variables.product.product_name %} erscheinen. Wenn Du nur den Text in der E-Mail sehen möchtest, kannst Du Deinen E-Mail-Client so konfigurieren, dass er nur die reine Textkopie anzeigt.
 
 {% data reusables.notifications.outbound_email_tip %}
 
@@ -81,132 +101,128 @@ After enabling email notifications, {% data variables.product.product_name %} wi
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
+Wenn Sie Gmail verwenden, können Sie auf eine Schaltfläche neben der Benachrichtigungs-E-Mail klicken, um den ursprünglichen Issue bzw. Pull Request anzuzeigen, der die Benachrichtigung generiert hat.
 
-![Buttons in Gmail](/assets/images/help/notifications/gmail-buttons.png)
+![Schaltflächen in Gmail](/assets/images/help/notifications/gmail-buttons.png)
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.product_name %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
-  - Comments on issues and pull requests.
-  - Pull request reviews.
-  - Pull request pushes.
-  - Your own updates, such as when you open, comment on, or close an issue or pull request.
+Wähle eine Standard-E-Mail-Adresse, an die Du Aktualisierungen für Unterhaltungen senden willst, an denen Du teilnimmst oder die Du beobachtest. Du kannst auch definieren, für welche Aktivitäten auf {% data variables.product.product_name %} Du Aktualisierungen über Deine Standard-E-Mail-Adresse erhalten willst. Wähle zum Beispiel aus, ob Du Aktualisierungen an Deine Standard-E-Mail senden möchtest für:
+  - Kommentare für Issues und Pull Requests.
+  - Pull-Request-Reviews.
+  - Pull-Request-Pushes.
+  - Deine eigenen Aktualisierungen, wie wenn Du beispielsweise einen Issue oder Pull Request öffnest, kommentierst oder schließt.
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses for specific repositories. For example, you can send notifications for a specific public repository to a verified personal email address. Your organization may require the email address to be verified for a specific domain. For more information, see “[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+Depending on the organization that owns the repository, you can also send notifications to different email addresses. Deine Organisation verlangt möglicherweise, dass E-Mail-Adressen für bestimmte Domänen verifiziert sein müssen. For more information, see "[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+
+You can also send notifications for a specific repository to an email address. Weitere Informationen findest Du unter "[Informationen zu E-Mail-Benachrichtigungen für Pushes in Dein Repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-### Filtering email notifications
+### E-Mail-Benachrichtigungen filtern
 
-Each email notification that {% data variables.product.product_name %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.product_name %} notifications, or certain types of {% data variables.product.product_name %} notifications.
+Jede E-Mail-Benachrichtigung, die {% data variables.product.product_name %} sendet, enthält Headerinformationen. Die Header-Informationen in jeder E-Mail sind einheitlich, sodass Du sie in Deinem E-Mail-Client verwenden kannst, um alle {% data variables.product.product_name %}-Benachrichtigungen oder bestimmte Arten von {% data variables.product.product_name %}-Benachrichtigungen zu filtern oder weiterzuleiten.
 
-If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
+Wenn Du glaubst, dass Du Benachrichtigungen erhältst, die nicht zu Dir gehören, überprüfe die Header für `X-GitHub-Recipient` (Empfänger) und `X-GitHub-Recipient-Address` (Empfänger-Adresse). Diese Header zeigen an, wer der beabsichtigte Empfänger ist. Abhängig von Deiner E-Mail-Einrichtung erhältst Du möglicherweise Benachrichtigungen für einen anderen Benutzer.
 
-Email notifications from {% data variables.product.product_name %} contain the following header information:
+E-Mail-Benachrichtigungen von {% data variables.product.product_name %} enthalten die folgenden Headerinformationen:
 
-| Header | Information |
-| --- | --- |
-| `From` address | This address will always be {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
-| `To` field | This field connects directly to the thread. If you reply to the email, you'll add a new comment to the conversation. |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
-| `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}
-| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
+| Header                   | Informationen                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `From`-Adresse           | This address will always be {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}.                                                                                                                                                                              |
+| `To`-Feld                | This field connects directly to the thread.{% if currentVersion != "github-ae@latest" %} If you reply to the email, you'll add a new comment to the conversation.{% endif %}
+| `Cc`-Adresse             | {% data variables.product.product_name %} fügt Sie zu `Cc` hinzu, wenn Sie eine Unterhaltung abonniert haben. Die zweite E-Mail-Adresse in `Cc` entspricht dem Benachrichtigungsgrund. Das Suffix für diese Benachrichtigungsgründe lautet {% data variables.notifications.cc_address %}. Zu den möglichen Benachrichtigungsgründen gehören folgende: <ul><li>`assign`: Dir wurde ein Issue oder Pull Request zugewiesen.</li><li>`author`: Du hast einen Issue oder Pull Request erstellt.</li><li>`comment`: Du hast einen Issue oder Pull Request kommentiert.</li><li>`manual`: Ein Issue oder Pull Request, den Du manuell abonniert hast, wurde aktualisiert.</li><li>`mention`: Du wurdest in einem Issue oder Pull Request erwähnt.</li><li>`push`: Jemand hat einen Commit für einen Pull Request erstellt, den Du abonniert hast.</li><li>`review_requested`: Du oder ein Team, dem Du angehörst, wurdest/wurde gebeten, einen Review für einen Pull Request durchzuführen.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} hat eine Schwachstelle in einem Repository erkannt, für das Du Sicherheitswarnungen erhältst.</li>{% endif %}<li>`state_change`: Ein Issue oder Pull Request, den Du abonniert hast, wurde entweder geschlossen oder geöffnet.</li><li>`subscribed`: Es gab eine Aktualisierung in einem Repository, das Du beobachtest.</li><li>`team_mention`: Ein Team, dem Du angehörst, wurde in einem Issue oder Pull Request erwähnt.</li><li>`your_activity`: Du hast einen Issue oder Pull Request geöffnet, kommentiert oder geschlossen.</li></ul> |
+| `mailing list`-Feld      | In diesem Feld werden der Name des Repositorys und sein Inhaber identifiziert. Das Format dieser Adresse lautet immer `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+| `X-GitHub-Severity`-Feld | {% data reusables.repositories.security-alerts-x-github-severity %} Die möglichen Schweregrade sind:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." | 
+{% endif %}
 
-### Choosing your notification settings
+### Wähle Deine Benachrichtigungseinstellungen
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-3. On the notifications settings page, choose how you receive notifications when:
-    - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} options](#github-dependabot-alerts-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
-    - There are new security alerts in your repository. For more information, see "[Security alert options](#security-alert-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
-    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
+3. Auf der Seite für Benachrichtigungseinstellungen wählst Du, wie Du Benachrichtigungen erhalten willst, wenn:
+    - Es Aktualisierungen in Repositories oder Teamdiskussionen gibt, die Du beobachtest, oder in einer Unterhaltung, an der Du teilnimmst. Weitere Informationen findest Du unter „[Über die Teilnahme an und das Beobachten von Benachrichtigungen](#about-participating-and-watching-notifications)."
+    - Du Zugriff erhältst auf ein neues Repository oder wenn Du einem neuen Team beigetreten bist. For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+    - There are new {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} security alerts {% endif %} in your repository. Weitere Informationen findest Du unter „[{% data variables.product.prodname_dependabot_alerts %} Benachrichtigungsoptionen](#dependabot-alerts-notification-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - Es neue Sicherheitswarnungen in Deinem Repository gibt. For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
+    - Es Aktualisierungen zu Workflow-Ausführungen auf Repositorys gibt, die mit {% data variables.product.prodname_actions %} aufgesetzt wurden. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
 
-### Automatic watching
+### Automatisches Beobachten
 
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options.
+Standardmäßig wirst Du jedes Mal, wenn Du Zugriff auf ein neues Repository erhältst, automatisch mit der Beobachtung dieses Repository beginnen. Jedes mal, wenn Du einem neuen Team beitrittst, abonnierst Du automatisch Aktualisierungen und erhältst Benachrichtigungen, wenn dieses Team @erwähnt ist. Wenn Du keine automatischen Abonnements möchtest, kannst Du die automatischen Beobachtungsoptionen deaktivieren.
 
-  ![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png)
+  ![Optionen für automatisches Beobachten](/assets/images/help/notifications-v2/automatic-watching-options.png)
 
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
+Wenn "Automatisch Repositories beobachten" deaktiviert ist, wirst Du auch nicht automatisch Deine eigenen Repositorys beobachten. Du musst dann zu Deiner Repository-Seite navigieren und die Beobachtungsoption wählen.
 
-### Choosing where your organization’s email notifications are sent
+### Wähle, wohin die E-Mail-Benachrichtigungen Deiner Organisation gesendet werden
 
-If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.	
+Wenn Sie einer Organisation angehören, können Sie das E-Mail-Konto auswählen, an das die Benachrichtigungen für Aktivitäten in der Organisation gesendet werden sollen. Wenn Sie z. B. einer Organisation für die Arbeit angehören, könnten Sie sich die Benachrichtigungen an Ihre berufliche E-Mail-Adresse senden lassen statt an Ihre private.
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-3. Under "Default notification email", select the email address you'd like notifications sent to.	
-![Default notification email address drop-down](/assets/images/help/notifications/notifications_primary_email_for_orgs.png)	
-4. Click **Save**.	
+3. Wählen Sie unter „Default notification email“ (Standardmäßige Benachrichtigungs-E-Mail-Adresse) die E-Mail-Adresse aus, an die Benachrichtigungen gesendet werden sollen.   
+   ![Dropdownmenü mit standardmäßigen Benachrichtigungs-E-Mail-Adressen](/assets/images/help/notifications/notifications_primary_email_for_orgs.png)
+4. Klicke auf **Save** (Speichern).
 
-#### Customizing email routes per organization	
+#### E-Mail-Routen pro Organisation anpassen
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% if currentVersion == "free-pro-team@latest" %} your verified email addresses{% else %} the email addressed you've added to your {% data variables.product.product_name %} account{% endif %}. {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %} 
+If you are a member of more than one organization, you can configure each one to send notifications to any of{% if currentVersion == "free-pro-team@latest" %} your verified email addresses{% else %} the email addressed you've added to your {% data variables.product.product_name %} account{% endif %}. {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-3. Under "Custom routing," find your organization's name in the list.	
-![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
-4. Click **Edit** next to the email address you want to change.	
-![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
-5. Select one of your verified email addresses, then click **Save**.	
-![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif)
+3. Suchen Sie in der Liste unter „Custom routing“ (Benutzerdefiniertes Routing) den Namen Ihrer Organisation.   
+   ![Liste der Organisationen und E-Mail-Adressen](/assets/images/help/notifications/notifications_org_emails.png)
+4. Klicke neben der E-Mail-Adresse, die Du ändern möchtest, auf **Edit** (Bearbeiten). ![E-Mail-Adressen einer Organisation bearbeiten](/assets/images/help/notifications/notifications_edit_org_emails.png)
+5. Wähle eine Deiner verifizierten E-Mail-Adressen aus, und klicke dann auf **Save** (Speichern).    
+   ![Eigene E-Mail-Adressen pro Organisation ändern](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_dependabot_alerts %} options 
+### {% data variables.product.prodname_dependabot_alerts %} Benachrichtigungsoptionen
 {% else %}
-### Security alert options 
+### Security alert notification options
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. You can receive {% data variables.product.prodname_dependabot_alerts %} in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for
 
-If you want to receive {% data variables.product.prodname_dependabot_alerts %} by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."{% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. You can receive security alerts in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
-
-If you want to receive security alerts by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} alerts options](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![Security alerts options](/assets/images/help/notifications-v2/security-alerts-options.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+### {% data variables.product.prodname_actions %} Benachrichtigungsoptionen
 
-### {% data variables.product.prodname_actions %} notification options
+Wähle, wie Du Aktualisierungen für Workflow-Ausführungen erhalten willst für Repositorys, die Du beobachtest und die mit {% data variables.product.prodname_actions %} aufgesetzt sind. Du kannst auch wählen, nur Benachrichtigungen für fehlgeschlagene Workflow-Ausführungen zu erhalten.
 
-Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.
-
-  ![Notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
+  ![Notification options for GitHub Actions](/assets/images/help/notifications-v2/github-actions-notification-options.png)
 
 {% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+### Push-Benachrichtigungen mit {% data variables.product.prodname_mobile %} aktivieren
+
+Wenn Du {% data variables.product.prodname_mobile %} installierst, bist Du automatisch für Web-Benachrichtigungen abonniert. Du kannst dann Push-Benachrichtigungen aktivieren für direkte Erwähnungen innerhalb der App.
+
+Du kannst im Moment nur Benachrichtigungen für Pushes an Repositorys auf {% data variables.product.prodname_mobile %} erhalten.
+
+{% data reusables.mobile.push-notifications-on-ghes %}
+
+#### Push-Benachrichtigungen mit {% data variables.product.prodname_ios %} aktivieren
+
+1. Oberhalb von „Home", tippe auf Dein Profilfoto.
+2. Um deine Einstellungen zu sehen, tippe auf {% octicon "gear" aria-label="The Gear icon" %}. ![Einstellungssymbol für GitHub for iOS](/assets/images/help/mobile/ios-settings-icon.png)
+3. Um Deine Benachrichtigungseinstellungen anzupassen, tippe auf **Push notifications** (Push-Benachrichtigungen).
+4. Um Push-Benachrichtigungen für direkte Erwähnungen einzuschalten, verwende den Schalter **Direct Mentions** (Direkte Erwähnung).
 
 {% if currentVersion == "free-pro-team@latest" %}
+#### Push-Benachrichtigungen mit {% data variables.product.prodname_android %} aktivieren
 
-### Enabling push notifications with {% data variables.product.prodname_mobile %}
-
-When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. You can then enable push notifications for direct mentions within the app.
-
-You can only receive notifications for pushes to repositories on {% data variables.product.prodname_mobile %} at this time.
-
-#### Enabling push notifications with {% data variables.product.prodname_ios %}
-
-1. Above "Home", tap your profile photo.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Settings icon for GitHub for iOS](/assets/images/help/mobile/ios-settings-icon.png)
-3. To update your notification settings, tap **Push notifications**.
-4. To turn on push notifications for direct mentions, use the **Direct Mentions** toggle.
-
-#### Enabling push notifications with {% data variables.product.prodname_android %}
-
-1. Above "Home", tap your profile photo.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Settings icon for GitHub for Android](/assets/images/help/mobile/android-settings-icon.png)
-3. To turn on push notifications for direct mentions, use the **Direct mentions** toggle.
+1. Oberhalb von „Home", tippe auf Dein Profilfoto.
+2. Um deine Einstellungen zu sehen, tippe auf {% octicon "gear" aria-label="The Gear icon" %}. ![Einstellungssymbol für GitHub for Android](/assets/images/help/mobile/android-settings-icon.png)
+3. Um Push-Benachrichtigungen für direkte Erwähnungen einzuschalten, verwende den Schalter **Direct mentions** (Direkte Erwähnung).
+{% endif %}
 {% endif %}

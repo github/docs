@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -17,8 +18,9 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
+请联系
 
-如果您因陌生人滥用而需要关闭议题，请联系 {% data variables.contact.contact_support %}。
+{% data variables.contact.contact_support %}，如果因陌生人滥用而需要关闭议题。
 {% data reusables.policies.abuse %}
 
 {% endtip %}

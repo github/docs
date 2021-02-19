@@ -1,7 +1,7 @@
 ---
 title: 配置 Git 用于 GitHub Desktop
 shortTitle: 配置 Git
-intro: 如果尚未安装 Git，在使用 GitHub Desktop 前必须先配置。
+intro: '如果尚未安装 Git，在使用 GitHub Desktop 前必须先配置。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
 versions:

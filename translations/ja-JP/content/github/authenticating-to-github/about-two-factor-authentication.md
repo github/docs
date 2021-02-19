@@ -1,6 +1,6 @@
 ---
 title: 2 要素認証について
-intro: 2 要素認証、あるいは 2FA は、Web サイトあるいはアプリケーションにログインする際に使われる追加のセキュリティレイヤーです。 2FA を使うと、ユーザ名とパスワードを用い、さらにあなただけが知っている、もしくは利用できる他の形態の認証を利用してログインしなければならなくなります。
+intro: '{% data reusables.two_fa.about-2fa %} 2FA では、ユーザ名とパスワードを使用してログインし、さらに自分だけが知っている、または利用できる別の形式の認証でログインする必要があります。'
 redirect_from:
   - /articles/about-two-factor-authentication
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data variables.product.product_name %}では、2 番目の形態の認証は、モバイルデバイス上のアプリケーションで生成された{% if currentVersion == "free-pro-team@latest" %}、もしくはテキストメッセージ (SMS) で送信された{% endif %}コードです。 2FA を有効化すると、{% data variables.product.product_name %}は誰かが {% data variables.product.product_name %}アカウントにサインインしようとすると認証コードを生成します。 誰かがアカウントサインインできるのは、パスワードを知っており、電話上の認証コードも利用できる場合のみです。
+{% data variables.product.product_name %} の場合、2 番目の認証の形式は、モバイルデバイス上のアプリケーションによって生成されるコード{% if currentVersion == "free-pro-team@latest" %}、またはテキストメッセージ (SMS) として送信されるコードになります{% endif %}。 2FA を有効化すると、{% data variables.product.product_name %}は誰かが {% data variables.product.product_name %}アカウントにサインインしようとすると認証コードを生成します。 誰かがアカウントサインインできるのは、パスワードを知っており、電話上の認証コードも利用できる場合のみです。
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
@@ -34,6 +34,6 @@ versions:
 
 ### Organization で 2 要素認証を要求する
 
-Organization のオーナーは、Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}および外部のコラボレータが個人アカウントをセキュアに保つために 2 要素認証を使うことを要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
+Organization のオーナーは、Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}および外部のコラボレータが個人アカウントを保護するために 2 要素認証を使うことを要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
 
 {% data reusables.two_fa.auth_methods_2fa %}

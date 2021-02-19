@@ -59,7 +59,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} 設定ログ
 - `collectd/logs/collectd.log`：Collectdのログ
 - `mail-logs/mail.log`：SMTPのメール配送ログ
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`：webhookのデリバリエラー
+{% endif %}
 
 詳細は「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。
 
@@ -85,7 +87,7 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 
 #### SSHを使ったSupport Bundleの作成
 
-{% data variables.product.prodname_ghe_server %} アプライアンスが SSH を利用でき、外部のインターネットにアクセスできる場合は、以下の手順で Support Bundle を作成して共有できます。
+{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -99,19 +101,19 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 
 #### Enterprise アカウントを使用して Support Bundle をアップロードする
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
-4. [{% data variables.product.prodname_enterprise %} Help] の下で、[**Upload a support bundle**] をクリックします。 ![Support Bundle リンクをアップロードする](/assets/images/enterprise/support/upload-support-bundle.png)
+3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. [{% data variables.product.prodname_enterprise %} Help] にある [**Upload a support bundle**] をクリックします。 ![Support Bundle リンクをアップロードする](/assets/images/enterprise/support/upload-support-bundle.png)
 5. [Select an enterprise account] で、ドロップダウンメニューから Support Bundle に関連付けられているアカウントを選択します。 ![Support Bundle の Enterprise アカウントを選択する](/assets/images/enterprise/support/support-bundle-account.png)
-6. [Upload a support bundle for {% data variables.contact.enterprise_support %}] で、Support Bundle を選択するには、[**Choose file**] をクリックするか、Support Bundle ファイルを [**Choose file**] にドラッグします。 ![Support Bundle ファイルをアップロードする](/assets/images/enterprise/support/choose-support-bundle-file.png)
+6. [Upload a support bundle for {% data variables.contact.enterprise_support %}] で Support Bundle を選択するには、[**Choose file**] をクリックするか、Support Bundle ファイルを [**Choose file**] にドラッグします。 ![Support Bundle ファイルをアップロードする](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. [**Upload**] をクリックします。
 
 #### SSHを使ったSupport Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.prodname_ghe_server %} アプライアンスに SSH でアクセスできること。
-- {% data variables.product.prodname_ghe_server %} アプライアンスから外部の TCP ポート 443 に HTTPS 接続ができること。
+- {% data variables.product.product_location %} への SSH アクセス権がある。
+- TCP ポート 443 を介したアウトバウンド HTTPS 接続が、{% data variables.product.product_location %} から許可されている。
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell
@@ -120,13 +122,13 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 
 ### 拡張Support Bundleの作成と提供
 
-Support Bundleには過去2日分のログが含まれますが、_拡張_Support Bundleには過去7日分のログが含まれます。 {% data variables.contact.github_support %} が調査しているイベントが 2 日以上前に起きたのであれば、拡張Support Bundleの共有をお願いすることがあります。 拡張Support BundleのダウンロードにはSSHアクセスが必要です。拡張Support Bundleを{% data variables.enterprise.management_console %}からダウンロードすることはできません。
+Support Bundleには過去2日分のログが含まれますが、_拡張_Support Bundleには過去7日分のログが含まれます。 {% data variables.contact.github_support %} が調査しているイベントが 2 日以上前に発生した場合は、拡張 Support Bundle の共有をお願いする場合があります。 拡張 Support Bundle をダウンロードするには、SSH アクセスが必要です。{% data variables.enterprise.management_console %} から拡張 Support Bundle をダウンロードすることはできません。
 
 バンドルが大きくなりすぎるのを避けるために、バンドルにはローテーションや圧縮されていないログだけが含まれます。 {% data variables.product.prodname_ghe_server %} でのログのローテーションは、それぞれのログがどの程度の大きさになるかの予想に応じて、ログごとに様々な頻度 (日次あるいは週次) で行われます。
 
 #### SSHを使った拡張Support Bundleの作成
 
-{% data variables.product.prodname_ghe_server %} アプライアンスにSSHでアクセスでき、外部のインターネットへアクセスできるのであれば、以下の手順で拡張Support Bundleを作成し、共有できます。
+{% data variables.product.product_location %} への SSH アクセスがあり、アウトバウンドインターネットアクセスがある場合は、これらのステップで拡張 Support Bundle を作成および共有できます。
 
 1. `ghe-support-bundle`コマンドに`-x`フラグを追加して、SSH経由で拡張Support Bundleをダウンロードしてください。
   ```shell
@@ -138,8 +140,8 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 #### SSHを使った拡張Support Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.prodname_ghe_server %} アプライアンスに SSH でアクセスできること。
-- {% data variables.product.prodname_ghe_server %} アプライアンスから外部の TCP ポート 443 に HTTPS 接続ができること。
+- {% data variables.product.product_location %} への SSH アクセス権がある。
+- TCP ポート 443 を介したアウトバウンド HTTPS 接続が、{% data variables.product.product_location %} から許可されている。
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell

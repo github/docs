@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 {% data variables.product.product_name %} API 为开发人员提供大量的可用信息。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
 
@@ -19,9 +20,9 @@ versions:
 
 首先需要了解有关接收分页条目的一些事实：
 
-1. 不同的 API 调用响应具有不同的默认值。 例如，调用[列出公共仓库](/v3/repos/#list-public-repositories)将提供以 30 项为单位的分页结果，而调用 GitHub 搜索 API 将提供以 100 项为单位的分页结果
+1. 不同的 API 调用响应具有不同的默认值。 例如，调用[列出公共仓库](/rest/reference/repos#list-public-repositories)将提供以 30 项为单位的分页结果，而调用 GitHub 搜索 API 将提供以 100 项为单位的分页结果
 2. 您可以指定要接收的条目数（最多 100 个）；但是，
-3. 出于技术原因，并非每个端点的行为都相同。 例如，[事件](/v3/activity/events/)不允许设置要接收的最大条目数量。 请务必阅读关于如何处理特定端点分页结果的文档。
+3. 出于技术原因，并非每个端点的行为都相同。 例如，[事件](/rest/reference/activity#events)不允许设置要接收的最大条目数量。 请务必阅读关于如何处理特定端点分页结果的文档。
 
 有关分页的信息包含在 API 调用的 [Link 标头](http://tools.ietf.org/html/rfc5988)中。 例如，我们向搜索 API 发出一个 curl 请求，以查明 Mozilla 项目使用短语 `addClass` 的次数：
 
@@ -31,8 +32,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 `-I` 参数表示我们只关注标头，而不关注实际内容。 在检查结果时，您会注意到 Link 标头中的一些信息，如下所示：
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 我们来分解说明。 `rel="next"` 表示下一页是 `page=2`。 这是合理的，因为在默认情况下，所有分页查询都是从第 `1` 页开始。`rel="last"` 提供了更多信息，指示结果的最后一页是第 `34` 页。 因此，我们还有 33 页有关 `addClass` 的信息可用。 不错！
 
@@ -48,10 +49,10 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 以下是再次出现的 Link 标头：
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 果然，`rel="next"` 是 15，而 `rel="last"` 仍是 34。 但是现在我们得到了更多信息：`rel="first"` 表示_第一_页的 URL，更重要的是，`rel="prev"` 让您知道了上一页的页码。 根据这些信息，您可以构造一些 UI，使用户可以在 API 调用结果列表的第一页、上一页、下一页或最后一页之间跳转。
 
@@ -65,8 +66,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 请注意它对标头响应的影响：
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 您可能已经猜到了，`rel="last"` 信息表明最后一页现在是第 20 页。 这是因为我们要求每页提供更多的结果相关信息。
 
@@ -200,7 +201,7 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

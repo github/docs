@@ -5,15 +5,16 @@ redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在添加图像之前，请展开仓库链接以显示关于仓库和所有者头像的基本信息。 为仓库添加图像有助于在各种社交平台上识别您的项目。
 
-可以向私有仓库上传图像，但只能从公共仓库下载图像。
+{% if currentversion != "github-ae@latest" %}您可以将映像上传到私有仓库，但您的映像只能从公共仓库分享。{% endif %}
 
 {% tip %}
-Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。
+提示：您的图像应为大小在 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}

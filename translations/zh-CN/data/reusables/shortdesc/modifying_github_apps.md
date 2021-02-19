@@ -1,1 +1,1 @@
-After creating a GitHub App, you can make changes to it.
+创建 GitHub 应用程序后，您可以对其进行修改。

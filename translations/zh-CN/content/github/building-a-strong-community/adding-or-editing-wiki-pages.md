@@ -11,6 +11,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 添加 wiki 页面
@@ -45,7 +46,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 # Clones the wiki locally
 ```
 
-在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
 
 ### 关于 wiki 文件名
 

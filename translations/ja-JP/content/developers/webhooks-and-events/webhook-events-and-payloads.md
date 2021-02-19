@@ -1,6 +1,6 @@
 ---
-title: Webhook events and payloads
-intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
+title: webhook イベントとペイロード
+intro: 'webhook イベントごとに、イベントの発生日時、ペイロードの例、およびペイロードオブジェクトパラメータに関する説明を確認できます。'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,56 +19,54 @@ versions:
 
 {% data reusables.webhooks.webhooks_intro %}
 
-You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. 詳しい情報については「[webhook を作成する](/webhooks/creating/)」を参照してください。
+このページに表示されているイベントをサブスクライブする webhook を作成できます。 各 webhook イベントには、webhook プロパティの説明とペイロードの例が含まれています。 詳しい情報については「[webhook を作成する](/webhooks/creating/)」を参照してください。
 
+### webhook ペイロードオブジェクトの共通プロパティ
 
-### Webhook payload object common properties
+各 webhook イベントペイロードには、イベント固有のプロパティも含まれています。 固有のプロパティは、個々のイベントタイプのセクションにあります。
 
-Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
-
-| キー       | 種類       | 説明                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event. |
-
-{% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the 
-
-`repository` property when the event occurs from activity in a repository.
+| キー       | 種類       | 説明                                                                     |
+| -------- | -------- | ---------------------------------------------------------------------- |
+| `action` | `string` | ほとんどの webhook ペイロードには、イベントをトリガーした特定のアクティビティを含む `action` プロパティが含まれています。 |
+{% data reusables.webhooks.sender_desc %} このプロパティは、すべての webhook ペイロードに含まれています。
+{% data reusables.webhooks.repo_desc %} イベントがリポジトリ内のアクティビティから発生した場合、webhook ペイロードには `repository` プロパティが含まれます。
 {% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
+{% data reusables.webhooks.app_desc %} 詳しい情報については、「[{% data variables.product.prodname_github_app %} を構築する](/apps/building-github-apps/)」を参照してください。
 
-The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/v3/activity/events/). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
+webhook イベントの一意のプロパティは、[イベント API](/rest/reference/activity#events) を使用するときに `payload` プロパティにあるプロパティと同じです。 例外の 1 つは、[`push` イベント](#push) です。 `push` イベント webhook ペイロードの一意のプロパティとイベント API の`payload` プロパティは異なります。 webhook ペイロードには、より詳細な情報が含まれています。
 
 {% tip %}
 
-**Note:** Payloads are capped at 25 MB. If your event generates a larger payload, a webhook will not be fired. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+**注釈:** ペイロードの上限は 25 MB です。 イベントにより大きなペイロードが生成された場合、webhook は起動しません。 これは、たとえば多数のブランチまたはタグが一度にプッシュされた場合の `create` イベントで発生する可能性があります。 確実にデリバリが行われるよう、ペイロードサイズを監視することをお勧めします。
 
 {% endtip %}
 
-#### Delivery headers
+#### デリバリヘッダ
 
-HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
+webhook によって設定されている URL エンドポイントに配信される HTTP POST ペイロードには、いくつかの特別なヘッダが含まれています。
 
-| ヘッダ                           | 説明                                                                                                                                                                                                                                                                 |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                     |
-| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if currentVersion != "free-pro-team@latest" %}
-| `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                               |
-| `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
-| `X-Hub-Signature`             | The HMAC hex digest of the response body. This header will be sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). The HMAC hex digest is generated using the `sha1` hash function and the `secret` as the HMAC `key`. |
+| ヘッダ                           | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | デリバリをトリガーしたイベントの名前。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `X-GitHub-Delivery`           | デリバリを識別するための [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier)。{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `X-GitHub-Enterprise-Version` | HTTP POST ペイロードを送信した {% data variables.product.prodname_ghe_server %} インスタンスのバージョン。                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `X-GitHub-Enterprise-Host`    | HTTP POST ペイロードを送信した {% data variables.product.prodname_ghe_server %} インスタンスのホスト名。{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `X-Hub-Signature`             | このヘッダは、webhook が [`secret`](/rest/reference/repos#create-hook-config-params) で設定されている場合に送信されます。 これはリクエスト本文の HMAC hex digest であり、SHA-1 ハッシュ関数と HMAC `key`としての `secret` を使用して生成されます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` は、既存の統合との互換性のために提供されているため、より安全な `X-Hub-Signature-256` を代わりに使用することをお勧めします。{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `X-Hub-Signature-256`         | このヘッダは、webhook が [`secret`](/rest/reference/repos#create-hook-config-params) で設定されている場合に送信されます。 これはリクエスト本文の HMAC hex digest であり、SHA-256 ハッシュ関数と HMAC `key` としての `secret` を使用して生成されます。{% endif %}
 
-Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
+また、リクエストの `User-Agent` には、プレフィックスに `GitHub-Hookshot/` が付けられます。
 
-#### Example delivery
+#### デリバリの例
 
 ```shell
 > POST /payload HTTP/1.1
 
 > Host: localhost:4567
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if currentVersion != "free-pro-team@latest" %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "github-ae@latest" %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -104,13 +103,13 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks only receive payloads for the `created` and `completed` event types in a repository
-- Organization webhooks only receive payloads for the `created` and `completed` event types in repositories
-- {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `rerequested` and `requested_action` event types. The `rerequested` and `requested_action` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
+- リポジトリ webhook は、リポジトリ内の `created` および `completed` イベントタイプのペイロードのみを受信します
+- Organization webhook は、リポジトリで `created` および `completed` イベントタイプのペイロードのみを受信します
+- `checks:read` 権限のある {% data variables.product.prodname_github_app %} は、アプリがインストールされているリポジトリで発生する `created` および `completed` イベントのペイロードを受信します。 `rerequested` および `requested_action` イベントタイプを受信するには、アプリケーションに `checks:write` 権限が必要です。 `rerequested` および `requested_action` イベントタイプのペイロードは、リクエストされている {% data variables.product.prodname_github_app %} にのみ送信されます。 `checks:write` のある {% data variables.product.prodname_github_app %} は、この webhook イベントに自動的にサブスクライブされます。
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.check_run_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -118,7 +117,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.check_run.created }}
 
@@ -128,13 +127,13 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks only receive payloads for the `completed` event types in a repository
-- Organization webhooks only receive payloads for the `completed` event types in repositories
-- {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `requested` and `rerequested` event types. The `requested` and `rerequested` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
+- リポジトリ webhook は、リポジトリ内の `completed` イベントタイプのペイロードのみを受信します
+- Organization webhook は、リポジトリで `completed` イベントタイプのペイロードのみを受信します
+- `checks:read` 権限のある {% data variables.product.prodname_github_app %} は、アプリがインストールされているリポジトリで発生する `created` および `completed` イベントのペイロードを受信します。 `requested` および `rerequested` イベントタイプを受信するには、アプリケーションに `checks:write` 権限が必要です。 `requested` および `rerequested` イベントタイプのペイロードは、リクエストされている {% data variables.product.prodname_github_app %} にのみ送信されます。 `checks:write` のある {% data variables.product.prodname_github_app %} は、この webhook イベントに自動的にサブスクライブされます。
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.check_suite_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -142,7 +141,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
@@ -151,21 +150,21 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `security_events :read` permission
+- リポジトリ webhook
+- Organization webhook
+- `security_events :read` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.code_scanning_alert_event_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender` オブジェクトは、他のすべてのアクションでは空になっています。
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.code_scanning_alert.reopened }}
 
@@ -173,13 +172,13 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {% data reusables.webhooks.commit_comment_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.commit_comment_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -187,7 +186,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 {% endif %}
@@ -196,11 +195,11 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {% data reusables.webhooks.content_reference_short_desc %}
 
-Webhook events are triggered based on the specificity of the domain you register. For example, if you register a subdomain (`https://subdomain.example.com`) then only URLs for the subdomain trigger this event. If you register a domain (`https://example.com`) then URLs for domain and all subdomains trigger this event. See "[Create a content attachment](/v3/apps/installations/#create-a-content-attachment)" to create a new content attachment.
+webhook イベントは、登録したドメインの特異性に基づいてトリガーされます。 たとえば、サブドメイン (`https://subdomain.example.com`) を登録すると、サブドメインの URL のみがこのイベントをトリガーします。 ドメイン (`https://example.com`) を登録すると、ドメインとすべてのサブドメインの URL がこのイベントをトリガーします。 新しいコンテンツ添付ファイルを作成するには、「[コンテンツ添付ファイルの作成](/rest/reference/apps#create-a-content-attachment)」を参照してください。
 
-Only {% data variables.product.prodname_github_app %}s can receive this event. {% data variables.product.prodname_github_app %}s must have the `content_references` `write` permission to subscribe to this event.
+このイベントを受信できるのは {% data variables.product.prodname_github_app %} のみです。 {% data variables.product.prodname_github_app %} には、このイベントをサブスクライブするための `content_references` `write` 権限が必要です。
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
@@ -210,17 +209,17 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**注釈:** 一度に 3 つ以上のタグをプッシュすると、このイベントの webhook を受信しません。
 
 {% endnote %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.create_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -228,7 +227,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.create }}
 
@@ -238,17 +237,17 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you delete more than three tags at once.
+**注釈:** 一度に 3 つ以上のタグを削除すると、このイベントの webhook を受信しません。
 
 {% endnote %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.delete_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -256,7 +255,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.delete }}
 
@@ -264,19 +263,19 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% data reusables.webhooks.deploy_key_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.deploy_key_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.deploy_key.created }}
 
@@ -284,24 +283,24 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% data reusables.webhooks.deployment_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `deployments` permission
+- リポジトリ webhook
+- Organization webhook
+- `deployments` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー           | 種類                                                              | 説明                                                         |
-| ------------ | --------------------------------------------------------------- | ---------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `action`     | `string`                                                        | 実行されたアクション。 Can be `created`.{% endif %}
-| `deployment` | `オブジェクト`                                                        | The [deployment](/v3/repos/deployments/#list-deployments). |
+| キー           | 種類                                                                                                                                          | 説明                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| `action`     | `string`                                                                                                                                    | 実行されたアクション。 `created` を指定可。{% endif %}
+| `deployment` | `オブジェクト`                                                                                                                                    | [デプロイメント](/rest/reference/repos#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.deployment }}
 
@@ -309,48 +308,48 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% data reusables.webhooks.deployment_status_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `deployments` permission
+- リポジトリ webhook
+- Organization webhook
+- `deployments` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                                              | 説明                                                                                             |
-| ---------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `action`                           | `string`                                                        | 実行されたアクション。 Can be `created`.{% endif %}
-| `deployment_status`                | `オブジェクト`                                                        | The [deployment status](/v3/repos/deployments/#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `string`                                                        | The new state. Can be `pending`, `success`, `failure`, or `error`.                             |
-| `deployment_status["target_url"]`  | `string`                                                        | The optional link added to the status.                                                         |
-| `deployment_status["description"]` | `string`                                                        | The optional human-readable description added to the status.                                   |
-| `deployment`                       | `オブジェクト`                                                        | The [deployment](/v3/repos/deployments/#list-deployments) that this status is associated with. |
+| キー                                 | 種類                                                                                                                                          | 説明                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| `action`                           | `string`                                                                                                                                    | 実行されたアクション。 `created` を指定可。{% endif %}
+| `deployment_status`                | `オブジェクト`                                                                                                                                    | [デプロイメントステータス](/rest/reference/repos#list-deployment-statuses)。      |
+| `deployment_status["state"]`       | `string`                                                                                                                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。              |
+| `deployment_status["target_url"]`  | `string`                                                                                                                                    | ステータスに追加されたオプションのリンク。                                                |
+| `deployment_status["description"]` | `string`                                                                                                                                    | オプションの人間可読の説明がステータスに追加。                                              |
+| `deployment`                       | `オブジェクト`                                                                                                                                    | このステータスが関連付けられている [デプロイメント](/rest/reference/repos#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-### enterprise
+### Enterprise
 
 {% data reusables.webhooks.enterprise_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+- GitHub Enterprise webhook。 詳しい情報については「[グローバル webhook](/rest/reference/enterprise-admin#global-webhooks/)」を参照してください。
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 | キー       | 種類       | 説明                                                                            |
 | -------- | -------- | ----------------------------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション。 Can be `anonymous_access_enabled` or `anonymous_access_disabled`. |
+| `action` | `string` | 実行されたアクション。 `anonymous_access_enabled`、`anonymous_access_disabled` のいずれかを指定可。 |
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.enterprise.anonymous_access_enabled }}
 
@@ -360,13 +359,13 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {% data reusables.webhooks.fork_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.fork_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -374,28 +373,28 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.fork }}
 
 ### github_app_authorization
 
-When someone revokes their authorization of a {% data variables.product.prodname_github_app %}, this event occurs. A {% data variables.product.prodname_github_app %} receives this webhook by default and cannot unsubscribe from this event.
+{% data variables.product.prodname_github_app %} の承認を取り消すと、このイベントが発生します。 {% data variables.product.prodname_github_app %} は、デフォルトでこの webhook を受信し、このイベントをサブスクライブ解除できません。
 
-{% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+{% data reusables.webhooks.authorization_event %}{% data variables.product.prodname_github_app %} 認証を必要とするユーザからサーバーへのリクエストの詳細については、「[{% data variables.product.prodname_github_app %} のユーザーの識別と認証](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                            |
-| -------- | -------- | ----------------------------- |
-| `action` | `string` | 実行されたアクション。 Can be `revoked`. |
+| キー       | 種類       | 説明                          |
+| -------- | -------- | --------------------------- |
+| `action` | `string` | 実行されたアクション。 `revoked` を指定可。 |
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.github_app_authorization.revoked }}
 
@@ -403,13 +402,13 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% data reusables.webhooks.gollum_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.gollum_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -417,7 +416,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
@@ -431,25 +430,25 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Note:** {% data reusables.pre-release-program.suspend-installation-beta %} For more information, see "[Suspending a {% data variables.product.prodname_github_app %} installation](/apps/managing-github-apps/suspending-a-github-app-installation/)."
+**注釈:** {% data reusables.pre-release-program.suspend-installation-beta %} 詳しい情報については、「[{% data variables.product.prodname_github_app %} のインストールをサスペンドする](/apps/managing-github-apps/suspending-a-github-app-installation/)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.installation_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.installation.deleted }}
 
@@ -463,17 +462,17 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% endnote %}
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.installation_repositories_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.installation_repositories.added }}
 
@@ -481,13 +480,13 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% data reusables.webhooks.issue_comment_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `issues` permission
+- リポジトリ webhook
+- Organization webhook
+- `issues` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -496,7 +495,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.issue_comment.created }}
 
@@ -504,13 +503,13 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% data reusables.webhooks.issues_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `issues` permission
+- リポジトリ webhook
+- Organization webhook
+- `issues` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.issue_webhook_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -519,7 +518,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example when someone edits an issue
+#### Issue 編集時の webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.issues.edited }}
 
@@ -527,48 +526,48 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% data reusables.webhooks.label_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- リポジトリ webhook
+- Organization webhook
+- `metadata` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー                     | 種類       | 説明                                                            |
-| ---------------------- | -------- | ------------------------------------------------------------- |
-| `action`               | `string` | 実行されたアクション. Can be `created`, `edited`, or `deleted`.         |
-| `ラベル`                  | `オブジェクト` | The label that was added.                                     |
-| `変更`                   | `オブジェクト` | The changes to the label if the action was `edited`.          |
-| `changes[name][from]`  | `string` | The previous version of the name if the action was `edited`.  |
-| `changes[color][from]` | `string` | The previous version of the color if the action was `edited`. |
+| キー                     | 種類       | 説明                                                  |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `action`               | `string` | 実行されたアクション. `created`、`edited`、`deleted` のいずれかを指定可。 |
+| `label`                | `オブジェクト` | ラベルが追加された。                                          |
+| `changes`              | `オブジェクト` | アクションが `edited` の場合のラベルへの変更。                        |
+| `changes[name][from]`  | `string` | アクションが`edited`だった場合の、以前のバージョンの名前。                   |
+| `changes[color][from]` | `string` | アクションが `edited` の場合の以前のバージョンの色。                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.label.deleted }}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### marketplace_purchase
 
-Activity related to a GitHub Marketplace purchase. {% data reusables.webhooks.action_type_desc %} For more information, see the "[GitHub Marketplace](/marketplace/)."
+GitHub Marketplace の購入に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については、「[GitHub Marketplace](/marketplace/)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                                                                                            |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | The action performed for a [GitHub Marketplace](https://github.com/marketplace) plan. Can be one of:<ul><li>`purchased` - Someone purchased a GitHub Marketplace plan. The change should take effect on the account immediately.</li><li>`pending_change` - You will receive the `pending_change` event when someone has downgraded or cancelled a GitHub Marketplace plan to indicate a change will occur on the account. The new plan or cancellation takes effect at the end of the billing cycle.  The `cancelled` or `changed` event type will be sent when the billing cycle has ended and the cancellation or new plan should take effect.</li><li>`pending_change_cancelled` - Someone has cancelled a pending change. Pending changes include plan cancellations and downgrades that will take effect at the end of a billing cycle. </li><li>`changed` - Someone has upgraded or downgraded a GitHub Marketplace plan and the change should take effect on the account immediately.</li><li>`cancelled` - Someone cancelled a GitHub Marketplace plan and the last billing cycle has ended. The change should take effect on the account immediately.</li></ul> |
+| キー       | 種類       | 説明                                                                                                            |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `action` | `string` | [GitHub Marketplace](https://github.com/marketplace) プランに対して実行されたアクション。 次のいずれかになります。<ul><li>「purchased」- GitHub Marketplace プランを購入しました。 変更はアカウントですぐに有効になります。</li><li>「pending_change」- GitHub Marketplace プランをダウングレードまたはキャンセルしたときに、アカウントで変更が発生することを示す「pending_change」イベントを受け取ります。 新しいプランまたはキャンセルは、支払いサイクルの終了時に有効になります。  「キャンセル」または「変更」イベントタイプは、支払いサイクルが終了し、キャンセルまたは新しいプランが有効になると送信されます。</li><li>「pending_change_cancelled」- 保留中の変更をキャンセルしました。 保留中の変更には、支払いサイクルの終了時に有効になるプランのキャンセルとダウングレードが含まれます。 </li><li>「changed」- GitHub Marketplace プランをアップグレードまたはダウングレードしたため、変更がアカウントですぐに有効になります。</li><li>「cancelled」- GitHub Marketplace プランをキャンセルし、最後の支払いサイクルが終了しました。 変更はアカウントですぐに有効になります。</li></ul> |
 
-For a detailed description of this payload and the payload for each type of `action`, see [{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
+このペイロードと各タイプの `action` のペイロードの詳細については、「[{% data variables.product.prodname_marketplace %} webhook イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
 
-#### Webhook payload example when someone purchases the plan
+#### プラン購入時の webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
@@ -578,13 +577,13 @@ For a detailed description of this payload and the payload for each type of `act
 
 {% data reusables.webhooks.member_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- リポジトリ webhook
+- Organization webhook
+- `members` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.member_webhook_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -593,7 +592,7 @@ For a detailed description of this payload and the payload for each type of `act
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.member.added }}
 
@@ -601,43 +600,43 @@ For a detailed description of this payload and the payload for each type of `act
 
 {% data reusables.webhooks.membership_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- Organization webhook
+- `members` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.membership_properties %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
 ### メタ情報
 
-The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to recieve meta events for.
+このイベントが設定されている webhook が削除されました。 このイベントは、イベントがインストールされている特定のフックへの変更のみをリッスンします。 したがって、メタイベントを受信するフックごとに選択する必要があります。
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー        | 種類       | 説明                                                                                                                                                         |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`  | `string` | 実行されたアクション。 Can be `deleted`.                                                                                                                              |
-| `hook_id` | `整数`     | The id of the modified webhook.                                                                                                                            |
-| `フック`     | `オブジェクト` | The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace. |
+| キー        | 種類        | 説明                                                                                                           |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `action`  | `string`  | 実行されたアクション。 `deleted` を指定可。                                                                                  |
+| `hook_id` | `integer` | 変更された webhook の ID。                                                                                          |
+| `フック`     | `オブジェクト`  | 変更された webhook。 これには、webhook のタイプ (リポジトリ、Organization、ビジネス、アプリケーション、または GitHub Marketplace) に基づいて異なるキーが含まれます。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.meta.deleted }}
 
@@ -645,13 +644,13 @@ The webhook this event is configured on was deleted. This event will only listen
 
 {% data reusables.webhooks.milestone_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.milestone_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -659,7 +658,7 @@ The webhook this event is configured on was deleted. This event will only listen
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.milestone.created }}
 
@@ -667,25 +666,25 @@ The webhook this event is configured on was deleted. This event will only listen
 
 {% data reusables.webhooks.organization_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-{% if currentVersion != "free-pro-team@latest" %}
-- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/).{% endif %}
-- Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- GitHub Enterprise webhook は、`created` および `deleted` イベントのみを受信します。 詳しい情報については「[グローバル webhook](/rest/reference/enterprise-admin#global-webhooks/)」を参照してください。{% endif %}
+- Organization webhook は、`deleted`、`added`、`removed`、`renamed`、`invited` イベントのみを受信します
+- `members` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー           | 種類       | 説明                                                                                                                                                             |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`     | `string` | 実行されたアクション. Can be one of:{% if currentVersion != "free-pro-team@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
-| `招待`         | `オブジェクト` | The invitation for the user or email if the action is `member_invited`.                                                                                        |
-| `membership` | `オブジェクト` | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                        |
+| キー           | 種類       | 説明                                                                                                                                                                                                                  |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`     | `string` | 実行されたアクション. {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} `created`、{% endif %} `deleted`、`renamed`、`member_added`、`member_removed`、`member_invited` のいずれかを指定可。 |
+| `招待`         | `オブジェクト` | アクションが `member_invited` の場合、ユーザへの招待またはメール。                                                                                                                                                                          |
+| `membership` | `オブジェクト` | ユーザと Organization 間のメンバーシップ。  アクションが `member_invited` の場合は存在しません。                                                                                                                                                   |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.organization.member_added }}
 
@@ -695,42 +694,42 @@ The webhook this event is configured on was deleted. This event will only listen
 
 {% data reusables.webhooks.org_block_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `organization_administration` permission
+- Organization webhook
+- `organization_administration` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー             | 種類       | 説明                                                        |
-| -------------- | -------- | --------------------------------------------------------- |
-| `action`       | `string` | 実行されたアクション。 Can be `blocked` or `unblocked`.              |
-| `blocked_user` | `オブジェクト` | Information about the user that was blocked or unblocked. |
+| キー             | 種類       | 説明                                           |
+| -------------- | -------- | -------------------------------------------- |
+| `action`       | `string` | 実行されたアクション。 `blocked`、`unblocked` のいずれかを指定可。 |
+| `blocked_user` | `オブジェクト` | ブロックまたはブロック解除されたユーザに関する情報。                   |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.org_block.blocked }}
 
 ### package
 
-Activity related to {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} For more information, see the "[blocking organization users](/v3/orgs/blocking/)" REST API. For more information, see "[Managing packages with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" to learn more about {% data variables.product.prodname_registry %}.
+{% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.package_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
 {% endif %}
@@ -739,24 +738,24 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.page_build_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pages` permission
+- リポジトリ webhook
+- Organization webhook
+- `pages` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー    | 種類       | 説明                                                                                |
-| ----- | -------- | --------------------------------------------------------------------------------- |
-| `id`  | `整数`     | The unique identifier of the page build.                                          |
-| `ビルド` | `オブジェクト` | The [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds) itself. |
+| キー    | 種類        | 説明                                                                         |
+| ----- | --------- | -------------------------------------------------------------------------- |
+| `id`  | `integer` | ページビルドの一意の識別子。                                                             |
+| `ビルド` | `オブジェクト`  | [GitHub Pages ビルドのリスト](/rest/reference/repos#list-github-pages-builds) 自体。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.page_build }}
 
@@ -764,25 +763,25 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.ping_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s receive a ping event with an `app_id` used to register the app
+- リポジトリ webhook
+- Organization webhook
+- {% data variables.product.prodname_github_app %} は、アプリの登録に使用される `app_id` を使用して ping イベントを受信します
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `zen`          | `string` | Random string of GitHub zen.                                                                                                                                                                                                                                                                                                                                                                                   |
-| `hook_id`      | `整数`     | The ID of the webhook that triggered the ping.                                                                                                                                                                                                                                                                                                                                                                 |
-| `フック`          | `オブジェクト` | The [webhook configuration](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                        |
-| `hook[app_id]` | `整数`     | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app. |
+| キー             | 種類        | 説明                                                                                                                                                                                                                                                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `zen`          | `string`  | GitHub zen のランダムな文字列。                                                                                                                                                                                                                                                                                              |
+| `hook_id`      | `integer` | ping をトリガーした webhook の ID。                                                                                                                                                                                                                                                                                         |
+| `フック`          | `オブジェクト`  | [webhook 設定](/rest/reference/repos#get-a-repository-webhook)。                                                                                                                                                                                                                                                      |
+| `hook[app_id]` | `integer` | 新しい {% data variables.product.prodname_github_app %} を登録すると、{% data variables.product.product_name %} は登録時に指定した **webhook URL** に ping イベントを送信します。 イベントには、アプリケーションの[認証](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)に必要な `app_id` が含まれています。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
@@ -790,13 +789,13 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.project_card_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- リポジトリ webhook
+- Organization webhook
+- `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.project_card_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -804,7 +803,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.project_card.created }}
 
@@ -812,13 +811,13 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.project_column_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- リポジトリ webhook
+- Organization webhook
+- `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.project_column_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -826,7 +825,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
@@ -834,13 +833,13 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.project_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- リポジトリ webhook
+- Organization webhook
+- `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.project_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -848,7 +847,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
@@ -856,13 +855,13 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.public_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- リポジトリ webhook
+- Organization webhook
+- `metadata` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 | キー | 種類 | 説明 |
 | -- | -- | -- |
@@ -872,7 +871,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.public }}
 
@@ -880,13 +879,13 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.pull_request_webhook_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -895,9 +894,9 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
-Deliveries for `review_requested` and `review_request_removed` events will have an additional field called `requested_reviewer`.
+`review_requested` イベントと `review_request_removed` イベントのデリバリには、`requested_reviewer` という追加のフィールドがあります。
 
 {{ webhookPayloadsForCurrentVersion.pull_request.opened }}
 
@@ -905,13 +904,13 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.pull_request_review_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -919,7 +918,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review.submitted }}
 
@@ -927,13 +926,13 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.pull_request_review_comment_webhook_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
@@ -942,7 +941,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
@@ -952,44 +951,48 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**注釈:** 一度に 3 つ以上のタグをプッシュすると、このイベントの webhook を受信しません。
 
 {% endnote %}
 
 {% tip %}
 
-**Note**: The webhook payload example following the table differs significantly from the Events API payload described in the table. Among other differences, the webhook payload includes both `sender` and `pusher` objects. Sender and pusher are the same user who initiated the `push` event, but the `sender` object contains more detail.
+**注釈**: 表に続く webhook ペイロードの例は、表に記載されているイベント API ペイロードとは大幅に異なります。 違いの中でも、webhook ペイロードには `sender` オブジェクトと `pusher` オブジェクトの両方が含まれています。 送信者とプッシャーは `push` イベントを開始した同じユーザですが、`sender` オブジェクトには詳細が含まれています。
 
 {% endtip %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー                         | 種類        | 説明                                                                                                                                                                                                                                                                                          |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `string`  | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/master`.                                                                                                                                                                                                          |
-| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
-| `after`                    | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
-| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                   |
-| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                                                                  |
-| `commits[][author]`        | `オブジェクト`  | The git author of the commit.                                                                                                                                                                                                                                                               |
-| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                      |
-| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                             |
-| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
-| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
-| `pusher`                   | `オブジェクト`  | The user who pushed the commits.                                                                                                                                                                                                                                                            |
+| キー                         | 種類        | 説明                                                                                                                                                                       |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ref`                      | `string`  | プッシュされた完全な [`git ref`](/rest/reference/git#refs)。 例: `refs/heads/main`。                                                                                                  |
+| `before`                   | `string`  | プッシュ前の`ref` 上の最新のコミットのSHA。                                                                                                                                               |
+| `after`                    | `string`  | プッシュ後の`ref`上の最新のコミットのSHA。                                                                                                                                                |
+| `commits`                  | `array`   | プッシュされたコミットを示すコミットオブジェクトの配列。 （配列には最大で20のコミットが含まれる。 必要に応じて、[Commits API](/rest/reference/repos#commits) を使用して追加のコミットをフェッチできます。 この制限はタイムラインイベントにのみ適用され、webhookの配信には適用されない） |
+| `commits[][id]`            | `string`  | コミットのSHA。                                                                                                                                                                |
+| `commits[][timestamp]`     | `string`  | コミットの ISO 8601 タイムスタンプ。                                                                                                                                                  |
+| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                               |
+| `commits[][author]`        | `オブジェクト`  | コミットのGit作者。                                                                                                                                                              |
+| `commits[][author][name]`  | `string`  | Git作者の名前。                                                                                                                                                                |
+| `commits[][author][email]` | `string`  | Git作者のメールアドレス。                                                                                                                                                           |
+| `commits[][url]`           | `url`     | コミットAPIのリソースを指すURL。                                                                                                                                                      |
+| `commits[][distinct]`      | `boolean` | このコミットが以前にプッシュされたいずれとも異なっているか。                                                                                                                                           |
+| `commits[][added]`         | `array`   | コミットに追加されたファイルの配列。                                                                                                                                                       |
+| `commits[][modified]`      | `array`   | コミットによって変更されたファイルの配列。                                                                                                                                                    |
+| `commits[][removed]`       | `array`   | コミットから削除されたファイルの配列。                                                                                                                                                      |
+| `pusher`                   | `オブジェクト`  | コミットをプッシュしたユーザ。                                                                                                                                                          |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.push }}
 
@@ -997,13 +1000,13 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% data reusables.webhooks.release_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- リポジトリ webhook
+- Organization webhook
+- `contents` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.release_webhook_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -1012,20 +1015,20 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### repository_dispatch
 
-This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/v3/repos/#create-a-repository-dispatch-event)" endpoint.
+このイベントは、{% data variables.product.prodname_github_app %} が「[リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
+- この webhook を受信するには、{% data variables.product.prodname_github_app %} に `contents` 権限が必要です。
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
 {% endif %}
@@ -1034,44 +1037,44 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {% data reusables.webhooks.repository_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks receive all event types except `deleted`
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission receive all event types except `deleted`
+- リポジトリ webhook は、`deleted` を除くすべてのイベントタイプを受け取ります
+- Organization webhook
+- `metadata` 権限のある {% data variables.product.prodname_github_app %} は、`deleted` を除くすべてのイベントタイプを受信します
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                       |
-| -------- | -------- | -------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/v3/orgs/hooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
+| キー       | 種類       | 説明                                                   |
+| -------- | -------- | ---------------------------------------------------- |
+| `action` | `string` | 実行されたアクション. これは次のいずれかになります。<ul><li>「created」- リポジトリが作成されます。</li><li>「deleted」- リポジトリが削除されます。</li><li>「archived」- リポジトリがアーカイブされます。</li><li>「unarchived」- リポジトリがアーカイブ解除されます。</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>「anonymous_access_enabled」- リポジトリは [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)、「anonymous_access_disabled」 - リポジトリは [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>「edited」- リポジトリの情報が編集されます。</li><li>「renamed」- リポジトリの名前が変更されます。</li><li>「transferred」- リポジトリが転送されます。</li><li>「publicized」- リポジトリが公開されます。</li><li> 「privatized」- リポジトリが非公開になります。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository.publicized }}
 
 {% if currentVersion == "free-pro-team@latest"%}
 ### repository_import
 
-{% data reusables.webhooks.repository_import_short_desc %} To receive this event for a personal repository, you must create an empty repository prior to the import. This event can be triggered using either the [GitHub Importer](/articles/importing-a-repository-with-github-importer/) or the [Source imports API](/v3/migrations/source_imports/).
+{% data reusables.webhooks.repository_import_short_desc %} 個人リポジトリでこのイベントを受信するには、インポートする前に空のリポジトリを作成する必要があります。 このイベントは、[GitHub Importer](/articles/importing-a-repository-with-github-importer/) または[Source imports API](/rest/reference/migrations#source-imports) のいずれかを使用してトリガーできます。
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.repository_import_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository_import }}
 
@@ -1079,65 +1082,92 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {% data reusables.webhooks.repository_vulnerability_alert_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.repository_vulnerability_alert_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository_vulnerability_alert.create }}
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### secret_scanning_alert
+
+{% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
+
+#### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `secret_scanning_alerts:read` 権限のある {% data variables.product.prodname_github_app %}
+
+#### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.secret_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+`sender` | `object` | `action` が `resolved` または `reopened` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender` オブジェクトは、他のすべてのアクションでは空になっています。
+
+#### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
-Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About security alerts for vulnerable dependencies](/articles/about-security-alerts-for-vulnerable-dependencies/)."
+セキュリティアドバイザリに関連するアクティビティ。 セキュリティアドバイザリは、GitHub 上のソフトウェアのセキュリティ関連の脆弱性に関する情報を提供します。 セキュリティアドバイザリデータセットは、GitHub セキュリティアラートにも役立ちます。「[脆弱性のある依存関係のセキュリティアラートについて](/articles/about-security-alerts-for-vulnerable-dependencies/)」を参照してください。
+{% endif %}
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s with the `security_events` permission
+- `security_events` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー                  | 種類       | 説明                                                                                              |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `action`            | `string` | 実行されたアクション. The action can be one of `published`, `updated`, or `performed` for all new events. |
-| `security_advisory` | `オブジェクト` | The details of the security advisory, including summary, description, and severity.             |
+| キー                  | 種類       | 説明                                                                              |
+| ------------------- | -------- | ------------------------------------------------------------------------------- |
+| `action`            | `string` | 実行されたアクション. アクションは、すべての新しいイベントに対して `published`、`updated`、`performed` のいずれかを指定可。 |
+| `security_advisory` | `オブジェクト` | 概要、説明、重要度などの、セキュリティアドバイザリの詳細。                                                   |
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### sponsorship
+### スポンサーシップ
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+スポンサーシップ webhook は、{% data variables.product.prodname_dotcom %} でのみ作成できます。 詳しい情報については、「[スポンサー付きアカウントのイベントの webhook を設定する](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- Sponsored accounts
+- スポンサー付きアカウント
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.sponsorship_webhook_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example when someone creates a sponsorship
+#### スポンサーシップ作成時の webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.created }}
 
-#### Webhook payload example when someone downgrades a sponsorship
+#### スポンサーシップのダウングレード時の webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.downgraded }}
 
@@ -1147,19 +1177,19 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {% data reusables.webhooks.star_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
+- リポジトリ webhook
+- Organization webhook
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.star_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.star.created }}
 
@@ -1167,28 +1197,28 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {% data reusables.webhooks.status_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `statuses` permission
+- リポジトリ webhook
+- Organization webhook
+- `statuses` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー           | 種類       | 説明                                                                                                                                                                                            |
-| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`         | `整数`     | The unique identifier of the status.                                                                                                                                                          |
-| `sha`        | `string` | The Commit SHA.                                                                                                                                                                               |
-| `状態`         | `string` | The new state. Can be `pending`, `success`, `failure`, or `error`.                                                                                                                            |
-| `説明`         | `string` | The optional human-readable description added to the status.                                                                                                                                  |
-| `target_url` | `string` | The optional link added to the status.                                                                                                                                                        |
-| `ブランチ`       | `array`  | An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches. |
+| キー           | 種類        | 説明                                                                                                            |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------- |
+| `id`         | `integer` | ステータスの一意の識別子。                                                                                                 |
+| `sha`        | `string`  | コミット SHA。                                                                                                     |
+| `state`      | `string`  | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                                       |
+| `説明`         | `string`  | オプションの人間可読の説明がステータスに追加。                                                                                       |
+| `target_url` | `string`  | ステータスに追加されたオプションのリンク。                                                                                         |
+| `ブランチ`       | `array`   | ステータスの SHA を含むブランチオブジェクトの配列。 各ブランチには特定の SHA が含まれていますが、SHA がブランチの先頭である場合とそうでない場合があります。 配列には最大 10 個のブランチが含まれます。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.status }}
 
@@ -1196,29 +1226,29 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {% data reusables.webhooks.team_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- Organization webhook
+- `members` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー                                              | 種類        | 説明                                                                                                                                                                                                                                                         |
-| ----------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`                                        | `string`  | 実行されたアクション. Can be one of `created`, `deleted`, `edited`, `added_to_repository`, or `removed_from_repository`.                                                                                                                                             |
-| `Team`                                          | `オブジェクト`  | The team itself.                                                                                                                                                                                                                                           |
-| `変更`                                            | `オブジェクト`  | The changes to the team if the action was `edited`.                                                                                                                                                                                                        |
-| `changes[description][from]`                    | `string`  | The previous version of the description if the action was `edited`.                                                                                                                                                                                        |
-| `changes[name][from]`                           | `string`  | The previous version of the name if the action was `edited`.                                                                                                                                                                                               |
-| `changes[privacy][from]`                        | `string`  | The previous version of the team's privacy if the action was `edited`.                                                                                                                                                                                     |
-| `changes[repository][permissions][from][admin]` | `boolean` | The previous version of the team member's `admin` permission on a repository, if the action was `edited`.                                                                                                                                                  |
-| `changes[repository][permissions][from][pull]`  | `boolean` | The previous version of the team member's `pull` permission on a repository, if the action was `edited`.                                                                                                                                                   |
-| `changes[repository][permissions][from][push]`  | `boolean` | The previous version of the team member's `push` permission on a repository, if the action was `edited`.                                                                                                                                                   |
-| `リポジトリ`                                         | `オブジェクト`  | The repository that was added or removed from to the team's purview if the action was `added_to_repository`, `removed_from_repository`, or `edited`. For `edited` actions, `repository` also contains the team's new permission levels for the repository. |
+| キー                                              | 種類        | 説明                                                                                                                                                                |
+| ----------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`                                        | `string`  | 実行されたアクション. `created`、 `deleted`、`edited`、`added_to_repository`、`removed_from_repository` のいずれかを指定可。                                                              |
+| `Team`                                          | `オブジェクト`  | Team 自体。                                                                                                                                                          |
+| `変更`                                            | `オブジェクト`  | アクションが `edited` の場合の Team への変更。                                                                                                                                   |
+| `changes[description][from]`                    | `string`  | アクションが `edited` の場合の以前のバージョンの説明。                                                                                                                                  |
+| `changes[name][from]`                           | `string`  | アクションが`edited`だった場合の、以前のバージョンの名前。                                                                                                                                 |
+| `changes[privacy][from]`                        | `string`  | アクションが `edited` の場合の以前のバージョンのTeam プライバシー。                                                                                                                         |
+| `changes[repository][permissions][from][admin]` | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `admin` 権限。                                                                                                    |
+| `changes[repository][permissions][from][pull]`  | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `pull` 権限。                                                                                                     |
+| `changes[repository][permissions][from][push]`  | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `push` 権限。                                                                                                     |
+| `リポジトリ`                                         | `オブジェクト`  | アクションが `added_to_repository`、`removeed_from_repository`、`edited` の場合の、Team の範囲に追加または削除されたリポジトリ。 `edited` アクションの場合、`repository` には、リポジトリに対する Team の新しい権限レベルも含まれます。 |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.team.added_to_repository }}
 
@@ -1226,36 +1256,36 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {% data reusables.webhooks.team_add_short_desc %}
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- リポジトリ webhook
+- Organization webhook
+- `members` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー     | 種類       | 説明                                                                                                     |
-| ------ | -------- | ------------------------------------------------------------------------------------------------------ |
-| `Team` | `オブジェクト` | The [team](/v3/teams/) that was modified.  **Note:** Older events may not include this in the payload. |
+| キー     | 種類       | 説明                                                                          |
+| ------ | -------- | --------------------------------------------------------------------------- |
+| `Team` | `オブジェクト` | 変更された [Team](/rest/reference/teams)。  **注釈:** 古いイベントではペイロードに含まていれない場合があります。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 ### ユーザ
 
-When a user is `created` or `deleted`.
+ユーザが `created` または `deleted` を指定した場合。
 
-#### Availability
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+#### 利用の可否
+- GitHub Enterprise webhook。 詳しい情報については「[グローバル webhook](/rest/reference/enterprise-admin#global-webhooks/)」を参照してください。
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.user.created }}
 
@@ -1265,15 +1295,15 @@ When a user is `created` or `deleted`.
 
 {% data reusables.webhooks.watch_short_desc %}
 
-The event’s actor is the [user](/v3/users/) who starred a repository, and the event’s repository is the [repository](/v3/repos/) that was starred.
+イベントのアクターは、リポジトリに Star を付けた[ユーザ](/rest/reference/users)であり、イベントのリポジトリは、Star を付けた[リポジトリ](/rest/reference/repos)です。
 
-#### Availability
+#### 利用の可否
 
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- リポジトリ webhook
+- Organization webhook
+- `metadata` 権限のある {% data variables.product.prodname_github_app %}
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.watch_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -1281,42 +1311,43 @@ The event’s actor is the [user](/v3/users/) who starred a repository, and the 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### workflow_dispatch
 
-This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+このイベントは、 ユーザが GitHub でワークフローの実行をトリガーするか、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
+- この webhook を受信するには、{% data variables.product.prodname_github_app %} に `contents` 権限が必要です。
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_run)」を参照してください。
+{% data variables.product.prodname_actions %} ワークフロー実行がリクエスト済または完了したとき。 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_run)」を参照してください。
 
-#### Availability
+#### 利用の可否
 
-- {% data variables.product.prodname_github_app %}s with the `actions` or `contents` permissions.
+- `actions` または `contents`権限のある {% data variables.product.prodname_github_app %}.
 
-#### Webhook payload object
+#### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                                                                               |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event. |
+| キー       | 種類       | 説明                                                                     |
+| -------- | -------- | ---------------------------------------------------------------------- |
+| `action` | `string` | ほとんどの webhook ペイロードには、イベントをトリガーした特定のアクティビティを含む `action` プロパティが含まれています。 |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+#### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.workflow_run }}
+{% endif %}

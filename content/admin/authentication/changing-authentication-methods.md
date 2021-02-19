@@ -7,9 +7,9 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
-User accounts on {% data variables.product.product_location_enterprise %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+User accounts on {% data variables.product.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
+If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
 Other issues you should take into consideration include:
 
@@ -29,4 +29,4 @@ Other issues you should take into consideration include:
 
 * **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Built-in authentication for users outside your identity provider:** You can invite users to authenticate to {% data variables.product.product_location_enterprise %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your identity provider](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)."
+* **Built-in authentication for users outside your identity provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your identity provider](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)."

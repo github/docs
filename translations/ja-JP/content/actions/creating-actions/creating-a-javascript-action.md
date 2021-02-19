@@ -6,14 +6,18 @@ redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
-  - /アクション/ビルディングアクション/作成-javaスクリプトアクション
+  - /actions/building-actions/creating-a-javascript-action
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -51,10 +55,10 @@ versions:
 
 ### アクションのメタデータファイルの作成
 
-`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 
-**アクション.yml**
+**action.yml**
 ```yaml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -77,9 +81,9 @@ runs:
 
 アクションのツールキットは、Node.js パッケージのコレクションで、より一貫性を保ちつつ、JavaScript を素早く作成するためのものです。
 
-ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core)パッケージは、ワークフローのコマンド、入力および出力変数、終了ステータス、ならびにデバッグメッセージに対してインターフェースを提供します。
+ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージは、ワークフローコマンド、入力変数と出力変数、終了ステータス、およびデバッグメッセージへのインターフェースを提供します。
 
-このツールキットはまた、認証を受けたOctokit RESTクライアント及びGitHub Actionsコンテキストへのアクセスを返す[`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github)パッケージも提供します。
+このツールキットは、認証された Octokit REST クライアントと GitHub Actions コンテキストへのアクセスを返す [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) パッケージも提供します。
 
 ツールキットは、`core` や `github` パッケージ以外のものも提供しています。 詳しい情報については、[actions/toolkit](https://github.com/actions/toolkit) リポジトリ以下を参照してください。
 
@@ -119,7 +123,7 @@ try {
 }
 ```
 
-上記のサンプルの`index.js`でエラーが投げられた場合、`core.setFailed(error.message);`はアクションツールキットの[`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core)パッケージを使ってメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
+上記の `index.js` の例でエラーがスローされた場合、`core.setFailed(error.message);` はアクションツールキット [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
 
 
 ### READMEの作成
@@ -176,7 +180,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-`node_modules` ディレクトリをチェックインする代わりに、[`@vercel/ncc`](https://github.com/vercel/ncc) というツールを使用して、コードとモジュールを配信用の 1 つのファイルにコンパイルすることができます。
+`node_modules` ディレクトリをチェックインすると、問題が発生する可能性があります。 別の方法として、[`@vercel/ncc`](https://github.com/vercel/ncc) というツールを使用して、コードとモジュールを配布に使用する 1 つのファイルにコンパイルできます。
 
 1. ターミナルで次のコマンドを実行し、`vercel/ncc` をインストールします: `npm i -g @vercel/ncc`
 
@@ -196,7 +200,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-### ワークフローでアクションを試す
+### ワークフローでアクションをテストする
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
@@ -204,10 +208,10 @@ git push --follow-tags
 
 #### パブリックアクションを使用する例
 
-次のワークフローコードでは、`actions/hello-world-javascript-action` というリポジトリにある完全な hello world アクションを使っています。 ワークフローコードを `.github/workflows/main.yml` ファイルにコピーし、`actions/hello-world-javascript-action` リポジトリをあなたが作成したリポジトリに置き換えます。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+次のワークフローコードでは、`actions/hello-world-javascript-action` というリポジトリにある完全な hello world アクションを使っています。 ワークフローコードを `.github/workflows/main.yml` ファイルにコピーし、`actions/hello-world-javascript-action` リポジトリをあなたが作成したリポジトリに置き換えます。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 オン
   hello_world_job: [push]
@@ -229,10 +233,10 @@ git push --follow-tags
 
 #### プライベートアクションを使用する例
 
-ワークフローコードを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+ワークフローコードを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -256,6 +260,12 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

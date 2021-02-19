@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can search for repositories globally across all of {% data variables.product.product_name %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.product_location %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
 
 To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/articles/searching-in-forks)."
 
@@ -21,20 +22,20 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 | Qualifier  | Example
 | ------------- | -------------
-| `in:name` | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) matches repositories with "jquery" in their name.
-| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) matches repositories with "jquery" in their name or description.
-| `in:readme` | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) matches repositories mentioning "jquery" in their README file.
+| `in:name` | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) matches repositories with "jquery" in the repository name.
+| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) matches repositories with "jquery" in the repository name or description.
+| `in:readme` | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) matches repositories mentioning "jquery" in the repository's README file.
 | `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) matches a specific repository name.
 
 ### Search based on the contents of a repository
 
-You can find a repository by searching for content in its README file, using the `in:readme` qualifier.
+You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)."
 
 Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" and "[Searching code](/articles/searching-code)."
 
 | Qualifier  | Example
 | ------------- | -------------
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) matches repositories mentioning "octocat" in their README file.
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) matches repositories mentioning "octocat" in the repository's README file.
 
 ### Search within a user's or organization's repositories
 
@@ -47,7 +48,7 @@ To search in all repositories owned by a certain user or organization, you can u
 
 ### Search by repository size
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -58,7 +59,7 @@ The `size` qualifier finds repositories that match a certain size (in kilobytes)
 
 ### Search by number of followers
 
-You can filter repositories based on the number of followers that they have, using the `followers` qualifier with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -67,7 +68,7 @@ You can filter repositories based on the number of followers that they have, usi
 
 ### Search by number of forks
 
-The `forks` qualifier specifies the number of forks a repository should have, using [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -78,7 +79,7 @@ The `forks` qualifier specifies the number of forks a repository should have, us
 
 ### Search by number of stars
 
-You can search repositories based on the number of [stars](/articles/saving-repositories-with-stars) a repository has, using [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax)
+You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see "[Saving repositories with stars](/github/getting-started-with-github/saving-repositories-with-stars)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -102,7 +103,7 @@ Both take a date as a parameter. {% data reusables.time_date.date_format %} {% d
 
 ### Search by language
 
-You can search repositories based on the main language they're written in.
+You can search repositories based on the language of the code in the repositories.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -110,7 +111,7 @@ You can search repositories based on the main language they're written in.
 
 ### Search by topic
 
-You can find all of the repositories that are classified with a particular [topic](/articles/classifying-your-repository-with-topics).
+You can find all of the repositories that are classified with a particular topic. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -118,35 +119,40 @@ You can find all of the repositories that are classified with a particular [topi
 
 ### Search by number of topics
 
-You can search repositories by the number of [topics](/articles/classifying-your-repository-with-topics) that have been applied to them, using the `topics` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
 
 | Qualifier  | Example
 | ------------- | -------------
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) matches repositories that have five topics.
 | | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) matches repositories that have more than three topics.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 ### Search by license
 
-You can search repositories by their [license](/articles/licensing-a-repository). You must use a [license keyword](/articles/licensing-a-repository/#searching-github-by-license-type) to filter repositories by a particular license or license family.
+You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. For more information, see "[Licensing a repository](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)."
 
 | Qualifier  | Example
 | ------------- | -------------
 | <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults) matches repositories that are licensed under Apache License 2.0.
 
-### Search by public or private repository
+{% endif %}
 
-You can filter your search based on whether a repository is public or private.
+### Search by repository visibility
+
+You can filter your search based on the visibility of the repositories. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 | Qualifier  | Example
-| ------------- | -------------
-| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories&utf8=%E2%9C%93) matches repositories owned by GitHub that are public.
-| `is:private` | [**is:private pages**](https://github.com/search?utf8=%E2%9C%93&q=pages+is%3Aprivate&type=Repositories) matches private repositories you have access to and that contain the word "pages."
+| ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}
+| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".
+| `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Search based on whether a repository is a mirror
 
-You can search repositories based on whether or not they're a mirror and are hosted elsewhere. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+You can search repositories based on whether the repositories are mirrors and hosted elsewhere. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -157,7 +163,7 @@ You can search repositories based on whether or not they're a mirror and are hos
 
 ### Search based on whether a repository is archived
 
-You can search repositories based on whether or not they're [archived](/articles/about-archiving-repositories).
+You can search repositories based on whether or not the repositories are archived. For more information, see "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -165,6 +171,7 @@ You can search repositories based on whether or not they're [archived](/articles
 |  `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) matches repositories that are not archived and contain the word "GNOME."
 
 {% if currentVersion == "free-pro-team@latest" %}
+
 ### Search based on number of issues with `good first issue` or `help wanted` labels
 
 You can search for repositories that have a minimum number of issues labeled `help-wanted` or `good-first-issue` with the qualifiers `help-wanted-issues:>n` and `good-first-issues:>n`. For more information, see "[Encouraging helpful contributions to your project with labels](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)."
@@ -173,6 +180,7 @@ You can search for repositories that have a minimum number of issues labeled `he
 | ------------- | -------------
 | `good-first-issues:>n` | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript."
 | `help-wanted-issues:>n`|[**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) matches repositories with more than four issues labeled `help-wanted` and that contain the word "React."
+
 {% endif %}
 
 ### Further reading

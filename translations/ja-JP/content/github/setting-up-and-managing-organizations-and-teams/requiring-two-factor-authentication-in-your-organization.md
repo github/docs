@@ -1,6 +1,6 @@
 ---
 title: Organization で 2 要素認証を要求する
-intro: 'Organization のオーナーは、 {% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部のコラボレーター{% endif %}に、それぞれの個人アカウントに対する 2 要素認証を有効にするように義務付けることで、悪意のある行為者が Organization のリポジトリや設定にアクセスしにくくすることができます。'
+intro: 'Organization のオーナーは、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバーおよび外部のコラボレーター{% endif %}に、それぞれの個人アカウントに対する 2 要素認証を有効にするように義務付けることで、悪意のある行為者が Organization のリポジトリや設定にアクセスしにくくすることができます。'
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
 versions:
@@ -8,23 +8,35 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data reusables.two_fa.auth_methods_2fa %}
+### Organization の2 要素認証について
 
-### 2 要素認証実施にあたっての要件
+{% data reusables.two_fa.about-2fa %} Organization のすべての{% if currentVersion == "free-pro-team@latest" %}メンバー、外部コラボレーター、支払いマネージャー{% else %}メンバーおよび外部コラボレーター{% endif %}に、{% data variables.product.product_name %} で 2 要素認証を有効にすることを義務付けることができます。 2 要素認証の詳細は「[2 要素認証 (2FA) でアカウントを保護する](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部コラボレーター{% endif %}に、 2 要素認証を使用することを義務付けるには、まず自分自身の個人アカウントで [2 要素認証を有効にする](/articles/securing-your-account-with-two-factor-authentication-2fa/)必要があります。
+{% if currentVersion == "free-pro-team@latest" %}
+
+Enterprise で Organization の 2 要素認証を必須にすることもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)」を参照してください。
+
+{% endif %}
 
 {% warning %}
 
 **警告:**
 
-- Organization に対して 2 要素認証の使用を義務付ける場合、2FA を使用しない{% if currentVersion == "free-pro-team@latest" %}メンバー、外部コラボレーター、支払いマネージャー {% else %}メンバー、外部コラボレーター{% endif %} (ボット アカウントを含む) は Organization から削除され、そのリポジトリへのアクセス権が失われます。 Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization から削除されてから 3 か月以内に、個人アカウントに対して 2 要素認証を有効にすれば、[それらのアカウントが持っていたアクセス特権と設定を復元](/articles/reinstating-a-former-member-of-your-organization)できます。
+- Organization に対して 2 要素認証の使用を義務付ける場合、2FA を使用しない{% if currentVersion == "free-pro-team@latest" %}メンバー、外部コラボレーター、支払いマネージャー {% else %}メンバーおよび外部コラボレーター{% endif %} (ボット アカウントを含む) は Organization から削除され、そのリポジトリへのアクセス権が失われます。 Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization から削除されてから 3 か月以内に、個人アカウントに対して 2 要素認証を有効にすれば、[それらのアカウントが持っていたアクセス特権と設定を復元](/articles/reinstating-a-former-member-of-your-organization)できます。
 - 義務付けられた 2 要素認証を有効にした後に、Organization のオーナー、メンバー、{% if currentVersion == "free-pro-team@latest" %}支払いマネージャー、{% endif %} または外部コラボレーターがそれぞれの個人アカウントで 2 要素認証を無効にすると、それらは Organization から自動的に削除されます。
 - あなたが、2 要素認証を義務付けている Organization の唯一のオーナーである場合、その Organization での 2 要素認証義務を無効にしなければ、あなたの個人アカウントの 2 要素認証を無効にすることはできません。
 
 {% endwarning %}
 
-2 要素認証の使用を義務付ける前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部コラボレーター{% endif %}に通知して、それぞれのアカウントで 2 要素認証をセットアップするように依頼することをおすすめします。 Organization の [People] ページで、[メンバーと外部コラボレーターがすでに 2 要素認証を使用しているかどうかを確認する](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)ことができます。
+{% data reusables.two_fa.auth_methods_2fa %}
+
+### 必要な環境
+
+{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバーおよび外部コラボレーター{% endif %}に、 2 要素認証を使用することを義務付けるには、まず{% data variables.product.product_name %} の自分自身の個人アカウントで 2 要素認証を有効にする必要があります。 詳細は「[2 要素認証 (2FA) でアカウントを保護する](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
+
+2 要素認証の使用を義務付ける前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバーおよび外部コラボレータ{% endif %}に通知して、それぞれのアカウントで 2 要素認証をセットアップするように依頼することをおすすめします。 メンバーと外部のコラボレーターがすでに 2 要素認証を使用しているかどうかを確認できます。 詳細は「[Organization 内のユーザが 2 要素認証を有効にしているか確認する](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)」を参照してください。
+
+### Organization で 2 要素認証を要求する
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

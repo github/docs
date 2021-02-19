@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Pesquisar tópicos no {% data variables.product.product_name %}
@@ -25,7 +26,7 @@ Se quiser explorar repositórios sobre um tópico específico, encontrar projeto
 
 O qualificador de pesquisa `is:featured` limita os resultados da pequisa aos tópicos com mais repositórios no {% data variables.product.product_name %}. Esses tópicos também são apresentados em https://github.com/topics/.
 
-O qualificador de pesquisa `is:curated` limita os resultados da pequisa aos tópicos que os integrantes da comunidade adicionaram informações adicionais. Para obter mais informações, consulte o repositório explore em https://github.com/github/explore.
+O qualificador de pesquisa `is:curated` limita os resultados da pequisa aos tópicos que os integrantes da comunidade adicionaram informações adicionais. Para obter mais informações, consulte o [explorar o repositório](https://github.com/github/explore).
 
 Você pode filtrar os tópicos com base na data de criação usando parâmetro de data e `created:` ou com base em quantos repositórios estão associados ao tópico usando `repositories:n`. Esses dois qualificadores podem usar os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
 

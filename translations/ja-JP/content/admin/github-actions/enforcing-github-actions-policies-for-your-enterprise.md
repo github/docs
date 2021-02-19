@@ -1,6 +1,6 @@
 ---
 title: Enforcing GitHub Actions policies for your enterprise
-intro: 'Enterprise administrators can manage access to {% data variables.product.prodname_actions %} in an enterprise.'
+intro: 'Enterprise 管理者は、Enterprise 内の {% data variables.product.prodname_actions %} へのアクセスを管理できます。'
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
@@ -8,16 +8,14 @@ versions:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-### About {% data variables.product.prodname_actions %} permissions for your enterprise
+### Enterprise の {% data variables.product.prodname_actions %} 権限について
 
-When you enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, it is enabled for all organizations in your enterprise. You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in an organization.
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にすると、企業内のすべての Organization で有効になります。 Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 Enterprise にあるローカルのアクションだけ利用できるように、パブリックなアクションの利用を制限することもできます。
 
-### Managing {% data variables.product.prodname_actions %} permissions for your enterprise
+### Enterprise の {% data variables.product.prodname_actions %} 権限の管理
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
@@ -29,8 +27,7 @@ When you enable {% data variables.product.prodname_actions %} on {% data variabl
 
 #### Configuring the private fork policy for your enterprise
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}

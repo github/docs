@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - 操作开发
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +39,7 @@ versions:
   echo "Goodbye"
   ```
 
-1. 从终端创建 `goodbye.sh` 可执行文件，并将其检入仓库。
+3. 从您的终端创建 `goodbye.sh` 可执行文件。
 
   ```shell
   chmod +x goodbye.sh
@@ -64,12 +67,12 @@ versions:
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -85,13 +88,26 @@ versions:
 
   有关如何使用 `github.action_path` 的更多信息，请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 
-1. 创建新标签。 此示例对主分支使用 `v1` 标签。 更多信息请参阅“[创建标签](/github/managing-your-work-on-github/creating-a-label)”。
+1. 从终端检入 `action.yml` 文件。
+
+  ```shell
+  git add action.yml
+  git commit -m "Add action"
+  git push
+  ```
+
+1. 从终端添加标记。 此示例使用名为 `v1` 的标记。 更多信息请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
+
+  ```shell
+  git tag -a -m "Description of this release" v1
+  git push --follow-tags
+  ```
 
 ### 在工作流程中测试您的操作
 
 以下工作流程代码使用您在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)”中设置的已完成 hello world 操作。
 
-将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标签替换 `actions/hello-world-compposite-run-steps-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
+将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-compposite-run-steps-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -108,7 +124,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

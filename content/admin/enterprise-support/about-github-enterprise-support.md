@@ -1,10 +1,11 @@
 ---
 title: About GitHub Enterprise Support
-intro: '{% data variables.product.prodname_ghe_server %} Support can help you troubleshoot issues that arise on your {% data variables.product.prodname_ghe_server %} appliance.'
+intro: '{% data variables.contact.github_support %} can help you troubleshoot issues that arise on {% data variables.product.product_name %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -15,28 +16,34 @@ versions:
 
 ### About {% data variables.contact.enterprise_support %}
 
-{% data variables.product.prodname_ghe_server %} includes {% data variables.contact.enterprise_support %} in English and Japanese.
+{% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %} and Japanese{% endif %}.
 
-You can contact {% data variables.contact.enterprise_support %} through our support portal for help with:
- - Installing and using {% data variables.product.prodname_ghe_server %}
+{% if enterpriseServerVersions contains currentVersion %}
+You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
+ - Installing and using {% data variables.product.product_name %}
  - Identifying and verifying the causes of suspected errors
 
-In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} offers:
+In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} support for {% data variables.product.product_name %} offers:
   - Written support through our support portal 24 hours per day, 7 days per week
   - Phone support 24 hours per day, 7 days per week
   - A Service Level Agreement (SLA) with guaranteed initial response times
+  - Technical account managers
   - Access to premium content
   - Scheduled health checks
-  - Managed services
+  - Managed Admin hours
+{% endif %}
 
+{% if enterpriseServerVersions contains currentVersion %}
 For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."
+{% endif %}
 
 {% data reusables.support.scope-of-support %}
 
 ### Contacting {% data variables.contact.enterprise_support %}
 
-{% data variables.contact.enterprise_support %} customers can use the {% data variables.contact.contact_enterprise_portal %} to report issues in writing.
+You can contact {% data variables.contact.enterprise_support %} through {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.ae_azure_portal %}{% endif %} to report issues in writing. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Hours of operation
 
 #### Support in English
@@ -59,7 +66,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
 
-| U.S. holiday                | Date observed in {{ "now" | date: "%Y" }} |
+| U.S. holiday                | Date observed |
 | ---                         | ---                         |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |
@@ -72,7 +79,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 #### Holidays in Japan
@@ -80,6 +87,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
+{% endif %}
 
 ### Assigning a priority to a support ticket
 
@@ -87,7 +95,11 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
+{% if enterpriseServerVersions contains currentVersion  %}
 {% data reusables.support.ghes-priorities %}
+{% elsif currentVersion == "github-ae@latest" %}
+{% data reusables.support.ghae-priorities %}
+{% endif %}
 
 ### Resolving and closing support tickets
 
@@ -95,8 +107,8 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 
 ### Further reading
 
-- [Frequently asked questions about {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/faq)
-- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
-- "[Reaching {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/reaching-github-support)"
-- "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"
+{% if enterpriseServerVersions contains currentVersion %}
+- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"{% endif %}
+- "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}
 - "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)"

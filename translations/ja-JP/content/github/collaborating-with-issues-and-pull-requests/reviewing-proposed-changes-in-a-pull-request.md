@@ -1,16 +1,17 @@
 ---
 title: プルリクエストで提案された変更をレビューする
-intro: Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。
+intro: 'Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。'
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのレビューについて
 
-プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストのファイルをレビューしている際に、特定の変更についてコメントを残すことができます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}各ファイルのレビューを完了後、ファイルをレビュー済みとしてマーク付けできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストのヘッダにあるプログレスバーは、レビュー済みファイルの数を示します。{% endif %}任意の数のファイルをレビュー後、プルリクエストを承認するか、レビューに要約コメントを付けてサブミットし、さらなる変更をリクエストできます。
+プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストでファイルを確認しているときに、特定の変更について個別のコメントを残すことができます。 各ファイルの確認が終了したら、ファイルを閲覧済みとしてマークできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストヘッダのプログレスバーには、閲覧したファイル数が表示されます。 必要な数のファイルを確認した後、要約コメントを付けて確認を送信することにより、プルリクエストを承認するか、追加の変更をリクエストできます。
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +29,26 @@ versions:
 
 ![[Cancel review] ボタン](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+{% if currentVersion == "free-pro-team@latest" %}
+### 依存関係の変更をレビューする
+
+プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+
+   ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
+
 ### ファイルをレビュー済みとしてマークする
 
 ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
 
 {% data reusables.repositories.changed-files %}
 2. レビューを完了したファイルの、ヘッダの右側にある [**Viewed**] を選択します。 ![[Viewed] チェックボックス](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### レビューを提出する
 
@@ -54,8 +67,5 @@ versions:
 
 ### 参考リンク
 
-- "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
-- [プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)
-- "[必須レビューで Pull Request を承認する](/articles/approving-a-pull-request-with-required-reviews)"
-- [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)
-- 「[プルリクエストをレビューステータスでフィルタリングする](/articles/filtering-pull-requests-by-review-status)」
+- [保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
+- 「[プルリクエストをレビューステータスでフィルタリングする](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)」

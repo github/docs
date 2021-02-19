@@ -8,24 +8,29 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: 仓库协作者以及对仓库具有写入权限的人员可以创建、编辑和删除发行版。
+permissions: '仓库协作者以及对仓库具有写入权限的人员可以创建、编辑和删除发行版。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### About release management
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
-您也可以在 {% data variables.product.prodname_marketplace %} 中从特定的发行版发布操作。 更多信息请参阅“[在 {% data variables.product.prodname_marketplace %} 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace)”。
+### 关于发行版管理
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% if currentversion == "free proteam@latest" %}
+您也可以在 {% data variables.product.prodname_marketplace %} 中发布特定版本的操作。 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
+{% endif %}
+您可以选择是否
+
+将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 管理发行版。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 发行版`](https://cli.github.com/manual/gh_release)”。
 
 {% endtip %}
 {% endif %}
@@ -42,7 +47,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 8. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)
 9. 如果您准备推广您的发行版，请单击 **Publish release（发布版本）**。 要在以后处理该发行版，请单击 **Save draft（保存草稿）**。 ![发布版本和草拟发行版按钮](/assets/images/help/releases/release_buttons.png)
 
-您也可以从命令行或脚本自动创建发行版。 更多信息请参阅“[发行版](/v3/repos/releases/#create-a-release)”。
+您也可以从命令行或脚本自动创建发行版。 更多信息请参阅“[发行版](/rest/reference/repos/#create-a-release)”。
 
 ### 编辑发行版
 

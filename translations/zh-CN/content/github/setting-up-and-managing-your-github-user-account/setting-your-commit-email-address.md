@@ -1,6 +1,6 @@
 ---
 title: 设置提交电子邮件地址
-intro: '您可以在与您所执行的基于 Web 的 Git 操作（例如编辑与合并）关联的 {% data variables.product.product_name %} 上设置主电子邮件地址。'
+intro: '您可以设置用于在 {% data variables.product.product_name %} 和计算机上创作提交的电子邮件地址。'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于提交电子邮件地址
@@ -37,7 +38,7 @@ versions:
 
 您也可以选择阻止从命令行推送的提交显示您的个人电子邮件地址。 更多信息请参阅“[阻止推送的命令行显示您的个人电子邮件地址](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)”。{% endif %}
 
-为确保提交归因于您并且出现在您的贡献图表中，请使用您已[添加到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account/)的电子邮件地址{% if currentVersion == "free-pro-team@latest" %}，或者在电子邮件设置中提供给您的 {% data variables.product.product_name %}-provided `noreply` 电子邮件地址{% endif %}。
+为确保提交归因于您并且出现在您的贡献图表中，请使用已连接到 {% data variables.product.product_name %} 帐户的电子邮件地址{% if currentVersion == "free-pro-team@latest" %}，或者在电子邮件设置中提供给您的 `noreply` 电子邮件地址{% endif %}。 {% if currentVersion != "github-ae@latest" %}更多信息请参阅“[添加电子邮件地址到 {% data variables.product.prodname_dotcom %} 帐户](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

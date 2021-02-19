@@ -4,14 +4,14 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.
+intro: 'Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.'
 versions:
   enterprise-server: '*'
 ---
 
 {% tip %}
 
-**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) e o atributo `Administrators group` estiver definido ao [configurar o acesso LDAP para os usuários](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), esses usuários terão automaticamente acesso de administrador do site em suas respectivas instâncias. Nesse caso, você não pode promover manualmente os usuários pelas etapas abaixo.Será preciso adicioná-los ao grupo de administradores LDAP.
+**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) e o atributo `Administrators group` estiver definido ao [configurar o acesso LDAP para os usuários](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), esses usuários terão automaticamente acesso de administrador do site em suas respectivas instâncias. Nesse caso, você não pode promover manualmente os usuários pelas etapas abaixo.Será preciso adicioná-los ao grupo de administradores LDAP.
 
 {% endtip %}
 
@@ -19,8 +19,7 @@ Para obter mais informações sobre como promover um usuário a proprietário da
 
 ### Promover usuários pelas configurações empresariais
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. No canto superior direito da página, clique em **Add owner** (Adicionar proprietário). ![Botão para adicionar administrador](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ Para obter mais informações sobre como promover um usuário a proprietário da
 
 ### Rebaixar administrador do site pelas configurações empresariais
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. No canto superior esquerdo da página, no campo de pesquisa "Find an administrator" (Localizar administrador), digite o nome de usuário da pessoa que você pretende rebaixar. ![Campo de pesquisa para localizar administrador](/assets/images/help/business-accounts/business-account-search-for-admin.png)

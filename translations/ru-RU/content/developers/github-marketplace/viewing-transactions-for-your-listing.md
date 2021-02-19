@@ -1,6 +1,6 @@
 ---
 title: Viewing transactions for your listing
-intro: 'The {% data variables.product.prodname_marketplace %} transactions page allows you to download and view all transactions for your {% data variables.product.prodname_marketplace %} listing. You can view transations for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
+intro: 'The {% data variables.product.prodname_marketplace %} transactions page allows you to download and view all transactions for your {% data variables.product.prodname_marketplace %} listing. You can view transactions for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
@@ -39,7 +39,8 @@ To access {% data variables.product.prodname_marketplace %} transactions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
+4. Select the
+{% data variables.product.prodname_github_app %} that you'd like to view transactions for.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Transactions** tab.
 7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)

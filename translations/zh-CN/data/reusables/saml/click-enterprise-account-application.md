@@ -1,1 +1,1 @@
-1. Click the label for the application you created for your enterprise account.
+1. 单击为企业帐户创建的应用程序的标签。

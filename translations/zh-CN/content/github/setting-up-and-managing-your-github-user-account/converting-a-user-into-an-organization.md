@@ -17,7 +17,7 @@ versions:
  - 您将**不再**能够登录被转换的用户帐户。
  - 您将**不再**能够创建或修改被转换的用户帐户所拥有的 Gist。
  - **无法**将组织转换回用户。
- - SSH 密钥、OAuth 令牌、作业档案、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} 反应、{% endif %}及关联的用户信息**不会**传输到组织。 这只适用于被转换的用户帐户，而不适用于该用户帐户的任何协作者。
+ - SSH 密钥、OAuth 令牌、作业档案、 反应、及关联的用户信息**不会**传输到组织。 这只适用于被转换的用户帐户，而不适用于该用户帐户的任何协作者。
  - 使用被转换用户帐户进行的任何提交**将不再链接**到该帐户。 提交本身**将**保持原状。
 
 {% endwarning %}
@@ -56,5 +56,5 @@ versions:
 
 ### 延伸阅读
 - "[设置团队](/articles/setting-up-teams)"
-{% if currentVersion == "free-pro-team@latest" %}- "[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% if currentversion == "free proteam@latest" %}-"[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - “[访问组织](/articles/accessing-an-organization)”

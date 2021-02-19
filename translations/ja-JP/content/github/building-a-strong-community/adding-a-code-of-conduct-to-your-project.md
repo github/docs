@@ -1,6 +1,6 @@
 ---
 title: プロジェクトへの行動規範の追加
-intro: コミュニティの標準を定義し、参加を歓迎する開放的なプロジェクトであることを発信し、侵害への対処手順の概要を示すために、行動規範を採用してください。
+intro: 'コミュニティの標準を定義し、参加を歓迎する開放的なプロジェクトであることを発信し、侵害への対処手順の概要を示すために、行動規範を採用してください。'
 redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
 versions:
@@ -43,7 +43,7 @@ Organization またはユーザアカウント用にデフォルトの行動規�
 3. ファイル名フィールドに、ファイルの名前と拡張子を入力します。 ![新しい行動規範ファイル名](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - 行動規範をリポジトリのルートディレクトリに表示するには、ファイル名フィールドに *CODE_OF_CONDUCT* と入力します。
     - 行動規範をリポジトリの `docs` ディレクトリに表示するには、*docs/CODE_OF_CONDUCT* と入力します。
-    - 行動規範をリポジトリの `.github` ディレクトリに表示するには、 *.github/CODE_OF_CONDUCT* と入力します。
+    - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
 4. 新しいファイルに、カスタムの行動規範を追加します。
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

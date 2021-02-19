@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Com as chaves SSH, se alguém conseguir acessar seu computador, terá acesso a todos os sistemas que usam essas chaves. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Você pode usar `ssh-agent` para salvar sua frase secreta de forma segura e não precisar digitá-la novamente.
@@ -17,12 +18,11 @@ Com as chaves SSH, se alguém conseguir acessar seu computador, terá acesso a t
 É possível alterar a frase secreta de uma chave privada sem gerar novamente o par de chaves. Basta digitar o seguinte comando:
 
 ```shell
-$ ssh-keygen -p
-# Start the SSH key creation process
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
-> Enter new passphrase (empty for no passphrase): <em>[Digite a nova frase secreta]</em>
-> Enter same passphrase again: <em>[Digite mais uma vez para garantir]</em>
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
+> Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -60,7 +60,7 @@ fi
 unset env
 ```
 
-Se sua chave privada não for armazenada em um dos locais-padrão (como `~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} ou `~/. sh/id_dsa`{% endif %}), você deverá informar ao seu agente de autenticação SSH onde encontrá-la. Para adicionar a chave ao ssh-agent, digite `ssh-add ~/path/to/my_key`. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)".
+Se sua chave privada não estiver armazenada em um dos locais-padrão (como `~/. sh/id_rsa`), você precisará dizer ao seu agente de autenticação SSH onde encontrá-la. Para adicionar a chave ao ssh-agent, digite `ssh-add ~/path/to/my_key`. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)".
 
 {% tip %}
 
@@ -91,8 +91,7 @@ O processo do `ssh-agent` continuará sendo executado até você fazer logoff, d
 
 No OS X Leopard até o OS X El Capitan, estes arquivos padrão de chave privada são processados de forma automática:
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 Na primeira vez que você usar a chave, precisará digitar sua frase secreta. Se você optar por salvar a frase secreta com a keychain, não precisará digitá-la novamente.

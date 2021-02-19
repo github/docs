@@ -1,19 +1,20 @@
 ---
 title: Git Deinen Signaturschlüssel mitteilen
-intro: 'Für die lokale Signatur von Commits musst Du Git den für die Signatur verwendeten GPG-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} oder X.509-{% endif %}Schlüssel mitteilen.'
+intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 
@@ -46,7 +47,7 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 
@@ -75,7 +76,7 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 

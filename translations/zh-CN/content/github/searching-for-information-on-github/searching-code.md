@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-您可以在所有 {% data variables.product.product_name %} 内全局搜索代码，也可以在特定仓库或组织内搜索代码。 要在所有公共仓库内搜索代码，您必须登录到 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
+{% data reusables.search.you-can-search-globally %} 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
 
 您只能使用这些代码搜索限定符搜索代码。 搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
 
@@ -20,13 +21,14 @@ versions:
 
 由于搜索代码的复杂性，执行搜索的方式有一些限制：
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - [复刻](/articles/about-forks)中的代码仅当复刻的星号超过父级仓库时可搜索。 星号少于父仓库的复刻**不**为代码搜索编索引。 要在搜索结果中包括星号比其父项多的复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/articles/searching-in-forks)”。
-- Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
+- 只有_默认分支_被索引用于代码搜索。{% if currentVersion == "free-pro-team@latest" %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
 - 只有每个文件的前 500 KB 可搜索。{% endif %}
-- 只有少于 500,000 个文件的仓库可搜索。
-- 登录的用户可以搜索所有公共仓库。
+- 只能搜索少于 500,000 个文件的仓库。{% if currentVersion == "free-pro-team@latest" %}
+- 只能搜索去年有活动或已在搜索结果中返回的仓库。{% endif %}
 - 除了 [`filename`](#search-by-filename) 搜索以外，搜索源代码时必须始终包括至少一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 无效，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 有效。
 - 搜索结果最多可显示同一文件的两个分段，但文件内可能有更多结果。
 - 您无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. 搜索只会忽略这些符号。

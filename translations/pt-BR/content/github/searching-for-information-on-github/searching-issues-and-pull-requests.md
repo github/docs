@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode pesquisar problemas e pull requests globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+Você pode pesquisar problemas e pull requests globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 {% tip %}
 
-**Dicas:**{% if currentVersion != "free-pro-team@latest" %}
-  - Este artigo tem exemplos de pesquisa no site {% data variables.product.prodname_dotcom %}.com, mas você pode usar os mesmos filtros de pesquisa na {% data variables.product.product_location_enterprise %}.{% endif %}
+**Dicas:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - Este artigo tem exemplos de pesquisa no site {% data variables.product.prodname_dotcom %}.com, mas você pode usar os mesmos filtros de pesquisa na {% data variables.product.product_location %}.{% endif %}
   - Para obter uma lista de sintaxes de pesquisa que podem ser adicionadas a qualquer qualificador de pesquisa para melhorar ainda mais os resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax)".
   - Use aspas em termos de pesquisa com várias palavras. Por exemplo, se quiser pesquisar problemas com a etiqueta "In progress," pesquise `label:"in progress"`. A pesquisa não faz distinção entre maiúsculas e minúsculas.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -63,68 +64,65 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) identifica os problemas abertos com a palavra "performance".                                           |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) identifica os problemas e as pull requests fechados com a palavra "android".                                          |
 
-### Pesquisar por repositório público ou privado
+### Filtrar por visibilidade do repositório
 
-Ao [pesquisar em todo o {% data variables.product.product_name %}](https://github.com/search), pode ser útil restringir os resultados aos repositórios públicos ou privados. Você pode fazer isso com os qualificadores `is:public` e `is:private`.
+É possível filtrar pela visibilidade do repositório que contém os problemas e pull requests usando o qualificador `is`. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
-| Qualifier    | Exemplo                                                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) identifica os problemas e as pull requests em todos os repositórios públicos.                                                           |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) identifica os problemas e as pull requests que contêm a palavra "cupcake" em repositórios privados aos quais você tem acesso. |
+| Qualificador | Exemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) corresponde problemas e pull requests em repositórios públicos.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) corresponde problemas e pull requests em repositórios internos.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) corresponde problemas e pull requests que contêm a palavra "cupcake" em repositórios privados que você pode acessar.
 
 ### Pesquisar por autor
 
 O qualificador `author` encontra problemas e pull requests criados por determinado usuário ou conta de integração.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) identifica os problemas e as pull requests com a palavra "cool" que foram criados por @gjtorikian. |
-|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) identifica os problemas escritos por @mdo que contêm a palavra "bootstrap" no texto. |
-| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) identifica os problemas criados pela conta de integração com nome "robot".                                   |
+| Qualifier                 | Exemplo                                                                                                                                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) corresponde os problemas e os pull requests com a palavra "cool" que foram criados por @gjtorikian. |
+|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) corresponde problemas escritos por @mdo que contêm a palavra "bootstrap" no texto.    |
+| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) corresponde a problemas criados pela conta de integração denominada "robot".                                  |
 
 ### Pesquisar por responsável
 
 O qualificador `assignee` encontra problemas e pull requests que foram atribuídos a um determinado usuário. Não é possível pesquisar problemas e pull requests que têm _qualquer_ responsável, mas é possível pesquisar [problemas e pull requests que não tem nenhum responsável](#search-by-missing-metadata).
 
-| Qualifier                 | Exemplo                                                                                                                                                                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) identifica os problemas e as pull requests no libgit2 de libgit2 que foram atribuídos a @vmg. |
+| Qualifier                 | Exemplo                                                                                                                                                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) corresponde problemas e pull requests no libgit2 de libgit2 que foram atribuídos a @vmg. |
 
 ### Pesquisar por menção
 
 O qualificador `mentions` encontra problemas que mencionam um usuário específico. Para obter mais informações, consulte "[Mencionar pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)".
 
-| Qualifier                 | Exemplo                                                                                                                                                                 |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) identifica os problemas com a palavra "resque" que mencionam @defunkt. |
+| Qualifier                 | Exemplo                                                                                                                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) corresponde problemas com a palavra "resque" que mencionam @defunkt. |
 
 ### Pesquisar por menção da equipe
 
 Para organizações e equipes das quais você faz parte, você pode usar o qualificador `team` para encontrar problemas ou pull requests que fazem @menção a uma equipe específica na organização. Substitua os nomes de exemplo pelos nome da organização e da equipe para fazer uma pesquisa.
 
-| Qualifier                 | Exemplo                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** identifica os problemas em que a equipe `@jekyll/owners` é mencionada.                   |
-|                           | **team:myorg/ops is:open is:pr** identifica as pull requests abertas em que a equipe `@myorg/ops` é mencionada. |
+| Qualifier                 | Exemplo                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** corresponde problemas em que a equipe `@jekyll/owners` é mencionada.                   |
+|                           | **team:myorg/ops is:open is:pr** corresponde pull requests abertos em que a equipe `@myorg/ops` é mencionada. |
 
 ### Pesquisar por autor do comentário
 
 O qualificador `commenter` encontra problemas que contêm um comentário de um usuário específico.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) identifica os problemas nos repositórios do GitHub que contêm a palavra "github" e têm um comentário de @defunkt. |
+| Qualifier                 | Exemplo                                                                                                                                                                                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) corresponde problemas nos repositórios do GitHub que contêm a palavra "github" e têm um comentário de @defunkt. |
 
 ### Pesquisar por um usuário envolvido em um problema ou uma pull request
 
 Você pode usar o qualificador `involves` para encontrar problemas que envolvem de alguma forma um usuário específico. O qualificador `involves` é uma expressão lógica OR entre os qualificadores `author`, `assignee`, `mentions` e `commenter` para um único usuário. Em outras palavras, esse qualificador encontra problemas e pull requests que foram criados por um usuário, atribuídos a ele, que o mencionam ou que foram comentados por ele.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** identifica os problemas que envolvem @defunkt ou @jlord.                                     |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) identifica os problemas que envolvem @mdo e não contêm a palavra "bootstrap" no texto. |
+| Qualifier                 | Exemplo                                                                                                                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** corresponde problemas que envolvem @defunkt ou @jlord.                                     |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) corresponde problemas que envolvem @mdo e não contêm a palavra "bootstrap" no texto. |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Procurar problema e pull requests vinculados
 Você pode restringir seus resultados para apenas incluir problemas vinculados a um pull request com uma referência ou pull requests que estão vinculados a um problema que o pull request pode fechar.
 
@@ -133,7 +131,8 @@ Você pode restringir seus resultados para apenas incluir problemas vinculados a
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) corresponde a problemas abertos no re repositório `desktop/desktop` vinculados a um pull request por uma referência fechada.                                     |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) corresponde a pull requests fechados no repositório `desktop/desktop` vinculados a um problema que o pull request pode ter fechado.                    |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) corresponde a problemas abertos no repositório `desktop/desktop` que não estão vinculados a um pull request por uma referência fechada.                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. 
+{% endif %}
 
 ### Pesquisar por etiqueta
 
@@ -165,7 +164,7 @@ Você pode usar o qualificador `project` para encontrar problemas associados a u
 
 ### Pesquisar por status do commit
 
-Você pode filtrar pull requests com base no status dos commits. Isso é especialmente útil ao usar [a API de status](/v3/repos/statuses/) ou um serviço CI.
+Você pode filtrar pull requests com base no status dos commits. Isso é especialmente útil ao usar [a API de status](/rest/reference/repos#statuses) ou um serviço CI.
 
 | Qualifier        | Exemplo                                                                                                                                                                                                                                       |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -205,7 +204,7 @@ Você pode usar o qualificador `comments` com os [qualificadores maior que, meno
 
 | Qualifier                  | Exemplo                                                                                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) identifica os problemas fechados com mais de 100 comentários. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) identifica os problemas fechados com mais de 100 comentários. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) identifica os problemas com 500 a 1.000 comentários.                                       |
 
 ### Pesquisar por número de interações
@@ -229,7 +228,7 @@ Você pode filtrar problemas e pull requests pelo número de reações usando o 
 ### Pesquisar por pull requests de rascunho
 Você pode filtrar por pull requests de rascunho. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".
 
-| Qualificador        | Examplo | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) corresponde a rascunhos de pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests prontos para revisão.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) corresponde a rascunhos de pull requests.{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests prontos para revisão.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) corresponde a rascunhos de pull requests.{% endif %}
 
 ### Pesquisar por status de revisão e revisor da pull request
 

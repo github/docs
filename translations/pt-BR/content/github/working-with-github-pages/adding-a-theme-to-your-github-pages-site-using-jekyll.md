@@ -9,6 +9,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pessoas com permissões de gravação para um repositório podem adicionar um tema a um site do {% data variables.product.prodname_pages %} usando Jekyll.
@@ -21,9 +22,9 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 {% data reusables.pages.navigate-publishing-source %}
 2. Navegue até *_config.yml*.
 {% data reusables.repositories.edit-file %}
-4. Adicione uma nova linha ao arquivo para o nome do tema. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - Para usar um tema compatível, d{% else %}D{% endif %}igite `theme: THEME-NAME`, substituindo _THEME-NAME_ pelo nome do tema, como mostrado no LEIAME do repositório do tema. Para obter uma lista de temas compatíveis, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %}. ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - Para usar qualquer outro tema do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, digite `remote_theme: THEME-NAME`, substituindo THEME-NAME pelo nome do tema, como mostrado no LEIAME do repositório do tema. ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png){% endif %}
+4. Adicione uma nova linha ao arquivo para o nome do tema.
+   - Para usar um tema compatível, digite `theme: THEME-NAME`, substituindo _THEME-NAME_ pelo nome do tema, conforme mostrado no LEIAME do repositório do tema. Para obter uma lista de temas compatíveis, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %}. ![Tema compatível no arquivo de configuração](/assets/images/help/pages/add-theme-to-config-file.png)
+   - Para usar qualquer outro tema do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, digite `remote_theme: THEME-NAME`, substituindo THEME-NAME pelo nome do tema, como mostrado no LEIAME do repositório do tema. ![Tema não compatível no arquivo de configuração](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
@@ -39,7 +40,7 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 {% data reusables.pages.navigate-publishing-source %}
 1. Crie um novo arquivo chamado _/assets/css/style.scss_.
 2. Adicione o seguinte conteúdo ao topo do arquivo:
-  ```
+  ```scss
   ---
   ---
 

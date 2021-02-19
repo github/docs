@@ -1,20 +1,21 @@
 ---
 title: Issues und Pull Requests durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Qualifizierern in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Suchkennzeichnern in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation nach Issues und Pull Requests suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können Issues und Pull Requests global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% tip %}
 
-**Tipps:**{% if currentVersion != "free-pro-team@latest" %}
-  - Dieser Artikel enthält Beispielsuchen für die Website {% data variables.product.prodname_dotcom %}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {% data variables.product.product_location_enterprise %} verwenden.{% endif %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - Dieser Artikel enthält Beispielsuchen für die Website {% data variables.product.prodname_dotcom %}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {% data variables.product.product_location %} verwenden.{% endif %}
   - Eine Liste mit Suchsyntax, die Du jedem Qualifizierer hinzufügen kannst, um Deine Ergebnisse zu verbessern, findest Du unter „[Grundlagen der Suchsyntax](/articles/understanding-the-search-syntax)“.
   - Schließe Suchbegriffe, die aus mehreren Wörtern bestehen, in Anführungszeichen ein. Möchtest Du beispielsweise nach Issues mit der Kennzeichnung „In progress“ suchen, gib `label:"in progress"` ein. Bei der Suche wird die Groß-/Kleinschreibung ignoriert.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -63,68 +64,65 @@ Mit dem Qualifizierer `state` oder `is` kannst Du Issues und Pull Requests danac
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) sucht offene Issues, die das Wort „performance“ enthalten.                                          |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) sucht geschlossene Issues und Pull Requests, die das Wort „android“ enthalten.                                     |
 
-### Suche nach öffentlichen oder privaten Repositorys
+### Filter by repository visibility
 
-Wenn Du [{% data variables.product.product_name %} vollständig durchsuchst](https://github.com/search), ist ein Filtern der Ergebnisse nach öffentlichen oder privaten Repositorys oft sehr nützlich. Hierzu verwendest Du die Qualifizierer `is:public` und `is:private`.
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. Weitere Informationen findest Du unter „[Über Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
-| Qualifizierer | Beispiel                                                                                                                                                                                     |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`   | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) sucht Issues und Pull Requests in allen öffentlichen Repositorys.                                                       |
-| `is:private`  | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) sucht Issues und Pull Requests mit dem Wort „cupcake“ in allen privaten Repositorys, auf die Du Zugriff hast. |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ### Suche nach Autor
 
 Der Qualifizierer `author` sucht Issues und Pull Requests, die von einem bestimmten Benutzer oder Integrationskonto erstellt wurden.
 
-| Qualifizierer             | Beispiel                                                                                                                                                                                      |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) sucht von @gjtorikian erstellte Issues und Pull Requests, die das Wort „cool“ enthalten.       |
-|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) sucht von @mdo verfasste Issues, die im Textteil das Wort „bootstrap“ enthalten. |
-| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) sucht Issues, die vom Integrationskonto „robot“ erstellt wurden.                                         |
+| Qualifizierer             | Beispiel                                                                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.     |
+|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body. |
+| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."                                      |
 
 ### Suche nach Bearbeiter
 
 Der Qualifizierer `assignee` sucht Issues und Pull Requests, die einem bestimmten Benutzer zugewiesen sind. Nach Issues und Pull Requests mit _beliebigem_ Bearbeiter kannst Du nicht suchen. Du kannst jedoch nach [Issues und Pull Requests suchen, denen kein Bearbeiter zugewiesen ist](#search-by-missing-metadata).
 
-| Qualifizierer             | Beispiel                                                                                                                                                                                                                           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) sucht Issues und Pull Requests im Projekt „libgit2“ von libgit2, die @vmg zugewiesen sind. |
+| Qualifizierer             | Beispiel                                                                                                                                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) matches issues and pull requests in libgit2's project libgit2 that are assigned to @vmg. |
 
 ### Suche nach Erwähnung
 
 Der Qualifizierer `mentions` sucht Issues, in denen ein bestimmter Benutzer erwähnt wird. Weitere Informationen findest Du unter „[Personen und Teams erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams).“
 
-| Qualifizierer             | Beispiel                                                                                                                                                                |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) sucht Issues, die das Wort „resque“ enthalten und „@defunkt“ erwähnen. |
+| Qualifizierer             | Beispiel                                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ### Suche nach Teamerwähnung
 
 Mit dem Qualifizierer `team` kannst du innerhalb von Organisationen und Teams, zu denen Du gehörst, Issues oder Pull Requests suchen, die ein bestimmtes Team innerhalb der Organisation @erwähnen. Ersetze in den folgenden Beispielen die Namen durch den Namen Deiner Organisation und Deines Teams, um eine Suche durchzuführen.
 
-| Qualifizierer             | Beispiel                                                                                                  |
-| ------------------------- | --------------------------------------------------------------------------------------------------------- |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** sucht Issues, in denen das Team `@jekyll/owners` erwähnt wird.                     |
-|                           | **team:myorg/ops is:open is:pr** sucht offene Pull Requests, in denen das Team `@myorg/ops` erwähnt wird. |
+| Qualifizierer             | Beispiel                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** matches issues where the `@jekyll/owners` team is mentioned.                   |
+|                           | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned. |
 
 ### Suche nach Kommentierer
 
 Der Qualifizierer `commenter` sucht Issues, die einen Kommentar eines bestimmten Benutzers enthalten.
 
-| Qualifizierer             | Beispiel                                                                                                                                                                                                                                                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) sucht Issues in Repositorys von GitHub, die das Wort „github“ enthalten und von Benutzer @defunkt kommentiert wurden. |
+| Qualifizierer             | Beispiel                                                                                                                                                                                                                                                  |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) matches issues in repositories owned by GitHub, that contain the word "github," and have a comment by @defunkt. |
 
 ### Suche nach beteiligtem Benutzer
 
 Mit dem Qualifizierer `involves` kannst Du Issues suchen, an denen auf die eine oder andere Weise ein bestimmter Benutzer beteiligt ist. Der Qualifizierer `involves` ist ein logisches ODER zwischen den Qualifizierern `author`, `assignee`, `mentions` und `commenter` für einen einzelnen Benutzer. Dieser Qualifizierer sucht also Issues und Pull Requests, die von einem bestimmten Benutzer erstellt wurden, diesem zugewiesen sind, diesen erwähnen oder in denen dieser Benutzer einen Kommentar hinterlassen hat.
 
-| Qualifizierer             | Beispiel                                                                                                                                                                                                                         |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** sucht Issues, an denen entweder @defunkt oder @jlord beteiligt ist.                                           |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) sucht Issues, an denen @mdo beteiligt ist, die im Textteil jedoch nicht das Wort „bootstrap“ enthalten. |
+| Qualifizierer             | Beispiel                                                                                                                                                                                                          |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.                                      |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body. |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Suche nach verknüpften Issues und Pull Request
 Du kannst Deine Ergebnisse auf Issues einschränken, die mit einem Pull-Request verknüpft sind, indem Du eine schließende Referenz verwendest, oder auf Pull-Requests, die mit einem Issue verbunden sind, den der Pull-Request schließen kann.
 
@@ -133,11 +131,12 @@ Du kannst Deine Ergebnisse auf Issues einschränken, die mit einem Pull-Request 
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                                |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) findet geschlossene Pull Requests im `desktop/desktop`-Repository, die zu einem Issue verknüpft waren, den der Pull Request möglicherweise geschlossen hat.          |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die nicht mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. 
+{% endif %}
 
 ### Suche nach Kennzeichnung
 
-Mit dem Qualifizierer `label` kannst Du Deine Suchergebnisse nach Kennzeichnungen eingrenzen. Da Issues verschiedene Kennzeichnungen aufweisen können, kannst du für jeden Issue einen eigenen Qualifizierer einsetzen.
+Mit dem Kennzeichner `label` können Sie Ihre Suchergebnisse nach Kennzeichnungen eingrenzen. Da Issues verschiedene Kennzeichnungen aufweisen können, können Sie für jeden Issue einen eigenen Kennzeichner auflisten.
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                                                                     |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -147,7 +146,7 @@ Mit dem Qualifizierer `label` kannst Du Deine Suchergebnisse nach Kennzeichnunge
 
 ### Suche nach Meilenstein
 
-Der Qualifizierer `milestone` findet Issues oder Pull Requests, die innerhalb eines Repositorys Teil eines [Meilensteins](/articles/about-milestones) sind.
+Der Kennzeichner `milestone` sucht Issues oder Pull Requests, die innerhalb eines Repositorys Teil eines [Meilensteins](/articles/about-milestones) sind.
 
 | Qualifizierer              | Beispiel                                                                                                                                                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -156,7 +155,7 @@ Der Qualifizierer `milestone` findet Issues oder Pull Requests, die innerhalb ei
 
 ### Suche nach Projektboard
 
-Mit dem Qualifizierer <`project` kannst Du Issues suchen, die innerhalb eines Repositorys oder einer Organisation einem bestimmten [Projektboard](/articles/about-project-boards/) zugeordnet sind. Projektboards werden anhand ihrer Projektboardnummer gesucht. Die Nummer eines Projektboards befindet sich am Ende seiner URL.
+Mit dem Kennzeichner `project` können Sie Issues suchen, die innerhalb eines Repositorys oder einer Organisation einem bestimmten [Projektboard](/articles/about-project-boards/) zugeordnet sind. Projektboards werden anhand ihrer Projektboardnummer gesucht. Die Nummer eines Projektboards befindet sich am Ende von dessen URL.
 
 | Qualifizierer              | Beispiel                                                                                                             |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -165,7 +164,7 @@ Mit dem Qualifizierer <`project` kannst Du Issues suchen, die innerhalb eines Re
 
 ### Suche nach Commit-Status
 
-Du kannst Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/v3/repos/statuses/) oder einen CI-Dienst verwenden.
+Sie können Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/rest/reference/repos#statuses) oder einen CI-Dienst verwenden.
 
 | Qualifizierer    | Beispiel                                                                                                                                                                                                                                                               |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -175,7 +174,7 @@ Du kannst Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist
 
 ### Suche nach Commit-SHA
 
-Wenn Du den spezifischen SHA-Hash eines Commits kennst, kannst Du ihn für die Suche nach Pull Requests verwenden, die diesen SHA enthalten. Die SHA-Syntax besteht aus mindestens sieben Zeichen.
+Wenn Sie den spezifischen SHA-Hash eines Commits kennen, können Sie ihn für die Suche nach Pull Requests verwenden, die diesen SHA enthalten. Die SHA-Syntax besteht aus mindestens sieben Zeichen.
 
 | Qualifizierer              | Beispiel                                                                                                                                                                          |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -184,7 +183,7 @@ Wenn Du den spezifischen SHA-Hash eines Commits kennst, kannst Du ihn für die S
 
 ### Suche nach Branch-Name
 
-Du kannst Pull Requests nach dem Branch filtern, aus dem sie stammen (Head-Branch) oder in den sie zusammengeführt werden (Basis-Branch).
+Sie können Pull Requests nach dem Branch filtern, aus dem sie stammen (Head-Branch) oder in den sie gemergt werden (Basis-Branch).
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                                    |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,7 +192,7 @@ Du kannst Pull Requests nach dem Branch filtern, aus dem sie stammen (Head-Branc
 
 ### Suche nach Sprache
 
-Mit dem Qualifizierer `language` kannst Du Issues und Pull Requests in Repositorys suchen, die in einer bestimmten Programmiersprache geschrieben sind.
+Mit dem Kennzeichner `language` können Sie Issues und Pull Requests in Repositorys suchen, die in einer bestimmten Programmiersprache geschrieben sind.
 
 | Qualifizierer              | Beispiel                                                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -201,16 +200,16 @@ Mit dem Qualifizierer `language` kannst Du Issues und Pull Requests in Repositor
 
 ### Suche nach Anzahl der Kommentare
 
-Mit dem Qualifizierer `comments` in Verbindung mit [„Größer-als“-, „Kleiner-als“- oder Bereichsqualifizierern](/articles/understanding-the-search-syntax) kannst Du nach der Anzahl der Kommentare filtern.
+Mit dem Kennzeichner `comments` in Verbindung mit dem [„Größer-als“-, „Kleiner-als“- oder dem Bereichskennzeichner](/articles/understanding-the-search-syntax) können Sie nach der Anzahl der Kommentare filtern.
 
 | Qualifizierer              | Beispiel                                                                                                                                                                    |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) sucht geschlossene Issues mit mehr als 100 Kommentaren. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) sucht geschlossene Issues mit mehr als 100 Kommentaren. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) sucht Issues mit 500 bis 1.000 Kommentaren.                                          |
 
 ### Suche nach Anzahl der Interaktionen
 
-Mit dem Qualifizierer `interactions` kannst Du Issues und Pull Requests nach der Anzahl ihrer Interaktionen filtern. Zur Angabe der Anzahl der Interaktionen verwende [„Größer-als“-, „Kleiner-als“- oder Bereichsqualifizierer](/articles/understanding-the-search-syntax). Der Interaktionszähler ist die Anzahl Reaktionen und Kommentare zu einem Issue oder Pull Request.
+Mit dem Kennzeichner `interactions` können Sie Issues und Pull Requests nach der Anzahl ihrer Interaktionen filtern. Zur Angabe der Anzahl der Interaktionen verwenden Sie den [„Größer-als“-, „Kleiner-als“- oder den Bereichskennzeichner](/articles/understanding-the-search-syntax). Interaktionen sind Reaktionen und Kommentare zu einem Issue oder Pull Request.
 
 | Qualifizierer              | Beispiel                                                                                                                                                     |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -219,7 +218,7 @@ Mit dem Qualifizierer `interactions` kannst Du Issues und Pull Requests nach der
 
 ### Suche nach Anzahl der Reaktionen
 
-Mit dem Qualifizierer `reactions` kannst Du Issues und Pull Requests nach der Anzahl ihrer Reaktionen filtern. Zur Angabe der Anzahl der Reaktionen verwende [„Größer-als“-, „Kleiner-als“- oder Bereichsqualifizierer](/articles/understanding-the-search-syntax).
+Mit dem Kennzeichner `reactions` können Sie Issues und Pull Requests nach der Anzahl ihrer Reaktionen filtern. Zur Angabe der Anzahl der Reaktionen verwenden Sie den [„Größer-als“-, „Kleiner-als“- oder den Bereichskennzeichner](/articles/understanding-the-search-syntax).
 
 | Qualifizierer              | Beispiel                                                                                                                                     |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -227,9 +226,9 @@ Mit dem Qualifizierer `reactions` kannst Du Issues und Pull Requests nach der An
 |                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) sucht Issues mit 500 bis 1.000 Reaktionen.                      |
 
 ### Suche nach Pull-Request-Entwürfen
-Du kannst nach Pull-Request-Entwürfen suchen. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
+Sie können nach Pull-Request-Entwürfen suchen. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
 
-| Qualifizierer    | Beispiel | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) findet Pull-Request-Entwürfe. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
 
 ### Suche nach Review-Status und Reviewer eines Pull-Requests
 
@@ -247,7 +246,7 @@ Du kannst Pull Requests nach ihrem [Review-Status](/articles/about-pull-request-
 
 ### Suche nach dem Datum der Erstellung oder letzten Änderung eines Issues oder Pull Requests
 
-Du kannst Issues nach dem Zeitpunkt der Erstellung oder letzten Änderung filtern. Für die Suche nach dem Erstellungsdatum verwende den Qualifizierer `created`, für die Suche nach dem letzten Änderungsdatum den Qualifizierer `updated`.
+Sie können Issues nach dem Zeitpunkt der Erstellung oder letzten Änderung filtern. Für die Suche nach dem Erstellungsdatum verwenden Sie den Kennzeichner `created`, für die Suche nach dem letzten Änderungsdatum den Kennzeichner `updated`.
 
 Beide Qualifizierer verwenden als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -260,7 +259,7 @@ Beide Qualifizierer verwenden als Parameter ein Datum. {% data reusables.time_da
 
 ### Suche nach dem Datum der Schließung eines Issues oder Pull Requests
 
-Mit dem Qualifizierer `closed` kannst Du Issues und Pull Requests nach dem Datum der Schließung filtern.
+Mit dem Kennzeichner `closed` können Sie Issues und Pull Requests nach ihrem Schließungsdatum filtern.
 
 Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -273,7 +272,7 @@ Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.
 
 ### Suche nach dem Merge-Datum eines Issues oder Pull Requests
 
-Mit dem Qualifizierer `merged` kannst Du Pull Requests nach ihrem Merge-Datum filtern.
+Mit dem Kennzeichner `merged` können Sie Pull Requests nach ihrem Merge-Datum filtern.
 
 Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -286,7 +285,7 @@ Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.
 
 ### Suche nach dem Merge-Status eines Pull Requests
 
-Mit dem Qualifizierer `is` kannst Du Pull Requests danach filtern, ob sie zusammengeführt sind oder nicht.
+Mit dem Kennzeichner `is` können Sie Pull Requests danach filtern, ob sie gemergt oder ungemergt sind.
 
 | Qualifizierer | Beispiel                                                                                                                                                                         |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -295,7 +294,7 @@ Mit dem Qualifizierer `is` kannst Du Pull Requests danach filtern, ob sie zusamm
 
 ### Suche auf Basis der Archivierung eines Repositorys
 
-Der Qualifizierer `archived` filtert Suchergebnisse danach, ob sich ein Issue oder Pull Request in einem archivierten Repository befindet.
+Der Kennzeichner `archived` filtert Suchergebnisse danach, ob sich ein Issue oder Pull Request in einem archivierten Repository befindet.
 
 | Qualifizierer    | Beispiel                                                                                                                                                                                               |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -304,7 +303,7 @@ Der Qualifizierer `archived` filtert Suchergebnisse danach, ob sich ein Issue od
 
 ### Suche nach dem Sperrstatus einer Unterhaltung
 
-Mit dem Qualifizierer `is` kannst Du Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. Weitere Informationen findest Du unter „[Unterhaltungen sperren](/articles/locking-conversations).“
+Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. Weitere Informationen finden Sie unter „[Unterhaltungen sperren](/articles/locking-conversations)“.
 
 | Qualifizierer | Beispiel                                                                                                                                                                                                                                                                                                   |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -313,7 +312,7 @@ Mit dem Qualifizierer `is` kannst Du Issues oder Pull Requests mit gesperrten Un
 
 ### Suche nach fehlenden Metadaten
 
-Mit dem Qualifizierer `no` kannst Du Deine Suche auf Issues und Pull Requests eingrenzen, in denen bestimmte Metadaten fehlen. Hierbei kannst Du nach folgenden fehlenden Metadaten suchen:
+Mit dem Kennzeichner `no` können Sie Ihre Suche auf Issues und Pull Requests eingrenzen, in denen bestimmte Metadaten fehlen. Hierbei können Sie nach folgenden fehlenden Metadaten suchen:
 
 * Kennzeichnungen
 * Meilensteine

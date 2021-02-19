@@ -1,4 +1,4 @@
 
-This event occurs when a workflow run is requested or completed, and allows you to execute a workflow based on the finished result of another workflow. For example, if your `pull_request` workflow generates build artifacts, you can create a new workflow that uses `workflow_run` to analyze the results and add a comment to the original pull request.
+当请求或完成工作流程运行时，将发生此事件，并允许您基于另一个工作流程的完成结果执行工作流程。 例如，如果 `pull_request` 工作流程生成构件，您可以创建一个使用 `workflow_run` 来分析结果的新工作流程，并向原始拉取请求添加注释。
 
-The workflow started by the `workflow_run` event is able to access the secrets and write tokens used by the original workflow.
+由 `workflow_run` 事件启动的工作流程能够访问原始工作流程所使用的密钥和写入令牌。

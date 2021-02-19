@@ -6,7 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**注：**要将仓库链接到组织或用户拥有的项目板，仓库需要启用议题。 有关如何查看仓库是否禁用了议题，请参阅“[禁用议题](/github/managing-your-work-on-github/disabling-issues)”。
+
+{% endnote %}
 
 对项目板具有写入权限的任何人都可以将该组织或用户帐户拥有的仓库链接到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization/)”或“[用户拥有的项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards/)”。
 
@@ -18,7 +25,7 @@ versions:
 4. 在左侧边栏中，单击 **Linked repositories（链接的仓库）**。 ![左侧边栏中链接的仓库菜单选项](/assets/images/help/projects/project-board-linked-repositories-setting.png)
 5. 单击 **Link a repository（链接仓库）**。 ![链接的仓库选项卡中的链接仓库按钮](/assets/images/help/projects/link-repository-button.png)
 6. 搜索要链接的仓库。 ![链接仓库窗口中的搜索字段](/assets/images/help/projects/search-to-link-repository.png)
-7. Click **Link**. 要取消链接，请单击 **Unlink（取消链接）**。 ![链接按钮](/assets/images/help/projects/link-button.png)
+7. 单击 **Link（链接）**。 要取消链接，请单击 **Unlink（取消链接）**。 ![链接按钮](/assets/images/help/projects/link-button.png)
 
 ### 延伸阅读
 

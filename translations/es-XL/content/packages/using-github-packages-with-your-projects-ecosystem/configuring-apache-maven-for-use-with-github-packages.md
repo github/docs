@@ -1,6 +1,6 @@
 ---
-title: Configurar Apache Maven para usar con paquetes de GitHub
-intro: 'Puedes configurar Apache Maven para publicar paquetes para {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto Java.'
+title: Configuring Apache Maven for use with GitHub Packages
+intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -13,28 +13,28 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-**Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Autenticar a {% data variables.product.prodname_registry %}
+### Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Autenticando con un token de acceso personal
+#### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-Puedes autenticar en {% data variables.product.prodname_registry %} con Apache Maven editando tu archivo *~/.m2/settings.xml* para incluir tu token de acceso personal. Crear un nuevo archivo *~/.m2/settings.xml* si no existe uno.
+You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
 
-En la etiqueta `servidores`, agrega una etiqueta `servidor` hijo con una `Id`, reemplazando *USERNAME* con tu nombre de usuario {% data variables.product.prodname_dotcom %} y *Token* con tu token de acceso personal.
+In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
 
-En la etiqueta `repositorios`, configura un repositorio al mapear el `Id` del repositorio a la `Id` que agregaste en la etiqueta `servidor` que contiene tus credenciales. En la etiqueta `repositorios`, configura un repositorio al mapear el `Id` del repositorio a la `Id` que agregaste en la etiqueta `servidor` que contiene tus credenciales. {% data reusables.package_registry.lowercase-name-field %}
+In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. {% data reusables.package_registry.lowercase-name-field %}
 
-Si deseas interactuar con múltiples repositorios, puedes agregar cada repositorio para separar hijos del `repositorio` en la etiqueta `repositorios`, asignando la `Id` de cada una a las credenciales en la etiqueta `servidores`.
+If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
 {% if currentVersion != "free-pro-team@latest" %}
-Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```
@@ -60,7 +60,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
         <repository>
           <id>github</id>
           <name>GitHub OWNER Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
         </repository>
       </repositories>
     </profile>
@@ -77,7 +77,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
 ```
 
 {% if currentVersion != "free-pro-team@latest" %}
-Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+If your instance has subdomain isolation disabled:
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -119,35 +119,33 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 ```
 {% endif %}
 
-#### Autenticando con el `GITHUB_TOKEN`
+#### Authenticating with the `GITHUB_TOKEN`
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publicar un paquete
+### Publishing a package
 
-{% data reusables.package_registry.default-name %} Por ejemplo, {% data variables.product.prodname_dotcom %} publicará un paquete denominado `com.example:test` en un repositorio llamado `OWNER/test`.
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
-Si quisieras publicar paquetes múltiples en el mismo repositorio, puedes incluir la URL del mismo en el `<distributionManagement>`elemento del archivo *pom.xml*. {% data variables.product.prodname_dotcom %} coincidirá con el repositorio según ese campo. Dado que el nombre del repositorio también es parte del elemento `distributionManagement`, no hay pasos adicionales para publicar múltiples paquetes en el mismo repositorio.
+If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
 
-Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-1. Edita el elemento `distributionManagement` del archivo *POM.</p>
-
-{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
+1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
   {% if currentVersion != "free-pro-team@latest" %}
-  Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```
   <distributionManagement>
      <repository>
        <id>github</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+       <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
   ```
   {% if currentVersion != "free-pro-team@latest" %}
-  Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+  If your instance has subdomain isolation disabled:
   ```
   <distributionManagement>
      <repository>
@@ -157,23 +155,21 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
      </repository>
   </distributionManagement>
   ```
-  {% endif %}</li>
-2
-Publicar el paquete.
+  {% endif %}
+2. Publish the package.
 
    ```shell
    $ mvn deploy
   ```
-</ol>
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Instalar un paquete
+### Installing a package
 
-Para instalar un paquete de Apache Maven desde {% data variables.product.prodname_registry %}, edita el *POM. XML* archivo para incluir el paquete como una dependencia. Si deseas instalar paquetes desde más de un repositorio, agrega una etiqueta `repositorio` para cada uno. Para obtener más información acerca del uso de un archivo *pom.xml* en tu proyecto, consulta "[Introducción al POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)"en la documentación de Apache Maven.
+To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Agrega las dependencias del paquete al elemento `dependencias` del archivo *pom.xml* de tu proyecto, reemplazando `com.example:test` con tu paquete.
+2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
   ```
   <dependencies>
@@ -184,13 +180,13 @@ Para instalar un paquete de Apache Maven desde {% data variables.product.prodnam
     </dependency>
   </dependencies>
   ```
-3. Instala el paquete.
+3. Install the package.
 
   ```shell
   $ mvn install
   ```
 
-### Leer más
+### Further reading
 
-- "[Configurar Gradle para usar con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
-- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "[Configuring Gradle for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
+- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

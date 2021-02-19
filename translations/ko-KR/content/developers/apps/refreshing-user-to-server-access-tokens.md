@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 
@@ -24,14 +25,14 @@ To renew an expiring user-to-server access token, you can exchange the `refresh_
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/v3/guides/basics-of-authentication/#providing-a-callback)."
+This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
 
 #### 매개변수
 
-| 이름              | 유형    | 설명                                                                                                                                                                    |
-| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 이름              | 유형    | 설명                                                                                                                                                               |
+| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `문자열` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token. |
-| `grant_type`    | `문자열` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                                    |
+| `grant_type`    | `문자열` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                               |
 | `client_id`     | `문자열` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.                                                                        |
 | `client_secret` | `문자열` | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.                                                                    |
 
@@ -41,7 +42,7 @@ This callback request will send you a new access token and a new refresh token. 
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
+  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"

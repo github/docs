@@ -1,12 +1,13 @@
 ---
 title: プロジェクトボードの作成
-intro: プロジェクトボードは、特定機能の働きの追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。
+intro: 'プロジェクトボードは、特定機能の働きの追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。'
 redirect_from:
   - /articles/creating-a-project/
   - /articles/creating-a-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -24,12 +25,13 @@ versions:
 ### ユーザが所有するプロジェクトボードの作成
 
 {% data reusables.profile.access_profile %}
-2. On the top of your profile page, in the main navigation, click
-{% octicon "project" aria-label="The project board icon" %} **Projects**.
+2. プロフィールページの一番上のメインナビゲーションにある
+{% octicon "project" aria-label="The project board icon" %} [**Projects**] をクリックします。
 ![プロジェクトタブ](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -49,6 +51,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -64,7 +67,7 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリ名の下で、クリックします
-{% octicon "project" aria-label="The project board icon" %} **Projects**.
+{% octicon "project" aria-label="The project board icon" %} [**Projects**] をクリックします。
 ![プロジェクトタブ](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -82,7 +85,7 @@ versions:
 ### 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"
-- [プロジェクトボードの編集](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"

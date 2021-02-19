@@ -59,7 +59,9 @@ Depois do envio da sua solicitação de suporte, podemos pedir que você compart
 - `configuration-logs/ghe-config.log`: logs de configuração do {% data variables.product.prodname_ghe_server %};
 - `collectd/logs/collectd.log`: logs coletados;
 - `mail-logs/mail.log`: logs de entrega de e-mail por SMTP;
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`: erros de entrega por webhook.
+{% endif %}
 
 Para obter mais informações, consulte "[Gerar logs de auditoria](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)".
 
@@ -85,7 +87,7 @@ Você pode usar essas etapas para criar e compartilhar um pacote de suporte se c
 
 #### Criar um pacote de suporte usando SSH
 
-Você pode usar estas etapas para criar e compartilhar um pacote de suporte se tiver acesso SSH ao seu appliance do {% data variables.enterprise.management_console %} e se tiver acesso à internet.
+Você pode usar esses passos para criar e compartilhar um pacote de suporte se você tiver acesso de SSH ao {% data variables.product.product_location %} e tiver acesso à internet de saída.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -99,10 +101,10 @@ Você pode usar estas etapas para criar e compartilhar um pacote de suporte se t
 
 #### Carregar um pacote de suporte usando sua conta corporativa
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
-4. Em "Ajuda {% data variables.product.prodname_enterprise %}", clique em **Fazer upload de um pacote de suporte**. ![Fazer upload de um link para pacote de suporte](/assets/images/enterprise/support/upload-support-bundle.png)
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. Em "Ajuda de {% data variables.product.prodname_enterprise %}", clique em **Fazer upload de um pacote de suporte**. ![Fazer upload de um link para pacote de suporte](/assets/images/enterprise/support/upload-support-bundle.png)
 5. Em "Selecione uma conta corporativa", selecione a conta associada ao pacote de suporte no menu suspenso. ![Escolher a conta corporativa do pacote de suporte](/assets/images/enterprise/support/support-bundle-account.png)
 6. Em "Fazer upload de um pacote de suporte para {% data variables.contact.enterprise_support %}", selecione seu pacote de suporte, clique **Escolher arquivo** ou arraste seu arquivo de pacote de suporte para **Escolher arquivo**. ![Fazer upload de um arquivo para pacote de suporte](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. Clique em **Fazer upload**.
@@ -110,8 +112,8 @@ Você pode usar estas etapas para criar e compartilhar um pacote de suporte se t
 #### Fazer upload de um pacote de suporte usando SSH
 
 Você pode fazer upload diretamente de um pacote de suporte para o nosso servidor nas seguintes situações:
-- Se você tiver acesso SSH ao seu appliance do {% data variables.product.prodname_ghe_server %};
-- Se as conexões de saída HTTPS na porta TCP 443 forem permitidas no seu appliance do {% data variables.product.prodname_ghe_server %}.
+- Você tem acesso de SSH a {% data variables.product.product_location %}.
+- São permitidas as conexões de saída HTTPS por meio da porta TCP 443 a partir de {% data variables.product.product_location %}.
 
 1. Faça upload do pacote para o nosso servidor de pacotes de suporte:
   ```shell
@@ -120,13 +122,13 @@ Você pode fazer upload diretamente de um pacote de suporte para o nosso servido
 
 ### Criar e compartilhar pacotes de suporte estendidos
 
-Os pacotes de suporte incluem logs dos últimos dois dias, enquanto os pacotes de suporte _estendidos_ incluem logs dos últimos sete dias. Se os eventos que o {% data variables.contact.github_support %} está investigando tiverem ocorrido há mais de dois dias, poderemos solicitar que você compartilhe um pacote de suporte estendido. Você precisará do acesso SSH para baixar um pacote estendido, e não é possível baixar um pacote estendido no {% data variables.enterprise.management_console %}.
+Os pacotes de suporte incluem logs dos últimos dois dias, enquanto os pacotes de suporte _estendidos_ incluem logs dos últimos sete dias. Se os eventos que o {% data variables.contact.github_support %} está investigando tiverem ocorrido há mais de dois dias, poderemos solicitar que você compartilhe um pacote de suporte estendido. Você precisará do acesso SSH para baixar um pacote estendido, e não é possível fazer o download de um pacote estendido no {% data variables.enterprise.management_console %}.
 
-Para evitar que fiquem grandes demais, os pacotes só têm logs que não passaram por rotação nem compactação. A rotação de arquivos de log no {% data variables.product.prodname_ghe_server %} acontece em várias frequências (diária ou semanalmente) para diferentes arquivos, dependendo das expectativas de tamanho dos logs.
+Para evitar que fiquem grandes demais, os pacotes só têm logs que não passaram por rotação nem compactação. A rotação de arquivos de registro no {% data variables.product.prodname_ghe_server %} acontece em várias frequências (diária ou semanalmente) para diferentes arquivos, dependendo das expectativas de tamanho dos registros.
 
 #### Criar um pacote de suporte estendido usando SSH
 
-Você pode usar essas etapas para criar e compartilhar um pacote de suporte estendido se tiver acesso SSH ao seu appliance do {% data variables.product.prodname_ghe_server %} e se tiver acesso à internet.
+Você pode usar essas etapas para criar e compartilhar um pacote de suporte estendido se você tiver acesso de SSH ao {% data variables.product.product_location %} e tiver acesso à internet de saída.
 
 1. Baixe o pacote de suporte estendido via SSH adicionando o sinalizador `-x` ao comando `ghe-support-bundle`:
   ```shell
@@ -138,8 +140,8 @@ Você pode usar essas etapas para criar e compartilhar um pacote de suporte este
 #### Fazer upload de um pacote de suporte estendido usando SSH
 
 Você pode fazer upload diretamente de um pacote de suporte para o nosso servidor nas seguintes situações:
-- Se você tiver acesso SSH ao seu appliance do {% data variables.product.prodname_ghe_server %};
-- Se as conexões de saída HTTPS na porta TCP 443 forem permitidas no seu appliance do {% data variables.product.prodname_ghe_server %}.
+- Você tem acesso de SSH a {% data variables.product.product_location %}.
+- São permitidas as conexões de saída HTTPS por meio da porta TCP 443 a partir de {% data variables.product.product_location %}.
 
 1. Faça upload do pacote para o nosso servidor de pacotes de suporte:
   ```shell

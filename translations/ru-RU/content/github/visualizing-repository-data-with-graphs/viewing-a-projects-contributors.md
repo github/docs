@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.repository-insights %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About contributors
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
+You can view the top 100 contributors to a repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
@@ -31,14 +32,14 @@ You can also see a list of people who have contributed to the project's Python d
 If you don't appear in a repository's contributors graph, it may be because:
 - You aren't one of the top 100 contributors.
 - Your commits haven't been merged into the default branch.
-- The email address you used to author the commits hasn't been added to your {% data variables.product.product_name %} account.
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[Repositories](/v3/repos/#list-contributors)."
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 
 If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/articles/about-pull-requests)."
 
-If the email address you used to author the commits has not been added to your {% data variables.product.product_name %} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account)."
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% if currentVersion != "github-ae@latest" %}" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

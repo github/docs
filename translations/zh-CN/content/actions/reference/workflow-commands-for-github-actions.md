@@ -21,7 +21,11 @@ versions:
 
 操作可以与运行器机器进行通信，以设置环境变量，其他操作使用的输出值，将调试消息添加到输出日志和其他任务。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 更多信息请参阅“[环境文件](#environment-files)”。
+{% else %}
 工作流程命令使用特定格式的 `echo` 命令。
+{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -41,40 +45,48 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 ### 使用工作流程命令访问工具包函数
 
-[actions/toolkit](https://github.com/actions/toolkit) 包括一些可以作为工作流程命令执行的功能。 使用 `::` 语法来运行您的 YAML 文件中的工作流程命令；然后，通过 `stdout` 将这些命令发送给运行器。 例如，不使用如下所示的代码来设置环境变量：
+[actions/toolkit](https://github.com/actions/toolkit) 包括一些可以作为工作流程命令执行的功能。 使用 `::` 语法来运行您的 YAML 文件中的工作流程命令；然后，通过 `stdout` 将这些命令发送给运行器。 例如，不使用代码来设置环境变量，如下所示：
 
 ```javascript
-core.exportVariable('SELECTED_COLOR', 'green');
+core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-您可以在工作流程中使用 `set-env` 命令来设置相同的值：
+您可以在工作流程中使用 `set-output` 命令来设置相同的值：
 
+{% raw %}
 ``` yaml
       - name: Set selected color
-        run: echo '::set-env name=SELECTED_COLOR::green'
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' $SELECTED_COLOR
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 下表显示了在工作流程中可用的工具包功能：
 
-| 工具包函数                 | 等效工作流程命令                      |
-| --------------------- | ----------------------------- |
-| `core.addPath`        | `add-path`                    |
-| `core.debug`          | `debug`                       |
-| `core.error`          | `error`                       |
-| `core.endGroup`       | `endgroup`                    |
-| `core.exportVariable` | `set-env`                     |
-| `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问     |
-| `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问     |
-| `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问     |
-| `core.saveState`      | `save-state`                  |
-| `core.setFailed`      | 用作 `::error` 和 `exit 1` 的快捷方式 |
-| `core.setOutput`      | `set-output`                  |
-| `core.setSecret`      | `add-mask`                    |
-| `core.startGroup`     | `组`                           |
-| `core.warning`        | `warning file`                |
+| 工具包函数                                                                                                                                                       | 等效工作流程命令                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `core.addPath`                                                                                                                                              |                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}可使用环境文件 `GITHUB_PATH`{% else %} `add-path` {% endif %}访问 |                               |
+|                                                                                                                                                             |                               |
+| `core.debug`                                                                                                                                                | `debug`                       |
+| `core.error`                                                                                                                                                | `error`                       |
+| `core.endGroup`                                                                                                                                             | `endgroup`                    |
+| `core.exportVariable`                                                                                                                                       |                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}可使用环境文件 `GITHUB_ENV`{% else %} `set-env` {% endif %} 访问  |                               |
+|                                                                                                                                                             |                               |
+| `core.getInput`                                                                                                                                             | 可使用环境变量 `INPUT_{NAME}` 访问     |
+| `core.getState`                                                                                                                                             | 可使用环境变量 `STATE_{NAME}` 访问     |
+| `core.isDebug`                                                                                                                                              | 可使用环境变量 `RUNNER_DEBUG` 访问     |
+| `core.saveState`                                                                                                                                            | `save-state`                  |
+| `core.setFailed`                                                                                                                                            | 用作 `::error` 和 `exit 1` 的快捷方式 |
+| `core.setOutput`                                                                                                                                            | `set-output`                  |
+| `core.setSecret`                                                                                                                                            | `add-mask`                    |
+| `core.startGroup`                                                                                                                                           | `组`                           |
+| `core.warning`                                                                                                                                              | `warning file`                |
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### 设置环境变量
 
 `::set-env name={name}::{value}`
@@ -86,6 +98,7 @@ core.exportVariable('SELECTED_COLOR', 'green');
 ``` bash
 echo "::set-env name=action_state::yellow"
 ```
+{% endif %}
 
 ### 设置输出参数
 
@@ -101,6 +114,7 @@ echo "::set-env name=action_state::yellow"
 echo "::set-output name=action_fruit::strawberry"
 ```
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### 添加系统路径
 
 `::add-path::{path}`
@@ -112,12 +126,13 @@ echo "::set-output name=action_fruit::strawberry"
 ``` bash
 echo "::add-path::/path/to/dir"
 ```
+{% endif %}
 
 ### 设置调试消息
 
 `::debug::{message}`
 
-将调试消息打印到日志。 您可以创建名为 `ACTIONS_STEP_DEBUG`、值为 `true` 的密码，才能在日志中查看通过此命令设置的调试消息。 更多信息请参阅“[管理工作流程运行](/actions/configuring-and-managing-workflows/managing-a-workflow-run#enabling-debug-logging)”。
+将调试消息打印到日志。 您可以创建名为 `ACTIONS_STEP_DEBUG`、值为 `true` 的密码，才能在日志中查看通过此命令设置的调试消息。 更多信息请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging)”。
 
 #### 示例
 
@@ -141,13 +156,32 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 `::error file={name},line={line},col={col}::{message}`
 
-创建错误消息并将该消息打印到日志。 您可以选择提供警告出现位置的文件名 (`file`)、行号 (`line`) 和列号 (`col`)。
+创建错误消息并将该消息打印到日志。 您可以选择提供错误出现位置的文件名 (`file`)、行号 (`line`) 和列号 (`col`)。
 
 #### 示例
 
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### 对日志行分组
+
+```
+::group::{title}
+::endgroup::
+```
+
+在日志中创建一个可扩展的组。 要创建组，请使用 `group` 命令并指定 `title`。 打印到 `group` 与 `endgroup` 命令之间日志的任何内容都会嵌套在日志中可扩展的条目内。
+
+#### 示例
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![工作流运行日志中的可折叠组](/assets/images/actions-log-group.png)
 
 ### 在日志中屏蔽值
 
@@ -213,3 +247,79 @@ console.log('::save-state name=processID::12345')
 ``` javascript
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## 环境文件
+
+在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。
+
+{% warning %}
+
+**警告：**Powershell 默认不使用 UTF-8。 请确保使用正确的编码写入文件。 例如，在设置路径时需要设置 UTF-8 编码：
+
+```yaml
+steps:
+  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+```
+
+{% endwarning %}
+
+### 设置环境变量
+
+`echo "{name}={value}" >> $GITHUB_ENV`
+
+为作业中接下来运行的任何操作创建或更新环境变量。 创建或更新环境变量的操作无法访问新值。 但在作业中的所有后续操作均可访问。 环境变量区分大小写，并且可以包含标点符号。
+
+#### 示例
+
+{% raw %}
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+#### 多行字符串
+
+对于多行字符串，您可以使用具有以下语法的分隔符。
+
+```
+{name}<<{delimiter}
+{value}
+{delimiter}
+```
+
+##### 示例
+
+在此示例中， 我们使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 cURL 响应的值。
+```yaml
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+        curl https://httpbin.org/json >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+```
+
+### 添加系统路径
+
+`echo "{path}" >> $GITHUB_PATH`
+
+为系统 `PATH` 变量预先设置一个目录，使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
+
+#### 示例
+
+此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
+
+``` bash
+echo "$HOME/.local/bin" >> $GITHUB_PATH
+```
+{% endif %}

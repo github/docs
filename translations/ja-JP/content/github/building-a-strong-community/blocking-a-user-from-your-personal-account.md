@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントからのユーザのブロック
-intro: ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。
+intro: 'ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -9,20 +9,19 @@ versions:
 
 ### ユーザのブロックについて
 
-自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {% data variables.product.prodname_dotcom %}は、ユーザをブロックしてもユーザに通知しません。 ブロックした人と同じプロジェクトへのコントリビューションをしたくない場合には、ブロックしたユーザから以前にコントリビューションされているリポジトリで[警告を表示するように選択](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)できます。 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
+自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {% data variables.product.prodname_dotcom %}は、ユーザをブロックしてもユーザに通知しません。 If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
 
 {% tip %}
 
-**ヒント:**過熱した会話を鎮めるためにユーザをブロックする場合、コラボレータだけがコメントできるように[会話をロックする](/articles/locking-conversations)ことを検討してください。
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
 
 {% endtip %}
 
 ユーザをブロックすると、以下のようになります:
 - そのユーザによるあなたのフォローは止まります
 - ユーザがリポジトリの Watch を停止し、リポジトリのピン留めを解除します
+- ユーザはあなたがオーナーの Organization に参加できません
 - そのユーザによる Star 付けや Issue 割り当てはリポジトリから削除されます。
-- リポジトリのユーザのフォークが削除されます
-- ユーザのリポジトリのフォークを削除します
 - リポジトリ内のディスカッションまたはコメントに対するユーザの投票が削除されます
 - そのユーザは、あなたのリポジトリのコラボレーターではなくなります
 - リポジトリへのユーザのコントリビューションがカウントされなくなります
@@ -38,7 +37,7 @@ versions:
 - あなたのフォロー、あるいはあなたのコンテンツを自身のアクティビティフィードで見ること
 - Issue またはプルリクエストへの割り当て
 - あなたを自身のリポジトリにコラボレーターとして招待すること
-- Invite you as a collaborator on a security advisory
+- あなたをセキュリティアドバイザリのコラボレータとして招待すること
 - あなたのリポジトリをコメント中でクロス参照すること
 - リポジトリのフォーク、Watch、ピン留め、Star 付け
 - あなたをスポンサーすること

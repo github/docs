@@ -3,10 +3,11 @@ header:
   github_docs: GitHub Docs
   contact: 연락처
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
     localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">알려주십시오</a>.
     localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
-    product_in_progress: '👋 안녕하세요! 이 페이지는 현재 개발 중입니다. 정확한 최신 정보는 <a href="https://developer.github.com">개발자 설명서</a>를 방문하십시오.'
+    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
 search:
   need_help: 도움이 필요하십니까?
   placeholder: 검색 주제, 제품...
@@ -15,10 +16,11 @@ homepage:
   version_picker: 버전
 toc:
   getting_started: 시작하기
-  popular_articles: 인기 문서
+  popular_articles: Popular
   guides: 안내서
+  whats_new: What's new
 pages:
-  article_version: "문서 버전:"
+  article_version: '문서 버전:'
   miniToc: 기사 내용
 errors:
   oops: 이런!
@@ -54,6 +56,14 @@ contribution_cta:
   button: Make a contribution
   or: Or,
   to_guidelines: learn how to contribute.
+enterprise_releases_list:
+  title: Enterprise Server Releases
+  currently_supported: Currently supported
+  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for information about the latest release.
+  deprecated: Deprecated
+  deprecated_message: 'These docs remain available but are no longer maintained:'
+  deprecated_developer: Deprecated on developer.github.com
+  deprecated_developer_message: 'These docs remain available on the legacy <a href="https://developer.github.com">developer site</a> but are no longer maintained:'
 products:
   graphql:
     reference:
@@ -118,3 +128,29 @@ footer:
       careers: 채용
       press: 보도 자료
       shop: 쇼핑
+product_landing:
+  quick_start: Quickstart
+  reference_guides: Reference guides
+  overview: 개요
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: more guides
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: 유형
+    topic: Topic
+    all: All
+  guide_types:
+    overview: 개요
+    quick_start: Quickstart
+    tutorial: 튜토리얼
+    how_to: How-to guide
+    reference: Reference
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

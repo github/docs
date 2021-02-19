@@ -1,6 +1,6 @@
 ---
-title: Requirements for listing an app
-intro: 'Apps on {% data variables.product.prodname_marketplace %} must meet the requirements outlined on this page before our {% data variables.product.prodname_marketplace %} onboarding specialists will approve the listing.'
+title: 上架应用程序的要求
+intro: '{% data variables.product.prodname_marketplace %} 上的应用程序必须满足本页列出的要求才能发布上架。'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
   - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
@@ -12,49 +12,65 @@ versions:
   free-pro-team: '*'
 ---
 
+<!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
+在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求取决于您是要提供免费应用程序还是付费应用程序。
 
-Before you submit your app for review, you must read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)." You'll accept the terms within your [draft listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) on {% data variables.product.product_name %}. Once you've submitted your app, one of the {% data variables.product.prodname_marketplace %} onboarding specialists will reach out to you with more information about the onboarding process, and review your app to ensure it meets these requirements:
+### 对所有 {% data variables.product.prodname_marketplace %} 上架产品的要求
 
-### User experience
+{% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。 提交要发布的上架信息时，您必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
 
-- {% data variables.product.prodname_github_app %}s should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_app %}s should have a minimum of 200 users.
-- Apps must provide value to customers and integrate with the platform in some way beyond authentication.
-- Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in beta or available by invite only.
-- Apps cannot actively persuade users away from {% data variables.product.product_name %}.
-- Marketing materials for the app must accurately represent the app's behavior.
-- Apps must include links to user-facing documentation that describe how to set up and use the app.
-- When a customer purchases an app and GitHub redirects them to the app's installation URL, the app must begin the OAuth flow immediately. For details, see "[Handling new purchases and free trials](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/#step-3-authorization)."
+#### 所有应用程序的用户体验要求
 
-- Customers must be able to install your app and select repositories on both a personal and organization account. They should be able to view and manage those accounts separately.
+所有上架产品应满足以下要求，无论它们是免费应用程序还是付费应用程序。
 
-### Brand and listing
+- 上架信息不得主动诱导用户离开 {% data variables.product.product_name %}。
+- 上架信息必须包含发布者的有效联系信息。
+- 上架信息必须包含应用程序的相关说明。
+- 上架信息必须指定定价计划。
+- 应用程序必须为客户提供价值，并通过身份验证以外的其他方式与平台集成。
+- 应用程序必须在 {% data variables.product.prodname_marketplace %} 中公开可用，并且不能是测试版或只能通过邀请获取。
+- 应用程序必须设置 web 挂钩事件，以便在发生计划更改或取消时通过 {% data variables.product.prodname_marketplace %} API 通知发布者。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-- Apps that use GitHub logos must follow the "[{% data variables.product.product_name %} Logos and Usage](https://github.com/logos)" guidelines.
-- Apps must have a logo, feature card, and screenshots images that meet the recommendations provided in "[Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)."
-- Listings must include descriptions that are well written and free of grammatical errors. For guidance in writing your listing, see "[Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)."
+有关提供良好客户体验的更多信息，请参阅“[应用程序的客户体验最佳实践](/developers/github-marketplace/customer-experience-best-practices-for-apps)”。
 
-### 安全
+#### 所有应用程序的品牌和上架要求
 
-Apps will go through a security review before being listed on {% data variables.product.prodname_marketplace %}. A successful review will meet the requirements and follow the security best practices listed in "[Security review process](/marketplace/getting-started/security-review-process/)." For information on the review process, contact [marketplace@github.com](mailto:marketplace@github.com).
+- 使用 GitHub 徽标的应用程序必须遵循 {% data variables.product.company_short %} 指南。 更多信息请参阅“[{% data variables.product.company_short %} 徽标和用法](https://github.com/logos)”。
+- 应用程序必须具有徽标、功能卡和屏幕截图，并且这些内容必须遵循“[编写 {% data variables.product.prodname_marketplace %} 上架说明](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”中提供的建议。
+- 上架信息必须包含认真编写并且没有语法错误的说明。 有关编写上架信息的指南，请参阅“[编写 {% data variables.product.prodname_marketplace %} 上架说明](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”。
 
-### Billing flows
+为了保护您的客户，我们建议您还要遵循安全最佳实践。 更多信息请参阅“[应用程序的安全最佳实践](/developers/github-marketplace/security-best-practices-for-apps)”。
 
-Your app must integrate [billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows) using the [{% data variables.product.prodname_marketplace %} webhook event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
+### 免费应用程序注意事项
 
-#### Free apps
+{% data reusables.marketplace.free-apps-encouraged %}
 
-{% data reusables.marketplace.free-apps-encouraged %} If you are listing a free app, you'll need to meet these requirements:
+### 付费应用程序的要求
 
-- Customers must be able to see that they have a free plan in the billing, profile, or account settings section of the app.
-- When a customer cancels your app, you must follow the flow for [cancelling plans](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/).
+要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 有关验证流程或转让应用程序所有权的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-#### Paid apps
+如果您的应用程序已发布，并且您是经验证的发布者，则您可以使用定价计划编辑器发布新的付费计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
-To offer your app as a paid service, you'll need to meet these requirements to list your app on {% data variables.product.prodname_marketplace %}:
+要发布付费应用程序（或提供付费计划的应用程序），您还必须满足以下要求：
 
-- To sell your app in {% data variables.product.prodname_marketplace %}, it must use GitHub's billing system. Your app does not need to handle payments but does need to use "[{% data variables.product.prodname_marketplace %} purchase events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" to manage new purchases, upgrades, downgrades, cancellations, and free trials. See "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)" to learn about how to integrate these events into your app. Using GitHub's billing system allows customers to purchase an app without leaving GitHub and pay for the service with the payment method already attached to their {% data variables.product.product_name %} account.
-- Apps must support both monthly and annual billing for paid subscriptions purchases.
-- Listings may offer any combination of free and paid plans. Free plans are optional but encouraged. For more information, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
-{% data reusables.marketplace.marketplace-billing-ui-requirements %}
+- {% data variables.product.prodname_github_app %} 应至少有 100 个安装设施。
+- {% data variables.product.prodname_oauth_app %} 应至少有 200 个用户。
+- 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 更多信息请参阅下面的“[付费应用程序的计费要求](#billing-requirements-for-paid-apps)”。
+
+当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证应用程序上架信息。
+
+{% note %}
+
+**注：**{% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何将应用程序转让给组织，请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)”。
+
+{% endnote %}
+
+### 付费应用程序的计费要求
+
+您的应用程序无需处理付款，但需要使用 {% data variables.product.prodname_marketplace %} 购买事件来管理新购买、升级、降级、取消和免费试用。 有关如何将这些事件集成到您的应用程序中，请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+
+GitHub 的计费 API 允许客户在不离开 GitHub 的情况下购买应用程序，并使用已附加到其 {% data variables.product.product_name %} 帐户的付款方式来支付服务费用。
+
+- 应用程序必须在付费订阅计划中支持月度和年度计费。
+- 上架产品可提供免费和付费计划的任何组合。 免费计划是可选项，但建议提供。 更多信息请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。

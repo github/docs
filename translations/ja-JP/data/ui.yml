@@ -3,10 +3,11 @@ header:
   github_docs: GitHub Docs
   contact: お問い合わせ
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
     localization_complete: ドキュメントには頻繁に更新が加えられ、その都度公開されています。本ページの翻訳はまだ未完成な部分があることをご了承ください。最新の情報については、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>をご参照ください。本ページの翻訳に問題がある場合は<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">こちらまで</a>ご連絡ください。
     localization_in_progress: こんにちは！このページは開発中か、まだ翻訳中です。最新の正しい情報を得るには、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>にアクセスしてください。
-    product_in_progress: こんにちは！このページは活発に開発中です。最新の正しい情報を得るには、<a href="https://developer.github.com">開発者のドキュメンテーション</a>にアクセスしてください。
+    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索
@@ -15,10 +16,11 @@ homepage:
   version_picker: バージョン
 toc:
   getting_started: はじめましょう
-  popular_articles: 人気のある記事
+  popular_articles: 人気
   guides: ガイド
+  whats_new: 更新情報
 pages:
-  article_version: "記事のバージョン："
+  article_version: '記事のバージョン：'
   miniToc: 'ここには以下の内容があります:'
 errors:
   oops: 問題が発生しています。
@@ -54,6 +56,14 @@ contribution_cta:
   button: Make a contribution
   or: OR,
   to_guidelines: learn how to contribute.
+enterprise_releases_list:
+  title: Enterprise Server Releases
+  currently_supported: Currently supported
+  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for information about the latest release.
+  deprecated: Deprecated
+  deprecated_message: 'These docs remain available but are no longer maintained:'
+  deprecated_developer: Deprecated on developer.github.com
+  deprecated_developer_message: 'These docs remain available on the legacy <a href="https://developer.github.com">developer site</a> but are no longer maintained:'
 products:
   graphql:
     reference:
@@ -118,3 +128,29 @@ footer:
       careers: キャリア
       press: プレス
       shop: ショップ
+product_landing:
+  quick_start: クイックスタート
+  reference_guides: Reference guides
+  overview: 概要
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: その他のガイド
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: 種類
+    topic: Topic
+    all: すべて
+  guide_types:
+    overview: 概要
+    quick_start: クイックスタート
+    tutorial: チュートリアル
+    how_to: How-to guide
+    reference: リファレンス
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

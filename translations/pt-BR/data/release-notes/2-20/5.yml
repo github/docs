@@ -1,0 +1,19 @@
+date: '2020-04-07'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/19536, https://github.com/github/enterprise2/pull/19494 {% endcomment %}'
+  bugs:
+    - 'Uma opção máxima de tamanho de objeto Git de 100 Mb não pôde ser selecionada para um repositório, quando a conta corporativa global definiu uma opção de tamanho de objeto do Git diferente de 100 Mb. {% comment %} https://github.com/github/github/pull/138805, https://github.com/github/github/pull/138683 {% endcomment %}'
+    - 'Os resultados da API de problemas e de pull requests podem ter comportamento inconsistente ao ordenar pelo campo `updated_at`. {% comment %} https://github.com/github/github/pull/139247, https://github.com/github/github/pull/138486 {% endcomment %}'
+    - 'O campo `package` das vulnerabilidades de segurança não pôde ser consultado por meio da API do GraphQL. {% comment %} https://github.com/github/github/pull/139418, https://github.com/github/github/pull/138245 {% endcomment %}'
+    - 'A alteração um repositório de *público* para *interno* exibiu uma mensagem de cobrança irrelevante. {% comment %} https://github.com/github/github/pull/139531, https://github.com/github/github/pull/139492 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Ao fazer push em um gist, pode-se adicionar uma exceção durante o hook de post-receive. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Ao fazer a atualização de versões anteriores, os trabalhadores de segundo plano podem gerar, o que impede funcionalidades essenciais como fazer merge de pull requests. {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando. (atualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'O gráfico de dependências não é a detecção de dependências quando implantadas em uma configuração de cluster com vários nós de Redis. (atualizado 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

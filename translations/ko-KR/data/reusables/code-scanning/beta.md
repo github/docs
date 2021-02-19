@@ -1,5 +1,9 @@
+{% if currentVersion == "enterprise-server@2.22" %}
+
 {% note %}
 
-**Note:** {% data variables.product.prodname_code_scanning_capc %} is currently in beta and subject to change. {% if currentVersion == "free-pro-team@latest" %}To request access to the beta, [join the waitlist](https://github.com/features/security/advanced-security/signup).{% else %}If your organization has an {% data variables.product.prodname_advanced_security %} license, you can [join the beta program](https://resources.github.com/beta-signup/).{% endif %}
+**Note:** {% data variables.product.prodname_code_scanning_capc %} is in beta in {% data variables.product.prodname_ghe_server %} 2.22. For the generally available release of code scanning, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
+
+{% endif %}

@@ -11,7 +11,7 @@ Pre-Receive-Hooks führen Tests für an ein Repository übertragenen Code durch,
 
 Falls Dein Push nicht akzeptiert wird, wird eine Fehlermeldung zum fehlgeschlagenen Pre-Receive-Hook angezeigt.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
@@ -21,10 +21,10 @@ Total 3 (delta 0), reused 0 (delta 0)
 remote: always_reject.sh: failed with exit status 1
 remote: error: rejecting all pushes
 To https://54.204.174.51/hodor/nope.git
- ! [remote rejected] master -> master (pre-receive hook declined)
+ ! [remote rejected] main -> main (pre-receive hook declined)
 error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 ```
 
 ![Fehlermeldung für fehlgeschlagenen Pre-Receive-Hook](/assets/images/help/pull_requests/pre-receive-hook-failed-error.png)
 
-Dein {% data variables.product.product_name %}-Websiteadministrator kann Pre-Receive-Hooks für Deine Organisation oder für Dein Repository erstellen und entfernen. Zudem kann er Organisations- oder Repository-Administratoren erlauben, Pre-Receive-Hooks zu aktivieren oder zu deaktivieren. Weitere Informationen findest Du unter „[Pre-Receive-Hooks zum Erzwingen der Richtlinie verwenden](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy).“
+Ihr {% data variables.product.product_name %}-Websiteadministrator kann Pre-Receive-Hooks für Ihre Organisation oder für Ihr Repository erstellen und entfernen. Zudem kann er Organisations- oder Repository-Administratoren erlauben, Pre-Receive-Hooks zu aktivieren oder zu deaktivieren. Weitere Informationen findest Du unter „[Pre-Receive-Hooks zum Erzwingen der Richtlinie verwenden](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy).“

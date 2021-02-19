@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para que um evento de linha do tempo "marcado como duplicata" apareça, o usuário que cria o comentário de referência de duplicata deve ter acesso de gravação ao repositório onde ele cria o comentário.

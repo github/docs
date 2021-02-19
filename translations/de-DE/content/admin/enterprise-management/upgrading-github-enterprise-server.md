@@ -29,6 +29,26 @@ versions:
 
   {% endnote %}
 
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
+
+Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
+
+Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
+
+| Benutzerlizenzen                                           |                           vCPUs |                         Arbeitsspeicher |                        Attached-Storage | Root-Storage |
+|:---------------------------------------------------------- | -------------------------------:| ---------------------------------------:| ---------------------------------------:| ------------:|
+| Test, Demo oder 10 Benutzer mit eingeschränkten Funktionen |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ |       200 GB |
+| 10–3000                                                    |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ |       200 GB |
+| 3000–5000                                                  |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB |       200 GB |
+| 5000–8000                                                  | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB |       200 GB |
+| 8000–10000+                                                | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB |       200 GB |
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
+
 ### Snapshot erstellen
 
 Ein Snapshot ist ein Checkpoint einer virtuellen Maschine (VM) zu einem bestimmten Zeitpunkt. Es wird dringend empfohlen, ein Snapshot zu erstellen, bevor Sie Ihre virtuelle Maschine upgraden, damit Sie bei einem Fehlschlagen eines Upgrades Ihre VM auf den Snapshot zurücksetzen können. Wenn Sie ein Upgrade auf eine neue Feature-Veröffentlichung durchführen, müssen Sie einen VM-Snapshot erstellen. Wenn Sie ein Upgrade auf eine Patch-Veröffentlichung durchführen, können Sie die vorhandene Daten-Disk anhängen.
@@ -49,7 +69,7 @@ Es gibt zwei Snapshot-Typen:
 | Plattform             | Snapshot-Methode | URL zur Snapshot-Dokumentation                                                                                                                                                                         |
 | --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | Disk             | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM               | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM               | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM               | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disk             | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM               | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +170,7 @@ Obwohl Sie einen Hotpatch verwenden können, um ein Upgrade auf die neueste Patc
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. Deaktivieren Sie bei einzelnen Appliance-Upgrades den Wartungsmodus, damit Benutzer {% data variables.product.product_location_enterprise %} verwenden können.
+7. Deaktivieren Sie bei einzelnen Appliance-Upgrades den Wartungsmodus, damit Benutzer {% data variables.product.product_location %} verwenden können.
 
   {% note %}
 
@@ -203,7 +223,7 @@ Für die Hochverfügbarkeit und Geo-Replikation konfigurierte Appliances verwend
    1. Führen Sie auf der Replikatinstanz den Befehl `ghe-repl-setup <primary-instance-ip>` erneut aus.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. Deaktivieren Sie nach dem Upgrade-Abschluss des letzten Replikats und nach dem Abschluss der erneuten Synchronisierung den Wartungsmodus, damit Benutzer {% data variables.product.product_location_enterprise %} verwenden können.
+6. Deaktivieren Sie nach dem Upgrade-Abschluss des letzten Replikats und nach dem Abschluss der erneuten Synchronisierung den Wartungsmodus, damit Benutzer {% data variables.product.product_location %} verwenden können.
 
 ### Wiederherstellung nach einem fehlgeschlagenen Upgrade
 
@@ -218,3 +238,9 @@ Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{
 #### Rollback einer Feature-Veröffentlichung durchführen
 
 Um ein Rollback von einer Feature-Veröffentlichung durchzuführen, stellen Sie diese über einen VM-Snapshot wieder her, um sicherzustellen, dass die Root- und Datenpartitionen einen konsistenten Zustand aufweisen. Weitere Informationen finden Sie unter „[Snapshot erstellen](#taking-a-snapshot)“.
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Weiterführende Informationen
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

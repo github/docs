@@ -1,7 +1,7 @@
 ---
-title: Sintaxe de fluxo de trabalho para o GitHub Actions
-shortTitle: Sintaxe de fluxo de trabalho
-intro: Um fluxo de trabalho é um processo automatizado configurável constituído de um ou mais trabalhos. Você deve criar um arquivo YAML para definir a configuração do seu fluxo de trabalho.
+title: Workflow syntax for GitHub Actions
+shortTitle: Workflow syntax
+intro: A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
@@ -15,98 +15,94 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre sintaxe YAML para fluxos de trabalho
+### About YAML syntax for workflows
 
-Arquivos de fluxo de trabalho usam sintaxe YAML e devem ter uma extensão de arquivo `.yml` ou `.yaml`. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
+Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-Você deve armazenar os arquivos de fluxo de trabalho no diretório `.github/workflows` do seu repositório.
+You must store workflow files in the `.github/workflows` directory of your repository.
 
-### Limites de uso
+### `name`
 
-{% data reusables.github-actions.github-actions-usage-limits %}
+The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's actions page. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
 
-### **`name`**
+### `on`
 
-Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe os nomes dos fluxos de trabalho na página de ações do repositório. Se você omitir o `nome`, o {% data variables.product.prodname_dotcom %} irá defini-lo como o caminho do arquivo do fluxo de trabalho relativo à raiz do repositório.
-
-### **`on`**
-
-**Obrigatório** Nome do evento do {% data variables.product.prodname_dotcom %} que aciona o fluxo de trabalho. Você pode fornecer uma única `string` de evento, um `array` de eventos, um `array` de `types` (tipos) de eventos ou um `map` (mapa) de configuração de eventos que programe um fluxo de trabalho ou restrinja a execução do fluxo de trabalho a alterações em determinados arquivos, tags ou branches. Para obter uma lista de eventos disponíveis, consulte "[Eventos que acionam fluxos de trabalho](/articles/events-that-trigger-workflows)".
+**Required** The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
 
 {% data reusables.github-actions.actions-on-examples %}
 
-### **`on.<event_name>.types`**
+### `on.<event_name>.types`
 
-Seleciona os tipos de atividades que acionarão a execução de um fluxo de trabalho. A maioria dos eventos GitHub são acionados por mais de um tipo de atividade.  Por exemplo, o evento para o recurso release (versão) é acionado quando uma versão é `published` (publicada), `unpublished` (a publicação é cancelada), `created` (criada), `edited` (editada), `deleted` (excluída) ou `prereleased` (versão prévia). A palavra-chave `types` (tipos) permite que você limite a atividade que faz com que o fluxo de trabalho seja executado. Quando somente um tipo de atividade aciona um evento de webhook, a palavra-chave `types` (tipos) é desnecessária.
+Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is `published`, `unpublished`, `created`, `edited`, `deleted`, or `prereleased`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
 
-É possível usar um array de `types` (tipos) de evento. Para obter mais informações sobre cada evento e seus tipos de atividades, consulte "[Eventos que acionam fluxos de trabalho](/articles/events-that-trigger-workflows#webhook-events)".
+You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
 
 ```yaml
-# Aciona o fluxo de trabalho na atividade de pull request
+# Trigger the workflow on pull request activity
 on:
   release:
-    # Usa apenas a palavra-chave types (tipos) para limitar os tipos de atividades que acionam o fluxo de trabalho.
+    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
     types: [published, created, edited]
 ```
 
-### **`on.<push|pull_request>.<branches|tags>`**
+### `on.<push|pull_request>.<branches|tags>`
 
-Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de trabalho para ser executado em branches ou tags específicos. Para um evento de `pull_request`, são avaliados apenas os branches e tags na base. Se você definir apenas `tags` ou `branches`, o fluxo de trabalho não será executado para eventos que afetam o Git ref indefinido.
+When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
-As palavras-chave `branches`, `branches-ignore`, `tags` e `tags-ignore` aceitam padrões glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de branch ou tag. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](#filter-pattern-cheat-sheet)".
+The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one branch or tag name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
-#### Exemplo com branches e tags
+#### Example including branches and tags
 
-Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao nome do Git ref. Por exemplo, definir o padrão `mona/octocat` nos `branches` corresponde ao Git ref `refs/heads/mona/octocat`. O padrão `releases/**` corresponderá ao Git ref `refs/heads/releases/10`.
+The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**` will match the `refs/heads/releases/10` Git ref.
 
 ```yaml
-em:
+on:
   push:
-    # Sequência de padrões que correspondem a refs/heads
+    # Sequence of patterns matched against refs/heads
     branches:    
-      # Push de eventos no branch-mestre
-      - mestre
-      # Push de eventos para branches que correspondem a refs/heads/mona/octocat
+      # Push events on main branch
+      - main
+      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push de eventos para branches que correspondem a refs/heads/releases/10
+      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
-    # Sequência de padrões que correspondem a refs/tags
+    # Sequence of patterns matched against refs/tags
     tags:        
       - v1             # Push events to v1 tag
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### Exemplo desconsiderando branches e tags
+#### Example ignoring branches and tags
 
-Sempre que um padrão corresponde ao padrão `branches-ignore` ou `tags-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches-ignore` e `tags-ignore` são avaliados relativamente ao nome do Git ref. Por exemplo, definir o padrão `mona/octocat` nos `branches` corresponde ao Git ref `refs/heads/mona/octocat`. O padrão `releases/**-alpha` em `branches` corresponderá ao Git ref `refs/releases/beta/3-alpha`.
+Anytime a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` and `tags-ignore` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**-alpha` in `branches` will match the `refs/releases/beta/3-alpha` Git ref.
 
 ```yaml
-em:
+on:
   push:
-    # Sequência de padrões que correspondem a refs/heads
+    # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push de eventos para branches que correspondem a refs/heads/mona/octocat
+      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push de eventos para branches que correspondem a refs/heads/releases/beta/3-alpha
+      # Push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
-    # Sequência de padrões que correspondem a refs/tags
+    # Sequence of patterns matched against refs/tags
     tags-ignore:
       - v1.*           # Push events to tags v1.0, v1.1, and v1.9
 ```
 
-#### Excluir branches e tags
+#### Excluding branches and tags
 
-Você pode usar dois tipos de filtros para impedir a execução de um fluxo de trabalho em pushes e pull requests para tags e branches.
-- `branches` ou `branches-ignore` - não é possível usar os dois filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho. Use o filtro `branches` quando você precisa filtrar branches para correspondências positivas e excluir branches. Use o filtro `branches-ignore` quando você só precisa excluir nomes de branches.
-- `tags` ou `tags-ignore` - não é possível usar os dois filtros `tags` e `tags-ignore` para o mesmo evento em um fluxo de trabalho. Use o filtro `tags` quando você precisa filtrar tags para correspondências positivas e excluir tags. Use o filtro `tags-ignore` quando você só precisa excluir nomes de tags.
+You can use two types of filters to prevent a workflow from running on pushes and pull requests to tags and branches.
+- `branches` or `branches-ignore` - You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. Use the `branches` filter when you need to filter branches for positive matches and exclude branches. Use the `branches-ignore` filter when you only need to exclude branch names.
+- `tags` or `tags-ignore` - You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow. Use the `tags` filter when you need to filter tags for positive matches and exclude tags. Use the `tags-ignore` filter when you only need to exclude tag names.
 
-#### Exemplo com padrões positivos e negativos
+#### Example using positive and negative patterns
 
-Você pode excluir `tags` e `branches` usando o caractere `!`. A ordem de definição dos padrões é importante.
-  - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
-  - Um padrão positivo correspondente após uma correspondência negativa incluirá a Git ref novamente.
+You can exclude `tags` and `branches` using the `!` character. The order that you define patterns matters.
+  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+  - A matching positive pattern after a negative match will include the Git ref again.
 
-O fluxo de trabalho a seguir será executado em pushes para `releases/10` ou `releases/beta/mona`, mas não em `releases/10-alpha` ou `releases/beta/3-alpha`, pois o padrão negativo `!releases/**-alpha` está na sequência do padrão positivo.
+The following workflow will run on pushes to `releases/10` or `releases/beta/mona`, but not on `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
 ```yaml
 on:
@@ -116,15 +112,15 @@ on:
     - '!releases/**-alpha'
 ```
 
-### **`on.<push|pull_request>.paths`**
+### `on.<push|pull_request>.paths`
 
-Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de trabalho para ser executado quando pelo menos um arquivo não corresponde a `paths-ignore` ou pelo menos um arquivo modificado corresponde ao `paths` configurado. Flitros de caminho não são avaliados em pushes para tags.
+When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
 
-As palavras-chave `paths-ignore` e `paths` aceitam padrões glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de caminho. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](#filter-pattern-cheat-sheet)".
+The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
-#### Exemplo desconsiderando caminhos
+#### Example ignoring paths
 
-Sempre que um nome de caminho corresponder a um padrão em `paths-ignore`, o fluxo de trabalho não será executado. O {% data variables.product.prodname_dotcom %} avalia os padrões definidos em `paths-ignore` com relação ao nome do caminho. Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
+Anytime a path name matches a pattern in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
 ```yaml
 on:
@@ -133,9 +129,9 @@ on:
     - 'docs/**'
 ```
 
-#### Exemplo incluindo caminhos
+#### Example including paths
 
-Se pelo menos um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. Para acionar uma compilação sempre que você fizer push de um arquivo JavaScript, você pode usar um padrão curinga.
+If at least one path matches a pattern in the `paths` filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.
 
 ```yaml
 on:
@@ -144,19 +140,19 @@ on:
     - '**.js'
 ```
 
-#### Excluir caminhos
+#### Excluding paths
 
-Você pode excluir caminhos com dois tipos de filtros. Não é possível usar ambos os filtros para o mesmo evento em um fluxo de trabalho.
-- `paths-ignore` - use o filtro `paths-ignore` quando você precisa somente excluir nomes de caminhos.
-- `paths` - use o filtro `paths` quando você precisa filtrar caminhos para correspondências positivas e excluir caminhos.
+You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.
+- `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
+- `paths` - Use the `paths` filter when you need to filter paths for positive matches and exclude paths.
 
-#### Exemplo com padrões positivos e negativos
+#### Example using positive and negative patterns
 
-Você pode excluir `paths` usando o caractere `!`. A ordem de definição dos padrões é importante:
-  - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o caminho.
-  - Um padrão positivo correspondente após uma correspondência negativa incluirá o caminho novamente.
+You can exclude `paths` using the `!` character. The order that you define patterns matters:
+  - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+  - A matching positive pattern after a negative match will include the path again.
 
-Este exemplo é executado sempre que o evento `push` inclui um arquivo no diretório `sub-project` ou seus subdiretórios, a menos que o arquivo esteja no diretório `sub-project/docs`. Por exemplo, um push que alterou `sub-project/index.js` ou `sub-project/src/index.js` acionará uma execução de fluxo de trabalho, mas um push que altere somente`sub-project/docs/readme.md` não acionará.
+This example runs anytime the `push` event includes a file in the `sub-project` directory or its subdirectories, unless the file is in the `sub-project/docs` directory. For example, a push that changed `sub-project/index.js` or `sub-project/src/index.js` will trigger a workflow run, but a push changing only `sub-project/docs/readme.md` will not.
 
 ```yaml
 on:
@@ -166,96 +162,96 @@ on:
     - '!sub-project/docs/**'
 ```
 
-#### Comparações Git diff
+#### Git diff comparisons
 
 {% note %}
 
-**Observação:** se você fizer push de mais de 1.000 commits ou se o {% data variables.product.prodname_dotcom %} não gera o diff devido a um tempo limite esgotado (diffs muito grandes), o fluxo de trabalho sempre será executado.
+**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
 
 {% endnote %}
 
-O filtro determina se um fluxo de trabalho deve ser executado avaliando os arquivos alterados e comparando-os à lista de `paths-ignore` ou `paths`. Se não houver arquivos alterados, o fluxo de trabalho não será executado.
+The filter determines if a workflow should run by evaluating the changed files and running them against the `paths-ignore` or `paths` list. If there are no files changed, the workflow will not run.
 
-O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterados usando diffs de dois pontos para pushes e diffs de três pontos para pull requests:
-- **Pull requests:** diffs de três pontos são uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch de base.
-- **Pushes para branches existentes:** um diff de dois pontos compara os SHAs head e base, um com o outro.
-- **Pushes para novos branches:** um diff de dois pontos compara o principal do ancestral do commit mais extenso que foi feito push.
+{% data variables.product.prodname_dotcom %} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
+- **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+- **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
+- **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
-Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/articles/about-comparing-branches-in-pull-requests)".
+For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
-### **`on.schedule`**
+### `on.schedule`
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
-Para obter mais informações sobre a sintaxe cron, consulte "[Eventos que acionam fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)".
+For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
 
-### **`env`**
+### `env`
 
-Um `map` (mapa) das variáveis de ambiente que estão disponíveis para todos os trabalhos e etapas do fluxo de trabalho. Também é possível configurar variáveis de ambiente que estão disponíveis apenas para um trabalho ou etapa. Para obter mais informações, consulte [`jobs.<job_id>.env`](#jobsjob_idenv) e [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-#### Exemplo
+#### Example
 
 ```yaml
 env:
   SERVER: production
 ```
 
-### **`padrões`**
+### `defaults`
 
-Um `mapa` das configurações-padrão que serão aplicadas a todos os trabalhos do fluxo de trabalho. Você também pode definir as configurações-padrão disponíveis para um trabalho. Para obter mais informações, consulte [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
-
-{% data reusables.github-actions.defaults-override %}
-
-### **`defaults.run`**
-
-Você pode fornecer opções-padrão de `shell` e `working-directory` para todas as etapas de [`executar`](#jobsjob_idstepsrun) em um fluxo de trabalho. Você também pode definir as configurações-padrão para `execução` apenas disponíveis para um trabalho. Para obter mais informações, consulte [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). Você não pode usar contextos ou expressões nesta palavra-chave.
+A `map` of default settings that will apply to all jobs in the workflow. You can also set default settings that are only available to a job. For more information, see [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
 
 {% data reusables.github-actions.defaults-override %}
 
-#### Exemplo
+### `defaults.run`
+
+You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a workflow. You can also set default settings for `run` that are only available to a job. For more information, see [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). You cannot use contexts or expressions in this keyword.
+
+{% data reusables.github-actions.defaults-override %}
+
+#### Example
 
 ```yaml
-padrões:
+defaults:
   run:
     shell: bash
     working-directory: scripts
 ```
 
-### **`jobs`**
+### `jobs`
 
-A execução de um fluxo de trabalho consiste em um ou mais trabalhos. Por padrão, os trabalhos são executados paralelamente. Para executar trabalhos sequencialmente, você pode definir dependências em outros trabalhos usando a palavra-chave `jobs.<job_id>.needs`.
+A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 
-Cada trabalho é executado em um ambiente especificado por `runs-on`.
+Each job runs in a runner environment specified by `runs-on`.
 
-Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
+You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/v3/actions/workflow-jobs)".
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
-### **`jobs.<job_id>`**
+### `jobs.<job_id>`
 
-Cada trabalho deve ter um id associado. A chave `job_id` é uma string, e seu valor é um mapa dos dados de configuração do trabalho. Você deve substituir `<job_id>` por uma string exclusiva para o objeto `jobs`. `<job_id>` deve começar por uma letra ou `_`, além de conter somente caracteres alfanuméricos, `-` ou `_`.
+Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
-#### Exemplo
+#### Example
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
-    name: meu primeiro trabalho
-  meu_segundo_trabalho:
-    name: meu segundo trabalho
+  my_first_job:
+    name: My first job
+  my_second_job:
+    name: My second job
 ```
 
-### **`jobs.<job_id>.name`**
+### `jobs.<job_id>.name`
 
-Nome do trabalho no {% data variables.product.prodname_dotcom %}.
+The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
-### **`jobs.<job_id>.needs`**
+### `jobs.<job_id>.needs`
 
-Identifica todos os trabalhos a serem concluídos com êxito antes da execução deste trabalho. Esse código pode ser uma string ou array de strings. Se houver falha em um trabalho, todos os trabalhos que dependem dele serão ignorados, a menos que os trabalhos usem uma instrução condicional que faça o trabalho continuar.
+Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Exemplo
+#### Example requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -266,70 +262,117 @@ jobs:
     needs: [job1, job2]
 ```
 
-Neste exemplo, `job1` deve ser concluído com êxito antes do início de `job2`, e `job3` aguarda a conclusão de `job1` e `job2`.
+In this example, `job1` must complete successfully before `job2` begins, and `job3` waits for both `job1` and `job2` to complete.
 
-Os trabalhos neste exemplo são executados sequencialmente:
+The jobs in this example run sequentially:
 
 1. `job1`
 2. `job2`
 3. `job3`
 
-### **`jobs.<job_id>.runs-on`**
+#### Example not requiring dependent jobs to be successful
 
-**Obrigatório** O tipo de máquina para executar o trabalho. A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    if: always()
+    needs: [job1, job2]
+```
+
+In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+
+### `jobs.<job_id>.runs-on`
+
+**Required** The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Runners hospedados no {% data variables.product.prodname_dotcom %}
+#### {% data variables.product.prodname_dotcom %}-hosted runners
 
-Se você usar um executor hospedado no {% data variables.product.prodname_dotcom %}, cada trabalho será executado em uma nova instância de um ambiente virtual especificado por `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
 
-Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
+Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
 
-##### **Exemplo**
+##### Example
 
 ```yaml
 runs-on: ubuntu-latest
 ```
 
-Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 
-#### Executores auto-hospedados
+#### Self-hosted runners
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-##### **Exemplo**
+##### Example
 
 ```yaml
 runs-on: [self-hosted, linux]
 ```
 
-Para obter mais informações, consulte "[Sobre executores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" e "[Usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### **`jobs.<jobs_id>.outputs`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
 
-Um `mapa` de saídas para um trabalho. As saídas de trabalho estão disponíveis para todos os trabalhos downstream que dependem deste trabalho. Para obter mais informações sobre a definição de dependências de trabalhos, consulte [`jobs.<job_id>.needs`](#jobsjob_idneeds).
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
 
-As saídas de trabalho são strings e saídas de trabalho que contêm expressões são avaliadas no executor ao final de cada trabalho. As saídas que contêm segredos são eliminadas no executor e não são enviadas para {% data variables.product.prodname_actions %}.
+You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
 
-Para usar as saídas de trabalho em um trabalho dependente, você poderá usar o contexto `needs`. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)".
+##### Example using a single environment name
 
-#### **Exemplo**
+```yaml
+environment: staging_environment
+```
+
+##### Example using environment name and URL
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+The URL can be an expression and can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+#### Example
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
+
+### `jobs.<job_id>.outputs`
+
+A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
+
+Job outputs are strings, and job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
+
+To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)."
+
+#### Example
 
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   job1:
     runs-on: ubuntu-latest
-    # Mapeia a saída de uma etapa com a saída de um trabalho
-    saídas:
+    # Map a step output to a job output
+    outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
-    etapas:
+    steps:
     - id: step1
       run: echo "::set-output name=test::hello"
     - id: step2
@@ -337,18 +380,18 @@ trabalhos:
   job2:
     runs-on: ubuntu-latest
     needs: job1
-    etapas:
+    steps:
     - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.env`**
+### `jobs.<job_id>.env`
 
-Um `map` (mapa) das variáveis de ambiente que estão disponíveis para todos as etapas do trabalho. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou uma etapa individual. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-#### **Exemplo**
+#### Example
 
 ```yaml
 jobs:
@@ -357,45 +400,45 @@ jobs:
       FIRST_NAME: Mona
 ```
 
-### **`jobs.<job_id>.defaults`**
+### `jobs.<job_id>.defaults`
 
-Um `mapa` com as configurações- padrão que serão aplicadas a todas as etapas do trabalho. Você também pode definir as configurações-padrão para todo o fluxo de trabalho. Para obter mais informações, consulte [`padrão`](#defaults).
-
-{% data reusables.github-actions.defaults-override %}
-
-### **`jobs.<job_id>.defaults.run`**
-
-Forneça o `shell` e `working-directory` para todas as etapas do trabalho `executar`. Não são permitidos contexto e expressão nesta seção.
-
-Você pode fornecer as opções-padrão de `shell` e `working-directory` para todas as etapas de [`execução`](#jobsjob_idstepsrun) de um trabalho. Você também pode definir as configurações-padrão para `execução` para todo o fluxo de trabalho. Para obter mais informações, consulte [`jobs.defaults.run`](#defaultsrun). Você não pode usar contextos ou expressões nesta palavra-chave.
+A `map` of default settings that will apply to all steps in the job. You can also set default settings for the entire workflow. For more information, see [`defaults`](#defaults).
 
 {% data reusables.github-actions.defaults-override %}
 
-#### Exemplo
+### `jobs.<job_id>.defaults.run`
+
+Provide default `shell` and `working-directory` to all `run` steps in the job. Context and expression are not allowed in this section.
+
+You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a job. You can also set default settings for `run` for the entire workflow. For more information, see [`jobs.defaults.run`](#defaultsrun). You cannot use contexts or expressions in this keyword.
+
+{% data reusables.github-actions.defaults-override %}
+
+#### Example
 
 ```yaml
-trabalhos:
+jobs:
   job1:
     runs-on: ubuntu-latest
-    padrões:
-      executar:
+    defaults:
+      run:
         shell: bash
         working-directory: scripts
 ```
 
-### **`jobs.<job_id>.if`**
+### `jobs.<job_id>.if`
 
-Você pode usar a condicional `if` (se) para evitar que um trabalho seja executado a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
+You can use the `if` conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-### **`jobs.<job_id>.steps`**
+### `jobs.<job_id>.steps`
 
-Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
+A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-#### Exemplo
+#### Example
 
 {% raw %}
 ```yaml
@@ -419,163 +462,163 @@ jobs:
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.id`**
+### `jobs.<job_id>.steps[*].id`
 
-Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à etapa em contextos. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-#### **`jobs.<job_id>.steps.if`**
+### `jobs.<job_id>.steps[*].if`
 
-Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
+You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-##### Exemplo usando contextos
+#### Example using contexts
 
- Essa etapa somente é executada quando o tipo de evento é uma `pull_request` e a ação do evento é `unassigned` (não atribuída).
+ This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
  ```yaml
-etapas:
-  - nome: Minha primeira etapa
-    se: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
-    executar: echo Este evento é um pull request cujo responsável foi removido.
+steps:
+  - name: My first step
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+    run: echo This event is a pull request that had an assignee removed.
 ```
 
-##### Exemplo usando funções de verificação de status
+#### Example using status check functions
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
+The `my backup step` only runs when the previous step of a job fails. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ```yaml
-etapas:
-  - nome: Minha primeira etapa
-    usa: monacorp/action-name@master
-  - nome: Minha etapa de backup
-    se: {% raw %}${{ failure() }}{% endraw %}
-    usa: actions/heroku@master
+steps:
+  - name: My first step
+    uses: monacorp/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
 ```
 
-#### **`jobs.<job_id>.steps.name`**
+### `jobs.<job_id>.steps[*].name`
 
-Nome da etapa no {% data variables.product.prodname_dotcom %}.
+A name for your step to display on {% data variables.product.prodname_dotcom %}.
 
-#### **`jobs.<job_id>.steps.uses`**
+### `jobs.<job_id>.steps[*].uses`
 
-Seleciona uma ação para executar como parte de uma etapa no trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
+Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
-É altamente recomendável incluir a versão da ação que você está usando ao especificar um número de tag Docker, SHA ou ref do Git. Se você não especificar uma versão, ela poderá interromper seus fluxos de trabalho ou causar um comportamento inesperado quando o proprietário da ação publicar uma atualização.
-- Usar o commit SHA de uma versão de ação lançada é a maneira mais garantida de obter estabilidade e segurança.
-- Usar a versão principal da ação permite receber correções importantes e patches de segurança sem perder a compatibilidade. Fazer isso também garante o funcionamento contínuo do fluxo de trabalho.
-- Usar o branch `master` de uma ação pode ser conveniente, mas pode gerar problemas no fluxo de trabalho caso uma nova versão principal seja lançada.
+We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
+- Using the commit SHA of a released action version is the safest for stability and security.
+- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
-Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`with`](#jobsjob_idstepswith) (com). Revise o arquivo README da ação para determinar as entradas obrigatórias.
+Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
-Ações são arquivos JavaScript ou contêineres Docker. Se a ação em uso for um contêiner do Docker, você deverá executar o trabalho em um ambiente do Linux. Para obter mais detalhes, consulte [`runs-on`](#jobsjob_idruns-on).
+Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
-##### Exemplo usando ações com versão
+#### Example using versioned actions
 
 ```yaml
-etapas:    
-  # Referência a um commit específico
-  - usa: actions/setup-node@74bc508
-  # Referência a uma versão principal da versão
-  - usa: actions/setup-node@v1
-  # Referência a uma versão menor da versão
-  - usa: actions/setup-node@v1.2
-  # Referência a um branch
-  - usa: actions/setup-node@master
+steps:    
+  # Reference a specific commit
+  - uses: actions/setup-node@74bc508
+  # Reference the major version of a release
+  - uses: actions/setup-node@v1
+  # Reference a minor version of a release
+  - uses: actions/setup-node@v1.2
+  # Reference a branch
+  - uses: actions/setup-node@main
 ```
 
-##### Exemplo usando uma ação pública
+#### Example using a public action
 
 `{owner}/{repo}@{ref}`
 
-Você pode especificar um branch, ref ou SHA em um repositório público {% data variables.product.prodname_dotcom %}.
+You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
-trabalhos:
+jobs:
   my_first_job:
-    etapas:
-      - nome: Minha primeira etapa
-        # Usa o branch-mestre de um repositório público
-        usa: actions/heroku@master
-      - nome: Minha segunda etapa
-        # Usa a tag de uma versão específica de um repositório público
-        usa: actions/aws@v2.0.1
+    steps:
+      - name: My first step
+        # Uses the default branch of a public repository
+        uses: actions/heroku@1.0.0
+      - name: My second step
+        # Uses a specific version tag of a public repository
+        uses: actions/aws@v2.0.1
 ```
 
-##### Exemplo usando uma ação pública em um subdiretório
+#### Example using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
-Subdiretório em um repositório público do {% data variables.product.prodname_dotcom %} em um branch, ref ou SHA específico.
+A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: minha primeira etapa 
-        uses: actions/aws/ec2@master
+      - name: My first step
+        uses: actions/aws/ec2@main
 ```
 
-##### Exemplo usando a ação no mesmo repositório que o fluxo de trabalho
+#### Example using action in the same repository as the workflow
 
 `./path/to/dir`
 
-Caminho para o diretório que contém a ação no repositório do seu fluxo de trabalho. Você deve reservar seu repositório antes de usar a ação.
-
-```yaml
-trabalhos:
-  my_first_job:
-    etapas:
-      - Nome: Verificar repositório
-        usa: actions/checkout@v2
-      - nome: Use local my-action
-        usa: ./.github/actions/my-action
-```
-
-##### Exemplo usando uma ação do Docker Hub
-
-`docker://{image}:{tag}`
-
-Imagem Docker publicada no [Docker Hub](https://hub.docker.com/).
-
-```yaml
-empregos:
-  my_first_job:
-    passos:
-      - nome: Meu primeiro passo
-        usa: docker://alpine:3.8
-```
-
-##### Exemplo usando uma ação do registro público do Docker Hub
-
-`docker://{host}/{image}:{tag}`
-
-Imagem Docker em um registro público.
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: minha primeira etapa
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Use local my-action
+        uses: ./.github/actions/my-action
+```
+
+#### Example using a Docker Hub action
+
+`docker://{image}:{tag}`
+
+A Docker image published on [Docker Hub](https://hub.docker.com/).
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
+```
+
+#### Example using a Docker public registry action
+
+`docker://{host}/{image}:{tag}`
+
+A Docker image in a public registry.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### **`jobs.<job_id>.steps.run`**
+### `jobs.<job_id>.steps[*].run`
 
-Executa programas de linha de comando usando o shell do sistema operacional. Se você não informar um `name`, o nome da etapa será configurado por padrão como o texto indicado no comando `run`.
+Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
-Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte "[Usar um shell específico](#using-a-specific-shell)".
+Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see "[Using a specific shell](#using-a-specific-shell)."
 
-Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. Quando você fornece comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
+Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
-* Um comando de linha única:
+* A single-line command:
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-* Um comando de várias linhas:
+* A multi-line command:
 
   ```yaml
   - name: Clean install dependencies and build
@@ -584,7 +627,7 @@ Cada palavra-chave `run` representa um novo processo e shell no ambiente do exec
       npm run build
   ```
 
-Com a palavra-chave `working-directory` (diretório de trabalho), é possível especificar o diretório de trabalho de onde o comando será executado.
+Using the `working-directory` keyword, you can specify the working directory of where to run the command.
 
 ```yaml
 - name: Clean temp directory
@@ -592,20 +635,20 @@ Com a palavra-chave `working-directory` (diretório de trabalho), é possível e
   working-directory: ./temp
 ```
 
-##### Usar um shell específico
+#### Using a specific shell
 
-Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
 
-| Plataforma compatível | Parâmetro `shell` | Descrição                                                                                                                                                                           | Comando executado internamente                  |
-| --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Todas                 | `bash`            | O shell padrão em plataformas que não sejam Windows como uma alternativa para `sh`. Ao especificar um shell bash no Windows, é utilizado o shell bash incluído no Git para Windows. | `bash --noprofile --norc -eo pipefail {0}`      |
-| Todas                 | `pwsh`            | Powershell Core. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                                                                     | `pwsh -command "& '{0}'"`                   |
-| Todas                 | `python`          | Executa o comando python.                                                                                                                                                           | `python {0}`                                    |
-| Linux / macOS         | `sh`              | Comportamento alternativo para plataformas que não sejam Windows se nenhum shell for fornecido e o `bash` não for encontrado no caminho.                                            | `sh -e {0}`                                     |
-| Windows               | `cmd`             | O {% data variables.product.prodname_dotcom %} anexa a extensão `.cmd` ao nome do script e a substitui por `{0}`.                                                              | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows               | `powershell`      | Essa é a shell padrão usada no Windows. PowerShell Desktop. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                          | `powershell -command "& '{0}'"`.            |
+| Supported platform | `shell` parameter | Description | Command run internally |
+|--------------------|-------------------|-------------|------------------------|
+| All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
+| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
+| All | `python` | Executes the python command. | `python {0}` |
+| Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
+| Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-##### Exemplo de execução de um script usando bash:
+#### Example running a script using bash
 
 ```yaml
 steps:
@@ -614,7 +657,7 @@ steps:
     shell: bash
 ```
 
-##### Exemplo de execução de um script usando Windows `cmd`
+#### Example running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -623,7 +666,7 @@ steps:
     shell: cmd
 ```
 
-##### Exemplo de execução de um script usando PowerShell Core
+#### Example running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -632,7 +675,7 @@ steps:
     shell: pwsh
 ```
 
-##### Exemplo de execução de um script python
+#### Example running a python script
 
 ```yaml
 steps:
@@ -643,163 +686,162 @@ steps:
     shell: python
 ```
 
-##### Shell personalizado
+#### Custom shell
 
-Você pode usar o valor `shell` em um string modelo usando `command […options] {0} [..more_options]`. O {% data variables.product.prodname_dotcom %} interpreta a primeira palavra da string delimitada por um espaço em branco como o comando e insere o nome do arquivo para o script temporário em `{0}`.
+You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
-##### Preferências de ação de erro e códigos de saída
+#### Exit codes and error action preference
 
-Para palavras-chave de shell integradas, fornecemos os seguintes padrões usados por executores hospedados no {% data variables.product.prodname_dotcom %}. Você deve seguir estas diretrizes quando executar scripts shell.
+For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
-  - Comportamento fail-fast usando `set -e o pipefail`: padrão para `bash` e `shell` integrado. Também é o padrão quando você não der opção em plataformas que não sejam Windows.
-  - Você pode cancelar o fail-fast e assumir o controle fornecendo uma string de modelo para as opções do shell. Por exemplo, `bash {0}`.
-  - Shells do tipo sh saem com o código de saída do último comando executado em um script, que também é o comportamento padrão das ações. O executor relatará o status da etapa como falha/êxito com base nesse código de saída.
+  - Fail-fast behavior using `set -e o pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
+  - You can opt out of fail-fast and take full control by providing a template string to the shell options. For example, `bash {0}`.
+  - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
 - `powershell`/`pwsh`
-  - Comportamento fail-fast quando possível. Para shell integrado `pwsh` e `powershell`, precederemos `$ErrorActionPreference = 'stop'` para conteúdos de script.
-  - Vincularemos `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` a scripts powershell para que os status da ação reflitam o código de saída mais recente do script.
-  - Os usuários podem sempre optar por não usar o shell integrado e fornecer uma opção personalizada, como: `pwsh -File {0}` ou `powershell -Command "& '{0}'"`, dependendo da situação.
+  - Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
+  - We append `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` to powershell scripts so action statuses reflect the script's last exit code.
+  - Users can always opt out by not using the built-in shell, and providing a custom shell option like: `pwsh -File {0}`, or `powershell -Command "& '{0}'"`, depending on need.
 
 - `cmd`
-  - Parece não haver uma forma de optar totalmente por um comportamento fail-fast que não seja gravar seu script para verificar cada código de erro e reagir de acordo. Como não podemos fornecer esse comportamento por padrão, você precisa gravá-lo em seu script.
-  - `cmd.exe` sairá com o error level do último programa que executou e retornará o código de erro para o executor. Este comportamento é internamente consistente o padrão de comportamento anterior `sh` e `pwsh`, e é o padrão `cmd.exe`; portanto, ele fica intacto.
+  - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
-#### **`jobs.<job_id>.steps.with`**
+### `jobs.<job_id>.steps[*].with`
 
-Um `map` (mapa) dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor. Parâmetros de entrada são definidos como variáveis de ambiente. A variável é precedida por `INPUT_` e convertida em letras maiúsculas.
+A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
-##### Exemplo
+#### Example
 
-Define os três parâmetros de entrada (`first_name`, `middle_name` e `last_name`) definidos pela ação `hello_world`. Essas variáveis de entrada estarão acessíveis para a ação `hello-world` como variáveis de ambiente `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME` e `INPUT_LAST_NAME`.
+Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: Minha primeira etapa
-        uses: actions/hello_world@master
+      - name: My first step
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
           last_name: Octocat      
 ```
 
-#### **`jobs.<job_id>.steps.with.args`**
+### `jobs.<job_id>.steps[*].with.args`
 
-Uma `string` que define as entradas para um contêiner Docker. O {% data variables.product.prodname_dotcom %} entrega os `args` ao `ENTRYPOINT` do contêiner quando o contêiner inicia. Um `array de strings` não é compatível com esse parâmetro.
+A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
 
-##### Exemplo
+#### Example
 
 {% raw %}
 ```yaml
 steps:
-  - name: Explica por que o trabalho foi executado
-    uses: monacorp/action-name@master
+  - name: Explain why this job ran
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
-      args: O evento ${{ github.event_name }} acionou esta etapa.
+      args: The ${{ github.event_name }} event triggered this step.
 ```
 {% endraw %}
 
-`args` são usados em substituição à instrução `CMD` em um `Dockerfile`. Se você usar `CMD` no `Dockerfile`, use as diretrizes ordenadas por preferência:
+The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
 
-1. Documente os argumentos necessários no LEIAME das ações e omita-os da instrução `CMD`.
-1. Use padrões que permitam o uso da ação sem especificação de `args`.
-1. Se a ação expõe um sinalizador `--help` ou similar, use isso como padrão para que a ação se documente automaticamente.
+1. Document required arguments in the action's README and omit them from the `CMD` instruction.
+1. Use defaults that allow using the action without specifying any `args`.
+1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
-#### **`jobs.<job_id>.steps.with.entrypoint`**
+Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
-Anula o `ENTRYPOINT` Docker no `Dockerfile` ou define-o caso ainda não tenha sido especificado. Diferentemente da instrução Docker `ENTRYPOINT` que tem um formulário shell e exec, a palavra-chave `entrypoint` aceita apena uma única string que define o executável.
-
-##### Exemplo
+#### Example
 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
 
-A palavra-chave `entrypoint` é para ser usada com ações de contêiner Docker, mas você também pode usá-la com ações JavaScript que não definem nenhuma entrada.
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-#### **`jobs.<job_id>.steps.env`**
+### `jobs.<job_id>.steps[*].env`
 
-Define variáveis de ambiente para etapas a serem usadas no ambiente do executor. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou para um trabalho. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.env`](#jobsjob_idenv).
+Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)e "[Sintaxe de contexto e expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-##### Exemplo
+#### Example
 
 {% raw %}
 ```yaml
 steps:
- - name: minha primeira ação
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    FIRST_NAME: Mona
-    LAST_NAME: Octocat
+  - name: My first action
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FIRST_NAME: Mona
+      LAST_NAME: Octocat
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.continue-on-error`**
+### `jobs.<job_id>.steps[*].continue-on-error`
 
-Impede a falha de um trabalho se uma etapa não funcionar. Defina `true` (verdadeiro) para permitir que um trabalho aconteça quando essa etapa falhar.
+Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
 
-#### **`jobs.<job_id>.steps.timeout-minutes`**
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
-Número máximo de minutos para executar a etapa antes de interromper o processo.
+The maximum number of minutes to run the step before killing the process.
 
-### **`jobs.<job_id>.timeout-minutes`**
+### `jobs.<job_id>.timeout-minutes`
 
-Número máximo de minutos para permitir a execução de um trabalho o antes que o {% data variables.product.prodname_dotcom %} o cancele automaticamente. Padrão: 360
+The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-### **`jobs.<job_id>.strategy`**
+### `jobs.<job_id>.strategy`
 
-Estratégias criam matrizes de compilação para os trabalhos. Você pode definir variações diferentes dos ambientes em que vai executar os trabalhos.
+A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
 
-#### **`jobs.<job_id>.strategy.matrix`**
+### `jobs.<job_id>.strategy.matrix`
 
-Você pode definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
+You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
 
-{% data reusables.github-actions.matrix-limits %}
+{% data reusables.github-actions.usage-matrix-limits %}
 
-Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-A ordem que você define uma `matriz` importa. A primeira opção que você definir será a primeira que será executada no seu fluxo de trabalho.
+The order that you define a `matrix` matters. The first option you define will be the first job that runs in your workflow.
 
-##### Exemplo de execução com mais de uma versão do Node.js
+#### Example running with more than one version of Node.js
 
-Você pode especificar uma matriz ao fornecer um array para as opções de configuração. Por exemplo, se o executor for compatível com as versões 6, 8 e 10 do Node.js versões, você poderá especificar um array dessas versões na `matriz`.
+You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 6, 8, and 10, you could specify an array of those versions in the `matrix`.
 
-Este exemplo cria uma matriz de três trabalhos, definindo a chave `nó` para um array de três versões do Node.js. Para usar a matriz, o exemplo define a propriedade do contexto `matrix.node` como o valor do parâmetro `setup-node` de entrada da ação `node-version`. Como resultado, três trabalhos serão executados, cada uma usando uma versão diferente do Node.js.
+This example creates a matrix of three jobs by setting the `node` key to an array of three Node.js versions. To use the matrix, the example sets the `matrix.node` context property as the value of the `setup-node` action's input parameter `node-version`. As a result, three jobs will run, each using a different Node.js version.
 
 {% raw %}
 ```yaml
-estratégia:
-  matriz:
-    nó: [6, 8, 10]
-etapas:
-  # Configura a versão do nó usada nos executores hospedados no GitHub
-  - usa: actions/setup-node@v1
-    com:
-      # A versão do Node.js a ser configurada
+strategy:
+  matrix:
+    node: [6, 8, 10]
+steps:
+  # Configures the node version used on GitHub-hosted runners
+  - uses: actions/setup-node@v1
+    with:
+      # The Node.js version to configure
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
 
-A ação setup-node `` é a forma recomendada de configurar uma versão do Node.js ao usar executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a ação [`setup-node`](https://github.com/actions/setup-node).
+The `setup-node` action is the recommended way to configure a Node.js version when using {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
 
-##### Exemplo de execução com mais de um sistema operacional
+#### Example running with more than one operating system
 
-Você pode criar uma matriz para executar fluxos de trabalho em mais de um sistema operacional do executor. Você também pode especificar mais de uma configuração da matriz. Este exemplo cria uma matriz de 6 trabalhos:
+You can create a matrix to run workflows on more than one runner operating system. You can also specify more than one matrix configuration. This example creates a matrix of 6 jobs:
 
-- 2 sistemas operacionais especificados na array `os`
-- 3 versões do Node.js especificadas na array do `nó`
+- 2 operating systems specified in the `os` array
+- 3 Node.js versions specified in the `node` array
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
@@ -817,60 +859,59 @@ steps:
 ```
 {% endraw %}
 
-Para encontrar opções de configuração compatíveis com os executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 
-##### Exemplo de inclusão valores adicionais em combinações
+#### Example including additional values into combinations
 
-Você pode adicionar opções de configurações para um trabalho de matriz de compilação existente. Por exemplo, se você quer usar uma versão específica do `npm` quando o trabalho que usa o `windows-latest` e a versão 4 do `nó` é executado, você pode usar `incluir` para especificar a opção adicional.
+You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 4 of `node` runs, you can use `include` to specify that additional option.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
+strategy:
+  matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    nó: [4, 6, 8, 10]
-    inclui:
-      # incluo uma variável nova do npm com um valor de 2
-      # para o leg da matriz que corresponde ao os e à versão
+    node: [4, 6, 8, 10]
+    include:
+      # includes a new variable of npm with a value of 2
+      # for the matrix leg matching the os and version
       - os: windows-latest
-        nó: 4
+        node: 4
         npm: 2
 ```
 {% endraw %}
 
-##### Exemplo de inclusão novas combinações
+#### Example including new combinations
 
-Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criação. Qualquer configuração sem correspondência de incluir será adicionadas à matriz. Por exemplo, se você quiser usar a versão 12 do `nó` para compilar em vários sistemas operacionais, mas quiser uma tarefa experimental extra usando o node 13 no Ubuntu, você poderá usar `incluir` para especificar essa tarefa adicional.
-
+You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
-    nó: [12]
+strategy:
+  matrix:
+    node: [12]
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    inclui:
-      - nó: 13
+    include:
+      - node: 13
         os: ubuntu-18.04
-        experimental: verdadeiro
+        experimental: true
 ```
 {% endraw %}
 
-##### Exemplo excluindo configurações de uma matriz
+#### Example excluding configurations from a matrix
 
-Você pode remover uma configuração específica definida na matriz de compilação usando a opção `exclude` (excluir). `exclude` remove um trabalho definido pela matriz de compilação. O número de trabalhos é o produto cruzado do número de sistemas operacionais (`os`) incluídos nos arrays fornecidos por você, menos quaisquer subtrações (`exclude`).
+You can remove a specific configurations defined in the build matrix using the `exclude` option. Using `exclude` removes a job defined by the build matrix. The number of jobs is the cross product of the number of operating systems (`os`) included in the arrays you provide, minus any subtractions (`exclude`).
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
+strategy:
+  matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    nó: [4, 6, 8, 10]
-    excluir:
-      # exclui o nó 4 no macOS
+    node: [4, 6, 8, 10]
+    exclude:
+      # excludes node 4 on macOS
       - os: macos-latest
         node: 4
 ```
@@ -878,55 +919,61 @@ estratégia:
 
 {% note %}
 
-**Observação:** Todas as combinações de `incluir` são processadas depois de `excluir`. Isso permite que você use `incluir` para voltar a adicionar combinações que foram excluídas anteriormente.
+**Note:** All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
 
 {% endnote %}
 
-### **`jobs.<job_id>.strategy.fail-fast`**
+##### Using environment variables in a matrix
 
-Quando definido como `true`, o {% data variables.product.prodname_dotcom %} cancela todos os trabalhos em andamento em caso de falha de algum trabalho de  `matrix`. Padrão: `true`
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
 
-### **`jobs.<job_id>.strategy.max-parallel`**
+{% data reusables.github-actions.matrix-variable-example %}
 
-Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Por padrão, o {% data variables.product.prodname_dotcom %} maximizará o número de trabalhos executados em paralelo dependendo dos executores disponíveis nas máquinas virtuais hospedadas no {% data variables.product.prodname_dotcom %}.
+### `jobs.<job_id>.strategy.fail-fast`
+
+When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
+
+### `jobs.<job_id>.strategy.max-parallel`
+
+The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. By default, {% data variables.product.prodname_dotcom %} will maximize the number of jobs run in parallel depending on the available runners on {% data variables.product.prodname_dotcom %}-hosted virtual machines.
 
 ```yaml
 strategy:
   max-parallel: 2
 ```
 
-### **`jobs.<job_id>.continue-on-error`**
+### `jobs.<job_id>.continue-on-error`
 
-Impede que ocorra falha na execução de um fluxo de trabalho quando ocorrer uma falha em um trabalho. Defina como `verdadeiro` para permitir que uma execução de um fluxo de trabalho passe quando este trabalho falhar.
+Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
 
-#### Exemplo do impedimento de uma matriz falha específica de gerar uma falha na execução do fluxo de trabalho
+#### Example preventing a specific failing matrix job from failing a workflow run
 
-Você pode permitir que as tarefas específicas em uma matriz de tarefas falhem sem que ocorra falha na execução do fluxo de trabalho. Por exemplo, se você deseja permitir apenas um trabalho experimental com o `nó` definido como `13` sem falhar a execução do fluxo de trabalho.
+You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `13` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 continue-on-error: ${{ matrix.experimental }}
-estratégia:
-  fail-fast: falso
-  matriz:
-    nó: [11, 12]
+strategy:
+  fail-fast: false
+  matrix:
+    node: [11, 12]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
-    incluir:
-      - nó: 13
+    include:
+      - node: 13
         os: ubuntu-18.04
-        experimental: verdadeiro
+        experimental: true
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.container`**
+### `jobs.<job_id>.container`
 
-Contêiner para executar qualquer etapa em um trabalho que ainda não tenha especificado um contêiner. Se você tiver etapas que usam ações de script e de contêiner, as ações de contêiner serão executadas como contêineres irmãos na mesma rede e com as mesmas montagens de volume.
+A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
 
-Se você não definir um `container`, todas as etapas serão executadas diretamente no host especificado por `runs-on`, a menos que uma etapa se refira a uma ação configurada para execução em um contêiner.
+If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
 
-#### Exemplo
+#### Example
 
 ```yaml
 jobs:
@@ -942,7 +989,7 @@ jobs:
       options: --cpus 1
 ```
 
-Ao especificar somente uma imagem de contêiner, você pode omitir a palavra-chave `image`.
+When you only specify a container image, you can omit the `image` keyword.
 
 ```yaml
 jobs:
@@ -950,29 +997,48 @@ jobs:
     container: node:10.16-jessie
 ```
 
-#### **`jobs.<job_id>.container.image`**
+### `jobs.<job_id>.container.image`
 
-Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro do Docker público.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.container.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-Define um `mapa` das variáveis de ambiente no contêiner.
+### `jobs.<job_id>.container.credentials`
 
-#### **`jobs.<job_id>.container.ports`**
+{% data reusables.actions.registry-credentials %}
 
-Define um `array` de portas para expor no contêiner.
+#### Example
 
-#### **`jobs.<job_id>.container.volumes`**
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
-Define um `array` de volumes para uso do contêiner. É possível usar volumes para compartilhar dados entre serviços ou outras etapas em um trabalho. Você pode especificar volumes de nome Docker, volumes Docker anônimos ou vincular montagens no host.
+### `jobs.<job_id>.container.env`
 
-Para especificar um volume, especifique o caminho de origem e destino:
+Sets a `map` of environment variables in the container.
+
+### `jobs.<job_id>.container.ports`
+
+Sets an `array` of ports to expose on the container.
+
+### `jobs.<job_id>.container.volumes`
+
+Sets an `array` of volumes for the container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
+
+To specify a volume, you specify the source and destination path:
 
 `<source>:<destinationPath>`.
 
-`<source>` é um nome de volume ou caminho absoluto na máquina host, e `<destinationPath>` é um caminho absoluto no contêiner.
+The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-##### Exemplo
+#### Example
 
 ```yaml
 volumes:
@@ -981,63 +1047,88 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.container.options`**
+### `jobs.<job_id>.container.options`
 
-Opções adicionais de recursos do contêiner Docker. Para obter uma lista de opções, consulte "[opções `docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
+Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
-### **`jobs.<job_id>.services`**
+### `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-Usado para hospedar contêineres de serviço para um trabalho em um fluxo de trabalho. Contêineres de serviço são úteis para a criação de bancos de dados ou serviços armazenamento em cache como o Redis. O executor cria automaticamente uma rede do Docker e gerencia o ciclo de vida dos contêineres do serviço.
+Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
 
-Se você configurar seu trabalho para ser executado em um contêiner, ou a sua etapa usar ações ao contêiner, você não precisará mapear as portas para acessar o serviço ou a ação. O Docker expõe automaticamente todas as portas entre os contêineres da mesma rede de ponte definida pelo usuário. Você pode fazer referência ao contêiner de serviço diretamente pelo seu nome de host. O nome do host é mapeado automaticamente com o nome da etiqueta que você configurar para o serviço no fluxo de trabalho.
+If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
 
-Se você configurar a tarefa para executar diretamente na máquina do executor e sua etapa não usar uma ação de contêiner, você deverá mapear todas as portas de contêiner de serviço do Docker necessárias para o host do Docker (a máquina do executor). Você pode acessar o contêiner de serviço usando host local e a porta mapeada.
+If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
 
-Para obter mais informações sobre as diferenças entre os contêineres de serviço de rede, consulte "[Sobre contêineres de serviço](/actions/automating-your-workflow-with-github-actions/about-service-containers)".
+For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
 
-#### Exemplo de uso de host local
+#### Example using localhost
 
-Este exemplo cria dois serviços: nginx e redis. Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. O {% data variables.product.prodname_dotcom %} define a porta de contêiner atribuída no contexto {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. Neste exemplo, você pode acessar as portas do contêiner de serviço usando os contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} e {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
+This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
 ```yaml
-serviços:
+services:
   nginx:
-    imagem: nginx
-    # Mapeia a porta 8080 no host do Docker com a porta 80 no contêiner nginx
-    portas:
+    image: nginx
+    # Map port 8080 on the Docker host to port 80 on the nginx container
+    ports:
       - 8080:80
   redis:
-    imagem: redis
-    # Mapeia a porta  port 6379 TCP no host do Docker com uma porta livre aleatória no contêiner Redis
-    portas:
+    image: redis
+    # Map TCP port 6379 on Docker host to a random free port on the Redis container
+    ports:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+### `jobs.<job_id>.services.<service_id>.image`
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem de base do Docker Hub ou um hub ou registro do Docker público.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-Define um `maá` das variáveis de ambiente no contêiner do serviço.
+### `jobs.<job_id>.services.<service_id>.credentials`
 
-#### **`jobs.<job_id>.services.ports`**
+{% data reusables.actions.registry-credentials %}
 
-Define um `array` de portas para expor no contêiner de serviço.
+#### Example
 
-#### **`jobs.<job_id>.services.volumes`**
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
 
-Define um `array` de volumes para uso do contêiner de serviço. É possível usar volumes para compartilhar dados entre serviços ou outras etapas em um trabalho. Você pode especificar volumes de nome Docker, volumes Docker anônimos ou vincular montagens no host.
+### `jobs.<job_id>.services.<service_id>.env`
 
-Para especificar um volume, especifique o caminho de origem e destino:
+Sets a `map` of environment variables in the service container.
+
+### `jobs.<job_id>.services.<service_id>.ports`
+
+Sets an `array` of ports to expose on the service container.
+
+### `jobs.<job_id>.services.<service_id>.volumes`
+
+Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
+
+To specify a volume, you specify the source and destination path:
 
 `<source>:<destinationPath>`.
 
-`<source>` é um nome de volume ou caminho absoluto na máquina host, e `<destinationPath>` é um caminho absoluto no contêiner.
+The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-##### Exemplo
+#### Example
 
 ```yaml
 volumes:
@@ -1046,65 +1137,65 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+### `jobs.<job_id>.services.<service_id>.options`
 
-Opções adicionais de recursos do contêiner Docker. Para obter uma lista de opções, consulte "[opções `docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
+Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
-### Folha de consulta de filtro padrão
+### Filter pattern cheat sheet
 
-Você pode usar caracteres especiais nos filtros de caminhos, branches e tags.
+You can use special characters in path, branch, and tag filters.
 
-- `*`: Corresponde a zero ou mais caracteres, mas não Corresponde ao caractere `/`. Por exemplo, `Octo*` corresponde a `Octocat`.
-- `**`: Corresponde a zero ou mais de qualquer caractere.
-- `?`: Corresponde a zero ou a um único caractere. Por exemplo, `Octoc?t` corresponde a `Octocat`.
-- `+`: Corresponde a um ou mais dos caracteres anteriores.
-- `[]` Corresponde a um caractere listado entre colchetes ou incluído nos intervalos. Os intervalos só podem incluir valores de `a-z`, `A-Z`, e `0-9`. Por exemplo, o intervalo`[0-9a-f]` corresponde a qualquer letra maiúscula ou minúscula. Por exemplo, `[CB]at` corresponde a `Cat` ou `Bat` e `[1-2]00` corresponde a `100` e `200`.
-- `!` No início de um padrão faz com que ele anule padrões positivos anteriores. Não tem nenhum significado especial caso não seja o primeiro caractere.
+- `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
+- `**`: Matches zero or more of any character.
+- `?`: Matches zero or one single character. For example, `Octoc?t` matches `Octocat`.
+- `+`: Matches one or more of the preceding character.
+- `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-f]` matches any digits or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
+- `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
 
-Os caracteres `*`, `[` e `!` são caracteres especiais em YAML. Se você iniciar um padrão com `*`, `[` ou `!`, você deverá colocá-lo entre aspas.
+The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes.
 
 ```yaml
-# Válido
+# Valid
 - '**/README.md'
 
-# Inválido - Cria um erro de análise que
-# impede que o seu fluxo de trabalho seja executado.
+# Invalid - creates a parse error that
+# prevents your workflow from running.
 - **/README.md
 ```
 
-Para obter mais informações sobre a sintaxe de filtros de branches, tags e caminhos, consulte "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" e "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)".
+For more information about branch, tag, and path filter syntax, see "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" and "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)."
 
-#### Padrões para corresponder branches e tags
+#### Patterns to match branches and tags
 
-| Padrão                                          | Descrição                                                                                                                                                                           | Exemplos de correspondências                                                                       |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                     | O caractere curinga `*` corresponde a qualquer caractere, mas não à barra (`/`).                                                                                                    | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                    | `**` correspondem a qualquer caractere, incluindo a barra (`/`) em nomes de branches e tags.                                                                                        | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Corresponde ao nome exato de um branch ou tag.                                                                                                                                      | -`master`<br/>-`releases/mona-the-octocat`                                                   |
-| `'*'`                                           | Corresponde a todos os nomes de branches e tags que não contêm uma barra (`/`). O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas. | -`master`<br/>-`releases`                                                                    |
-| `'**'`                                          | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                    | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                           | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                           | Corresponde a todas as tags de versão semântica com a versão principal 1 ou 2                                                                                                       | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| Pattern | Description | Example matches |
+|---------|------------------------|---------|
+| `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  -`feature/my-branch`<br/>-`feature/your-branch` |
+| `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
+| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`main`<br/>-`releases/mona-the-octocat` |
+| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases` |
+| `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | -`all/the/branches`<br/>-`every/tag` |
+| `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature` |
+| `v2*` | Matches branch and tag names that start with `v2`. | -`v2`<br/>-`v2.0`<br/>-`v2.9` |
+| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning tags with major version 1 or 2 | -`v1.10.1`<br/>-`v2.0.0` |
 
-#### Padrões para corresponder a caminhos de arquivos
+#### Patterns to match file paths
 
-Padrões de caminhos devem corresponder ao caminho completo e iniciar a partir da raiz do repositório.
+Path patterns must match the whole path, and start from the repository's root.
 
-| Padrão                                               | Descrição das correspondências                                                                                                                                                                                         | Exemplos de correspondências                                                                 |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `'*'`                                                | O caractere curinga `*` corresponde a qualquer caractere, mas não à barra (`/`). O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                   | -`LEIAME.md`<br/>-`server.rb`                                                          |
-| `'*.jsx?'`                                           | O caractere `?` corresponde a zero ou a um dos caracteres anteriores.                                                                                                                                                  | -`page.js`<br/>-`page.jsx`                                                             |
-| `'**'`                                               | `**` corresponde a qualquer caractere incluindo a barra (`/`). Esse é o comportamento padrão quando você não usa um filtro de `path`.                                                                                  | -`all/the/files.md`                                                                          |
-| `'*.js'`                                             | O caractere curinga `*` corresponde a qualquer caractere, mas não à barra (`/`). Corresponde a todos os arquivos `.js` na raiz do repositório.                                                                         | -`app.js`<br/>-`index.js`                                                              |
-| `'**.js'`                                            | Corresponde a todos os arquivos `.js` no repositório.                                                                                                                                                                  | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js`                              |
-| `docs/*`                                             | Todos os arquivos dentro da raiz do diretório `docs`, na raiz do repositório.                                                                                                                                          | -`docs/LEIAME.md`<br/>-`docs/file.txt`                                                 |
-| `docs/**`                                            | Qualquer arquivo no diretório `docs`, na raiz do repositório.                                                                                                                                                          | -`docs/LEIAME.md`<br/>-`docs/mona/octocat.txt`                                         |
-| `docs/**/*.md`                                       | Um arquivo com um sufixo `.md` em qualquer local do diretório `docs`.                                                                                                                                                  | -`docs/LEIAME.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md` |
-| `'**/docs/**'`                                       | Qualquer arquivo no diretório `docs`, em qualquer local do repositório.                                                                                                                                                | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`   |
-| `'**/README.md'`                                     | Um arquivo LEIAME.md em qualquer local do repositório.                                                                                                                                                                 | -`LEIAME.md`<br/>-`js/LEIAME.md`                                                       |
-| `'**/*src/**'`                                       | Qualquer arquivo em uma pasta com o sufixo `src` em qualquer local do repositório.                                                                                                                                     | -`a/src/app.js`<br/>-`my-src/code/js/app.js`                                           |
-| `'**/*-post.md'`                                     | Um arquivo com o sufixo `-post.md` em qualquer local do repositório.                                                                                                                                                   | -`my-post.md`<br/>-`path/their-post.md`                                                |
-| `'**/migrate-*.sql'`                                 | Um arquivo com o prefixo `migrate-` e sufixo `.sql` em qualquer local do repositório.                                                                                                                                  | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql`    |
-| -`*.md`<br/>-`!LEIAME.md`                      | Usar um sinal de exclamação (`!`) na frente de um padrão o anula. Quando um arquivo corresponde a um padrão e também corresponde a um padrão negativo definido posteriormente no arquivo, o arquivo não será incluído. | -`hello.md`<br/>_Does not match_<br/>-`LEIAME.md`<br/>-`docs/hello.md`   |
-| -`*.md`<br/>-`!LEIAME.md`<br/>-`LEIAME*` | Os padrões são verificados sequencialmente. Um padrão que anula um padrão anterior irá incluir caminhos de arquivos novamente.                                                                                         | -`hello.md`<br/>-`LEIAME.md`<br/>-`LEIAME.doc`                                   |
+| Pattern | Description of matches | Example matches |
+|---------|------------------------|-----------------|
+| `'*'` | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`README.md`<br/>-`server.rb` |
+| `'*.jsx?'` | The `?` character matches zero or one of the preceding character. | -`page.js`<br/>-`page.jsx` |
+| `'**'` | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter. | -`all/the/files.md` |
+| `'*.js'` | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository. | -`app.js`<br/>-`index.js`
+| `'**.js'` | Matches all `.js` files in the repository. | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js` |
+| `docs/*`  | All files within the root of the `docs` directory, at the root of the repository. | -`docs/README.md`<br/>-`docs/file.txt` |
+| `docs/**` | Any files in the `/docs` directory at the root of the repository. | -`docs/README.md`<br/>-`docs/mona/octocat.txt` |
+| `docs/**/*.md` | A file with a `.md` suffix anywhere in the `docs` directory. | -`docs/README.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md`
+| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`
+| `'**/README.md'` | A README.md file anywhere in the repository. | -`README.md`<br/>-`js/README.md`
+| `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | -`a/src/app.js`<br/>-`my-src/code/js/app.js`
+| `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | -`my-post.md`<br/>-`path/their-post.md` |
+| `'**/migrate-*.sql'` | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository. | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql` |
+| -`*.md`<br/>-`!README.md` | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | -`hello.md`<br/>_Does not match_<br/>-`README.md`<br/>-`docs/hello.md` |
+| -`*.md`<br/>-`!README.md`<br/>-`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths. | -`hello.md`<br/>-`README.md`<br/>-`README.doc`|

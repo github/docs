@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -21,12 +22,15 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -41,14 +45,14 @@ versions:
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push -u origin master
+  $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -56,12 +60,15 @@ versions:
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -76,14 +83,14 @@ versions:
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In the Command prompt, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -91,12 +98,15 @@ versions:
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -111,14 +121,14 @@ versions:
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 

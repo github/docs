@@ -1,11 +1,18 @@
 .algolia-cache
+.search-cache
 .DS_Store
 .env
-node_modules
+/node_modules/
 npm-debug.log
-coverage
+coverage/
+.linkinator
+/assets/images/early-access
+/content/early-access
+/data/early-access
+dist
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
-dist
+/dist/
+broken_links.md

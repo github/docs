@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -21,10 +22,10 @@ Confira o [Guia das Dicas Técnicas de Steve Friedl][tech-tips] para obter uma e
 
 Certifique-se de que sua própria chave SSH esteja configurada e funcionando. Você pode usar [nosso guia sobre a geração de chaves SSH][generating-keys], caso ainda não tenha feito isso.
 
-Você pode testar se a chave local funciona digitando `ssh -T git@github.com` no terminal:
+Você pode testar se a chave local funciona, inserindo `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}nome de host{% else %}github. om{% endif %}` no terminal:
 
 ```shell
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi <em>username</em>! Você autenticou com sucesso, mas o GitHub não fornece
 > acesso shell.
@@ -47,7 +48,7 @@ Começamos bem. Vamos configurar SSH para permitir o encaminhamento de agentes p
 
 ### Testar o encaminhamento de agente SSH
 
-Para testar se o encaminhamento de agentes está funcionando com o seu servidor, você pode ingressar com SSH no servidor e executar `ssh -T git@github.com` mais uma vez.  Se tudo correr bem, você retornará à mesma mensagem apresentada quando você fez localmente.
+Para testar se o encaminhamento de agente está funcionando com seu servidor, você pode ingressar por SSH no servidor e executar `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}nome de host{% else %}github.com{% endif %}` mais uma vez.  Se tudo correr bem, você retornará à mesma mensagem apresentada quando você fez localmente.
 
 Se você não tiver certeza se sua chave local está sendo usada, você também poderá inspecionar a variável `SSH_AUTH_SOCK` no seu servidor:
 
@@ -63,7 +64,7 @@ Se a variável não estiver definida, significa que o encaminhamento de agentes 
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
@@ -78,7 +79,7 @@ O encaminhamento de SSH só funciona com URLs com SSH, e não com URLs com HTTP(
 
 ```shell
 [remote "origin"]
-  url = git@github.com:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
@@ -93,7 +94,7 @@ Antes de fazer suas chaves funcionarem por meio do encaminhamento de agentes, pr
 ```shell
 $ ssh -v <em>example.com</em>
 # Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config

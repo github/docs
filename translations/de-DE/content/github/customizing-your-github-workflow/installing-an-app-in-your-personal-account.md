@@ -1,6 +1,6 @@
 ---
 title: Eine App in Deinem persönlichen Konto installieren
-intro: 'Du kannst Apps von {% data variables.product.prodname_marketplace %} zur Verwendung in Deinem persönlichen Konto installieren.'
+intro: 'Sie können Apps von {% data variables.product.prodname_marketplace %} zur Verwendung in Ihrem persönlichen Konto installieren.'
 redirect_from:
   - /articles/installing-an-app-in-your-personal-account
 versions:
@@ -13,7 +13,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 
 {% data reusables.marketplace.free-trials %}
 
-### Eine {% data variables.product.prodname_github_app %} in Deinem persönlichen Konto erstellen
+### Eine {% data variables.product.prodname_github_app %} in Ihrem persönlichen Konto erstellen
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -26,7 +26,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Eine {% data variables.product.prodname_oauth_app %} in Deinem persönlichen Konto installieren
+### Eine {% data variables.product.prodname_oauth_app %} in Ihrem persönlichen Konto installieren
 
 {% data reusables.saml.saml-session-oauth %}
 

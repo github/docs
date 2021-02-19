@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 管理権限を持つ人は、Organization のメンバーや外部のコラボレータの、Organization のリポジトリに対するアクセスを管理できます。
@@ -30,5 +31,5 @@ Organization のリポジトリからコラボレーターを削除すると、�
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- [リポジトリでのインタラクションを制限する](/articles/limiting-interactions-with-your-repository){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- [リポジトリ内での操作を制限する](/articles/limiting-interactions-with-your-repository){% endif %}
 - [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)

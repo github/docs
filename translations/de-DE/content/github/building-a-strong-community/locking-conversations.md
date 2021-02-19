@@ -6,15 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Es ist angemessen, eine Unterhaltung zu sperren, wenn die gesamte Unterhaltung nicht konstruktiv ist oder den Verhaltenskodex Deiner Community{% if currentVersion == "free-pro-team@latest" %} oder die [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} verletzen. Wenn Du eine Unterhaltung sperrst, kannst Du auch einen Grund dafür angeben, der dann öffentlich sichtbar ist.
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. Wenn Du eine Unterhaltung sperrst, kannst Du auch einen Grund dafür angeben, der dann öffentlich sichtbar ist.
 
 Das Sperren einer Unterhaltung erstellt ein Zeitleistenereignis, das für alle Benutzer mit Lesezugriff auf das Repository sichtbar ist. Der Benutzername der Person, die die Unterhaltung gesperrt hat, ist jedoch nur für Benutzer mit Schreibzugriff auf das Repository zu sehen. Für Personen ohne Schreibzugriff ist das Zeitleistenereignis anonymisiert.
 
 ![Anonymisiertes Zeitleistenereignis für eine gesperrte Unterhaltung](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-Solange eine Unterhaltung gesperrt ist, können nur [Personen mit Schreibzugriff](/articles/repository-permission-levels-for-an-organization/) und [Repository-Inhaber und -Mitarbeiter](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account) Kommentare hinzufügen, ausblenden und löschen.
+Solange eine Unterhaltung gesperrt ist, können nur [Personen mit Schreibzugriff](/articles/repository-permission-levels-for-an-organization/) und [Repository-Inhaber und -Mitarbeiter](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) Kommentare hinzufügen, ausblenden und löschen.
 
 Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu suchen, kannst Du die Qualifizierer `is:locked` und `archived:false` verwenden. In archivierten Repositorys sind Unterhaltungen automatisch gesperrt. Weitere Informationen findest Du unter „[Issues und Pull Requests durchsuchen](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked).“
 
@@ -28,7 +29,7 @@ Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu such
 
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/articles/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Störende Kommentare verwalten](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“
 - „[Interaktionen in Deinem Repository einschränken](/github/building-a-strong-community/limiting-interactions-in-your-repository)"

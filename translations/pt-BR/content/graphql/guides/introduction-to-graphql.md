@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Terminologia do GraphQL
 
-A API do GraphQL do GitHub representa uma mudança estrutural e conceitual API REST do GitHub. Você provavelmente encontrará uma nova terminologia na [documentação de referência](/v4/) da API do GraphQL.
+A API do GraphQL do GitHub representa uma mudança estrutural e conceitual API REST do GitHub. Você provavelmente encontrará uma nova terminologia na [documentação de referência](/graphql) da API do GraphQL.
 
 ### Esquema
 
@@ -29,11 +30,11 @@ Isso significa que se você tentar retornar um campo que não é escalar, a vali
 
 ### Argumento
 
-Um argumento é um conjunto de pares de chave-valor anexados a um campo específico. Alguns campos exigem um argumento. As [Mutações](/v4/guides/forming-calls#about-mutations) exigem um objeto de entrada como argumento.
+Um argumento é um conjunto de pares de chave-valor anexados a um campo específico. Alguns campos exigem um argumento. As [Mutações](/graphql/guides/forming-calls-with-graphql#about-mutations) exigem um objeto de entrada como argumento.
 
 ### Implementação
 
-Um esquema do GraphQL pode usar o termo _implementos_ para definir como um objeto herda de uma [interface](/v4/interface).
+Um esquema do GraphQL pode usar o termo _implementos_ para definir como um objeto herda de uma [interface](/graphql/reference/interfaces).
 
 Aqui está um exemplo criado de um esquema que define a interface `X` e o objeto `Y`:
 
@@ -54,13 +55,13 @@ Este significa que o objeto `Y` exige os mesmos mesmos tipos de campo/argumento/
 
 Na documentação de referência, você descobrirá que:
 
-* Cada [objeto](/v4/object) lista a(s) interface(s) _das quais herda_ em **Implementos**.
+* Cada [objeto](/graphql/reference/objects) lista a(s) interface(s) _das quais herda_ em **Implementos**.
 
-* Cada [interface](/v4/interface) lista os objetos _dos quais herdam _ em **Implementações**.
+* Cada [interface](/graphql/reference/interfaces) lista os objetos _dos quais herdam _ em **Implementações**.
 
 ### Conexão
 
-As conexões permitem que você consulte objetos relacionados às consultas como parte da mesma chamada. Com as conexões, você pode usar uma única chamada do GraphQL quando você teria que usar várias chamadas para uma API REST. Para obter mais informações, consulte "[Migrando da REST para o GraphQL](/v4/guides/migrating-from-rest)".
+As conexões permitem que você consulte objetos relacionados às consultas como parte da mesma chamada. Com as conexões, você pode usar uma única chamada do GraphQL quando você teria que usar várias chamadas para uma API REST. Para obter mais informações, consulte "[Migrando da REST para o GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
 
 É útil imaginar um gráfico: pontos conectados por linhas. Os pontos são nós e as linhas são bordas. Uma conexão define uma relação entre os nós.
 
@@ -70,7 +71,7 @@ As bordas representam conexões entre os nós. Quando você consulta uma conexã
 
 ### Nó
 
-_Nó_ é um termo genérico para um objeto. Você pode procurar um nó diretamente pode acessar nós relacionados através de uma conexão. Se você especificar um `nó` que não retorna um [escalar](/v4/scalar), você deverá incluir subcampos até que todos os campos retornem escalares. Para obter informações sobre acesso a IDs de nó através da API REST e usá-los em consultas do GraphQL, consulte "[Usando IDs globais de nó](/v4/guides/using-global-node-ids)".
+_Nó_ é um termo genérico para um objeto. Você pode procurar um nó diretamente pode acessar nós relacionados através de uma conexão. Se você especificar um `nó` que não retorna um [escalar](/graphql/reference/scalars), você deverá incluir subcampos até que todos os campos retornem escalares. Para obter informações sobre acesso a IDs de nó através da API REST e usá-los em consultas do GraphQL, consulte "[Usando IDs globais de nó](/graphql/guides/using-global-node-ids)".
 
 ## Descobrindo a API do GraphQL
 
@@ -79,9 +80,25 @@ O GraphQL é [introspectivo](https://graphql.github.io/learn/introspection/). Is
 * Consulte `__schema` para listar todos os tipos definidos no esquema e obter informações sobre cada um:
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* Consulte `__type` para obter informações sobre qualquer tipo:
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -90,22 +107,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* Consulte `__type` para obter informações sobre qualquer tipo:
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * Você também pode executar uma _consulta de introspeção_ do esquema através de uma solicitação do `GET`:
@@ -129,4 +130,4 @@ query {
 
   {% endnote %}
 
-  Para obter mais informações sobre como realizar consultas, consulte "[Formando de chamadas com o GraphQL](/v4/guides/forming-calls)".
+  Para obter mais informações sobre como realizar consultas, consulte "[Formando de chamadas com o GraphQL](/graphql/guides/forming-calls-with-graphql)".

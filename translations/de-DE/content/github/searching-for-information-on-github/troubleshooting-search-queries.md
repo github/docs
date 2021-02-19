@@ -1,11 +1,12 @@
 ---
 title: Fehlerbehebung bei Suchabfragen
-intro: 'Wenn Deine Suche auf {% data variables.product.product_name %} zu unerwarteten Ergebnissen führt, ziehe zur Behebung dieser Fehler unsere Informationen zu häufigen Problemen und Einschränkungen bei der Suche zu Rate.'
+intro: 'Wenn Ihre Suche auf {% data variables.product.product_name %} zu unerwarteten Ergebnissen führt, ziehen Sie zur Behebung dieser Fehler unsere Informationen zu häufigen Problemen und Einschränkungen der Abfragelänge zu Rate.'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Mögliche Zeitüberschreitung

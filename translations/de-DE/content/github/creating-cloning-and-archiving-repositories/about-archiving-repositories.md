@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -20,7 +21,7 @@ versions:
 
 Nach der Archivierung eines Repositorys kannst Du keine Mitarbeiter oder Teams mehr hinzufügen oder entfernen. Mitarbeiter, die Zugriff auf das Repository haben, können Dein Projekt nur forken oder mit einem Stern versehen.
 
-Wenn ein Repository archiviert wird, werden seine Issues, Pull Requests, Codes, Kennzeichnungen, Meilensteine, Projekte, Wikis, Versionen, Commits, Tags, Branches, Reaktionen und Kommentare schreibgeschützt. Um Änderungen in einem archivierten Repository vorzunehmen, musst Du das Repository zunächst aus dem Archiv herausnehmen.
+When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, and comments become read-only. Um Änderungen in einem archivierten Repository vorzunehmen, musst Du das Repository zunächst aus dem Archiv herausnehmen.
 
 Du kannst nach archivierten Repositorys suchen. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived).“ Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)“. Weitere Informationen findest Du unter „[Nach Issues und Pull Requests suchen](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived).“
 

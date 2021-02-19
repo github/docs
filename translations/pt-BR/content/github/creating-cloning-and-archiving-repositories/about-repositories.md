@@ -1,11 +1,12 @@
 ---
 title: Sobre repositórios
-intro: Um repositório é como uma pasta para seu projeto. O repositório do seu projeto contém todos os arquivos do projeto e armazena cada histórico de revisão do arquivo. Você também pode discutir e gerenciar o trabalho do projeto dentro do repositório.
+intro: Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo. Você pode discutir e gerenciar o trabalho do projeto dentro do repositório.
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode possuir repositórios individualmente ou compartilhar a propriedade de repositórios com outras pessoas em uma organização.
@@ -15,14 +16,17 @@ Você pode possuir repositórios individualmente ou compartilhar a propriedade d
 Para repositórios possuídos pelo usuário, você pode fornecer a outras pessoas acesso de colaborador para que elas possam colaborar no seu projeto. Se um repositório pertencer a uma organização, você poderá fornecer aos integrantes da organização permissões de acesso para colaboração no seu repositório. Para obter mais informações, consulte "[Níveis de permissão para uma repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/)" e "[Níveis de permissão de repositório para uma organização](/articles/repository-permission-levels-for-an-organization/)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-Com o {% data variables.product.prodname_free_team %} em contas de usuário e organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados, com um conjunto completo de recursos, ou em repositórios privados ilimitados com um conjunto de recursos limitados. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+Com
+{% data variables.product.prodname_free_team %} para contas de usuário e organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos, ou repositórios privados ilimitados com uma funcionalidade limitada. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}
 
-Você pode colaborar em seu projeto com outras pessoas usando os problemas, as pull requests e os quadros de projeto do repositório.
-
-![Página principal do repositório octocat/Hello-World](/assets/images/help/repository/repo-main-page.png)
+Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras pessoas.
+- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- É possível usar pull requests para propor alterações em um repositório. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+- Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
 
 {% data reusables.repositories.repo-size-limit %}
 

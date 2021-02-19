@@ -1,6 +1,6 @@
 ---
 title: 将拉取请求链接到议题
-intro: '您可以将拉取请求链接到议题，以便{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}显示正在进行的修复并且{% endif %}在拉取请求合并时自动关闭议题。'
+intro: '您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -9,19 +9,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**注：**当拉取请求指向仓库的*默认*分支时，将解析拉取请求说明中的特殊关键字。 但是，如果拉取请求的基础是*任何其他分支*，则将忽略这些关键字，不创建任何链接，并且合并拉取请求对议题没有影响。 **如果要使用关键字将拉取请求链接到议题，则拉取请求必须在默认分支上。**
+
+{% endnote %}
 
 ### 关于链接的议题和拉取请求
 
-您可以{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}手动或{% endif %}使用拉取请求说明中支持的关键词将议题链接到拉取请求。
+您可以{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}手动或{% endif %}在拉取请求说明中使用支持的关键字将议题链接到拉取请求。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
-{% if currentVersion ver_lt "enterprise-server@2.21" %}如果拉取请求和议题在不同的仓库中，{% data variables.product.product_name %} 将在拉取请求合并后并且合并拉取请求的人有权限关闭议题时才会显示链接。{% endif %}{% endif %}
+当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。 {% if currentVersion ver_lt "enterprise-server@2.21" %}如果拉取请求和议题在不同的仓库中，{% data variables.product.product_name %} 将在拉取请求合并后并且合并拉取请求的人有权限关闭议题时才会显示链接。{% endif %}
 
-将链接的拉取请求合并到仓库的默认分支时，其链接的议题将自动关闭。 有关默认分支的更多信息，请参阅“[设置默认分支](/github/administering-a-repository/setting-the-default-branch)”。
+将链接的拉取请求合并到仓库的默认分支时，其链接的议题将自动关闭。 有关默认分支的更多信息，请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### 手动将拉取请求链接到议题
 
 对仓库有写入权限的任何人都可以手动将拉取请求链接到议题。
@@ -37,7 +42,7 @@ versions:
 
 ### 使用关键词将拉取请求链接到议题
 
-您可以通过在拉取请求说明中使用支持的关键词将拉取请求链接到议题。
+您可以在拉取请求说明或提交消息中使用支持的关键字将拉取请求链接到议题（请注意，拉取请求必须在默认分支上）。
 
 * close
 * closes
@@ -45,7 +50,7 @@ versions:
 * fix
 * fixes
 * fixed
-* 解决
+* resolve
 * resolves
 * resolved
 
@@ -57,9 +62,9 @@ versions:
 | 不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 多个议题     | 对每个议题使用完整语法                                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}只有手动链接的拉取请求才可以手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
 
-您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}，但包含提交的拉取请求不会列为链接的拉取请求{% endif %}。
+您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 
 ### 延伸阅读
 

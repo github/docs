@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,26 +23,25 @@ Für Docker- und JavaScript-Aktionen ist eine Metadatendatei erforderlich. Der D
 
 Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
 
-### **`name`**
+### `name`
 
 **Required** (Erforderlich): Der Name Deiner Aktion. {% data variables.product.prodname_dotcom %} zeigt den `name` auf der Registerkarte **Actions** an, damit Du die Aktionen in jedem Auftrag visuell identifizieren kannst.
 
-### **`Autor`**
+### `Autor`
 
 **Optional**: Der Name des Autors der Aktion.
 
-### **`Beschreibung`**
+### `Beschreibung`
 
 **Erforderlich** Eine kurze Beschreibung der Aktion.
 
-### **`inputs`**
+### `inputs`
 
 **Optional**: Mit Eingabeparametern können Sie die Daten angeben, welche die Aktion während der Laufzeit erwartet. {% data variables.product.prodname_dotcom %} speichert Eingabeparameter als Umgebungsvariablen. Eingabe-IDs in Großbuchstaben werden während der Laufzeit in Kleinbuchstaben umgewandelt. Sie sollten Eingabe-IDs in Kleinbuchstaben verwenden.
 
 #### Beispiel
 
 In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und entspricht standardmäßig dem Wert „1“. Die Eingabe „octocatEyeColor“ ist erforderlich und weist keinen Standardwert auf. Workflow-Dateien, die diese Aktion einsetzen, müssen das Stichwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zu `with`-Syntax finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
-
 
 ```yaml
 inputs:
@@ -54,28 +54,27 @@ inputs:
     required: true
 ```
 
-
 Wenn Sie eine Eingabe für eine Aktion in einer Workflow-Datei angeben oder einen Standardeingabewert verwenden, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<VARIABLE_NAME>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
 
 Wenn beispielsweise ein Workflow die Eingaben „numOctocats“ und „octocatEyeColor“ definiert hat, kann der Aktionscode die Werte für die Eingaben mithilfe der Umgebungsvariablen `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` lesen.
 
-#### **`inputs.<input_id>`**
+#### `inputs.<input_id>`
 
 **Erforderlich** Ein Kennzeichner, der die Eingabe identifiziert, als `string`. Der Wert von `<input_id>` ist eine Übersicht zu den Metadaten der Eingabe. Die `<input_id>` muss im Objekt `inputs` als ein eindeutiger Kennzeichner vorhanden sein. Die `<input_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
 
-#### **`inputs.<input_id>.description`**
+#### `inputs.<input_id>.description`
 
 **Erforderlich** Eine Beschreibung des Eingabeparameters als `String`.
 
-#### **`inputs.<input_id>.required`**
+#### `inputs.<input_id>.required`
 
 **Erforderlich**: Ein `boolescher` Wert, um anzugeben, ob für die Aktion der Eingabeparameter erforderlich ist. Legen Sie den Wert `true` fest, wenn der Parameter erforderlich ist.
 
-#### **`inputs.<input_id>.default`**
+#### `inputs.<input_id>.default`
 
 **Optional**: Ein `String`, der den Standardwert darstellt. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
 
-### **`outputs`**
+### `outputs`
 
 **Optional**: Ausgabeparameter erlauben Dir, Daten zu deklarieren, die eine Aktion setzt. Aktionen, die in einem Workflow später ausgeführt werden, können die Ausgabedaten der zuvor ausgeführten Aktionen verwenden.  Wenn beispielsweise eine Aktion vorliegt, die zwei Eingaben addiert hat (x + y = z), kann die Aktion die Summe (z) für andere Aktionen ausgeben, damit sie als Eingabe verwendet wird.
 
@@ -89,41 +88,42 @@ outputs:
     description: 'Die Summe der Eingaben'
 ```
 
-#### **`outputs.<output_id>`**
+#### `outputs.<output_id>`
 
 **Erforderlich** Ein Kennzeichner, der die Ausgabe identifiziert, als `String`. Der Wert von `<output_id>` ist eine Übersicht zu den Metadaten der Ausgabe. Die `<output_id>` muss im Objekt `outputs` als ein eindeutiger Kennzeichner vorhanden sein. Die `<output_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
 
-#### **`outputs.<output_id>.description`**
+#### `outputs.<output_id>.description`
 
 **Erforderlich** Eine Beschreibung des Ausgabeparameters als `String`.
 
-### **`-Ausgaben`** für Aktionen mit zusammengesetzten Ausführungsschritten
+### `outputs` for composite run steps actions
 
-**Optionale** `-Ausgänge verwenden` die gleichen Parameter wie `-Ausgänge.<output_id>` und `Ausgänge.<output_id>.description` (siehe "[`Ausgaben` für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), enthält aber auch den `-Wert` Token.
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
 
 #### Beispiel
 
 {% raw %}
 ```yaml
-Outputs:
-  Zufallszahl: 
-    Beschreibung: "Zufallszahl"
-    Wert:{{ steps.random-number-generator.outputs.random-id }}
-läuft:
-  mit: "composite"
-  Schritten: 
-    - id: zuzufälliger Zahlengenerator
-      ausführen: echo "::set-output name=random-id::'(echo $RANDOM)"
-      Shell: bash
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
 ```
 {% endraw %}
 
-#### **`outputs.<output_id.value>`**
+#### `outputs.<output_id>.value`
+
 **Erforderliche** Der Wert, dem der Ausgabeparameter zugeordnet wird. Sie können dies auf eine `Zeichenfolge` oder einen Ausdruck mit Kontext festlegen. Sie können z. B. die `Schritte` Kontext verwenden, um den `Wert` einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
 
-Weitere Informationen zur Verwendung von Kontext- und Ausdruckssyntax finden Sie unter "[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-### **`runs`** für JavaScript-Aktionen
+### `runs` for JavaScript actions
 
 **Erforderlich** Konfiguriert den Pfad zum Code der Aktion und zu der Anwendung, die den Code ausführen soll.
 
@@ -135,15 +135,15 @@ runs:
   main: 'main.js'
 ```
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Erforderlich** Die Anwendung, welche den in [`main`](#runsmain) angegebenen Code ausführen soll.
 
-#### **`runs.main`**
+#### `runs.main`
 
 **Erforderlich** Die Datei, die den Code Deiner Aktion enthält. Die in [`using`](#runsusing) angegebene Anwendung führt diese Datei aus.
 
-#### **`pre`**
+#### `pre`
 
 **Optional** Erlaubt es Dir, ein Skript am Anfang eines Jobs auszuführen, bevor die `main:`-Aktion startet. Du kannst `pre:` zum Beispiel verwenden, um mit einem Setup-Skript die Voraussetzungen zu schaffen. Die mit der Syntax [`using`](#runsusing) angegebene Anwendung wird diese Datei ausführen. Die `pre:`-Aktion wird normalerweise immer ausgeführt, aber Du kannst dies mit [`pre-if`](#pre-if) ändern.
 
@@ -157,7 +157,7 @@ runs:
   post: 'cleanup.js'
 ```
 
-#### **`pre-if`**
+#### `pre-if`
 
 **Optional** Erlaubt Dir, Bedingungen für die Ausführung der `pre:`-Aktion festzulegen. Die `pre:`-Aktion läuft nur, wenn die Bedingungen in `pre-if` erfüllt sind. Wenn `pre-if` nicht definiert ist, gilt `always()` als Standardwert. Beachte, dass der `step`-Kontext nicht verfügbar ist, da noch keine Schritte ausgeführt wurden.
 
@@ -168,7 +168,7 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
   pre-if: 'runner.os == linux'
 ```
 
-#### **`Beitrag`**
+#### `Beitrag`
 
 **Optional** Erlaubt es Dir, ein Skript am Ende eines Jobs auszuführen, sobald die `main:`-Aktion abgeschlossen ist. Zum Beispiel kannst Du `post:` verwenden, um bestimmte Prozesse zu beenden oder unnötige Dateien zu entfernen. Die mit der Syntax [`using`](#runsusing) angegebene Anwendung wird diese Datei ausführen.
 
@@ -183,7 +183,7 @@ runs:
 
 Die `post:`-Aktion wird normalerweise immer ausgeführt, aber Du kannst dies mit `post-if` ändern.
 
-#### **`post-if`**
+#### `post-if`
 
 **Optional** Erlaubt Dir, Bedingungen für die Ausführung der `post:`-Aktion festzulegen. Die `post:`-Aktion läuft nur, wenn die Bedingungen in `post-if` erfüllt sind. Wenn `post-if` nicht definiert ist, gilt `always()` als Standardwert.
 
@@ -194,69 +194,72 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
   post-if: 'runner.os == linux'
 ```
 
-### **`führt`** für Aktionen für zusammengesetzte Ausführungsschritte aus
+### `runs` for composite run steps actions
 
 **Erforderliche** Konfiguriert den Pfad zur zusammengesetzten Aktion und die Anwendung, die zum Ausführen des Codes verwendet wird.
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Erforderliche** Um eine Aktion für zusammengesetzte Ausführungsschritte zu verwenden, legen Sie diese auf `"zusammengesetzte"`fest.
 
-#### **`runs.steps`**
+#### `runs.steps`
 
 **Erforderliche** Die Ausführungsschritte, die Sie in dieser Aktion ausführen möchten.
 
-##### **`runs.steps.run`**
+##### `runs.steps[*].run`
 
 **Erforderliche** Der Befehl, den Sie ausführen möchten. Dies kann inline oder ein Skript in Ihrem Aktions-Repository sein:
+
+{% raw %}
 ```yaml
-läuft:
-  mit: "composite"
-  Schritte: 
-    - ausführen:{{ github.action_path }}/test/script.sh
-      Shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh
+      shell: bash
+```
+{% endraw %}
+
+Alternatively, you can use `$GITHUB_ACTION_PATH`:
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: bash
 ```
 
-Alternativ können Sie `$GITHUB_ACTION_PATH`verwenden:
+For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-```yaml
-läuft:
-  verwenden: "composite"
-  Schritte: 
-    - ausführen: $GITHUB_ACTION_PATH/script.sh
-      Shell: bash
-```
+##### `runs.steps[*].shell`
 
-Weitere Informationen finden Sie unter "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### **`runs.steps.shell`**
+##### `runs.steps[*].name`
 
-**Erforderliche** Die Shell, in der Sie den Befehl ausführen möchten. Sie können eine der hier aufgeführten Shells [](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)verwenden.
+**Optional** The name of the composite run step.
 
-##### **`runs.steps.name`**
+##### `runs.steps[*].id`
 
-**Optionaler** Der Name des zusammengesetzten Ausführungsschritts.
+**Optional** A unique identifier for the step. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### **`runs.steps.id`**
+##### `runs.steps[*].env`
 
-**Optionaler** Ein eindeutiger Bezeichner für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### **`runs.steps.env`**
+##### `runs.steps[*].working-directory`
 
-**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. Wenn Sie die im Workflow gespeicherte Umgebungsvariable ändern möchten, verwenden Sie `Echo "::set-env name={name}::{value}"` in einem zusammengesetzten Ausführungsschritt.
+**Optional**  Specifies the working directory where the command is run.
 
-##### **`runs.steps.working-directory`**
-
-**Optionale**  Gibt das Arbeitsverzeichnis an, in dem der Befehl ausgeführt wird.
-
-### **`runs`** für Docker-Aktionen
+### `runs` for Docker actions
 
 **Erforderlich** Konfiguriert das Image, welches für die Docker-Aktion verwendet wird.
 
 #### Beispiel für die Nutzung eines Dockerfiles in Deinem Repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -264,16 +267,16 @@ runs:
 #### Beispiel zur Nutzung des öffentlichen Docker-Registry-Containers
 
 ```yaml
-läuft: 
-  mit: 'docker'
-  Image: 'docker://debian:stretch-slim'
+runs:
+  using: 'docker'
+  image: 'docker://debian:stretch-slim'
 ```
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Erforderlich** Du musst diesen Wert auf `'docker'` setzen.
 
-#### **`pre-entrypoint`**
+#### `pre-entrypoint`
 
 **Optional** Erlaubt Dir, ein Skript auszuführen, bevor die Aktion `entrypoint` beginnt. Du kannst `pre-entrypoint:` zum Beispiel verwenden, um mit einem Setup-Skript die Voraussetzungen zu schaffen. {% data variables.product.prodname_actions %} verwendet `docker run`, um diese Aktion zu starten, und führt das Skript in einem neuen Container aus, der das gleiche Basis-Image verwendet. Das bedeutet, dass sich der Laufzeitstatus vom Container des Haupt-`entrypoint` unterscheidet, und alle benötigten Zustände müssen entweder im Arbeitsbereich, `HOME`, oder als `STATE_`-Variable verwendet werden. Die `pre-entrypoint:`-Aktion wird normalerweise immer ausgeführt, aber Du kannst dies mit [`pre-if`](#pre-if) ändern.
 
@@ -291,21 +294,21 @@ runs:
   entrypoint: 'main.sh'
 ```
 
-#### **`runs.image`**
+#### `runs.image`
 
 **Erforderlich** Das Docker-Image, das als Container zum Ausführen der Aktion verwendet werden soll. Der Wert kann der Name des Docker-Basis-Images sein, eine lokale `Dockerdatei` in Deinem Repository, oder ein öffentliches Image im Docker-Hub oder in einer anderen Registry. Um eine lokale `Dockerdatei` innerhalb Deines Repositorys zu referenzieren, gibst Du einen Pfad relativ zur Metadaten-Datei Deiner Aktion an. Die `Docker`-Anwendung wird diese Datei ausführen.
 
-#### **`runs.env`**
+#### `runs.env`
 
 **Optional** Gibt eine Schlüssel-Wert-Zuordnung von Umgebungsvariablen an, die in der Containerumgebung festgelegt werden sollen.
 
-#### **`runs.entrypoint`**
+#### `runs.entrypoint`
 
 **Optional** Überschreibt den `ENTRYPOINT` des Dockers in der `Dockerdatei`oder setzt ihn, falls nicht bereits angegeben. Verwende `Entrypoint`, wenn die `Dockerdatei` gibt keinen `Entrypoint` angibt, oder wenn Du die Anweisung `Entrypoint` überschreiben willst. Wenn Du `Entrypoint` weglässt, werden jene Befehle ausgeführt, welche Du in der Anweisung `Entrypoint` des Dockers angibst. Für die Docker-Anweisung `ENTRYPOINT` gibt es sowohl eine _shell_-Form als auch eine _exec_-Form. Die Docker-Dokumentation für `ENTRYPOINT` empfiehlt die _exec_-Form der `ENTRYPOINT`-Anweisung.
 
 Weitere Informationen dazu, wie die `Entrypoint` ausgeführt wird, findest Du unter "[Dockerdatei-Unterstützung für {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
 
-#### **`post-entrypoint`**
+#### `post-entrypoint`
 
 **Optional** Erlaubt Dir, ein Aufräumskript auszuführen, sobald die Aktion `runs.entrypoint` abgeschlossen ist. {% data variables.product.prodname_actions %} verwendet `docker run` um diese Aktion zu starten. Da {% data variables.product.prodname_actions %} das Skript in einem neuen Container mit dem glaichen Basis-Image ausführt, unterscheidet sich der Laufzeitstatus vom Container des Haupt-`entrypoint`. Du kannst auf jeden benötigten Zustand, entweder im Arbeitsbereich, `HOME`, oder als `STATE_`-Variable zugreifen. Die `post-entrypoint:`-Aktion wird normalerweise immer ausgeführt, aber Du kannst dies mit [`post-if`](#post-if) ändern.
 
@@ -319,7 +322,7 @@ runs:
   post-entrypoint: 'cleanup.sh'
 ```
 
-#### **`runs.args`**
+#### `runs.args`
 
 **Optional** Ein Array von Strings, welche die Eingaben für einen Docker-Container definieren. Eingaben können hartcodierte Strings enthalten. Beim Start des Containers übergibt {% data variables.product.prodname_dotcom %} die `args`-Anweisung an den `ENTRYPOINT` des Containers.
 
@@ -345,7 +348,7 @@ runs:
 ```
 {% endraw %}
 
-### **`branding`**
+### `branding`
 
 Du kannst mit einer Farbe und [Feder](https://feathericons.com/) ein Badge zu erstellen, um Deine Aktion zu personalisieren und von anderen zu unterscheiden. Badges werden neben Deinem Aktionsnamen in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) angezeigt.
 
@@ -357,11 +360,11 @@ branding:
   color: 'green'
 ```
 
-#### **`branding.color`**
+#### `branding.color`
 
 Die Hintergrundfarbe des Badges. Kann eine der folgenden sein: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple` oder `gray-dark`.
 
-#### **`branding.icon`**
+#### `branding.icon`
 
 Der Name des zu verwendenden [Federsymbols](https://feathericons.com/).
 

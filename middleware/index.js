@@ -1,4 +1,5 @@
 const express = require('express')
+const instrument = require('../lib/instrument-middleware')
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -10,52 +11,102 @@ const asyncMiddleware = fn =>
   }
 
 module.exports = function (app) {
+  // *** Development tools ***
+  app.use(require('morgan')('dev', { skip: (req, res) => !isDevelopment }))
+  if (isDevelopment) app.use(require('./webpack'))
+
+  // *** Observability ***
+  if (process.env.DD_API_KEY) {
+    app.use(require('./connect-datadog'))
+  }
+
+  // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
   // See https://expressjs.com/en/guide/behind-proxies.html
   app.set('trust proxy', 1)
-  app.use(require('morgan')('dev', { skip: (req, res) => !isDevelopment }))
   app.use(require('./rate-limit'))
-  if (isDevelopment) app.use(require('./webpack'))
-  app.use(require('./redirects/external'))
-  app.use(require('./redirects/help-to-docs'))
-  app.use(require('./set-fastly-cache-headers'))
-  app.use(require('./handle-invalid-paths'))
-  app.use(require('./loaderio-verification'))
+  app.use(instrument('./handle-invalid-paths'))
+
+  // *** Security ***
   app.use(require('./cors'))
-  app.use(require('./csp'))
+  app.use(require('./csp')) // Must come before helmet
   app.use(require('helmet')())
-  app.use(require('./req-utils'))
-  app.use(require('./robots'))
-  app.use(require('./cookie-parser'))
+  app.use(require('./cookie-parser')) // Must come before csrf
+  app.use(express.json()) // Must come before csrf
   app.use(require('./csrf'))
+  app.use(require('./handle-csrf-errors')) // Must come before regular handle-errors
+
+  // *** Headers ***
+  app.set('etag', false) // We will manage our own ETags if desired
   app.use(require('compression')())
-  app.use(require('connect-slashes')(false))
-  app.use('/dist', express.static('dist'))
-  app.use(express.json())
-  app.use('/events', require('./events'))
-  app.use(require('./categories-for-support-team'))
-  app.use(require('./enterprise-data-endpoint'))
-  app.use(require('./detect-language'))
-  app.use(asyncMiddleware(require('./context')))
-  app.use('/csrf', require('./csrf-route'))
-  app.use(require('./early-access-paths'))
-  app.use(require('./early-access-proxy'))
-  app.use(require('./find-page'))
-  app.use(require('./notices'))
-  app.use(require('./archived-enterprise-versions'))
-  app.use(require('./archived-enterprise-versions-assets'))
-  app.use('/assets', express.static('assets'))
-  app.use('/public', express.static('data/graphql'))
-  app.use(require('./redirects/language-code-redirects'))
-  // redirects need to be handled before the contextualizers
-  app.use(require('./redirects/handle-redirects'))
-  app.use(require('./contextualizers/graphql'))
-  app.use(require('./contextualizers/rest'))
-  app.use(require('./contextualizers/webhooks'))
   app.use(require('./disable-caching-on-safari'))
-  app.get('/_500', asyncMiddleware(require('./trigger-error')))
-  app.use(require('./breadcrumbs'))
-  app.use(require('./featured-links'))
-  app.get('/*', asyncMiddleware(require('./render-page')))
+  app.use(require('./set-fastly-surrogate-key'))
+
+  // *** Config and context for redirects ***
+  app.use(require('./req-utils')) // Must come before record-redirect and events
+  app.use(require('./record-redirect'))
+  app.use(instrument('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument('./context'))) // Must come before early-access-*, handle-redirects
+
+  // *** Redirects, 3xx responses ***
+  // I ordered these by use frequency
+  app.use(require('connect-slashes')(false))
+  app.use(instrument('./redirects/external'))
+  app.use(instrument('./redirects/help-to-docs'))
+  app.use(instrument('./redirects/language-code-redirects')) // Must come before contextualizers
+  app.use(instrument('./redirects/handle-redirects')) // Must come before contextualizers
+
+  // *** Config and context for rendering ***
+  app.use(instrument('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(instrument('./block-robots'))
+
+  // *** Rendering, 2xx responses ***
+  // I largely ordered these by use frequency
+  app.use(instrument('./archived-enterprise-versions-assets')) // Must come before static/assets
+  app.use('/dist', express.static('dist', {
+    index: false,
+    etag: false,
+    immutable: true,
+    lastModified: false,
+    maxAge: '28 days' // Could be infinite given our fingerprinting
+  }))
+  app.use('/assets', express.static('assets', {
+    index: false,
+    etag: false,
+    lastModified: false,
+    maxAge: '1 day' // Relatively short in case we update images
+  }))
+  app.use('/public', express.static('data/graphql', {
+    index: false,
+    etag: false,
+    lastModified: false,
+    maxAge: '7 days' // A bit longer since releases are more sparse
+  }))
+  app.use('/events', instrument('./events'))
+  app.use('/search', instrument('./search'))
+  app.use(instrument('./archived-enterprise-versions'))
+  app.use(instrument('./robots'))
+  app.use(/(\/.*)?\/early-access$/, instrument('./contextualizers/early-access-links'))
+  app.use(instrument('./categories-for-support-team'))
+  app.use(instrument('./loaderio-verification'))
+  app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
+
+  // *** Preparation for render-page ***
+  app.use(asyncMiddleware(instrument('./contextualizers/enterprise-release-notes')))
+  app.use(instrument('./contextualizers/graphql'))
+  app.use(instrument('./contextualizers/rest'))
+  app.use(instrument('./contextualizers/webhooks'))
+  app.use(instrument('./breadcrumbs'))
+  app.use(instrument('./early-access-breadcrumbs'))
+  app.use(instrument('./enterprise-server-releases'))
+  app.use(instrument('./dev-toc'))
+  app.use(instrument('./featured-links'))
+  app.use(instrument('./learning-track'))
+
+  // *** Headers for pages only ***
+  app.use(require('./set-fastly-cache-headers'))
+
+  // *** Rendering, must go last ***
+  app.get('/*', asyncMiddleware(instrument('./render-page')))
   app.use(require('./handle-errors'))
 }

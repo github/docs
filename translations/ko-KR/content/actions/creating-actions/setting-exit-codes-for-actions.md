@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ versions:
 
 ### Setting a failure exit code in a JavaScript action
 
-If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failure exit code. 예시:
+If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failure exit code. 예시:
 
 ```javascript
 try {
@@ -40,11 +41,13 @@ For more information, see "[Creating a JavaScript action](/articles/creating-a-j
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. 예시:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."

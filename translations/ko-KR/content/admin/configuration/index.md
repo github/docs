@@ -1,32 +1,43 @@
 ---
 title: Configuring GitHub Enterprise
 shortTitle: Configuring GitHub Enterprise
-intro: 'Once {% data variables.product.prodname_ghe_server %} is installed and set up, you can configure the appliance to suit your organization''s needs.'
+intro: "You can configure your enterprise to suit your organization's needs."
 redirect_from:
-  - /enterprise/admin/configuration
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% note %}
+
+**Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[Managing GitHub Actions for your enterprise](/admin/github-actions)" or "[Managing GitHub Packages for your enterprise](/admin/packages)."
+
+{% endnote %}
+{% endif %}
 
 ### Table of Contents
 
 {% topic_link_in_list /configuring-your-enterprise %}
+    {% link_in_list /about-enterprise-configuration %}
+    {% link_in_list /initializing-github-ae %}
     {% link_in_list /accessing-the-management-console %}
     {% link_in_list /accessing-the-administrative-shell-ssh %}
+    {% link_in_list /configuring-data-encryption-for-your-enterprise %}
     {% link_in_list /enabling-and-scheduling-maintenance-mode %}
     {% link_in_list /configuring-backups-on-your-appliance %}
     {% link_in_list /site-admin-dashboard %}
     {% link_in_list /enabling-private-mode %}
+    {% link_in_list /managing-github-for-mobile-for-your-enterprise %}
+    {% link_in_list /configuring-email-for-notifications %}
     {% link_in_list /configuring-rate-limits %}
-<!-- if currentVersion ver_gt "enterprise-server@2.15" -->
     {% link_in_list /configuring-applications %}
-<!-- endif -->
     {% link_in_list /troubleshooting-ssl-errors %}
     {% link_in_list /configuring-time-synchronization %}
     {% link_in_list /command-line-utilities %}
-    {% link_in_list /configuring-github-pages-on-your-appliance %}
+    {% link_in_list /restricting-network-traffic-to-your-enterprise %}
+    {% link_in_list /configuring-github-pages-for-your-enterprise %}
 {% topic_link_in_list /configuring-network-settings %}
     {% link_in_list /configuring-the-ip-address-using-the-virtual-machine-console %}
     {% link_in_list /configuring-dns-nameservers %}
@@ -41,12 +52,9 @@ versions:
 {% topic_link_in_list /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud %}
     {% link_in_list /connecting-github-enterprise-server-to-github-enterprise-cloud %}
     {% link_in_list /enabling-unified-search-between-github-enterprise-server-and-githubcom %}
-    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %} 
-<!-- if currentVersion ver_gt "enterprise-server@2.16" -->
+    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
     {% link_in_list /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
-<!-- endif -->
-<!-- if currentVersion ver_gt "enterprise-server@2.21" -->
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
-<!-- endif -->
+    {% link_in_list /configuring-secret-scanning-for-your-appliance %}

@@ -9,6 +9,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加できます。
@@ -21,9 +22,9 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 2. *_config.yml* に移動します。
 {% data reusables.repositories.edit-file %}
-4. テーマ名のために、ファイルに新しい行を追加します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - サポートされている名前を使うには、{% else %}{% endif %}`theme: THEME-NAME` と入力します。_THEME-NAME_ の部分は、テーマのリポジトリの README に表示されている名前に置き換えます。 サポートされているテーマのリストについては、{% data variables.product.prodname_pages %} サイトで「[サポートされているテーマ](https://pages.github.com/themes/)」を参照してください。 ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - {% data variables.product.prodname_dotcom %} にホストされているその他の任意の Jekyll テーマを使うには、`remote_theme: THEME-NAME` と入力します。THEME-NAME の部分は、テーマのリポジトリの README に表示されている名前に置き換えます。 ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png){% endif %}
+4. テーマ名のために、ファイルに新しい行を追加します。
+   - To use a supported theme, type `theme: THEME-NAME`, replacing _THEME-NAME_ with the name of the theme as shown in the README of the theme's repository. サポートされているテーマのリストについては、{% data variables.product.prodname_pages %} サイトで「[サポートされているテーマ](https://pages.github.com/themes/)」を参照してください。 ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png)
+   - {% data variables.product.prodname_dotcom %} にホストされているその他の任意の Jekyll テーマを使うには、`remote_theme: THEME-NAME` と入力します。THEME-NAME の部分は、テーマのリポジトリの README に表示されている名前に置き換えます。 ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
@@ -39,7 +40,7 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 1. _/assets/css/style.scss_ という新しいファイルを作成します。
 2. ファイルの先頭に、以下の内容を追加します。
-  ```
+  ```scss
   ---
   ---
 

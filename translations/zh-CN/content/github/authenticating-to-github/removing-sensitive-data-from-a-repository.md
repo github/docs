@@ -1,6 +1,6 @@
 ---
 title: 从仓库中删除敏感数据
-intro: 如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-branch` 命令或 BFG Repo-Cleaner 开源工具。
+intro: '如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-branch` 命令或 BFG Repo-Cleaner 开源工具。'
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git filter-branch` 命令和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
@@ -27,7 +28,7 @@ versions:
 
 #### 使用 BFG
 
-[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -39,7 +40,13 @@ $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 $ bfg --replace-text passwords.txt
 ```
 
-有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 的文档。
+删除敏感数据后，必须强制将更改推送到 {% data variables.product.product_name %}。
+
+```shell
+$ git push --force
+```
+
+有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 的文档。
 
 #### 使用 filter-branch
 
@@ -74,7 +81,7 @@ $ bfg --replace-text passwords.txt
         "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -89,7 +96,7 @@ $ bfg --replace-text passwords.txt
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
   $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
-  > [master 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. 仔细检查您是否已从仓库历史记录中删除所需的所有内容，并且所有分支均已检出。
@@ -102,7 +109,7 @@ $ bfg --replace-text passwords.txt
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. 要从[标记的发行版](/articles/about-releases)删除敏感文件，您还需要强制推送 Git 标记：
   ```shell
@@ -113,7 +120,7 @@ $ bfg --replace-text passwords.txt
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 8. 联系 {% data variables.contact.contact_support %}，请求他们删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。
 9. 告知协作者[变基](https://git-scm.com/book/en/Git-Branching-Rebasing)而*不是*合并他们从旧的（污染的） 仓库历史记录创建的任何分支。 一次合并提交可能会重新引入您刚刚遇到清除问题的部分或全部污染的历史记录。
@@ -134,7 +141,7 @@ $ bfg --replace-text passwords.txt
 
   {% endnote %}
 
-## 避免将来的意外提交
+### 避免将来的意外提交
 
 有一些简单的技巧可避免提交您不想要提交的内容：
 
@@ -145,5 +152,5 @@ $ bfg --replace-text passwords.txt
 
 ### 延伸阅读
 
-- [`git filter-branch` 主页](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` 手册页](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git 工具 - 重写历史记录](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

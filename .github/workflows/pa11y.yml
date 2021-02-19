@@ -1,14 +1,15 @@
-name: "Pa11y"
+name: Pa11y
 on:
   workflow_dispatch:
   schedule:
-    - cron: "25 17 * * *" # once a day at 17:25 UTC / 11:50 PST
+    - cron: '25 17 * * *' # once a day at 17:25 UTC / 11:50 PST
 jobs:
   test:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Get npm cache directory
         id: npm-cache
@@ -16,7 +17,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

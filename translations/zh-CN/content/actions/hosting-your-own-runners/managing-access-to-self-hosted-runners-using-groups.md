@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,7 +34,7 @@ versions:
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以将运行器从默认组移到您创建的任何组。
 
-创建组时，必须选择用于定义哪些仓库有权访问运行器组的策略。 您可以配置一个运行器组可供一组特定的仓库、所有私有仓库或组织中所有仓库访问。
+创建组时，必须选择用于定义哪些仓库有权访问运行器组的策略。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -41,9 +42,21 @@ versions:
 1. 在 **Self-hosted runners（自托管运行器）**部分，单击 **Add new（新增）**，然后单击 **New group（新组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. 输入运行器组的名称，然后从“**Repository access（仓库访问）**”下拉列表中选择访问策略。
+1. 输入运行程序组的名称，并分配仓库访问策略。
 
-    ![添加运行器组选项](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+   {% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 2" %} 您可以将运行器组配置为供一组特定的仓库访问，或者供组织中的所有仓库访问。 默认情况下，公共仓库不能访问运行器组中的运行器。 但您可以使用 **Allow public repositories（允许公共仓库）**选项覆盖此设置。{% else if currentVersion == "enterprise-server@2.22"%}您可以将运行器组配置为供一组特定的仓库、所有私人仓库或组织中所有仓库访问。{% endif %}
+
+   {% warning %}
+
+   **警告**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
+
+   {% endwarning %}
+
+   ![添加运行器组选项](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. 单击 **Save group（保存组）**创建组并应用策略。
 
 ### 为企业创建自托管运行器组
@@ -52,21 +65,28 @@ versions:
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以在注册过程中将运行器分配给特定组，也可以稍后将运行器从默认组移到自定义组。
 
-创建组时，必须选择一个策略以向企业中所有组织或所选特定组织授予访问权限。
+创建组时，必须选择用于定义哪些组织有权访问运行器组的策略。
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. 单击 **Self-hosted runners（自托管运行器）**选项卡。
 1. 单击 **Add new（新增）**，然后单击 **New group（新组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. 输入运行器组的名称，然后从“**Organization access（组织访问）**”下拉列表中选择访问策略。
+1. 输入运行程序组的名称，并分配组织访问策略。
+
+   {% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 2" %} 您可以将运行器组配置为供一组特定的组织访问，或者供企业中的所有组织访问。 默认情况下，公共仓库不能访问运行器组中的运行器。 但您可以使用 **Allow public repositories（允许公共仓库）**选项覆盖此设置。{% else if currentVersion == "enterprise-server@2.22"%}您可以将运行器组配置为供企业中的所有组织或选择的特定组织访问。{% endif %}
+
+   {% warning %}
+
+   **警告**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
+
+   {% endwarning %}
 
     ![添加运行器组选项](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. 单击 **Save group（保存组）**创建组并应用策略。

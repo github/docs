@@ -26,7 +26,8 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 #### 依存関係ビュー
 
 {% if currentVersion == "free-pro-team@latest" %}
-依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。 For dependencies on public repositories hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
+依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。 For dependencies on public repositories hosted on
+{% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -34,14 +35,9 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_short %} alerts.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
+{% data variables.product.prodname_dependabot_alerts %}.
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -53,14 +49,8 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -91,6 +81,24 @@ You can also enable or disable the dependency graph for all repositories owned b
 4. リポジトリ データへの読み取りアクセスを {% data variables.product.product_name %} に許可して依存関係グラフを有効にすることに関するメッセージを読んだうえで、[Dependency Graph] の隣にある [**Enable**] をクリックします。 ![依存関係グラフの [Enable] ボタン](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 [Security & analysis] タブで [Dependency Graph] の隣にある [**Disable**] をクリックすれば、依存関係グラフはいつでも無効にできます。
+
+### Changing the "Used by" package
+
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+
+!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+
+Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
 ### 依存関係グラフのトラブルシューティング
@@ -98,14 +106,15 @@ You can also enable or disable the dependency graph for all repositories owned b
 依存関係グラフが空の場合は、依存関係を含むファイルに問題があるかもしれません。 ファイルがファイルタイプに合わせて適切にフォーマットされているかをチェックしてください。
 
 {% if currentVersion == "free-pro-team@latest" %}
-ファイルのフォーマットが正しい場合は、大きさをチェックします。 あなたが {% data variables.product.prodname_enterprise %} ユーザでない限り、依存関係グラフは 0.5 MB を超える個々のマニフェストおよびロックファイルを無視します。 デフォルトでは、最大 20 個のマニフェストまたはロックファイルが処理されるので、リポジトリのサブディレクトリで依存関係を小さいファイルに分割することができます。{% endif %}
+ファイルのフォーマットが正しい場合は、大きさをチェックします。 The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a
+{% data variables.product.prodname_enterprise %} user. デフォルトでは、最大 20 個のマニフェストまたはロックファイルが処理されるので、リポジトリのサブディレクトリで依存関係を小さいファイルに分割することができます。{% endif %}
 
 マニフェストまたはロックファイルが処理されない場合、その依存関係は依存関係グラフから省略され、脆弱な依存関係はチェックされなくなります。
 
 ### 参考リンク
 
-- [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph){% if currentVersion == "free-pro-team@latest" %}
-- "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- [Organization のインサイトを表示する](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)
 - [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
-- [{% data variables.product.product_name %}によるデータの利用と保護の方法の理解](/github/understanding-how-github-uses-and-protects-your-data)
+- [{% data variables.product.product_name %} によるデータの利用方法と保護方法を理解する](/github/understanding-how-github-uses-and-protects-your-data)
 {% endif %}

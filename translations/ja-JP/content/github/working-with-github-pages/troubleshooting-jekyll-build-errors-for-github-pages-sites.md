@@ -28,6 +28,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ビルドエラーのトラブルシューティング
@@ -35,7 +36,7 @@ versions:
 {% data variables.product.prodname_pages %} サイトをローカルで、または {% data variables.product.product_name %} 上でビルドしているときに Jekyll でエラーが発生した場合、そのエラーメッセージをトラブルシューティングに利用できます。 エラーメッセージとその見方に関する詳しい情報は、「[{% data variables.product.prodname_pages %} サイトのJekyllビルドエラーについて](/articles/about-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
 一般的なエラーメッセージが表示された場合は、よくある問題をチェックします。
-- サポートされていないプラグインを使用している。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+- サポートされていないプラグインを使用している。 For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
 - リポジトリがリポジトリサイズの制限を超えている。 詳しい情報については「[私のディスク容量はいくつですか？](/articles/what-is-my-disk-quota)」を参照してください。{% endif %}
 - *_config.yml* ファイルで `source` の設定を変更した。 ビルドプロセス中に、この設定は {% data variables.product.prodname_pages %} によってオーバーライドされます。
 - 公開ソースにあるファイル名にコロン (`:`) が含まれている。コロンは使用できません。
@@ -77,7 +78,7 @@ versions:
 このエラーは、`日本語`などアルファベット以外の文字を使用したことを意味します。
 
 トラブルシューティングするには、*_config.yml* ファイルに次の行を追加して UTF-8 エンコーディングを指定します。
-```
+```yaml
 encoding: UTF-8
 ```
 
@@ -158,7 +159,7 @@ To troubleshoot, if your `docs` folder was accidentally moved, try moving the `d
 
 このエラーは、サイトの公開ソースに存在しないシンボリックリンク (symlink) がサイトに含まれていることを意味します。 シンボリックリンクの詳細は、Wikipedia で「[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)」を参照してください。
 
-トラブルシューティングするには、エラーメッセージで示されているファイルがサイトのビルドに使われているかどうかを確認します。 使われていない場合、またはファイルをシンボリックリンクにしたくない場合は、ファイルを削除します。 サイトのビルドにシンボリックファイルが必要な場合は、そのシンボリックリンクで参照されているファイルまたはディレクトリが、サイトの公開ソースにあることを確認してください。 外部アセットを除外するには、{% if currentVersion == "free-pro-team@latest" %}`git submodule` または{% endif %}サードパーティのパッケージマネージャー、たとえば [Bower](https://bower.io/) などの使用を検討します。{% if currentVersion == "free-pro-team@latest" %}詳細は「[{% data variables.product.prodname_pages %} でサブモジュールを使う ](/articles/using-submodules-with-github-pages)」を参照してください。{% endif %}
+トラブルシューティングするには、エラーメッセージで示されているファイルがサイトのビルドに使われているかどうかを確認します。 使われていない場合、またはファイルをシンボリックリンクにしたくない場合は、ファイルを削除します。 サイトのビルドにシンボリックファイルが必要な場合は、そのシンボリックリンクで参照されているファイルまたはディレクトリが、サイトの公開ソースにあることを確認してください。 To include external assets, consider using {% if currentVersion == "free-pro-team@latest" %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
 ### Syntax error in 'for' loop
 
@@ -182,6 +183,6 @@ To troubleshoot, if your `docs` folder was accidentally moved, try moving the `d
 
 このエラーは、コードに認識されない Liquid タグが含まれていることを意味します。
 
-トラブルシューティングするには、エラーメッセージで示されているファイルの Liquid タグがすべて Jekyll のデフォルトの変数に一致し、タグ名に誤入力がないことを確認します。 デフォルトの変数のリストは、Jekyll のドキュメンテーションで「[変数](https://jekyllrb.com/docs/variables/)」を参照してください。
+トラブルシューティングするには、エラーメッセージで示されているファイルの Liquid タグがすべて Jekyll のデフォルトの変数に一致し、タグ名に誤入力がないことを確認します。 For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
 
 認識されないタグの主な原因は、サポート対象外のプラグインです。 サイトをローカルで生成し、静的なファイルを {% data variables.product.product_name %} にプッシュすることで、サポート対象外のプラグインを使用している場合は、そのプラグインで Jekyll のデフォルトの変数と異なるタグが使われていないかどうか確認してください。 サポート対象のプラグインについては、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。

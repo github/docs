@@ -29,13 +29,15 @@ versions:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. OpenStack Horizon で、ダウンロードした {% data variables.product.prodname_ghe_server %} のイメージをアップロードします。 手順については、OpenStack ガイドの「[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)」の 「Upload an image」セクションを参照してください。
+1. OpenStack Horizon で、
+
+ダウンロードした {% data variables.product.prodname_ghe_server %} の画像をアップロードします。 手順については、OpenStack ガイドの「[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)」の 「Upload an image」セクションを参照してください。
 {% data reusables.enterprise_installation.create-attached-storage-volume %} 手順については、OpenStack ガイドの「[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)」を参照してください。
 3. セキュリティグループを作成し、下の表の各ポートについて新しいセキュリティグループルールを追加してください。 その方法についてはOpenStackのガイド"[Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)"を参照してください。
 
   {% data reusables.enterprise_installation.necessary_ports %}
 4. フローティングIPをインスタンスに関連づけることもできます。 使用しているOpenStackのセットアップによっては、フローティングIPをプロジェクトに割り当て、それをインスタンスに関連づける必要があるかもしれません、 そうする必要があるかどうかは、システム管理者に連絡を取って判断してください。 詳しい情報については、OpenStackのドキュメンテーション中の"[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)"を参照してください。
-5. これまでのステップで作成したイメージ、データボリューム、セキュリティグループを使って{% data variables.product.product_location_enterprise %}を起動してください。 その方法についてはOpenStackのガイド"[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)"を参照してください。
+5. これまでのステップで作成したイメージ、データボリューム、セキュリティグループを使って{% data variables.product.product_location %}を起動してください。 その方法についてはOpenStackのガイド"[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)"を参照してください。
 
 ### {% data variables.product.prodname_ghe_server %} インスタンスを設定する
 
@@ -47,4 +49,5 @@ versions:
 
 ### 参考リンク
 
- - "[システムの概要](/enterprise/admin/guides/installation/system-overview)"
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

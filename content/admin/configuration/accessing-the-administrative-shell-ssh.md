@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH access allows you to run the {% data variables.product.prodname_ghe_server %} command line utilities and is useful for troubleshooting, running backups, and configuring replication.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
 ---
@@ -47,7 +47,7 @@ admin@github-example-com:~$ █
 
 #### Troubleshooting SSH connection problems
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location_enterprise %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
@@ -55,7 +55,7 @@ To specify a private SSH key using the command line, run `ssh` with the `-i` arg
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-You can also specify a private SSH key using the SSH config file (`~/.ssh/config`).
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>

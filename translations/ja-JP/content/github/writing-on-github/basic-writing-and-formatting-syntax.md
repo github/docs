@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ヘッディング
 
 ヘッディングを作成するには、1 つから 6 つの `#` シンボルをヘッディングのテキストの前に追加します。 使用する `#` の数によって、ヘッディングのサイズが決まります。
 
-```
+```markdown
 # The largest heading (最大のヘッディング)
 ## The second largest heading (2番目に大きなヘッディング)
 ###### The smallest heading (最も小さいヘッディング)
@@ -36,7 +37,7 @@ versions:
 
 テキストは`>`で引用できます。
 
-```
+```markdown
 アブラハムリンカーンの言葉：:
 
 > フランス語で失礼します
@@ -54,7 +55,7 @@ versions:
 
 単一のバッククォートで文章内のコードやコマンドを引用できます。 バッククォート内のテキストはフォーマットされません。
 
-```
+```markdown
 コミットされていない新しいもしくは修正されたすべてのファイルをリストするには `git status` を使ってください。
 ```
 
@@ -101,7 +102,7 @@ git commit
 
 1 つ以上の行の前に `-` または `*` を置くことで、順序なしリストを作成できます。
 
-```
+```markdown
 - George Washington
 - John Adams
 - Thomas Jefferson
@@ -111,7 +112,7 @@ git commit
 
 リストを順序付けするには、各行の前に数字を置きます。
 
-```
+```markdown
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
@@ -125,7 +126,7 @@ git commit
 
 {% data variables.product.product_name %}上の Web のエディタあるいは [Atom](https://atom.io/) のようなモノスペースフォントを使うテキストエディタを使って入れ子になったリストを作成するには、リストが揃って見えるように編集します。 入れ子になったリストアイテムの前に空白を、リストマーカーの文字 (`-` または `*`) が直接上位のアイテム内のテキストの一文字目の下に来るように入力してください。
 
-```
+```markdown
 1. 最初のリストアイテム
    - 最初の入れ子になったリストアイテム
      - 2 番目の入れ子になったリストアイテム
@@ -139,7 +140,7 @@ git commit
 
 この例では、入れ子になったリストアイテムをリストアイテム `100. 最初のリストアイテム` の下に、最低 5 つの空白で入れ子になったリストアイテムをインデントさせることで追加できます。これは、`最初のリストアイテム`の前に 5 文字 (`100. `) があるからです。
 
-```
+```markdown
 100. 最初のリストアイテム
      - 最初の入れ子になったリストアイテム
 ```
@@ -148,7 +149,7 @@ git commit
 
 同じ方法で、複数レベルの入れ子になったリストを作成できます。 たとえば、最初の入れ子になったリストアイテムは内容である`最初の入れ子になったリストアイテム`の前に 7 つの空白 (`␣␣␣␣␣-␣`) があるため、2 番目の入れ子になったリストアイテムは 7 つの空白でインデントしなければならないでしょう。
 
-```
+```markdown
 100. 最初のリストアイテム
      - 最初の入れ子になったリストアイテム
        - 2 番目の入れ子になったリストアイテム
@@ -170,7 +171,7 @@ git commit
 
 ### 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -188,12 +189,9 @@ git commit
 
 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 外部リソースの参照
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### コンテンツの添付
 
@@ -201,7 +199,7 @@ git commit
 
 ![コンテンツの添付](/assets/images/help/writing/content-attachment.png)
 
-コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% if currentVersion == "free-pro-team@latest" %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
@@ -217,7 +215,7 @@ git commit
 
 `:` を入力すると、絵文字のサジェストリストが表示されます。 このリストは、入力を進めるにつれて絞り込まれていくので、探している絵文字が見つかったら、**Tab** または **Enter** を押すと、ハイライトされているものが入力されます。
 
-利用可能な絵文字とコードの完全なリストについては、[emoji-cheat-sheet.com](http://emoji-cheat-sheet.com)を参照してください。
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### パラグラフ
 

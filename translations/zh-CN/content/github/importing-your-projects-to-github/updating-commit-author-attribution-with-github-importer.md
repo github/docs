@@ -1,6 +1,6 @@
 ---
 title: 使用 GitHub 导入工具更新提交作者归属
-intro: 导入期间，您可以将仓库中的提交匹配提交作者的 GitHub 帐户。
+intro: '导入期间，您可以将仓库中的提交匹配提交作者的 GitHub 帐户。'
 redirect_from:
   - /articles/updating-commit-author-attribution-with-github-importer
 versions:

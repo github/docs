@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -53,7 +54,16 @@ versions:
 * 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
 * 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
 
-### 自托管运行器支持的操作系统
+### 使用限制
+
+在使用自托管的运行器时，对 {% data variables.product.prodname_actions %} 的使用有一些限制。 这些限制可能会有变动。
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
+{% data reusables.github-actions.usage-api-requests %}
+- **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+
+### Supported architectures and operating systems for self-hosted runners
 
 自托管运行器应用程序支持以下操作系统。
 
@@ -78,11 +88,19 @@ versions:
 - Windows Server 2016 64 位
 - Windows Server 2019 64 位
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) 或更高版本
 
-{% if currentVersion != "free-pro-team@latest" %}
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 
@@ -102,9 +120,10 @@ versions:
 github.com
 api.github.com
 *.actions.githubusercontent.com
+codeload.github.com
 ```
 
-如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
+如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
 
 {% else %}
 

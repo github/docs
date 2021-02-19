@@ -20,7 +20,7 @@ Du kannst einen Standard-Verhaltenskodex für Deine Organisation oder Dein Benut
 
 ### Einen Verhaltenskodex über eine Vorlage hinzufügen
 
-{% data variables.product.product_name %} bietet Vorlagen für gängige Verhaltenskodizes. So kannst Du rasch einen Verhaltenskodex zu Deinem Projekt hinzufügen.
+{% data variables.product.product_name %} bietet Vorlagen für gängige Verhaltenskodizes. So können Sie rasch einen Verhaltenskodex zu Ihrem Projekt hinzufügen.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -43,7 +43,7 @@ If the code of conduct you want to use isn't available in the provided templates
 3. In the file name field, type the name and extension for the file. ![New code of conduct file name](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - To make your code of conduct visible in the repository's root directory, type *CODE_OF_CONDUCT* in the file name field.
     - To make your code of conduct visible in the repository's `docs` directory, type *docs/CODE_OF_CONDUCT*.
-    - To make your code of conduct visible in the respository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
+    - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
 4. In the new file, add your custom code of conduct.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

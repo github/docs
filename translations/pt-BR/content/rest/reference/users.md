@@ -5,27 +5,34 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Many of the resources on the users API provide a shortcut for getting information about the currently authenticated user. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request). Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.
+Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. Se uma URL de solicitação não incluir um parâmetro `{username}`, a resposta será para o usuário conectado (e você deve passar [informações de autenticação](/rest/overview/resources-in-the-rest-api#authentication) com sua solicitação).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} Informações privadas adicionais, como se um usuário tem autenticação de dois fatores habilitada, estão incluídas quando a autenticação é efetuada por meio da autenticação básica ou OAuth com o escopo do `usuário` .{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Blocking users
+{% if currentVersion == "free-pro-team@latest" %}
+## Bloquear usuários
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ## E-mails
 
-Management of email addresses via the API requires that you authenticate through basic auth, or through OAuth with a correct scope for the endpoint.
+O gerenciamento de endereços de e-mail através da API requer que você efetue a autenticação por meio de autenticação básica, ou através do OAuth com um escopo correto para o ponto de extremidade.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'emails' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Seguidores
 
@@ -33,7 +40,7 @@ Management of email addresses via the API requires that you authenticate through
   {% if operation.subcategory == 'followers' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Git SSH keys
+## Chaves SSH do Git
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
@@ -41,7 +48,7 @@ Management of email addresses via the API requires that you authenticate through
 
 ## Chaves GPG
 
-The data returned in the `public_key` response field is not a GPG formatted key. When a user uploads a GPG key, it is parsed and the cryptographic public key is extracted and stored. This cryptographic key is what is returned by the APIs on this page. This key is not suitable to be used directly by programs like GPG.
+Os dados retornados no campo de resposta `public_key` não são uma chave com formato GPG. Quando um usuário faz o upload de uma chave GPG, ela é analisada e a chave pública criptográfica é extraída e armazenada. Essa chave criptográfica é o que é retornado pelas APIs nesta página. Esta chave não é adequada para ser usada diretamente por programas como o GPG.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'gpg-keys' %}{% include rest_operation %}{% endif %}

@@ -32,7 +32,7 @@ versions:
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -40,7 +40,7 @@ versions:
 4. 在 **Edit new file（编辑新文件）**选项卡中，粘贴要使用的许可的全文。
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-7. 在提交消息字段下面，确定是要将提交添加到当前分支还是新分支。 If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[Creating a pull request](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)". ![提交分支选项](/assets/images/help/repository/choose-commit-branch.png)
+7. 在提交消息字段下面，确定是要将提交添加到当前分支还是新分支。 如果当前分支是 `main`，则应选择为提交创建新分支，然后创建拉取请求。 更多信息请参阅“[创建拉取请求](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)”。 ![提交分支选项](/assets/images/help/repository/choose-commit-branch.png)
 8. 单击 **Commit new file（提交新文件）**。 ![提交许可到分支](/assets/images/help/repository/license-submit-tool.png)
 
 {% endif %}

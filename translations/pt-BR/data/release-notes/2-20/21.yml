@@ -1,0 +1,14 @@
+date: '2020-11-17'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/23843, https://github.com/github/enterprise2/pull/23712 {% endcomment %}'
+  bugs:
+    - 'Os logs de babeld não tinham um separador entre segundos e microssegundos. {% comment %} https://github.com/github/babeld/pull/1004, https://github.com/github/babeld/pull/1002 {% endcomment %}'
+    - 'Quando a política de "alteração de visibilidade do repositório" na conta corporativa foi definida como "Habilitada", os proprietários da organização não conseguiram alterar a visibilidade dos repositórios na organização. {% comment %} https://github.com/github/github/pull/160922, https://github.com/github/github/pull/160773 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer envio por push em um repositório na linha de comando. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'

@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/articles/suspended-users/
   - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
-intro: 'ユーザが企業を離れたり異動したりした場合には、{% data variables.product.product_location_enterprise %} に対するそのユーザのアクセス権を削除したり変更したりしなければなりません。'
+intro: 'ユーザが企業を離れたり異動したりした場合には、{% data variables.product.product_location %} に対するそのユーザのアクセス権を削除したり変更したりしなければなりません。'
 versions:
   enterprise-server: '*'
 ---
@@ -27,7 +27,7 @@ fatal: The remote end hung up unexpectedly
 
 {% tip %}
 
-**メモ:** 仮に {% data variables.product.product_location_enterprise %} で [LDAP Sync が有効化されている](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)なら、LDAP ディレクトリサーバから削除されたユーザは自動的にサスペンドされます。 インスタンスで LDAP Sync が有効化されている場合、通常のユーザのサスペンド方法は無効化されています。
+**メモ:** 仮に {% data variables.product.product_location %} で [LDAP Sync が有効化されている](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)なら、LDAP ディレクトリサーバから削除されたユーザは自動的にサスペンドされます。 インスタンスで LDAP Sync が有効化されている場合、通常のユーザのサスペンド方法は無効化されています。
 
 {% endtip %}
 
@@ -65,8 +65,7 @@ fatal: The remote end hung up unexpectedly
 
 サスペンドされたユーザがサインインしようとしたときに表示されるカスタムメッセージを作成できます。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 5. **Add message（メッセージの追加）**をクリックしてください。 ![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
@@ -84,4 +83,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 参考リンク
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- 「[ユーザーをサスペンドする](/rest/reference/enterprise-admin#suspend-a-user)」

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ versions:
 
 ### Fehler-Exit-Code in einer JavaScript-Aktion festlegen
 
-Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
+Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
 
 ```javascript
 try {
@@ -40,11 +41,13 @@ Weitere Informationen finden Sie unter „[Eine JavaScript-Aktion erstellen](/ar
 
 Wenn Sie eine Docker-Container-Aktion erstellen, können Sie einen Fehler-Exit-Code im `entrypoint.sh`-Skript festlegen. Ein Beispiel:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 Weitere Informationen finden Sie unter „[Eine Docker-Container-Aktion erstellen](/articles/creating-a-docker-container-action)“.

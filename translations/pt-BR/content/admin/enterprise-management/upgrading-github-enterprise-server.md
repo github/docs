@@ -29,6 +29,26 @@ versions:
 
   {% endnote %}
 
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### Sobre os requisitos mínimos para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior
+
+Antes de atualizar para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior, revise os recursos de hardware que você forneceu para sua instância. {% data variables.product.prodname_ghe_server %} 3.0 introduz novas funcionalidades, como {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %}, e exige mais recursos do que as versões 2.22 e anteriores. Para obter mais informações, consulte as observações sobre a versão [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes).
+
+Os requisitos aumentados para {% data variables.product.prodname_ghe_server %} 3.0 e posterior estão em **negrito** na tabela a seguir.
+
+| Licenças de usuário                      |                         vCPUs |                               Memória |                 Armazenamento anexado | Armazenamento raiz |
+|:---------------------------------------- | -----------------------------:| -------------------------------------:| -------------------------------------:| ------------------:|
+| Teste, demonstração ou 10 usuários leves | **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up de 16 GB_ | **150 GB**<br/>_Up de 100 GB_ |             200 GB |
+| 10-3000                                  |   **8**<br/>_Up de 4_ |   **48 GB**<br/>_Up de 32 GB_ | **300 GB**<br/>_Up de 250 GB_ |             200 GB |
+| 3000-5000                                |  **12**<br/>_Up de 8_ |                                 64 GB |                                500 GB |             200 GB |
+| 5000-8000                                | **16**<br/>_Up de 12_ |                                 96 GB |                                750 GB |             200 GB |
+| 8000-10000+                              | **20**<br/>_Up de 16_ | **160 GB**<br/>_Up de 128 GB_ |                               1000 GB |             200 GB |
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
+
 ### Obter um instantâneo
 
 Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
@@ -49,7 +69,7 @@ Há dois tipos de instantâneo:
 | Plataforma            | Método de instantâneo | URL de documentação de instantâneo                                                                                                                                                                     |
 | --------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | Disco                 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM                    | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM                    | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +170,7 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location_enterprise %}.
+7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location %}.
 
   {% note %}
 
@@ -203,7 +223,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
    1. Na instância de réplica, execute `ghe-repl-setup <primary-instance-ip>` mais uma vez.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location_enterprise %}.
+6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location %}.
 
 ### Restaurar após uma atualização com falha
 
@@ -218,3 +238,9 @@ Para obter mais informações, consulte "[Utilitários de linha de comando](/ent
 #### Voltar a uma versão de recurso
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Leia mais
+
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

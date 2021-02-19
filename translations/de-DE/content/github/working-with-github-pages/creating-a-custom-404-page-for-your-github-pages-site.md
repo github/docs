@@ -1,6 +1,6 @@
 ---
 title: Eine benutzerdefinierte 404-Seite für Deine GitHub Pages-Website erstellen
-intro: 'Du kannst eine benutzerdefinierte 404-Fehler-Seite anzeigen lassen, wenn Benutzer versuchen, nicht vorhandene Seiten auf Deiner Website aufzurufen.'
+intro: Du kannst eine benutzerdefinierte 404-Fehler-Seite anzeigen lassen, wenn Benutzer versuchen, nicht vorhandene Seiten auf Deiner Website aufzurufen.
 redirect_from:
   - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
@@ -8,6 +8,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pages.navigate-site-repo %}
@@ -15,7 +16,7 @@ versions:
 {% data reusables.files.add-file %}
 3. Gib im Feld für den Dateinamen `404.html` oder `404.md` ein. ![Feld für den Dateinamen](/assets/images/help/pages/404-file-name.png)
 4. Wenn Du die Datei `404.md` genannt hast, füge den folgenden YAML-Frontmatter am Anfang der Datei hinzu:
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---

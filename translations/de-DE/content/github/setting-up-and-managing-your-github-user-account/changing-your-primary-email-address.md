@@ -8,6 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
+
+{% endnote %}
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 3. Wenn Du eine neue E-Mail-Adresse hinzufügen und als primäre E-Mail-Adresse festlegen möchtest, gib unter „Add email address“ (E-Mail-Adresse hinzufügen) eine neue E-Mail-Adresse ein. Klicke dann auf **Add** (Hinzufügen). ![Schaltfläche zum Hinzufügen einer anderen E-Mail-Adresse](/assets/images/help/settings/add_another_email_address.png)
@@ -15,7 +21,8 @@ versions:
 5. To remove the old email address from your account, next to the old email, click
 {% octicon "trashcan" aria-label="The trashcan symbol" %}.
 {% if currentVersion == "free-pro-team@latest" %}
-6. Verifiziere Deine neue primäre E-Mail-Adresse. Ohne verifizierte E-Mail-Adresse kannst Du nicht alle Funktionen von {% data variables.product.product_name %} nutzen. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address).“
+6. Verifiziere Deine neue primäre E-Mail-Adresse. Without a verified email address, you won't be able to use all of
+{% data variables.product.product_name %}'s features. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address).“
 {% endif %}
 
 ### Weiterführende Informationen

@@ -20,7 +20,8 @@ versions:
 此实用程序会在每个 {% data variables.product.prodname_enterprise %} 页面顶部设置横幅， 您可以使用横幅向用户广播消息。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
+您还可以使用
+{% data variables.product.product_name %} 上的企业设置来设置公告横幅。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
 {% endif %}
 
 ```shell
@@ -63,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-此实用程序可用于检索和修改 {% data variables.product.product_location_enterprise %} 的配置设置。
+此实用程序可用于检索和修改 {% data variables.product.product_location %} 的配置设置。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -75,15 +76,15 @@ $ ghe-config -l
 ```
 允许您在 `cluster.conf` 中查找节点的 uuid。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+允许您将用户列表从 API 速率限制中排除。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -158,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
+此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
 
 ```shell
 ghe-legacy-github-services-report
@@ -181,7 +182,6 @@ ghe-logs-tail
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 此实用程序重新显示管理员通过管理 shell 访问实例时看到的当天消息 (MOTD)。 输出包含实例状态的概述。
@@ -189,7 +189,6 @@ ghe-maintenance -h
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 
@@ -394,9 +393,9 @@ ghe-ssl-acme -e
 
 此实用程序允许您在 {% data variables.product.prodname_enterprise %} 服务器上安装自定义根 CA 证书。 证书必须采用 PEM 格式。 此外，如果您的证书提供者在一个文件中包含多个 CA 证书，则必须将其拆分到多个单独文件中，随后再将这些文件逐个传递到 `ghe-ssl-ca-certificate-install`。
 
-Run this utility to add a certificate chain for S/MIME commit signature verification. 更多信息请参阅“[关于提交签名验证](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)”。
+运行此实用程序可添加证书链进行 S/MIME 提交签名验证。 更多信息请参阅“[关于提交签名验证](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)”。
 
-如果 {% data variables.product.product_location_enterprise %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location_enterprise %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
+如果 {% data variables.product.product_location %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
 
 ```
 SSL-Session:
@@ -454,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-此实用程序会打印 {% data variables.product.product_location_enterprise %} 的版本、平台和内部版本号。
+此实用程序会打印 {% data variables.product.product_location %} 的版本、平台和内部版本号。
 
 ```shell
 $ ghe-version
@@ -469,18 +468,21 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-要显示全局 web 挂钩交付：
-```shell
-ghe-webhook-logs --global
 ```
 
 ### 集群
@@ -522,7 +524,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticke
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 #### ghe-cluster-failover
 
-Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
+从主动群集节点故障转移至被动群集节点。 更多信息请参阅“[发起到副本群集的故障转移](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”。
 
 ```shell
 ghe-cluster-failover
@@ -543,8 +545,8 @@ ghe-dpages status
 ```
 
 要在撤出集群节点之前撤出 {% data variables.product.prodname_pages %} 存储服务：
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -569,16 +571,16 @@ ghe-spokes route
 
 要撤出集群节点上的存储服务：
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 此实用程序允许您在撤出集群节点之前撤出所有存储服务。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git
@@ -772,7 +774,7 @@ ghe-license-usage
 
 #### ghe-org-membership-update
 
-此实用程序将对您的实例中的所有成员强制实施默认的组织成员关系可见性设置。 For more information, see "[Configuring visibility for organization membership](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)." Setting options are `public` or `private`.
+此实用程序将对您的实例中的所有成员强制实施默认的组织成员关系可见性设置。 更多信息请参阅“[配置组织成员关系的可见性](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)”。 设置选项为 `public` 或 `private`。
 
 ```shell
 ghe-org-membership-update --visibility=<em>SETTING</em>

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bifurcar um repositório é semelhante a copiar um repositório, com duas grandes diferenças:
@@ -17,13 +18,13 @@ Bifurcar um repositório é semelhante a copiar um repositório, com duas grande
 
 {% data reusables.repositories.desktop-fork %}
 
-Excluir uma bifurcação não exclui o repositório upstream original. Você pode fazer quaisquer alterações que quiser em sua bifurcação — adicionar colaboradores, renomear arquivos, gerar {% data variables.product.prodname_pages %}— sem efeito no original.{% if currentVersion == "free-pro-team@latest" %} Você não pode restaurar um repositório bifurcado excluído. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
+Excluir uma bifurcação não exclui o repositório upstream original. Você pode fazer as alterações que desejar na sua bifurcação — adicionar colaboradores, renomear arquivos, gerar {% data variables.product.prodname_pages %}— sem efeito no original.{% if currentVersion == "free-pro-team@latest" %} Você não pode restaurar um repositório excluído. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
 
 Em projetos de código aberto, as bifurcações são usadas com frequência para iterar ideias ou alterações antes que elas sejam oferecidas de volta ao repositório upstream. Ao fazer alterações em sua bifurcação user-owned e abrir uma pull request que compara seu trabalho com o repositório upstream, você pode dar a qualquer pessoa com acesso push ao repositório upstream permissão para fazer push das alterações no seu branch de pull requests. Isso agiliza a colaboração ao permitir que os mantenedores de repositório façam commits ou executem testes localmente em seu branch de pull requests a partir de uma bifurcação de propriedade do usuário antes de fazer merge. Você não pode dar permissões de push a uma bifurcação de propriedade de uma organização.
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-Se desejar criar um novo repositório a partir do conteúdo de um repositório existente, mas não quiser fazer merge do upstream de alterações no futuro, você poderá duplicar o repositório {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}ou, se o repositório for um modelo, usar o repositório como um modelo{% endif %}. Para obter mais informações, consulte "[Duplicar um repositório](/articles/duplicating-a-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} e "[Criar um repositório de um modelo](/articles/creating-a-repository-from-a-template)"{% endif %}.
+Se você desejar criar um novo repositório a partir do conteúdo de um repositório existente, mas não desejar mesclar suas alterações a montante no futuro, Você pode duplicar o repositório ou, se o repositório for um modelo, você poderá usar o repositório como um modelo. Para obter mais informações, consulte "[Duplicar um repositório](/articles/duplicating-a-repository)" e "[Criar um repositório de um modelo](/articles/creating-a-repository-from-a-template)".
 
 ### Leia mais
 

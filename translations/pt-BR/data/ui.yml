@@ -3,10 +3,11 @@ header:
   github_docs: GitHub Docs
   contact: Contato
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
     localization_complete: Publicamos atualizações frequentes em nossa documentação, e a tradução desta página ainda pode estar em andamento. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>. Se houver problemas com a tradução desta página, <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">entre em contato conosco</a>.
     localization_in_progress: Olá! No momento, esta página ainda está sendo desenvolvida ou traduzida. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>.
-    product_in_progress: '👋 Olá, explorador! Esta página está em desenvolvimento ativo. Para obter as informações mais atualizadas e precisas, visite nossa <a href="https://developer.github.com">documentação do desenvolvedor</a>.'
+    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
@@ -15,10 +16,11 @@ homepage:
   version_picker: Versão
 toc:
   getting_started: Introdução
-  popular_articles: Artigos populares
+  popular_articles: Popular
   guides: Guias
+  whats_new: O que há de novo
 pages:
-  article_version: "Versão do artigo:"
+  article_version: 'Versão do artigo:'
   miniToc: Neste artigo
 errors:
   oops: Ops!
@@ -26,34 +28,42 @@ errors:
   we_track_errors: Monitoramos esses erros automaticamente, mas não deixe entrar em contato conosco se o problema persistir.
   page_doesnt_exist: Parece que a página não existe.
 support:
-  still_need_help: Still need help?
+  still_need_help: Ainda precisa de ajuda?
   contact_support: Entrar em contato com o suporte
-  ask_community: Ask the GitHub community
+  ask_community: Pergunte à comunidade do GitHub
 helpfulness:
-  able_to_find: Did this doc help you?
+  able_to_find: Esse documento ajudou você?
   yes: true
   no: false
-  yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
+  yes_feedback: Quer saber mais sobre novos recursos e atualizações da documentação? Inscreva-se para receber atualizações!
   email_placeholder: email@example.com
-  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  category_label: What problem did you have?
-  category_default: Choose an option
-  category_unclear: Information was unclear
-  category_confusing: The content was confusing
-  category_unhelpful: The article didn't answer my question
-  category_other: Other
-  comment_label: Let us know what we can do better
+  no_feedback: Estamos constantemente melhorando nossos documentos. Adoraríamos ouvir como podemos melhorar.
+  category_label: Qual era o seu problema?
+  category_default: Selecione uma opção
+  category_unclear: As informações não eram claras
+  category_confusing: O conteúdo era confuso
+  category_unhelpful: O artigo não respondeu à minha pergunta
+  category_other: Outro
+  comment_label: Conte-nos como podemos melhorar
   optional: Opcional
   required: Obrigatório
-  email_label: Can we contact you if we have more questions?
+  email_label: Podemos entrar em contato com você em caso de dúvidas?
   send: Enviar
   feedback: Obrigado. Seu feedback foi recebido.
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
+  title: Ajude-nos a tornar esses documentos ótimos!
+  body: Todos os documentos do GitHub são de código aberto. Você percebeu que algo que está errado ou não está claro? Envie um pull request.
+  button: Faça uma contribuição
   or: Ou,
-  to_guidelines: learn how to contribute.
+  to_guidelines: aprenda como contribuir.
+enterprise_releases_list:
+  title: Enterprise Server Releases
+  currently_supported: Currently supported
+  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for information about the latest release.
+  deprecated: Deprecated
+  deprecated_message: 'These docs remain available but are no longer maintained:'
+  deprecated_developer: Deprecated on developer.github.com
+  deprecated_developer_message: 'These docs remain available on the legacy <a href="https://developer.github.com">developer site</a> but are no longer maintained:'
 products:
   graphql:
     reference:
@@ -118,3 +128,29 @@ footer:
       careers: Carreiras
       press: Imprensa
       shop: Loja
+product_landing:
+  quick_start: QuickStart
+  reference_guides: Reference guides
+  overview: Visão Geral
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: mais guias
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: Tipo
+    topic: Topic
+    all: Todas
+  guide_types:
+    overview: Visão Geral
+    quick_start: QuickStart
+    tutorial: Tutorial
+    how_to: How-to guide
+    reference: Referência
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

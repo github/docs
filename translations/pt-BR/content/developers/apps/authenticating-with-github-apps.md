@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -37,7 +38,7 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ### Verificar chaves privadas
-O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando uma função hash {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %}. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+{% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função de hash {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 
@@ -92,7 +93,7 @@ Use o seu identificador de {% data variables.product.prodname_github_app %}(`YOU
 
 Após criar o JWT, defina-o no `Cabeçalho` da solicitação de API:
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.machine-man-preview+json" {% data variables.product.api_url_pre %}/app
 ```
@@ -108,8 +109,8 @@ O exemplo acima usa o tempo máximo de expiração de 10 minutos, após o qual a
 
 ```json
 {
-  "message": "'Expiration' claim ('exp') deve ser um valor numérico que representa o tempo futuro em que expira a declaração.",
-  "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+  "message": "'Expiration' claim ('exp') must be a numeric value representing the future time at which the assertion expires.",
+  "documentation_url": "{% data variables.product.doc_url_pre %}"
 }
 ```
 
@@ -117,17 +118,17 @@ Você deverá criar um novo JWT após o tempo expirar.
 
 ### Acessar os pontos finais da API como um {% data variables.product.prodname_github_app %}
 
-Para obter uma lista dos pontos finais da API REST que você pode usar para obter informações de alto nível sobre um {% data variables.product.prodname_github_app %}, consulte "[aplicativos GitHub](/v3/apps/)".
+Para obter uma lista dos pontos finais da API REST que você pode usar para obter informações de alto nível sobre um {% data variables.product.prodname_github_app %}, consulte "[aplicativos GitHub](/rest/reference/apps)".
 
 ### Autenticar como uma instalação
 
 Autenticar como uma instalação permite que você execute ações na API para essa instalação. Antes de autenticar como uma instalação, você deverá criar um token de acesso de instalação. Estes tokens de acesso de instalação são usados por {% data variables.product.prodname_github_app %}s para efetuar a autenticação.
 
-Por padrão, os tokens de acesso de instalação são limitados em todos os repositórios que uma instalação pode acessar. É possível limitar o escopo do token de acesso de instalação a repositórios específicos usando o parâmetro `repository_ids`. Consulte [Criar um token de acesso de instalação para um ponto final de um aplicativo](/v3/apps/#create-an-installation-access-token-for-an-app) para obter mais informações. Os tokens de acesso de instalação têm as permissões configuradas pelo {% data variables.product.prodname_github_app %} e expiram após uma hora.
+Por padrão, os tokens de acesso de instalação são limitados em todos os repositórios que uma instalação pode acessar. É possível limitar o escopo do token de acesso de instalação a repositórios específicos usando o parâmetro `repository_ids`. Consulte [Criar um token de acesso de instalação para um ponto final de um aplicativo](/rest/reference/apps#create-an-installation-access-token-for-an-app) para obter mais informações. Os tokens de acesso de instalação têm as permissões configuradas pelo {% data variables.product.prodname_github_app %} e expiram após uma hora.
 
 Para criar um token de acesso de instalação, inclua o JWT [gerado acima](#jwt-payload) no cabeçalho de autorização na solicitação de API:
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
@@ -143,11 +144,11 @@ $ curl -i -X POST \
 ```
 {% endif %}
 
-A resposta incluirá seu token de acesso de instalação, a data de validade, as permissões do token e os repositórios que o token pode acessar. Para obter mais informações sobre o formato de resposta, consulte [Criar um token de acesso de instalação para um ponto de final do](/v3/apps/#create-an-installation-access-token-for-an-app)aplicativo.
+A resposta incluirá seu token de acesso de instalação, a data de validade, as permissões do token e os repositórios que o token pode acessar. Para obter mais informações sobre o formato de resposta, consulte [Criar um token de acesso de instalação para um ponto de final do](/rest/reference/apps#create-an-installation-access-token-for-an-app)aplicativo.
 
 Para efetuar a autenticação com um token de acesso de instalação, inclua-o no cabeçalho de autorização na solicitação de API:
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
@@ -167,9 +168,9 @@ $ curl -i \
 
 ### Acessar pontos finais da API como uma instalação
 
-Para obter uma lista de pontos finais da API REST disponíveis para uso por {% data variables.product.prodname_github_app %}s usando um token de acesso de instalação, consulte "[Pontos finais disponíveis](/v3/apps/available-endpoints/)".
+Para obter uma lista de pontos finais da API REST disponíveis para uso por {% data variables.product.prodname_github_app %}s usando um token de acesso de instalação, consulte "[Pontos finais disponíveis](/rest/overview/endpoints-available-for-github-apps)".
 
-Para obter uma lista de pontos finais relacionados a instalações, consulte "[Instalações](/v3/apps/installations/)".
+Para obter uma lista de pontos finais relacionados a instalações, consulte "[Instalações](/rest/reference/apps#installations)".
 
 ### Acesso Git baseado em HTTP por uma instalação
 

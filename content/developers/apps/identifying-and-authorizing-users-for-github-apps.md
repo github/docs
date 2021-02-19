@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 When your GitHub App acts on behalf of a user, it performs user-to-server requests. These requests must be authorized with a user's access token. User-to-server requests include requesting data for a user, like determining which repositories to display to a particular user. These requests also include actions triggered by a user, like running a build.
 
@@ -21,7 +22,7 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 {% endif %}
 
@@ -46,7 +47,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 
@@ -66,9 +67,9 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
+Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -79,16 +80,16 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 ##### Response
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
-By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable the beta for expiring user-to-server access tokens.
+By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
@@ -119,14 +120,16 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.{% if currentVersion == "free-pro-team@latest" %} To enable this beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+**Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
+{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
@@ -136,7 +139,7 @@ For more information about authorizing users using the device flow, see "[Author
 
 ### Check which installation's resources a user can access
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -151,7 +154,7 @@ You can also check which repositories are accessible to a user for an installati
     Authorization: token OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
-More details can be found in: [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/v3/apps/installations/#list-repositories-accessible-to-the-user-access-token).
+More details can be found in: [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token).
 
 ### Handling a revoked GitHub App authorization
 
@@ -159,7 +162,7 @@ If a user revokes their authorization of a GitHub App, the app will receive the 
 
 ### User-level permissions
 
-You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/v3/apps/permissions/), which are granted at the time of installation on an organization or user account.
+You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or user account.
 
 You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
 
@@ -169,75 +172,75 @@ Because user-level permissions are granted on an individual user basis, you can 
 
 ### User-to-server requests
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/v4/) or [REST v3](/v3/) endpoints.
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/graphql) or [REST v3](/rest) endpoints.
 
 #### Supported endpoints
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Actions Runners
 
-* [List runner applications for a repository](/v3/actions/self-hosted-runners/#list-runner-applications-for-a-repository)
-* [List self-hosted runners for a repository](/v3/actions/self-hosted-runners/#list-self-hosted-runners-for-a-repository)
-* [Get a self-hosted runner for a repository](/v3/actions/self-hosted-runners/#get-a-self-hosted-runner-for-a-repository)
-* [Delete a self-hosted runner from a repository](/v3/actions/self-hosted-runners/#delete-a-self-hosted-runner-from-a-repository)
-* [Create a registration token for a repository](/v3/actions/self-hosted-runners/#create-a-registration-token-for-a-repository)
-* [Create a remove token for a repository](/v3/actions/self-hosted-runners/#create-a-remove-token-for-a-repository)
-* [List runner applications for an organization](/v3/actions/self-hosted-runners/#list-runner-applications-for-an-organization)
-* [List self-hosted runners for an organization](/v3/actions/self-hosted-runners/#list-self-hosted-runners-for-an-organization)
-* [Get a self-hosted runner for an organization](/v3/actions/self-hosted-runners/#get-a-self-hosted-runner-for-an-organization)
-* [Delete a self-hosted runner from an organization](/v3/actions/self-hosted-runners/#delete-a-self-hosted-runner-from-an-organization)
-* [Create a registration token for an organization](/v3/actions/self-hosted-runners/#create-a-registration-token-for-an-organization)
-* [Create a remove token for an organization](/v3/actions/self-hosted-runners/#create-a-remove-token-for-an-organization)
+* [List runner applications for a repository](/rest/reference/actions#list-runner-applications-for-a-repository)
+* [List self-hosted runners for a repository](/rest/reference/actions#list-self-hosted-runners-for-a-repository)
+* [Get a self-hosted runner for a repository](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository)
+* [Delete a self-hosted runner from a repository](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository)
+* [Create a registration token for a repository](/rest/reference/actions#create-a-registration-token-for-a-repository)
+* [Create a remove token for a repository](/rest/reference/actions#create-a-remove-token-for-a-repository)
+* [List runner applications for an organization](/rest/reference/actions#list-runner-applications-for-an-organization)
+* [List self-hosted runners for an organization](/rest/reference/actions#list-self-hosted-runners-for-an-organization)
+* [Get a self-hosted runner for an organization](/rest/reference/actions#get-a-self-hosted-runner-for-an-organization)
+* [Delete a self-hosted runner from an organization](/rest/reference/actions#delete-a-self-hosted-runner-from-an-organization)
+* [Create a registration token for an organization](/rest/reference/actions#create-a-registration-token-for-an-organization)
+* [Create a remove token for an organization](/rest/reference/actions#create-a-remove-token-for-an-organization)
 
 ##### Actions Secrets
 
-* [Get a repository public key](/v3/actions/secrets/#get-a-repository-public-key)
-* [List repository secrets](/v3/actions/secrets/#list-repository-secrets)
-* [Get a repository secret](/v3/actions/secrets/#get-a-repository-secret)
-* [Create or update a repository secret](/v3/actions/secrets/#create-or-update-a-repository-secret)
-* [Delete a repository secret](/v3/actions/secrets/#delete-a-repository-secret)
-* [Get an organization public key](/v3/actions/secrets/#get-an-organization-public-key)
-* [List organization secrets](/v3/actions/secrets/#list-organization-secrets)
-* [Get an organization secret](/v3/actions/secrets/#get-an-organization-secret)
-* [Create or update an organization secret](/v3/actions/secrets/#create-or-update-an-organization-secret)
-* [List selected repositories for an organization secret](/v3/actions/secrets/#list-selected-repositories-for-an-organization-secret)
-* [Set selected repositories for an organization secret](/v3/actions/secrets/#set-selected-repositories-for-an-organization-secret)
-* [Add selected repository to an organization secret](/v3/actions/secrets/#add-selected-repository-to-an-organization-secret)
-* [Remove selected repository from an organization secret](/v3/actions/secrets/#remove-selected-repository-from-an-organization-secret)
-* [Delete an organization secret](/v3/actions/secrets/#delete-an-organization-secret)
+* [Get a repository public key](/rest/reference/actions#get-a-repository-public-key)
+* [List repository secrets](/rest/reference/actions#list-repository-secrets)
+* [Get a repository secret](/rest/reference/actions#get-a-repository-secret)
+* [Create or update a repository secret](/rest/reference/actions#create-or-update-a-repository-secret)
+* [Delete a repository secret](/rest/reference/actions#delete-a-repository-secret)
+* [Get an organization public key](/rest/reference/actions#get-an-organization-public-key)
+* [List organization secrets](/rest/reference/actions#list-organization-secrets)
+* [Get an organization secret](/rest/reference/actions#get-an-organization-secret)
+* [Create or update an organization secret](/rest/reference/actions#create-or-update-an-organization-secret)
+* [List selected repositories for an organization secret](/rest/reference/actions#list-selected-repositories-for-an-organization-secret)
+* [Set selected repositories for an organization secret](/rest/reference/actions#set-selected-repositories-for-an-organization-secret)
+* [Add selected repository to an organization secret](/rest/reference/actions#add-selected-repository-to-an-organization-secret)
+* [Remove selected repository from an organization secret](/rest/reference/actions#remove-selected-repository-from-an-organization-secret)
+* [Delete an organization secret](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Artifacts
 
-* [List artifacts for a repository](/v3/actions/artifacts/#list-artifacts-for-a-repository)
-* [List workflow run artifacts](/v3/actions/artifacts/#list-workflow-run-artifacts)
-* [Get an artifact](/v3/actions/artifacts/#get-an-artifact)
-* [Delete an artifact](/v3/actions/artifacts/#delete-an-artifact)
-* [Download an artifact](/v3/actions/artifacts/#download-an-artifact)
+* [List artifacts for a repository](/rest/reference/actions#list-artifacts-for-a-repository)
+* [List workflow run artifacts](/rest/reference/actions#list-workflow-run-artifacts)
+* [Get an artifact](/rest/reference/actions#get-an-artifact)
+* [Delete an artifact](/rest/reference/actions#delete-an-artifact)
+* [Download an artifact](/rest/reference/actions#download-an-artifact)
 {% endif %}
 
 ##### Check Runs
 
-* [Create a check run](/v3/checks/runs/#create-a-check-run)
-* [Get a check run](/v3/checks/runs/#get-a-check-run)
-* [Update a check run](/v3/checks/runs/#update-a-check-run)
-* [List check run annotations](/v3/checks/runs/#list-check-run-annotations)
-* [List check runs in a check suite](/v3/checks/runs/#list-check-runs-in-a-check-suite)
-* [List check runs for a Git reference](/v3/checks/runs/#list-check-runs-for-a-git-reference)
+* [Create a check run](/rest/reference/checks#create-a-check-run)
+* [Get a check run](/rest/reference/checks#get-a-check-run)
+* [Update a check run](/rest/reference/checks#update-a-check-run)
+* [List check run annotations](/rest/reference/checks#list-check-run-annotations)
+* [List check runs in a check suite](/rest/reference/checks#list-check-runs-in-a-check-suite)
+* [List check runs for a Git reference](/rest/reference/checks#list-check-runs-for-a-git-reference)
 
 ##### Check Suites
 
-* [Create a check suite](/v3/checks/suites/#create-a-check-suite)
-* [Get a check suite](/v3/checks/suites/#get-a-check-suite)
-* [Rerequest a check suite](/v3/checks/suites/#rerequest-a-check-suite)
-* [Update repository preferences for check suites](/v3/checks/suites/#update-repository-preferences-for-check-suites)
-* [List check suites for a Git reference](/v3/checks/suites/#list-check-suites-for-a-git-reference)
+* [Create a check suite](/rest/reference/checks#create-a-check-suite)
+* [Get a check suite](/rest/reference/checks#get-a-check-suite)
+* [Rerequest a check suite](/rest/reference/checks#rerequest-a-check-suite)
+* [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites)
+* [List check suites for a Git reference](/rest/reference/checks#list-check-suites-for-a-git-reference)
 
 ##### Codes Of Conduct
 
-* [Get all codes of conduct](/v3/codes_of_conduct/#get-all-codes-of-conduct)
-* [Get a code of conduct](/v3/codes_of_conduct/#get-a-code-of-conduct)
+* [Get all codes of conduct](/rest/reference/codes-of-conduct#get-all-codes-of-conduct)
+* [Get a code of conduct](/rest/reference/codes-of-conduct#get-a-code-of-conduct)
 
 ##### Deployment Statuses
 
@@ -249,7 +252,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List deployments](/rest/reference/repos#list-deployments)
 * [Create a deployment](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
 ##### Events
@@ -263,128 +266,128 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Git Blobs
 
-* [Create a blob](/v3/git/blobs/#create-a-blob)
-* [Get a blob](/v3/git/blobs/#get-a-blob)
+* [Create a blob](/rest/reference/git#create-a-blob)
+* [Get a blob](/rest/reference/git#get-a-blob)
 
 ##### Git Commits
 
-* [Create a commit](/v3/git/commits/#create-a-commit)
-* [Get a commit](/v3/git/commits/#get-a-commit)
+* [Create a commit](/rest/reference/git#create-a-commit)
+* [Get a commit](/rest/reference/git#get-a-commit)
 
 ##### Git Refs
 
-* [Create a reference](/v3/git/refs/#create-a-reference)* [Get a reference](/v3/git/refs/#get-a-reference)
-* [List matching references](/v3/git/refs/#list-matching-references)
-* [Update a reference](/v3/git/refs/#update-a-reference)
-* [Delete a reference](/v3/git/refs/#delete-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
+* [List matching references](/rest/reference/git#list-matching-references)
+* [Update a reference](/rest/reference/git#update-a-reference)
+* [Delete a reference](/rest/reference/git#delete-a-reference)
 
 ##### Git Tags
 
-* [Create a tag object](/v3/git/tags/#create-a-tag-object)
-* [Get a tag](/v3/git/tags/#get-a-tag)
+* [Create a tag object](/rest/reference/git#create-a-tag-object)
+* [Get a tag](/rest/reference/git#get-a-tag)
 
 ##### Git Trees
 
-* [Create a tree](/v3/git/trees/#create-a-tree)
-* [Get a tree](/v3/git/trees/#get-a-tree)
+* [Create a tree](/rest/reference/git#create-a-tree)
+* [Get a tree](/rest/reference/git#get-a-tree)
 
 ##### Gitignore Templates
 
-* [Get all gitignore templates](/v3/gitignore/#get-all-gitignore-templates)
-* [Get a gitignore template](/v3/gitignore/#get-a-gitignore-template)
+* [Get all gitignore templates](/rest/reference/gitignore#get-all-gitignore-templates)
+* [Get a gitignore template](/rest/reference/gitignore#get-a-gitignore-template)
 
 ##### Installations
 
-* [List repositories accessible to the user access token](/v3/apps/installations/#list-repositories-accessible-to-the-user-access-token)
+* [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Interaction Limits
 
-* [Get interaction restrictions for an organization](/v3/interactions/orgs/#get-interaction-restrictions-for-an-organization)
-* [Set interaction restrictions for an organization](/v3/interactions/orgs/#set-interaction-restrictions-for-an-organization)
-* [Remove interaction restrictions for an organization](/v3/interactions/orgs/#remove-interaction-restrictions-for-an-organization)
-* [Get interaction restrictions for a repository](/v3/interactions/repos/#get-interaction-restrictions-for-a-repository)
-* [Set interaction restrictions for a repository](/v3/interactions/repos/#set-interaction-restrictions-for-a-repository)
-* [Remove interaction restrictions for a repository](/v3/interactions/repos/#remove-interaction-restrictions-for-a-repository)
+* [Get interaction restrictions for an organization](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
+* [Set interaction restrictions for an organization](/rest/reference/interactions#set-interaction-restrictions-for-an-organization)
+* [Remove interaction restrictions for an organization](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization)
+* [Get interaction restrictions for a repository](/rest/reference/interactions#get-interaction-restrictions-for-a-repository)
+* [Set interaction restrictions for a repository](/rest/reference/interactions#set-interaction-restrictions-for-a-repository)
+* [Remove interaction restrictions for a repository](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository)
 {% endif %}
 
 ##### Issue Assignees
 
-* [Add assignees to an issue](/v3/issues/assignees/#add-assignees-to-an-issue)
-* [Remove assignees from an issue](/v3/issues/assignees/#remove-assignees-from-an-issue)
+* [Add assignees to an issue](/rest/reference/issues#add-assignees-to-an-issue)
+* [Remove assignees from an issue](/rest/reference/issues#remove-assignees-from-an-issue)
 
 ##### Issue Comments
 
-* [List issue comments](/v3/issues/comments/#list-issue-comments)
-* [Create an issue comment](/v3/issues/comments/#create-an-issue-comment)
-* [List issue comments for a repository](/v3/issues/comments/#list-issue-comments-for-a-repository)
-* [Get an issue comment](/v3/issues/comments/#get-an-issue-comment)
-* [Update an issue comment](/v3/issues/comments/#update-an-issue-comment)
-* [Delete an issue comment](/v3/issues/comments/#delete-an-issue-comment)
+* [List issue comments](/rest/reference/issues#list-issue-comments)
+* [Create an issue comment](/rest/reference/issues#create-an-issue-comment)
+* [List issue comments for a repository](/rest/reference/issues#list-issue-comments-for-a-repository)
+* [Get an issue comment](/rest/reference/issues#get-an-issue-comment)
+* [Update an issue comment](/rest/reference/issues#update-an-issue-comment)
+* [Delete an issue comment](/rest/reference/issues#delete-an-issue-comment)
 
 ##### Issue Events
 
-* [List issue events](/v3/issues/events/#list-issue-events)
+* [List issue events](/rest/reference/issues#list-issue-events)
 
 ##### Issue Timeline
 
-* [List timeline events for an issue](/v3/issues/timeline/#list-timeline-events-for-an-issue)
+* [List timeline events for an issue](/rest/reference/issues#list-timeline-events-for-an-issue)
 
 ##### Issues
 
-* [List issues assigned to the authenticated user](/v3/issues/#list-issues-assigned-to-the-authenticated-user)
-* [List assignees](/v3/issues/assignees/#list-assignees)
-* [Check if a user can be assigned](/v3/issues/assignees/#check-if-a-user-can-be-assigned)
-* [List repository issues](/v3/issues/#list-repository-issues)
-* [Create an issue](/v3/issues/#create-an-issue)
-* [Get an issue](/v3/issues/#get-an-issue)
-* [Update an issue](/v3/issues/#update-an-issue)
-* [Lock an issue](/v3/issues/#lock-an-issue)
-* [Unlock an issue](/v3/issues/#unlock-an-issue)
+* [List issues assigned to the authenticated user](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
+* [List assignees](/rest/reference/issues#list-assignees)
+* [Check if a user can be assigned](/rest/reference/issues#check-if-a-user-can-be-assigned)
+* [List repository issues](/rest/reference/issues#list-repository-issues)
+* [Create an issue](/rest/reference/issues#create-an-issue)
+* [Get an issue](/rest/reference/issues#get-an-issue)
+* [Update an issue](/rest/reference/issues#update-an-issue)
+* [Lock an issue](/rest/reference/issues#lock-an-issue)
+* [Unlock an issue](/rest/reference/issues#unlock-an-issue)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Jobs
 
-* [Get a job for a workflow run](/v3/actions/workflow-jobs/#get-a-job-for-a-workflow-run)
-* [Download job logs for a workflow run](/v3/actions/workflow-jobs/#download-job-logs-for-a-workflow-run)
-* [List jobs for a workflow run](/v3/actions/workflow-jobs/#list-jobs-for-a-workflow-run)
+* [Get a job for a workflow run](/rest/reference/actions#get-a-job-for-a-workflow-run)
+* [Download job logs for a workflow run](/rest/reference/actions#download-job-logs-for-a-workflow-run)
+* [List jobs for a workflow run](/rest/reference/actions#list-jobs-for-a-workflow-run)
 {% endif %}
 
 ##### Labels
 
-* [List labels for an issue](/v3/issues/labels/#list-labels-for-an-issue)
-* [Add labels to an issue](/v3/issues/labels/#add-labels-to-an-issue)
-* [Set labels for an issue](/v3/issues/labels/#set-labels-for-an-issue)
-* [Remove all labels from an issue](/v3/issues/labels/#remove-all-labels-from-an-issue)
-* [Remove a label from an issue](/v3/issues/labels/#remove-a-label-from-an-issue)
-* [List labels for a repository](/v3/issues/labels/#list-labels-for-a-repository)
-* [Create a label](/v3/issues/labels/#create-a-label)
-* [Get a label](/v3/issues/labels/#get-a-label)
-* [Update a label](/v3/issues/labels/#update-a-label)
-* [Delete a label](/v3/issues/labels/#delete-a-label)
-* [Get labels for every issue in a milestone](/v3/issues/labels/#list-labels-for-issues-in-a-milestone)
+* [List labels for an issue](/rest/reference/issues#list-labels-for-an-issue)
+* [Add labels to an issue](/rest/reference/issues#add-labels-to-an-issue)
+* [Set labels for an issue](/rest/reference/issues#set-labels-for-an-issue)
+* [Remove all labels from an issue](/rest/reference/issues#remove-all-labels-from-an-issue)
+* [Remove a label from an issue](/rest/reference/issues#remove-a-label-from-an-issue)
+* [List labels for a repository](/rest/reference/issues#list-labels-for-a-repository)
+* [Create a label](/rest/reference/issues#create-a-label)
+* [Get a label](/rest/reference/issues#get-a-label)
+* [Update a label](/rest/reference/issues#update-a-label)
+* [Delete a label](/rest/reference/issues#delete-a-label)
+* [Get labels for every issue in a milestone](/rest/reference/issues#list-labels-for-issues-in-a-milestone)
 
 ##### Licenses
 
-* [Get all commonly used licenses](/v3/licenses/#get-all-commonly-used-licenses)
-* [Get a license](/v3/licenses/#get-a-license)
+* [Get all commonly used licenses](/rest/reference/licenses#get-all-commonly-used-licenses)
+* [Get a license](/rest/reference/licenses#get-a-license)
 
 ##### Markdown
 
-* [Render a Markdown document](/v3/markdown/#render-a-markdown-document)
-* [Render a markdown document in raw mode](/v3/markdown/#render-a-markdown-document-in-raw-mode)
+* [Render a Markdown document](/rest/reference/markdown#render-a-markdown-document)
+* [Render a markdown document in raw mode](/rest/reference/markdown#render-a-markdown-document-in-raw-mode)
 
 ##### Meta
 
-* [Meta](/v3/meta/#meta)
+* [Meta](/rest/reference/meta#meta)
 
 ##### Milestones
 
-* [List milestones](/v3/issues/milestones/#list-milestones)
-* [Create a milestone](/v3/issues/milestones/#create-a-milestone)
-* [Get a milestone](/v3/issues/milestones/#get-a-milestone)
-* [Update a milestone](/v3/issues/milestones/#update-a-milestone)
-* [Delete a milestone](/v3/issues/milestones/#delete-a-milestone)
+* [List milestones](/rest/reference/issues#list-milestones)
+* [Create a milestone](/rest/reference/issues#create-a-milestone)
+* [Get a milestone](/rest/reference/issues#get-a-milestone)
+* [Update a milestone](/rest/reference/issues#update-a-milestone)
+* [Delete a milestone](/rest/reference/issues#delete-a-milestone)
 
 ##### Organization Hooks
 
@@ -398,31 +401,31 @@ While most of your API interaction should occur using your server-to-server inst
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organization Invitations
 
-* [List pending organization invitations](/v3/orgs/members/#list-pending-organization-invitations)
-* [Create an organization invitation](/v3/orgs/members/#create-an-organization-invitation)
-* [List organization invitation teams](/v3/orgs/members/#list-organization-invitation-teams)
+* [List pending organization invitations](/rest/reference/orgs#list-pending-organization-invitations)
+* [Create an organization invitation](/rest/reference/orgs#create-an-organization-invitation)
+* [List organization invitation teams](/rest/reference/orgs#list-organization-invitation-teams)
 {% endif %}
 
 ##### Organization Members
 
-* [List organization members](/v3/orgs/members/#list-organization-members)
-* [Check organization membership for a user](/v3/orgs/members/#check-organization-membership-for-a-user)
-* [Remove an organization member](/v3/orgs/members/#remove-an-organization-member)
-* [Get organization membership for a user](/v3/orgs/members/#get-organization-membership-for-a-user)
-* [Set organization membership for a user](/v3/orgs/members/#set-organization-membership-for-a-user)
-* [Remove organization membership for a user](/v3/orgs/members/#remove-organization-membership-for-a-user)
-* [List public organization members](/v3/orgs/members/#list-public-organization-members)
-* [Check public organization membership for a user](/v3/orgs/members/#check-public-organization-membership-for-a-user)
-* [Set public organization membership for the authenticated user](/v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user)
-* [Remove public organization membership for the authenticated user](/v3/orgs/members/#remove-public-organization-membership-for-the-authenticated-user)
+* [List organization members](/rest/reference/orgs#list-organization-members)
+* [Check organization membership for a user](/rest/reference/orgs#check-organization-membership-for-a-user)
+* [Remove an organization member](/rest/reference/orgs#remove-an-organization-member)
+* [Get organization membership for a user](/rest/reference/orgs#get-organization-membership-for-a-user)
+* [Set organization membership for a user](/rest/reference/orgs#set-organization-membership-for-a-user)
+* [Remove organization membership for a user](/rest/reference/orgs#remove-organization-membership-for-a-user)
+* [List public organization members](/rest/reference/orgs#list-public-organization-members)
+* [Check public organization membership for a user](/rest/reference/orgs#check-public-organization-membership-for-a-user)
+* [Set public organization membership for the authenticated user](/rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user)
+* [Remove public organization membership for the authenticated user](/rest/reference/orgs#remove-public-organization-membership-for-the-authenticated-user)
 
 ##### Organization Outside Collaborators
 
-* [List outside collaborators for an organization](/v3/orgs/outside_collaborators/#list-outside-collaborators-for-an-organization)
-* [Convert an organization member to outside collaborator](/v3/orgs/outside_collaborators/#convert-an-organization-member-to-outside-collaborator)
-* [Remove outside collaborator from an organization](/v3/orgs/outside_collaborators/#remove-outside-collaborator-from-an-organization)
+* [List outside collaborators for an organization](/rest/reference/orgs#list-outside-collaborators-for-an-organization)
+* [Convert an organization member to outside collaborator](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator)
+* [Remove outside collaborator from an organization](/rest/reference/orgs#remove-outside-collaborator-from-an-organization)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -431,201 +434,201 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Organization Team Projects
 
-* [List team projects](/v3/teams/#list-team-projects)
-* [Check team permissions for a project](/v3/teams/#check-team-permissions-for-a-project)
-* [Add or update team project permissions](/v3/teams/#add-or-update-team-project-permissions)
-* [Remove a project from a team](/v3/teams/#remove-a-project-from-a-team)
+* [List team projects](/rest/reference/teams#list-team-projects)
+* [Check team permissions for a project](/rest/reference/teams#check-team-permissions-for-a-project)
+* [Add or update team project permissions](/rest/reference/teams#add-or-update-team-project-permissions)
+* [Remove a project from a team](/rest/reference/teams#remove-a-project-from-a-team)
 {% endif %}
 
 ##### Organization Team Repositories
 
-* [List team repositories](/v3/teams/#list-team-repositories)
-* [Check team permissions for a repository](/v3/teams/#check-team-permissions-for-a-repository)
-* [Add or update team repository permissions](/v3/teams/#add-or-update-team-repository-permissions)
-* [Remove a repository from a team](/v3/teams/#remove-a-repository-from-a-team)
+* [List team repositories](/rest/reference/teams#list-team-repositories)
+* [Check team permissions for a repository](/rest/reference/teams#check-team-permissions-for-a-repository)
+* [Add or update team repository permissions](/rest/reference/teams#add-or-update-team-repository-permissions)
+* [Remove a repository from a team](/rest/reference/teams#remove-a-repository-from-a-team)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organization Team Sync
 
-* [List idp groups for a team](/v3/teams/team_sync/#list-idp-groups-for-a-team)
-* [Create or update idp group connections](/v3/teams/team_sync/#create-or-update-idp-group-connections)
-* [List IdP groups for an organization](/v3/teams/team_sync/#list-idp-groups-for-an-organization)
+* [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update idp group connections](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for an organization](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 
 ##### Organization Teams
 
-* [List teams](/v3/teams/#list-teams)
-* [Create a team](/v3/teams/#create-a-team)
-* [Get a team by name](/v3/teams/#get-a-team-by-name)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
-* [Get a team](/v3/teams/#get-a-team)
+* [List teams](/rest/reference/teams#list-teams)
+* [Create a team](/rest/reference/teams#create-a-team)
+* [Get a team by name](/rest/reference/teams#get-a-team-by-name)
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
+* [Get a team](/rest/reference/teams#get-a-team)
 {% endif %}
-* [Update a team](/v3/teams/#update-a-team)
-* [Delete a team](/v3/teams/#delete-a-team)
+* [Update a team](/rest/reference/teams#update-a-team)
+* [Delete a team](/rest/reference/teams#delete-a-team)
 {% if currentVersion == "free-pro-team@latest" %}
-* [List pending team invitations](/v3/teams/members/#list-pending-team-invitations)
+* [List pending team invitations](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
-* [List team members](/v3/teams/members/#list-team-members)
-* [Get team membership for a user](/v3/teams/members/#get-team-membership-for-a-user)
-* [Add or update team membership for a user](/v3/teams/members/#add-or-update-team-membership-for-a-user)
-* [Remove team membership for a user](/v3/teams/members/#remove-team-membership-for-a-user)
-* [List child teams](/v3/teams/#list-child-teams)
-* [List teams for the authenticated user](/v3/teams/#list-teams-for-the-authenticated-user)
+* [List team members](/rest/reference/teams#list-team-members)
+* [Get team membership for a user](/rest/reference/teams#get-team-membership-for-a-user)
+* [Add or update team membership for a user](/rest/reference/teams#add-or-update-team-membership-for-a-user)
+* [Remove team membership for a user](/rest/reference/teams#remove-team-membership-for-a-user)
+* [List child teams](/rest/reference/teams#list-child-teams)
+* [List teams for the authenticated user](/rest/reference/teams#list-teams-for-the-authenticated-user)
 
 ##### Organizations
 
-* [List organizations](/v3/orgs/#list-organizations)
-* [Get an organization](/v3/orgs/#get-an-organization)
-* [Update an organization](/v3/orgs/#update-an-organization)
-* [List organization memberships for the authenticated user](/v3/orgs/members/#list-organization-memberships-for-the-authenticated-user)
-* [Get an organization membership for the authenticated user](/v3/orgs/members/#get-an-organization-membership-for-the-authenticated-user)
-* [Update an organization membership for the authenticated user](/v3/orgs/members/#update-an-organization-membership-for-the-authenticated-user)
-* [List organizations for the authenticated user](/v3/orgs/#list-organizations-for-the-authenticated-user)
-* [List organizations for a user](/v3/orgs/#list-organizations-for-a-user)
+* [List organizations](/rest/reference/orgs#list-organizations)
+* [Get an organization](/rest/reference/orgs#get-an-organization)
+* [Update an organization](/rest/reference/orgs#update-an-organization)
+* [List organization memberships for the authenticated user](/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user)
+* [Get an organization membership for the authenticated user](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)
+* [Update an organization membership for the authenticated user](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user)
+* [List organizations for the authenticated user](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
+* [List organizations for a user](/rest/reference/orgs#list-organizations-for-a-user)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organizations Credential Authorizations
 
-* [List SAML SSO authorizations for an organization](/v3/orgs/#list-saml-sso-authorizations-for-an-organization)
-* [Remove a SAML SSO authorization for an organization](/v3/orgs/#remove-a-saml-sso-authorization-for-an-organization)
+* [List SAML SSO authorizations for an organization](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
+* [Remove a SAML SSO authorization for an organization](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organizations Scim
 
-* [List SCIM provisioned identities](/v3/scim/#list-scim-provisioned-identities)
-* [Provision and invite a SCIM user](/v3/scim/#provision-and-invite-a-scim-user)
-* [Get SCIM provisioning information for a user](/v3/scim/#get-scim-provisioning-information-for-a-user)
-* [Set SCIM information for a provisioned user](/v3/scim/#set-scim-information-for-a-provisioned-user)
-* [Update an attribute for a SCIM user](/v3/scim/#update-an-attribute-for-a-scim-user)
-* [Delete a SCIM user from an organization](/v3/scim/#delete-a-scim-user-from-an-organization)
+* [List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)
+* [Provision and invite a SCIM user](/rest/reference/scim#provision-and-invite-a-scim-user)
+* [Get SCIM provisioning information for a user](/rest/reference/scim#get-scim-provisioning-information-for-a-user)
+* [Set SCIM information for a provisioned user](/rest/reference/scim#set-scim-information-for-a-provisioned-user)
+* [Update an attribute for a SCIM user](/rest/reference/scim#update-an-attribute-for-a-scim-user)
+* [Delete a SCIM user from an organization](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Source Imports
 
-* [Get an import status](/v3/migrations/source_imports/#get-an-import-status)
-* [Start an import](/v3/migrations/source_imports/#start-an-import)
-* [Update an import](/v3/migrations/source_imports/#update-an-import)
-* [Cancel an import](/v3/migrations/source_imports/#cancel-an-import)
-* [Get commit authors](/v3/migrations/source_imports/#get-commit-authors)
-* [Map a commit author](/v3/migrations/source_imports/#map-a-commit-author)
-* [Get large files](/v3/migrations/source_imports/#get-large-files)
-* [Update Git LFS preference](/v3/migrations/source_imports/#update-git-lfs-preference)
+* [Get an import status](/rest/reference/migrations#get-an-import-status)
+* [Start an import](/rest/reference/migrations#start-an-import)
+* [Update an import](/rest/reference/migrations#update-an-import)
+* [Cancel an import](/rest/reference/migrations#cancel-an-import)
+* [Get commit authors](/rest/reference/migrations#get-commit-authors)
+* [Map a commit author](/rest/reference/migrations#map-a-commit-author)
+* [Get large files](/rest/reference/migrations#get-large-files)
+* [Update Git LFS preference](/rest/reference/migrations#update-git-lfs-preference)
 {% endif %}
 
 ##### Project Collaborators
 
-* [List project collaborators](/v3/projects/collaborators/#list-project-collaborators)
-* [Add project collaborator](/v3/projects/collaborators/#add-project-collaborator)
-* [Remove project collaborator](/v3/projects/collaborators/#remove-project-collaborator)
-* [Get project permission for a user](/v3/projects/collaborators/#get-project-permission-for-a-user)
+* [List project collaborators](/rest/reference/projects#list-project-collaborators)
+* [Add project collaborator](/rest/reference/projects#add-project-collaborator)
+* [Remove project collaborator](/rest/reference/projects#remove-project-collaborator)
+* [Get project permission for a user](/rest/reference/projects#get-project-permission-for-a-user)
 
 ##### Projects
 
-* [List organization projects](/v3/projects/#list-organization-projects)
-* [Create an organization project](/v3/projects/#create-an-organization-project)
-* [Get a project](/v3/projects/#get-a-project)
-* [Update a project](/v3/projects/#update-a-project)
-* [Delete a project](/v3/projects/#delete-a-project)
-* [List project columns](/v3/projects/columns/#list-project-columns)
-* [Create a project column](/v3/projects/columns/#create-a-project-column)
-* [Get a project column](/v3/projects/columns/#get-a-project-column)
-* [Update a project column](/v3/projects/columns/#update-a-project-column)
-* [Delete a project column](/v3/projects/columns/#delete-a-project-column)
-* [List project cards](/v3/projects/cards/#list-project-cards)
-* [Create a project card](/v3/projects/cards/#create-a-project-card)
-* [Move a project column](/v3/projects/columns/#move-a-project-column)
-* [Get a project card](/v3/projects/cards/#get-a-project-card)
-* [Update a project card](/v3/projects/cards/#update-a-project-card)
-* [Delete a project card](/v3/projects/cards/#delete-a-project-card)
-* [Move a project card](/v3/projects/cards/#move-a-project-card)
-* [List repository projects](/v3/projects/#list-repository-projects)
-* [Create a repository project](/v3/projects/#create-a-repository-project)
+* [List organization projects](/rest/reference/projects#list-organization-projects)
+* [Create an organization project](/rest/reference/projects#create-an-organization-project)
+* [Get a project](/rest/reference/projects#get-a-project)
+* [Update a project](/rest/reference/projects#update-a-project)
+* [Delete a project](/rest/reference/projects#delete-a-project)
+* [List project columns](/rest/reference/projects#list-project-columns)
+* [Create a project column](/rest/reference/projects#create-a-project-column)
+* [Get a project column](/rest/reference/projects#get-a-project-column)
+* [Update a project column](/rest/reference/projects#update-a-project-column)
+* [Delete a project column](/rest/reference/projects#delete-a-project-column)
+* [List project cards](/rest/reference/projects#list-project-cards)
+* [Create a project card](/rest/reference/projects#create-a-project-card)
+* [Move a project column](/rest/reference/projects#move-a-project-column)
+* [Get a project card](/rest/reference/projects#get-a-project-card)
+* [Update a project card](/rest/reference/projects#update-a-project-card)
+* [Delete a project card](/rest/reference/projects#delete-a-project-card)
+* [Move a project card](/rest/reference/projects#move-a-project-card)
+* [List repository projects](/rest/reference/projects#list-repository-projects)
+* [Create a repository project](/rest/reference/projects#create-a-repository-project)
 
 ##### Pull Comments
 
-* [List review comments on a pull request](/v3/pulls/comments/#list-review-comments-on-a-pull-request)
-* [Create a review comment for a pull request](/v3/pulls/comments/#create-a-review-comment-for-a-pull-request)
-* [List review comments in a repository](/v3/pulls/comments/#list-review-comments-in-a-repository)
-* [Get a review comment for a pull request](/v3/pulls/comments/#get-a-review-comment-for-a-pull-request)
-* [Update a review comment for a pull request](/v3/pulls/comments/#update-a-review-comment-for-a-pull-request)
-* [Delete a review comment for a pull request](/v3/pulls/comments/#delete-a-review-comment-for-a-pull-request)
+* [List review comments on a pull request](/rest/reference/pulls#list-review-comments-on-a-pull-request)
+* [Create a review comment for a pull request](/rest/reference/pulls#create-a-review-comment-for-a-pull-request)
+* [List review comments in a repository](/rest/reference/pulls#list-review-comments-in-a-repository)
+* [Get a review comment for a pull request](/rest/reference/pulls#get-a-review-comment-for-a-pull-request)
+* [Update a review comment for a pull request](/rest/reference/pulls#update-a-review-comment-for-a-pull-request)
+* [Delete a review comment for a pull request](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request)
 
 ##### Pull Request Review Events
 
-* [Dismiss a review for a pull request](/v3/pulls/reviews/#dismiss-a-review-for-a-pull-request)
-* [Submit a review for a pull request](/v3/pulls/reviews/#submit-a-review-for-a-pull-request)
+* [Dismiss a review for a pull request](/rest/reference/pulls#dismiss-a-review-for-a-pull-request)
+* [Submit a review for a pull request](/rest/reference/pulls#submit-a-review-for-a-pull-request)
 
 ##### Pull Request Review Requests
 
-* [List requested reviewers for a pull request](/v3/pulls/review_requests/#list-requested-reviewers-for-a-pull-request)
-* [Request reviewers for a pull request](/v3/pulls/review_requests/#request-reviewers-for-a-pull-request)
-* [Remove requested reviewers from a pull request](/v3/pulls/review_requests/#remove-requested-reviewers-from-a-pull-request)
+* [List requested reviewers for a pull request](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request)
+* [Request reviewers for a pull request](/rest/reference/pulls#request-reviewers-for-a-pull-request)
+* [Remove requested reviewers from a pull request](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request)
 
 ##### Pull Request Reviews
 
-* [List reviews for a pull request](/v3/pulls/reviews/#list-reviews-for-a-pull-request)
-* [Create a review for a pull request](/v3/pulls/reviews/#create-a-review-for-a-pull-request)
-* [Get a review for a pull request](/v3/pulls/reviews/#get-a-review-for-a-pull-request)
-* [Update a review for a pull request](/v3/pulls/reviews/#update-a-review-for-a-pull-request)
-* [List comments for a pull request review](/v3/pulls/reviews/#list-comments-for-a-pull-request-review)
+* [List reviews for a pull request](/rest/reference/pulls#list-reviews-for-a-pull-request)
+* [Create a review for a pull request](/rest/reference/pulls#create-a-review-for-a-pull-request)
+* [Get a review for a pull request](/rest/reference/pulls#get-a-review-for-a-pull-request)
+* [Update a review for a pull request](/rest/reference/pulls#update-a-review-for-a-pull-request)
+* [List comments for a pull request review](/rest/reference/pulls#list-comments-for-a-pull-request-review)
 
 ##### Pulls
 
-* [List pull requests](/v3/pulls/#list-pull-requests)
-* [Create a pull request](/v3/pulls/#create-a-pull-request)
-* [Get a pull request](/v3/pulls/#get-a-pull-request)
-* [Update a pull request](/v3/pulls/#update-a-pull-request)
-* [List commits on a pull request](/v3/pulls/#list-commits-on-a-pull-request)
-* [List pull requests files](/v3/pulls/#list-pull-requests-files)
-* [Check if a pull request has been merged](/v3/pulls/#check-if-a-pull-request-has-been-merged)
-* [Merge a pull request (Merge Button)](/v3/pulls/#merge-a-pull-request)
+* [List pull requests](/rest/reference/pulls#list-pull-requests)
+* [Create a pull request](/rest/reference/pulls#create-a-pull-request)
+* [Get a pull request](/rest/reference/pulls#get-a-pull-request)
+* [Update a pull request](/rest/reference/pulls#update-a-pull-request)
+* [List commits on a pull request](/rest/reference/pulls#list-commits-on-a-pull-request)
+* [List pull requests files](/rest/reference/pulls#list-pull-requests-files)
+* [Check if a pull request has been merged](/rest/reference/pulls#check-if-a-pull-request-has-been-merged)
+* [Merge a pull request (Merge Button)](/rest/reference/pulls#merge-a-pull-request)
 
 ##### Reactions
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
-* [List reactions for a commit comment](/v3/reactions/#list-reactions-for-a-commit-comment)
-* [Create reaction for a commit comment](/v3/reactions/#create-reaction-for-a-commit-comment)
-* [List reactions for an issue](/v3/reactions/#list-reactions-for-an-issue)
-* [Create reaction for an issue](/v3/reactions/#create-reaction-for-an-issue)
-* [List reactions for an issue comment](/v3/reactions/#list-reactions-for-an-issue-comment)
-* [Create reaction for an issue comment](/v3/reactions/#create-reaction-for-an-issue-comment)
-* [List reactions for a pull request review comment](/v3/reactions/#list-reactions-for-a-pull-request-review-comment)
-* [Create reaction for a pull request review comment](/v3/reactions/#create-reaction-for-a-pull-request-review-comment)
-* [List reactions for a team discussion comment](/v3/reactions/#list-reactions-for-a-team-discussion-comment)
-* [Create reaction for a team discussion comment](/v3/reactions/#create-reaction-for-a-team-discussion-comment)
-* [List reactions for a team discussion](/v3/reactions/#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/v3/reactions/#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-* [Delete a commit comment reaction](/v3/reactions/#delete-a-commit-comment-reaction)
-* [Delete an issue reaction](/v3/reactions/#delete-an-issue-reaction)
-* [Delete a reaction to a commit comment](/v3/reactions/#delete-an-issue-comment-reaction)
-* [Delete a pull request comment reaction](/v3/reactions/#delete-a-pull-request-comment-reaction)
-* [Delete team discussion reaction](/v3/reactions/#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/v3/reactions/#delete-team-discussion-comment-reaction){% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
+* [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
+* [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
+* [Create reaction for an issue](/rest/reference/reactions#create-reaction-for-an-issue)
+* [List reactions for an issue comment](/rest/reference/reactions#list-reactions-for-an-issue-comment)
+* [Create reaction for an issue comment](/rest/reference/reactions#create-reaction-for-an-issue-comment)
+* [List reactions for a pull request review comment](/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment)
+* [Create reaction for a pull request review comment](/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment)
+* [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
+* [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
+* [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+* [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
+* [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
+* [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
+* [Delete a pull request comment reaction](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
+* [Delete team discussion reaction](/rest/reference/reactions#delete-team-discussion-reaction)
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
 
 ##### Repositories
 
-* [List organization repositories](/v3/repos/#list-organization-repositories)
-* [Create a repository for the authenticated user](/v3/repos/#create-a-repository-for-the-authenticated-user)
-* [Get a repository](/v3/repos/#get-a-repository)
-* [Update a repository](/v3/repos/#update-a-repository)
-* [Delete a repository](/v3/repos/#delete-a-repository)
-* [Compare two commits](/v3/repos/commits/#compare-two-commits)
-* [List repository contributors](/v3/repos/#list-repository-contributors)
+* [List organization repositories](/rest/reference/repos#list-organization-repositories)
+* [Create a repository for the authenticated user](/rest/reference/repos#create-a-repository-for-the-authenticated-user)
+* [Get a repository](/rest/reference/repos#get-a-repository)
+* [Update a repository](/rest/reference/repos#update-a-repository)
+* [Delete a repository](/rest/reference/repos#delete-a-repository)
+* [Compare two commits](/rest/reference/repos#compare-two-commits)
+* [List repository contributors](/rest/reference/repos#list-repository-contributors)
 * [List forks](/rest/reference/repos#list-forks)
-* [Create a fork](/v3/repos/forks/#create-a-fork)
-* [List repository languages](/v3/repos/#list-repository-languages)
-* [List repository tags](/v3/repos/#list-repository-tags)
-* [List repository teams](/v3/repos/#list-repository-teams)
-* [Transfer a repository](/v3/repos/#transfer-a-repository)
-* [List public repositories](/v3/repos/#list-public-repositories)
-* [List repositories for the authenticated user](/v3/repos/#list-repositories-for-the-authenticated-user)
-* [List repositories for a user](/v3/repos/#list-repositories-for-a-user)
-* [Create repository using a repository template](/v3/repos/#create-repository-using-a-repository-template)
+* [Create a fork](/rest/reference/repos#create-a-fork)
+* [List repository languages](/rest/reference/repos#list-repository-languages)
+* [List repository tags](/rest/reference/repos#list-repository-tags)
+* [List repository teams](/rest/reference/repos#list-repository-teams)
+* [Transfer a repository](/rest/reference/repos#transfer-a-repository)
+* [List public repositories](/rest/reference/repos#list-public-repositories)
+* [List repositories for the authenticated user](/rest/reference/repos#list-repositories-for-the-authenticated-user)
+* [List repositories for a user](/rest/reference/repos#list-repositories-for-a-user)
+* [Create repository using a repository template](/rest/reference/repos#create-repository-using-a-repository-template)
 
 ##### Repository Activity
 
@@ -640,116 +643,116 @@ While most of your API interaction should occur using your server-to-server inst
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Repository Automated Security Fixes
 
-* [Enable automated security fixes](/v3/repos/#enable-automated-security-fixes)
-* [Disable automated security fixes](/v3/repos/#disable-automated-security-fixes)
+* [Enable automated security fixes](/rest/reference/repos#enable-automated-security-fixes)
+* [Disable automated security fixes](/rest/reference/repos#disable-automated-security-fixes)
 {% endif %}
 
 ##### Repository Branches
 
-* [List branches](/v3/repos/branches/#list-branches)
-* [Get a branch](/v3/repos/branches/#get-a-branch)
-* [Get branch protection](/v3/repos/branches/#get-branch-protection)
-* [Update branch protection](/v3/repos/branches/#update-branch-protection)
-* [Delete branch protection](/v3/repos/branches/#delete-branch-protection)
-* [Get admin branch protection](/v3/repos/branches/#get-admin-branch-protection)
-* [Set admin branch protection](/v3/repos/branches/#set-admin-branch-protection)
-* [Delete admin branch protection](/v3/repos/branches/#delete-admin-branch-protection)
-* [Get pull request review protection](/v3/repos/branches/#get-pull-request-review-protection)
-* [Update pull request review protection](/v3/repos/branches/#update-pull-request-review-protection)
-* [Delete pull request review protection](/v3/repos/branches/#delete-pull-request-review-protection)
-* [Get commit signature protection](/v3/repos/branches/#get-commit-signature-protection)
-* [Create commit signature protection](/v3/repos/branches/#create-commit-signature-protection)
-* [Delete commit signature protection](/v3/repos/branches/#delete-commit-signature-protection)
-* [Get status checks protection](/v3/repos/branches/#get-status-checks-protection)
-* [Update status check potection](/v3/repos/branches/#update-status-check-potection)
-* [Remove status check protection](/v3/repos/branches/#remove-status-check-protection)
-* [Get all status check contexts](/v3/repos/branches/#get-all-status-check-contexts)
-* [Add status check contexts](/v3/repos/branches/#add-status-check-contexts)
-* [Set status check contexts](/v3/repos/branches/#set-status-check-contexts)
-* [Remove status check contexts](/v3/repos/branches/#remove-status-check-contexts)
-* [Get access restrictions](/v3/repos/branches/#get-access-restrictions)
-* [Delete access restrictions](/v3/repos/branches/#delete-access-restrictions)
-* [List teams with access to the protected branch](/v3/repos/branches/#list-teams-with-access-to-the-protected-branch)
-* [Add team access restrictions](/v3/repos/branches/#add-team-access-restrictions)
-* [Set team access restrictions](/v3/repos/branches/#set-team-access-restrictions)
-* [Remove team access restriction](/v3/repos/branches/#remove-team-access-restrictions)
-* [List user restrictions of protected branch](/v3/repos/branches/#list-users-with-access-to-the-protected-branch)
-* [Add user access restrictions](/v3/repos/branches/#add-user-access-restrictions)
-* [Set user access restrictions](/v3/repos/branches/#set-user-access-restrictions)
-* [Remove user access restrictions](/v3/repos/branches/#remove-user-access-restrictions)
-* [Merge a branch](/v3/repos/merging/#merge-a-branch)
+* [List branches](/rest/reference/repos#list-branches)
+* [Get a branch](/rest/reference/repos#get-a-branch)
+* [Get branch protection](/rest/reference/repos#get-branch-protection)
+* [Update branch protection](/rest/reference/repos#update-branch-protection)
+* [Delete branch protection](/rest/reference/repos#delete-branch-protection)
+* [Get admin branch protection](/rest/reference/repos#get-admin-branch-protection)
+* [Set admin branch protection](/rest/reference/repos#set-admin-branch-protection)
+* [Delete admin branch protection](/rest/reference/repos#delete-admin-branch-protection)
+* [Get pull request review protection](/rest/reference/repos#get-pull-request-review-protection)
+* [Update pull request review protection](/rest/reference/repos#update-pull-request-review-protection)
+* [Delete pull request review protection](/rest/reference/repos#delete-pull-request-review-protection)
+* [Get commit signature protection](/rest/reference/repos#get-commit-signature-protection)
+* [Create commit signature protection](/rest/reference/repos#create-commit-signature-protection)
+* [Delete commit signature protection](/rest/reference/repos#delete-commit-signature-protection)
+* [Get status checks protection](/rest/reference/repos#get-status-checks-protection)
+* [Update status check protection](/rest/reference/repos#update-status-check-protection)
+* [Remove status check protection](/rest/reference/repos#remove-status-check-protection)
+* [Get all status check contexts](/rest/reference/repos#get-all-status-check-contexts)
+* [Add status check contexts](/rest/reference/repos#add-status-check-contexts)
+* [Set status check contexts](/rest/reference/repos#set-status-check-contexts)
+* [Remove status check contexts](/rest/reference/repos#remove-status-check-contexts)
+* [Get access restrictions](/rest/reference/repos#get-access-restrictions)
+* [Delete access restrictions](/rest/reference/repos#delete-access-restrictions)
+* [List teams with access to the protected branch](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
+* [Add team access restrictions](/rest/reference/repos#add-team-access-restrictions)
+* [Set team access restrictions](/rest/reference/repos#set-team-access-restrictions)
+* [Remove team access restriction](/rest/reference/repos#remove-team-access-restrictions)
+* [List user restrictions of protected branch](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
+* [Add user access restrictions](/rest/reference/repos#add-user-access-restrictions)
+* [Set user access restrictions](/rest/reference/repos#set-user-access-restrictions)
+* [Remove user access restrictions](/rest/reference/repos#remove-user-access-restrictions)
+* [Merge a branch](/rest/reference/repos#merge-a-branch)
 
 ##### Repository Collaborators
 
-* [List repository collaborators](/v3/repos/collaborators/#list-repository-collaborators)
-* [Check if a user is a repository collaborator](/v3/repos/collaborators/#check-if-a-user-is-a-repository-collaborator)
-* [Add a repository collaborator](/v3/repos/collaborators/#add-a-repository-collaborator)
-* [Remove a repository collaborator](/v3/repos/collaborators/#remove-a-repository-collaborator)
-* [Get repository permissions for a user](/v3/repos/collaborators/#get-repository-permissions-for-a-user)
+* [List repository collaborators](/rest/reference/repos#list-repository-collaborators)
+* [Check if a user is a repository collaborator](/rest/reference/repos#check-if-a-user-is-a-repository-collaborator)
+* [Add a repository collaborator](/rest/reference/repos#add-a-repository-collaborator)
+* [Remove a repository collaborator](/rest/reference/repos#remove-a-repository-collaborator)
+* [Get repository permissions for a user](/rest/reference/repos#get-repository-permissions-for-a-user)
 
 ##### Repository Commit Comments
 
-* [List commit comments for a repository](/v3/repos/comments/#list-commit-comments-for-a-repository)
-* [Get a commit comment](/v3/repos/comments/#get-a-commit-comment)
-* [Update a commit comment](/v3/repos/comments/#update-a-commit-comment)
-* [Delete a commit comment](/v3/repos/comments/#delete-a-commit-comment)
-* [List commit comments](/v3/repos/comments/#list-commit-comments)
-* [Create a commit comment](/v3/repos/comments/#create-a-commit-comment)
+* [List commit comments for a repository](/rest/reference/repos#list-commit-comments-for-a-repository)
+* [Get a commit comment](/rest/reference/repos#get-a-commit-comment)
+* [Update a commit comment](/rest/reference/repos#update-a-commit-comment)
+* [Delete a commit comment](/rest/reference/repos#delete-a-commit-comment)
+* [List commit comments](/rest/reference/repos#list-commit-comments)
+* [Create a commit comment](/rest/reference/repos#create-a-commit-comment)
 
 ##### Repository Commits
 
-* [List commits](/v3/repos/commits/#list-commits)
-* [Get a commit](/v3/repos/commits/#get-a-commit)
-* [List branches for head commit](/v3/repos/commits/#list-branches-for-head-commit)
-* [List pull requests associated with commit](/v3/repos/commits/#list-pull-requests-associated-with-commit)
+* [List commits](/rest/reference/repos#list-commits)
+* [Get a commit](/rest/reference/repos#get-a-commit)
+* [List branches for head commit](/rest/reference/repos#list-branches-for-head-commit)
+* [List pull requests associated with commit](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
 ##### Repository Community
 
-* [Get the code of conduct for a repository](/v3/codes_of_conduct/#get-the-code-of-conduct-for-a-repository)
+* [Get the code of conduct for a repository](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
 {% if currentVersion == "free-pro-team@latest" %}
-* [Get community profile metrics](/v3/repos/community/#get-community-profile-metrics)
+* [Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)
 {% endif %}
 
 ##### Repository Contents
 
-* [Download a repository archive](/v3/repos/contents/#download-a-repository-archive)
-* [Get repository content](/v3/repos/contents/#get-repository-content)
-* [Create or update file contents](/v3/repos/contents/#create-or-update-file-contents)
-* [Delete a file](/v3/repos/contents/#delete-a-file)
-* [Get a repository README](/v3/repos/contents/#get-a-repository-readme)
-* [Get the license for a repository](/v3/licenses/#get-the-license-for-a-repository)
+* [Download a repository archive](/rest/reference/repos#download-a-repository-archive)
+* [Get repository content](/rest/reference/repos#get-repository-content)
+* [Create or update file contents](/rest/reference/repos#create-or-update-file-contents)
+* [Delete a file](/rest/reference/repos#delete-a-file)
+* [Get a repository README](/rest/reference/repos#get-a-repository-readme)
+* [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Repository Event Dispatches
 
-* [Create a repository dispatch event](/v3/repos/#create-a-repository-dispatch-event)
+* [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
 {% endif %}
 
 ##### Repository Hooks
 
-* [List repository webhooks](/v3/repos/hooks/#list-repository-webhooks)
-* [Create a repository webhook](/v3/repos/hooks/#create-a-repository-webhook)
-* [Get a repository webhook](/v3/repos/hooks/#get-a-repository-webhook)
-* [Update a repository webhook](/v3/repos/hooks/#update-a-repository-webhook)
-* [Delete a repository webhook](/v3/repos/hooks/#delete-a-repository-webhook)
-* [Ping a repository webhook](/v3/repos/hooks/#ping-a-repository-webhook)
-* [Test the push repository webhook](/v3/repos/hooks/#test-the-push-repository-webhook)
+* [List repository webhooks](/rest/reference/repos#list-repository-webhooks)
+* [Create a repository webhook](/rest/reference/repos#create-a-repository-webhook)
+* [Get a repository webhook](/rest/reference/repos#get-a-repository-webhook)
+* [Update a repository webhook](/rest/reference/repos#update-a-repository-webhook)
+* [Delete a repository webhook](/rest/reference/repos#delete-a-repository-webhook)
+* [Ping a repository webhook](/rest/reference/repos#ping-a-repository-webhook)
+* [Test the push repository webhook](/rest/reference/repos#test-the-push-repository-webhook)
 
 ##### Repository Invitations
 
-* [List repository invitations](/v3/repos/invitations/#list-repository-invitations)
-* [Update a repository invitation](/v3/repos/invitations/#update-a-repository-invitation)
-* [Delete a repository invitation](/v3/repos/invitations/#delete-a-repository-invitation)
-* [List repository invitations for the authenticated user](/v3/repos/invitations/#list-repository-invitations-for-the-authenticated-user)
-* [Accept a repository invitation](/v3/repos/invitations/#accept-a-repository-invitation)
-* [Decline a repository invitation](/v3/repos/invitations/#decline-a-repository-invitation)
+* [List repository invitations](/rest/reference/repos#list-repository-invitations)
+* [Update a repository invitation](/rest/reference/repos#update-a-repository-invitation)
+* [Delete a repository invitation](/rest/reference/repos#delete-a-repository-invitation)
+* [List repository invitations for the authenticated user](/rest/reference/repos#list-repository-invitations-for-the-authenticated-user)
+* [Accept a repository invitation](/rest/reference/repos#accept-a-repository-invitation)
+* [Decline a repository invitation](/rest/reference/repos#decline-a-repository-invitation)
 
 ##### Repository Keys
 
-* [List deploy keys](/v3/repos/keys/#list-deploy-keys)
-* [Create a deploy key](/v3/repos/keys/#create-a-deploy-key)
-* [Get a deploy key](/v3/repos/keys/#get-a-deploy-key)
-* [Delete a deploy key](/v3/repos/keys/#delete-a-deploy-key)
+* [List deploy keys](/rest/reference/repos#list-deploy-keys)
+* [Create a deploy key](/rest/reference/repos#create-a-deploy-key)
+* [Get a deploy key](/rest/reference/repos#get-a-deploy-key)
+* [Delete a deploy key](/rest/reference/repos#delete-a-deploy-key)
 
 ##### Repository Pages
 
@@ -762,7 +765,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
 * [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
@@ -787,142 +790,144 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Stats
 
-* [Get the weekly commit activity](/v3/repos/statistics/#get-the-weekly-commit-activity)
-* [Get the last year of commit activity](/v3/repos/statistics/#get-the-last-year-of-commit-activity)
-* [Get all contributor commit activity](/v3/repos/statistics/#get-all-contributor-commit-activity)
-* [Get the weekly commit count](/v3/repos/statistics/#get-the-weekly-commit-count)
-* [Get the hourly commit count for each day](/v3/repos/statistics/#get-the-hourly-commit-count-for-each-day)
+* [Get the weekly commit activity](/rest/reference/repos#get-the-weekly-commit-activity)
+* [Get the last year of commit activity](/rest/reference/repos#get-the-last-year-of-commit-activity)
+* [Get all contributor commit activity](/rest/reference/repos#get-all-contributor-commit-activity)
+* [Get the weekly commit count](/rest/reference/repos#get-the-weekly-commit-count)
+* [Get the hourly commit count for each day](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Repository Vulnerability Alerts
 
-* [Enable vulnerability alerts](/v3/repos/#enable-vulnerability-alerts)
-* [Disable vulnerability alerts](/v3/repos/#disable-vulnerability-alerts)
+* [Enable vulnerability alerts](/rest/reference/repos#enable-vulnerability-alerts)
+* [Disable vulnerability alerts](/rest/reference/repos#disable-vulnerability-alerts)
 {% endif %}
 
 ##### Root
 
-* [Root endpoint](/v3/#root-endpoint)
-* [Emojis](/v3/emojis/#emojis)
-* [Get rate limit status for the authenticated user](/v3/rate_limit/#get-rate-limit-status-for-the-authenticated-user)
+* [Root endpoint](/rest#root-endpoint)
+* [Emojis](/rest/reference/emojis#emojis)
+* [Get rate limit status for the authenticated user](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 
 ##### Search
 
-* [Search code](/v3/search/#search-code)
-* [Search commits](/v3/search/#search-commits)
-* [Search labels](/v3/search/#search-labels)
-* [Search repositories](/v3/search/#search-repositories)
-* [Search topics](/v3/search/#search-topics)
-* [Search users](/v3/search/#search-users)
+* [Search code](/rest/reference/search#search-code)
+* [Search commits](/rest/reference/search#search-commits)
+* [Search labels](/rest/reference/search#search-labels)
+* [Search repositories](/rest/reference/search#search-repositories)
+* [Search topics](/rest/reference/search#search-topics)
+* [Search users](/rest/reference/search#search-users)
 
 ##### Statuses
 
-* [Get the combined status for a specific reference](/v3/repos/statuses/#get-the-combined-status-for-a-specific-reference)
-* [List commit statuses for a reference](/v3/repos/statuses/#list-commit-statuses-for-a-reference)
-* [Create a commit status](/v3/repos/statuses/#create-a-commit-status)
+* [Get the combined status for a specific reference](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)
+* [List commit statuses for a reference](/rest/reference/repos#list-commit-statuses-for-a-reference)
+* [Create a commit status](/rest/reference/repos#create-a-commit-status)
 
 ##### Team Discussions
 
-* [List discussions](/v3/teams/discussions/#list-discussions)
-* [Create a discussion](/v3/teams/discussions/#create-a-discussion)
-* [Get a discussion](/v3/teams/discussions/#get-a-discussion)
-* [Update a discussion](/v3/teams/discussions/#update-a-discussion)
-* [Delete a discussion](/v3/teams/discussions/#delete-a-discussion)
-* [List discussion comments](/v3/teams/discussion_comments/#list-discussion-comments)
-* [Create a discussion comment](/v3/teams/discussion_comments/#create-a-discussion-comment)
-* [Get a discussion comment](/v3/teams/discussion_comments/#get-a-discussion-comment)
-* [Update a discussion comment](/v3/teams/discussion_comments/#update-a-discussion-comment)
-* [Delete a discussion comment](/v3/teams/discussion_comments/#delete-a-discussion-comment)
+* [List discussions](/rest/reference/teams#list-discussions)
+* [Create a discussion](/rest/reference/teams#create-a-discussion)
+* [Get a discussion](/rest/reference/teams#get-a-discussion)
+* [Update a discussion](/rest/reference/teams#update-a-discussion)
+* [Delete a discussion](/rest/reference/teams#delete-a-discussion)
+* [List discussion comments](/rest/reference/teams#list-discussion-comments)
+* [Create a discussion comment](/rest/reference/teams#create-a-discussion-comment)
+* [Get a discussion comment](/rest/reference/teams#get-a-discussion-comment)
+* [Update a discussion comment](/rest/reference/teams#update-a-discussion-comment)
+* [Delete a discussion comment](/rest/reference/teams#delete-a-discussion-comment)
 
 ##### Topics
 
-* [Get all repository topics](/v3/repos#get-all-repository-topics)
-* [Replace all repository topics](/v3/repos/#replace-all-repository-topics)
+* [Get all repository topics](/rest/reference/repos#get-all-repository-topics)
+* [Replace all repository topics](/rest/reference/repos#replace-all-repository-topics)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Traffic
 
-* [Get repository clones](/v3/repos/traffic/#get-repository-clones)
-* [Get top referral paths](/v3/repos/traffic/#get-top-referral-paths)
-* [Get top referral sources](/v3/repos/traffic/#get-top-referral-sources)
-* [Get page views](/v3/repos/traffic/#get-page-views)
+* [Get repository clones](/rest/reference/repos#get-repository-clones)
+* [Get top referral paths](/rest/reference/repos#get-top-referral-paths)
+* [Get top referral sources](/rest/reference/repos#get-top-referral-sources)
+* [Get page views](/rest/reference/repos#get-page-views)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### User Blocking
 
-* [List users blocked by the authenticated user](/v3/users/blocking/#list-users-blocked-by-the-authenticated-user)
-* [Check if a user is blocked by the authenticated user](/v3/users/blocking/#check-if-a-user-is-blocked-by-the-authenticated-user)
-* [List users blocked by an organization](/v3/orgs/blocking/#list-users-blocked-by-an-organization)
-* [Check if a user is blocked by an organization](/v3/orgs/blocking/#check-if-a-user-is-blocked-by-an-organization)
-* [Block a user from an organization](/v3/orgs/blocking/#block-a-user-from-an-organization)
-* [Unblock a user from an organization](/v3/orgs/blocking/#unblock-a-user-from-an-organization)
-* [Block a user](/v3/users/blocking/#block-a-user)
-* [Unblock a user](/v3/users/blocking/#unblock-a-user)
+* [List users blocked by the authenticated user](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
+* [Check if a user is blocked by the authenticated user](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user)
+* [List users blocked by an organization](/rest/reference/orgs#list-users-blocked-by-an-organization)
+* [Check if a user is blocked by an organization](/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization)
+* [Block a user from an organization](/rest/reference/orgs#block-a-user-from-an-organization)
+* [Unblock a user from an organization](/rest/reference/orgs#unblock-a-user-from-an-organization)
+* [Block a user](/rest/reference/users#block-a-user)
+* [Unblock a user](/rest/reference/users#unblock-a-user)
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ##### User Emails
 
 {% if currentVersion == "free-pro-team@latest" %}
-* [Set primary email visibility for the authenticated user](/v3/users/emails/#set-primary-email-visibility-for-the-authenticated-user)
+* [Set primary email visibility for the authenticated user](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
-* [List email addresses for the authenticated user](/v3/users/emails/#list-email-addresses-for-the-authenticated-user)
-* [Add email address(es)](/v3/users/emails/#add-an-email-address-for-the-authenticated-user)
-* [Delete email address(es)](/v3/users/emails/#delete-an-email-address-for-the-authenticated-user)
-* [List public email addresses for the authenticated user](/v3/users/emails/#list-public-email-addresses-for-the-authenticated-user)
+* [List email addresses for the authenticated user](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
+* [Add email address(es)](/rest/reference/users#add-an-email-address-for-the-authenticated-user)
+* [Delete email address(es)](/rest/reference/users#delete-an-email-address-for-the-authenticated-user)
+* [List public email addresses for the authenticated user](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user)
+{% endif %}
 
 ##### User Followers
 
-* [List followers of a user](/v3/users/followers/#list-followers-of-a-user)
-* [List the people a user follows](/v3/users/followers/#list-the-people-a-user-follows)
-* [Check if a person is followed by the authenticated user](/v3/users/followers/#check-if-a-person-is-followed-by-the-authenticated-user)
-* [Follow a user](/v3/users/followers/#follow-a-user)
-* [Unfollow a user](/v3/users/followers/#unfollow-a-user)
-* [Check if a user follows another user](/v3/users/followers/#check-if-a-user-follows-another-user)
+* [List followers of a user](/rest/reference/users#list-followers-of-a-user)
+* [List the people a user follows](/rest/reference/users#list-the-people-a-user-follows)
+* [Check if a person is followed by the authenticated user](/rest/reference/users#check-if-a-person-is-followed-by-the-authenticated-user)
+* [Follow a user](/rest/reference/users#follow-a-user)
+* [Unfollow a user](/rest/reference/users#unfollow-a-user)
+* [Check if a user follows another user](/rest/reference/users#check-if-a-user-follows-another-user)
 
 ##### User Gpg Keys
 
-* [List GPG keys for the authenticated user](/v3/users/gpg_keys/#list-gpg-keys-for-the-authenticated-user)
-* [Create a GPG key for the authenticated user](/v3/users/gpg_keys/#create-a-gpg-key-for-the-authenticated-user)
-* [Get a GPG key for the authenticated user](/v3/users/gpg_keys/#get-a-gpg-key-for-the-authenticated-user)
-* [Delete a GPG key for the authenticated user](/v3/users/gpg_keys/#delete-a-gpg-key-for-the-authenticated-user)
-* [List gpg keys for a user](/v3/users/gpg_keys/#list-gpg-keys-for-a-user)
+* [List GPG keys for the authenticated user](/rest/reference/users#list-gpg-keys-for-the-authenticated-user)
+* [Create a GPG key for the authenticated user](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user)
+* [Get a GPG key for the authenticated user](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user)
+* [Delete a GPG key for the authenticated user](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user)
+* [List gpg keys for a user](/rest/reference/users#list-gpg-keys-for-a-user)
 
 ##### User Public Keys
 
-* [List public SSH keys for the authenticated user](/v3/users/keys/#list-public-ssh-keys-for-the-authenticated-user)
-* [Create a public SSH key for the authenticated user](/v3/users/keys/#create-a-public-ssh-key-for-the-authenticated-user)
-* [Get a public SSH key for the authenticated user](/v3/users/keys/#get-a-public-ssh-key-for-the-authenticated-user)
-* [Delete a public SSH key for the authenticated user](/v3/users/keys/#delete-a-public-ssh-key-for-the-authenticated-user)
-* [List public keys for a user](/v3/users/keys/#list-public-keys-for-a-user)
+* [List public SSH keys for the authenticated user](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user)
+* [Create a public SSH key for the authenticated user](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user)
+* [Get a public SSH key for the authenticated user](/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user)
+* [Delete a public SSH key for the authenticated user](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user)
+* [List public keys for a user](/rest/reference/users#list-public-keys-for-a-user)
 
 ##### Users
 
-* [Get the authenticated user](/v3/users/#get-the-authenticated-user)
-* [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token)
+* [Get the authenticated user](/rest/reference/users#get-the-authenticated-user)
+* [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
 {% if currentVersion == "free-pro-team@latest" %}
-* [List subscriptions for the authenticated user](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
+* [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
-* [List users](/v3/users/#list-users)
-* [Get a user](/v3/users/#get-a-user)
+* [List users](/rest/reference/users#list-users)
+* [Get a user](/rest/reference/users#get-a-user)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Workflow Runs
 
-* [List workflow runs for a repository](/v3/actions/workflow-runs/#list-workflow-runs-for-a-repository)
-* [Get a workflow run](/v3/actions/workflow-runs/#get-a-workflow-run)
-* [Cancel a workflow run](/v3/actions/workflow-runs/#cancel-a-workflow-run)
-* [Download workflow run logs](/v3/actions/workflow-runs/#download-workflow-run-logs)
-* [Delete workflow run logs](/v3/actions/workflow-runs/#delete-workflow-run-logs)
-* [Re run a workflow](/v3/actions/workflow-runs/#re-run-a-workflow)
-* [List workflow runs](/v3/actions/workflow-runs/#list-workflow-runs)
-* [Get workflow run usage](/v3/actions/workflow-runs/#get-workflow-run-usage)
+* [List workflow runs for a repository](/rest/reference/actions#list-workflow-runs-for-a-repository)
+* [Get a workflow run](/rest/reference/actions#get-a-workflow-run)
+* [Cancel a workflow run](/rest/reference/actions#cancel-a-workflow-run)
+* [Download workflow run logs](/rest/reference/actions#download-workflow-run-logs)
+* [Delete workflow run logs](/rest/reference/actions#delete-workflow-run-logs)
+* [Re run a workflow](/rest/reference/actions#re-run-a-workflow)
+* [List workflow runs](/rest/reference/actions#list-workflow-runs)
+* [Get workflow run usage](/rest/reference/actions#get-workflow-run-usage)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Workflows
 
-* [List repository workflows](/v3/actions/workflows/#list-repository-workflows)
-* [Get a workflow](/v3/actions/workflows/#get-a-workflow)
-* [Get workflow usage](/v3/actions/workflows/#get-workflow-usage)
+* [List repository workflows](/rest/reference/actions#list-repository-workflows)
+* [Get a workflow](/rest/reference/actions#get-a-workflow)
+* [Get workflow usage](/rest/reference/actions#get-workflow-usage)
 {% endif %}

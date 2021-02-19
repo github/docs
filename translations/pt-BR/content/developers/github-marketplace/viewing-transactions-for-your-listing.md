@@ -1,6 +1,6 @@
 ---
 title: Visualizar transações para a sua listagem
-intro: 'A página de transações do {% data variables.product.prodname_marketplace %} permite que você faça o download e visualize todas as transações para a sua listagem do {% data variables.product.prodname_marketplace %}. Você pode visualizar as transações para o último dia (24 horas), semana, mês ou referente a todo o tempo em que sua {% data variables.product.prodname_github_app %} foi listado.'
+intro: 'A página de transações do {% data variables.product.prodname_marketplace %} permite que você faça o download e visualize todas as transações para a sua listagem do {% data variables.product.prodname_marketplace %}. Você pode visualizar as transações do último dia (24 horas), semana, mês ou por todo o período em que o seu {% data variables.product.prodname_github_app %} foi listado.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
@@ -39,7 +39,8 @@ Para acessar as transações do {% data variables.product.prodname_marketplace %
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Selecione o {% data variables.product.prodname_github_app %} cujas transações você gostaria de ver.
+4. Selecione o
+{% data variables.product.prodname_github_app %} para o qual você gostaria de ver as transações.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Clique na aba **Transações**.
 7. Opcionalmente, selecione um período de tempo diferente, clicando no período suspenso no canto superior direito da página de transações. ![Período de tempo do Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

@@ -1,6 +1,6 @@
 ---
 title: Subversion と Git の違い
-intro: Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。
+intro: 'Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。'
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -35,9 +35,9 @@ Git プロジェクトも、単一のディレクトリに保管されます。 
 Git のワークフローは以下のようになります:
 
 * Git リポジトリは、ブランチおよびタグのすべての履歴を、*.git* ディレクトリ内に保管します。
-* 最新の安定したリリースは、`master` ブランチ内に含まれます。
+* 最新の安定したリリースは、デフォルトブランチに含まれています。
 * アクティブな feature は、別のブランチで開発されます。
-* feature が完了したとき、フィーチャブランチは `master` にマージされ消去されます。
+* feature が完了すると、フィーチャブランチはデフォルトブランチにマージされ、消去されます。
 
 Git はディレクトリ構造は同じままですが、SVN とは違い、ファイルの変更内容はブランチベースです。
 

@@ -1,73 +1,112 @@
 # The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-# 
+#
 # This GitHub Actions workflow keeps the main branch of those two repos in sync.
-# 
+#
 # For more details, see https://github.com/repo-sync/repo-sync#how-it-works
 
 name: Repo Sync
 
 on:
+  workflow_dispatch:
   schedule:
-  - cron: "*/15 * * * *" # every 15 minutes
+    - cron: '*/15 * * * *' # every 15 minutes
 
 env:
   FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
-  repo-sync:
-    name: Repo Sync
+  check-freezer:
+    name: Check for deployment freezes
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
+      - name: Exit if repo is frozen
+        if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
 
-    - name: Exit if repo is frozen
-      if: ${{ env.FREEZE == 'true' }}
-      run: |
-        echo 'The repo is currently frozen! Exiting this workflow.'
-        exit 1 # prevents further steps from running
+  repo-sync:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    name: Repo Sync
+    needs: check-freezer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
-    - name: Check out repo
-      uses: actions/checkout@v2
+      - name: Sync repo to branch
+        uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        with:
+          source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
+          source_branch: main
+          destination_branch: repo-sync
+          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
-    - name: Sync repo to branch
-      uses: repo-sync/github-sync@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-      with:
-        source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
-        source_branch: main
-        destination_branch: repo-sync
-        github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      - name: Create pull request
+        id: create-pull
+        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        with:
+          source_branch: repo-sync
+          destination_branch: main
+          pr_title: 'repo sync'
+          pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
+          pr_label: automerge,autoupdate,automated-reposync-pr
+          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
-    - name: Create pull request
-      uses: repo-sync/pull-request@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-      with:
-        source_branch: repo-sync
-        destination_branch: main
-        pr_title: "repo sync"
-        pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-        pr_label: automerge,autoupdate
-        github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      - name: Find pull request
+        uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
+        id: find-pull-request
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          branch: repo-sync
+          base: main
+          author: Octomerger
 
-    - name: Find pull request
-      uses: juliangruber/find-pull-request-action@v1
-      id: find-pull-request
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        branch: repo-sync
+      - name: Approve pull request
+        if: ${{ steps.find-pull-request.outputs.number }}
+        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.find-pull-request.outputs.number }}
 
-    - name: Approve pull request
-      if: ${{ steps.find-pull-request.outputs.number }}
-      uses: juliangruber/approve-pull-request-action@v1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        number: ${{ steps.find-pull-request.outputs.number }}
+      # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
+      - name: Update branch
+        if: ${{ steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const mainHeadSha = await github.git.getRef({
+              ...context.repo,
+              ref: 'heads/main'
+            })
+            console.log(`heads/main sha: ${mainHeadSha.data.object.sha}`)
 
-    - name: Send Slack notification if workflow fails
-      uses: rtCamp/action-slack-notify@master
-      if: failure()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-        SLACK_MESSAGE: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+            const pull = await github.pulls.get({
+              ...context.repo,
+              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+            })
+            console.log(`Pull request base sha: ${pull.data.base.sha}`)
+
+            if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
+              const updateBranch = await github.pulls.updateBranch({
+                ...context.repo,
+                pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+              })
+              console.log(updateBranch.data.message)
+            } else {
+              console.log(`Branch is already up-to-date`)
+            }
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: failure()
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22

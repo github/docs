@@ -4,20 +4,13 @@
 #note this file should not be translated
 productsInOrder:
   - github
-  - enterpriseServer
+  - 管理员
+  - 讨论
   - 操作
   - 包
   - developers
   - rest
   - graphql
   - insights
+  - 教育版
   - desktop
-#TODO this can be removed when the new versioning handling is in place
-hasEnterpriseUserVersions:
-  - github
-  - 操作
-  - developers
-  - rest
-  - graphql
-  - insights
-  - 包

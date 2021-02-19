@@ -17,7 +17,7 @@ versions:
  - You will **no longer** be able to sign into the converted user account.
  - You will **no longer** be able to create or modify gists owned by the converted user account.
  - An organization **cannot** be converted back to a user.
- - The SSH keys, OAuth tokens, job profile, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} reactions, {% endif %}and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
+ - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
  - Any commits made with the converted user account **will no longer be linked** to that account. The commits themselves **will** remain intact.
 
 {% endwarning %}

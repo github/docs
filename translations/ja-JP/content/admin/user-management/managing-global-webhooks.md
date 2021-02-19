@@ -1,16 +1,17 @@
 ---
 title: グローバルwebhookの管理
-intro: サイト管理者は、インスタンスレベルのイベントを追跡するためのグローバルwebhookの表示、追加、編集、削除が行えます。
+intro: 'サイト管理者は、グローバル webhook を表示、追加、編集、削除して、Enterprise のイベントを追跡できます。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### グローバルwebhookについて
 
-グローバルwebhookは、インスタンス上のユーザおよびOrganizationの管理に対するルールの自動的なモニタリング、対応、強制に利用できます。 たとえば以下のような場合に動作するようにwebhookを設定できます:
+グローバル webhook を使用して、Enterprise ユーザおよび Organization 管理のルールを自動的に監視、応答、適用できます。 たとえば以下のような場合に動作するようにwebhookを設定できます:
 - ユーザアカウントが作成または削除される
 - An organization is created or deleted
 - コラボレータがリポジトリに追加、またはリポジトリから削除される
@@ -20,11 +21,9 @@ versions:
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-
 ### グローバルwebhookの追加
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. **Add webhook（webhookの追加）**をクリックしてください。 ![Admin center の webhook ページ上の webhook 追加ボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
@@ -47,8 +46,7 @@ versions:
 
 ### グローバルwebhookの編集
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 編集したいwebhookの隣の**Edit（編集）**をクリックしてください。 ![webhook の隣の編集ボタン](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
@@ -57,8 +55,7 @@ versions:
 
 ### グローバルwebhookの削除
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 削除したいwebhookの隣の**Delete（削除）**をクリックしてください。 ![webhook の隣の削除ボタン](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
@@ -66,8 +63,7 @@ versions:
 
 ### 最近のデリバリとレスポンスの表示
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. webhook のリストで、デリバリを見たい webhook をクリックします。 ![各 webhook の表示リンクを持つ webhook のリスト](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)

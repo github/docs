@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Erwartetes Verhalten bei der Anzeige der Commit-Details über die Zeitleiste
@@ -38,20 +39,20 @@ Mit dem Befehl `git show` und dem Flag `--pretty=fuller` kannst Du überprüfen,
 $ git show <em>Your commit SHA number</em> --pretty=fuller
 commit <em>Your commit SHA number</em>
 Author:     octocat <em>user email</em>
-AuthorDate: Wed Jul 13 02:02:30 2016 +0900
+AuthorDate: Tue Apr 03 02:02:30 2018 +0900
 Commit:     Sally Johnson <em>user email</em>
-CommitDate: Wed Jul 20 06:25:08 2016 +0900
+CommitDate: Tue Apr 10 06:25:08 2018 +0900
 ```
 
 Weichen das Erstellungs- und Commit-Datum voneinander ab, kannst Du das Commit-Datum in der URL manuell ändern, um die Commit-Details anzuzeigen.
 
 Ein Beispiel:
-- Die folgende URL verwendet das Erstellungsdatum `2016-07-13`:
+- Die folgende URL verwendet das Verfassungsdatum `2018-04-03`:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-13T00:00:00Z&until=2016-07-13T23:59:59Z`
-- Die folgende URL verwendet das Commit-Datum `2016-07-19`:
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
+- Die folgende URL verwendet das Commit-Datum `2018-04-10`:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-19T00:00:00Z&until=2016-07-19T23:59:59Z`
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
 Wenn Du die URL mit dem korrigierten Commit-Datum aufrufst, werden die Commit-Details angezeigt.
 

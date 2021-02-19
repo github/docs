@@ -1,7 +1,7 @@
 ---
 title: 查看仓库的流量
-intro: 具有仓库推送权限的任何人都可以查看其流量，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点以及流量图中的热门内容。
-product: 'This repository insights graph is available in public repositories with {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_free_team %} for organizations, and in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[About repository graphs](/articles/about-repository-graphs)" and "[{% data variables.product.prodname_dotcom %}''s products](/articles/github-s-products)."{% endif %}'
+intro: '具有仓库推送权限的任何人都可以查看其流量，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点以及流量图中的热门内容。'
+product: '此仓库洞察图可用于具有 {% data variables.product.prodname_free_user %} 和 {% data variables.product.prodname_free_team %}（对于组织）的公共仓库，以及具有 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 和 {% data variables.product.prodname_ghe_cloud %} 的公共和私有仓库。{% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[关于仓库图](/articles/about-repository-graphs)”和“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)。”{% endif %}'
 redirect_from:
   - /articles/viewing-traffic-to-a-repository
 versions:
@@ -14,7 +14,7 @@ versions:
 
 {% tip %}
 
-**Tip:** You can hover over a specific day in the traffic graph to view the exact data for that day.
+**提示：**您可以将鼠标悬停在流量图中的特定日期，以查看该日期的确切数据。
 
 {% endtip %}
 
@@ -24,4 +24,4 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Traffic**. ![流量选项卡](/assets/images/help/graphs/traffic_tab.png)
+3. 在左侧边栏中，单击 **Traffic（流量）**。 ![流量选项卡](/assets/images/help/graphs/traffic_tab.png)

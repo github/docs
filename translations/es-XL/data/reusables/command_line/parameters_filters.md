@@ -1,1 +1,0 @@
-Puedes utilizar parámetros para definir la lista de resultados. Para obtener más información acerca de cómo utilizar los parámetros, consulta la sección de [Parámetros](/v3/#parameters).

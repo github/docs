@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -28,7 +29,7 @@ versions:
 
 ### 提交评论的自定义媒体类型
 
-以下是提交评论支持的媒体类型。 您可以在[此处](/v3/media/)阅读有关 API 中媒体类型使用情况的更多信息。
+以下是提交评论支持的媒体类型。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -49,11 +50,14 @@ versions:
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 社区
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## 内容
 
@@ -61,7 +65,7 @@ versions:
 
 ### 仓库内容的自定义媒体类型
 
-[自述文件](/v3/repos/contents/#get-a-repository-readme)、[文件](/v3/repos/contents/#get-repository-content)和[符号链接](/v3/repos/contents/#get-repository-content)支持以下自定义媒体类型：
+[自述文件](/rest/reference/repos#get-a-repository-readme)、[文件](/rest/reference/repos#get-repository-content)和[符号链接](/rest/reference/repos#get-repository-content)支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -70,13 +74,13 @@ versions:
 
 对于 Markdown 或 AsciiDoc 等标记文件，您可以使用 `.html` 媒体类型检索渲染的 HTML。 使用我们的开源[标记库](https://github.com/github/markup)将标记语言渲染为 HTML。
 
-[所有对象](/v3/repos/contents/#get-repository-content)都支持以下自定义媒体类型：
+[所有对象](/rest/reference/repos#get-repository-content)都支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.object
 
 使用 `object` 媒体类型参数以一致的对象格式检索内容，而不考虑内容类型。 例如，响应将是包含对象数组的 `entries` 属性的对象，而不是目录的对象数组。
 
-您可以在[此处](/v3/media/)阅读有关 API 中媒体类型使用情况的更多信息。
+您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -137,7 +141,7 @@ versions:
 
 ### 非活动部署
 
-当您将部署状态设置为 `success` 时，同一仓库中所有先前的非瞬态、非生产环境部署将变成 `inactive`。 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
 
 您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {% data variables.product.prodname_dotcom %} 中 `destroyed` 并删除对它的访问权限。
 
@@ -186,10 +190,10 @@ versions:
 * `built`：站点已构建。
 * `errored`：表示构建过程中发生错误。
 
-在{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}支持 `mister-fantastic-preview` 并{% endif %}返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
+在返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
 * `html_url`：所渲染的 Pages 站点的绝对 URL（包括模式）。 例如，`https://username.github.io`。
 * `source`：包含所渲染 Pages 站点的源分支和目录的对象。 这包括：
-   - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_master_ 或 _gh-pages_。
+   - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_main_ 或 _gh-pages_。
    - `path`：提供站点发布内容的仓库目录。 可能是 `/` 或 `/docs`。
 
 {% for operation in currentRestOperations %}
@@ -216,7 +220,7 @@ versions:
 
 计算仓库统计信息是一项昂贵的操作，所以我们尽可能返回缓存的数据。  如果您查询仓库的统计信息时，数据尚未缓存，您将会收到 `202` 响应；同时触发后台作业以开始编译这些统计信息。 稍等片刻，待作业完成，然后再次提交请求。 如果作业已完成，该请求将返回 `200` 响应，响应正文中包含统计信息。
 
-仓库统计信息由仓库默认分支（一般是 master）的 SHA 缓存；推送到默认分支将重置统计信息缓存。
+仓库统计信息由仓库默认分支的 SHA 缓存；推送到默认分支将重置统计信息缓存。
 
 ### 统计排除某些类型的提交
 
@@ -248,6 +252,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 流量
 
 对于您具有推送权限的仓库，流量 API 提供对仓库图中所示信息的访问权限。 更多信息请参阅“<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">查看仓库的流量</a>”。
@@ -255,6 +260,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## Web 挂钩
 
@@ -263,7 +269,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 如果您要设置一个 web 挂钩来接收来自组织所有仓库的事件，请参阅关于[组织 web 挂钩](/rest/reference/orgs#webhooks)的 API 文档。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### 接收 web 挂钩
@@ -292,14 +298,14 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 #### 回调 URL
 回调 URL 可以使用 `http://` 协议。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回调以指定 GitHub 服务。
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回叫来指定 GitHub 服务。
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 

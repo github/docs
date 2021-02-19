@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Headings
 
 To create a heading, add one to six `#` symbols before your heading text. The number of `#` you use will determine the size of the heading.
 
-```
+```markdown
 # The largest heading
 ## The second largest heading
 ###### The smallest heading
@@ -36,7 +37,7 @@ You can indicate emphasis with bold, italic, or strikethrough text.
 
 You can quote text with a `>`.
 
-```
+```markdown
 In the words of Abraham Lincoln:
 
 > Pardon my French
@@ -54,7 +55,7 @@ In the words of Abraham Lincoln:
 
 You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.
 
-```
+```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
@@ -101,7 +102,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 You can make an unordered list by preceding one or more lines of text with `-` or `*`.
 
-```
+```markdown
 - George Washington
 - John Adams
 - Thomas Jefferson
@@ -111,7 +112,7 @@ You can make an unordered list by preceding one or more lines of text with `-` o
 
 To order your list, precede each line with a number.
 
-```
+```markdown
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
@@ -125,7 +126,7 @@ You can create a nested list by indenting one or more list items below another i
 
 To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [Atom](https://atom.io/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (`-` or `*`) lies directly below the first character of the text in the item above it.
 
-```
+```markdown
 1. First list item
    - First nested list item
      - Second nested list item
@@ -139,7 +140,7 @@ To create a nested list in the comment editor on {% data variables.product.produ
 
 In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100.`) before `First list item`.
 
-```
+```markdown
 100. First list item
      - First nested list item
 ```
@@ -148,7 +149,7 @@ In this example, you could add a nested list item under the list item `100. Firs
 
 You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven spaces (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
-```
+```markdown
 100. First list item
      - First nested list item
        - Second nested list item
@@ -170,7 +171,7 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 ### Mentioning people and teams
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support What do you think about these updates?`
 
@@ -188,12 +189,9 @@ You can bring up a list of suggested issues and pull requests within the reposit
 
 For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Referencing external resources
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### Content attachments
 
@@ -217,7 +215,7 @@ You can add emoji to your writing by typing `:EMOJICODE:`.
 
 Typing `:` will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
 
-For a full list of available emoji and codes, check out [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
+For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### Paragraphs
 

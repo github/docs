@@ -1,1 +1,1 @@
-You can replace the default badge on your GitHub App by uploading your own logo image and customizing the background.
+您可以通过上传自己的徽标图像并自定义背景来替换 GitHub 应用程序上的默认徽章。

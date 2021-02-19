@@ -35,7 +35,7 @@
 - 
   term: 바이오
   description: >-
-    프로필에 있는 사용자 생성 설명: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: 청구 주기
   description: 특정 청구 계획에 대한 시간 간격입니다.
@@ -61,7 +61,7 @@
 - 
   term: 분기
   description: >-
-    분기는 리포지토리의 병렬 버전입니다. 리포지토리 내에 포함되어 있지만 기본 또는 마스터 브랜치에 영향을 주지 않으므로 "라이브" 버전을 방해하지 않고 자유롭게 작업할 수 있습니다. 변경한 경우 분기를 다시 마스터 브랜치에 병합하여 변경 내용을 게시할 수 있습니다.
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
 - 
   term: 분기 제한
   description: >-
@@ -123,7 +123,7 @@
 - 
   term: 커밋
   description: >-
-    커밋 또는 "개정"은 파일(또는 파일 집합)에 대한 개별 변경입니다. 작업을 저장하기 위해 커밋을 할 때 Git은 고유 ID(일명 "SHA" 또는 "해시")를 만들어 누가, 언제 만들었는지와 함께 커밋된 특정 변경 사항을 기록할 수 있습니다. 커밋에는 일반적으로 변경된 내용에 대한 간략한 설명인 커밋 메시지가 포함되어 있습니다.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: 커밋 작성자
   description: 커밋을 수행한 사용자입니다.
@@ -137,10 +137,11 @@
 - 
   term: 커밋 메시지
   description: >-
-    커밋을 수반하고 커밋이 도입하는 변경 내용을 전달하는 짧고 설명적인 텍스트입니다.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: 비교 브랜치
-  description: 끌어오기 요청을 만드는 데 사용하는 분기입니다. 이 분기는 끌어오기 요청에 대해 선택한 베이스 브랜치와 비교되며 변경 내용이 식별됩니다. 끌어오기 요청이 병합되면 베이스 브랜치가 비교 브랜치의 변경 내용으로 업데이트됩니다. 끌어오기 요청의 "헤드 브랜치"라고도 합니다.
+  description: >-
+    끌어오기 요청을 만드는 데 사용하는 분기입니다. 이 분기는 끌어오기 요청에 대해 선택한 베이스 브랜치와 비교되며 변경 내용이 식별됩니다. 끌어오기 요청이 병합되면 베이스 브랜치가 비교 브랜치의 변경 내용으로 업데이트됩니다. 끌어오기 요청의 "헤드 브랜치"라고도 합니다.
 - 
   term: 연속 통합
   description: >-
@@ -155,7 +156,7 @@
 - 
   term: 기여
   description: >-
-    GitHub의 특정 활동: - 사용자의 기여 그래프에 정사각형 추가: "[기여로 간주되는 것](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 프로필의 사용자 타임라인에 활동 추가: "[기여 활동](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: 기여자
   description: >-
@@ -180,7 +181,7 @@
 - 
   term: 기본 분기
   description: >-
-    다른 분기를 지정하지 않는 한 모든 끌어오기 요청 및 코드 커밋이 자동으로 수행되는 리포지토리의 기본 분기입니다. 이 분기를 일반적으로 `마스터`라고 합니다.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - 
   term: 의존도 그래프
   description: >-
@@ -228,7 +229,7 @@
     새 기능을 실험하거나 프로덕션 환경에 없는 이슈를 해결하는 데 사용되는 분기입니다. 토픽 분기라고도 합니다.
 - 
   term: 울타리친 코드 블록
-  description: '코드 블록 전후의 트리플 백틱 \`\`\`을 사용하여 GitHub Flavored Markdown으로 만들 수 있는 코드의 들여쓴 블록입니다. 이 [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)를 참조하십시오.'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: 가져오기
   description: >-
@@ -251,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    gist는 GitHub에서 편집, 복제 및 포크할 수 있는 공유 가능한 파일입니다. URL을 가진 모든 사람이 비밀 gist를 사용할 수 있지만, 사용자가 gist를 공개 또는 비밀로 만들 수 있습니다.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -387,9 +388,13 @@
   term: 마크업
   description: 문서에 주석을 달고 서식을 지정하는 시스템입니다.
 - 
+  term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+- 
   term: master
   description: >-
-    기본 개발 분기입니다. Git 리포지토리를 만들 때마다 "master"라는 분기가 만들어지고 활성 분기가 됩니다. 대부분의 경우 순전히 관례적인 것이고 필수는 아니지만 로컬 개발을 포함합니다.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
 - 
   term: 구성원 그래프
   description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.
@@ -431,7 +436,7 @@
 - 
   term: 알림
   description: >-
-    설정에 따라 웹 또는 이메일로 제공되는 업데이트로 관심 있는 활동에 대한 정보를 제공합니다.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth 앱
   description: >-

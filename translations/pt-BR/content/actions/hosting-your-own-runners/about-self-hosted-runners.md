@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -53,7 +54,16 @@ Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela
 * A máquina tem recursos de hardware suficientes para o tipo de fluxos de trabalho que você planeja executar. O aplicativo do executor auto-hospedado requer apenas recursos mínimos.
 * Se você desejar executar fluxos de trabalho que usam ações do contêiner do Docker ou dos contêineres de serviço, você deverá usar uma máquina Linux e o Docker deve estar instalados.
 
-### Sistemas operacionais compatíveis com executores auto-hospedados
+### Limites de uso
+
+Existem alguns limites sobre o uso de {% data variables.product.prodname_actions %} ao usar executores auto-hospedados. Estes limites estão sujeitos a mudanças.
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **Tempo de fila de tarefas** - Cada trabalho para executores auto-hospedados pode ser enfileirado por um máximo de 24 horas. Se um executor auto-hospedado não começar a executar a tarefa dentro deste limite, a tarefa será encerrada e não será concluída.
+{% data reusables.github-actions.usage-api-requests %}
+- **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+
+### Supported architectures and operating systems for self-hosted runners
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
 
@@ -78,11 +88,19 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
 
-{% if currentVersion != "free-pro-team@latest" %}
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 
@@ -102,9 +120,10 @@ Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-
 github.com
 api.github.com
 *.actions.githubusercontent.com
+codeload.github.com
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

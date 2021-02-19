@@ -1,6 +1,7 @@
 ---
 title: 管理组织的密码扫描
 intro: '您可以控制 {% data variables.product.product_name %} 要扫描组织中哪些仓库的密码。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: '组织所有者可以管理组织中仓库的 {% data variables.product.prodname_secret_scanning %}。'
 versions:
   free-pro-team: '*'

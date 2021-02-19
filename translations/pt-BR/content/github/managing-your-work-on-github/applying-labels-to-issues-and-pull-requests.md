@@ -7,18 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**Dica:** também é possível aplicar uma etiqueta no menu suspenso Labels (Etiquetas) em um problema ou uma pull request.
+**Dica:** Você pode aplicar até um máximo de 100 etiquetas para problemas e pull requests.
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
-4. No canto superior direito, clique em **Label** (Etiqueta) e comece a digitar o nome de uma etiqueta existente. Clique no nome da etiqueta para associá-la aos itens selecionados. ![Menu suspenso atribuição Marco Problemas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+4. No canto superior direito, clique em **Label** (Etiqueta) e comece a digitar o nome de uma etiqueta existente. Clique no nome da etiqueta para associá-la aos itens selecionados. Você também pode aplicar uma etiqueta no menu suspenso de etiquetas dentro de um problema ou pull request. ![Menu suspenso atribuição Marco Problemas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+
 
 ### Leia mais
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 许多文件可[在 {% data variables.product.product_name %} 上直接重命名](/articles/renaming-a-file)，但有些文件（如图像）需要从命令行重命名。

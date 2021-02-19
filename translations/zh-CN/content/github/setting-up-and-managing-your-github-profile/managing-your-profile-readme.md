@@ -1,63 +1,65 @@
 ---
-title: Managing your profile README
-intro: 'You can add a README to your {% data variables.product.prodname_dotcom %} profile to tell other people about yourself.'
+title: 管理个人资料自述文件
+intro: '可以向您的 {% data variables.product.prodname_dotcom %} 个人资料添加自述文件以向其他人介绍自己。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-### About your profile README
+### 关于您的个人资料自述文件
 
-You can share information about yourself with the community on {% data variables.product.prodname_dotcom %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
+通过创建个人资料自述文件，您可以与 {% data variables.product.prodname_dotcom %} 上的社区分享有关自己的信息。 {% data variables.product.prodname_dotcom %} 在个人资料页面的顶部显示您的个人资料自述文件。
 
-You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
+您决定在个人资料自述文件中包含哪些信息，因此您可以完全控制如何在 {% data variables.product.prodname_dotcom %} 上展示自己。 以下是访客可能在您的个人资料自述文件中找到感兴趣、有趣或有用信息的一些示例。
 
-- An "About me" section that describes your work and interests
-- Contributions you're proud of, and context about those contributions
-- Guidance for getting help in communities where you're involved
+- “About me（关于我）”部分介绍您的工作和兴趣。
+- 您引以为豪的贡献以及这些贡献的背景信息
+- 在您参与的社区获得帮助的指南
 
-![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
+![个人资料上显示的个人资料自述文件](/assets/images/help/repository/profile-with-readme.png)
 
-You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
+您可以使用 {% data variables.product.company_short %} Flavored Markdown 在个人资料自述文件中设置文本格式和包含表情符号、图像及 GIF。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)”。
 
 ### 基本要求
 
-GitHub will display your profile README on your profile page if all of the following are true.
+如果满足以下所有条件，GitHub 将在您的个人资料页面显示您的个人资料自述文件。
 
-- You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
-- The repository is public.
-- The repository contains a file named README.md in its root.
-- The README.md file contains any content.
+- 您使用与您的 {% data variables.product.prodname_dotcom %} 用户名匹配的名称创建了仓库。
+- 该仓库为公共仓库。
+- 仓库的根目录中包含名为 README.md 的文件。
+- README.md 文件包含任何内容。
 
 {% note %}
 
-**Note**: If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom_the_website %} and clicking **Share to profile**.
+**注**：如果您在 2020 年 7 月之前创建了一个与您的用户名同名的公共仓库，{% data variables.product.prodname_dotcom %} 不会自动在您的个人资料上显示该仓库的自述文件。 您可以转到 {% data variables.product.prodname_dotcom_the_website %} 上的仓库，然后单击 **Share to profile（分享到个人资料）**，从而手动将仓库的自述文件分享到您的个人资料。
 
-![Button to share README to profile](/assets/images/help/repository/share-to-profile.png)
+![将自述文件分享到个人资料的按钮](/assets/images/help/repository/share-to-profile.png)
 
 {% endnote %}
 
-### Adding a profile README
+### 添加个人资料自述文件
 
 {% data reusables.repositories.create_new %}
-2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat". ![Repository name field which matches username](/assets/images/help/repository/repo-username-match.png)
-3. （可选）添加仓库的说明。 For example, "My personal repository." ![用于输入仓库说明的字段](/assets/images/help/repository/create-personal-repository-desc.png)
-4. Select **Public**. ![Radio button to select visibility with public selected](/assets/images/help/repository/create-personal-repository-visibility.png)
+2. 在“Repository name（仓库名称）”下，输入与您的 {% data variables.product.prodname_dotcom %} 用户名匹配的仓库名称。 例如，如果您的用户名是 "octocat"，则仓库名称必须为 "octocat"。 ![与用户名匹配的仓库名称字段](/assets/images/help/repository/repo-username-match.png)
+3. （可选）添加仓库的说明。 例如，“My personal repository（我的个人仓库）”。 ![用于输入仓库说明的字段](/assets/images/help/repository/create-personal-repository-desc.png)
+4. 选择 **Public（公共）**。 ![选择公共仓库可见性的单选按钮](/assets/images/help/repository/create-personal-repository-visibility.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. Above the right sidebar, click **Edit README**. ![Button to edit README file](/assets/images/help/repository/personal-repository-edit-readme.png)
+7. 在左边栏上，单击 **Edit README（编辑自述文件）**。 ![编辑自述文件的按钮](/assets/images/help/repository/personal-repository-edit-readme.png)
 
-  The generated README file is pre-populated with a template to give you some inspiration for your profile README. ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
+  生成的自述文件用模板预先填充，为您创建个人资料自述文件提供一些启发。 ![带有预填充模板的自述文件](/assets/images/help/repository/personal-repository-readme-template.png)
 
-### Removing a profile README
+有关所有可用表情符号及其代码的摘要，请参阅“[表情符号备忘清单](http://www.emoji-cheat-sheet.com/)” 。
 
-The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
+### 删除个人资料自述文件
 
-- The README file is empty or doesn't exist.
-- The repository is private.
-- The repository name no longer matches your username.
+如果以下任何一项适用，个人资料自述文件将从您的 {% data variables.product.prodname_dotcom %} 个人资料中被删除：
 
-The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+- 自述文件为空或不存在。
+- 该仓库为私有仓库。
+- 仓库名称不再与您的用户名匹配。
+
+您选择的方法取决于您的需求，但如果您不确定，我们建议您将仓库设为私有。 有关如何将仓库设为私有的步骤，请参阅[“更改仓库的可见性”](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)。
 
 ### 延伸阅读
 

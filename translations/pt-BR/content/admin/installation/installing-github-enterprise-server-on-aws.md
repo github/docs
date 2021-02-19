@@ -12,7 +12,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - Você deve ter uma conta do AWS que possa iniciar instâncias do EC2 e criar volumes EBS. Para obter mais informações, consulte o [site do Amazon Web Services](https://aws.amazon.com/).
-- A maioria das ações necessárias para iniciar a {% data variables.product.product_location_enterprise %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
+- A maioria das ações necessárias para iniciar a {% data variables.product.product_location %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
 
 Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
@@ -28,7 +28,7 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
 ### Determinar o tipo de instância
 
-Antes de iniciar a {% data variables.product.product_location_enterprise %} no AWS, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
+Antes de iniciar a {% data variables.product.product_location %} no AWS, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
 
 #### Tipos de instância compatíveis
 
@@ -130,4 +130,5 @@ As instâncias primária e de réplica devem receber EIPs separados nas configur
 
 ### Leia mais
 
-- [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

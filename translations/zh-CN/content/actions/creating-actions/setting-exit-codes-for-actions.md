@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ versions:
 
 ### 在 JavaScript 操作中设置失败退出代码
 
-如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) 包来记录消息并设置失败退出代码。 例如：
+如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包来记录消息并设置失败退出代码。 例如：
 
 ```javascript
 try {
@@ -40,11 +41,13 @@ try {
 
 如果要创建 Docker 容器操作，您可以在 `entrypoint.sh` 脚本中设置失败退出代码。 例如：
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 更多信息请参阅“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。

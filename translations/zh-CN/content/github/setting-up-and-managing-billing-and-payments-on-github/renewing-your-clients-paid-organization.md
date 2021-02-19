@@ -1,6 +1,6 @@
 ---
 title: 续订客户的付费组织
-intro: 如果您客户的组织有存档的有效付款方式，则其年度订阅将自动续订。 帐单管理员可以查看和更新组织的付款方式和订阅。
+intro: '如果您客户的组织有存档的有效付款方式，则其年度订阅将自动续订。 帐单管理员可以查看和更新组织的付款方式和订阅。'
 redirect_from:
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} converter integrantes da organização em colaboradores externos.
@@ -23,7 +24,7 @@ Para obter mais informações, consulte "[Níveis de permissão para uma organiz
 
 Recomendamos rever o acesso dos membros da organização aos repositórios para garantir que seu o acesso seja como você espera. Para obter mais informações, consulte "[Gerenciar o acesso de um indivíduo ao repositório de uma organização](/articles/managing-an-individual-s-access-to-an-organization-repository)".
 
-Na conversão de um integrante da organização em um colaborador externo, os privilégios dele como integrante da organização ficam salvos por três meses para que seja possível restaurar os privilégios de associação se você{% if currentVersion == "free-pro-team@latest" %}convidá-lo para reingressar{% else %} adicioná-lo de volta{% endif %} na organização dentro desse período. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+Ao converter um integrante da organização em um colaborador externo, seus privilégios como integrantes da organização serão salvos por três meses para que você possa restaurar seus privilégios de associação se você{% if currentVersion == "free-pro-team@latest" %} convidá-los a juntar-se novamente{% else %} adicione-os à{% endif %} sua organização nesse período de tempo. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

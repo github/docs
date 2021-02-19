@@ -8,23 +8,35 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data reusables.two_fa.auth_methods_2fa %}
+### 关于组织的双重身份验证
 
-### 强制执行双重身份验证的要求
+{% data reusables.two_fa.about-2fa %} 您可以要求组织中的所有{% if currentVersion == "free-pro-team@latest" %}成员、外部协作者和帐单管理员{% else %}成员和外部协作者{% endif %}在 {% data variables.product.product_name %} 上启用双重身份验证。 有关双重身份验证的更多信息，请参阅“[使用双重身份验证 (2FA) 保护您的帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
 
-在可以要求{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}使用 2FA 之前，您必须为自己的个人帐户[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa/)。
+{% if currentVersion == "free-pro-team@latest" %}
+
+您还可以要求企业中的组织使用双重身份验证。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)”。
+
+{% endif %}
 
 {% warning %}
 
 **警告：**
 
-- 需要对您的组织使用双重身份验证时，不使用 2FA 的{% if currentVersion == "free-pro-team@latest" %}成员、外部协作者和帐单管理员{% else %}成员和外部协作者{% endif %}（包括自动程序帐户）将从组织中删除，并且失去访问其仓库的权限。 他们还会失去对组织私有仓库的复刻的访问权限。 如果他们在从您的组织中删除后的三个月内为其个人帐户启用双重身份验证，您可以[恢复其访问权限和设置](/articles/reinstating-a-former-member-of-your-organization)。
-- 如果组织所有者、成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %}或外部协作者在您启用所需的双重身份验证后为其个人帐户禁用 2FA，则系统会自动将其从组织中删除。
+- 要求您的组织使用双重身份验证时，不使用 2FA 的{% if currentVersion == "free-pro-team@latest" %}成员、外部协作者和帐单管理员{% else %}成员和外部协作者{% endif %}（包括自动程序帐户）将从组织中删除，并且失去访问其仓库的权限。 他们还会失去对组织私有仓库的复刻的访问权限。 如果他们在从您的组织中删除后的三个月内为其个人帐户启用双重身份验证，您可以[恢复其访问权限和设置](/articles/reinstating-a-former-member-of-your-organization)。
+- 如果组织所有者、成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %} 或外部协作者在您启用所需的双重身份验证后为其个人帐户禁用 2FA，则系统会自动将其从组织中删除。
 - 如果您是某个要求双重身份验证的组织的唯一所有者，则在不为组织禁用双重身份验证要求的情况下，您将无法为个人帐户禁用双重身份验证。
 
 {% endwarning %}
 
-在您需要使用双重身份验证之前，我们建议您通知{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}，并要求他们为其帐户设置 2FA。 您可以在组织的 People（人员）页面中[查看成员和外部协作者是否已使用 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
+{% data reusables.two_fa.auth_methods_2fa %}
+
+### 基本要求
+
+在要求{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}使用双重身份验证之前，您必须对 {% data variables.product.product_name %} 上的帐户启用双重身份验证。 更多信息请参阅“[使用双重身份验证 (2FA) 保护您的帐户](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)”。
+
+在您要求使用双重身份验证之前，我们建议您通知{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}，要求他们为其帐户设置 2FA。 您可以查看成员和外部协作者是否已经使用 2FA。 更多信息请参阅“[查看组织中的用户是否已启用 2FA](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)”。
+
+### 您的组织中需要双重身份验证
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

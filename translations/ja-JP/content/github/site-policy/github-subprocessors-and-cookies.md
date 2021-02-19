@@ -10,102 +10,68 @@ versions:
   free-pro-team: '*'
 ---
 
-発効日：**2020年12月8日**
+Effective date: **January 29, 2021**
 
-GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 この目的のため、当社は[当社のサブプロセッサ](#github-subprocessors)、[クッキー](#cookies-on-github)の使用方法、および[GitHubにおけるトラッキング](#tracking-on-github)を実施する場所とその方法について説明するページをご用意しました。
+GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
 ### GitHubのサブプロセッサ
 
 当社がお客様の情報を、ベンダーやサービスプロバイダなどのサードパーティーのサブプロセッサと共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、全てのベンダーに対して、 ユーザの個人情報 ([プライバシーについての声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するよう要求しています。
 
-| サブプロセッサ名           | 処理の内容                           | 処理の場所 | Corporate Location |
-| ------------------ | ------------------------------- | ----- | ------------------ |
-| Automattic         | ブログサービス                         | 米国    | 米国                 |
-| AWS Amazon         | データのホスティング                      | 米国    | 米国                 |
-| Braintree (PayPal) | プランのクレジットカード決済処理業者              | 米国    | 米国                 |
-| Clearbit           | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
-| Discourse          | コミュニティフォーラムのソフトウェアプロバイダ         | 米国    | 米国                 |
-| DiscoverOrg        | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
-| Eloqua             | マーケティングキャンペーンの自動化               | 米国    | 米国                 |
-| Google Apps        | 社内インフラストラクチャ                    | 米国    | 米国                 |
-| Google Analytics   | ウェブサイトの分析およびパフォーマンス             | 米国    | 米国                 |
-| LinkedIn Navigator | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
-| Magic Robot        | キャンペーンレポート (Salesforceのアドオン)    | 米国    | 米国                 |
-| MailChimp          | 顧客チケットメールサービスプロバイダ              | 米国    | 米国                 |
-| Mailgun            | トランザクションメールサービスプロバイダ            | 米国    | 米国                 |
-| Microsoft          | Microsoft Services              | 米国    | 米国                 |
-| Monday.com         | チームコラボレーションおよびプロジェクト管理プラットフォーム  | 米国    | イスラエル              |
-| Nexmo              | SMS通知プロバイダ                      | 米国    | 米国                 |
-| Oracle             | 企業金融システム                        | 米国    | 米国                 |
-| Salesforce.com     | 顧客関係管理                          | 米国    | 米国                 |
-| Sendgrid           | トランザクションメールサービスプロバイダ            | 米国    | 米国                 |
-| Sentry.io          | Application monitoring provider | 米国    | 米国                 |
-| Stripe             | 決済プロバイダ                         | 米国    | 米国                 |
-| Twilio             | SMS通知プロバイダ                      | 米国    | 米国                 |
-| Zendesk            | カスタマーサポートのチケットシステム              | 米国    | 米国                 |
-| Zuora              | 企業課金システム                        | 米国    | 米国                 |
+| サブプロセッサ名                 | 処理の内容                                                           | 処理の場所 | Corporate Location |
+|:------------------------ |:--------------------------------------------------------------- |:----- |:------------------ |
+| Automattic               | ブログサービス                                                         | 米国    | 米国                 |
+| AWS Amazon               | データのホスティング                                                      | 米国    | 米国                 |
+| Braintree (PayPal)       | プランのクレジットカード決済処理業者                                              | 米国    | 米国                 |
+| Clearbit                 | マーケティングデータのエンリッチメントサービス                                         | 米国    | 米国                 |
+| Discourse                | コミュニティフォーラムのソフトウェアプロバイダ                                         | 米国    | 米国                 |
+| Eloqua                   | マーケティングキャンペーンの自動化                                               | 米国    | 米国                 |
+| Google Apps              | 社内インフラストラクチャ                                                    | 米国    | 米国                 |
+| MailChimp                | 顧客チケットメールサービスプロバイダ                                              | 米国    | 米国                 |
+| Mailgun                  | トランザクションメールサービスプロバイダ                                            | 米国    | 米国                 |
+| Microsoft                | Microsoft Services                                              | 米国    | 米国                 |
+| Monday.com               | チームコラボレーションおよびプロジェクト管理プラットフォーム                                  | 米国    | イスラエル              |
+| Nexmo                    | SMS通知プロバイダ                                                      | 米国    | 米国                 |
+| Salesforce.com           | 顧客関係管理                                                          | 米国    | 米国                 |
+| Sentry.io                | Application monitoring provider                                 | 米国    | 米国                 |
+| Stripe                   | 決済プロバイダ                                                         | 米国    | 米国                 |
+| Twilio & Twilio Sendgrid | SMS notification provider & transactional mail service provider | 米国    | 米国                 |
+| Zendesk                  | カスタマーサポートのチケットシステム                                              | 米国    | 米国                 |
+| Zuora                    | 企業課金システム                                                        | 米国    | 米国                 |
 
 当社ユーザの個人情報を取り扱う新たなサブプロセッサとやり取りを始める際、サブプロセッサと解約する際、およびサブプロセッサの利用方法を変更する際は、このページを更新します。 新たなサブプロセッサについての質問や懸念がある場合は、 {% data variables.contact.contact_privacy %}からお気軽にお問い合わせください。
 
 ### GitHub上のクッキー
 
-GitHubは、当社のサービスとのインターアクションを容易かつ有意義なものとするためにクッキーを利用します。 当社は、お客様のログインの保持、お客様の設定の記憶、GitHubの今後の開発のための情報提供、ならびにGitHubの製品およびサービスをサードパーティー上のサイトでお客様に宣伝することを目的として、クッキー (およびHTML5 localStorageのような類似技術) を利用します。
+GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
 
-クッキーとは、当社のウェブサーバーがお客様のコンピュータまたはモバイルデバイスに保存する小さなテキストで、お客様が当社のサイトに再訪したときにブラウザから送信されます。 単にGitHubにアクセスしただけで、クッキーがお客様を特定できるとは限りません。ただしクッキーは、ログインしている各ユーザーに対して一意の識別子を保存する場合があります。 当社は、お客様のログインの保持、お客様の設定の記憶およびGitHubの今後の開発のための情報提供を目的として、クッキーを使用します。 セキュリティ上の理由から、当社では、デバイスを識別するためにクッキーを利用しています。 当社のウェブサイトを利用することで、お客様は、お客様のコンピュータまたはデバイスにこれらの種類のクッキーを当社が保管することに同意したものとされます。 お客様がこれらのクッキーを許可するブラウザまたはデバイスの能力を無効にした場合、GitHubのサービスにログインまたは利用することはできなくなります。 当社ウェブサイトの一部の領域においては、お客様やお客様のデバイスを特定し、第三者のサイトでGitHubの製品およびサービスを宣伝するためクッキーを使用することがあります。
+Since the number and names of cookies may change, the table below may be updated from time to time.
 
-GitHubは、以下の理由により、以下のクッキーを当社のユーザーに設定します。
+| Service Provider | Cookie Name                          | 説明                                                                                                                                                                | Expiration*                                                   |
+|:---------------- |:------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------- |
+| GitHub           | `app_manifest_token`                 | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session.                                   | five minutes                                                  |
+| GitHub           | `_device_id`                         | This cookie is used to track recognized devices for security purposes.                                                                                            | one year                                                      |
+| GitHub           | `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                                                                                                       | one year                                                      |
+| GitHub           | `_gh_ent`                            | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form.                        | two weeks                                                     |
+| GitHub           | `_gh_sess`                           | このクッキーは、ユーザが複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。                                                                               | セッション                                                         |
+| GitHub           | `gist_oauth_csrf`                    | このクッキーは、OAuthフローを開始したユーザが、それを完了したユーザと同一であることを保証するために、Gistによって設定されます。                                                                                              | deleted when oauth state is validated                         |
+| GitHub           | `gist_user_session`                  | このクッキーは、別のホストで実行されている場合にGistによって使用されます。                                                                                                                           | two weeks                                                     |
+| GitHub           | `has_recent_activity`                | This cookie is used to prevent showing the security interstitial to users that have visited the app recently.                                                     | one hour                                                      |
+| GitHub           | `__Host-gist_user_session_same_site` | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。                                                                                        | two weeks                                                     |
+| GitHub           | `__Host-user_session_same_site`      | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。                                                                                        | two weeks                                                     |
+| GitHub           | `logged_in`                          | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                                                                                                       | one year                                                      |
+| GitHub           | `marketplace_repository_ids`         | This cookie is used for the marketplace installation flow.                                                                                                        | one hour                                                      |
+| GitHub           | `marketplace_suggested_target_id`    | This cookie is used for the marketplace installation flow.                                                                                                        | one hour                                                      |
+| GitHub           | `_octo`                              | This cookie is used for session management including caching of dynamic content, conditional feature access, support request metadata, and first party analytics. | one year                                                      |
+| GitHub           | `org_transform_notice`               | This cookie is used to provide notice during organization transforms.                                                                                             | one hour                                                      |
+| GitHub           | `private_mode_user_session`          | This cookie is used for Enterprise authentication requests.                                                                                                       | two weeks                                                     |
+| GitHub           | `saml_csrf_token`                    | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                                                                                              | until user closes browser or completes authentication request |
+| GitHub           | `saml_csrf_token_legacy`             | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                                                                                              | until user closes browser or completes authentication request |
+| GitHub           | `saml_return_to`                     | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                                                                                              | until user closes browser or completes authentication request |
+| GitHub           | `saml_return_to_legacy`              | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                                                                                              | until user closes browser or completes authentication request |
+| GitHub           | `tz`                                 | This cookie allows us to customize timestamps to your time zone.                                                                                                  | セッション                                                         |
+| GitHub           | `user_session`                       | このクッキーはログインに使用されます。                                                                                                                                               | two weeks                                                     |
 
-| クッキーの名前                              | 理由                                                                                  |
-| ------------------------------------ | ----------------------------------------------------------------------------------- |
-| `user_session`                       | このクッキーはログインに使用されます。                                                                 |
-| `logged_in`                          | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         |
-| `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         |
-| `_gh_sess`                           | このクッキーは、ユーザが複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。 |
-| `tz`                                 | このクッキーにより、ブラウザがどのお客様がどのタイムゾーンにいるか、ブラウザから当社に通知されます。                                  |
-| `gist_user_session`                  | このクッキーは、別のホストで実行されている場合にGistによって使用されます。                                             |
-| `saml_csrf_token`                    | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                |
-| `saml_return_to`                     | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                |
-| `gist_oauth_csrf`                    | このクッキーは、OAuthフローを開始したユーザが、それを完了したユーザと同一であることを保証するために、Gistによって設定されます。                |
-| `__Host-user_session_same_site`      | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          |
-| `__Host-gist_user_session_same_site` | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          |
-| `_ga`                                | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_gat`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_gid`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_octo`                              | このクッキーは、当社の内部分析サービスであるOctolyticsが、一意のユーザーとクライアントを区別するために使用されます。                     |
-| `tracker`                            | このクッキーは、サインアップ分析の参照元を追跡します。                                                         |
+_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
 
-当社サイトの一部のページでは、第三者のクッキーを設定する場合があります。 たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。
-
-### GitHub上のトラッキング
-
-「[Do Not Track](https://www.eff.org/issues/do-not-track)」(DNT) とは、オンラインサービス (特に広告ネットワーク) に対して、第三者のトラッキングサービスからお客様のオンライン活動にする特定の種類の情報を収集して共有することを望まない場合に、ブラウザで設定できるプライバシー設定です。 GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 トラッキングを望まないことを通知するようブラウザに対して設定したい場合、この通知を有効化する方法について、ブラウザのドキュメントをご確認ください。 [Privacy Badger](https://www.eff.org/privacybadger)など、トラッキングをブロックする良いアプリケーションもあります。
-
-DNTをサポートするブラウザでDNTを有効にしていない場合、当社のウェブサイ」のうち一部は、お客様の他のサービスにおけるオンラインブラウジングアクティビティを繰り返しトラッキングします。ただし、当社は、当社のアナリティクスおよびサービスプロバイダ以外の第三者に対して、GitHub上のユーザのアクティビティを繰り返しトラッキングすることを許可しません。 当社は、GitHubの製品やサービスを第三者のウェブサイトやサービス上でお客様に宣伝するために、これらのクッキーを使用します。 また当社は、当社の特定のページにおける、訪問者の動きを追跡するために用いている分析プロバイダーなどの特定のベンダーと契約を締結しています。 当社を代行して個人情報を収集しているベンダーのみが、当社のページ上のデータを収集することができます。当社は、当社を代行してこのデータを収集する各ベンダーとデータ保護契約を締結しています。 当社は、これらのベンダーから受け取ったデータを使用して、訪問者の関心をより深く理解し、当社のウェブサイトのパフォーマンスを把握し、コンテンツを改善します。 分析ベンダーは全て、上記サブプロセッサのリストに掲載されます。また、この種のデータを収集する全ページを以下に掲載しています。
-
-#### Google Analytics
-
-当社は、第三者の分析サービスとしてGoogleアナリティクスを用いて、第三者のウェブサイト上やサービス上の当社による広告キャンペーンを追跡しています。 当社がGoogleアナリティクスを使用するのは、当社ウェブサイトのパフォーマンスや、一般的にユーザがGitHubを移動し使用する方法についての情報を収集するためです。 これは、当社のユーザによるGitHubの使用について評価し、アクティビティの統計的なレポートをまとめ、当社コンテンツおよびウェブサイトのパフォーマンスを改善するために役立ちます。 Googleは自らのプライバシープラクティスについて詳細に説明し、[Googleアナリティクスのトラッキングをオプトアウトするためのブラウザアドオンを提供しています](https://tools.google.com/dlpage/gaoptout)。
-
-#### 分析が有効になっている場合があるGitHub上のページ
-
-当社サイトで、URLに以下のドメインおよびパス (サブドメインおよびサブパス) のいずれかを含むページでは、分析やその他のトラッキングコードが有効になっている場合があります。 GitHub上で当社がお客様の閲覧行動についての情報を収集させたくない場合は、[Privacy Badger](https://www.eff.org/privacybadger)などのトラッキングブロッカーを使用するか、Googleアナリティクスのトラッキングをオプトアウトします。
-
-- github.com/home (ログアウトしている場合、またはアカウントを持っていない場合は、github.comに移動したときに表示されるページです)
-- github.com/about
-- github.blog
-- github.com/enterprise
-- github.com/collections
-- github.com/developer-stories
-- github.com/events
-- github.com/explore
-- github.com/features
-- github.com/logos
-- github.com/nonprofit
-- github.com/open-source
-- github.com/personal
-- github.com/pricing
-- github.com/ten
-- github.com/trending
-- resources.github.com
-- de.github.com
-- fr.github.com
+(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。

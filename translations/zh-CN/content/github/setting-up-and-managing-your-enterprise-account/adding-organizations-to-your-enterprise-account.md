@@ -23,4 +23,4 @@ versions:
 3. 在 "Organization name"（组织名称）下，输入组织的名称。 ![用于输入新组织名称的字段](/assets/images/help/business-accounts/new-organization-name-field.png)
 4. 单击 **Create organization（创建组织）**。
 5. 在 "Invite owners"（邀请所有者）下，输入您想邀其成为组织所有者的人员的用户名，然后单击 **Invite（邀请）**。 ![组织所有者搜索字段和邀请按钮](/assets/images/help/business-accounts/invite-org-owner.png)
-6. Click **Finish**.
+6. 单击 **Finish（完成）**。

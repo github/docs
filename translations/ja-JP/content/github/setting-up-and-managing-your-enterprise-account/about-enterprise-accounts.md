@@ -25,9 +25,9 @@ Enterprise アカウントでは、複数の {% data variables.product.prodname_
 
 メンバーアクセスと管理に関する詳細は「[Enterprise アカウントでユーザを管理する](/articles/managing-users-in-your-enterprise-account)」 を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/v4/guides/managing-enterprise-accounts)」を参照してください。
-{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ### Enterprise アカウントにリンクされた Organization を管理する
 
@@ -36,6 +36,8 @@ Organization は、多くの人がいくつものプロジェクトにわたっ�
 Enterprise のオーナーは、Organization を作成して Enterprise にリンクできます。 Organization を Enterprise アカウントに追加した後は、Organization のポリシーを管理して強制できます。 特定の強制の選択肢は、設定によって異なります。概して、Enterprise アカウント内のすべての Organization に単一のポリシーを強制するか、Organization レベルでオーナーがポリシーを設定することを許可するかを選択できます。
 
 詳細は「[Enterprise アカウントで Organization を管理する](/articles/managing-organizations-in-your-enterprise-account)」および「[Enterprise アカウント内の Organization に対するポリシーを設定する](/articles/setting-policies-for-organizations-in-your-enterprise-account)」を参照してください。
+
+{% endif %}
 
 ### Enterprise アカウントにリンクされている {% data variables.product.prodname_ghe_server %} ライセンスの管理
 

@@ -11,11 +11,11 @@ versions:
 
 ### About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location_enterprise %}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -33,8 +33,9 @@ To use Docker with {% data variables.product.prodname_registry %}, you must also
 | `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
 | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
 | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
-| `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-|  N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled. | `http(s)://docker.HOSTNAME/` |
+| `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion == "enterprise-server@2.22" %}
+|  N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled for the {% data variables.product.prodname_registry %} 2.22 beta. | `http(s)://docker.HOSTNAME/` |{% endif %} {% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/docker/` | `http(s)://docker.HOSTNAME/`{% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
 | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`

@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode acessar a maioria dos objetos do GitHub (usuários, problemas, pull requests, etc.) usando a API REST ou a API do GraphQL. Com uma atualização recente [](https://developer.github.com/changes/2017-12-19-graphql-node-id/), você pode encontrar o **ID do nó global** de muitos objetos na API REST e usar esses IDs nas operações do GraphQL.
 
 {% note %}
 
-**Observação:** Na REST, o campo de ID do nó global é chamado `node_id`. No GraphQL, é um campo `id` na interface do `nó`. Para relembrar o que significa "nó" no GraphQL, consulte"[Introdução ao GraphQL](/v4/guides/intro-to-graphql/#node)".
+**Observação:** Na REST, o campo de ID do nó global é chamado `node_id`. No GraphQL, é um campo `id` na interface do `nó`. Para relembrar o que significa "nó" no GraphQL, consulte"[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#node)".
 
 {% endnote %}
 
@@ -28,7 +29,7 @@ Vamos analisar um exemplo.
 
 ### 1. Chame um ponto final da REST que retorna o ID do nó de um objeto
 
-Se você [solicitar o usuário autenticado](/v3/users/#get-the-authenticated-user):
+Se você [solicitar o usuário autenticado](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
@@ -100,7 +101,7 @@ query {
 
 Este tipo de consulta&mdash;ou seja, encontrar o nó pelo ID&mdash;é conhecida como "consulta direta de nó".
 
-Ao executar esta consulta, você verá que `__typename` é [`Usuário`](/v4/object/user/).
+Ao executar esta consulta, você verá que `__typename` é [`Usuário`](/graphql/reference/objects#user).
 
 ### 3. Faça uma pesquisa direta de nó no GraphQL
 
@@ -121,4 +122,4 @@ Este tipo de consulta é a abordagem-padrão para consultar um objeto pelo seu I
 
 ### Usando IDs de nó global em migrações
 
-Ao construir integrações que usam a API REST ou a API do GraphQL, considera-se uma prática recomendada persistir no ID de nó global para que você possa facilmente fazer referência a objetos entre nas versões da API. Para obter mais informações sobre como lidar com a transição entre a REST e o GraphQL, consulte "[Migrando da REST para o GraphQL](/v4/guides/migrating-from-rest/)".
+Ao construir integrações que usam a API REST ou a API do GraphQL, considera-se uma prática recomendada persistir no ID de nó global para que você possa facilmente fazer referência a objetos entre nas versões da API. Para obter mais informações sobre como lidar com a transição entre a REST e o GraphQL, consulte "[Migrando da REST para o GraphQL](/graphql/guides/migrating-from-rest-to-graphql)"

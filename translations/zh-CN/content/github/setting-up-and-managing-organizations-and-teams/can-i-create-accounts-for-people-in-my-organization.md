@@ -3,7 +3,7 @@ title: 我可以为组织中的人员创建帐户吗？
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization/
   - /articles/can-i-create-accounts-for-people-in-my-organization
-intro: 虽然您可以将用户添加到您创建的组织，但您无法代表其他人创建其个人用户帐户。
+intro: '虽然您可以将用户添加到您创建的组织，但您无法代表其他人创建其个人用户帐户。'
 versions:
   free-pro-team: '*'
 ---

@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プルリクエストのブランチが以下の条件を満たす場合にのみ、コミットを実行できます:
 - あなたがプッシュアクセス権限を持つリポジトリでオープンされ、かつそのリポジトリのフォークから作成されている
 - ユーザ所有のフォーク上にある
 - プルリクエストの作者から権限を付与されている
-- コミットを妨げる[ブランチ制限](/articles/about-branch-restrictions)がない
+- コミットを妨げる[ブランチ制限](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches)がない
 
 プルリクエストを作成したユーザのみが、ユーザー所有のフォークにコミットをプッシュする権限を与えることができます。 詳しい情報については、「[フォークから作成されたプルリクエストブランチへの変更を許可する](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」を参照してください。
 
@@ -22,7 +23,9 @@ versions:
 
 {% endnote %}
 
-1. {% data variables.product.product_name %}で、プルリクエストのブランチを作成したフォーク (またはリポジトリのコピー) のメインページに移動します。
+1. On
+
+{% data variables.product.product_name %} で、プルリクエストブランチが作成されたフォーク (またはリポジトリのコピー) のメインページに移動します。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
@@ -66,7 +69,7 @@ versions:
  **ヒント:** 例も含めたプルリクエストブランチに関する詳しい情報については「[プルリクエストを作成する](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。
 
  {% endtip %}
-8. これで、このブランチに対して任意の操作を実行できます。 You can push new commits to it, run some local tests, or merge other branches into the branch. 自由に修正しましょう。
+8. これで、このブランチに対して任意の操作を実行できます。 新しいコミットのプッシュ、ローカルでのテスト、他のブランチからのマージを行うことができます。 自由に修正しましょう。
 9. プルリクエストの head ブランチに変更をコミットした後、元のプルリクエストに直接、変更をプッシュできます。 この例では、head ブランチは `test-branch` です:
   ```shell
   $ git push origin <em>test-branch</em>

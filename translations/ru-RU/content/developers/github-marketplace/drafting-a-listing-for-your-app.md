@@ -40,7 +40,10 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
   ![App type selection](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}. ![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
+4. Select the app you'd like to add to
+
+{% data variables.product.prodname_marketplace %}.
+![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
 5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete. ![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
 
@@ -57,8 +60,8 @@ Once you've created a {% data variables.product.prodname_marketplace %} draft li
 
 ### Submitting your app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, the {% data variables.product.prodname_marketplace %} onboarding team will contact you with additional information about the onboarding process. You can learn more about the onboarding and security review process in "[Getting started with {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)."
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
 
 ### Removing a {% data variables.product.prodname_marketplace %} listing
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact [marketplace@github.com](mailto:marketplace@github.com) to remove your listing.
+If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.

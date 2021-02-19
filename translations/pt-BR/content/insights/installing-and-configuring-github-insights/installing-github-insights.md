@@ -16,6 +16,7 @@ versions:
 - Você precisa instalar dependências no servidor do aplicativo.
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), disponível via apt para [Debian](https://packages.debian.org/search?keywords=netcat) e [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -28,7 +29,8 @@ versions:
 Para conectar {% data variables.product.prodname_insights %} a {% data variables.product.prodname_enterprise %}, você deve criar um {% data variables.product.prodname_github_app %} em uma organização no {% data variables.product.prodname_enterprise %}. Uma versão com slug do nome do seu aplicativo será exibida no {% data variables.product.prodname_enterprise %} quando sua integração executar uma ação.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. Navegue até a organização que você gostaria de conectar ao {% data variables.product.prodname_insights %}.
+2. Acesse a organização à qual você deseja conectar-se
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. Clique em **Novo {% data variables.product.prodname_github_app %}**. ![Botão novo aplicativo do GitHub](/assets/images/help/apps/github_apps_new.png)
@@ -60,7 +62,7 @@ Para conectar {% data variables.product.prodname_insights %} a {% data variables
     - Repositório
     - Equipe ![Caixa de seleção para assinar eventos](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
-13. Para habilitar o {% data variables.product.prodname_github_app %} para acessar dados de qualquer usuário ou organização em {% data variables.product.product_location_enterprise %}, em "Onde este {% data variables.product.prodname_github_app %} pode ser instalado? , selecione **Qualquer conta**. ![Botões de opção para permitir acesso a qualquer conta](/assets/images/help/apps/github_apps_installation_options_any_account.png)
+13. Para habilitar o {% data variables.product.prodname_github_app %} para acessar dados de qualquer usuário ou organização em {% data variables.product.product_location %}, em "Onde este {% data variables.product.prodname_github_app %} pode ser instalado? , selecione **Qualquer conta**. ![Botões de opção para permitir acesso a qualquer conta](/assets/images/help/apps/github_apps_installation_options_any_account.png)
 14. Clique em **Criar {% data variables.product.prodname_github_app %}**. ![Botão Criar um aplicativo GitHub](/assets/images/help/apps/github_apps_create_github_app.png)
 15. Revise a configuração do seu aplicativo.
 16. Em "Chaves privadas", clique em **Gerar uma chave privada**. ![Gerar um botão de chave privada](/assets/images/help/apps/generate-private-key.png)
@@ -98,4 +100,4 @@ Para configurar o {% data variables.product.prodname_insights %} para conectar-s
 ### Leia mais
 
 - "[Gerenciar repositórios](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- "[{% data variables.product.prodname_insights %} e proteção de dados para sua organização](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} e proteção de dados para sua organização</a>"

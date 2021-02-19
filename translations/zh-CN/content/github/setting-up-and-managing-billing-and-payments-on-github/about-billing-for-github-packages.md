@@ -10,12 +10,16 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 数据传输每月都会重置，而存储使用量不重置。
 
-| 产品                                                         | 存储器   | 数据传输（每月） |
-| ---------------------------------------------------------- | ----- | -------- |
+| 产品                                                    | 存储器   | 数据传输（每月） |
+| ----------------------------------------------------- | ----- | -------- |
 | {% data variables.product.prodname_free_user %}     | 500MB | 1GB      |
 | {% data variables.product.prodname_pro %}             | 2GB   | 10GB     |
 | 组织的 {% data variables.product.prodname_free_team %} | 500MB | 1GB      |
@@ -27,7 +31,7 @@ versions:
 |                      | 托管 | 自托管 |
 | -------------------- | -- | --- |
 | 使用 `GITHUB_TOKEN` 访问 | 免费 | 免费  |
-| 使用个人访问令牌访问           | 免费 | $   |
+| 使用个人访问令牌访问           | 免费 | 美元  |
 
 存储使用情况与 {% data variables.product.prodname_actions %} 为您的帐户所拥有的仓库产生的构件共享。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
 
@@ -50,8 +54,8 @@ versions:
 
 ### 关于支出限制
 
-默认情况下，您的帐户对 {% data variables.product.prodname_registry %} 使用的支出限额为 0 美元。 要对超出帐户所含金额的私人软件包启用存储和数据传输，您可以增加支出限额或允许无限制支出。 更多信息请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”。
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

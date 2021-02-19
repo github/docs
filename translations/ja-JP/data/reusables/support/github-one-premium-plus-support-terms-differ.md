@@ -1,1 +1,0 @@
-{% data variables.product.prodname_ghe_one %}を購入したお客様については、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %}、{% data variables.product.prodname_registry %}に関する{% data variables.product.premium_plus_support_plan %}のサポートの条件は異なります。

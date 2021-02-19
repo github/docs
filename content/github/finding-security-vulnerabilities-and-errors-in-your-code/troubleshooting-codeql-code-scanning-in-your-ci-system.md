@@ -12,6 +12,7 @@ versions:
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
 ### The `init` command takes too long
 
@@ -50,4 +51,4 @@ If the `analyze` command for the {% data variables.product.prodname_codeql_runne
 
    {% endnote %}
 
-1. The code is built in a container or on a separate machine. If you use a containerized build or if you outsource the build to another machine, make sure to run the {% data variables.product.prodname_codeql_runner %} in the container or on the machine where your build task takes place.
+1. The code is built in a container or on a separate machine. If you use a containerized build or if you outsource the build to another machine, make sure to run the {% data variables.product.prodname_codeql_runner %} in the container or on the machine where your build task takes place. For more information, see "[Running CodeQL code scanning in a container](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)."

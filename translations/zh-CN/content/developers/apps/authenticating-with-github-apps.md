@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -42,7 +43,7 @@ versions:
 要验证私钥：
 
 1. 在 {% data variables.product.prodname_github_app %} 开发者设置页面的“私钥”部分，查找要验证的私钥和公钥对的指纹。 更多信息请参阅[生成私钥](#generating-a-private-key)。 ![私钥指纹](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
-2. Generate the fingerprint of your private key (PEM) locally by using the following command:
+2. 使用以下命令在本地生成私钥指纹 (PEM)：
     ```shell
     $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% if currentVersion ver_lt "enterprise-server@2.23" %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
     ```
@@ -92,7 +93,7 @@ puts jwt
 
 创建 JWT 后，在 API 请求的 `Header` 中对它进行设置。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.machine-man-preview+json" {% data variables.product.api_url_pre %}/app
 ```
@@ -109,7 +110,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 ```json
 {
   "message": "'Expiration' claim ('exp') must be a numeric value representing the future time at which the assertion expires.",
-  "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+  "documentation_url": "{% data variables.product.doc_url_pre %}"
 }
 ```
 
@@ -117,17 +118,17 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ### 作为 {% data variables.product.prodname_github_app %} 访问 API 端点
 
-有关获取关于 {% data variables.product.prodname_github_app %} 的高级信息所用的 REST API 端点列表，请参阅“[GitHub 应用程序](/v3/apps/)。”
+有关获取关于 {% data variables.product.prodname_github_app %} 的高级信息所用的 REST API 端点列表，请参阅“[GitHub 应用程序](/rest/reference/apps)。”
 
 ### 验证为安装
 
 通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 这些安装访问令牌由 {% data variables.product.prodname_github_app %} 用于进行身份验证。
 
-默认情况下，安装访问令牌的作用域为安装可访问的所有仓库。 您可以使用 `repository_ids` 参数将安装访问令牌的作用域限定于特定仓库。 See the [Create an installation access token for an app](/v3/apps/#create-an-installation-access-token-for-an-app) endpoint for more details. 安装访问令牌具有由 {% data variables.product.prodname_github_app %} 配置的权限，一个小时后到期。
+默认情况下，安装访问令牌的作用域为安装可访问的所有仓库。 您可以使用 `repository_ids` 参数将安装访问令牌的作用域限定于特定仓库。 请参阅[创建应用程序的安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)端点了解更多详细信息。 安装访问令牌具有由 {% data variables.product.prodname_github_app %} 配置的权限，一个小时后到期。
 
 要创建安装访问令牌，请在 API 请求的“授权”标头中加入[上文生成的](#jwt-payload) JWT：
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
@@ -143,11 +144,11 @@ $ curl -i -X POST \
 ```
 {% endif %}
 
-响应将包括您的安装访问令牌、到期日期、令牌权限及令牌可访问的仓库。 For more information about the response format, see the [Create an installation access token for an app](/v3/apps/#create-an-installation-access-token-for-an-app) endpoint.
+响应将包括您的安装访问令牌、到期日期、令牌权限及令牌可访问的仓库。 有关响应格式的更多信息，请参阅[创建应用程序的安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)端点。
 
 要使用安装访问令牌进行身份验证，请将其加入 API 请求的“授权”标头中。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
@@ -167,9 +168,9 @@ $ curl -i \
 
 ### 作为安装访问 API 端点
 
-有关适用于使用安装访问令牌的 {% data variables.product.prodname_github_app %} 的 REST API 端点列表，请参阅“[可用端点](/v3/apps/available-endpoints/)。”
+有关适用于使用安装访问令牌的 {% data variables.product.prodname_github_app %} 的 REST API 端点列表，请参阅“[可用端点](/rest/overview/endpoints-available-for-github-apps)。”
 
-有关与安装相关的端点的列表，请参阅“[安装](/v3/apps/installations/)。”
+有关与安装相关的端点的列表，请参阅“[安装](/rest/reference/apps#installations)。”
 
 ### 由安装验证基于 HTTP 的 Git 访问权限
 

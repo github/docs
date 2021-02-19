@@ -35,7 +35,7 @@
 - 
   term: Bio
   description: >-
-    Die vom Benutzer generierte Beschreibung, die sich in einem Profil befindet: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: Abrechnungszeitraum
   description: Das Zeitintervall für Ihren spezifischen Abrechnungsplan.
@@ -61,7 +61,7 @@
 - 
   term: Branch
   description: >-
-    Ein Branch ist eine parallele Version eines Repositorys. Er ist im Repository enthalten, wirkt sich jedoch weder auf den primären noch auf den Master-Branch aus. Dadurch können Sie frei arbeiten, ohne die „Live“-Version zu unterbrechen. Nachdem Sie die gewünschten Änderungen vorgenommen haben, können Sie Ihren Branch zurück in den Master-Branch mergen, um Ihre Änderungen zu veröffentlichen.
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
 - 
   term: Branch-Einschränkung
   description: >-
@@ -123,7 +123,7 @@
 - 
   term: Commit
   description: >-
-    Ein Commit (oder „Revision“) ist eine einzelne Änderung an einer Datei (oder an einer Reihe von Dateien). Wenn Sie einen Commit durchführen, um Ihre Arbeit zu speichern, erstellt Git eine eindeutige ID (die auch als „SHA“ oder „Hash“ bezeichnet wird). Dadurch können Sie den Überblick dahingehend behalten, wer die spezifischen Änderungen wann durchgeführt hat. Commits enthalten in der Regel eine Commit-Mitteilung, in der die vorgenommenen Änderungen kurz beschrieben werden.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: Commit-Autor
   description: Der Benutzer, der den Commit durchführt.
@@ -137,10 +137,11 @@
 - 
   term: Commit-Mitteilung
   description: >-
-    Ein kurzer, beschreibender Text zu einem Commit, in dem die Änderung kommuniziert wird, die der Commit nach sich zieht.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: Branch vergleichen
-  description: Der Branch, den Du benutzt, um einen Pull Request zu erstellen. Dieser Branch wird mit dem Basis-Branch verglichen, den Du für den Pull Request wählst, und die Änderungen werden identifiziert. Wenn der Pull Request zusammengeführt wird, wird der Basis-Branch mit den Änderungen aus dem Vergleichs-Branch aktualisiert. Auch bekannt als der „Head-Branch" des Pull Requests.
+  description: >-
+    Der Branch, den Du benutzt, um einen Pull Request zu erstellen. Dieser Branch wird mit dem Basis-Branch verglichen, den Du für den Pull Request wählst, und die Änderungen werden identifiziert. Wenn der Pull Request zusammengeführt wird, wird der Basis-Branch mit den Änderungen aus dem Vergleichs-Branch aktualisiert. Auch bekannt als der „Head-Branch" des Pull Requests.
 - 
   term: fortlaufende Integration
   description: >-
@@ -155,7 +156,7 @@
 - 
   term: Beiträge
   description: >-
-    Spezifische Aktivitäten auf GitHub, die: - dem Beteiligungsdiagramm eines Benutzers ein Quadrat hinzufügen: „[Was zählt als ein Beitrag](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)“ - der Zeitleiste eines Benutzers in dessen Profil Aktivitäten hinzufügen "[Beitragsaktivität](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: Mitwirkende
   description: >-
@@ -180,7 +181,7 @@
 - 
   term: Standardbranch
   description: >-
-    Der Basis-Branch in Ihrem Repository, für den alle Pull Requests und Code-Commits automatisch gesendet werden, sofern Sie keinen anderen Branch angeben. Dieser Branch wird in der Regel als „Master“ bezeichnet.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - 
   term: Abhängigkeitsdiagramm
   description: >-
@@ -228,7 +229,7 @@
     Ein Branch, der verwendet wird, um mit einem neuen Feature zu experimentieren oder einen nicht in der Produktion befindlichen Issue zu korrigieren. Wird auch als Themen-Branch bezeichnet.
 - 
   term: Fenced-Code-Block
-  description: 'Ein eingerückter Codeblock, den Du mit GitHub Flavored Markdown mit dreifachen Backticks vor und nach dem Codeblock erstellen kannst. Siehe hierzu dieses [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: abrufen
   description: >-
@@ -251,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    Ein Gist ist eine Datei, die freigegeben werden kann, die Sie auf GitHub bearbeiten, klonen und forken können. Sie können festlegen, dass ein Gist öffentlich oder geheim ist. Geheime Gists stehen jedoch allen Personen zur Verfügung, die über die entsprechende URL verfügen.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -387,9 +388,13 @@
   term: Markup
   description: Ein System, um ein Dokument mit Anmerkungen zu versehen und zu formatieren.
 - 
+  term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+- 
   term: Master
   description: >-
-    Der standardmäßige Entwicklungs-Branch. Wenn Sie ein Git-Repository erstellen, wird ein Branch namens „Master“ erstellt und wird zum aktiven Branch. In den meisten Fällen enthält dieser die lokale Entwicklung, obwohl dies rein konventionell und nicht erforderlich ist.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
 - 
   term: Mitgliederdiagramm
   description: Ein Repository-Diagramm, in dem alle Forks eines Repositorys gezeigt werden.
@@ -431,7 +436,7 @@
 - 
   term: Benachrichtigung
   description: >-
-    Aktualisierungen, die je nach Ihren Einstellungen per Web oder E-Mail bereitgestellt wurden, die Ihnen die Informationen zu den für Sie relevanten Aktivitäten bereitstellen.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth App
   description: >-
@@ -677,7 +682,7 @@
 - 
   term: Statuschecks
   description: >-
-    Statusprüfungen sind externe Prozesse, z. B. kontinuierliche Integrations-Builds, die für jeden Commit ausgeführt werden, den Du in einem Repository erstellen. Weitere Informationen findest Du unter „[Über Statusprüfungen](/articles/about-status-checks)."
+    Statusprüfungen sind externe Prozesse, z. B. kontinuierliche Integrations-Builds, die für jeden Commit ausgeführt werden, den Du in einem Repository erstellst. Weitere Informationen findest Du unter „[Über Statusprüfungen](/articles/about-status-checks)."
 - 
   term: Stern
   description: >-

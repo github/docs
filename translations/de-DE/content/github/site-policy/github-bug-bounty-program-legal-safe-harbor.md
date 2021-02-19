@@ -1,5 +1,5 @@
 ---
-title: 'Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm'
+title: Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm
 redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:
@@ -31,4 +31,4 @@ Sollten dennoch rechtliche Schritte von einer dritten Partei, einschließlich St
 
 ### 3. Begrenzter Verzicht auf andere Website-Richtlinien
 
-Sollten Ihre Aktivitäten zur Sicherheitsuntersuchung nicht mit bestimmten Beschränkungen in unseren [relevanten Website Richtlinien](/categories/site-policy/) übereinstimmen, aber mit den Vorgaben unseres Bug-Bounty-Programms vereinbar sein, befreien wir Sie von diesen Einschränkungen, und zwar zu dem einzigen und begrenzten Zweck, Ihre Sicherheitsuntersuchung im Rahmen dieses Bug-Bounty-Programms zu ermöglichen. Genau wie oben, sollten Sie im Zweifelsfall zuerst uns fragen!
+To the extent that your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. Genau wie oben, sollten Sie im Zweifelsfall zuerst uns fragen!

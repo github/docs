@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 終了コードについて
 
@@ -24,7 +25,7 @@ versions:
 
 ### JavaScript アクションで失敗終了を設定する
 
-JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
+JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
 
 ```javascript
 try {
@@ -38,13 +39,15 @@ try {
 
 ### Docker コンテナアクションで失敗終了コードを設定する
 
-Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトに設定できます。 例:
+Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトで設定できます。 例:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 詳しい情報については「[Docker コンテナアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。

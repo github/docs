@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
+topics:
+  - 'Packaging'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -25,7 +28,11 @@ Creating a package at the end of a continuous integration workflow can help duri
 
 Now, when reviewing a pull request, you'll be able to look at the workflow run and download the artifact that was produced.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
+{% else %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
+{% endif %}
 
 This will let you run the code in the pull request on your machine, which can help with debugging or testing the pull request.
 

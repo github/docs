@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Anyone with `write` access to a repository can create, read, and use secrets.
-
 ### About the `GITHUB_TOKEN` secret
 
 {% data variables.product.prodname_dotcom %} automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
@@ -73,13 +71,14 @@ You can use the `GITHUB_TOKEN` to make authenticated API calls. This example wor
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
 ### Permissions for the `GITHUB_TOKEN`
 
-For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/v3/apps/permissions/)."
+For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/rest/reference/permissions-required-for-github-apps)."
 
 | Permission | Access type | Access by forked repos |
 |------------|-------------|--------------------------|

@@ -12,19 +12,24 @@ permissions: 'Colaboradores do repositório e pessoas com acesso de gravação a
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
 ### Sobre o gerenciamento da versão
 
-Você também pode publicar uma ação de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação no {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)"
+{% if currentVersion == "free-pro-team@latest" %}
+Você também pode publicar uma ação a partir de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
+{% endif %}
+Você pode escolher se
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Você pode escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
+{% data variables.large_files.product_name_long %} os objetos de ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
 [Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
 
 
@@ -62,7 +67,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
 
 9. Se estiver pronto para tornar pública a sua versão, clique em **Publish release** (Publicar versão). Para trabalhar na versão posteriormente, clique em **Save draft** (Salvar rascunho). ![Botões Publish release (Publicar versão) e Draft release (Rascunhar versão)](/assets/images/help/releases/release_buttons.png)
 
-Você também pode criar automaticamente uma versão a partir da linha de comando ou em um script. Para obter mais informações, consulte "[Versões](/v3/repos/releases/#create-a-release)".
+Você também pode criar automaticamente uma versão a partir da linha de comando ou em um script. Para obter mais informações, consulte "[Versões](/rest/reference/repos/#create-a-release)".
 
 
 

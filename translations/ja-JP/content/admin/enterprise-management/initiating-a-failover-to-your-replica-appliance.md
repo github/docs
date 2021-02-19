@@ -30,6 +30,15 @@ versions:
 5. レプリカの IP アドレスを指すように DNS レコードを更新します。 TTL 期間が経過すると、トラフィックはレプリカに転送されます。 ロードバランサを使用している場合は、トラフィックがレプリカに送信されるように設定されていることを確認します。
 6. 通常の操作が再開できることをユーザーに通知します。
 7. 必要に応じて、新しいプライマリから既存のアプライアンスや以前のプライマリへのレプリケーションをセットアップします。 詳細は「[High Availability の設定について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)」を参照してください。
+8. フェイルオーバー前に High Availability 設定の一部であり、レプリケーションをセットアップする予定のないアプライアンスは、UUID による High Availability 設定から削除する必要があります。
+    - 以前のアプライアンスでは、`cat /data/user/common/uuid` を介して UUID を取得します。
+      ```shell
+      $ cat /data/user/common/uuid
+      ```
+    - 新しいプライマリで、`ghe-repl-teardown` を使用して UUID を削除します。 *`UUID`* を前のステップで取得した UUID に置き換えてください。
+      ```shell
+      $ ghe-repl-teardown -u <em>UUID</em>
+      ```
 
 ### 参考リンク
 

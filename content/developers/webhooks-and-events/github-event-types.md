@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -28,18 +29,18 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.id` | The unique identifier for the actor. |
 | `actor.login` | The username of the actor. |
 | `actor.display_login` | The specific display format of the username. |
-| `actor.gravatar_id` | The unique indentifier of the Gravatar profile for the actor. |
+| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
 | `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
 | `actor.avatar_url` | The URL of the actor's profile image. |
 | `repo` | The repository object where the event occurred.  |
 | `repo.id` | The unique identifier of the repository. |
 | `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url` | The REST API URL used to retrive the repository object, which includes additional repository information. |
+| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 
 #### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/v3/activity/events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
 Status: 200 OK
@@ -202,10 +203,10 @@ Key | Type | Description
 `push_id` | `integer` | Unique identifier for the push.
 `size`|`integer` | The number of commits in the push.
 `distinct_size`|`integer` | The number of distinct commits in the push.
-`ref`|`string` | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/main`.
+`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.
 `head`|`string` | The SHA of the most recent commit on `ref` after the push.
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
-`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
+`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
 `commits[][sha]`|`string` | The SHA of the commit.
 `commits[][message]`|`string` | The commit message.
 `commits[][author]`|`object` | The git author of the commit.

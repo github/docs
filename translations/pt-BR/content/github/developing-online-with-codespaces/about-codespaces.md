@@ -38,13 +38,15 @@ Todos os desenvolvedores podem criar um ou mais codespaces para qualquer reposit
 
 {% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
 
+Você pode definir as configurações para adicionar segredos criptografados, habilitar a verificação de GPG e permitir que os codespaces acessem outros repositórios. Para obter mais informações, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Gerenciar verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)" e "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}
 
 ### Sobre a cobrança do {% data variables.product.prodname_codespaces %}
 
-Durante o beta público limitado, {% data variables.product.prodname_codespaces %} pode ser usado livremente e os usuários estão limitados a 2 codespaces. Os planos e os preços serão anunciados antes da disponibilidade para o público em geral.
+{% data reusables.codespaces.about-billing-for-codespaces %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-billing-for-codespaces)".
 
 ### Juntar-se ao beta
 

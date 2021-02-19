@@ -17,7 +17,7 @@ Você não tem qualquer obrigação de escolher uma licença. Entretanto, sem um
 
 {% note %}
 
-**Observação:** se você publicar seu código-fonte em um repositório público no GitHub, {% if currentVersion == "free-pro-team@latest" %}de acordo com os [Termos de Serviço](/articles/github-terms-of-service), {% endif %}outros usuários do GitHub têm o direito de visualizar e bifurcar seu repositório dentro do site GitHub. Se você já criou um repositório público e não quer mais que os usuários tenham acesso a ele, você pode transformar seu repositório em privado. Ao converter um repositório público em repositório privado, as bifurcações ou cópias locais criadas por outros usuários continuam existindo. Para obter mais informações, consulte "[Converter um repositório público em privado](/articles/making-a-public-repository-private)".
+**Observação:** Se você publicar seu código-fonte em um repositório público em {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}de acordo com os [Termos de Serviço](/articles/github-terms-of-service), {% endif %}outros usuários de {% data variables.product.product_location %} terão o direito de visualizar e bifurcar o seu repositório. Se você já criou um repositório e não quer mais que os usuários tenham acesso a ele, você pode torná-lo privado. Ao alterar a visibilidade de um repositório para privado, as bifurcações existentes ou cópias locais criadas por outros usuários continuarão existindo. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
 
 {% endnote %}
 
@@ -49,6 +49,7 @@ Como uma prática recomendada, incentivamos que você inclua o arquivo da licen�
 |         | Licença Do What The F*ck You Want To Public | `wtfpl`            |
 |         | Licença Educational Community v2.0 | `ecl-2.0`                   |
 |         | Licença Pública Eclipse 1.0 | `epl-1.0`                          |
+|         | Licença Pública Eclipse 2.0 | `epl-2.0`                          |
 |         | Licença Pública da União Europeia 1.1 | `eupl-1.1`               |
 |         | Licença Pública Geral Affero GNU v3.0 | `agpl-3.0`               |
 |         | Família de Licença Pública Geral GNU | `gpl`                     |
@@ -73,7 +74,7 @@ Quando você pesquisar uma família de licenças, os resultados incluirão todas
 
 ### Identificar uma licença
 
-[A licenciada de código aberto Ruby gem ](https://github.com/benbalter/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/v3/licenses/) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](http://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[A licenciada de código aberto Ruby gem ](https://github.com/licensee/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/rest/reference/licenses) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](http://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Caso o seu repositório use uma licença listada no site Choose a License que não aparece na parte superior da página do repositório, ele pode conter licenças múltiplas ou outras complexidades. Para que sua licença seja detectada, simplifique o arquivo *LICENSE* e anote a complexidade em algum outro local, como no arquivo *LEIAME* do repositório.
 
@@ -89,5 +90,5 @@ O objetivo das iniciativas de licenciamento de código aberto do GitHub é ofere
 
 ### Leia mais
 
-- Seção do Open Source Guide (Guia de código aberto) "[O aspecto legal do código aberto](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
+- A seção "Guias de código aberto"[O lado Jurídico de código aberto](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

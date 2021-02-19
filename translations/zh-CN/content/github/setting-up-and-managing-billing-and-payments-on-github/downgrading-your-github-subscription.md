@@ -30,8 +30,8 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Use the **Edit** drop-down and click **Downgrade to Free**. ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
-5. Read the information about the features your user account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**. ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
+4. 使用 **Edit（编辑）**下拉菜单并单击 **Downgrade to Free（降级到免费 ）**。 ![降级到免费按钮](/assets/images/help/billing/downgrade-to-free.png)
+5. 阅读有关信息，了解您的用户帐户在下一个结算日期将不再拥有访问权限的功能，然后单击 **I understand. Continue with downgrade（我明白。继续降级）**。 ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
 
 如果您在私有仓库中发布了 {% data variables.product.prodname_pages %} 站点，并添加了自定义域，在从 {% data variables.product.prodname_pro %} 降级至 {% data variables.product.prodname_free_user %} 前，请删除或更新您的 DNS 记录，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 
@@ -61,9 +61,9 @@ versions:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing %}
-5. Under "Subscriptions", select the "Edit" drop-down, and click **Edit plan**. ![Edit Plan dropdown](/assets/images/help/billing/edit-plan-dropdown.png)
+5. 在“Subscriptions（订阅）”下，选择“Edit（编辑）”下拉菜单，然后单击 **Edit plan（编辑计划）**。 ![编辑计划下拉菜单](/assets/images/help/billing/edit-plan-dropdown.png)
 1. 在“Billing/Plans（计费/计划）”下您要更改的计划旁边，单击 **Downgrade（降级）**。 ![降级按钮](/assets/images/help/billing/downgrade-plan-option-button.png)
-1. Enter the reason you're downgrading your account, then click **Downgrade plan**. ![Text box for downgrade reason and downgrade button](/assets/images/help/billing/downgrade-plan-button.png)
+1. 输入要降级帐户的原因，然后单击 **Downgrade plan（降级计划）**。 ![降级原因文本框和降级按钮](/assets/images/help/billing/downgrade-plan-button.png)
 
 ### 从组织删除付费席位
 
@@ -77,9 +77,9 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-6. Use the **Edit** drop-down and click **Remove seats**. ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)
-1. 在“Remove seats”（删除席位）下，选择要降级的席位数。 ![remove seats option](/assets/images/help/billing/remove-seats-amount.png)
-1. 审查有关在下一个结算日期执行新付款方式的信息，然后单击 **Remove seats（删除席位）**。 ![remove seats button](/assets/images/help/billing/remove-seats-button.png)
+6. 使用 **Edit（编辑）**下拉菜单并单击 **Remove seats（删除席位）**。 ![删除席位下拉菜单](/assets/images/help/billing/remove-seats-dropdown.png)
+1. 在“Remove seats”（删除席位）下，选择要降级的席位数。 ![删除席位选项](/assets/images/help/billing/remove-seats-amount.png)
+1. 审查有关在下一个结算日期执行新付款方式的信息，然后单击 **Remove seats（删除席位）**。 ![删除席位按钮](/assets/images/help/billing/remove-seats-button.png)
 
 ### 延伸阅读
 

@@ -11,7 +11,7 @@ versions:
 
 ### 外部 `collectd` サーバーを設置
 
-{% data variables.product.product_location_enterprise %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 `collectd` サーバは、`collectd` 5.x以上のバージョンを使わなければなりません。
+{% data variables.product.product_location %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 `collectd` サーバは、`collectd` 5.x 以降のバージョンを実行している必要があります。
 
 1. `collectd` サーバにログインする
 2. `collectd` を作成、または編集することで、ネットワークプラグインをロードし、適切な値をサーバとポートのディレクティブに追加する。 たいていのディストリビューションでは、これは `/etc/collectd/collectd.conf` にあります。
@@ -53,6 +53,6 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 #### 中心の collectd サーバはデータを受信していない
 
-{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. {% data variables.product.product_location_enterprise %}から送られるデータを受信するには、中心の`collectd`サーバは 5.x 以上のバージョンでなければなりません。
+{% data variables.product.prodname_enterprise %} は `collectd` バージョン 5.x に付属しています。 `collectd` 5.x is not backwards compatible with the 4.x release series. {% data variables.product.product_location %}から送られるデータを受信するには、中心の`collectd`サーバは 5.x 以上のバージョンでなければなりません。
 
 他に質問や問題がある場合、{% data variables.contact.contact_ent_support %}までお問い合わせください。

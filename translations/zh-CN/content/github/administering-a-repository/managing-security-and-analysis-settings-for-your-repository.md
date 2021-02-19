@@ -9,43 +9,79 @@ redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 ---
 
-### 启用或禁用安全和分析功能
+{% if currentVersion == "free-pro-team@latest" %}
+### 为公共仓库启用或禁用安全和分析功能
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
+您可以管理公共仓库的一部分安全和分析功能。 其他功能是永久启用的，包括依赖项图和密码扫描。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 ![公共仓库中"Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+{% endif %}
+
+### 为私有仓库启用或禁用安全和分析功能{% if currentVersion == "free-pro-team@latest" %}{% endif %}
+
+您可以管理{% if currentVersion == "free-pro-team@latest" %}私有或内部{% endif %}仓库的安全和分析功能。 如果您的组织或企业拥有 {% data variables.product.prodname_GH_advanced_security %} 的许可，则可以使用额外选项。 {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+  {% note %}
+**Note:** If you disable
 
-### 授予对 {% data variables.product.prodname_dependabot_alerts %} 的访问
+  {% data variables.product.prodname_GH_advanced_security %}, both {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  {% endnote %}
 
-为组织中的仓库启用 {% data variables.product.prodname_dependabot_alerts %} 后，组织所有者和仓库管理员默认可以查看警报。 您可以授予其他团队和人员访问仓库的警报。
+  {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
+  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+  {% endif %}
+
+### 授予对安全警报的访问权限
+
+为组织中的仓库启用 {% data variables.product.prodname_dependabot %} 或 {% data variables.product.prodname_secret_scanning %} 后，组织所有者和仓库管理员默认可以查看警报。 您可以授予其他团队和人员访问仓库的警报。
 
 {% note %}
 
-Organization owners and repository administrators can only grant access to view {% data variables.product.prodname_dependabot_alerts %} to people or teams who have write access to the repo.
+组织所有者和仓库管理员只能向具有仓库写入权限的人员授予安全警报的查看权限，如 {% data variables.product.prodname_dependabot %} 和 {% data variables.product.prodname_secret_scanning %} 警报。
 
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Dependabot alerts（Dependabot 警报）”下，在搜索字段中开始键入您要查找的个人或团队的名称，然后单击匹配列表中的名称。 ![用于授予人员或团队访问 Dependabot 警报的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
-5. 单击 **Save changes（保存更改）**。 ![用于更改 Dependabot 警报设置的"Save changes（保存更改）"按钮](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
+4. 在“Access to alerts（访问警报）”下，在搜索字段中开始键入您要查找的个人或团队的名称，然后单击匹配列表中的名称。
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![用于授予人员或团队访问安全警报的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+   {% endif %}
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![用于授予人员或团队访问安全警报的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search-ghe.png)
+   {% endif %}
+5. 单击 **Save changes（保存更改）**。 ![用于更改安全警报设置的"Save changes（保存更改）"按钮](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
 
-### 删除对 {% data variables.product.prodname_dependabot_alerts %} 的访问
+### 删除对安全警报的访问权限
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Dependabot alerts（Dependabot 警报）”下，在要删除其访问权限的个人或团队的右侧，单击 {% octicon "x" aria-label="X symbol" %}。 ![用于删除某人对您仓库的 Dependabot 警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+4. 在“Access to alerts（访问警报）”下，在要删除其访问权限的个人或团队的右侧，单击
+{% octicon "x" aria-label="X symbol" %}。
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![用于删除某人对您仓库的安全警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+   {% endif %}
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![用于删除某人对您仓库的安全警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x-ghe.png)
+   {% endif %}
 
 ### 延伸阅读
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
 - “[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”

@@ -8,6 +8,9 @@ intro: 'Im Internet finden sich viele hilfreiche Ressourcen zu Git und {% data v
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Git verwenden
@@ -18,19 +21,17 @@ Mache Dich mit Git vertraut: Besuche die [offizielle Git-Projekt-Website](https:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{% data variables.product.prodname_learning %} bietet kostenlose interaktive Kurse, die in {% data variables.product.prodname_dotcom %} integriert sind und automatisch sofort Feedback und Hilfestellungen geben. Lerne, wie Du Deinen ersten Pull Request erstellst, Deinen ersten Open-Source-Beitrag leistest, eine {% data variables.product.prodname_pages %}-Website erstellst und vieles mehr. Weitere Informationen zu den angebotenen Kursen findest Du unter [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+{% data variables.product.prodname_learning %} bietet kostenlose interaktive Kurse, die in {% data variables.product.prodname_dotcom %} integriert sind und automatisch sofort Feedback und Hilfestellungen geben. Lernen Sie, wie Sie Ihren ersten Pull Request erstellen, Ihren ersten Open-Source-Beitrag leisten, eine {% data variables.product.prodname_pages %}-Website erstellen und vieles mehr. Weitere Informationen zu den angebotenen Kursen findest Du unter [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
 {% endif %}
 
-Lerne {% data variables.product.product_name %} mithilfe unserer [Bootcamp](/categories/bootcamp/)-Artikel besser kennen. Eine Prozesseinführung findest Du unter [{% data variables.product.prodname_dotcom %}-Ablauf](https://guides.github.com/introduction/flow). In unseren [Übersichtsleitfäden](https://guides.github.com) stellen wir Dir Schritt für Schritt die grundlegenden Konzepte vor.
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. Eine Prozesseinführung findest Du unter [{% data variables.product.prodname_dotcom %}-Ablauf](https://guides.github.com/introduction/flow). In unseren [Übersichtsleitfäden](https://guides.github.com) stellen wir Dir Schritt für Schritt die grundlegenden Konzepte vor.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Branches, Forks und Pull Requests
 
-Lerne mit einem interaktiven Tool alles über [Branches bei Git](http://learngitbranching.js.org/). Informiere Dich über [Forks](/articles/about-forks), [Pull Requests](/articles/using-pull-requests) und [die Verwendung von Pull Requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) auf {% data variables.product.prodname_dotcom %}.
-
-Außerdem stehen Dir Kurzanleitungen zur [Befehlszeile](https://hub.github.com) sowie [Checklisten, Merkzettel etc.](https://services.github.com/on-demand/resources) zu {% data variables.product.prodname_dotcom %} zur Verfügung.
+Lerne mit einem interaktiven Tool alles über [Branches bei Git](http://learngitbranching.js.org/). Informieren Sie sich über [Forks](/articles/about-forks), [Pull Requests](/articles/using-pull-requests) und [die Verwendung von Pull Requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) auf {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 #### Reinschauen
 
@@ -38,9 +39,9 @@ Auf unserem {% data variables.product.prodname_dotcom %} [YouTube-Kanal „GitHu
 
 ### Schulungen
 
-#### Kostenlose Kurse
+#### Free courses
 
-{% data variables.product.product_name %} bietet eine Reihe von interaktiven [On-Demand-Schulungskursen](https://services.github.com/on-demand/), darunter {% data variables.product.prodname_dotcom %} 101: [Introduction](https://services.github.com/on-demand/intro-to-github/) (Einführung), {% data variables.product.prodname_dotcom %} 102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop) (GitHub Desktop) und {% data variables.product.prodname_dotcom %} 103: [Command Line](https://services.github.com/on-demand/github-cli) (Befehlszeile).
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 #### Webbasierte Lernprogramme von {% data variables.product.prodname_dotcom %}
 
@@ -54,6 +55,6 @@ Auf unserem {% data variables.product.prodname_dotcom %} [YouTube-Kanal „GitHu
 
 Ein interaktiver [Online-Git-Kurs](http://www.codeschool.com/courses/git-real) von [Code School](http://codeschool.com) bietet Dutzende von Übungen in mehreren Leveln in einem unterhaltsamen Spieleformat. Gerne kannst Du unsere [.gitignore-Vorlagen](https://github.com/github/gitignore) an Deine Anforderungen anpassen.
 
-Erweitere Deine {% data variables.product.prodname_dotcom %}-Reichweite durch {% if currentVersion == "free-pro-team@latest" %}[Integrationen](/articles/about-integrations){% else %}Integrationen{% endif %} oder die Installation von [{% data variables.product.prodname_desktop %}](https://desktop.github.com) und dem robusten Texteditor [Atom](https://atom.io).
+Extend your {% data variables.product.prodname_dotcom %} reach through {% if currentVersion == "free-pro-team@latest" %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 
 Erfahre in den [Open-Source-Leitfäden](https://opensource.guide/), wie Du Open-Source-Projekte starten und weiterentwickeln kannst.

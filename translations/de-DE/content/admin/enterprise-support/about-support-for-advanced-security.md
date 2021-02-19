@@ -19,7 +19,7 @@ versions:
 
 ### Supportumfang
 
-Wenn Deine Supportanfrage außerhalb des Bereichs liegt, in dem unser Team Dir helfen kann, können wir weiter Schritte empfehlen, damit Du Deinen Issue außerhalb von {% data variables.contact.enterprise_support %} beheben kannst. Deine Supportanfrage liegt möglicherweise nicht im Bereich von {% data variables.contact.enterprise_support %}, wenn sie sich primär auf Folgendes bezieht:
+Wenn Ihre Supportanfrage außerhalb des Geltungsbereichs liegt, bei dem unser Team Ihnen helfen kann, können wir Ihnen die nächsten Schritte empfehlen, damit Sie Ihren Issue außerhalb von {% data variables.contact.enterprise_support %} beheben können. Ihre Supportanfrage liegt möglicherweise nicht im Umfang von {% data variables.contact.enterprise_support %}, wenn sie sich primär auf Folgendes bezieht:
 - Integration von Drittanbietern
 - Hardware-Einstellungen
 - Konfiguration externer Systeme
@@ -44,7 +44,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. holidays.
 
-| U.S. Weihnachtsfeiertag | Datum im Jahr 2018             |
+| U.S. Weihnachtsfeiertag | Date observed                  |
 | ----------------------- | ------------------------------ |
 | Neujahr                 | 1. Januar                      |
 | Martin Luther King Day  | Dritter Montag im Januar       |
@@ -57,7 +57,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | Tag nach Thanksgiving   | Vierter Freitag im November    |
 | Heiligabend             | 24. Dezember                   |
 | 1. Weihnachtsfeiertag   | 25. Dezember                   |
-| 2. Weihnachtsfeiertag   | 26. Dezember                   |
+| 2. Weihnachtsfeiertag   | 28. Dezember                   |
 | Silvester               | 31. Dezember                   |
 
 ### {% data variables.product.prodname_advanced_security %}-Updates installieren
@@ -70,8 +70,8 @@ Wenn Du den {% data variables.contact.enterprise_support %} um Hilfe mit {% data
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                             Priorität                              | Beschreibung                                                                                                                                                                                                                                             |
-|:------------------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                           Priorität                           | Beschreibung                                                                                                                                                                                                                                        |
+|:-------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} funktioniert nicht oder bricht ab oder ist stark beeinträchtigt, so dass der Endbenutzer die Software nicht vernünftig nutzen kann und es gibt keine Möglichkeit, das Problem zu umgehen. |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} funktioniert inkonsistent, was die Nutzung und Produktivität für den Endbenutzer beeinträchtigt.                                                                                          |
 |  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} funktioniert beständig, aber der Endbenutzer bittet um geringfügige Änderungen in der Software, wie z.B. Dokumentationsaktualisierungen, Behebung kosmetischer Fehler oder Erweiterungen. |

@@ -1,1 +1,1 @@
-Activity related to an organization's team. {% data reusables.webhooks.action_type_desc %} For more information, see the "[teams](/v3/teams/)" REST API.
+Atividade relacionada à equipe de uma organização. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST de "[equipes](/rest/reference/teams)".

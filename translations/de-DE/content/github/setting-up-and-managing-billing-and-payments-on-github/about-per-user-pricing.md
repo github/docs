@@ -9,7 +9,7 @@ versions:
 
 Neue Unternehmen können mit {% data variables.product.prodname_free_team %} öffentliche und Open-Source-Projekte erstellen, oder zu einem kostenpflichtigen Produkt mit benutzerabhängiger Preisgestaltung [wechseln]({% data variables.product.pricing_url %}).
 
-Organisationen mit einem kostenpflichtigen Abonnement vor dem 11. Mai 2016 können wählen, ob sie an ihrem bestehenden Abrechnungsplan pro Repository festhalten oder zu einer benutzerabhängigen Preisgestaltung wechseln möchten. Wir informieren Dich zwölf Monate vor jeder obligatorischen Änderung Deines Abonnements. Weitere Informationen zum Wechsel Deines Abonnements findest Du unter „[Dein {% data variables.product.prodname_dotcom %}-Abonnement heraufstufen](/articles/upgrading-your-github-subscription).“
+Organisationen mit einem kostenpflichtigen Abonnement vor dem 11. Mai 2016 können wählen, ob sie an ihrem bestehenden Abrechnungsplan pro Repository festhalten oder zu einer benutzerabhängigen Preisgestaltung wechseln möchten. Wir informieren Dich zwölf Monate vor jeder obligatorischen Änderung Deines Abonnements. Weitere Informationen zum Wechsel Ihres Abonnements finden Sie unter „[Ihr {% data variables.product.prodname_dotcom %}-Abonnement heraufstufen](/articles/upgrading-your-github-subscription)“.
 
 Weitere Informationen zu Produkten mit benutzerabhängiger Preisgestaltung findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/githubs-products).“
 
@@ -23,13 +23,13 @@ Externe Mitarbeiter und Bot-Konten werden gegen die Gesamtzahl der bezahlten Liz
 
 Du kannst jederzeit bezahlte Lizenzen zu Deiner Organisation hinzufügen. Wenn Du für mehr Lizenzen bezahlst, als Du benutzt, kannst Du diese auch aus Deiner Organisation entfernen. Weitere Informationen findest Du unter „[Dein {% data variables.product.prodname_dotcom %}-Abonnements heraufstufen ](/articles/upgrading-your-github-subscription)“ und „[Dein {% data variables.product.prodname_dotcom %}-Abonnement herabstufen](/articles/downgrading-your-github-subscription).“
 
-Bei Fragen zum Abonnement Deiner Organisation wende Dich bitte an den {% data variables.contact.contact_support %}.
+Bei Fragen zum Abonnement Ihrer Organisation wenden Sie sich bitte an den {% data variables.contact.contact_support %}.
 
 ### Wenn ich für meine Organisation einen Repository-abhängigen Abrechnungsplan habe, kann ich dann zu einem anderen Repository-abhängigen Abrechnungsplan wechseln?
 
 In den Abrechnungseinstellungen Deiner Organisation kannst Du zwischen den kostenpflichtigen Plänen wechseln. Wenn Du zu einem Plan mit mehr privaten Repositorys wechselst, übertragen wir Dein Konto sofort auf Deinen neuen Plan und berechnen Dir die Preisdifferenz anteilig für die Anzahl der Tage, die in Deinem Abrechnungszyklus verbleiben.
 
-Wenn Du zu einem kostenpflichtigen Plan mit weniger privaten Repositorys wechselst, tritt Dein neuer Plan zum nächsten Abrechnungsdatum in Kraft. Wenn Du mehr private Repositorys hast, als Dein neuer Plan vorsieht, werden Deine privaten Repositorys gesperrt, sobald Dein neuer Plan in Kraft tritt. Um Deine Anzahl der privaten Repositorys zu reduzieren, kannst Du einige Deiner privaten Repositorys öffentlich machen, oder Du kannst Deine privaten Repositorys lokal klonen und die Kopien auf {% data variables.product.prodname_dotcom %} löschen.
+Wenn Du zu einem kostenpflichtigen Plan mit weniger privaten Repositorys wechselst, tritt Dein neuer Plan zum nächsten Abrechnungsdatum in Kraft. Wenn Du mehr private Repositorys hast, als Dein neuer Plan vorsieht, werden Deine privaten Repositorys gesperrt, sobald Dein neuer Plan in Kraft tritt. Um Ihre Anzahl der privaten Repositorys zu reduzieren, können Sie einige Ihrer privaten Repositorys öffentlich machen, oder Sie können Ihre privaten Repositorys lokal klonen und die Kopien auf {% data variables.product.prodname_dotcom %} löschen.
 
 ### Weiterführende Informationen
 

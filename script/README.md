@@ -30,9 +30,11 @@ Runs tests. Equivalent of `npm test`.
 
 ## Additional scripts
 
-### [`archive-enterprise-version.js`](archive-enterprise-version.js)
+### [`anonymize-branch.js`](anonymize-branch.js)
 
-Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+
+Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
 
 ---
 
@@ -55,11 +57,9 @@ The `ignore` array is for client-side or build-time stuff that doesn't get `requ
 ---
 
 
-### [`check-external-links`](check-external-links)
+### [`check-english-links.js`](check-english-links.js)
 
-The script is run once per day via a scheduled GitHub Action to check all links in the site. It automatically opens an issue if it finds broken links. To exclude a URL from the link check, add it to `lib/excluded-links.js`.
-
-For checking internal links, see `script/check-internal-links`.
+This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
 
 ---
 
@@ -71,18 +71,9 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
-### [`check-internal-links`](check-internal-links)
+### [`check-internal-links.js`](check-internal-links.js)
 
-This script wraps tests/links-and-images.js and provides an option to output results to a file.
-
-For more information, see `tests/README.md#broken-link-test`.
-
----
-
-
-### [`check-s3-images.js`](check-s3-images.js)
-
-Run this script in your branch to check whether any images referenced in Enterprise content are not in the expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
 
 ---
 
@@ -101,7 +92,21 @@ Run this script in your branch to check whether any images referenced in Enterpr
 ---
 
 
+### [`content-migrations/remove-html-comments-from-index-files.js`](content-migrations/remove-html-comments-from-index-files.js)
+
+
+
+---
+
+
 ### [`content-migrations/site-data-tag.js`](content-migrations/site-data-tag.js)
+
+
+
+---
+
+
+### [`content-migrations/update-developer-site-links.js`](content-migrations/update-developer-site-links.js)
 
 
 
@@ -122,9 +127,93 @@ This script finds and lists all the Heroku staging apps and deletes any leftover
 ---
 
 
-### [`get-blc-command.js`](get-blc-command.js)
+### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
 
-This script parses options for `script/check-external-links`.
+This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.
+
+---
+
+
+### [`early-access/clone-locally`](early-access/clone-locally)
+
+This script is run on a writer's machine to begin developing Early Access content locally.
+
+---
+
+
+### [`early-access/create-branch`](early-access/create-branch)
+
+This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
+
+---
+
+
+### [`early-access/symlink-from-local-repo.js`](early-access/symlink-from-local-repo.js)
+
+This script is run on a writer's machine while developing Early Access content locally. You must pass the script the location of your local copy of the `github/docs-early-access` git repo as the first argument.
+
+---
+
+
+### [`early-access/update-data-and-image-paths.js`](early-access/update-data-and-image-paths.js)
+
+This script is run on a writer's machine while developing Early Access content locally. It updates the data and image paths to either include `early-access` or remove it.
+
+---
+
+
+### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
+
+Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+
+---
+
+
+### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
+
+This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
+
+---
+
+
+### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
+
+Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
+
+---
+
+
+### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
+
+This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
+
+This script creates new static openAPI files for a new version and modifies the info.version.
+
+---
+
+
+### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
+
+This script creates new static webhook payload files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/ghes-to-ghae-versioning.js`](enterprise-server-releases/ghes-to-ghae-versioning.js)
+
+Run this script to add versions frontmatter and Liquid conditionals for GitHub AE, based on anything currently versioned for the provided release of Enterprise Server. This script should be run as part of the Enterprise Server release process.
+
+---
+
+
+### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
+
+This script creates or removes a release candidate banner for a specified version.
 
 ---
 
@@ -149,7 +238,7 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ---
 
 
-### [`graphql/build-changelog-from-markdown.js`](graphql/build-changelog-from-markdown.js)
+### [`graphql/build-changelog.js`](graphql/build-changelog.js)
 
 
 
@@ -233,50 +322,6 @@ This script moves reusables out of YAML files into individual Markdown files.
 ---
 
 
-### [`new-versioning/fixtures.js`](new-versioning/fixtures.js)
-
-
-
----
-
-
-### [`new-versioning/main`](new-versioning/main)
-
-All the new versioning!
-
-Usage $ script/new-versioning/main
-
----
-
-
-### [`new-versioning/move-admin-dir.js`](new-versioning/move-admin-dir.js)
-
-
-
----
-
-
-### [`new-versioning/update-content.js`](new-versioning/update-content.js)
-
-
-
----
-
-
-### [`new-versioning/update-frontmatter.js`](new-versioning/update-frontmatter.js)
-
-
-
----
-
-
-### [`new-versioning/update-products-yml.js`](new-versioning/update-products-yml.js)
-
-
-
----
-
-
 ### [`pages-with-liquid-titles.js`](pages-with-liquid-titles.js)
 
 This is a temporary script to visualize which pages have liquid (and conditionals) in their `title` frontmatter
@@ -293,7 +338,7 @@ This script finds all Heroku staging apps and pings them to make sure they're al
 
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
-This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccesfully and prevent the push.
+This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
 
 ---
 
@@ -305,31 +350,23 @@ This script is run as a git precommit hook (installed by husky after npm install
 ---
 
 
-### [`preview-openapi-changes`](preview-openapi-changes)
-
-This script stitches and unstitches the `github/github` OpenAPI description via `rest-api-operations` to produce a local preview in docs-internal.  
-
-`github`, `rest-api-operations`, and `docs-internal` must share a parent directory locally.  
-
-You must bootstrap `github` for this script to work. To check if you need to bootstrap, check if the `bin` directory in `github` exists locally. If it does not exist, run `./script/bootstrap` from the `github` directory.  
-
-To stitch the repos together and do an npm build, pass the `stitch` argument.  
-
-To unstitch the repos and revert them to their pre-stitched state, pass the `unstitch` argument.  
-
----
-
-
 ### [`purge-fastly`](purge-fastly)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn). Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
+Run this script to manually purge the Fastly cache. Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
 
 ---
 
 
 ### [`purge-fastly-by-url.js`](purge-fastly-by-url.js)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn) for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+Run this script to manually purge the Fastly cache for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+
+---
+
+
+### [`purge-redis-pages.js`](purge-redis-pages.js)
+
+Run this script to manually purge the Redis rendered page cache. This will typically only be run by Heroku during the deployment process, as triggered via our Procfile's "release" phase configuration.
 
 ---
 
@@ -354,13 +391,6 @@ An automated test checks for discrepancies between filenames and [autogenerated 
 ---
 
 
-### [`remove-deprecated-enterprise-version-markup.js`](remove-deprecated-enterprise-version-markup.js)
-
-Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
 ### [`remove-extraneous-translation-files.js`](remove-extraneous-translation-files.js)
 
 An [automated test](/tests/extraneous-translation-files.js) checks for files in the `translations/` directory that do not have an equivalent English file in the `content/` directory, and fails if it finds extraneous files. When the test fails, a human needs to run this script to remove the files.
@@ -379,13 +409,54 @@ Run this script to remove reusables and image files that exist in the repo but a
 
 This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
 
-It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for Crowdin to fix them.
+It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
 
-Usage: script/reset-translated-File.js <relative-filename> [<two-letter-language-code>]
+Usage: script/reset-translated-file.js <filename>
 
-script/reset-translated-File.js content/desktop/foo.md -> resets all translations of foo.md
+Examples:
 
-script/reset-translated-File.js content/desktop/foo.md de -> resets german translation of foo.md
+reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+
+reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
+
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+
+---
+
+
+### [`rest/update-files.js`](rest/update-files.js)
+
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+
+---
+
+
+### [`rest/utils/create-code-samples.js`](rest/utils/create-code-samples.js)
+
+
+
+---
+
+
+### [`rest/utils/get-operations.js`](rest/utils/get-operations.js)
+
+
+
+---
+
+
+### [`rest/utils/operation-schema.js`](rest/utils/operation-schema.js)
+
+
+
+---
+
+
+### [`rest/utils/operation.js`](rest/utils/operation.js)
+
+
 
 ---
 
@@ -406,14 +477,14 @@ Starts the local development server with all of the available languages enabled.
 
 ### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
 
-Run this script to standardize frontmatter fields in all content files, per the order decided in https://github.com/github/docs-internal/issues/9658#issuecomment-485536265.
+Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
 
 ---
 
 
-### [`sync-algolia-search-indices.js`](sync-algolia-search-indices.js)
+### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run automatically via GitHub Actions on every push to `master` to generate searchable data and upload it to our Algolia account. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 
 ---
 
@@ -427,15 +498,7 @@ List all the TODOs in our JavaScript files and stylesheets.
 
 ### [`update-enterprise-dates.js`](update-enterprise-dates.js)
 
-Run this script during Enterprise releases and deprecations. It uses the GitHub API to get dates from [`enterprise-releases`](https://github.com/github/enterprise-releases/blob/master/releases.json) and updates `lib/enterprise-dates.json`. The help site uses this JSON to display dates at the top of some Enterprise versions.
-
-This script requires that you have a GitHub Personal Access Token in a `.env` file. If you don't have a token, get one [here](https://github.com/settings/tokens/new?scopes=repo&description=docs-dev). If you don't have an `.env` file in your docs checkout, run this command in Terminal:
-
-`cp .env.example .env`
-
-Open the `.env` file in a text editor, and find the `GITHUB_TOKEN=` placeholder. Add your token after the equals sign.
-
-Do not commit the `.env` file; just leave it in your checkout.
+This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
 
 ---
 
@@ -447,24 +510,8 @@ This script crawls the script directory, hooks on special comment markers in eac
 ---
 
 
-### [`update-s3cmd-config.js`](update-s3cmd-config.js)
-
-This script is used by other scripts to update temporary AWS credentials and authenticate to S3. See docs at [Setting up awssume and S3cmd](https://github.com/github/product-documentation/tree/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
-
----
-
-
 ### [`update-versioning-in-files.js`](update-versioning-in-files.js)
 
 
 
 ---
-
-
-### [`upload-enterprise-images-to-s3.js`](upload-enterprise-images-to-s3.js)
-
-Run this script to: [upload individual files to S3](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/adding-individual-images-to-earlier-verisons-of-enterprise.md) or: [upload a batch of files to S3 for a new Enterprise release](https://github.com/github/product-documentation/blob/master/doc-team-workflows/working-on-enterprise-releases/information-for-all-writers/storing-a-batch-of-assets-on-s3-for-a-new-release.md). Run `upload-enterprise-images-to-s3.js --help` for usage details.
-
----
-
-

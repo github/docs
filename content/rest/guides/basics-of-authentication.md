@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,8 +57,8 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration
-page][app settings]. You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
+page][app settings].{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -164,7 +165,7 @@ To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-[check a token for validity][/v3/apps/oauth_applications/#check-a-token]{% else %}[check a token for validity][/v3/apps/oauth_applications/#check-an-authorization]{% endif %}.
+[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 

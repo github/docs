@@ -1,11 +1,12 @@
 ---
 title: 创建有多个作者的提交
-intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 合作提交在 {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} 上可见，并且可包含在个人资料贡献图和仓库统计信息中{% endif %}。'
+intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 合作提交在 {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 上可见，并且可包含在个人资料贡献图和仓库统计信息中{% endif %}。'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 必需的合作作者信息
@@ -30,7 +31,7 @@ versions:
 
 ### 使用 {% data variables.product.prodname_desktop %} 创建合作提交
 
-可以使用 {% data variables.product.prodname_desktop %} 创建合作提交。 更多信息请参阅“[编写提交消息并推送更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”和 [{% data variables.product.prodname_desktop %}](https://desktop.github.com)。
+可以使用 {% data variables.product.prodname_desktop %} 创建合作提交。 更多信息请参阅“[编写提交消息并推送更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)”和 [{% data variables.product.prodname_desktop %}](https://desktop.github.com)。
 
 ![添加合作作者到提交消息](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -38,7 +39,17 @@ versions:
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **提示：** 如果您使用文本编辑器在命令行上输入提交消息，请确保在提交描述末尾与 `Co-authored-by:` 提交尾行之间有两个换行符。
+
+  {% endtip %}
 
 3. 在提交消息的下一行，根据每个合作作者的特定信息键入 `Co-authored-by: name <name@example.com>`。 在合作作者的信息后面，添加一个右引号。
 
@@ -67,10 +78,10 @@ versions:
 新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
 ### 延伸阅读
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"
 - “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”{% endif %}
 - “[查看仓库活动的摘要](/articles/viewing-a-summary-of-repository-activity)”
 - “[查看项目的贡献者](/articles/viewing-a-projects-contributors)”
 - “[更改提交消息](/articles/changing-a-commit-message)”
-- {% data variables.product.prodname_desktop %} 文档中的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”
+- {% data variables.product.prodname_desktop %} 文档中的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)”

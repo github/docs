@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The `git filter-branch` command and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
@@ -27,7 +28,7 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 #### Using the BFG
 
-The [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. For example, to remove your file with sensitive data and leave your latest commit untouched, run:
+The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -39,7 +40,13 @@ To replace all text listed in `passwords.txt` wherever it can be found in your r
 $ bfg --replace-text passwords.txt
 ```
 
-See the [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
+```
+
+See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
 #### Using filter-branch
 
@@ -74,7 +81,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
         "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -89,7 +96,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
   $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
-  > [master 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
@@ -102,7 +109,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
   ```shell
@@ -113,7 +120,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 8. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
 9. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
@@ -134,7 +141,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
 
   {% endnote %}
 
-## Avoiding accidental commits in the future
+### Avoiding accidental commits in the future
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -145,5 +152,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 
 ### Дополнительная литература
 
-- [`git filter-branch` main page](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

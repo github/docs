@@ -125,7 +125,7 @@ versions:
 请注意，可用的信息因个案而异。 用户可选择提供一些信息。 在另一些情况下，我们可能没有收集或保留信息。
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**有法院命令*或*搜查令** — 我们不会披露帐户访问日志，除非收到以下指令的要求： (i) 根据 18 U.S.C. 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause. 除了上述非公开用户帐户信息之外，我们根据法院命令或搜查令提供的帐户访问日志信息可能包括：
+**有法院命令*或*搜查令** — 我们不会披露帐户访问日志，除非收到以下指令的要求： (i) 根据 18 U.S.C. 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 除了上述非公开用户帐户信息之外，我们根据法院命令或搜查令提供的帐户访问日志信息可能包括：
 
   - 显示用户在一段时间内移动的任何日志
   - 帐户或私有版本库设置(例如，哪些用户拥有特定权限等）
@@ -141,15 +141,23 @@ versions:
   - 私有仓库中的通信或文档（例如议题或维基）
   - 任何用于身份验证或加密的安全密钥
 
-- <a name="in-exigent-circumstances"></a>**在紧急情况下** — 如果我们在某些紧急情况下收到要求提供信息的请求（如果我们认为有必要披露信息以防止涉及人员死亡或严重人身伤害危险的紧急情况），我们可能会披露我们认为对执法部门处理紧急情况必要的有限信息。 对于超出此范围的任何信息，如上所述，我们需要传票、搜查令或法院命令才会披露。 例如，没有搜查令时，我们不会披露私有仓库的内容。 在披露信息之前，我们会确认请求来自执法机构，当局发出了正式通知，概述了紧急情况以及所要求的信息将如何有助于处理紧急情况。
+- <a name="in-exigent-circumstances"></a>
+**在紧急情况下** — 如果我们在某些紧急情况下收到要求提供信息的请求（如果我们认为有必要披露信息以防止涉及人员死亡或严重人身伤害危险的紧急情况），我们可能会披露我们认为对执法部门处理紧急情况必要的有限信息。 对于超出此范围的任何信息，如上所述，我们需要传票、搜查令或法院命令才会披露。 例如，没有搜查令时，我们不会披露私有仓库的内容。 在披露信息之前，我们会确认请求来自执法机构，当局发出了正式通知，概述了紧急情况以及所要求的信息将如何有助于处理紧急情况。
 
 ### 费用补偿
 
-我们保留按照法律规定寻求补偿与回应信息要求有关的管理费用的权利。
+根据州和联邦法律，GitHub 可以要求补偿与遵守有效法律要求（如传票、法院命令或搜查令）相关的费用。 我们只收取部分费用，这些补偿只包括我们为遵守法律命令而实际发生的一部分费用。
+
+虽然我们在紧急情况下不收费，但除非法律另有要求，否则我们将根据以下安排要求补偿为满足所有其他法律要求产生的费用：
+
+- 最多 25 个标识符的初始搜索：免费
+- 最多 5 个帐户的订阅者信息/数据制作：免费
+- 为 5 个以上帐户制作订阅者信息/数据：每个帐户 20 美元
+- 二次搜索：每次搜索 10 美元
 
 ### 数据保存
 
-We will take steps to preserve account records for up to 90 days upon formal request from U.S. law enforcement in connection with official criminal investigations, and pending the issuance of a court order or other process.
+在美国执法部门发出与官方刑事调查相关的正式要求后， 以及签发法院命令或其他程序之前，我们将采取步骤保存长达 90 天的帐户记录。
 
 ### 提交请求
 
@@ -161,8 +169,6 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505
 ```
-
-您也可以发送一份副本到 legal@support.github.com。
 
 请求请尽可能具体，包含以下信息：
 
@@ -177,7 +183,7 @@ Sacramento, CA 95833-3505
 
 ### 外国执法部门的请求
 
-作为一家设在加利福尼亚的美国公司，GitHub 不必根据外国当局签发的法律程序向外国政府提供数据。 希望向 GitHub 索取信息的外国执法官员应与美国司法部刑事司国际事务办公室联系。 GitHub 将迅速答复美国法院通过司法互助条约（“MLAT）或委托调查书发出的请求。 court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
+作为一家设在加利福尼亚的美国公司，GitHub 不必根据外国当局签发的法律程序向外国政府提供数据。 希望向 GitHub 索取信息的外国执法官员应与美国司法部刑事司国际事务办公室联系。 GitHub 将迅速答复美国法院通过司法互助条约（“MLAT）或委托调查书发出的请求。 法院通过司法互助条约（“MLAT）或委托调查书发出的请求。
 
 ### 问题
 

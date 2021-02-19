@@ -1,30 +1,29 @@
 ---
 title: 管理全局 web 挂钩
-intro: 站点管理员可以查看、添加、编辑和删除全局 web 挂钩，在实例级别跟踪事件。
+intro: '站点管理员可以查看、添加、编辑和删除全局 web 挂钩，以跟踪企业的事件。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于全局 web 挂钩
 
-您可以使用全局 web 挂钩自动监视、响应或者为实例上的用户和组织管理强制执行规则。 例如，您可以将 web 挂钩配置为在以下情况下执行：
+您可以使用全局 web 挂钩自动监视、响应或者为企业的用户和组织管理强制执行规则。 例如，您可以将 web 挂钩配置为在以下情况下执行：
 - 创建或删除用户帐户
-- An organization is created or deleted
+- 创建或删除组织
 - 向仓库添加协作者或从仓库中移除协作者
-- A repository is forked
+- 复刻仓库
 
 ![全局 web 挂钩列表](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-
 ### 添加全局 web 挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 单击 **Add webhook（添加 web 挂钩）**。 ![Webhooks 页面上 Admin center 中的 Add webhook 按钮](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
@@ -47,8 +46,7 @@ versions:
 
 ### 编辑全局 web 挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 在您想要编辑的 web 挂钩旁，单击 **Edit**。 ![web 挂钩旁的 Edit 按钮](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
@@ -57,8 +55,7 @@ versions:
 
 ### 删除全局 web 挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 在您想要删除的 web 挂钩旁，请单击 **Delete**。 ![web 挂钩旁的 Delete 按钮](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
@@ -66,8 +63,7 @@ versions:
 
 ### 查看最近的交付和回复
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 在 web 挂钩列表中，单击您想要查看其投递的 web 挂钩。 ![包含用于查看每个 web 挂钩的链接的 web 挂钩列表](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)

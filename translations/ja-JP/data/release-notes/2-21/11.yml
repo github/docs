@@ -1,0 +1,18 @@
+---
+date: '2020-11-03'
+sections:
+  security_fixes:
+    - '**中:** SVNブリッジへの特別に細工されたリクエストによって引き起こされる高いCPU使用率によって、サービス拒否（DoS）が引き起こされる可能性がありました。{% comment %} https://github.com/github/slumlord/pull/1004, https://github.com/github/slumlord/pull/1000 {% endcomment %}'
+    - "**低:** 不正確なトークンの検証によって、認証中のトークンのマッチのためのエントロピーが減少しました。分析からは、実際には大きなセキュリティ上のリスクはないことが示されています。{% comment %} https://github.com/github/github/pull/159455, https://github.com/github/github/pull/159193 {% endcomment %}"
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23539, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23692, https://github.com/github/enterprise2/pull/23677 {% endcomment %}'
+  bugs:
+    - '非ASCIIキャラクタを含むファイル名のIssueテンプレートを編集すると、"500 Internal Server Error"で失敗します。{% comment %} https://github.com/github/github/pull/160589, https://github.com/github/github/pull/159747 {% endcomment %}'
+    - 'バックグラウンドジョブのメトリック収集方式のために、CPU使用率が増大しました。（2020-11-03更新）{% comment %} https://github.com/github/github/pull/160109 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。（--更新）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'

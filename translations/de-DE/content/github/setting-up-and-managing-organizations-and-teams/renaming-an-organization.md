@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,14 +22,14 @@ Nach der Änderung Deines Organisationsnamens wird Dein alter Organisationsname 
 
 #### Automatische Änderungen
 
-- {% data variables.product.prodname_dotcom %} leitet Referenzen auf Deine Repositorys automatisch weiter.  Weblinks auf bestehende **Repositorys** Deiner Organisation funktionieren weiterhin. Allerdings kann diese Anpassung nach der Veranlassung der Änderung einige Minuten dauern.
+- {% data variables.product.prodname_dotcom %} leitet Referenzen auf Ihre Repositorys automatisch weiter.  Weblinks auf bestehende **Repositorys** Deiner Organisation funktionieren weiterhin. Allerdings kann diese Anpassung nach der Veranlassung der Änderung einige Minuten dauern.
 - Du kannst Deine lokalen Repositorys weiterhin mittels Push auf die bisherige Remote-Tracking-URL übertragen, ohne diese zu aktualisieren. Jedoch wird nach einer Änderung des Organisationsnamens die Aktualiserung der URLs aller vorhandenen Remote-Repositorys empfohlen. Schließlich kann Dein alter Organisationsname nach dessen Änderung von jemand anderem verwendet werden, und es ist durchaus möglich, dass Repositorys einer neuen Organisation mit gleichem Namen die Weiterleitungseinträge für Deine Repositorys überschreiben. Weitere Informationen findest Du unter „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url).“
 - Bisherige Git-Commits werden den Benutzern Deiner Organisation korrekt zugeordnet.
 
 #### Änderungen, die nicht automatisch erfolgen
 
 Nach der Änderung Deines Organisationsnamens können folgende Probleme auftreten:
-- Links auf die bisherige Profilseite Deiner Organisation, wie `https://{% data variables.command_line.backticks %}/frühererorgname`, geben einen 404-Fehler zurück. Wir empfehlen Dir die Aktualisierung der Links auf Deine Organisation von anderen Websites{% if currentVersion == "free-pro-team@latest" %}, beispielsweise von Deinen LinkedIn- oder Twitter-Profilen{% endif %}.
+- Links auf die bisherige Profilseite Ihrer Organisation, wie `https://{% data variables.command_line.backticks %}/previousorgname`, geben einen 404-Fehler zurück. We recommend you update links to your organization from other sites{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profiles{% endif %}.
 - API-Anforderungen mit dem alten Organisationsnamen geben einen 404-Fehler zurück. Wir empfehlen Dir die Aktualisierung Deines alten Organisationsnamens in Deinen API-Anforderungen.
 - Für Teams, die noch den alten Organisationsnamen verwenden, erfolgen [@erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)-Weiterleitungen nicht automatisch.
 

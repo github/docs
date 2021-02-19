@@ -25,7 +25,7 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 
 ### Preencher seu perfil de organização patrocinada
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,11 +50,11 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 
 ### Enviando informações bancárias
 
-Como organização patrocinada, você deve receber pagamentos em uma conta bancária exclusiva para sua organização em uma região apoiada. Você pode ter uma conta bancária jurídica por meio de serviços como [Open Collective](https://opencollective.com/) e [Stripe Atlas](https://stripe.com/atlas). {% data reusables.sponsors.stripe-supported-regions %}
+Como organização patrocinada, você deve receber pagamentos em uma conta bancária exclusiva para sua organização em uma região apoiada. Você pode ter uma conta bancária jurídica por meio de serviços como [Open Collective](https://opencollective.com/) e [Stripe Atlas](https://stripe.com/atlas). A região em que sua organização opera legalmente e a região da sua conta bancária devem corresponder. A pessoa que criou o {% data variables.product.prodname_sponsors %} para a organização também deve morar na mesma região suportada. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 Para obter mais informações sobre como configurar o Stripe Connect usando o Open Collective, consulte [Configurando {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) no Open Collective Docs.
@@ -63,7 +63,7 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +75,7 @@ Antes de sua organização se tornar uma organização patrocinada, você deve h
 
 ### Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

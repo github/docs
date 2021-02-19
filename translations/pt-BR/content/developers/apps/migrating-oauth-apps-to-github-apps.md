@@ -6,11 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 Este artigo fornece orientações para integradores existentes que estão considerando a migração de um aplicativo OAuth para um aplicativo GitHub.
-
 
 ### Razões para alternar para aplicativos GitHub
 
@@ -19,11 +19,11 @@ Este artigo fornece orientações para integradores existentes que estão consid
 - [Permissões refinadas](/apps/differences-between-apps/#requesting-permission-levels-for-resources) direcionadas às informações específicas que um aplicativo GitHub pode acessar, o que permite que o aplicativo seja mais amplamente utilizado por pessoas e organizações com políticas de segurança do que os aplicativos OAuth, que não podem ser limitados pelas permissões.
 - [Os tokens de vida útil curta](/apps/differences-between-apps/#token-based-identification) fornecem um método de autenticação mais seguro em relação aos tokens do OAuth. Um token do OAuth não expira até que a pessoa que autorizou o aplicativo OAuth revogue o token. Os aplicativos GitHub usam tokens que expiram rapidamente, o que cria uma janela de tempo muito menor para que tokens comprometidos sejam usados.
 - [Os webhooks integrados e centralizados](/apps/differences-between-apps/#webhooks) recebem eventos para todos os repositórios e organizações que o aplicativo pode acessar. Inversamente, os aplicativos OAuth exigem a configuração de um webhook para cada repositório e organização acessível ao usuário.
-- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {% data variables.product.prodname_ghe_server %} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
+- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {% data variables.product.product_name %} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
 - O suporte integrado para o OAuth ainda está disponível para aplicativos GitHub usando [pontos finais de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - [Os limites de taxa de API](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) dedicados para as contas do bot são escalados com a sua integração.
 - Os proprietários de repositórios podem [instalar aplicativos GitHub](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) em repositórios de organizações. Se a configuração de um aplicativo GitHub tiver permissões que solicitam os recursos de uma organização, o proprietário d organização deverá aprovar a instalação.
-- O suporte da comunidade do código aberto está disponível nas [bibliotecas do Octokit](/v3/libraries/) e outros estruturas como, por exemplo, o [Probot](https://probot.github.io/).
+- O suporte da comunidade do código aberto está disponível nas [bibliotecas do Octokit](/rest/overview/libraries) e outros estruturas como, por exemplo, o [Probot](https://probot.github.io/).
 - Os integradores que constroem os aplicativos GitHub têm a oportunidade de adotar acesso prévio às APIs.
 
 ### Converter um aplicativo OAuth em um aplicativo GitHub
@@ -42,27 +42,27 @@ Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% if curre
 
 #### Revise os pontos finais da API disponíveis para os aplicativos do GitHub
 
-Embora a maioria dos pontos finais da [API REST](/v3) e as consultas do [GraphQL](/v4) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/v3/apps/available-endpoints/) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
+Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL](/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
 
 Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe o a equipe de suporte caso haja um ponto final necessário que ainda não esteja habilitado para {% data variables.product.prodname_github_app %}s.
 
 #### Projete para permanecer dentro dos limites de taxa da API
 
-Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/v3/#conditional-requests) ou consolidar solicitações usando [GraphQL API V4](/v4/).
+Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest#conditional-requests) ou consolidar solicitações usando [GraphQL API V4](/graphql).
 
 #### Cadastre um novo aplicativo GitHub
 
-Uma vez que você decidiu fazer a troca para os aplicativos GitHub, você precisará [criar um novo aplicativo GitHub](/apps/building-github-apps/).
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### Determine as permissões de que seu aplicativo precisa
 
-Ao registrar seu aplicativo GitHub, você deverá selecionar as permissões necessárias por cada ponto final usado no código do seu aplicativo. Consulte "[Permissões do aplicativo GitHub](/v3/apps/permissions/)" para obter uma lista das permissões necessárias para cada ponto final disponível nos aplicativos GitHub.
+Ao registrar seu aplicativo GitHub, você deverá selecionar as permissões necessárias por cada ponto final usado no código do seu aplicativo. Consulte "[Permissões do aplicativo GitHub](/rest/reference/permissions-required-for-github-apps)" para obter uma lista das permissões necessárias para cada ponto final disponível nos aplicativos GitHub.
 
 Nas configurações do seu aplicativo GitHub, você pode especificar se seu aplicativo precisa de acesso `Sem Acesso`, `somente leitura`, ou `Leitura & Gravação` para cada tipo de permissão. As permissões refinadas permitem que seu aplicativo obtenha acesso direcionado ao subconjunto de dados de que você precisa. Recomendamos especificar o menor conjunto de permissões possível que fornece a funcionalidade desejada.
 
 #### Assine os webhooks
 
-Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. Consulte "[Editando as permissões do aplicativo Github](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para aprender como se assinar webhooks.
+Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### Entenda os diferentes métodos de autenticação
 
@@ -90,11 +90,11 @@ Uma vez que você fez a transição de um aplicativo OAuth para um aplicativo Gi
 https://github.com/apps/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID
 ```
 
-Você deverá substituir `YOUR_APP_NAME` pelo nome do seu aplicativo GitHub, `ID_OF_USER_OR_ORG` pelo ID do seu usuário-alvo ou organização, e incluir até 100 IDs de repositório (`REPO_A_ID` e `REPO_B_ID`). Para obter uma lista de repositórios à qual seu aplicativo OAuth tem acesso, use os pontos finais [Listar repositórios para o usuário autenticado](/v3/repos/#list-repositories-for-the-authenticated-user) e [Listar repositórios de organização](/v3/repos/#list-organization-repositories).
+Você deverá substituir `YOUR_APP_NAME` pelo nome do seu aplicativo GitHub, `ID_OF_USER_OR_ORG` pelo ID do seu usuário-alvo ou organização, e incluir até 100 IDs de repositório (`REPO_A_ID` e `REPO_B_ID`). Para obter uma lista de repositórios à qual seu aplicativo OAuth tem acesso, use os pontos finais [Listar repositórios para o usuário autenticado](/rest/reference/repos#list-repositories-for-the-authenticated-user) e [Listar repositórios de organização](/rest/reference/repos#list-organization-repositories).
 
 #### Remova quaisquer hooks de repositório desnecessários
 
-Uma vez que seu aplicativo GitHub foi instalado em um repositório, você deve remover quaisquer webhooks desnecessários criados pelo seu aplicativo de legado OAuth. Se ambos os aplicativos estiverem instalados em um repositório, eles poderão duplicar a funcionalidade do usuário. Para remover os webhooks, Você pode ouvir [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) com a ação `repositórios_added` e [Excluir um webhook do repositório](/v3/repos/hooks/#delete-a-repository-webhook) naqueles repositórios criados pelo seu aplicativo OAuth.
+Uma vez que seu aplicativo GitHub foi instalado em um repositório, você deve remover quaisquer webhooks desnecessários criados pelo seu aplicativo de legado OAuth. Se ambos os aplicativos estiverem instalados em um repositório, eles poderão duplicar a funcionalidade do usuário. Para remover os webhooks, Você pode ouvir [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) com a ação `repositórios_added` e [Excluir um webhook do repositório](/rest/reference/repos#delete-a-repository-webhook) naqueles repositórios criados pelo seu aplicativo OAuth.
 
 #### Incentive os usuários a revogar o acesso ao seu aplicativo OAuth
 

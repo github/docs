@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Propriedades do texto do comentário
 
-O texto de um comentário pode ser escrito no [Linguagem de Markdown enriquecido][gfm], [problemas](/v3/issues/), [comentários do problema](/v3/issues/comments/), [comentários de pull request](/v3/pulls/comments/) e as APIs dos [comentários de gist](/v3/gists/comments/) aceitam todos esses mesmos tipos de mídia:
+O texto de um comentário pode ser escrito no [Linguagem de Markdown enriquecido][gfm], [problemas](/rest/reference/issues), [comentários do problema](/rest/reference/issues#comments), [comentários de pull request](/rest/reference/pulls#comments) e as APIs dos [comentários de gist](/rest/reference/gists#comments) aceitam todos esses mesmos tipos de mídia:
 
 #### Sem processar
 
@@ -84,7 +85,7 @@ Retorna as representações de HTML e texto sem processar. A resposta incluirá 
 
 ### Propriedades do Git blob
 
-Os seguintes tipos de mídia são permitidos ao [receber um blob](/v3/git/blobs/#get-a-blob):
+Os seguintes tipos de mídia são permitidos ao [receber um blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -101,7 +102,7 @@ Retorna os dados do blob sem processamento.
 
 ### Commits, comparação de commit e pull requests
 
-A [API de commits](/v3/repos/commits/) e [API de pull requests](/v3/pulls/) são compatíveis com os formatos [diff][git-diff] e [patch][git-patch]:
+A [API de commits](/rest/reference/repos#commits) e [API de pull requests](/rest/reference/pulls) são compatíveis com os formatos [diff][git-diff] e [patch][git-patch]:
 
 #### diff
 
@@ -146,5 +147,5 @@ O conteúdo do gist é codificado em base64 antes de ser enviado. Isso pode ser 
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis
+[versions]: /developers/overview/about-githubs-apis

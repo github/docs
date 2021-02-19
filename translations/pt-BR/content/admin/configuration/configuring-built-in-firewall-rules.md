@@ -1,6 +1,6 @@
 ---
 title: Configurar regras de firewall integrado
-intro: 'É possível exibir as regras padrão de firewall e personalizar outras regras da {% data variables.product.product_location_enterprise %}.'
+intro: 'É possível exibir as regras padrão de firewall e personalizar outras regras da {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Sobre o firewall da {% data variables.product.product_location_enterprise %}
+### Sobre o firewall da {% data variables.product.product_location %}
 
 O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, consulte "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.
 
@@ -66,7 +66,7 @@ O firewall UFW também abre várias outras portas necessárias para o funcioname
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-Após a atualização da {% data variables.product.product_location_enterprise %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
+Após a atualização da {% data variables.product.product_location %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
 
 ### Restaurar as regras padrão de firewall
 

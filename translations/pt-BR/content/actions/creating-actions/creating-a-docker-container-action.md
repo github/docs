@@ -1,6 +1,6 @@
 ---
 title: Criar uma ação de contêiner Docker
-intro: Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.
+intro: 'Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Desenvolvimento da ação'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Antes de começar, você precisa criar um repositório GitHub.
 
 1. No seu terminal, mude os diretórios para seu novo repositório.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
@@ -47,7 +51,7 @@ Antes de começar, você precisa criar um repositório GitHub.
 Em seu novo diretório `hello-world-docker-action`, crie um arquivo `Dockerfile`. Para obter mais informações, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
 
 **arquivo Docker**
-```dockerfile
+```dockerfile{:copy}
 # Imagem de contêiner que executa seu código
 FROM alpine:3.10
 
@@ -64,7 +68,7 @@ Crie um novo arquivo `action.yml` no diretório `hello-world-docker-action` que 
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -92,28 +96,27 @@ O {% data variables.product.prodname_dotcom %} criará uma imagem a partir do se
 
 Você pode escolher qualquer imagem Docker de base e, portanto, qualquer linguagem para sua ação. O exemplo de script de shell a seguir usa a variável de entrada `who-to-greet` para imprimir "Hello [who-to-greet]" no arquivo de log.
 
-Na sequência, o script obtém a hora atual e a configura como uma variável de saída que pode ser usada pelas ações executadas posteriormente em um trabalho. Para que {% data variables.product.prodname_dotcom %} reconheça as variáveis de saída, você deve usar um comando do fluxo de trabalho em uma sintaxe específica: `echo "::set-output name=<output name>::<value>"`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)".
+Na sequência, o script obtém a hora atual e a configura como uma variável de saída que pode ser usada pelas ações executadas posteriormente em um trabalho. Para que {% data variables.product.prodname_dotcom %} reconheça as variáveis de saída, você deverá usar um comando do fluxo de trabalho em uma sintaxe específica: `echo "::set-output name=<output name>::<value>"`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)".
 
 1. Crie um novo arquivo `entrypoint.sh` no diretório `hello-world-docker-action`.
-
-1. Torne o seu arquivo `entrypoint.sh` file executável:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
 
 1. Adicione o código a seguir ao arquivo `entrypoint.sh`.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
 
   echo "Hello $1"
   time=$(date)
   echo "::set-output name=time::$time"
   ```
-
   Se `entrypoint.sh` for executado sem qualquer erro, o status da ação será definido como `success`. Você também pode definir explicitamente códigos de saída no código de ação para fornecer o status de uma ação. Para obter mais informações, consulte "[Definindo os códigos de saída para as ações](/actions/creating-actions/setting-exit-codes-for-actions)".
+
+1. Torne seu arquivo executável `entrypoint.sh` executando o seguinte comando no seu sistema.
+
+  ```shell{:copy}
+  $ chmod +x entrypoint.sh
+  ```
 
 ### Criar LEIAME
 
@@ -129,7 +132,7 @@ No diretório `hello-world-docker-action`, crie um arquivo `README.md` que espec
 - Um exemplo de uso da ação no fluxo de trabalho.
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 Esta ação imprime "Hello World" ou "Hello" + o nome de uma pessoa a ser cumprimentada no log.
@@ -159,7 +162,7 @@ A partir do seu terminal, faça commit dos arquivos `action.yml`, `entrypoint.sh
 
 Adicionar uma tag da versão para versões da sua ação é considerada uma prática recomendada. Para obter mais informações sobre versões da sua ação, consulte "[Sobre ações](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "Minha primeira ação está pronta"
 git tag -a -m "Versão da minha primeira ação" v1
@@ -174,11 +177,11 @@ Agora você está pronto para testar sua ação em um fluxo de trabalho. Quando 
 
 #### Exemplo usando uma ação pública
 
-O código do fluxo de trabalho a seguir usa a ação hello world completa no repositório público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copie o exemplo de código de fluxo de trabalho a seguir em um arquivo `.github/workflows/main.yml`, mas substitua `actions/hello-world-docker-action` pelo nome de seu repositório e ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
+O código do fluxo de trabalho a seguir usa a ação completa _hello world_ no repositório público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copie o exemplo de código de fluxo de trabalho a seguir em um arquivo `.github/workflows/main.yml`, mas substitua `actions/hello-world-docker-action` pelo nome de seu repositório e ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% if currentVersion == "free-pro-team@latest" %}As ações públicas podem ser usadas mesmo se não forem publicadas em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -199,11 +202,11 @@ jobs:
 
 #### Exemplo usando uma ação privada
 
-Copie o seguinte exemplo de código de fluxo de trabalho em um arquivo `.github/workflows/main.yml` no repositório da ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
+Copie o seguinte exemplo de código de fluxo de trabalho em um arquivo `.github/workflows/main.yml` no repositório da ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% if currentVersion == "free-pro-team@latest" %}Esta ação privada não pode ser publicada em {% data variables.product.prodname_marketplace %}, e só pode ser usada neste repositório.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 em: [push]
 
 trabalhos:
@@ -226,6 +229,10 @@ trabalhos:
 ```
 {% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+{% else %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/docker-action-workflow-run.png)
+{% endif %}

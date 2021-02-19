@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 更改头像
@@ -40,7 +41,7 @@ versions:
 
 ### 更改个人资料名称
 
-您可以更改显示在个人资料中的名称。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}此名称也可能显示在您对组织拥有的私有仓库所发表的评论旁边。 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。{% endif %}
+您可以更改显示在个人资料中的名称。 此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
 
 {% data reusables.user_settings.access_settings %}
 2. 在“Name（名称）”下，键入要显示在个人资料中的名称。 ![个人资料设置中的名称字段](/assets/images/help/profile/name-field.png)
@@ -51,7 +52,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information on the profile README, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 更多信息请参阅“[管理个人资料自述文件](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
 
 {% endif %}
 
@@ -101,12 +102,12 @@ For a longer-form and more prominent way of displaying customized information ab
 
 当您参与某些计划时， {% data variables.product.prodname_dotcom %} 会自动在您的个人资料中显示徽章。
 
-| 徽章                                                              | 计划                                                                | 描述                                                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} 贡献者** | 如果您在存档于 2020 Arctic Vault 计划的仓库默认分支上编写了任何提交，您的个人资料上会获得一个 {% data variables.product.prodname_arctic_vault %} 贡献者徽章。 有关该计划的更多信息，请参阅 [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com)。                                  |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **开发者计划成员**                                                       | 如果您是 GitHub 开发者计划的注册成员，使用 GitHub API 构建应用程序后，您的个人资料上将获得开发者计划成员徽章。 有关 GitHub 开发者计划的更多信息，请参阅 [GitHub 开发者](/program/)。                                                                                                                                                |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub 赞助者**                                                    | 如果您通过 {% data variables.product.prodname_sponsors %} 赞助了开源贡献者，您的个人资料中将获得一个 GitHub Sponge 徽章。 更多信息请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)”。                                       |
-| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                           | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。 有关 {% data variables.product.prodname_pro %} 的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。 |
+| 徽章                                                              | 计划                                                           | 描述                                                                                                                                                                                                                                                  |
+| --------------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} 贡献者** | 如果您在存档于 2020 Arctic Vault 计划的仓库默认分支上编写了任何提交，您的个人资料上会获得一个 {% data variables.product.prodname_arctic_vault %} 贡献者徽章。 有关该计划的更多信息，请参阅 [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com)。                             |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **开发者计划成员**                                                  | 如果您是 GitHub 开发者计划的注册成员，使用 GitHub API 构建应用程序后，您的个人资料上将获得开发者计划成员徽章。 有关 GitHub 开发者计划的更多信息，请参阅 [GitHub 开发者](/program/)。                                                                                                                                 |
+| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub 赞助者**                                               | 如果您通过 {% data variables.product.prodname_sponsors %} 赞助了开源贡献者，您的个人资料中将获得一个 GitHub Sponge 徽章。 更多信息请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)”。                             |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                      | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。 有关 {% data variables.product.prodname_pro %} 的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。 |
 
 ### 在个人资料中禁用徽章
 

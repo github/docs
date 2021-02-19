@@ -1,5 +1,9 @@
+{% if currentVersion == "enterprise-server@2.22" %}
+
 {% note %}
 
-**Nota:** {% data variables.product.prodname_code_scanning_capc %} está atualmente em versão beta e sujeito a alterações. {% if currentVersion == "free-pro-team@latest" %}To request access to the beta, [join the waitlist](https://github.com/features/security/advanced-security/signup).{% else %}If your organization has an {% data variables.product.prodname_advanced_security %} license, you can [join the beta program](https://resources.github.com/beta-signup/).{% endif %}
+**Observação:** {% data variables.product.prodname_code_scanning_capc %} está em beta em {% data variables.product.prodname_ghe_server %} 2.22. Para a versão geralmente disponível do varredura de código, atualize para a versão mais recente de {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
+
+{% endif %}

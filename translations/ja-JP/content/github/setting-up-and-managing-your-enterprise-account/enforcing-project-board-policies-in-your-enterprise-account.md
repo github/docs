@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントでプロジェクトボードでのポリシーを施行する
-intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のプロジェクトボードのポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。
+intro: 'Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のプロジェクトボードのポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/

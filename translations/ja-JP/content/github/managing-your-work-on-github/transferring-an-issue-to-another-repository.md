@@ -1,18 +1,19 @@
 ---
 title: 他のリポジトリへ Issue を移譲する
-intro: より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。
+intro: 'より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。'
 redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 他のリポジトリにオープン Issue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込み権限が必要です。 詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
 
-同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 プライベートリポジトリからパブリックリポジトリへは、Issue を移譲できません。
+同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
-Issueを委譲する場合、コメントとアサインされた人は保持されます。 Issueのラベル{% if currentVersion ver_lt "enterprise-server@2.19" %}、プロジェクト、{% endif %}マイルストーンは保持されません。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。{% endif %}
+Issueを委譲する場合、コメントとアサインされた人は保持されます。 Issue のラベルとマイルストーンは保持されません。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 
 Issue でメンションされた人や Team は、Issue が新しいリポジトリに移譲されたことを知らせる通知を受け取ります。 当初の URL は、新しい Issue の URL にリダイレクトします。 新しいリポジトリの読み取り権限がない人には、アクセスできない新しいリポジトリに Issue が移譲されたことを知らせるバナーが表示されます。
 

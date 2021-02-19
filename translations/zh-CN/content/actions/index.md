@@ -2,15 +2,39 @@
 title: GitHub Actions文档
 shortTitle: GitHub Actions
 intro: '在 {% data variables.product.prodname_actions %} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
-gettingStartedLinks:
-  - /actions/quickstart
-  - /actions/learn-github-actions
-guideLinks:
-  - /actions/managing-workflow-runs
-  - /actions/hosting-your-own-runners
-popularLinks:
-  - /actions/reference/workflow-syntax-for-github-actions
-  - /actions/reference/events-that-trigger-workflows
+introLinks:
+  quickstart: /actions/quickstart
+  reference: /actions/reference
+featuredLinks:
+  guides:
+    - /actions/learn-github-actions
+    - /actions/guides/about-continuous-integration
+    - /actions/guides/about-packaging-with-github-actions
+  guideCards:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/publishing-nodejs-packages
+    - /actions/guides/building-and-testing-powershell
+  popular:
+    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/learn-github-actions
+    - /actions/reference/events-that-trigger-workflows
+    - /actions/reference/context-and-expression-syntax-for-github-actions
+    - /actions/reference/environment-variables
+    - /actions/reference/encrypted-secrets
+changelog:
+  - 
+    title: 环境、环境保护规则和环境密码（测试版）
+    date: '2020-12-15'
+    href: https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/
+  - 
+    title: 工作流程可视化
+    date: '2020-12-08'
+    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
+  - 
+    title: 11 月 16 日删除 set-env 和 add-path 命令
+    date: '2020-11-09'
+    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -32,162 +56,27 @@ versions:
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
-<!-- Article links -->
-<div class="d-flex gutter my-6 py-6">
-  <div class="col-4">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in gettingStartedLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-4">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in popularLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-4">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">管理工作流程</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in guideLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-<!-- Featured resources -->
-<div class="d-flex gutter my-6 py-6 text-center flex-items-stretch">
-  <a href="/actions/creating-actions" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-blue text-white">{% octicon "bookmark" width="24" %}</div></div>
-    <h4>创建操作</h4>
-    <p class="mb-0">创建并与社区分享操作的完整指南。</p>
-  </a>
-  <a href="https://github.com/actions/starter-workflows" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-purple text-white">{% octicon "rocket" width="24" %}</div></div>
-    <h4>入门工作流程</h4>
-    <p class="mb-0">帮助您开始使用 GitHub Actions 的工作流程文件集合。</p>
-  </a>
-  <a href="https://github.com/marketplace?type=actions" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-orange text-white">{% octicon "light-bulb" width="24" %}</div></div>
-    <h4>GitHub Actions Marketplace</h4>
-    <p class="mb-0">探索社区操作并支持您的工作流程。</p>
-  </a>
-</div>
-
 <!-- Code examples -->
-<div class="mt-6 pt-6">
-  <h2 class="mb-2">指南</h2>
+{% assign actionsCodeExamples = site.data.variables.action_code_examples %}
+{% if actionsCodeExamples %}
+<div class="my-6 pt-6">
+  <h2 class="mb-2 font-mktg h1">代码示例</h2>
+
+  <div class="pr-lg-3 mb-5 mt-3">
+    <input class="js-filter-card-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="搜索代码示例" type="search" autocomplete="off" aria-label="Search code examples"/>
+  </div>
 
   <div class="d-flex flex-wrap gutter">
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-nodejs">
-        <div class="p-4">
-          <h4>构建和测试 Node.js</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 在 Node.js 应用程序中支持 CI。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-nodejs</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-python">
-        <div class="p-4">
-          <h4>构建和测试 Python</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 在 Python 应用程序中支持 CI。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Python</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-python</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-maven">
-        <div class="p-4">
-          <h4>使用 Maven 构建和测试 Java</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 在包含 Maven 的 Java 项目中支持 CI。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-maven</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-gradle">
-        <div class="p-4">
-          <h4>使用 Gradle 构建和测试 Java</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 在包含 Gradle 的 Java 项目中支持 CI。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-gradle</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-ant">
-        <div class="p-4">
-          <h4>使用 Ant 构建和测试 Java</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 在包含 Ant 的 Java 项目中支持 CI。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-ant</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/publishing-nodejs-packages">
-        <div class="p-4">
-          <h4>发布 Node.js 包</h4>
-          <p class="mt-2 mb-4">使用 GitHub Actions 将 Node.js 包发布到 GitHub Packages 或 npm。</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/publishing-nodejs-packages</span>
-        </footer>
-      </a>
-    </div>
+    {% render code-example-card for actionsCodeExamples as example %}
   </div>
 
-  <a href="/actions/guides" class="btn btn-outline mt-4">更多指南 {% octicon "arrow-right" %}</a>
+  <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">显示更多 {% octicon "arrow-right" %}</button>
+
+  <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
+    <div class="mb-3">{% octicon "search" width="24" %}</div>
+    <h3 class="text-normal">抱歉，找不到结果 <strong class="js-filter-card-value"></strong></h3>
+    <p class="my-3 f4">似乎没有适合您的过滤条件的示例。<br>请尝试其他过滤条件或添加代码示例</p>
+    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">了解如何添加代码示例 {% octicon "arrow-right" %}</a>
+  </div>
 </div>
+{% endif %}

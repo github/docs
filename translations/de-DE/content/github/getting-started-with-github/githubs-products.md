@@ -1,11 +1,13 @@
 ---
 title: Produkte von GitHub
+intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_dotcom %} bietet kostenlose und kostenpflichtige Produkte an. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data reusables.products.product-roadmap %}
@@ -83,10 +85,11 @@ Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren F
 - {% data variables.contact.enterprise_support %}. Weitere Informationen findest Du unter „<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Support</a>“ und „<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Nachtrag</a>.“
 - 50.000 {% data variables.product.prodname_actions %}-Minuten
 - 50 GB {% data variables.product.prodname_registry %}-Speicher
-- Ein Service Level Agreement über eine monatliche Verfügbarkeit von 99,95 %,
+- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
+- A service level agreement for 99.9% monthly uptime
 - Die Option, die Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>" (Über Enterprise-Konten).
 
-Du kannst eine Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} zu testen. Weitere Informationen finden Sie unter „[Eine Testversion von {% data variables.product.prodname_ghe_cloud %} einrichten](/articles/setting-up-a-trial-of-github-enterprise-cloud)“.
+Du kannst eine Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} zu testen. Weitere Informationen findest Du unter „<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Eine Testversion von {% data variables.product.prodname_ghe_cloud %} einrichten</a>.“
 
 Um weitere Informationen über das Hosten Deiner eigenen [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)-Instanz zu erhalten, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
 
@@ -96,7 +99,7 @@ Um weitere Informationen über das Hosten Deiner eigenen [{% data variables.prod
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}
+- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."{% endif %}
 - [{% data variables.product.prodname_learning %} für Organisationen](https://lab.github.com/organizations)
 
-Weitere Informationen zur Anmeldung für {% data variables.product.prodname_ghe_one %} erhältst Du beim [{% data variables.product.product_name %}-Vertriebsteam](https://enterprise.github.com/contact).
+For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.

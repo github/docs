@@ -7,34 +7,25 @@ versions:
   free-pro-team: '*'
 ---
 
+### About sponsors and sponsorships
+
 現在と過去のスポンサーシップについての分析、スポンサーから受領した支払い、キャンセルなどのイベント、スポンサーシップのスポンサー層の変更を表示できます。 新しいスポンサーシップ、スポンサーシップの変更、スポンサーシップのキャンセルといったアクティビティも確認できます。 アクティビティのリストは、日付でフィルタリングできます。 表示しているアカウントのスポンサーシップデータを CSV または JSON 形式でエクスポートすることもできます。
-
-この情報すべてには、スポンサーダッシュボードからアクセスします。
-
-### スポンサーダッシュボードを表示する
-
-1. 任意のページの右上隅で、プロフィール画像をクリックし、続いて [**{% data variables.product.prodname_sponsors %}**] をクリックしてください。 ![{% data variables.product.prodname_sponsors %}ボタン](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
-2. 表示されたリストで、スポンサーダッシュボードを表示したいアカウントまたは Organization の右にある [**Dashboard**] をクリックします。 ![開発者スポンサーダッシュボードボタン](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)
 
 ### スポンサーとスポンサーシップを表示する
 
-1. スポンサーダッシュボードにアクセスし、[[Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard)] を確認します。
-{% data reusables.sponsors.navigate-to-sponsors-tab %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 1. あるいは、スポンサーを層によってフィルタリングするには、**Filter（フィルター）**ドロップダウンメニューで、**Active tiers（アクティブな層）**または**Retired tiers（リタイアした層）**をクリックしてから、層を選択します。 ![層によってフィルタリングするドロップダウンメニュー](/assets/images/help/sponsors/filter-drop-down.png)
 
 ### 最近のスポンサーシップアクティビティを表示する
 
-1. スポンサーダッシュボードにアクセスし、[[Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard)] を確認します。
-1. 左のサイドバーで**Activity（アクティビティ）**をクリックしてください。 ![アクティビティタブ](/assets/images/help/sponsors/activity-tab.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.activity-tab %}
 
 ### スポンサーシップデータをエクスポートする
 
-1. スポンサーダッシュボードにアクセスし、[[Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard)] を確認します。
-{% data reusables.sponsors.navigate-to-sponsors-tab %}
-1. [**Export all**] をクリックします。 ![[Export all] ボタン](/assets/images/help/sponsors/export-all.png)
+You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
 
-   スポンサーが存在しない場合、このボタンは表示されません。
-
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.activity-tab %}
+1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
 1. エクスポートしたいデータの時間枠と形式を選択し、[**Start export**] をクリックします。 ![データエクスポートのオプション](/assets/images/help/sponsors/export-your-sponsors.png)
-
-  {% data variables.product.prodname_dotcom %} で、選択した月のスポンサーすべてのデータがエクスポートされます。 すぐに、データの入ったファイルがファイルが添付されたメールが届きます。 エクスポートが完了したら、別の月のデータをエクスポートできます。 スポンサード Organization またはユーザアカウントごとに、1 時間に 10 セットまでのデータをエクスポートできます。

@@ -1,0 +1,1 @@
+Opcionalmente, você pode escolher um repositório de modelo como código inicial para a atividade. O repositório de modelos deve pertencer à sua organização ou ser um repositório público em {% data variables.product.product_name %}. 

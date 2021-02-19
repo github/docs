@@ -1,11 +1,12 @@
 ---
 title: 对时间表上的提交进行故障排除
-intro: 您可以从个人资料的时间表查看提交的详细信息。 如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。
+intro: '您可以从个人资料的时间表查看提交的详细信息。 如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。'
 redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 查看提交详细信息的预期行为
@@ -38,20 +39,20 @@ versions:
 $ git show <em>Your commit SHA number</em> --pretty=fuller
 commit <em>Your commit SHA number</em>
 Author:     octocat <em>user email</em>
-AuthorDate: Wed Jul 13 02:02:30 2016 +0900
+AuthorDate: Tue Apr 03 02:02:30 2018 +0900
 Commit:     Sally Johnson <em>user email</em>
-CommitDate: Wed Jul 20 06:25:08 2016 +0900
+CommitDate: Tue Apr 10 06:25:08 2018 +0900
 ```
 
 如果创作和提交日期不同，您可以在 URL 中手动更改提交日期以查看提交详细信息。
 
 例如：
-- 以下 URL 使用的创作日期为 `2016-07-13`：
+- 以下 URL 使用的创作日期为 `2018-04-03`：
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-13T00:00:00Z&until=2016-07-13T23:59:59Z`
-- 以下 URL 使用的提交日期为 `2016-07-19`：
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
+- 以下 URL 使用的提交日期为 `2018-04-10`：
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-19T00:00:00Z&until=2016-07-19T23:59:59Z`
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
 使用修改后的提交日期打开 URL 时，您可以看到提交详细信息。
 

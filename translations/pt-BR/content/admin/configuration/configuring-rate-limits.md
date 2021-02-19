@@ -13,7 +13,7 @@ versions:
 Habilitar limites de taxa na {% data variables.product.prodname_enterprise_api %} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Habilitar limites de taxa na {% data variables.product.prodname_enterprise_api %} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Limitação de taxa](/enterprise/{{ currentVersion }}/v3/#rate-limiting)".
+Habilitar limites de taxa na {{ site.data.variables.product.prodname_enterprise_api }} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Limitação de taxa](/enterprise/{{ page.version }}/v3/#rate-limiting)".
 {% endif %}
 
 {% note %}
@@ -30,7 +30,7 @@ Habilitar limites de taxa na {% data variables.product.prodname_enterprise_api %
 
 ### Habilitar limites de taxa de abuso
 
-Definir limites de taxa de abuso protege o nível geral de serviço na {% data variables.product.product_location_enterprise %}.
+Definir limites de taxa de abuso protege o nível geral de serviço na {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

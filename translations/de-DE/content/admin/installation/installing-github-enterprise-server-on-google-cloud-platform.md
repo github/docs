@@ -20,21 +20,20 @@ versions:
 
 ### Maschinentyp bestimmen
 
-Bevor Sie {% data variables.product.product_location_enterprise %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
+Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
 
 #### Unterstützte Maschinentypen
 
-{% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“. |
-{% if currentVersion != "free-pro-team@latest" %}
-|  | Oberer Speicher |
-|  | --------------- |
-|  | n1-highmem-4    |
-|  | n1-highmem-8    |
-|  | n1-highmem-16   |
-|  | n1-highmem-32   |
-|  | n1-highmem-64   |
-|  | n1-highmem-96   |
-{% endif %}
+{% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“.
+
+| Oberer Speicher |
+| --------------- |
+| n1-highmem-4    |
+| n1-highmem-8    |
+| n1-highmem-16   |
+| n1-highmem-32   |
+| n1-highmem-64   |
+| n1-highmem-96   |
 
 #### Empfohlene Maschinentypen
 
@@ -55,7 +54,7 @@ Basierend auf der Anzahl Deiner Benutzerlizenzen empfehlen wir die folgenden Mas
 1. Listen Sie mithilfe des Befehlszeilentools [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) die öffentlichen {% data variables.product.prodname_ghe_server %}-Images auf:
    ```shell
    $ gcloud compute images list --project github-enterprise-public --no-standard-images
-  ```
+   ```
 
 2. Notieren Sie sich den Image-Namen für das neueste GCE-Image von {% data variables.product.prodname_ghe_server %}.
 
@@ -64,18 +63,18 @@ Basierend auf der Anzahl Deiner Benutzerlizenzen empfehlen wir die folgenden Mas
 GCE-VMs werden als Mitglied eines Netzwerks erstellt, das eine Firewall besitzt. Für das der {% data variables.product.prodname_ghe_server %}-VM zugeordnete Netzwerk müssen Sie die Firewall so konfigurieren, dass die in der folgenden Tabelle aufgelisteten erforderlichen Ports zugelassen werden. Weitere Informationen zu den Firewallregeln auf Google Cloud Platform finden Sie im Leitfaden „[Übersicht über Firewallregeln](https://cloud.google.com/vpc/docs/firewalls)“.
 
 1. Erstellen Sie mithilfe des Befehlszeilentools „gcloud compute“ das Netzwerk. Weitere Informationen finden Sie unter „[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)“ in der Google-Dokumentation.
-  ```shell
-  $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
-  ```
+   ```shell
+   $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
+   ```
 2. Erstellen Sie eine Firewallregel für jeden der Ports in der folgenden Tabelle. Weitere Informationen finden Sie unter „[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)“ in der Google-Dokumentation.
-  ```shell
-  $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
-  --network <em>NETWORK-NAME</em> \
-  --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
-  ```
-  Diese Tabelle zeigt die erforderlichen Ports und wofür sie verwendet werden.
+   ```shell
+   $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
+   --network <em>NETWORK-NAME</em> \
+   --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
+   ```
+   Diese Tabelle zeigt die erforderlichen Ports und wofür sie verwendet werden.
 
-  {% data reusables.enterprise_installation.necessary_ports %}
+   {% data reusables.enterprise_installation.necessary_ports %}
 
 ### Statische IP zuordnen und mit der VM verknüpfen
 
@@ -88,21 +87,21 @@ In Hochverfügbarkeitskonfigurationen in der Produktion sollten primären und Re
 Zum Erstellen der {% data variables.product.prodname_ghe_server %}-Instanz müssen Sie eine GCE-Instanz mit Ihrem {% data variables.product.prodname_ghe_server %}-Image erstellen und ein zusätzliches Storage-Volume für Ihre Instanzdaten anhängen. Weitere Informationen finden Sie unter „[Grundlegendes zur Hardware](#hardware-considerations)“.
 
 1. Erstelle mit Hilfe des Befehlszeilen-Werkzeugs gcloud einen Datenträger, der als angehängtes Speicher-Volume für Deine Instanzdaten dient, und konfiguriere die Größe entsprechend der Anzahl Deiner Benutzerlizenzen. Weitere Informationen finden Sie unter „[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)“ in der Google-Dokumentation.
-  ```shell
-  $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
-  ```
+   ```shell
+   $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
+   ```
 
 2. Erstellen Sie anschließend eine Instanz mit dem Namen des von Ihnen ausgewählten {% data variables.product.prodname_ghe_server %}-Images, und hängen Sie die Daten-Disk an. Weitere Informationen finden Sie unter „[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)“ in der Google-Dokumentation.
-  ```shell
-  $ gcloud compute instances create <em>INSTANCE-NAME</em> \
-  --machine-type n1-standard-8 \
-  --image <em>GITHUB-ENTERPRISE-IMAGE-NAME</em> \
-  --disk name=<em>DATA-DISK-NAME</em> \
-  --metadata serial-port-enable=1 \
-  --zone <em>ZONE</em> \
-  --network <em>NETWORK-NAME</em> \
-  --image-project github-enterprise-public
-  ```
+   ```shell
+   $ gcloud compute instances create <em>INSTANCE-NAME</em> \
+   --machine-type n1-standard-8 \
+   --image <em>GITHUB-ENTERPRISE-IMAGE-NAME</em> \
+   --disk name=<em>DATA-DISK-NAME</em> \
+   --metadata serial-port-enable=1 \
+   --zone <em>ZONE</em> \
+   --network <em>NETWORK-NAME</em> \
+   --image-project github-enterprise-public
+   ```
 
 ### Instanz konfigurieren
 
@@ -114,4 +113,5 @@ Zum Erstellen der {% data variables.product.prodname_ghe_server %}-Instanz müss
 
 ### Weiterführende Informationen
 
-- „[Systemübersicht](/enterprise/admin/guides/installation/system-overview)“
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

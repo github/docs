@@ -1,12 +1,13 @@
 ---
 title: Obligatorische Commit-Signatur aktivieren
-intro: 'Repository-Administratoren können die obligatorische Commit-Signatur auf einem Branch erzwingen, um alle Commits zu blockieren, die nicht signiert und verifiziert sind.'
+intro: Repository-Administratoren können die obligatorische Commit-Signatur auf einem Branch erzwingen, um alle Commits zu blockieren, die nicht signiert und verifiziert sind.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/enabling-required-commit-signing
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du die obligatorische Commit-Signatur auf einem Branch aktivierst, musst Du zuerst den Branch als geschützten Branch aufsetzen. Weitere Informationen finden Sie unter „[Geschützte Branches konfigurieren](/github/administering-a-repository/configuring-protected-branches)“.

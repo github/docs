@@ -1,11 +1,12 @@
 ---
 title: 组织的项目板权限
-intro: 组织所有者以及具有项目板管理员权限的人员能够自定义谁对您组织的项目板具有读取、写入和管理员权限。
+intro: '组织所有者以及具有项目板管理员权限的人员能够自定义谁对您组织的项目板具有读取、写入和管理员权限。'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 权限概述
@@ -29,7 +30,7 @@ versions:
 
 ### 项目板可见性
 
-{% data reusables.project-management.project-board-visibility %} 您可以将项目板的可见性从私人更改为公共，反之亦然。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
+{% data reusables.project-management.project-board-visibility %} 您可以将项目板的可见性从私有更改为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}，反之亦然。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
 
 ### 延伸阅读
 

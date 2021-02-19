@@ -1,45 +1,61 @@
 ---
 title: ユーザーアカウントのリポジトリ権限レベル
-intro: ユーザーアカウントが所有するリポジトリは、*リポジトリオーナー*と*コラボレーター*という 2 つの権限レベルを持ちます。
+intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+### About permissions levels for a user account repository
+
+Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
+
+You can also {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)."
 
 {% tip %}
 
-**ヒント:** ユーザーアカウントが所有しているリポジトリに対して、より精細な読み取り/書き込みアクセス権が必要な場合には、リポジトリを Organization に移譲することを検討してください。 詳細は「[リポジトリを移譲する](/articles/transferring-a-repository)」を参照してください。
+**Tip:** If you require more granular access to a repository owned by your user account, consider transferring the repository to an organization. 詳細は「[リポジトリを移譲する](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)」を参照してください。
 
 {% endtip %}
 
-#### ユーザーアカウントが所有しているリポジトリに対するオーナーアクセス権
+### Owner access for a repository owned by a user account
 
-リポジトリオーナーは、リポジトリを完全に制御することができます。 リポジトリコラボレータによって許可されるすべての権限に加えて、リポジトリオーナーは次の操作が可能です:
+リポジトリオーナーは、リポジトリを完全に制御することができます。 In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
-- {% if currentVersion == "free-pro-team@latest" %}[コラボレーターを招待する](/articles/inviting-collaborators-to-a-personal-repository){% else %}[コラボレーターを追加する](/articles/inviting-collaborators-to-a-personal-repository){% endif %}
-- リポジトリの可視性を変更する ([public から private へ](/articles/making-a-public-repository-private)、または [private から public](/articles/making-a-private-repository-public) へ) {% if currentVersion == "free-pro-team@latest" %}
-- [リポジトリでのインタラクションを制限する](/articles/limiting-interactions-with-your-repository){% endif %}
-- 保護されたブランチで、レビューの承認がなくてもプルリクエストをマージする
-- [リポジトリを削除する](/articles/deleting-a-repository)
-- [リポジトリのトピックを管理する](/articles/classifying-your-repository-with-topics){% if currentVersion == "free-pro-team@latest" %}
-- Manage security and analysis settings. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- プライベートリポジトリに対して[依存グラフを有効にする](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository){% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- パッケージを削除する。 詳細は「[>パッケージを削除する](/github/managing-packages-with-github-packages/deleting-a-package)」を参照してください。{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- リポジトリソーシャルカードを作成および編集する。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/articles/customizing-your-repositorys-social-media-preview)」を参照してください。
-- リポジトリをテンプレートにする。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)を参照してください。{% endif %}
-- 脆弱な依存関係についての[{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティ{% endif %}アラートを受け取ります](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。 {% if currentVersion == "free-pro-team@latest" %}
-- リポジトリで {% data variables.product.prodname_dependabot_alerts %} を閉じます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
-- [プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
-- [リポジトリのコードオーナーを定義する](/articles/about-code-owners)
-- [リポジトリをアーカイブする](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- セキュリティアドバイザリを作成する。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
-- スポンサーボタンを表示する。 詳細は「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照してください。{% endif %}
+| アクション                                                                                                                                                                                                                        | 詳細情報                                                                                                                                                                                                                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% if currentVersion == "free-pro-team@latest" %}Invite collaborators{% else %}Add collaborators{% endif %}                                                                                                                  |                                                                                                                                                                                                                                                                               |
+| [個人リポジトリへのコラボレータの招待](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)                                                                                               |                                                                                                                                                                                                                                                                               |
+| Change the visibility of the repository                                                                                                                                                                                      | "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)" |{% if currentVersion == "free-pro-team@latest" %}
+| Limit interactions with the repository                                                                                                                                                                                       | "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| Rename a branch, including the default branch                                                                                                                                                                                | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" 
+{% endif %}
+| 保護されたブランチで、レビューの承認がなくてもプルリクエストをマージする                                                                                                                                                                                         | [保護されたブランチについて](/github/administering-a-repository/about-protected-branches)                                                                                                                                                                                                  |
+| リポジトリを削除する                                                                                                                                                                                                                   | 「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」                                                                                                                                                                                                      |
+| Manage the repository's topics                                                                                                                                                                                               | "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% if currentVersion == "free-pro-team@latest" %}
+| Manage security and analysis settings for the repository                                                                                                                                                                     | "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| Enable the dependency graph for a private repository                                                                                                                                                                         | "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| パッケージの削除                                                                                                                                                                                                                     | "[Deleting a package](/github/managing-packages-with-github-packages/deleting-a-package)" 
+{% endif %}
+| Customize the repository's social media preview                                                                                                                                                                              | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)"                                                                                                                                  |
+| Create a template from the repository                                                                                                                                                                                        | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+| Receive                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies | "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository                                                                                                                                          | [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)                                                                                                                                           |
+| Manage data use for a private repository                                                                                                                                                                                     | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"
+{% endif %}
+| リポジトリのコードオーナーを定義する                                                                                                                                                                                                           | 「[コードオーナー'について](/github/creating-cloning-and-archiving-repositories/about-code-owners)」                                                                                                                                                                                       |
+| Archive the repository                                                                                                                                                                                                       | "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)" |{% if currentVersion == "free-pro-team@latest" %}
+| Create security advisories                                                                                                                                                                                                   | "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)"                                                                                                                             |
+| Display a sponsor button                                                                                                                                                                                                     | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| Allow or disallow auto-merge for pull requests                                                                                                                                                                               | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | {% endif %}
 
-ユーザアカウントが所有するリポジトリの**オーナーは 1 人**だけです。この権限を他のユーザアカウントと共有することはできません。 リポジトリの所有権を他のユーザに委譲するには、「[リポジトリを委譲する方法](/articles/how-to-transfer-a-repository)」を参照してください。
+### Collaborator access for a repository owned by a user account
 
-#### ユーザーアカウントが所有しているリポジトリに対するコラボレーターアクセス権
+Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 {% note %}
 
@@ -47,28 +63,30 @@ versions:
 
 {% endnote %}
 
-個人リポジトリでのコラボレーターは、次の操作が可能です:
+Collaborators can also perform the following actions.
 
-- リポジトリに対してプッシュする (書き込む)、プル (読み取る)、フォーク (コピーする)
-- ラベルとマイルストーンを作成、適用、削除する
-- Issue をオープン、再オープン、割り当てする
-- コミット、プルリクエスト、Issue に対するコメントを編集および削除する
-- Issue またはプルリクエストを重複としてマークする。 詳細は「[重複した Issue やプルリクエストについて](/articles/about-duplicate-issues-and-pull-requests)」を参照してください。
-- Open, merge and close pull requests
-- 提案された変更をプルリクエストに適用する。 詳細は「[プルリクエストでのフィードバックを取り込む](/articles/incorporating-feedback-in-your-pull-request)」を参照してください。
-- リポジトリのフォークからプルリクエストを送信する{% if currentVersion == "free-pro-team@latest" %}
-- パッケージを公開、表示、インストールする。 詳細は、「[パッケージの公開と管理](/github/managing-packages-with-github-packages/publishing-and-managing-packages)」を参照してください。{% endif %}
-- ウィキを作成および編集する
-- リリースの作成と編集。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
-- リポジトリでコラボレーターである自身を削除する
-- マージ可能性に影響するプルリクエストレビューをサブミットする
-- リポジトリに指定されたコードオーナーとして行動する。 詳細は「[コードオーナーについて](/articles/about-code-owners)」を参照してください。
-- 会話をロックする。 詳細は「[会話をロックする](/articles/locking-conversations)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
-- 乱用コンテンツを {% data variables.contact.contact_support %} にレポートする 詳細は「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」を参照してください。{% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- 他のリポジトリへ Issue を移譲する。 詳細は「[他のリポジトリへ Issue を移譲する](/articles/transferring-an-issue-to-another-repository)」を参照してください。{% endif %}
+| アクション                                                                                     | 詳細情報                                                                                                                                                                                                            |
+|:----------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fork the repository                                                                       | "[About forks](/github/collaborating-with-issues-and-pull-requests/about-forks)" |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| Rename a branch other than the default branch                                             | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" 
+{% endif %}
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>"[About issues](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/github/building-a-strong-community/managing-disruptive-comments)"</li></ul>                                                                                                                                                                                       |
+| Create, assign, close, and re-open issues in the repository                               | "[Managing your work with issues](/github/managing-your-work-on-github/managing-your-work-with-issues)"                                                                                                         |
+| Manage labels for issues and pull requests in the repository                              | "[Labeling issues and pull requests](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)"                                                                                                   |
+| Manage milestones for issues and pull requests in the repository                          | [Issueやプルリクエストのためのマイルストーンの作成と編集](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)                                                                             |
+| Mark an issue or pull request in the repository as a duplicate                            | "[About duplicate issues and pull requests](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)"                                                                                     |
+| Create, merge, and close pull requests in the repository                                  | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% if currentVersion == "free-pro-team@latest" %}
+| Enable and disable auto-merge for a pull request                                          | "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)"{% endif %}
+| Apply suggested changes to pull requests in the repository                                | "[Incorporating feedback in your pull request](/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request)"                                                                |
+| Create a pull request from a fork of the repository                                       | [フォークからプルリクエストを作成する](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)                                                                                                   |
+| Submit a review on a pull request that affects the mergeability of the pull request       | 「[プルリクエストで提案された変更をレビューする](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)」                                                                                    |
+| Create and edit a wiki for the repository                                                 | 「[ウィキについて](/github/building-a-strong-community/about-wikis)」                                                                                                                                                    |
+| Create and edit releases for the repository                                               | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)"                                                                                                     |
+| Act as a code owner for the repository                                                    | "[About code owners](/articles/about-code-owners)" |{% if currentVersion == "free-pro-team@latest" %}
+| Publish, view, or install packages                                                        | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" 
+{% endif %}
+| リポジトリでコラボレーターである自身を削除する                                                                   | [コラボレーターのリポジトリから自分を削除する](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)                                                                            |
 
 ### 参考リンク
 
-- [個人リポジトリへのコラボレータの招待](/articles/inviting-collaborators-to-a-personal-repository)
 - [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)

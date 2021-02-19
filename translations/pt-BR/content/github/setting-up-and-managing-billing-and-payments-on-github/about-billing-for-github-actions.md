@@ -8,19 +8,23 @@ versions:
 
 ### Sobre a cobrança do {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
+
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o ID da sua assinatura do Azure à sua conta corporativa para habilitar e pagar pelo uso de {% data variables.product.prodname_actions %} além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
 
 Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
-| Produto                                                                  | Armazenamento | Minutos (por mês) |
-| ------------------------------------------------------------------------ | ------------- | ----------------- |
+| Produto                                                             | Armazenamento | Minutos (por mês) |
+| ------------------------------------------------------------------- | ------------- | ----------------- |
 | {% data variables.product.prodname_free_user %}                   | 500 MB        | 2.000             |
 | {% data variables.product.prodname_pro %}                           | 1 GB          | 3.000             |
 | {% data variables.product.prodname_free_team %} para organizações | 500 MB        | 2.000             |
 | {% data variables.product.prodname_team %}                          | 2 GB          | 3.000             |
 | {% data variables.product.prodname_ghe_cloud %}                   | 50 GB         | 50.000            |
 
-Os trabalhos que são executados em Windows e macOS runners que o {% data variables.product.prodname_dotcom %} hospeda consomem minutos na proporção de 2 a 10 vezes a taxa que os trabalhos em Linux consomem. Por exemplo, usar 1.000 minutos do Windows consumiria 2.000 minutos incluídos em sua conta. Usando 1.000 minutos macOS, consumiria 10.000 minutos incluídos em sua conta.
+Os trabalhos que são executados em Windows e macOS runners que o {% data variables.product.prodname_dotcom %} hospeda consomem minutos na proporção de 2 a 10 vezes a taxa que os trabalhos em Linux consomem. Por exemplo, usar 1.000 minutos do Windows consumiria 2.000 minutos incluídos em sua conta. O uso de 1.000 minutos no macOS consumiria 10.000 minutos incluídos em sua conta.
 
 | Sistema operacional | Multiplicador de minutos |
 | ------------------- | ------------------------ |
@@ -34,7 +38,7 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 
 {% note %}
 
-**Nota:** Multiplicadores de minutos não se aplicam às taxas por minuto mostradas abaixo.
+**Observação:** Os multiplicadores de minutos não se aplicam às taxas por minuto mostradas abaixo.
 
 {% endnote %}
 
@@ -44,14 +48,14 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 | macOS               | $0,08           |
 | Windows             | $0,016          |
 
-O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)".
+O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
 ### Calculando minutos e gastos de armazenamento
 
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta. Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de $56, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = $56 ($24 + $32).
-  - 3.000 minutos Linux a $0,008 por = $24.
+  - 3.000 minutos Linux a $0,008 por minuto = $ 24.
   - 2.000 minutos do Windows a $0,016 por minuto = $32.
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.
@@ -69,8 +73,8 @@ Se uso de {% data variables.product.prodname_actions %} compartilha a data de co
 
 ### Sobre limites de gastos
 
-Por padrão, sua conta terá um limite de gastos de $0 para o uso de {% data variables.product.prodname_actions %}. Para habilitar o uso de minutos e armazenamento para repositórios privados além dos valores incluídos em sua conta, você pode aumentar o limite de gastos ou permitir gastos ilimitados. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

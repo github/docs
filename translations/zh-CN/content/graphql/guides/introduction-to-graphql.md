@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### GraphQL 术语
 
-GitHub GraphQL API 表示 GitHub REST API 发生的架构和概念转变。 您可能会在 GraphQL API [参考文档](/v4/)中遇到一些新术语。
+GitHub GraphQL API 表示 GitHub REST API 发生的架构和概念转变。 您可能会在 GraphQL API [参考文档](/graphql)中遇到一些新术语。
 
 ### 架构
 
@@ -29,11 +30,11 @@ GitHub GraphQL API 表示 GitHub REST API 发生的架构和概念转变。 您�
 
 ### 参数
 
-参数是指一组附加至特定字段的键值对。 某些字段需要参数。 [突变](/v4/guides/forming-calls#about-mutations)需要将输入对象作为参数。
+参数是指一组附加至特定字段的键值对。 某些字段需要参数。 [突变](/graphql/guides/forming-calls-with-graphql#about-mutations)需要将输入对象作为参数。
 
 ### 实现
 
-GraphQL 架构可以使用术语_实现_定义对象如何继承[接口](/v4/interface)。
+GraphQL 架构可以使用术语_实现_定义对象如何继承[接口](/graphql/reference/interfaces)。
 
 下面是定义接口 `X` 和对象 `Y` 的设定架构示例：
 
@@ -54,13 +55,13 @@ type Y implements X {
 
 在参考文档中，您将发现：
 
-* 每个[对象](/v4/object)都会在 **Implements（实现）**下列出它_继承的_ 接口。
+* 每个[对象](/graphql/reference/objects)都会在 **Implements（实现）**下列出它_继承的_ 接口。
 
-* 每个[接口](/v4/interface)都会在 **Implementations（实现）**下列出它_继承的_对象。
+* 每个[接口](/graphql/reference/interfaces)都会在 **Implementations（实现）**下列出它_继承的_对象。
 
 ### 连接
 
-连接可用于查询作为同一个调用的一部分的相关对象。 通过连接，可以使用单个 GraphQL 调用，其中，必须对 REST API 使用多个调用。 更多信息请参阅“[从 REST 迁移到 GraphQL](/v4/guides/migrating-from-rest)。”
+连接可用于查询作为同一个调用的一部分的相关对象。 通过连接，可以使用单个 GraphQL 调用，其中，必须对 REST API 使用多个调用。 更多信息请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)。”
 
 它有助于绘制图形：用线连接点。 点是节点，线是边缘。 连接可定义节点之间的关系。
 
@@ -70,7 +71,7 @@ type Y implements X {
 
 ### Node
 
-_节点_是对象的通用术语。 您可以直接查找节点，或通过连接访问相关节点。 如果您指定的 `node` 不能返回[标量](/v4/scalar)，则必须包含子字段，直到所有字段都返回标量。 有关通过 REST API 访问节点 ID 和将它们用于 GraphQL 查询的信息，请参阅“[使用全局节点 ID](/v4/guides/using-global-node-ids)。”
+_节点_是对象的通用术语。 您可以直接查找节点，或通过连接访问相关节点。 如果您指定的 `node` 不能返回[标量](/graphql/reference/scalars)，则必须包含子字段，直到所有字段都返回标量。 有关通过 REST API 访问节点 ID 和将它们用于 GraphQL 查询的信息，请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)。”
 
 ## 了解 GraphQL API
 
@@ -79,9 +80,25 @@ GraphQL 是一种[内省](https://graphql.github.io/learn/introspection/)语言�
 * 查询 `__schema`，列出架构中定义的所有类型并获取关于每个类型的详细信息：
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* 查询 `__type`，获取关于任何类型的详细信息：
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -90,22 +107,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* 查询 `__type`，获取关于任何类型的详细信息：
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * 您也可以通过 `GET` 请求对架构运行_内省查询_ ：
@@ -129,4 +130,4 @@ query {
 
   {% endnote %}
 
-  有关执行查询的更多信息，请参阅“[使用 GraphQL 建立调用](/v4/guides/forming-calls)。”
+  有关执行查询的更多信息，请参阅“[使用 GraphQL 建立调用](/graphql/guides/forming-calls-with-graphql)。”

@@ -8,7 +8,6 @@ The log lists the following information about each action:
 
 Note that you cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 #### Search based on operation
 
 Use the `operation` qualifier to limit actions to specific types of operations. 예시:
@@ -20,7 +19,6 @@ Use the `operation` qualifier to limit actions to specific types of operations. 
   * `operation:remove` finds all events where an existing resource was removed.
   * `operation:restore` finds all events where an existing resource was restored.
   * `operation:transfer` finds all events where an existing resource was transferred.
-{% endif %}
 
 #### Search based on repository
 

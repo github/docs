@@ -9,6 +9,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 将主题添加到 {% data variables.product.prodname_pages %} 网站。
@@ -21,9 +22,9 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 2. 导航到 *_config.yml*。
 {% data reusables.repositories.edit-file %}
-4. 为主题名称添加新行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - 要使用支持的主题，{% else %}键{% endif %}入 `theme: THEME-NAME`，将 _THEME-NAME_ 替换为主题仓库的 README 中显示的主题名称。 有关支持的主题列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[支持的主题](https://pages.github.com/themes/)”。 ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-   - 要使用托管于 {% data variables.product.prodname_dotcom %} 的任何其他 Jekyll 主题，请键入 `remote_theme: THEME-NAME`，将 THEME-NAME 替换为主题仓库的 README 中显示的主题名称。 ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png){% endif %}
+4. 为主题名称添加新行。
+   - 要使用支持的主题，请键入 `theme: THEME-NAME`，将 _THEME-NAME_ 替换为主题仓库的 README 中显示的主题名称。 有关支持的主题列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[支持的主题](https://pages.github.com/themes/)”。 ![配置文件中支持的主题](/assets/images/help/pages/add-theme-to-config-file.png)
+   - 要使用托管于 {% data variables.product.prodname_dotcom %} 的任何其他 Jekyll 主题，请键入 `remote_theme: THEME-NAME`，将 THEME-NAME 替换为主题仓库的 README 中显示的主题名称。 ![配置文件中不支持的主题](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
@@ -39,7 +40,7 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 1. 创建一个名为 _/assets/css/style.scss_ 的新文件。
 2. 在文件顶部添加以下内容：
-  ```
+  ```scss
   ---
   ---
 

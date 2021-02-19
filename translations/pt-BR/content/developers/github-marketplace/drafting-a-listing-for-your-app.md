@@ -40,7 +40,10 @@ Para criar uma listagem do {% data variables.product.prodname_marketplace %}:
 
   ![Seleção do tipo de aplicativo](/assets/images/settings/apps_choose_app.png)
 
-4. Selecione o aplicativo que você gostaria de adicionar ao {% data variables.product.prodname_marketplace %}. ![Seleção de aplicativo para listagem do {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
+4. Selecione o aplicativo que você gostaria de adicionar a
+
+{% data variables.product.prodname_marketplace %}.
+![Seleção de aplicativo para listagem do {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
 5. Uma vez criado um novo rascunho da listagem, você verá um resumo das seções que você precisará visitar antes da sua listagem do {% data variables.product.prodname_marketplace %} ser concluída. ![Listagem do GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
@@ -57,8 +60,8 @@ Após criar um rascunho da listagem do {% data variables.product.prodname_market
 
 ### Enviar o seu aplicativo
 
-Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Após enviar seu aplicativo para revisão , a equipe de integração do {% data variables.product.prodname_marketplace %} entrará em contato com você com informações adicionais sobre o processo de integração. Você pode saber mais sobre o processo de revisão de segurança e integração em "[Começando com {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)".
+Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
 
 ### Remover uma listagem do {% data variables.product.prodname_marketplace %}
 
-Se você não desejar mais listar seu aplicativo no {% data variables.product.prodname_marketplace %}, entre em contato com [marketplace@github.com](mailto:marketplace@github.com) para remover sua listagem.
+Se você não quiser mais listar seu aplicativo em {% data variables.product.prodname_marketplace %}, entre em contato {% data variables.contact.contact_support %} para remover o seu anúncio.

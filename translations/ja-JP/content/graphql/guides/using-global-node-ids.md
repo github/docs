@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 [最近のアップデート](https://developer.github.com/changes/2017-12-19-graphql-node-id/)で、多くのオブジェクトの**グローバルノードID**をREST APIから見つけ、それらのIDをGraphQLの操作で使えるようになりました。
 
 {% note %}
 
-**ノート:** RESTでは、グローバルノードIDフィールドは`node_id`という名前になっています。 GraphQLでは、`node`インターフェースの`id`フィールドです。 GraphQLで「ノード」が何を意味するかを再確認するため、「[GraphQLの紹介](/v4/guides/intro-to-graphql/#node)」を参照してください。
+**ノート:** RESTでは、グローバルノードIDフィールドは`node_id`という名前になっています。 GraphQLでは、`node`インターフェースの`id`フィールドです。 GraphQLで「ノード」が何を意味するかを再確認するため、「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#node)」を参照してください。
 
 {% endnote %}
 
@@ -28,7 +29,7 @@ GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエ
 
 ### 1. オブジェクトのノードIDを返すRESTのエンドポイントの呼び出し
 
-[認証済みのユーザをリクエスト](/v3/users/#get-the-authenticated-user)した場合、
+[認証済みのユーザをリクエスト](/rest/reference/users#get-the-authenticated-user)した場合、
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
@@ -100,7 +101,7 @@ query {
 
 この種のノードをIDで見つけるクエリは、「ダイレクトノードルックアップ」と呼ばれています。
 
-このクエリを実行すると、`__typename`が[`User`](/v4/object/user/)であることが分かります。
+このクエリを実行すると、`__typename`が[`User`](/graphql/reference/objects#user)であることが分かります。
 
 ### 3. GraphQLでダイレクトノードルックアップを行う
 
@@ -121,4 +122,4 @@ query {
 
 ### 移行におけるグローバルノードIDの利用
 
-REST API または GraphQL API を使用するインテグレーションを構築する場合、API バージョン間にわたってオブジェクトを簡単に参照できるように、グローバルノード ID を保持すると良いでしょう。 RESTとGraphQL間の移行の扱いに関する詳細な情報については「[RESTからGraphQLへの移行](/v4/guides/migrating-from-rest/)」を参照してください。
+REST API または GraphQL API を使用するインテグレーションを構築する場合、API バージョン間にわたってオブジェクトを簡単に参照できるように、グローバルノード ID を保持すると良いでしょう。 RESTとGraphQL間の移行の扱いに関する詳細な情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。

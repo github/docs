@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ライセンス API は、広く利用されているオープンソースライセンスに関するメタデータと、特定のプロジェクトのライセンスファイルに関する情報を返します。
@@ -15,12 +16,12 @@ versions:
 
 **注釈:** 以下のエンドポイントも、リポジトリのライセンス情報を返します。
 
-- [リポジトリの Get](/v3/repos/#get-a-repository)
-- [ユーザのリポジトリの一覧表示](/v3/repos/#list-repositories-for-a-user)
-- [Organization リポジトリの一覧表示](/v3/repos/#list-organization-repositories)
-- [一覧表示のフォーク](/v3/repos/forks/#list-forks)
-- [ユーザが Watch しているリポジトリの一覧表示](/v3/activity/watching/#list-repositories-watched-by-a-user)
-- [Team リポジトリの一覧表示](/v3/teams/#list-team-repositories)
+- [リポジトリの取得](/rest/reference/repos#get-a-repository)
+- [ユーザのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-a-user)
+- [Organization リポジトリの一覧表示](/rest/reference/repos#list-organization-repositories)
+- [フォークの一覧表示](/rest/reference/repos#list-forks)
+- [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [Team リポジトリの一覧表示](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

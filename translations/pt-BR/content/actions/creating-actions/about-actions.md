@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
+topics:
+  - Desenvolvimento da ação
+  - Princípios básicos
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +24,8 @@ versions:
 Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.prodname_dotcom %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção.
 
 {% if currentVersion == "free-pro-team@latest" %}
-É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você compilou, seu repositório deve ser público.
+Você pode escrever suas próprias ações para usar no seu fluxo de trabalho ou compartilhar as ações que você cria com a
+comunidade de {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você compilou, seu repositório deve ser público.
 {% endif %}
 
 As ações podem ser executadas diretamente em uma máquina ou em um contêiner Docker. É possível definir as entradas, saídas e variáveis do ambiente de uma ação.
@@ -32,8 +37,8 @@ Você pode compilar ações do contêiner Docker e JavaScript. As ações exigem
 | Tipo                         | Sistema operacional   |
 | ---------------------------- | --------------------- |
 | Contêiner Docker             | Linux                 |
-| JavaScript                   | Linux, MacOS, Windows |
-| Etapas de execução compostas | Linux, MacOS, Windows |
+| JavaScript                   | Linux, macOS, Windows |
+| Etapas de execução compostas | Linux, macOS, Windows |
 
 #### Ações de contêiner docker
 
@@ -60,19 +65,20 @@ Uma ação de _etapas de execução compostas_ permite que você combine várias
 Se você estiver desenvolvendo uma ação a ser usada por outras pessoas, recomendamos manter a ação no próprio repositório em vez de criar um pacote dela com outro código de aplicativo. Assim, você poderá controlar as versões e monitorar a ação como qualquer outro software.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Ao armazenar uma ação no seu próprio repositório, fica mais fácil para a comunidade do {% data variables.product.prodname_dotcom %} descobrir a ação. Além disso, você restringe o escopo da base de código para os desenvolvedores corrigirem problemas e desenvolverem a ação, bem como separa o controle de versões da ação e o controle de versões de outros códigos de aplicativo.
+Armazenar uma ação no seu próprio repositório torna mais fácil para a
+comunidade de {% data variables.product.prodname_dotcom %} descobrir a ação, reduz o escopo da base de código para desenvolvedores que corrigem problemas e estendem a ação e desdobra o versionamento da ação do controle de outro código do aplicativo.
 {% endif %}
 
-Se estiver criando uma ação que não pretende disponibilizar ao público, você poderá armazenar os arquivos da ação em qualquer local no seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
+{% if currentVersion == "free-pro-team@latest" %}Se você estiver criando uma ação que não planeja disponibilizar ao público, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
 
 ### Usar o gerenciamento da versão para ações
 
-Para garantir que sua ação seja compatível com {% data variables.product.prodname_ghe_server %}, você deve ter certeza de que não usa referências codificadas para {% data variables.product.prodname_dotcom %} URLs de API. Em vez disso, você deve usar variáveis ambientais para se referir à API {% data variables.product.prodname_dotcom %} :
+Para garantir que sua ação seja compatível com {% data variables.product.prodname_ghe_server %}, você deve se certificar de que você não usa quaisquer referências codificadas para URLs da API de {% data variables.product.prodname_dotcom %}. Em vez disso, você deve usar variáveis de ambiente para referir-se à API de {% data variables.product.prodname_dotcom %}:
 
 - Crie e valide uma versão em um branch da versão (como a `versão/v1`) antes de criar a tag da versão (por exemplo, `v1.0.2`).
 - Para GraphQL, use a variável ambiente `GITHUB_GRAPHQL_URL` .
 
-Para obter mais informações, consulte "[variáveis do ambiente Default](/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables).".
+Para obter mais informações, consulte "[Variáveis de ambiente padrão](/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables)".
 
 ### Usar o gerenciamento da versão para ações
 
@@ -82,7 +88,7 @@ Esta seção explica como você pode usar o gerenciamento de versões para distr
 
 Se você estiver desenvolvendo uma ação para outras pessoas usarem, recomendamos que você use o gerenciamento de versão para controlar como você distribui as atualizações. Os usuários podem esperar que a versão principal de uma ação inclua as correções críticas necessárias e os pachtes ao mesmo tempo em que permanece compatível com seus fluxos de trabalho existentes. Você deve considerar lançar uma nova versão principal sempre que as suas alterações afetarem a compatibilidade.
 
-Nessa abordagem de gerenciamento de versão, os usuários não devem fazer referência ao branch-`mestre` de uma ação, uma vez que é provável que contenha o último código e poderá, consequentemente, ser instável. Em vez disso, você pode recomendar que os usuários especifiquem uma versão principal ao usar a sua ação e direcioná-los para uma versão mais específica somente se encontrarem problemas.
+Nessa abordagem de gerenciamento de versão, os usuários não devem fazer referência ao branch-padrão da ação, uma vez que é provável que contenha o último código e, consequentemente, pode ser instável. Em vez disso, você pode recomendar que os usuários especifiquem uma versão principal ao usar a sua ação e direcioná-los para uma versão mais específica somente se encontrarem problemas.
 
 Para usar uma versão de ação específica, os usuários podem configurar seu fluxo de trabalho{% data variables.product.prodname_actions %} para atingir uma tag, um SHA do commit ou um branch nomeado para uma versão.
 
@@ -121,7 +127,7 @@ etapas:
 
 #### Usar um SHA do commit para o gerenciamento de versão
 
-Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. Usar um valor integral SHA do commit em vez de um valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que use a mesma abreviatura.
+Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado.{% else %}Usar o valor SHA completo de um commit em vez do valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que usa a mesma abreviação.{% endif %}
 
 ```yaml
 etapas:
@@ -141,7 +147,7 @@ Se você planeja compartilhar sua ação publicamente, é recomendável criar um
 
 ### Comparando {% data variables.product.prodname_actions %} com {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} oferece ferramentas para melhorar o seu fluxo de trabalho. Entender as diferenças e os benefícios de cada ferramenta ajudará você a selecionar a melhor ferramenta para o seu trabalho. Para obter mais informações sobre a criação de ações e aplicativos, consulte "[Sobre GitHub Actions](/actions/getting-started-with-github-actions/about-github-actions)" e "[Sobre aplicativos](/apps/about-apps/)".
+{% data variables.product.prodname_marketplace %} oferece ferramentas para melhorar o seu fluxo de trabalho. Entender as diferenças e os benefícios de cada ferramenta ajudará você a selecionar a melhor ferramenta para o seu trabalho. Para obter mais informações sobre a criação de aplicativos, consulte "[Sobre aplicativos](/apps/about-apps/)".
 
 #### Vantagens do GitHub Actions e dos aplicativos GitHub
 

@@ -1,6 +1,6 @@
 ---
 title: SAML Single Sign-On für Deine Organisation aktivieren und testen
-intro: 'Inhaber und Administratoren von Organisationen können SAML Single-Sign-On aktivieren, um eine zusätzliche Sicherheitsebene für die Organisation zu schaffen.'
+intro: Inhaber und Administratoren von Organisationen können SAML Single-Sign-On aktivieren, um eine zusätzliche Sicherheitsebene für die Organisation zu schaffen.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization

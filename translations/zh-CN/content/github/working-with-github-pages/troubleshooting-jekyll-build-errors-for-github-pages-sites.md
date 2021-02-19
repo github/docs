@@ -28,6 +28,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 排查构建错误
@@ -77,7 +78,7 @@ versions:
 此错误意味着您使用了非拉丁字符（如 `日本語`）但没有告诉计算机预期这些符号。
 
 要排除故障，请将以下行添加到 *_config.yml* 文件以实施 UTF-8 编码：
-```
+```yaml
 encoding: UTF-8
 ```
 
@@ -131,11 +132,11 @@ encoding: UTF-8
 
 ### 缺少 docs 文件夹
 
-This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
+此错误意味着您已选择分支上的 `docs` 文件夹作为发布源，但该分支上仓库的根目录中没有 `docs` 文件夹。
 
-To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. 如果 `docs` 文件夹被意外删除，您执行以下任一操作：
+要排除故障，如果 `docs` 文件夹被意外移动，请尝试将 `docs` 文件夹移回到您为发布源所选分支上仓库的根目录中。 如果 `docs` 文件夹被意外删除，您执行以下任一操作：
 - 使用 Git 还原或撤消删除。 更多信息请参阅 Git 文档中的“[git-revert](https://git-scm.com/docs/git-revert.html)”。
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. 更多信息请参阅“[创建新文件](/articles/creating-new-files)”。
+- 在您为发布源所选分支上仓库的根目录中创建新的 `docs` 文件夹，然后将站点的源文件添加到该文件夹中。 更多信息请参阅“[创建新文件](/articles/creating-new-files)”。
 - 更改发布源。 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 的发布源](/articles/configuring-a-publishing-source-for-github-pages)”。
 
 ### 缺少子模块

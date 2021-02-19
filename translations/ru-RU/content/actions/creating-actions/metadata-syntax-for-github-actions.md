@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'ссылка'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,26 +23,25 @@ Docker and JavaScript actions require a metadata file. The metadata filename mus
 
 Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-### **`name`**
+### `name`
 
 **Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
 
-### **`автор`**
+### `автор`
 
 **Optional** The name of the action's author.
 
-### **`описание`**
+### `описание`
 
 **Required** A short description of the action.
 
-### **`inputs`**
+### `inputs`
 
 **Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
 
 #### Пример
 
 This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
-
 
 ```yaml
 inputs:
@@ -54,28 +54,27 @@ inputs:
     required: true
 ```
 
-
 When you specify an input to an action in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
 For example, if a workflow defined the numOctocats and octocatEyeColor inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
-#### **`inputs.<input_id>`**
+#### `inputs.<input_id>`
 
 **Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
-#### **`inputs.<input_id>.description`**
+#### `inputs.<input_id>.description`
 
 **Required** A `string` description of the input parameter.
 
-#### **`inputs.<input_id>.required`**
+#### `inputs.<input_id>.required`
 
 **Required** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
 
-#### **`inputs.<input_id>.default`**
+#### `inputs.<input_id>.default`
 
 **Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
 
-### **`outputs`**
+### `outputs`
 
 **Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
@@ -89,15 +88,15 @@ outputs:
     description: 'The sum of the inputs'
 ```
 
-#### **`outputs.<output_id>`**
+#### `outputs.<output_id>`
 
 **Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
-#### **`outputs.<output_id>.description`**
+#### `outputs.<output_id>.description`
 
 **Required** A `string` description of the output parameter.
 
-### **`outputs`** for composite run steps actions
+### `outputs` for composite run steps actions
 
 **Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
 
@@ -106,24 +105,25 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
 ```
 {% endraw %}
 
-#### **`outputs.<output_id.value>`**
+#### `outputs.<output_id>.value`
+
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-### **`runs`** for JavaScript actions
+### `runs` for JavaScript actions
 
 **Required** Configures the path to the action's code and the application used to execute the code.
 
@@ -135,15 +135,15 @@ runs:
   main: 'main.js'
 ```
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Required** The application used to execute the code specified in [`main`](#runsmain).
 
-#### **`runs.main`**
+#### `runs.main`
 
 **Required** The file that contains your action code. The application specified in [`using`](#runsusing) executes this file.
 
-#### **`pre`**
+#### `pre`
 
 **Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The application specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
@@ -157,7 +157,7 @@ runs:
   post: 'cleanup.js'
 ```
 
-#### **`pre-if`**
+#### `pre-if`
 
 **Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. Note that the `step` context is unavailable, as no steps have run yet.
 
@@ -168,7 +168,7 @@ In this example, `cleanup.js` only runs on Linux-based runners:
   pre-if: 'runner.os == linux'
 ```
 
-#### **`сообщение`**
+#### `сообщение`
 
 **Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The application specified with the [`using`](#runsusing) syntax will execute this file.
 
@@ -183,7 +183,7 @@ runs:
 
 The `post:` action always runs by default but you can override this using `post-if`.
 
-#### **`post-if`**
+#### `post-if`
 
 **Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.
 
@@ -194,69 +194,72 @@ For example, this `cleanup.js` will only run on Linux-based runners:
   post-if: 'runner.os == linux'
 ```
 
-### **`runs`** for composite run steps actions
+### `runs` for composite run steps actions
 
 **Required** Configures the path to the composite action, and the application used to execute the code.
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Required** To use a composite run steps action, set this to `"composite"`.
 
-#### **`runs.steps`**
+#### `runs.steps`
 
 **Required** The run steps that you plan to run in this action.
 
-##### **`runs.steps.run`**
+##### `runs.steps[*].run`
 
 **Required** The command you want to run. This can be inline or a script in your action repository:
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
 
 For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-##### **`runs.steps.shell`**
+##### `runs.steps[*].shell`
 
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### **`runs.steps.name`**
+##### `runs.steps[*].name`
 
 **Optional** The name of the composite run step.
 
-##### **`runs.steps.id`**
+##### `runs.steps[*].id`
 
 **Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### **`runs.steps.env`**
+##### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "::set-env name={name}::{value}"` in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### **`runs.steps.working-directory`**
+##### `runs.steps[*].working-directory`
 
 **Optional**  Specifies the working directory where the command is run.
 
-### **`runs`** for Docker actions
+### `runs` for Docker actions
 
 **Required** Configures the image used for the Docker action.
 
 #### Example using a Dockerfile in your repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -264,16 +267,16 @@ runs:
 #### Example using public Docker registry container
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```
 
-#### **`runs.using`**
+#### `runs.using`
 
 **Required** You must set this value to `'docker'`.
 
-#### **`pre-entrypoint`**
+#### `pre-entrypoint`
 
 **Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
@@ -291,21 +294,21 @@ runs:
   entrypoint: 'main.sh'
 ```
 
-#### **`runs.image`**
+#### `runs.image`
 
 **Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, use a path relative to your action metadata file. The `docker` application will execute this file.
 
-#### **`runs.env`**
+#### `runs.env`
 
 **Optional** Specifies a key/value map of environment variables to set in the container environment.
 
-#### **`runs.entrypoint`**
+#### `runs.entrypoint`
 
 **Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
 
 For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
 
-#### **`post-entrypoint`**
+#### `post-entrypoint`
 
 **Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`post-if`](#post-if).
 
@@ -319,7 +322,7 @@ runs:
   post-entrypoint: 'cleanup.sh'
 ```
 
-#### **`runs.args`**
+#### `runs.args`
 
 **Optional** An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up.
 
@@ -345,7 +348,7 @@ runs:
 ```
 {% endraw %}
 
-### **`branding`**
+### `branding`
 
 You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
@@ -357,11 +360,11 @@ branding:
   color: 'green'
 ```
 
-#### **`branding.color`**
+#### `branding.color`
 
 The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
 
-#### **`branding.icon`**
+#### `branding.icon`
 
 The name of the [Feather](https://feathericons.com/) icon to use.
 
@@ -506,7 +509,7 @@ The name of the [Feather](https://feathericons.com/) icon to use.
 </tr>
 <tr>
 <td>facebook</td>
-<td>простое перемещение вперед</td>
+<td>быстрое перемещение вперед</td>
 <td>feather</td>
 <td>file-minus</td>
 </tr>

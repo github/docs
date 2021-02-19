@@ -5,10 +5,11 @@ redirect_from:
   - /articles/commenting-on-the-diff-of-a-pull-request/
   - /articles/commenting-on-differences-between-files/
   - /articles/commenting-on-a-pull-request
-intro: 在仓库中打开拉取请求后，协作者或团队成员可以评论两个指定分支之间的文件比较，或者对整个项目做出总体评论。
+intro: '在仓库中打开拉取请求后，协作者或团队成员可以评论两个指定分支之间的文件比较，或者对整个项目做出总体评论。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于拉取请求评论
@@ -54,5 +55,5 @@ versions:
 ### 延伸阅读
 
 - “[创建指向代码段的永久链接](/articles/creating-a-permanent-link-to-a-code-snippet/)”
-{% if currentVersion == "free-pro-team@latest" %}-“[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
+{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
 {% endif %}

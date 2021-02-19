@@ -11,7 +11,7 @@ versions:
 
 ### Externen `collectd`-Server einrichten
 
-Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location_enterprise %} aktivieren. Ihr `collectd`-Server muss `collectd` Version 5.x oder höher ausführen.
+Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location %} aktivieren. Your `collectd` server must be running `collectd` version 5.x or higher.
 
 1. Melden Sie sich bei Ihrem `collectd`-Server an.
 2. Erstellen Sie die `collectd`-Konfigurationsdatei, oder bearbeiten Sie sie so, dass das Netzwerk-Plug-in geladen und in die Server- und Portdirektiven die entsprechenden Werte eingetragen werden. Auf den meisten Distributionen befindet sie sich unter `/etc/collectd/collectd.conf`.
@@ -53,6 +53,6 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 #### Der zentrale collectd-Server empfängt keine Daten.
 
-{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Ihr zentraler `collectd`-Server muss mindestens Version 5.x aufweisen, um von {% data variables.product.product_location_enterprise %} gesendete Daten zu akzeptieren.
+{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Ihr zentraler `collectd`-Server muss mindestens Version 5.x aufweisen, um von {% data variables.product.product_location %} gesendete Daten zu akzeptieren.
 
 Unterstützung zu weiteren Fragen oder Problemen erhältst Du vom {% data variables.contact.contact_ent_support %}.

@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   free-pro-team: '*'
+type: 'how_to'
 ---
 
 Você deve aceitar os termos de serviço para publicar ações em {% data variables.product.prodname_marketplace %}.
@@ -24,9 +25,9 @@ As ações são publicadas em {% data variables.product.prodname_marketplace %} 
 - Cada repositório deve conter uma ação única.
 - O arquivo de metadados da ação (`action.yml` ou `action.yaml`) deve estar no diretório-raiz do repositório.
 - O `nome` do arquivo de metadados da ação deve ser único.
-  - O `nome` não pode corresponder a um nome de uma ação existente publicado em {% data variables.product.prodname_marketplace %}.
+  - O `nome` não pode corresponder ao nome de uma ação publicado em {% data variables.product.prodname_marketplace %}.
   - O `nome` não pode corresponder a um usuário ou organização em {% data variables.product.prodname_dotcom %}, a menos que o usuário ou o proprietário da organização esteja publicando a ação. Por exemplo, somente {% data variables.product.prodname_dotcom %} a organização pode publicar uma ação denominada `GitHub`.
-  - O `nome` não pode corresponder a uma categoria existente {% data variables.product.prodname_marketplace %}.
+  - O `nome` não pode corresponder a uma categoria {% data variables.product.prodname_marketplace %}.
   - {% data variables.product.prodname_dotcom %} reserva os nomes de recursos {% data variables.product.prodname_dotcom %}.
 
 ### Publicar uma ação

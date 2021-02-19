@@ -110,7 +110,7 @@
   description: 中央処理装置。
 - 
   term: 認証情報ヘルパー
-  description: Git 資格情報を格納して fet するプログラム。
+  description: A program that stores and fetches Git credentials.
 - 
   term: creole
   description: >-
@@ -737,9 +737,9 @@
   description: >-
     実際にチェックアウトしたファイルのツリー。ワーキングツリーには通常、HEAD コミットのツリーのコンテンツに加え、ローカルで変更を加えたがまだコミットしていない分が含まれています。
 - 
-  term: WYSIWIG
+  term: WYSIWYG
   description: >-
-    What You See Is What You Get。画面上のテキストは、レンダリングされた際に全く同様に表示される、という意味の頭字語。
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: 仮想化プラットフォーム。

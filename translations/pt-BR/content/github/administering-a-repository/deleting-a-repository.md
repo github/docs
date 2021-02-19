@@ -8,21 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositório da organização. Se a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios desta organização) tiver sido desabilitada, somente proprietários da organização poderão excluir repositórios da organização. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Excluir um repositório público não excluirá nenhuma bifurcação do repositório.{% endif %}
+
 {% warning %}
 
-**Aviso**: a exclusão de um repositório excluirá **permanentemente** anexos de versão e permissões da equipe. Esta ação **não pode** ser desfeita.
+**Avisos**:
+
+- Excluir um repositório irá excluir **permanentemente** anexos da versão e permissões da equipe. Esta ação **não pode** ser desfeita.
+- Excluir um repositório privado {% if currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}ou interno {% endif %}irá excluir todas as bifurcações do repositório.
 
 {% endwarning %}
-{% endif %}
-
-Lembre-se também que:
-- A exclusão de um repositório privado eliminará todas as bifurcações dele.
-- A exclusão de um repositório público não eliminará as bifurcações dele.
 
 {% if currentVersion == "free-pro-team@latest" %}
 Você pode restaurar alguns repositórios excluídos em até 90 dias. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".

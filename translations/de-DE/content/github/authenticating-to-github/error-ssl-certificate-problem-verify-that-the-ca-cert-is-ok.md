@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „SSL certificate problem, verify that the CA cert is OK“ (SSL-Zertifikatsproblem, verifiziere, dass das CA-Zertifikat OK ist)'
-intro: 'Diese Fehlermeldung bedeutet, dass Dein CA-Root-Zertifikat veraltet ist. Wenn Dein CA-Root-Zertifikat aktualisiert werden muss, kannst Du keine Inhalte von {% data variables.product.product_name %}-Repositorys abrufen oder dorthin übertragen.'
+intro: 'Diese Fehlermeldung bedeutet, dass Dein CA-Root-Zertifikat veraltet ist. Wenn Ihr CA-Root-Zertifikat aktualisiert werden muss, können Sie keine Inhalte von {% data variables.product.product_name %}-Repositorys abrufen oder dorthin pushen.'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
@@ -10,8 +10,8 @@ versions:
 Die angezeigte Fehlermeldung sieht ähnlich wie die folgende aus:
 
 ```shell
-$ git push -u github.master
-> fatal: 'github.master' does not appear to be a git repository
+$ git push -u github.main
+> fatal: 'github.main' does not appear to be a git repository
 > fatal: The remote end hung up unexpectedly
 
 $ git pull -u github

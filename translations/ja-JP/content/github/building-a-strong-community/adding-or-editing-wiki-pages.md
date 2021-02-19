@@ -11,6 +11,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ウィキページを追加する
@@ -45,7 +46,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 # ローカルに wiki をクローン
 ```
 
-wiki をクローンした後は、新しいファイルの追加、既存のファイルの編集、変更のコミットができます。 You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+wiki をクローンした後は、新しいファイルの追加、既存のファイルの編集、変更のコミットができます。 あなたとコラボレータは、Wiki で作業するときにブランチを作成できますが、デフォルトブランチにプッシュされた変更のみがライブになり、読者が利用できるようになります。
 
 ### ウィキのファイル名について
 

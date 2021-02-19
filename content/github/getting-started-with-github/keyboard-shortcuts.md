@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -23,7 +24,7 @@ Below is a list of some of the available keyboard shortcuts.
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
-|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
 ### Repositories
@@ -109,7 +110,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>j</kbd> | Move selection down in the list
 |<kbd>k</kbd> | Move selection up in the list
 | <kbd>cmd + shift + enter </kbd> | Add a single comment on a pull request diff |
-| <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
 ### Project boards
@@ -122,9 +123,9 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>escape</kbd> | Cancel the move in progress
 |<kbd>enter</kbd> | Complete the move in progress
 |<kbd>←</kbd> or <kbd>h</kbd> | Move column to the left
-|<kbd>command ←</kbd> or <kbd>command h</kbd> or <kbd>control ←</kbd> or <kbd>control h</kbd> | Move column to the leftmost position
+|<kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd> | Move column to the leftmost position
 |<kbd>→</kbd> or <kbd>l</kbd> | Move column to the right
-|<kbd>command →</kbd> or <kbd>command l</kbd> or <kbd>control →</kbd> or <kbd>control l</kbd> | Move column to the rightmost position
+|<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move column to the rightmost position
 
 #### Moving a card
 
@@ -134,17 +135,17 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>escape</kbd> | Cancel the move in progress
 |<kbd>enter</kbd> | Complete the move in progress
 |<kbd>↓</kbd> or <kbd>j</kbd> | Move card down
-|<kbd>command ↓</kbd> or <kbd>command j</kbd> or <kbd>control ↓</kbd> or <kbd>control j</kbd> | Move card to the bottom of the column
+|<kbd>command + ↓</kbd> or <kbd>command + j</kbd> or <kbd>control + ↓</kbd> or <kbd>control + j</kbd> | Move card to the bottom of the column
 |<kbd>↑</kbd> or <kbd>k</kbd> | Move card up
-|<kbd>command ↑</kbd> or <kbd>command k</kbd> or <kbd>control ↑</kbd> or <kbd>control k</kbd> | Move card to the top of the column
+|<kbd>command + ↑</kbd> or <kbd>command + k</kbd> or <kbd>control + ↑</kbd> or <kbd>control + k</kbd> | Move card to the top of the column
 |<kbd>←</kbd> or <kbd>h</kbd> | Move card to the bottom of the column on the left
-|<kbd>shift ←</kbd> or <kbd>shift h</kbd> | Move card to the top of the column on the left
-|<kbd>command ←</kbd> or <kbd>command h</kbd> or <kbd>control ←</kbd> or <kbd>control h</kbd> | Move card to the bottom of the leftmost column
-|<kbd>command shift ←</kbd> or <kbd>command shift h</kbd> or <kbd>control shift ←</kbd> or <kbd>control shift h</kbd> | Move card to the top of the leftmost column
+|<kbd>shift + ←</kbd> or <kbd>shift + h</kbd> | Move card to the top of the column on the left
+|<kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd> | Move card to the bottom of the leftmost column
+|<kbd>command + shift + ←</kbd> or <kbd>command + shift + h</kbd> or <kbd>control + shift + ←</kbd> or <kbd>control + shift + h</kbd> | Move card to the top of the leftmost column
 |<kbd>→</kbd> | Move card to the bottom of the column on the right
-|<kbd>shift →</kbd> or <kbd>shift l</kbd> | Move card to the top of the column on the right
-|<kbd>command →</kbd> or <kbd>command l</kbd> or <kbd>control →</kbd> or <kbd>control l</kbd> | Move card to the bottom of the rightmost column
-|<kbd>command shift →</kbd> or <kbd>command shift l</kbd> or <kbd>control shift →</kbd> or <kbd>control shift l</kbd> | Move card to the bottom of the rightmost column
+|<kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Move card to the top of the column on the right
+|<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move card to the bottom of the rightmost column
+|<kbd>command + shift + →</kbd> or <kbd>command + shift + l</kbd> or <kbd>control + shift + →</kbd> or <kbd>control + shift + l</kbd> | Move card to the bottom of the rightmost column
 
 #### Previewing a card
 
@@ -157,26 +158,30 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>command space </kbd> or <kbd>control space</kbd> | In the workflow editor, get suggestions for your workflow file.
+|<kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file.
+|<kbd>g</kbd> <kbd>f</kbd> | Go to the workflow file
+|<kbd>shift + t</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
+|<kbd>shift + f</kbd> or <kbd>F</kbd> | Toggle full-screen logs
+|<kbd>esc</kbd> | Exit full-screen logs
 
 {% endif %}
 
 ### Notifications
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>e</kbd> | Mark as done
-| <kbd>shift u</kbd>| Mark as unread
-| <kbd>shift i</kbd>| Mark as read
-| <kbd>shift m</kbd> | Unsubscribe
+| <kbd>shift + u</kbd>| Mark as unread
+| <kbd>shift + i</kbd>| Mark as read
+| <kbd>shift + m</kbd> | Unsubscribe
 
 {% else %}
 
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>e</kbd> or <kbd>I</kbd> or <kbd>y</kbd> | Mark as read
-|<kbd>shift m</kbd> | Mute thread
+|<kbd>shift + m</kbd> | Mute thread
 {% endif %}
 
 ### Network graph
@@ -187,7 +192,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>→</kbd> or <kbd>l</kbd> | Scroll right
 |<kbd>↑</kbd> or <kbd>k</kbd> | Scroll up
 |<kbd>↓</kbd> or <kbd>j</kbd> | Scroll down
-|<kbd>shift ←</kbd> or <kbd>shift h</kbd> | Scroll all the way left
-|<kbd>shift →</kbd> or <kbd>shift l</kbd> | Scroll all the way right
-|<kbd>shift ↑</kbd> or <kbd>shift k</kbd> | Scroll all the way up
-|<kbd>shift ↓</kbd> or <kbd>shift j</kbd> | Scroll all the way down
+|<kbd>shift + ←</kbd> or <kbd>shift + h</kbd> | Scroll all the way left
+|<kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Scroll all the way right
+|<kbd>shift + ↑</kbd> or <kbd>shift + k</kbd> | Scroll all the way up
+|<kbd>shift + ↓</kbd> or <kbd>shift + j</kbd> | Scroll all the way down

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Antes de testar a conexão SSH, é recomendável que você tenha:
@@ -26,19 +27,11 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
 
   ```shell
   > Não é possível estabelecer a autenticidade do host '{% data variables.command_line.codeblock %} (IP ADDRESS)'.
-  > A impressão digital da chave RSA é 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Tem certeza de que deseja continuar com a conexão (sim/não)?
-  ```
-
-  ou como este:
-
-  ```shell
-  > Não é possível estabelecer a autenticidade do host '{% data variables.command_line.codeblock %} (IP ADDRESS)'.
   > A impressão digital da chave RSA é SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
 
-3. Verifique se a impressão digital na mensagem exibida corresponde à das mensagens na etapa 2 e digite `sim`:
+3. Verifique se a impressão digital na mensagem em que você vê correspondências com {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} é da chave pública de RSA de](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} é da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
   ```shell
   > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

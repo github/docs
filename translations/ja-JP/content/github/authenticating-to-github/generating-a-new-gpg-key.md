@@ -1,11 +1,12 @@
 ---
 title: 新しい GPG キーを生成する
-intro: 既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。
+intro: '既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。'
 redirect_from:
   - /articles/generating-a-new-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -14,7 +15,7 @@ versions:
 
 {% note %}
 
-**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 メールアドレスを検証していないと、GPG を使用してコミットやタグに署名できません。{% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。{% endif %}
+**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 メールアドレスを検証していないと、GPG を使用してコミットやタグに署名できません。{% if currentVersion == "free-pro-team@latest" %} 詳しい情報については、「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. プロンプトで、必要なキーの種類を指定するか、`Enter` キーを押してデフォルトの `RSA and DSA` を受け入れます。
+4. プロンプトで、必要なキーの種類を指定するか、`Enter` キーを押してデフォルトの `RSA and RSA` を受け入れます。
 5. 希望のキーサイズを入力します。 キーは少なくとも `4096` ビットである必要があります。
 6. キーの有効期間を入力します。 `Enter` キーを押して、無期限を示すデフォルトの選択を指定します。
 7. 選択内容が正しいことを確認します。
@@ -37,7 +38,7 @@ versions:
 
   {% note %}
 
-  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} 詳しい情報については、「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
 
   {% endnote %}
 

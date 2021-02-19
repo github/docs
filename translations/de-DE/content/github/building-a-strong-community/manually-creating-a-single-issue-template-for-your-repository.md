@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -17,7 +18,7 @@ Du kannst YAML-Titelei zu jeder Issuevorlage hinzufügen, um den Issuetitel vora
 
 Hier ist ein Beispiel für eine YAML-Titelei.
 
-```
+```yaml
 ---
 name: Issue verfolgen
 about: Benutzer diese Vorlage zum verfolgen neuer Funktionen.
@@ -28,7 +29,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Hinweis:** Du musst reserviert YAML-Zeichen wie beispielsweise `:` in Anführungszeichen setzen. Beispiel: `":bug: Bug"`.
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 
@@ -38,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Eine Issuevorlage hinzufügen
 

@@ -1,0 +1,18 @@
+date: '2020-07-09'
+sections:
+  security_fixes:
+    - '**MEDIUM:** foi atualizado para a versão 1.16.1 e dirigiu o CVE-2019-20372. (atualizado 2020-07-22) {% comment %} https://github.com/github/enterprise2/pull/21251 {% endcomment %}'
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/21088, https://github.com/github/enterprise2/pull/21036 {% endcomment %}'
+  bugs:
+    - 'O gráfico de dependências não foi detectado quando implantado em uma configuração de cluster com vários nós de Redis. {% comment %} https://github.com/github/enterprise2/pull/21260, https://github.com/github/enterprise2/pull/21102 {% endcomment %}'
+    - 'Certos arquivos de registro não giraram a cada 7 dias. {% comment %} https://github.com/github/enterprise2/pull/21278, https://github.com/github/enterprise2/pull/21264 {% endcomment %}'
+    - 'A reutilização rápida de portas de origem de webhook resultaram em conexões rejeitadas. {% comment %} https://github.com/github/enterprise2/pull/21289 {% endcomment %}'
+    - 'Trabalhos em segundo plano incorretos podem tentar ser executados em instâncias configuradas como réplicas passivas. {% comment %} https://github.com/github/enterprise2/pull/21318, https://github.com/github/enterprise2/pull/21212, https://github.com/github/enterprise2/issues/21167 {% endcomment %}'
+    - 'Os repositórios internos não foram incluídos corretamente nos resultados de pesquisa para as orgs habilitadas com SAML. {% comment %} https://github.com/github/github/pull/147503, https://github.com/github/github/pull/145692 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer envio por push em um repositório na linha de comando. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'

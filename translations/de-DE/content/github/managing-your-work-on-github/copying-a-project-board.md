@@ -1,6 +1,6 @@
 ---
 title: Ein Projektboard kopieren
-intro: 'Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.'
+intro: Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.
 redirect_from:
   - /articles/copying-a-project-board
 versions:
@@ -22,5 +22,5 @@ Die Automatisierung eines Projektboards wird ebenfalls standardmäßig aktiviert
 5. Optional kannst Du unter „Project board name“ (Name des Projektboards) den Namen des kopierten Projektboards eingeben. ![Feld zum Eingeben eines Namens für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-name.png)
 6. Optional kannst Du unter „Description“ (Beschreibung) eine Beschreibung des kopierten Projektboards eingeben, die anderen Benutzern angezeigt wird. ![Feld zum Eingeben einer Beschreibung für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-description.png)
 7. Optional kannst Du unter „Automation settings“ (Automatisierungseinstellungen) auswählen, ob Du die konfigurierten automatischen Workflows kopieren möchtest. Die Option ist standardmäßig aktiviert. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards/).“ ![Automatisierungseinstellungen für das kopierte Projektboard auswählen](/assets/images/help/projects/copied-project-board-automation-settings.png)
-8. Wenn Du ein Projektboard kopierst, das im Besitz der Organisation ist, wähle unter „Visibility“ (Sichtbarkeit) aus, ob das kopierte Projektboard privat oder öffentlich sein soll. ![Sichtbarkeitseinstellungen für das kopierte Projektboard auswählen](/assets/images/help/projects/copied-project-board-visibility-settings.png)
+{% data reusables.project-management.choose-visibility %}
 9. Klicke auf **Copy project** (Projekt kopieren). ![Schaltfläche zum Bestätigen des Kopiervorgangs](/assets/images/help/projects/confirm-copy-project-board.png)

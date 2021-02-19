@@ -17,7 +17,7 @@ versions:
 
 ### 最初のノードの設定
 
-1. `cluster.conf`中で`mysql-master`に指定されるノードに接続してください。 詳しい情報については「[クラスタの設定について](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
+1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 詳しい情報については、「[クラスタ設定ファイルについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
 2. Webブラウザで`https://<ip address>:8443/setup/`にアクセスしてください。
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -43,9 +43,9 @@ versions:
 
 ノードの名前には、ホスト名として有効な任意の名前を選択できます。 この名前は各ノードのホスト名として設定され、各ノードの`/etc/hosts`に追加され、各ノードがローカルでお互いを解決できるようにします。
 
-設定した最初のクラスタノードを、`mysql-server`及び`mysql-master`でMySQLのマスターとして指定してください。
+設定した最初のクラスタノードを、`mysql-server` および `mysql-master`で MySQL のプライマリとして指定してください。
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

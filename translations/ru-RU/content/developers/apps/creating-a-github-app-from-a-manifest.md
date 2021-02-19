@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -51,16 +52,16 @@ The person creating the app will be redirected to a GitHub page with an input fi
 
 ##### GitHub App Manifest parameters
 
- | Name                  | Тип       | Description                                                                                                                                                                                                               |
- | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `строка`  | The name of the GitHub App.                                                                                                                                                                                               |
- | `url`                 | `строка`  | **Required.** The homepage of your GitHub App.                                                                                                                                                                            |
- | `hook_attributes`     | `объект`  | The configuration of the GitHub App's webhook.                                                                                                                                                                            |
- | `redirect_url`        | `строка`  | The full URL to redirect to after the person installs the GitHub App.                                                                                                                                                     |
- | `описание`            | `строка`  | A description of the GitHub App.                                                                                                                                                                                          |
- | `public`              | `boolean` | Set to `true` when your GitHub App is available to the public or `false` when it is only accessible to the owner of the app.                                                                                              |
- | `default_events`      | `array`   | The list of [events](/webhooks/event-payloads) the GitHub App subscribes to.                                                                                                                                              |
- | `default_permissions` | `объект`  | The set of [permissions](/v3/apps/permissions/) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`). |
+ | Name                  | Тип       | Description                                                                                                                                                                                                                                              |
+ | --------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name`                | `строка`  | The name of the GitHub App.                                                                                                                                                                                                                              |
+ | `url`                 | `строка`  | **Required.** The homepage of your GitHub App.                                                                                                                                                                                                           |
+ | `hook_attributes`     | `объект`  | The configuration of the GitHub App's webhook.                                                                                                                                                                                                           |
+ | `redirect_url`        | `строка`  | The full URL to redirect to after the person installs the GitHub App.                                                                                                                                                                                    |
+ | `описание`            | `строка`  | A description of the GitHub App.                                                                                                                                                                                                                         |
+ | `public`              | `boolean` | Set to `true` when your GitHub App is available to the public or `false` when it is only accessible to the owner of the app.                                                                                                                             |
+ | `default_events`      | `array`   | The list of [events](/webhooks/event-payloads) the GitHub App subscribes to.                                                                                                                                                                             |
+ | `default_permissions` | `объект`  | The set of [permissions](/rest/reference/permissions-required-for-github-apps) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`). |
 
 The `hook_attributes` object has the following key:
 
@@ -71,15 +72,15 @@ The `hook_attributes` object has the following key:
 
 ##### Parameters
 
- | Name    | Тип      | Description                                      |
- | ------- | -------- | ------------------------------------------------ |
- | `state` | `строка` | {% data reusables.apps.state_description %} |
+ | Name    | Тип      | Description                                 |
+ | ------- | -------- | ------------------------------------------- |
+ | `state` | `строка` | {% data reusables.apps.state_description %}
 
 ##### Примеры
 
 This example uses a form on a web page with a button that triggers the `POST` request for a user account:
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -110,7 +111,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
 ```
 This example uses a form on a web page with a button that triggers the `POST` request for an organization account. Replace `ORGANIZATION` with the name of the organization account where you want to create the app.
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -152,24 +153,24 @@ If you provided a `state` parameter, you will also see that parameter in the `re
 
 #### 3. You exchange the temporary code to retrieve the app configuration
 
-To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/v3/apps/#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
+To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
 
 You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% note %}
 
-**Note:** This endpoint is rate limited. See [Rate limits](/v3/rate_limit/) to learn how to get your current rate limit status.
+**Note:** This endpoint is rate limited. See [Rate limits](/rest/reference/rate-limit) to learn how to get your current rate limit status.
 
 {% endnote %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% data reusables.pre-release-program.fury-pre-release %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
     POST /app-manifests/:code/conversions
 
-For more information about the endpoint's response, see [Create a GitHub App from a manifest](/v3/apps/#create-a-github-app-from-a-manifest).
+For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest).
 
 When the final step in the manifest flow is completed, the person creating the app from the flow will be an owner of a registered GitHub App that they can install on any of their personal repositories. They can choose to extend the app using the GitHub APIs, transfer ownership to someone else, or delete it at any time.
 
@@ -190,4 +191,4 @@ Using [dotenv](https://github.com/bkeepers/dotenv), Probot creates a `.env` file
 
 #### Hosting your app with Glitch
 
-You can see an [example Probot app](https://glitch.com/~auspicious-aardwolf) that uses [Glitch](https://glitch.com/) to host and share the app. The example uses the [Checks API](/v3/checks/) and selects the necessary Checks API events and permissions in the `app.yml` file. Glitch is a tool that allows you to "Remix your own" apps. Remixing an app creates a copy of the app that Glitch hosts and deploys. See "[About Glitch](https://glitch.com/about/)" to learn about remixing Glitch apps.
+You can see an [example Probot app](https://glitch.com/~auspicious-aardwolf) that uses [Glitch](https://glitch.com/) to host and share the app. The example uses the [Checks API](/rest/reference/checks) and selects the necessary Checks API events and permissions in the `app.yml` file. Glitch is a tool that allows you to "Remix your own" apps. Remixing an app creates a copy of the app that Glitch hosts and deploys. See "[About Glitch](https://glitch.com/about/)" to learn about remixing Glitch apps.

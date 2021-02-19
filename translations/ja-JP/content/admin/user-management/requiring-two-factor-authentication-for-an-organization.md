@@ -1,17 +1,17 @@
 ---
 title: Organizationに2要素認証を要求する
-intro: Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。
+intro: 'Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
 ---
 
-LDAP あるいはビルトイン認証を使っている場合、{% data variables.product.prodname_ghe_server %} アプライアンスでは 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
+LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-詳しい情報については[2FAをサポートする認証方式に関するこのチャート](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)を参照してください。
+詳しい情報については「[2 要素認証について](/github/authenticating-to-github/about-two-factor-authentication)」を参照してください。
 
 ### 2 要素認証実施にあたっての要件
 

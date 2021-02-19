@@ -1,6 +1,6 @@
 ---
-title: Drafting a listing for your app
-intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
+title: 起草应用程序上架信息
+intro: '当您创建 {% data variables.product.prodname_marketplace %} 上架信息时，GitHub 将其保存为草稿模式，直到您提交应用程序以供审批。 您的上架信息向客户显示如何使用您的应用程序。'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
@@ -18,47 +18,50 @@ versions:
 
 
 
-### Create a new draft {% data variables.product.prodname_marketplace %} listing
+### 创建新的 {% data variables.product.prodname_marketplace %} 上架信息草稿
 
-You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
+您只能为公共应用程序创建上架信息草稿。 在创建上架信息草稿之前，请阅读以下有关在 {% data variables.product.prodname_marketplace %} 上架信息中编写和配置设置的指南：
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+* [编写 {% data variables.product.prodname_marketplace %} 上架产品说明](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [配置 {% data variables.product.prodname_marketplace %} web 挂钩](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
 
-To create a {% data variables.product.prodname_marketplace %} listing:
+要创建 {% data variables.product.prodname_marketplace %} 上架信息：
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+3. 在左边栏中，单击 **OAuth Apps（OAuth 应用程序）**或 **GitHub Apps（GitHub 应用程序）**，具体取决于您要添加到 {% data variables.product.prodname_marketplace %} 的应用程序。
 
   {% note %}
 
-  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
+  **注**：您也可以通过以下方法添加上架信息：导航到 https://github.com/marketplace/new，查看可用的应用程序，然后单击 **Create draft listing（创建上架信息草稿）**。
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![应用程序类型选择](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}. ![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
+4. 选择要添加到的应用程序
+
+{% data variables.product.prodname_marketplace %}.
+![选择在 {% data variables.product.prodname_marketplace %} 中上架的应用程序](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete. ![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
+5. 创建新的上架草稿后，您将看到在完成 {% data variables.product.prodname_marketplace %} 上架信息之前需要访问的部分的概览。 ![GitHub Marketplace 上架信息](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
+**注：**在上架信息的“联系信息”部分，我们建议您使用个人电子邮件地址，而不是像 support@domain.com 这样的团体电子邮件地址。 GitHub 将使用这些电子邮件地址与您联系，以告知可能影响您的上架产品的 {% data variables.product.prodname_marketplace %} 更新、新功能发布、营销机会、付款以及会议和赞助信息。
 
 {% endnote %}
 
-### Editing your listing
+### 编辑您的上架信息
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+创建 {% data variables.product.prodname_marketplace %} 上架信息草稿后，您可以随时回来修改上架信息。 如果您的应用程序已获批准并且在 {% data variables.product.prodname_marketplace %} 中，您可以编辑上架产品的信息和图像，但无法更改现有的已发布定价计划。 请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。
 
-### Submitting your app
+### 提交应用程序
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, the {% data variables.product.prodname_marketplace %} onboarding team will contact you with additional information about the onboarding process. You can learn more about the onboarding and security review process in "[Getting started with {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)."
+完成 {% data variables.product.prodname_marketplace %} 上架信息后，您可以在 **Overview（概览）**页面中提交您的上架信息以供审查。 您需要阅读并接收“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”，然后才可以单击 **Submit for review（提交审查）**。 提交应用程序以供审查后，上架专家将与您联系，提供有关上架流程的其他信息。
 
-### Removing a {% data variables.product.prodname_marketplace %} listing
+### 删除 {% data variables.product.prodname_marketplace %} 上架信息
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact [marketplace@github.com](mailto:marketplace@github.com) to remove your listing.
+如果您不想再在 {% data variables.product.prodname_marketplace %} 中上架应用程序，请联系 {% data variables.contact.contact_support %} 删除您的上架信息。

@@ -19,13 +19,14 @@ versions:
 - 500 MB のファイルを {% data variables.large_files.product_name_short %} にプッシュすると、あなたに割り当てられた 500 MB のストレージを使うことになりますが、あなたの帯域は消費されません。 1 バイト分の変更を加えてそのファイルを再度プッシュすると、さらに 500 MB のストレージが使われ、帯域は消費されません。これらの 2 つのプッシュによる合計で、1 GB のストレージが使われ、帯域の消費はありません。
 - LFS で追跡されている 500 MB のファイルをダウンロードした場合、リポジトリのオーナーに割り当てられている帯域を 500 MB 消費します。 コラボレータがそのファイルに変更をプッシュし、あなたが新しいバージョンをローカルのリポジトリにプルしたなら、あなたは 500 MB の帯域を新たに消費するため、この 2 つのダウンロードでの合計の使用帯域は 1 GB になります。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブをダウンロードすると、リポジトリの帯域幅の使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+If
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブのダウンロードは、リポジトリの帯域幅使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - {% data reusables.large_files.owner_quota_only %}
 - {% data reusables.large_files.does_not_carry %}
 

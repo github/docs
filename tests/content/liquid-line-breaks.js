@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
+const matter = require('../../lib/read-frontmatter')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
 
@@ -81,6 +81,7 @@ describe('Liquid references', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(liquidRefsWithLinkBreaksRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))

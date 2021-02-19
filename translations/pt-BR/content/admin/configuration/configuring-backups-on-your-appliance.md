@@ -12,14 +12,14 @@ redirect_from:
   - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
-intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location_enterprise %} configurando backups automatizados.'
+intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location %} configurando backups automatizados.'
 versions:
   enterprise-server: '*'
 ---
 
 ### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
 
-O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup a ser instalado em um host separado, que tira instantâneos de backup da {% data variables.product.product_location_enterprise %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.
+O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup a ser instalado em um host separado, que tira instantâneos de backup da {% data variables.product.product_location %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.
 
 Somente os dados adicionados desde o último instantâneo serão transferidos pela rede e ocuparão espaço adicional de armazenamento físico. Para minimizar o impacto no desempenho, os backups são feitos online com a menor prioridade de E/S de CPU. Não é necessário programar um período de manutenção para fazer backups.
 
@@ -27,11 +27,11 @@ Para obter informações mais detalhadas sobre recursos, requisitos e uso avanç
 
 ### Pré-requisitos
 
-Para usar o {% data variables.product.prodname_enterprise_backup_utilities %}, você deve ter um sistema host Linux ou Unix separado da {% data variables.product.product_location_enterprise %}.
+Para usar o {% data variables.product.prodname_enterprise_backup_utilities %}, você deve ter um sistema host Linux ou Unix separado da {% data variables.product.product_location %}.
 
 Também é possível integrar o {% data variables.product.prodname_enterprise_backup_utilities %} a um ambiente para fins de armazenamento permanente em longo prazo de dados essenciais.
 
-É recomendável que o host de backup e a {% data variables.product.product_location_enterprise %} estejam geograficamente distantes. Essa medida garante que os backups estejam disponíveis para recuperação em casos de grandes desastres ou falhas de rede no site primário.
+É recomendável que o host de backup e a {% data variables.product.product_location %} estejam geograficamente distantes. Essa medida garante que os backups estejam disponíveis para recuperação em casos de grandes desastres ou falhas de rede no site primário.
 
 Os requisitos de armazenamento físico variam com base no uso do disco do repositório Git e nos padrões de crescimento esperados:
 
@@ -59,7 +59,7 @@ Podem ser necessários mais recursos dependendo do uso, como atividade do usuár
 3. Defina o valor `GHE_HOSTNAME` para o nome de host ou endereço IP da instância primária do {% data variables.product.prodname_ghe_server %}.
 4. Defina o valor `GHE_DATA_DIR` no local do arquivo do sistema onde você deseja arquivar os instantâneos de backup.
 5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-5. Verifique a conectividade SSH com a {% data variables.product.product_location_enterprise %} usando o comando `ghe-host-check`.
+5. Verifique a conectividade SSH com a {% data variables.product.product_location %} usando o comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
   ```
@@ -78,9 +78,17 @@ Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será i
 
 ### Restaurar um backup
 
-Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location_enterprise %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
+Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
 
-Para restaurar a {% data variables.product.product_location_enterprise %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Nota:** Se {% data variables.product.product_location %} tiver {% data variables.product.prodname_actions %} habilitado, você deverá primeiro configurar o provedor de armazenamento externo de {% data variables.product.prodname_actions %} no aplicativo de substituição antes de executar o comando `ghe-restore`. Para obter mais informações, consulte "[Backup e restauração de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %} ativado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
+Para restaurar a {% data variables.product.product_location %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
 
 ```shell
 $ ghe-restore -c 169.154.1.1

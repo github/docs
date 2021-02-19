@@ -8,6 +8,7 @@ intro: Uma bifurcação é uma cópia de um repositório. Bifurcar um repositór
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia.
@@ -24,9 +25,15 @@ Por exemplo, você pode usar bifurcações para propor alterações relacionadas
 
 O software de código aberto baseia-se na ideia de que ao compartilhar códigos, podemos criar softwares melhores e mais confiáveis. Para obter mais informações, consulte "[Sobre a Iniciativa Open Source](http://opensource.org/about)" em Iniciativa Open Source.
 
+Para obter mais informações sobre a aplicação dos princípios de código aberto ao trabalho de desenvolvimento da sua organização em {% data variables.product.product_location %}, consulte o white paper de {% data variables.product.prodname_dotcom %} "[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](http://choosealicense.com/)" em choosealicense.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
@@ -34,7 +41,7 @@ Ao criar um repositório público a partir de uma bifurcação do projeto de out
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Dica**: Você também pode bifurcar um repositório usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`bifurcação do repositório gh`](https://cli.github.com/manual/gh_repo_fork)" na documentação do {% data variables.product.prodname_cli %}.
@@ -61,7 +68,9 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 
 Agora você tem uma bifurcação do repositório Spoon-Knife, mas não os arquivos daquele repositório em seu computador. Vamos criar um clone da sua bifurcação localmente em seu computador.
 
-1. Em {% data variables.product.product_name %}, vá até **your fork** (sua bifurcação) no repositório Spoon-Knife.
+1. Em
+
+{% data variables.product.product_name %}, acesse a **sua bifurcação** do repositório Spoon-Knife.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -86,7 +95,9 @@ Agora você já tem uma cópia local de sua bifurcação do repositório Spoon-K
 
 Ao bifurcar um projeto para propor mudanças no repositório original, é possível configurar o Git para fazer pull de mudanças do repositório original ou upstream no clone local de sua bifurcação.
 
-1. Em {% data variables.product.product_name %}, vá até o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. Em
+
+{% data variables.product.product_name %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Mude os diretórios do local que você clonou a bifurcação na [Etapa 2: Crie um clone local de sua bifurcação](#step-2-create-a-local-clone-of-your-fork).
@@ -128,7 +139,7 @@ Você pode fazer alterações em uma bifurcação, incluindo:
 
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}Você pode navegar em [Explore](https://github.com/explore) (Explorar) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% if currentVersion == "free-pro-team@latest" %}Você pode procurar [Explorar](https://github.com/explore) para encontrar projetos e começar a contribuir para repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

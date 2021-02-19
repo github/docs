@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -14,7 +15,7 @@ versions:
 
 {% endnote %}
 
-リポジトリへの読み取りアクセス権を持つ人は、リポジトリのデプロイメントワークフローが、Deployments API または[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) のアプリケーションを通して、{% data variables.product.product_name %} に統合されている場合、現在のすべてのデプロイメントの概要と過去のデプロイメントアクティビティのログを見ることができます。 詳しい情報については、「[デプロイメント](/v3/repos/deployments/)」を参照してください。
+リポジトリへの読み取りアクセス権を持つ人は、リポジトリのデプロイメントワークフローが、Deployments API または[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) のアプリケーションを通して、{% data variables.product.product_name %} に統合されている場合、現在のすべてのデプロイメントの概要と過去のデプロイメントアクティビティのログを見ることができます。 詳しい情報については、「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
 
 プルリクエストの [Conversation] タブにもデプロイメント情報が表示されます。
 

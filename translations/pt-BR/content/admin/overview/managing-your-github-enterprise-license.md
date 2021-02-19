@@ -30,24 +30,26 @@ Depois de comprar uma nova licença ou atualizar uma licença existente de {% da
 
 Caso queira renovar ou adicionar licenças de usuário com o {% data variables.product.prodname_enterprise %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Seu novo arquivo de licença estará disponível para download logo após a conclusão do pedido.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Em "Enterprise Server Instances", clique em {% octicon "download" aria-label="The download icon" %} para fazer o download do seu arquivo de licença. ![Baixar licença do GitHub Enterprise Server](/assets/images/help/business-accounts/download-ghes-license.png)
-5. Faça login na sua instância do {% data variables.product.prodname_ghe_server %} como administrador do site.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+5. Faça login na sua
+Instância de {% data variables.product.prodname_ghe_server %} como administrador do site.
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Em "Quick links" (Links rápidos), clique em **Update license** (Atualizar licença). ![Link de atualização de licença](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. Para selecionar sua licença, clique em **License file** (Arquivo de licença) ou arraste o arquivo de licença para o **License file** (Arquivo de licença). ![Fazer upload do arquivo de licença](/assets/images/enterprise/management-console/upload-license.png)
-14. Clique em **Fazer upload**. ![Iniciar atualização](/assets/images/enterprise/management-console/begin-upload.png)
+14. Clique em **Fazer upload**. ![Iniciar upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}Se a interface do usuário web para {% data variables.product.prodname_ghe_server %} não refletir sua licença atualizada imediatamente, consulte "[Solução de problemas](#troubleshooting)".{% endif %}
 
 ### Exibir o uso de licenças
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Revise sua licença atual de {% data variables.product.prodname_enterprise %}, bem como licenças de usuário consumidas e disponíveis.
 
 ### Sincronizar automaticamente o uso da licença de usuário com o {% data variables.product.prodname_ghe_cloud %}
@@ -58,14 +60,35 @@ Caso queira renovar ou adicionar licenças de usuário com o {% data variables.p
 
 Para sincronizar manualmente o uso das licenças de usuário entre as duas implantações, você pode baixar um arquivo JSON do {% data variables.product.prodname_ghe_server %} e fazer upload desse arquivo no {% data variables.product.prodname_ghe_cloud %}.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-5. Em "Quick links" (Links rápidos), para baixar um arquivo com o uso da sua licença atual no {% data variables.product.prodname_ghe_server %}, clique em **Export license usage** (Exportar uso de licença). ![Exportar link de uso de licença](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. Navegue até o {% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+{% data reusables.enterprise-accounts.license-tab %}
+5. Em "Links rápidos", para fazer o download de um arquivo que contém a sua licença atual em
+{% data variables.product.prodname_ghe_server %}, clique em **Exportar uso de licença**.
+  ![Exportar link de uso de licença](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+8. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+{% data reusables.enterprise-accounts.license-tab %}
 10. Em "Instâncias Enterprise Server", clique em **Add server usage** (Adicionar uso de servidor). ![Fazer upload do link de uso do GitHub Enterprise Server](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Faça upload do arquivo JSON que você baixou do {% data variables.product.prodname_ghe_server %}.![Arrastar e soltar ou selecionar um arquivo para upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### Solução de Problemas
+
+Em alguns cenários, a interface de usuário web para {% data variables.product.prodname_ghe_server %} pode não refletir imediatamente sua nova licença. Você pode forçar o sistema a detectar a licença, reiniciando dois serviços do sistema.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Reinicie os serviços para autenticação Git e o servidor HTTP.
+
+    {% warning %}
+
+    **Aviso**: Executar o seguinte comando gerará alguns minutos de tempo de inatividade do usuário para {% data variables.product.prodname_ghe_server %}. Execute o comando com cuidado.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. Depois que {% data variables.product.prodname_ghe_server %} retornar você para uma instrução, tente acessar {% data variables.product.prodname_ghe_server %} por meio da linha de comando ou da interface do usuário da web novamente.
+
+{% endif %}

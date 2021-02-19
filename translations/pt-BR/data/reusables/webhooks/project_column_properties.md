@@ -1,7 +1,7 @@
-| Tecla                 | Tipo      | Descrição                                                                                                                           |
-| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`                | `string`  | The action that was performed on the project column. Can be one of `created`, `edited`, `moved` or `deleted`.                       |
-| `alterações`          | `objeto`  | The changes to the project column if the action was `edited`.                                                                       |
-| `changes[name][from]` | `string`  | A versão anterior do nome se a ação foi `editada`.                                                                                  |
-| `after_id`            | `inteiro` | The id of the column that this column now follows if the action was "moved". Will be `null` if it is the first column in a project. |
-| `project_column`      | `objeto`  | The [project column](/v3/projects/columns) itself.                                                                                  |
+| Tecla                 | Tipo      | Descrição                                                                                                              |
+| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `Ação`                | `string`  | A ação que foi executada na coluna do projeto. Pode ser `created`, `edited`, `moved` ou `deleted`.                     |
+| `alterações`          | `objeto`  | As alterações na coluna do projeto, se a ação foi `editada`.                                                           |
+| `changes[name][from]` | `string`  | A versão anterior do nome se a ação foi `editada`.                                                                     |
+| `after_id`            | `inteiro` | O id da coluna que esta coluna agora segue se a ação foi "movida". Será `nulo` se for a primeira coluna em um projeto. |
+| `project_column`      | `objeto`  | A própria [coluna do projeto](/rest/reference/projects#columns).                                                       |

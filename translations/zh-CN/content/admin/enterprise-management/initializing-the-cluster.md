@@ -17,7 +17,7 @@ versions:
 
 ### 配置第一个节点
 
-1. 连接到将在 `cluster.conf` 中被指定为 `mysql-master` 的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 2. 在 Web 浏览器中，访问 `https://<ip address>:8443/setup/`。
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -43,9 +43,9 @@ versions:
 
 节点的名称可以是您选择的任何有效主机名。 名称被设置为每个节点的主机名，并且还将添加到每个节点上的 `/etc/hosts` 中，以便节点可以在本地相互解析。
 
-通过 `mysql-server` 和 `mysql-master` 指定您配置为 MySQL master 的第一个集群节点。
+通过 `mysql-server` 和 `mysql-master` 指定您配置为 MySQL 主要节点的第一个集群节点。
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

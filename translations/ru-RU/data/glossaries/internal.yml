@@ -110,7 +110,7 @@
   description: Центральный процессор.
 - 
   term: вспомогательное приложение для управления учетными данными
-  description: Программа, которая хранит и оценивает учетные данные Git.
+  description: A program that stores and fetches Git credentials.
 - 
   term: creole
   description: >-
@@ -276,17 +276,17 @@
   description: >-
     Также носит название «интроспектива». Способ запроса схемы GraphQL для получения данных о типах поддерживаемых запросов.
 - 
-  term: iPython notebook
+  term: блокнот iPython
   description: >-
     Веб-приложение, которое фиксирует весь процесс вычисления: разработка, документирование и выполнение кода, а также информирование о результатах.
 - 
   term: JIRA
   description: Продукт Atlassian для отслеживания проблем.
 - 
-  term: Jupyter notebook
+  term: блокнот Jupyter
   description: Блокнот, который содержит как код, так и элементы форматированного текста.
 - 
-  term: kernel
+  term: ядро
   description: Компьютерная программа, которая является ядром операционной системы компьютера.
 - 
   term: kramdown
@@ -737,9 +737,9 @@
   description: >-
     Дерево фактически выгруженных файлов. Рабочее дерево обычно содержит содержимое дерева коммитов HEAD, а также любые сделанные, но не внесенные локальные изменения.
 - 
-  term: WYSIWIG
+  term: WYSIWYG
   description: >-
-    Отображение редактируемого текста максимально похожим на конечный результат образом. Аббревиатура означает, что текст на экране выглядит таким же, каким его будет видеть пользователь.
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: Платформа виртуализации.

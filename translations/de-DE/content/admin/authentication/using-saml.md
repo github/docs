@@ -29,7 +29,7 @@ Jeder {% data variables.product.prodname_ghe_server %}-Benutzername wird nach Pr
 
 Das Element `NameID` ist selbst dann erforderlich, wenn andere Attribute vorhanden sind.
 
-Zwischen `NameID` und dem {% data variables.product.prodname_ghe_server %}-Benutzernamen wird eine Zuordnung erstellt, daher sollte `NameID` persistent, eindeutig und für den Lebenszyklus des Benutzers nicht änderbar sein.
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
@@ -46,7 +46,7 @@ Zwischen `NameID` und dem {% data variables.product.prodname_ghe_server %}-Benut
 
 ### SAML-Metadaten
 
-Die Service Provider-Metadaten Ihrer {% data variables.product.prodname_ghe_server %}-Instanzen sind unter `http(s)://[hostname]/saml/metadata` verfügbar.
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 Wenn Sie Ihren Identity Provider manuell konfigurieren möchten, lautet die Assertionsverbraucherdienst-URL (ACS) `http(s)://[hostname]/saml/consume`. Dafür wird die Bindung `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` verwendet.
 
@@ -54,15 +54,15 @@ Wenn Sie Ihren Identity Provider manuell konfigurieren möchten, lautet die Asse
 
 Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attribute können Sie die Attributnamen in der [Managementkonsole](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) ändern.
 
-| Standardmäßiger Attributname | Typ          | Beschreibung                                                                                                                                                                                                                                                                                                 |
-| ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Standardmäßiger Attributname | Typ          | Beschreibung                                                                                                                                                                                                                                                                                            |
+| ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NameID`                     | Erforderlich | Ein persistenter Benutzerkennzeichner. Es kann ein beliebiges Format für persistente Namenskennzeichner verwendet werden. Das Element `NameID` wird für einen {% data variables.product.prodname_ghe_server %}-Benutzernamen verwendet, sofern keine der alternativen Assertions bereitgestellt wird. |
-| `Administrator`              | Optional     | Wenn der Wert „true“ lautet, wird der Benutzer automatisch zu einem Administrator hochgestuft. Bei anderen oder nicht vorhandenen Werten wird der Benutzer auf ein normales Benutzerkonto zurückgestuft.                                                                                                     |
+| `Administrator`              | Optional     | Wenn der Wert „true“ lautet, wird der Benutzer automatisch zu einem Administrator hochgestuft. Bei anderen oder nicht vorhandenen Werten wird der Benutzer auf ein normales Benutzerkonto zurückgestuft.                                                                                                |
 | `Benutzername`               | Optional     | Der {% data variables.product.prodname_ghe_server %}-Benutzername.                                                                                                                                                                                                                                    |
-| `full_name`                  | Optional     | Der Name des Benutzers, der auf seiner Profilseite angezeigt wird. Nach der Bereitstellung können Benutzer ihre Namen ändern.                                                                                                                                                                                |
-| `emails`                     | Optional     | Die E-Mail-Adressen für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                                    |
-| `public_keys`                | Optional     | Die öffentlichen SSH-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                         |
-| `gpg_keys`                   | Optional     | Die GPG-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                                      |
+| `full_name`                  | Optional     | Der Name des Benutzers, der auf seiner Profilseite angezeigt wird. Nach der Bereitstellung können Benutzer ihre Namen ändern.                                                                                                                                                                           |
+| `emails`                     | Optional     | Die E-Mail-Adressen für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                               |
+| `public_keys`                | Optional     | Die öffentlichen SSH-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                    |
+| `gpg_keys`                   | Optional     | Die GPG-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                                 |
 
 ### SAML-Einstellungen konfigurieren
 
@@ -79,16 +79,16 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 
   {% endtip %}
 
-5. Wählen Sie **Disable administrator demotion/promotion** (Hochstufen/Zurücksetzen des Administrators deaktivieren) aus, wenn Sie **nicht** möchten, dass Ihr SAML-Anbieter die Administratorrechte für Benutzer auf {% data variables.product.product_location_enterprise %} bestimmen kann. ![SAML-Konfiguration zum Deaktivieren der Administratoroption](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. Geben Sie im Feld **Single sign-on URL** (Single Sign-On-URL) den HTTP- oder HTTPS-Endpunkt für Ihren IdP für Single Sign-On-Anforderungen ein. Dieser Wert wird durch Ihre IdP-Konfiguration angegeben. Wenn der Host in Ihrem internen Netzwerk nicht verfügbar ist, müssen Sie [{% data variables.product.product_location_enterprise %} ggf. zur Verwendung interner Nameserver konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML-Authentifizierung](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Gib optional im Feld **Issuer** (Aussteller) den Namen Deines SAML-Ausstellers ein. Dadurch wird die Authentizität von Nachrichten verifiziert, die an {% data variables.product.product_location_enterprise %} gesendet werden. ![SAML-Aussteller](/assets/images/enterprise/management-console/saml-issuer.png)
-8. Wählen Sie in den Dropdownmenüs **Signature Method** (Signaturmethode) und **Digest Method** (Digest-Methode) den von Ihrem SAML-Aussteller verwendeten Hashalgorithmus aus, um die Integrität der Anforderungen von {% data variables.product.product_location_enterprise %} zu verifizieren. Geben Sie das Format mit dem Dropdownmenü **Name Identifier Format** (Format für Namenskennzeichner) an. ![SAML-Methode](/assets/images/enterprise/management-console/saml-method.png)
+5. Wählen Sie **Disable administrator demotion/promotion** (Hochstufen/Zurücksetzen des Administrators deaktivieren) aus, wenn Sie **nicht** möchten, dass Ihr SAML-Anbieter die Administratorrechte für Benutzer auf {% data variables.product.product_location %} bestimmen kann. ![SAML-Konfiguration zum Deaktivieren der Administratoroption](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. Geben Sie im Feld **Single sign-on URL** (Single Sign-On-URL) den HTTP- oder HTTPS-Endpunkt für Ihren IdP für Single Sign-On-Anforderungen ein. Dieser Wert wird durch Ihre IdP-Konfiguration angegeben. Wenn der Host in Ihrem internen Netzwerk nicht verfügbar ist, müssen Sie [{% data variables.product.product_location %} ggf. zur Verwendung interner Nameserver konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML-Authentifizierung](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Gib optional im Feld **Issuer** (Aussteller) den Namen Deines SAML-Ausstellers ein. Dadurch wird die Authentizität von Nachrichten verifiziert, die an {% data variables.product.product_location %} gesendet werden. ![SAML-Aussteller](/assets/images/enterprise/management-console/saml-issuer.png)
+8. Wählen Sie in den Dropdownmenüs **Signature Method** (Signaturmethode) und **Digest Method** (Digest-Methode) den von Ihrem SAML-Aussteller verwendeten Hashalgorithmus aus, um die Integrität der Anforderungen von {% data variables.product.product_location %} zu verifizieren. Geben Sie das Format mit dem Dropdownmenü **Name Identifier Format** (Format für Namenskennzeichner) an. ![SAML-Methode](/assets/images/enterprise/management-console/saml-method.png)
 9. Klicken Sie unter **Verification certificate** (Verifizierungszertifikat) auf **Choose File** (Datei auswählen), und wählen Sie ein Zertifikat aus, um Ihre SAML-Antworten vom IdP zu validieren. ![SAML-Authentifizierung](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. Ändern Sie die SAML-Attributnamen bei Bedarf so, dass sie mit Ihrem IdP übereinstimmen, oder akzeptieren Sie die Standardnamen.![SAML-Attributnamen](/assets/images/enterprise/management-console/saml-attributes.png)
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-### Zugriff auf {% data variables.product.product_location_enterprise %} widerrufen
+### Zugriff auf {{ site.data.variables.product.product_location_enterprise }} widerrufen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Wählen Sie **SAML** aus. !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -100,7 +100,7 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 
 {% endif %}
 
-### Zugriff auf {% data variables.product.product_location_enterprise %} widerrufen
+### Zugriff auf {% data variables.product.product_location %} widerrufen
 
 Wenn Sie einen Benutzer von Ihrem Identity Provider entfernen, müssen Sie ihn zudem manuell sperren. Andernfalls kann er sich weiterhin mithilfe der Zugriffstoken oder SSH-Schlüssel authentifizieren. Weitere Informationen finden Sie unter „[Benutzer sperren und entsperren](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)“.
 

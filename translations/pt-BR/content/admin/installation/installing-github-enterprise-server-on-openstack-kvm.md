@@ -29,13 +29,15 @@ versions:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. No OpenStack Horizon, faça upload da imagem do {% data variables.product.prodname_ghe_server %} que você baixou. Para obter instruções, consulte a seção "Fazer upload de uma imagem" do guia OpenStack "[Fazer upload e gerenciar imagens](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
+1. No OpenStack Horizon, faça o upload do
+
+imagem de {% data variables.product.prodname_ghe_server %} que você baixou. Para obter instruções, consulte a seção "Fazer upload de uma imagem" do guia OpenStack "[Fazer upload e gerenciar imagens](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
 {% data reusables.enterprise_installation.create-attached-storage-volume %} Para obter instruções, consulte o guia OpenStack "[Criar e gerenciar volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)".
 3. Crie um grupo de segurança e adicione uma nova regra de grupo de segurança para cada porta na tabela abaixo. Para ver as instruções, consulte o guia do OpenStack "[Configurar o acesso e a segurança nas instâncias](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)".
 
   {% data reusables.enterprise_installation.necessary_ports %}
 4. Você também pode associar um IP flutuante à instância. Dependendo da sua configuração do OpenStack, talvez seja necessário alocar um IP flutuante para o projeto e associá-lo à instância. Entre em contato com o administrador do sistema para determinar se esse é o seu caso. Para obter mais informações, consulte "[Alocar endereço IP flutuante a uma instância](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" na documentação do OpenStack.
-5. Inicie a {% data variables.product.product_location_enterprise %} usando a imagem, o volume de dados e o grupo de segurança criados nas etapas anteriores. Para ver as instruções, consulte "[Iniciar e gerenciar instâncias](https://docs.openstack.org/horizon/latest/user/launch-instances.html)" no guia do OpenStack.
+5. Inicie a {% data variables.product.product_location %} usando a imagem, o volume de dados e o grupo de segurança criados nas etapas anteriores. Para ver as instruções, consulte "[Iniciar e gerenciar instâncias](https://docs.openstack.org/horizon/latest/user/launch-instances.html)" no guia do OpenStack.
 
 ### Configurar a instância do {% data variables.product.prodname_ghe_server %}
 
@@ -47,4 +49,5 @@ versions:
 
 ### Leia mais
 
- - [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -50,7 +50,7 @@ versions:
 #### クラスタノードのアップグレード
 
 1. 任意のクラスタノードの管理シェルに接続し、`ghe-cluster-maintenance -s` を実行して、スケジュールしたウィンドウに従ってメンテナンスモードを有効にします。
-2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes. [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
+2. **プライマリMySQLノードを除き**、{% data variables.product.prodname_ghe_server %}の各ノードの管理シェルに接続します。 [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...

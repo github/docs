@@ -1,6 +1,6 @@
 ---
-title: Viewing transactions for your listing
-intro: 'The {% data variables.product.prodname_marketplace %} transactions page allows you to download and view all transactions for your {% data variables.product.prodname_marketplace %} listing. You can view transations for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
+title: リストの取引の表示
+intro: '{% data variables.product.prodname_marketplace %}の取引ページでは、{% data variables.product.prodname_marketplace %}リストのすべての取引をダウンロードしたり表示したりできます。 You can view transactions for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
@@ -11,35 +11,35 @@ versions:
 
 {% note %}
 
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
+**ノート:** データの集計には時間がかかるので、表示される日付には若干の遅れが生じます。 期間を選択すると、ページの上部にそのメトリクスの正確な日付が表示されます。
 
 {% endnote %}
 
 
-You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
+サブスクリプションのアクティビティを追跡するために、取引のデータを表示したりダウンロードしたりできます。 **Export CSV（CSVのエクスポート）**ボタンをクリックして、`.csv`ファイルをダウンロードしてください。 取引ページ内で表示したり検索したりする期間を選択することもできます。
 
-### Transaction data fields
+### 取引のデータフィールド
 
-* **date:** The date of the transaction in `yyyy-mm-dd` format.
-* **app_name:** The app name.
-* **user_login:** The login of the user with the subscription.
-* **user_id:** The id of the user with the subscription.
-* **user_type:** The type of GitHub account, either `User` or `Organization`.
-* **country:** The three letter country code.
-* **amount_in_cents:** The amount of the transaction in cents. When a value is less the plan amount, the user upgraded and the new plan is prorated. A value of zero indicates the user cancelled their plan.
-* **renewal_frequency:** The subscription renewal frequency, either `Monthly` or `Yearly`.
-* **marketplace_listing_plan_id:** The `id` of the subscription plan.
+* **date:** `yyyy-mm-dd`という形式の取引の日付。
+* **app_name:** アプリケーションの名前。
+* **user_login:** サブスクリプションを持つユーザのログイン。
+* **user_id:** サブスクリプションを持つユーザのID。
+* **user_type:** GitHubアカウントの種類。`User`もしくは`Organization`。
+* **country:** 3文字の国コード。
+* **amount_in_cents:** セント単位での取引の額。 値がプランの額を下回っている場合は、ユーザがアップグレードをして新しいプランが日割りになっています。 値がゼロになっている場合は、ユーザがプランをキャンセルしたことを示します。
+* **renewal_frequency:** サブスクリプションの更新の頻度で、`Monthly`もしくは`Yearly`です。
+* **marketplace_listing_plan_id:** サブスクリプションプランの`id`です。
 
 ![Marketplace insights](/assets/images/marketplace/marketplace_transactions.png)
 
-### Accessing {% data variables.product.prodname_marketplace %} transactions
+### {% data variables.product.prodname_marketplace %}の取引へのアクセス
 
-To access {% data variables.product.prodname_marketplace %} transactions:
+{% data variables.product.prodname_marketplace %}の取引にアクセスするには以下のようにしてください。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
+4. 取引を表示させたい{% data variables.product.prodname_github_app %}を選択してください。
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Transactions** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
+6. **Transactions（取引）**タブをクリックしてください。
+7. 取引ページの右上にあるPeriod（期間）ドロップダウンをクリックして、異なる期間を選択することもできます。 ![Marketplaceの期間](/assets/images/marketplace/marketplace_insights_time_period.png)

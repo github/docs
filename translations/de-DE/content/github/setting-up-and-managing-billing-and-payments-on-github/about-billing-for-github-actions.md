@@ -8,12 +8,16 @@ versions:
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 Minuten werden jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 
-| Produkt                                                                   | Speicher | Minuten (pro Monat) |
-| ------------------------------------------------------------------------- | -------- | ------------------- |
+| Produkt                                                              | Speicher | Minuten (pro Monat) |
+| -------------------------------------------------------------------- | -------- | ------------------- |
 | {% data variables.product.prodname_free_user %}                    | 500 MB   | 2.000               |
 | {% data variables.product.prodname_pro %}                            | 1 GB     | 3.000               |
 | {% data variables.product.prodname_free_team %} für Organisationen | 500 MB   | 2.000               |
@@ -44,14 +48,14 @@ Der Speicher, der von einem Repository verbraucht wird, ist der gesamte Speicher
 | macOS          | 0.08 $       |
 | Windows        | 0.016 $      |
 
-Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem Benutzer- oder Organisationskonto ausführen kannst, hängt von Deinem GitHub-Plan ab. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)."
+Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem Benutzer- oder Organisationskonto ausführen kannst, hängt von Deinem GitHub-Plan ab. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 ### Minuten- und Speicherausgaben berechnen
 
 Am Ende des Monats berechnet {% data variables.product.prodname_dotcom %} die Minuten- und Speicherkosten, die über den in Deinem Konto enthaltenen Kontingent liegen. Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet und unbegrenzte Ausgaben zulässt, würde der Verbrauch von 15.000 Minuten die gesamten Speicher- und Minutenkosten um 56 $ überschreiten, abhängig von den Betriebssystemen, die zur Ausführung der Aufträge verwendet werden.
 
 - 5.000 (3.000 Linux und 2.000 Windows) Minuten = 56 $ (24 $ + 32 $).
-  - 3,000 Linux Minuten zu je 0.008 $ = 24 $.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2.000 Windows Minuten zu je 0.016 $ = 32 $.
 
 Am Ende jedes Monates wird {% data variables.product.prodname_dotcom %} Deine Datenübertragung auf das nächste GB aufrunden.
@@ -69,8 +73,8 @@ Deine {% data variables.product.prodname_actions %}-Nutzung teilt das bestehende
 
 ### Über Ausgabenlimits
 
-Standardmäßig wird Dein Konto ein Ausgabenlimit von 0 $ für die Nutzung von {% data variables.product.prodname_actions %} haben. Um die Nutzung von Minuten und Speicher für private Repositories über die Kontingente Deines Kontos hinaus zu ermöglichen, kannst Du das Ausgabenlimit erhöhen oder unbegrenzte Ausgaben zulassen. Weitere Informationen findest Du unter „[Ausgabenlimits für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

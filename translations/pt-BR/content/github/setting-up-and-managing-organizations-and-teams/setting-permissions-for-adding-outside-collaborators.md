@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os proprietários da organização e integrantes com privilégios de administrador para um repositório podem convidar colaboradores externos para trabalhar no repositório. Você também pode restringir as permissões de convites de colaboradores externos para apenas proprietários de organizações.
@@ -18,6 +19,6 @@ Os proprietários da organização e integrantes com privilégios de administrad
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Em "Convites para o repositório", selecione **Permitir que os membros convidem colaboradores externos para repositórios desta organização**.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
+5. Em "Convites para o repositório", selecione **Permitir que os integrantes convidem colaboradores externos para repositórios desta organização**.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox.png){% endif %}
 6. Clique em **Salvar**.

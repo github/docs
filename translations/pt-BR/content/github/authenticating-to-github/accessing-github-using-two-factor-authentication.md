@@ -15,7 +15,7 @@ Com a autenticação de dois fatores habilitada, você deverá fornecer um códi
 
 ### Fornecer um código 2FA ao entrar no site
 
-Depois de entrar no {% data variables.product.product_name %} usando sua senha, será solicitado que você forneça um código de autenticação de {% if currentVersion == "free-pro-team@latest" %}uma mensagem de texto ou{% endif %} do seu app TOTP.
+Depois de efetuar a o login em {% data variables.product.product_name %} usando a sua senha, será solicitado que você forneça um código de autenticação de {% if currentVersion == "free-pro-team@latest" %}uma mensagem de texto ou{% endif %} do seu aplicativo TOTP.
 
 O {% data variables.product.product_name %} solicitará seu código de autenticação 2FA novamente apenas se você se desconectar, for usar um novo dispositivo ou a sessão expirar.
 

@@ -6,16 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 ### プルリクエストのマージについて
 
-プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 {% data reusables.pull_requests.about-protected-branches %}ただし、プルリクエストを特定のブランチにマージできるタイミングには制限がある場合があります。 For example, you may only be able to merge a pull request into the default branch if required status checks are passing. 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
+プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 デフォルトでは、head ブランチがベースブランチとコンフリクトしていない限り、どのプルリクエストもいつでもマージできます。 However, there may be restrictions on when you can merge a pull request into a specific branch. たとえば、必須のステータスチェックに合格した場合にのみ、プルリクエストをデフォルトブランチにマージできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 プルリクエストでマージコンフリクトが発生する場合、またはマージの前に変更をテストしたい場合は、コマンドラインを使用して、[プルリクエストをローカルでチェックアウト](/articles/checking-out-pull-requests-locally)してマージすることができます。
 
-You can't merge a draft pull request. ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)」を参照してください。
+ドラフトのプルリクエストをマージすることはできません。 ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)」を参照してください。
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
@@ -42,16 +44,22 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **注釈:** メールセレクタは、マージコミットを作成しないリベースマージ、またはプルリクエストを作成したユーザを squash コミットの作者としてクレジットする squash マージには使用できません。
+
+   {% endnote %}
+
 6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
 6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}リポジトリは、プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるように設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。{% endif %}
+プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるようにリポジトリを設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
+   詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
 
    {% endnote %}
    {% endif %}

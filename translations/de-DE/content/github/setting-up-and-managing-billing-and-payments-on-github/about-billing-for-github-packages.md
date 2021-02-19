@@ -10,12 +10,16 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 Die Datenübertragung wird jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 
-| Produkt                                                                   | Speicher | Datenübertragung (pro Monat) |
-| ------------------------------------------------------------------------- | -------- | ---------------------------- |
+| Produkt                                                              | Speicher | Datenübertragung (pro Monat) |
+| -------------------------------------------------------------------- | -------- | ---------------------------- |
 | {% data variables.product.prodname_free_user %}                    | 500 MB   | 1 GB                         |
 | {% data variables.product.prodname_pro %}                            | 2 GB     | 10 GB                        |
 | {% data variables.product.prodname_free_team %} für Organisationen | 500 MB   | 1 GB                         |
@@ -50,8 +54,8 @@ Deine {% data variables.product.prodname_registry %}-Nutzung teilt das bestehend
 
 ### Über Ausgabenlimits
 
-Standardmäßig wird Dein Konto ein Ausgabenlimit von 0 $ für die Nutzung von {% data variables.product.prodname_registry %} haben. Um die Nutzung von Speicher und Datenübertragung für private Pakete über die Kontingente Deines Kontos hinaus zu ermöglichen, kannst Du das Ausgabenlimit erhöhen oder unbegrenzte Ausgaben zulassen. Weitere Informationen findest Du unter „[Ausgabenlimit für {% data variables.product.prodname_registry %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

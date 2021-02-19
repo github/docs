@@ -3,10 +3,11 @@ title: 转让组织所有权
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
   - /articles/transferring-organization-ownership
-intro: '要使其他人成为组织帐户的所有者，您必须添加新所有者{% if currentVersion == "free-pro-team@latest" %}，确保帐单信息已更新，{% endif %}然后将自身从该帐户中删除。'
+intro: '要使其他人成为组织帐户的所有者，您必须添加新所有者{% if currentVersion == "free-pro-team@latest" %}，确保帐单信息已更新，{% endif %} 然后将自身从该帐户中删除。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. 如果您是具有*所有者*权限的唯一成员，则授予其他组织成员所有者角色。 更多信息请参阅“[任命组织所有者](/github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。

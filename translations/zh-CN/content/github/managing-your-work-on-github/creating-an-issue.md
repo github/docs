@@ -1,23 +1,23 @@
 ---
 title: 创建议题
-intro: 议题可用于跟踪漏洞、增强功能或其他请求。
+intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
+permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-{% data reusables.repositories.create-issue-in-public-repository %}
 
 您可以根据现有拉取请求中的代码打开新议题。 更多信息请参阅“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。
 
 可以直接从议题或拉取请求审查中的评论打开新议题。 更多信息请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建议题。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 议题创建`](https://cli.github.com/manual/gh_issue_create)”。
 
 {% endtip %}
 {% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Site admin dashboard
-intro: 'The site admin dashboard provides a number of tools to help you manage {% data variables.product.product_location_enterprise %}.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -10,7 +10,7 @@ versions:
 ---
 
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
@@ -46,7 +46,7 @@ For more information on audit logging in general, see "[Audit logging](/enterpri
 
 ### Reports
 
-If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location_enterprise %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
 Specifically, you can download CSV reports that list
 
@@ -152,7 +152,7 @@ In other words, repair jobs are started as needed and run in the background—th
 
 Furthermore, repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
 
-A progress bar shows the current status of a repair job across all of its background workers. It is the percentage difference of the repair offset with the highest record ID in the database. Don't worry about the value shown in the progress bar after a repair job has completed: because it shows the difference between the repair offset and the highest record ID in the database, it will decrease as more repositories are added to {% data variables.product.product_location_enterprise %} even though those repositories are actually indexed.
+A progress bar shows the current status of a repair job across all of its background workers. It is the percentage difference of the repair offset with the highest record ID in the database. Don't worry about the value shown in the progress bar after a repair job has completed: because it shows the difference between the repair offset and the highest record ID in the database, it will decrease as more repositories are added to {% data variables.product.product_location %} even though those repositories are actually indexed.
 
 You can start a new code-search index repair job at any time. It will use a single CPU as it reconciles the search index with database and Git repository data. To minimize the effects this will have on I/O performance and reduce the chances of operations timing out, try to run a repair job during off-peak hours first. Monitor your system's load averages and CPU usage with a utility like `top`; if you don't notice any significant changes, it should be safe to run an index repair job during peak hours, as well.
 
@@ -176,7 +176,7 @@ Refer to this section of the site admin dashboard to manage organizations, peopl
 
 ### Repositories
 
-This is a list of the repositories on {% data variables.product.product_location_enterprise %}. You can click on a repository name and access functions for administering the repository.
+This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
 
 - [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
 - [Configuring {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
@@ -184,17 +184,17 @@ This is a list of the repositories on {% data variables.product.product_location
 
 ### All users
 
-Here you can see all of the users on {% data variables.product.product_location_enterprise %}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Site admins
 
-Here you can see all of the administrators on {% data variables.product.product_location_enterprise %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Dormant users
 
-Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location_enterprise %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location_enterprise %}.
+- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
 - Has not generated any activity within that time period.
 - Is not a site administrator.
 
@@ -202,4 +202,4 @@ Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/use
 
 ### Suspended users
 
-Here you can see all of the users who have been suspended on {% data variables.product.product_location_enterprise %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).

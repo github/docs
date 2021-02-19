@@ -25,7 +25,7 @@ versions:
 
 ### {% data variables.product.prodname_desktop %} 用户
 
-1. In the **File** menu, click **Options**.
+1. 在 **File（文件）**菜单中，单击 **Options（选项）**。
 2. 在 Options（选项）窗口中，验证以下内容：
     - 要查看 {% data variables.product.product_name %} 用户名，请单击 **Accounts（帐户）**。
     - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。

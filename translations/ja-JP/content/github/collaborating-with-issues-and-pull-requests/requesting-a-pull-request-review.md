@@ -1,16 +1,17 @@
 ---
 title: Pull Request レビューをリクエストする
-intro: Pull Request を作成したら、提案した変更を特定の人にレビューするように依頼できます。 あなたが Organization のメンバーである場合、特定の Team に変更をレビューするようリクエストすることもできます。
+intro: 'Pull Request を作成したら、提案した変更を特定の人にレビューするように依頼できます。 あなたが Organization のメンバーである場合、特定の Team に変更をレビューするようリクエストすることもできます。'
 redirect_from:
   - /articles/requesting-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ユーザアカウントが所有しているリポジトリのオーナーとコラボレータは、プルリクエストのレビューを割り当てることができます。 リポジトリに対するトリアージ権限を持つ Organization メンバーは、プルリクエストのレビューを割り当てることができます。
 
-オーナーまたはコラボレータは、ユーザ所有のリポジトリに明示的に[読み取りアクセス](/articles/access-permissions-on-github)を付与された人にプルリクエストのレビューを割り当てることができます。 Organization メンバーは、リポジトリの読み取りアクセス権を持つ人や Team にプルリクエストのレビューを割り当てることができます。 リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team にレビューをリクエストし、コードレビューの割り当てが有効になっている場合、特定のメンバーがリクエストされ、Team はレビュー担当者として削除されます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+オーナーまたはコラボレータは、ユーザ所有のリポジトリに明示的に[読み取りアクセス](/articles/access-permissions-on-github)を付与された人にプルリクエストのレビューを割り当てることができます。 Organization メンバーは、リポジトリの読み取りアクセス権を持つ人や Team にプルリクエストのレビューを割り当てることができます。 リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team にレビューをリクエストし、コードレビューの割り当てが有効になっている場合、特定のメンバーがリクエストされ、Team はレビュー担当者として削除されます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
 {% note %}
 

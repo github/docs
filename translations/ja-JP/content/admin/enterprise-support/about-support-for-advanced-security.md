@@ -44,7 +44,7 @@ versions:
 
 {% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 （アメリカの祝日は除く）
 
-| アメリカ合衆国の祝日 祝日               | 2018年の祝日                    |
+| アメリカ合衆国の祝日 祝日               | 対象となる日付                     |
 | --------------------------- | --------------------------- |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |
@@ -57,7 +57,7 @@ versions:
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 ### {% data variables.product.prodname_advanced_security %} のアップデートのインストール
@@ -70,8 +70,8 @@ versions:
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                                優先度                                 | 説明                                                                                                                               |
-|:------------------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------- |
+|                              優先度                              | 説明                                                                                                                          |
+|:-------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------- |
 |  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} は、機能しない、停止している、またはエンドユーザがソフトウェアの利用を合理的に継続できないほどの影響があり、回避策がないものです。 |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %}の機能が不安定であり、エンドユーザの利用や生産性に支障があります。                                  |
 |  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %}は安定して動作していますが、ドキュメントの更新、見かけ上の欠陥、拡張といったソフトウェア上の軽微な変更をエンドユーザが求めています。 |

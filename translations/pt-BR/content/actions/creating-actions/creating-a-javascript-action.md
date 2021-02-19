@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Desenvolvimento da ação'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -77,9 +81,9 @@ Esse arquivo define a entrada `who-to-greet` e a saída `time`. O arquivo també
 
 O conjunto de ferramentas de ações é uma coleção de pacotes Node.js que permite a rápida criação de ações JavaScript com mais consistência.
 
-O pacote do kit de ferramentas [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) fornece uma interface com os comandos do fluxo de trabalho, variáveis de entrada e saída, status de saída e mensagens de depuração.
+O pacote do kit de ferramentas [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) fornece uma interface com os comandos do fluxo de trabalho, variáveis de entrada e saída, status de saída e mensagens de depuração.
 
-O conjunto de ferramentas também oferece um pacote [`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github) que retorna um cliente REST Octokit autenticado e acesso aos contexto do GitHub Actions.
+O conjunto de ferramentas também oferece um pacote [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) que retorna um cliente REST Octokit autenticado e acesso aos contexto do GitHub Actions.
 
 O conjunto de ferramentas oferece mais do que pacotes `core` and `github`. Para obter mais informações, consulte o repositório [ações/conjuntos de ferramentas](https://github.com/actions/toolkit).
 
@@ -119,7 +123,7 @@ try {
 }
 ```
 
-Se um erro for lançado no exemplo `index.js` acima, `core.setFailed(error.message);` usará o pacote do conjunto de ferramentas de ações [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) para registrar uma mensagem em log e definir um código de saída de falha. Para obter mais informações, consulte "[Definindo os códigos de saída para as ações](/actions/creating-actions/setting-exit-codes-for-actions)".
+Se um erro for lançado no exemplo `index.js` acima, `core.setFailed(error.message);` usará o pacote do conjunto de ferramentas de ações [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) para registrar uma mensagem em log e definir um código de saída de falha. Para obter mais informações, consulte "[Definindo os códigos de saída para as ações](/actions/creating-actions/setting-exit-codes-for-actions)".
 
 
 ### Criar LEIAME
@@ -176,7 +180,7 @@ git tag -a -m "Versão da minha primeira ação" v1
 git push --follow-tags
 ```
 
-Como alternativa à verificação no seu diretório de `node_modules` você pode usar uma ferramenta denominada [`@vercel/ncc`](https://github.com/vercel/ncc) para compilar o seu código e os módulos em um arquivo usado para distribuição.
+Verificar seu diretório `node_modules` pode causar problemas. Como alternativa, você pode usar uma ferramenta denominada [`@vercel/ncc`](https://github.com/vercel/ncc) para compilar o seu código e módulos em um arquivo usado para distribuição.
 
 1. Instale o `vercel/ncc` executando este comando no seu terminal. `npm i -g @vercel/ncc`
 
@@ -256,6 +260,12 @@ trabalhos:
 ```
 {% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: 查看组织的洞察
-intro: 组织洞察提供有关组织的活动、贡献和依赖项的数据。
+intro: '组织洞察提供有关组织的活动、贡献和依赖项的数据。'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -43,6 +43,6 @@ versions:
   ### 延伸阅读
 
    - "[关于组织](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
-   - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
+   - "[探索仓库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - “[更改组织依赖项洞察的可见性](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)”
-   - "[在企业帐户中实施关于依赖项洞察的策略](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+   - "[在企业帐户中实施关于依赖项洞察的策略](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"

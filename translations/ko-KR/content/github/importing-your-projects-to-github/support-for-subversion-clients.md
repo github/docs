@@ -47,7 +47,7 @@ Subversion checkouts are different: they mix the repository data in the working 
 
 You can also create branches using the Subversion bridge to GitHub.
 
-From your svn client, make sure "master" is current by updating `trunk`:
+From your svn client, make sure the default branch is current by updating `trunk`:
 ```shell
 $ svn up trunk
 > At revision 1.

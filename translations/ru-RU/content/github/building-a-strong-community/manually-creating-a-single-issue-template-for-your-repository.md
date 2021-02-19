@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -17,7 +18,7 @@ You can add YAML frontmatter to each issue template to pre-fill the issue title,
 
 Here is example YAML front matter.
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.
@@ -28,7 +29,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Note:** You must put YAML-reserved characters such as `:` in quotes. For example, `":bug: Bug"`.
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 
@@ -38,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Adding an issue template
 

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 隐藏评论
@@ -39,7 +40,7 @@ versions:
 
 对仓库具有写入权限的任何人都可以编辑议题、拉取请求及提交上的评论。
 
-编辑评论和删除无助于促进对话以及违反社区行为准则{% if currentVersion == "free-pro-team@latest" %}或 GitHub [社区指导方针](/articles/github-community-guidelines){% endif %}的内容是明智之举。
+编辑评论和删除无助于促进对话以及违反社区行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub [社区指导方针](/articles/github-community-guidelines){% endif %} 的内容是明智之举。
 
 编辑评论时，请记下删除的内容所在的位置，也可记下删除的原因。
 
@@ -59,7 +60,7 @@ versions:
 
 对仓库具有写入权限的任何人都可以删除议题、拉取请求及提交上的评论。 组织所有者、团队维护员和评论作者也可删除团队页面上的评论。
 
-删除评论是调解员最后的选择。 如果整个评论没有给对话带来建设性的内容，或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %}或 GitHub [社区指导方针](/articles/github-community-guidelines){% endif %}，删除评论是明智之举。
+删除评论是调解员最后的选择。 如果整个评论没有给对话带来建设性的内容，或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub [社区指导方针](/articles/github-community-guidelines){% endif %}，删除评论是明智之举。
 
 删除评论会创建对仓库具有读取权限的所有人可见的时间表事件。 但评论删除者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 

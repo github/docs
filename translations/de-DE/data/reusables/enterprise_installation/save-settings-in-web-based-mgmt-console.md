@@ -1,1 +1,1 @@
-3. Konfiguriere in der [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) Deine gewünschten Einstellungen, und speichere sie.
+3. Konfigurieren Sie in der [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) Ihre gewünschten Einstellungen, und speichern Sie sie.

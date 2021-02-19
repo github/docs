@@ -1,12 +1,13 @@
 ---
 title: 使用 GraphQL 建立调用
-intro: 了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。
+intro: '了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。'
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 使用 GraphQL 进行身份验证
@@ -17,7 +18,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-要匹配 [GraphQL Explorer](/v4/guides/using-the-explorer) 的行为，需请求以下作用域：
+要匹配 [GraphQL Explorer](/graphql/guides/using-the-explorer) 的行为，需请求以下作用域：
 
 {% else %}
 
@@ -49,9 +50,9 @@ REST API 有多个端点；GraphQL API 只有一个端点：
 
 ### 与 GraphQL 通信
 
-由于 GraphQL 操作由多行 JSON 组成，因此 GitHub 建议使用 [Explorer](/v4/guides/using-the-explorer) 进行 GraphQL 调用。 也可以使用 cURL 或任何其他采用 HTTP 的库。
+由于 GraphQL 操作由多行 JSON 组成，因此 GitHub 建议使用 [Explorer](/graphql/guides/using-the-explorer) 进行 GraphQL 调用。 也可以使用 cURL 或任何其他采用 HTTP 的库。
 
-在 REST 中，[HTTP 请求方法](/v3/#http-verbs)确定执行的操作。 在 GraphQL 中，无论是执行查询还是突变，都要提供 JSON 编码的正文，因此 HTTP 请求方法是 `POST`。 唯一的例外是[内省查询](/v4/guides/intro-to-graphql#discovering-the-graphql-api)，它是一种简单的 `GET` 到端点查询。 有关 GraphQL 与 REST 的更多信息，请参阅“[从 REST 迁移到 GraphQL](/v4/guides/migrating-from-rest)”。
+在 REST 中，[HTTP 请求方法](/rest#http-verbs)确定执行的操作。 在 GraphQL 中，无论是执行查询还是突变，都要提供 JSON 编码的正文，因此 HTTP 请求方法是 `POST`。 唯一的例外是[内省查询](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)，它是一种简单的 `GET` 到端点查询。 有关 GraphQL 与 REST 的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)”。
 
 要使用 cURL 查询 GraphQL，请利用 JSON 有效负载提出 `POST` 请求。 有效负载必须包含一个名为 `query` 的字符串：
 
@@ -71,15 +72,15 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 #### 关于查询和突变操作
 
-GitHub 的 GraphQL API 中允许的两种操作类型为_查询_和_突变_。 比较 GraphQL 与 REST，查询操作就像 `GET` 请求，而突变操作则像 `POST`/`PATCH`/`DELETE`。 [突变名称](/v4/mutation/)确定执行哪些修改。
+GitHub 的 GraphQL API 中允许的两种操作类型为_查询_和_突变_。 比较 GraphQL 与 REST，查询操作就像 `GET` 请求，而突变操作则像 `POST`/`PATCH`/`DELETE`。 [突变名称](/graphql/reference/mutations)确定执行哪些修改。
 
-有关速率限制的信息，请参阅“[GraphQL 资源限制](/v4/guides/resource-limitations/)”。
+有关速率限制的信息，请参阅“[GraphQL 资源限制](/graphql/overview/resource-limitations)”。
 
 查询和突变形式相似，但有一些重要差异。
 
 #### 关于查询
 
-GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字段内的字段](/v4/guides/intro-to-graphql#field)（也称为_嵌套的子字段_），直到仅返回[标量](/v4/scalar/)。
+GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字段内的字段](/graphql/guides/introduction-to-graphql#field)（也称为_嵌套的子字段_），直到仅返回[标量](/graphql/reference/scalars)。
 
 查询的结构如下：
 
@@ -102,11 +103,12 @@ GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字�
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 本示例中的输入对象为 `MutationNameInput`，有效负载对象为 `MutationNamePayload`。
 
-在引用的[突变](/v4/mutation/)中，列出的_输入字段_即是作为输入对象传递的内容。 列出的_返回字段_即是作为有效负载对象传递的内容。
+在引用的[突变](/graphql/reference/mutations)中，列出的_输入字段_即是作为输入对象传递的内容。 列出的_返回字段_即是作为有效负载对象传递的内容。
 
 有关真实示例，请参阅“[突变示例](#example-mutation)”。
 
@@ -116,7 +118,7 @@ GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字�
 
 {% note %}
 
-**注**：如果使用的是 Explorer，请确保在单独的[查询变量窗格](/v4/guides/using-the-explorer/#using-the-variable-pane)中输入变量，且 JSON 对象之前不含 `variables` 一词。
+**注**：如果使用的是 Explorer，请确保在单独的[查询变量窗格](/graphql/guides/using-the-explorer#using-the-variable-pane)中输入变量，且 JSON 对象之前不含 `variables` 一词。
 
 {% endnote %}
 
@@ -206,7 +208,7 @@ query {
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  要开始查询，我们需要查找 [`repository`](/v4/object/repository/) 对象。 架构验证指示此对象需要 `owner` 和 `name` 参数。
+  要开始查询，我们需要查找 [`repository`](/graphql/reference/objects#repository) 对象。 架构验证指示此对象需要 `owner` 和 `name` 参数。
 
 * `issues(last:20, states:CLOSED) {`
 
@@ -214,9 +216,9 @@ query {
 
   关于 `issues` 对象的一些详细信息：
 
-  - [文档](/v4/object/repository/)告诉我们此对象的类型为 `IssueConnection`。
+  - [文档](/graphql/reference/objects#repository)告诉我们此对象的类型为 `IssueConnection`。
   - 架构验证表明此对象需要将 `last` 或 `first` 个结果作为参数，因此我们提供了 `20`。
-  - [文档](/v4/object/repository/)还告诉我们此对象接受 `states` 参数，即一种 [`IssueState`](/v4/enum/issuestate/) 枚举类型，可接受的值为 `OPEN` 或 `CLOSED`。 要仅查找关闭状态的议题，我们对 `states` 键赋值 `CLOSED`。
+  - [文档](/graphql/reference/objects#repository)还告诉我们此对象接受 `states` 参数，即一种 [`IssueState`](/graphql/reference/enums#issuestate) 枚举类型，可接受的值为 `OPEN` 或 `CLOSED`。 要仅查找关闭状态的议题，我们对 `states` 键赋值 `CLOSED`。
 
 * `edges {`
 
@@ -224,9 +226,9 @@ query {
 
 * `node {`
 
-  在本示例中，我们将检索边缘末尾的节点。 [`IssueConnection` 文档](/v4/object/issueconnection)指示 `IssueConnection` 类型末尾的节点为 `Issue` 对象。
+  在本示例中，我们将检索边缘末尾的节点。 [`IssueConnection` 文档](/graphql/reference/objects#issueconnection)指示 `IssueConnection` 类型末尾的节点为 `Issue` 对象。
 
-* 我们已经知道要检索 `Issue` 对象，现在可以查看[文档](/v4/object/issue)并指定要返回的字段了：
+* 我们已经知道要检索 `Issue` 对象，现在可以查看[文档](/graphql/reference/objects#issue)并指定要返回的字段了：
 
   ```graphql
   title
@@ -242,7 +244,7 @@ query {
 
   我们在此指定 `Issue` 对象的 `title`、`url` 和 `labels` 字段。
 
-  `labels` 字段的类型为 [`LabelConnection`](/v4/object/labelconnection/)。 与 `issues` 对象一样，`labels` 也是一种连接，因此我们必须将其边缘传送至连接的节点：`label` 对象。 在此节点上，我们可以指定要返回的 `label` 对象字段，在本例中为 `name`。
+  `labels` 字段的类型为 [`LabelConnection`](/graphql/reference/objects#labelconnection)。 与 `issues` 对象一样，`labels` 也是一种连接，因此我们必须将其边缘传送至连接的节点：`label` 对象。 在此节点上，我们可以指定要返回的 `label` 对象字段，在本例中为 `name`。
 
 您可能会注意到，在 Octocat 的公共 `Hello-World` 仓库中运行此查询不会返回很多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
 
@@ -284,7 +286,7 @@ mutation AddReactionToIssue {
 
 那么，我们怎么知道从查询开始呢？ 还不知道。
 
-因为我们想修改服务器上的数据（向议题添加表情符号），所以先搜索架构，查找有用的突变。 参考文档所示为 [`addReaction`](/v4/mutation/addreaction) 突变，其描述为：`Adds a reaction to a subject.` Perfect!
+因为我们想修改服务器上的数据（向议题添加表情符号），所以先搜索架构，查找有用的突变。 参考文档所示为 [`addReaction`](/graphql/reference/mutations#addreaction) 突变，其描述为：`Adds a reaction to a subject.` Perfect!
 
 突变文档列出了三个输入字段：
 
@@ -334,15 +336,15 @@ mutation AddReactionToIssue {
 
   让我们来检查这一行：
 
-    - `addReaction` 是突变的名称。
-    - `input` 是必需的参数键。 突变的参数键始终是 `input`。
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` 是必需的参数值。 突变的参数值始终是由输入字段（在本例中为 `subjectId` 和 `content`）组成的[输入对象](/v4/input_object/)（因此带有大括号）。
+  - `addReaction` 是突变的名称。
+  - `input` 是必需的参数键。 突变的参数键始终是 `input`。
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` 是必需的参数值。 突变的参数值始终是由输入字段（在本例中为 `subjectId` 和 `content`）组成的[输入对象](/graphql/reference/input-objects)（因此带有大括号）。
 
-  我们怎么知道内容使用哪个值呢？ [`addReaction` 文档](/v4/mutation/addreaction/)告诉我们 `content` 字段的类型为 [`ReactionContent`](/v4/enum/reactioncontent/)，即一种[枚举类型](/v4/enum)，因为 GitHub 议题只支持某些表情符号反应。 这些是允许的反应值 （注意，某些值与其相应的表情符号名称不同）：
+  我们怎么知道内容使用哪个值呢？ [`addReaction` 文档](/graphql/reference/mutations#addreaction)告诉我们 `content` 字段的类型为 [`ReactionContent`](/graphql/reference/enums#reactioncontent)，即一种[枚举类型](/graphql/reference/enums)，因为 GitHub 议题只支持某些表情符号反应。 这些是允许的反应值 （注意，某些值与其相应的表情符号名称不同）：
 
   {% data reusables.repositories.reaction_list %}
 
-* 调用的其余部分由有效负载对象组成。 我们将在此指定执行突变后由服务器返回的数据。 这几行来自 [`addReaction` 文档](/v4/mutation/addreaction)，其中包含三个可能返回的字段：
+* 调用的其余部分由有效负载对象组成。 我们将在此指定执行突变后由服务器返回的数据。 这几行来自 [`addReaction` 文档](/graphql/reference/mutations#addreaction)，其中包含三个可能返回的字段：
 
     - `clientMutationId` (`String`)
     - `reaction` (`Reaction!`)
@@ -393,7 +395,7 @@ variables {
 {% note %}
 
 您可能会注意到，前文示例中的 `content` 字段值（直接用于突变）在 `HOORAY` 两侧没有引号，但在变量中使用时有引号。 原因是：
-* 当您直接在突变中使用 `content` 时，架构预计此值的类型为 [`ReactionContent`](/v4/enum/reactioncontent/)，即一种_枚举类型_，而非字符串。 如果您在枚举值两侧添加引号，架构验证将出现错误，因为引号是为字符串保留的。
+* 当您直接在突变中使用 `content` 时，架构预计此值的类型为 [`ReactionContent`](/graphql/reference/enums#reactioncontent)，即一种_枚举类型_，而非字符串。 如果您在枚举值两侧添加引号，架构验证将出现错误，因为引号是为字符串保留的。
 * 当您在变量中使用 `content` 时，变量部分必须为有效的 JSON，因此需要引号。 当变量在执行过程中传递至突变时，架构验证将正确解释 `ReactionContent` 类型。
 
 有关枚举类型与字符串之间差异的更多信息，请参阅[官方 GraphQL 规格](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)。

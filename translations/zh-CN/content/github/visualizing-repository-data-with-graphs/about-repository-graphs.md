@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-仓库图提供有关 {% if currentVersion == "free-pro-team@latest" %} 流量、依赖于仓库的项目、{% endif %}仓库贡献者和提交以及仓库复刻和网络的信息。 如果是您维护仓库，您可以使用此数据更好地了解谁在使用您的仓库，以及为什么使用。
+仓库图提供有关 {% if currentVersion == "free-pro-team@latest" %} 流量、依赖于仓库的项目、{% endif %} 仓库贡献者和提交以及仓库复刻和网络的信息。 如果是您维护仓库，您可以使用此数据更好地了解谁在使用您的仓库，以及为什么使用。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

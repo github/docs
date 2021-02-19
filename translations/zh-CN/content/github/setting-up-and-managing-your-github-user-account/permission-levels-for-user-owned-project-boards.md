@@ -1,11 +1,12 @@
 ---
 title: 用户拥有的项目板的权限级别
-intro: 用户帐户拥有的项目板有两种权限级别：项目板所有者和协作者。
+intro: '用户帐户拥有的项目板有两种权限级别：项目板所有者和协作者。'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 权限概述
@@ -21,7 +22,7 @@ versions:
 项目板所有者和具有管理员权限的协作者对项目板有完全控制权限。 除了项目板协作者拥有的所有权限之外，项目板所有者和具有管理员权限的协作者还可以：
 
 - [管理、查看和添加协作者](/articles/managing-access-to-your-user-account-s-project-boards)
-- [将项目板配置为公共或私有](/articles/changing-project-board-visibility)
+- [将项目板配置为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或私有](/articles/changing-project-board-visibility)
 - [删除项目板](/articles/deleting-a-project-board/)
 - [关闭项目板](/articles/closing-a-project-board/)
 - [重新打开关闭的项目板](/articles/reopening-a-closed-project-board)
@@ -50,7 +51,7 @@ versions:
 
 ### 项目板可见性
 
-您可以将项目板的可见性从私有改为公共以及反向更改。 默认情况下，用户拥有的项目板为私有。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
+您可以将项目板的可见性从私有更改为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}，反之亦然。 默认情况下，用户拥有的项目板为私有。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
 
 ### 延伸阅读
 

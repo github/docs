@@ -1,6 +1,6 @@
 ---
 title: 組織へのメンバーの SAML アクセスの表示と管理
-intro: Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。
+intro: 'Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。'
 permissions: Organization のオーナーは、組織へのメンバーの SAML アクセスを表示したり管理したりすることもできます。
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
@@ -19,6 +19,8 @@ Organization に対する SAML シングルサインオンを有効にすると�
 ### リンクされているアイデンティティの表示と取り消し
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -55,4 +57,4 @@ Organization に対する SAML シングルサインオンを有効にすると�
 ### 参考リンク
 
 - [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
-- [Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)
+- [Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)

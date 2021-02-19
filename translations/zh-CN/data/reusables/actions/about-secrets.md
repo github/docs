@@ -1,1 +1,1 @@
-Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository or organization.
+加密的密码允许您在仓库或组织中存储敏感信息，如访问令牌。

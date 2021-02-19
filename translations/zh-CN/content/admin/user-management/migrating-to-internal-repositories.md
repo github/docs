@@ -23,7 +23,7 @@ versions:
 
 每个变为内部或私有仓库的公共仓库都将禁用匿名 Git 读取权限。
 
-如果仓库当前的默认可见性为公共，默认值将变为内部。 如果当前默认值为私有，默认值将保持不变。 您可以随时更改默认值。 更多信息请参阅“[为设备上的新仓库配置默认可见性](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)。”
+如果仓库当前的默认可见性为公共，默认值将变为内部。 如果当前默认值为私有，默认值将保持不变。 您可以随时更改默认值。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)”。
 
 实例的仓库创建策略将更改为禁用公共仓库，允许私有和内部仓库。 您可以随时更新此策略。 更多信息请参阅“[限制在实例中创建仓库](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)。”
 
@@ -33,11 +33,11 @@ versions:
 
 1. 连接到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)。”
 2. 导航至 `/data/github/current` 目录。
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. 运行迁移命令。
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

@@ -1,1 +1,1 @@
-1. On the left sidebar, click **Profile details**. ![Profile details tab](/assets/images/help/sponsors/profile-tab.png)
+1. Na barra lateral esquerda, clique em **Detalhes do perfil**. ![Aba Detalhes do Perfil](/assets/images/help/sponsors/profile-tab.png)

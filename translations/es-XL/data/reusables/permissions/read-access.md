@@ -1,1 +1,0 @@
-Cualquiera con acceso de lectura en el repositorio puede utilizar esta terminal. Si el repositorio es privado, debes utilizar un token de acceso con el alcance `repo`.

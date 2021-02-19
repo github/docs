@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 与[远程仓库](/articles/about-remote-repositories)交互时，这些命令非常有用。 `clone` 和 `fetch` 用于从仓库的远程 URL 将远程代码下载到您的本地计算机，`merge` 用于将其他人的工作与您的工作合并在一起，而 `pull` 是 `fetch` 和 `merge` 的组合。
@@ -29,7 +30,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 - 将它初始化为 Git 仓库
 - 创建名为 `origin` 的远程仓库，指向用于克隆的 URL
 - 将所有的仓库文件和提交下载到那里
-- The default branch is checked out
+- 默认分支已检出
 
 对于远程仓库中的每个 `foo` 分支，在本地仓库中创建相应的远程跟踪分支 `refs/remotes/origin/foo`。 通常可以将此类远程跟踪分支名称缩写为 `origin/foo`。
 
@@ -70,5 +71,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ### 延伸阅读
 
-- _Pro Git_ 手册中的[“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% if currentVersion == "free-pro-team@latest" %}
+- [_Pro Git_ 手册中的“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% if currentVersion == "free-pro-team@latest" %}
 - “[连接问题故障排除](/articles/troubleshooting-connectivity-problems)”{% endif %}

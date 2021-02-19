@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ブラウザを介してリポジトリに追加できるファイルのサイズは、1 ファイルあたり {% data variables.large_files.max_github_browser_size %}までです。 コマンドラインからは、より大きいサイズのファイルを追加でき、1 ファイルあたり {% data variables.large_files.max_github_size %}までです。 詳しい情報については[コマンドラインを使用してリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)を参照してください。
@@ -19,7 +20,7 @@ versions:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 2. リポジトリ名の下で [**Upload files**] をクリックします。 ![ファイルのアップロードボタン](/assets/images/help/repository/upload-files-button.png)
 {% else %}
 2. ファイルリストの上にある [**Add file**] プルダウンを使用して、[**Upload files**] をクリックします。 ![[Add file] ドロップダウンの [Upload files]](/assets/images/help/repository/upload-files-button.png)

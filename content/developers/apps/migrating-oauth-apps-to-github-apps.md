@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,11 +19,11 @@ This article provides guidelines for existing integrators who are considering mi
 - [Fine-grained permissions](/apps/differences-between-apps/#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
 - [Short-lived tokens](/apps/differences-between-apps/#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
 - [Built-in, centralized webhooks](/apps/differences-between-apps/#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
-- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {% data variables.product.prodname_ghe_server %} seat and remain installed even when the person who initially installed the app leaves the organization.
+- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {% data variables.product.product_name %} seat and remain installed even when the person who initially installed the app leaves the organization.
 - Built-in support for OAuth is still available to GitHub Apps using [user-to-server endpoints](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - Dedicated [API rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) for bot accounts scale with your integration.
 - Repository owners can [install GitHub Apps](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
-- Open Source community support is available through [Octokit libraries](/v3/libraries/) and other frameworks such as [Probot](https://probot.github.io/).
+- Open Source community support is available through [Octokit libraries](/rest/overview/libraries) and other frameworks such as [Probot](https://probot.github.io/).
 - Integrators building GitHub Apps have opportunities to adopt earlier access to APIs.
 
 ### Converting an OAuth App to a GitHub App
@@ -41,27 +42,27 @@ These guidelines assume that you have a registered OAuth App{% if currentVersion
 
 #### Review the available API endpoints for GitHub Apps
 
-While the majority of [REST API](/v3) endpoints and [GraphQL](/v4) queries are available to GitHub Apps today, we are still in the process of enabling some endpoints. Review the [available REST endpoints](/v3/apps/available-endpoints/) to ensure that the endpoints you need are compatible with GitHub Apps. Note that some of the API endpoints enabled for GitHub Apps allow the app to act on behalf of the user. See "[User-to-server requests](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" for a list of endpoints that allow a GitHub App to authenticate as a user.
+While the majority of [REST API](/rest) endpoints and [GraphQL](/graphql) queries are available to GitHub Apps today, we are still in the process of enabling some endpoints. Review the [available REST endpoints](/rest/overview/endpoints-available-for-github-apps) to ensure that the endpoints you need are compatible with GitHub Apps. Note that some of the API endpoints enabled for GitHub Apps allow the app to act on behalf of the user. See "[User-to-server requests](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" for a list of endpoints that allow a GitHub App to authenticate as a user.
 
 We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_app %}s.
 
 #### Design to stay within API rate limits
 
-GitHub Apps use [sliding rules for rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/v3/#conditional-requests) or consolidate requests by using the [GraphQL API V4](/v4/).
+GitHub Apps use [sliding rules for rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest#conditional-requests) or consolidate requests by using the [GraphQL API V4](/graphql).
 
 #### Register a new GitHub App
 
-Once you've decided to make the switch to Github Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### Determine the permissions your app requires
 
-When registering your GitHub App, you'll need to select the permissions required by each endpoint used in your app's code. See "[GitHub App permissions](/v3/apps/permissions/)" for a list of the permissions needed for each endpoint available to GitHub Apps.
+When registering your GitHub App, you'll need to select the permissions required by each endpoint used in your app's code. See "[GitHub App permissions](/rest/reference/permissions-required-for-github-apps)" for a list of the permissions needed for each endpoint available to GitHub Apps.
 
 In your GitHub App's settings, you can specify whether your app needs `No Access`, `Read-only`, or `Read & Write` access for each permission type. The fine-grained permissions allow your app to gain targeted access to the subset of data you need. We recommend specifying the smallest set of permissions possible that provides the desired functionality.
 
 #### Subscribe to webhooks
 
-After you've created a new GitHub App and selected its permissions, you can select the webhook events you wish to subscribe it to. See "[Editing a Github App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
+After you've created a new GitHub App and selected its permissions, you can select the webhook events you wish to subscribe it to. See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### Understand the different methods of authentication
 
@@ -89,11 +90,11 @@ Once you've made the transition from an OAuth App to a GitHub App, you will need
 https://github.com/apps/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID
 ```
 
-You'll need to replace `YOUR_APP_NAME` with the name of your GitHub App, `ID_OF_USER_OR_ORG` with the ID of your target user or organization, and include up to 100 repository IDs (`REPO_A_ID` and `REPO_B_ID`). To get a list of repositories your OAuth App has access to, use the [List repositories for the authenticated user](/v3/repos/#list-repositories-for-the-authenticated-user) and [List organization repositories](/v3/repos/#list-organization-repositories) endpoints.
+You'll need to replace `YOUR_APP_NAME` with the name of your GitHub App, `ID_OF_USER_OR_ORG` with the ID of your target user or organization, and include up to 100 repository IDs (`REPO_A_ID` and `REPO_B_ID`). To get a list of repositories your OAuth App has access to, use the [List repositories for the authenticated user](/rest/reference/repos#list-repositories-for-the-authenticated-user) and [List organization repositories](/rest/reference/repos#list-organization-repositories) endpoints.
 
 #### Remove any unnecessary repository hooks
 
-Once your GitHub App has been installed on a repository, you should remove any unnecessary webhooks that were created by your legacy OAuth App. If both apps are installed on a repository, they may duplicate functionality for the user. To remove webhooks, you can listen for the [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) with the `repositories_added` action and [Delete a repository webhook](/v3/repos/hooks/#delete-a-repository-webhook) on those repositories that were created by your OAuth App.
+Once your GitHub App has been installed on a repository, you should remove any unnecessary webhooks that were created by your legacy OAuth App. If both apps are installed on a repository, they may duplicate functionality for the user. To remove webhooks, you can listen for the [`installation_repositories` webhook](/webhooks/event-payloads/#installation_repositories) with the `repositories_added` action and [Delete a repository webhook](/rest/reference/repos#delete-a-repository-webhook) on those repositories that were created by your OAuth App.
 
 #### Encourage users to revoke access to your OAuth app
 

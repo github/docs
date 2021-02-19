@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.organizations_include %}
@@ -25,5 +26,4 @@ For organizations that belong to an enterprise account, billing is managed at th
 
 An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 
-{% data reusables.organizations.enter-data-protection-agreement %} For more information, see "[Entering a data protection agreement with {% data variables.product.prodname_dotcom %} for GDPR compliance](/articles/entering-a-data-protection-agreement-with-github-for-gdpr-compliance)."
 {% endif %}

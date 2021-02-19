@@ -1,6 +1,6 @@
 ---
 title: 关于 GitHub Marketplace
-intro: 'Learn the basics to prepare your app for review before joining {% data variables.product.prodname_marketplace %}.'
+intro: '了解 {% data variables.product.prodname_marketplace %}，您可以在其中向所有 {% data variables.product.product_name %} 用户公开分享您的应用程序和操作。'
 redirect_from:
   - /apps/marketplace/getting-started/
   - /marketplace/getting-started
@@ -8,58 +8,55 @@ versions:
   free-pro-team: '*'
 ---
 
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) connects you to developers who want to extend and improve their {% data variables.product.prodname_dotcom %} workflows. You can list free and paid tools for developers to use in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_marketplace %} offers developers two types of tools: {% data variables.product.prodname_actions %} and Apps, and each tool requires different steps for adding it to {% data variables.product.prodname_marketplace %}.
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 为您与希望扩展和改进其 {% data variables.product.prodname_dotcom %} 工作流程的开发者提供纽带。 您可以在 {% data variables.product.prodname_marketplace %} 中上架免费和付费的工具，供开发者使用。 {% data variables.product.prodname_marketplace %} 为开发者提供两种类型的工具：{% data variables.product.prodname_actions %} 和应用程序，每种工具都需要不同的步骤才能添加到 {% data variables.product.prodname_marketplace %} 中。
 
 ### GitHub Actions
 
 {% data reusables.actions.actions-not-verified %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}, see "[{% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}](/marketplace/actions/)."
+要了解如何在 {% data variables.product.prodname_marketplace %} 中发布 {% data variables.product.prodname_actions %}，请参阅“[在 GitHub Marketplace 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace)”。
 
 ### 应用
 
-You can list verified and unverified apps in {% data variables.product.prodname_marketplace %}. Unverified apps do not go through the security, testing, and verification cycle {% data variables.product.prodname_dotcom %} requires for verified apps.
+任何人都可以在 {% data variables.product.prodname_marketplace %} 上与其他用户分享其应用程序，但只有组织拥有的应用程序才能出售。
 
-Verified apps have a green badge in {% data variables.product.prodname_marketplace %}. Unverified apps have a grey badge next to their listing and are only available as free apps.
+要发布应用程序付费计划并显示 Marketplace 徽章，您必须完成发布者验证过程。 更多信息请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”或“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
 
-![Green verified and grey unverified badge](/assets/images/marketplace/marketplace_verified_badges.png)
+组织满足要求后，组织中具有所有者权限的人可以发布其任何应用程序的付费计划。 每个具有付费计划的应用程序还要完成财务手续才能启用付款。
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s, see "[Building apps](/apps/)."
+要发布具有免费计划的应用程序，只需满足上架任何应用程序的一般要求即可。 更多信息请参阅“[所有 GitHub Marketplace 上架产品的要求](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)”。
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. See "[Differences between GitHub and OAuth apps](/apps/differences-between-apps/)" for more details. To learn more about switching from OAuth to {% data variables.product.prodname_github_apps %}, see [Migrating OAuth Apps to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/).
+#### 不熟悉应用程序？
 
-If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
+如果您有兴趣为 {% data variables.product.prodname_marketplace %} 创建应用程序，但对于 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %} 比较陌生，请参阅“[构建 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”或“[构建 {% data variables.product.prodname_oauth_app %}](/developers/apps/building-oauth-apps)”。
 
-#### Unverified Apps
+#### GitHub 应用程序与 OAuth 应用程序
 
-Unverified apps do not need to meet the "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" or go through the "[Security review process](/marketplace/getting-started/security-review-process/)".
+{% data reusables.marketplace.github_apps_preferred %}，尽管您可以在 {% data variables.product.prodname_marketplace %} 中上架 OAuth 和 {% data variables.product.prodname_github_app %}。 更多信息请参阅“[{% data variables.product.prodname_github_apps %} 与 {% data variables.product.prodname_oauth_app %} 之间的差异](/apps/differences-between-apps/)”和“[将 {% data variables.product.prodname_oauth_app %} 迁移到 {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)”。
 
-{% data reusables.marketplace.unverified-apps %} Having a published paid plan will prevent you from being able to submit an unverified app. You must remove paid plans or keep them in draft mode before publishing an unverified app.
+### 将应用程序发布到 {% data variables.product.prodname_marketplace %} 概述
 
-To list your unverified app in {% data variables.product.prodname_marketplace %}, you only need to create a "[Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/)" and submit it as an unverified listing.
+完成创建应用程序后，您可以将其发布到 {% data variables.product.prodname_marketplace %}，以便与其他用户分享它。 过程归纳如下：
 
-{% data reusables.marketplace.launch-with-free %}
+1. 仔细检查您的应用程序，以确保它在其他仓库中的行为与预期一致，并且遵循最佳实践指南。 更多信息请参阅“[应用程序的安全最佳实践](/developers/github-marketplace/security-best-practices-for-apps)”和“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience)”。
 
-#### Verified Apps
+1. 将 web 挂钩事件添加到应用程序以跟踪用户帐单请求。 有关 {% data variables.product.prodname_marketplace %} API、web 挂钩事件以及帐单请求的更多信息，请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-If you've already built an app and you're interested in submitting a verified listing in {% data variables.product.prodname_marketplace %}, start here:
+1. 创建 {% data variables.product.prodname_marketplace %} 上架信息草稿。 更多信息请参阅“[起草应用程序上架信息](/developers/github-marketplace/drafting-a-listing-for-your-app)”。
 
-1. [Getting started with {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)<br/>Learn about requirements, guidelines, and the app submission process.
+1. 添加定价计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
-1. [Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)<br/>Before you can list your app on {% data variables.product.prodname_marketplace %}, you'll need to integrate billing flows using the {% data variables.product.prodname_marketplace %} API and webhook events.
+1. 阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
 
-1. [Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/) <br/>Create a draft {% data variables.product.prodname_marketplace %} listing, configure webhook settings, and set up pricing plans.
+1. 提交要在 {% data variables.product.prodname_marketplace %} 中发布的上架信息。 更多信息请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication)”。
 
-1. [Selling your app](/marketplace/selling-your-app/)<br/>Learn about pricing plans, billing cycles, and how to receive payment from {% data variables.product.prodname_dotcom %} for your app.
+### 查看应用程序的表现
 
-1. [{% data variables.product.prodname_marketplace %} Insights](/marketplace/github-marketplace-insights/)<br/>See how your app is performing in {% data variables.product.prodname_marketplace %}. You can use metrics collected by {% data variables.product.prodname_dotcom %} to guide your marketing campaign and  be successful in {% data variables.product.prodname_marketplace %}.
+您可以访问上架产品的指标和交易。 更多信息请参阅：
 
-1. [{% data variables.product.prodname_marketplace %} transactions](/marketplace/github-marketplace-transactions/)<br/>Download and view transaction data for your {% data variables.product.prodname_marketplace %} listing.
+- “[查看上架产品的指标](/developers/github-marketplace/viewing-metrics-for-your-listing)”
+- “[查看上架产品的交易](/developers/github-marketplace/viewing-transactions-for-your-listing)”
 
-### Reviewing your app
+### 联系支持
 
-We want to make sure that the apps offered on {% data variables.product.prodname_marketplace %} are safe, secure, and well tested. The {% data variables.product.prodname_marketplace %} onboarding specialists will review your app to ensure that it meets all requirements. Follow the guidelines in these articles before submitting your app:
-
-
-* [Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)
-* [Security review process](/marketplace/getting-started/security-review-process/)
+如果您对 {% data variables.product.prodname_marketplace %} 有疑问，请直接联系 {% data variables.contact.contact_support %}。

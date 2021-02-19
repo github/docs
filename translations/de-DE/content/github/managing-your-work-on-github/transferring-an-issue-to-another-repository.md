@@ -5,14 +5,15 @@ redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Für die Übertragung eines offenen Issues in ein anderes Repository benötigst Du Schreibberechtigung sowohl für das Repository, aus dem der Issue stammt, wie auch für das Repository, in das der Issue übertragen wird. Weitere Informationen finden Sie unter„[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“.
 
-Du kannst Issues nur zwischen Repositorys übertragen, die demselben Benutzer- oder Organisationskonto angehören. Du kannst einen Issue nicht aus einem privaten Repository in ein öffentliches Repository übertragen.
+Du kannst Issues nur zwischen Repositorys übertragen, die demselben Benutzer- oder Organisationskonto angehören. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
-Wenn Du einen Issue überträgst, bleiben seine Kommentare und Bearbeiter erhalten. Die Kennzeichnungen des Issues{% if currentVersion ver_lt "enterprise-server@2.19" %}, die Projekte{% endif %} und die Meilensteine bleiben nicht erhalten.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Der Issue wird auf allen benutzereigenen oder organisationsweiten Projektboards verbleiben und von allen Repository-Projektboards entfernt. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards)“.{% endif %}
+Wenn Du einen Issue überträgst, bleiben seine Kommentare und Bearbeiter erhalten. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“
 
 Im Issue erwähnte Personen und Teams werden über die Übertragung des Issues in ein neues Repository benachrichtigt. Die ursprüngliche URL wird an die neue URL des Issues weitergeleitet. Personen, die für das neue Repository über keine Leseberechtigung verfügen, wird ein Banner angezeigt, das sie darüber informiert, dass der Issue in ein Repository übertragen wurde, auf das sie keinen Zugriff haben.
 

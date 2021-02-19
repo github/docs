@@ -1,11 +1,12 @@
 ---
 title: 关于团队讨论
-intro: 您的团队可以共同计划、互相更新，或者在组织中团队页面的讨论帖子中讨论任何主题。
+intro: '您的团队可以共同计划、互相更新，或者在组织中团队页面的讨论帖子中讨论任何主题。'
 redirect_from:
   - /articles/about-team-discussions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -26,7 +27,7 @@ versions:
 
 {% tip %}
 
-**提示：**根据通知设置，您将通过电子邮件和/或 {% data variables.product.product_name %} 上的 web 通知页面收到更新。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”和“[关于 web 通知](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}”。
+**提示：**根据通知设置，您将通过电子邮件和/或 {% data variables.product.product_name %} 上的 web 通知页面收到更新。 更多信息请参阅 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”和“[关于 web 通知](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}”。
 
 {% endtip %}
 
@@ -34,7 +35,7 @@ versions:
 
 要关闭团队讨论的通知，您可以取消订阅特定的讨论帖子，或者更改通知设置，以取消关注或完全忽略特定团队的讨论。 即使您取消关注团队的讨论，也可订阅特定讨论帖子的通知。
 
-更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}“[订阅和退订通知](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}”和“[嵌套的团队](/articles/about-teams/#nested-teams)”。
+更多信息请参阅 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}“[订阅和退订通知](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}”和“[嵌套的团队](/articles/about-teams/#nested-teams)”。
 
 ### 延伸阅读
 

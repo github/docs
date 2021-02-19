@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre revisões de pull requests
 
-Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em uma pull request, você pode deixar comentários individuais sobre alterações específicas.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Quando terminar de revisar o arquivo, pode marcá-lo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no header da pull request mostra o número de arquivos visualizados.{% endif %} Depois de revisar os arquivos desejados, você pode aprovar a pull request ou solicitar alterações adicionais enviando sua revisão com um comentário resumido.
+Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em um pull request, você pode deixar comentários individuais em alterações específicas. Após terminar de revisar cada arquivo, você pode marcar o arquivo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no cabeçalho do pull request mostra o número de arquivos que você visualizou. Depois de revisar todos os arquivos você desejar, você pode aprovar a solicitação de pull ou solicitar alterações adicionais enviando a sua revisão com um comentário resumido.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +29,26 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+{% if currentVersion == "free-pro-team@latest" %}
+### Revisar alterações de dependência
+
+Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+
+{% data reusables.repositories.changed-files %}
+
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
+
+   ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
+
 ### Marcar um arquivo como visualizado
 
 Quando terminar de revisar um arquivo, você pode marcar o arquivo como visualizado, e o arquivo será aninhado. Se o arquivo for alterado após ser visualizado, será desmarcado como visualizado.
 
 {% data reusables.repositories.changed-files %}
 2. À direta do cabeçalho do arquivo revisado, selecione **Viewed** (Visualizado). ![Caixa de seleção visualizado](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### Enviar a revisão
 
@@ -54,8 +67,5 @@ Quando terminar de revisar os arquivos que deseja incluir na pull request, envie
 
 ### Leia mais
 
-- "[Sobre revisões de solicitação pull](/articles/about-pull-request-reviews)"
-- "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)"
-- "[Aprovar uma pull request com revisões obrigatórias](/articles/approving-a-pull-request-with-required-reviews)"
-- "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)"
-- "[Filtrar pull requests por status de revisão](/articles/filtering-pull-requests-by-review-status)"
+- "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

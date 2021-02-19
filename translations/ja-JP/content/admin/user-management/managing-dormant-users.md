@@ -1,55 +1,47 @@
 ---
-title: Managing dormant users
+title: 休眠ユーザの管理
 redirect_from:
   - /enterprise/admin/articles/dormant-users/
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-intro: A user account is considered to be dormant if it has not been active for at least a month. You may choose to suspend dormant users to free up user licenses.
+intro: ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% if enterpriseServerVersions contains currentVersion %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-"Activity" includes, but is not limited to:
-- Signing in to {% data variables.product.prodname_ghe_server %}.
-- Commenting on issues and pull requests.
-- Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
+「活動」には以下のことが含まれますが、以下に限定はされません:
+- {% data variables.product.product_name %} へのサインイン。
+- Issue やプルリクエストへのコメント。
+- リポジトリの作成、削除、Watch、スター付け。
+- コミットのプッシュ。{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
-### Viewing dormant users
+### 休眠ユーザの表示
 
-You can view a list of all dormant users who have not been suspended and who are not site administrators.
+サスペンドされておらず、サイト管理者でもないすべての休眠ユーザのリストを表示できます。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
-4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
-![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png)
+3. 左のサイドバーで**Dormant users（休眠ユーザ）**をクリックしてください。 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+4. このリスト中のすべての休眠ユーザをサスペンドするには、ページの上部で**Suspend all（全員をサスペンド）**をクリックしてください。 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
-### Determining whether a user account is dormant
+### ユーザアカウントが休眠状態かの判断
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
-![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
-![Active user account](/assets/images/enterprise/stafftools/active-user.png)
+5. **User info（ユーザ情報）**セクションで"Dormant（休眠）"という語の付いた赤い点は、そのユーザアカウントが休眠状態であることを示し、"Active（アクティブ）"という語の付いた緑の点はそのユーザアカウントがアクティブであることを示します。 ![休眠ユーザアカウント](/assets/images/enterprise/stafftools/dormant-user.png) ![アクティブなユーザアカウント](/assets/images/enterprise/stafftools/active-user.png)
 
-### Configuring the dormancy threshold
+### 休眠の閾値の設定
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
-![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+4. [Dormancy threshold] の下で、ドロップダウンメニューを使って、希望する休眠閾値をクリックします。 ![休眠の閾値のドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)

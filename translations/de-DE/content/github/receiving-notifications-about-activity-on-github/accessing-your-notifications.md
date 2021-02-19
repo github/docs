@@ -1,6 +1,6 @@
 ---
 title: Auf Deine Benachrichtigungen zugreifen
-intro: 'Je nachdem, wie die Auslieferung Deiner Benachrichtigungen eingerichtet ist, kannst Du auf Deine Benachrichtigungen über {% data variables.product.product_name %} oder über Deinen E-Mail-Client zugreifen.'
+intro: 'Je nachdem, wie die Auslieferung Ihrer Benachrichtigungen eingerichtet ist, können Sie auf Ihre Benachrichtigungen über {% data variables.product.product_name %} oder über Ihren E-Mail-Client zugreifen.'
 versions:
   enterprise-server: <2.21
 ---

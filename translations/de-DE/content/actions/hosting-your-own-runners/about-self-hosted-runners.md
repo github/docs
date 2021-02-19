@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -53,7 +54,16 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * Der Rechner verfügt über genügend Hardwareressourcen für den Typ der Workflows, den Du ausführen möchtest. Die Anwendung für selbst-gehostete Runner selbst erfordert nur minimale Ressourcen.
 * Wenn Du Workflows ausführen willst, die Docker-Container-Aktionen oder Service-Container verwenden, brauchst Du eine Linux-Maschine und Docker muss installiert sein.
 
-### Unterstützte Betriebssysteme für selbst-gehostete Runner
+### Nutzungseinschränkungen
+
+There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. Die Einschränkungen können sich jederzeit ändern.
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **Job queue time** (Job-Warteschlangenzeit) - Jeder Auftrag für selbst-gehostete Läufer kann maximal 24 Stunden lang in die Warteschlange gestellt werden. Wenn ein selbst-gehosteter Läufer die Ausführung des Auftrags nicht innerhalb dieses Limits startet, wird der Auftrag beendet und kann nicht abgeschlossen werden.
+{% data reusables.github-actions.usage-api-requests %}
+- **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
@@ -78,11 +88,19 @@ The following operating systems are supported for the self-hosted runner applica
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) oder höher
 
-{% if currentVersion != "free-pro-team@latest" %}
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.prodname_dotcom %}
 
@@ -102,9 +120,10 @@ Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugrif
 github.com
 api.github.com
 *.actions.githubusercontent.com
+codeload.github.com
 ```
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

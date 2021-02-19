@@ -4,9 +4,13 @@ versions:
   free-pro-team: '*'
 ---
 
-When you create an Account, you're given access to lots of different features and products that are all a part of the Service. Because many of these features and products offer different functionality, they may require additional terms and conditions specific to that feature or product. Below, we've listed those features and products, along with the corresponding additional rules that apply to those parts of the Service.
+Version Effective Date: December 14, 2020
 
-Your use of GitHub is subject to your applicable terms (the "Agreement") as well as the following GitHub Additional Product Terms (the "Additional Terms"). By agreeing to the Agreement, and using additional products and features, you also agree to these Additional Terms. Any violation of the Additional Terms is a violation of the Agreement. Capitalized terms not defined in the Additional Terms will have the meaning given to them in the Agreement.
+When you create an Account, you're given access to lots of different features and products that are all a part of the Service. Because many of these features and products offer different functionality, they may require additional terms and conditions specific to that feature or product. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
+
+Your use of the Service is subject to your applicable terms (the "Agreement"). By using additional products and features, you also agree to these Additional Product Terms. Any violation of the Additional Product Terms is a violation of the Agreement. Capitalized terms not defined in the Additional Product Terms will have the meaning given to them in the Agreement.
+
+If you are using GitHub AE, then you may only access the following features and products: Third Party Integrations, Git LFS Support, Pages.
 
 ### 1. 마켓플레이스
 
@@ -35,37 +39,26 @@ If you enable Git Large File Storage ("Git LFS") on your Account, you'll be able
 
 ### 4. Pages
 
-Each GitHub Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). This hosting service is intended to host static web pages for All Users, but primarily as a showcase for personal and organizational projects. Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links.
+Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). This hosting service is intended to host static web pages for All Users, but primarily as a showcase for personal and organizational projects. Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links.
 
 GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses or other prohibited uses. Please see our [GitHub Pages guidelines](/github/working-with-github-pages/about-github-pages) for more information. GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 
 ### 5. Actions and Packages
 
 #### a. Actions Usage
-GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/github/automating-your-workflow-with-github-actions/about-github-actions#about-github-actions). Your Actions compute usage is displayed within [your Account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. If you want to use Actions beyond your included quantities, then you may [enable overages](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
+GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-Compute usage for included and paid quantities is calculated in minutes based on the type of Actions you execute (e.g. Linux, Windows, macOS). The minutes used for each Action's job or task will be rounded up to the nearest minute. For included quantities and depending on the type of Action, a multiplier may be applied to the amount of time used to execute each job or task, prior to being rounded up to the nearest minute. Overage minutes are charged at the [stated per minute price](https://github.com/features/actions) based on the type of Actions you execute. Actions and Packages share storage, and your storage usage is displayed within your [account settings](https://github.com/settings/billing). For additional details about included quantity usage calculations, see the [Actions documentation](/github/automating-your-workflow-with-github-actions/about-github-actions#about-github-actions).
-
-Actions and any elements of the Action service may not be used in violation of the Agreement, the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions [service limitations](/github/automating-your-workflow-with-github-actions/about-github-actions#usage-limits). Additionally, Actions should not be used for:
+Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). Additionally, Actions should not be used for:
 - cryptomining;
-- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com))
+- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - the provision of a stand-alone or integrated application or service offering Actions or any elements of Actions for commercial purposes;
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
-In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, or restrictions in your ability to use GitHub Actions.
+In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
 
 #### b. Packages Usage
-GitHub Packages may be used to download, publish, and manage packages of Content. Each Account plan comes with included bandwidth and storage quantities for use with Packages, which can be found in the [Packages documentation](/github/managing-packages-with-github-package-registry/about-github-package-registry). Actions and Packages share storage between the two Service features. Storage and bandwidth usage are displayed within your [account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. If you want to use Packages beyond your included bandwidth and storage quantities, then you may [enable overages](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages).
-
-Bandwidth usage is calculated based on the amount of data transferred out of your repositories through Packages, but package transfers through Actions will not count toward your included or paid quantities. Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [Account plan](https://github.com/pricing).
-
-Actions and Packages storage usage is shared between the two Service features. Storage usage is calculated as a weighted average over the course of the month and does not reset each month. Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [Account plan](https://github.com/pricing).
-
-#### c. Payment and Billing for Actions and Packages
-Billing for Actions and Packages is usage-based. Additional quantities of Actions or Packages cannot be purchased separately.  For monthly-billed customers, you must have a payment method on file to choose to pay for additional quantities of these Service features. You will be charged on a monthly, recurring basis based on your usage in the preceding month, unless you are billed by invoice. For invoiced customers, you must pay the fees within thirty (30) days of the GitHub invoice date. For customers paying for Service feature overages in advance, unused prepaid minutes will not roll over to the next billing period and will not be refunded.
-
-You can set a monthly spending limit in your [account settings](https://github.com/settings/billing/cost_management). You will be notified by email in advance of reaching the limit of your included quantities and the designated spending limit of your paid additional quantities.
+GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -77,7 +70,7 @@ You can set a monthly spending limit in your [account settings](https://github.c
 
 ### 7. Connect
 
-In order to access GitHub Connect, Customer must have at least one (1) account on GitHub.com and one (1) licensed instance of the Software. GitHub Connect may be used for performing automated tasks. In addition, multiple Users may direct certain actions with GitHub Connect. Customer is responsible for actions that are performed on or through its accounts. GitHub may collect information about how Customer uses GitHub Connect to provide and improve the feature. By using GitHub Connect, Customer authorizes GitHub to collect protected data, which includes Private Repository data and User Personal Information (as defined in the GitHub Privacy Statement), from Customer’s GitHub Enterprise Server account. Customer also authorizes the transfer of identifying instance information to GitHub through GitHub Connect, which information is governed by the GitHub Privacy Statement.
+In order to access GitHub Connect, Customer must have at least one (1) Account on GitHub.com and one (1) licensed instance of the Software. Customer's access to and use of github.com through Connect is governed by its Agreement applicable to its use of the Service. GitHub Connect may be used for performing automated tasks. In addition, multiple Users may direct certain actions with GitHub Connect. Customer is responsible for actions that are performed on or through its Accounts. GitHub may collect information about how Customer uses GitHub Connect to provide and improve the feature. By using GitHub Connect, Customer authorizes GitHub to collect protected data, which includes Private Repository data and User Personal Information (as defined in the GitHub Privacy Statement), from Customer’s Accounts. Customer also authorizes the transfer of identifying instance information to GitHub through GitHub Connect, which information is governed by the GitHub Privacy Statement.
 
 ### 8. Sponsors Program
 
@@ -85,7 +78,7 @@ In order to become a Sponsored Developer, you must agree to the [GitHub Sponsors
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security enables you to identify security vulnerabilities through customizable and automated semantic code analysis. GitHub Advanced Security is licensed on a per User basis. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions. Billing for usage of GitHub Actions is usage-based and is subject to the [GitHub Actions terms](/github/site-policy/github-additional-product-terms#c-payment-and-billing-for-actions-and-packages).
+GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions.
 
 ### 10. Dependabot Preview
 
@@ -105,3 +98,12 @@ We need the legal right to submit your contributions to the GitHub Advisory Data
 
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
 
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+#### b. Third-party components
+
+The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request.

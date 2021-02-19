@@ -1,5 +1,201 @@
 [
   {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `CVSS` was added",
+          "Type `CWEConnection` was added",
+          "Type `CWEEdge` was added",
+          "Type `CWE` was added",
+          "Type `SponsorsGoal` was added",
+          "Type `SponsorsGoalKind` was added",
+          "Field `repository` was added to object type `Release`",
+          "Field `cvss` was added to object type `SecurityAdvisory`",
+          "Field `cwes` was added to object type `SecurityAdvisory`",
+          "Field `activeGoal` was added to object type `SponsorsListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AutoMergeRequest` was added",
+          "Type `SponsorableOrder` was added",
+          "Type `SponsorableOrderField` was added",
+          "Type `SponsorableItemConnection` was added",
+          "Type `SponsorableItemEdge` was added",
+          "Type `SponsorableItem` was added",
+          "Type `DisablePullRequestAutoMergeInput` was added",
+          "Type `DisablePullRequestAutoMergePayload` was added",
+          "Type `EnablePullRequestAutoMergeInput` was added",
+          "Type `EnablePullRequestAutoMergePayload` was added",
+          "Field `sponsorables` was added to object type `Query`",
+          "Field `isSponsoredBy` was added to object type `Organization`",
+          "Field `sponsorshipForViewerAsSponsor` was added to object type `Organization`",
+          "Field `isSponsoredBy` was added to object type `User`",
+          "Field `sponsorshipForViewerAsSponsor` was added to object type `User`",
+          "Field `autoMergeRequest` was added to object type `PullRequest`",
+          "Field `viewerCanDisableAutoMerge` was added to object type `PullRequest`",
+          "Field `viewerCanEnableAutoMerge` was added to object type `PullRequest`",
+          "Field `isSponsoredBy` was added to interface `Sponsorable`",
+          "Field `sponsorshipForViewerAsSponsor` was added to interface `Sponsorable`",
+          "Field `disablePullRequestAutoMerge` was added to object type `Mutation`",
+          "Field `enablePullRequestAutoMerge` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `NotificationRestrictionSettingValue` was added",
+          "Type `UpdateNotificationRestrictionSettingInput` was added",
+          "Type `UpdateNotificationRestrictionSettingPayload` was added",
+          "Field `notificationDeliveryRestrictionEnabledSetting` was added to object type `Organization`",
+          "Field `notificationsPermalink` was added to object type `SecurityAdvisory`",
+          "Field `notificationDeliveryRestrictionEnabledSetting` was added to object type `EnterpriseOwnerInfo`",
+          "Field `updateNotificationRestrictionSetting` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ContributionLevel` was added",
+          "Type `VerifiableDomainOrder` was added",
+          "Type `VerifiableDomainOrderField` was added",
+          "Type `VerifiableDomainConnection` was added",
+          "Type `VerifiableDomainEdge` was added",
+          "Type `VerifiableDomain` was added",
+          "Type `VerifiableDomainOwner` was added",
+          "Type `AddVerifiableDomainInput` was added",
+          "Type `AddVerifiableDomainPayload` was added",
+          "Type `DeleteVerifiableDomainInput` was added",
+          "Type `DeleteVerifiableDomainPayload` was added",
+          "Type `RegenerateVerifiableDomainTokenInput` was added",
+          "Type `RegenerateVerifiableDomainTokenPayload` was added",
+          "Type `VerifyVerifiableDomainInput` was added",
+          "Type `VerifyVerifiableDomainPayload` was added",
+          "Field `domains` was added to object type `Organization`",
+          "Field `isLatest` was added to object type `Release`",
+          "Field `latestRelease` was added to object type `Repository`",
+          "Enum value `WAITING` was added to enum `DeploymentStatusState`",
+          "Field `contributionLevel` was added to object type `ContributionCalendarDay`",
+          "Field `domains` was added to object type `EnterpriseOwnerInfo`",
+          "Field `addVerifiableDomain` was added to object type `Mutation`",
+          "Field `deleteVerifiableDomain` was added to object type `Mutation`",
+          "Field `regenerateVerifiableDomainToken` was added to object type `Mutation`",
+          "Field `verifyVerifiableDomain` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-01-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AutoMergeDisabledEvent` was added",
+          "Type `AutoMergeEnabledEvent` was added",
+          "Type `AutoRebaseEnabledEvent` was added",
+          "Type `AutoSquashEnabledEvent` was added",
+          "Type `AddEnterpriseSupportEntitlementInput` was added",
+          "Type `AddEnterpriseSupportEntitlementPayload` was added",
+          "Type `RemoveEnterpriseSupportEntitlementInput` was added",
+          "Type `RemoveEnterpriseSupportEntitlementPayload` was added",
+          "Enum value `WAITING` was added to enum `CheckStatusState`",
+          "Enum value 'AUTO_MERGE_DISABLED_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'AUTO_MERGE_ENABLED_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'AUTO_REBASE_ENABLED_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'AUTO_SQUASH_ENABLED_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Member `AutoMergeDisabledEvent` was added to Union type `PullRequestTimelineItems`",
+          "Member `AutoMergeEnabledEvent` was added to Union type `PullRequestTimelineItems`",
+          "Member `AutoRebaseEnabledEvent` was added to Union type `PullRequestTimelineItems`",
+          "Member `AutoSquashEnabledEvent` was added to Union type `PullRequestTimelineItems`",
+          "Field `supportEntitlements` was added to object type `EnterpriseOwnerInfo`",
+          "Field `addEnterpriseSupportEntitlement` was added to object type `Mutation`",
+          "Field `removeEnterpriseSupportEntitlement` was added to object type `Mutation`",
+          "Enum value `WAITING` was added to enum `RequestableCheckStatusState`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-01-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `hasVerifiedOwner` was added to object type `MarketplaceListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2020-12-09"
+  },
+  {
+    "date": "2020-11-13",
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Input field `requiresLinearHistory` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `allowsForcePushes` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `allowsDeletions` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `requiresLinearHistory` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `allowsForcePushes` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `allowsDeletions` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `requiresLinearHistory` was added to object type `BranchProtectionRule`",
+          "Field `allowsForcePushes` was added to object type `BranchProtectionRule`",
+          "Field `allowsDeletions` was added to object type `BranchProtectionRule`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": []
+  },
+  {
+    "date": "2020-10-12",
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `updateEnterpriseActionExecutionCapabilitySetting` was removed from object type `Mutation`",
+          "Field `actionExecutionCapabilitySettingOrganizations` was removed from object type `EnterpriseOwnerInfo`",
+          "Type `UpdateEnterpriseActionExecutionCapabilitySettingInput` was removed",
+          "Type `UpdateEnterpriseActionExecutionCapabilitySettingPayload` was removed",
+          "Type `ActionExecutionCapabilitySetting` was removed"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": []
+  },
+  {
     "date": "2020-09-30",
     "schemaChanges": [
       {

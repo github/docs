@@ -1,15 +1,7 @@
 const request = require('supertest')
-const Airtable = require('airtable')
 const nock = require('nock')
+const cheerio = require('cheerio')
 const app = require('../../server')
-
-jest.mock('airtable')
-Airtable.mockImplementation(function () {
-  this.base = () => () => ({
-    create: () => [{ getId: () => 'TESTID' }],
-    update: () => true
-  })
-})
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -23,8 +15,9 @@ describe('POST /events', () => {
     process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
     process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
     agent = request.agent(app)
-    const csrfRes = await agent.get('/csrf')
-    csrfToken = csrfRes.body.token
+    const csrfRes = await agent.get('/en')
+    const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
+    csrfToken = $('meta[name="csrf-token"]').attr('content')
     nock('http://example.com')
       .post('/hydro')
       .reply(200, {})
@@ -47,91 +40,6 @@ describe('POST /events', () => {
       .expect(code)
   }
 
-  describe('HELPFULNESS', () => {
-    const example = {
-      type: 'HELPFULNESS',
-      url: 'https://example.com',
-      vote: 'Yes',
-      email: 'test@example.com',
-      comment: 'This is the best page ever',
-      category: 'Other'
-    }
-
-    it('should accept a valid object', () =>
-      checkEvent(example, 201)
-    )
-
-    it('should reject extra properties', () =>
-      checkEvent({ ...example, toothpaste: false }, 400)
-    )
-
-    it('should not accept if type is missing', () =>
-      checkEvent({ ...example, type: undefined }, 400)
-    )
-
-    it('should not accept if url is missing', () =>
-      checkEvent({ ...example, url: undefined }, 400)
-    )
-
-    it('should not accept if url is misformatted', () =>
-      checkEvent({ ...example, url: 'examplecom' }, 400)
-    )
-
-    it('should not accept if vote is missing', () =>
-      checkEvent({ ...example, vote: undefined }, 400)
-    )
-
-    it('should not accept if vote is not boolean', () =>
-      checkEvent({ ...example, vote: 'true' }, 400)
-    )
-
-    it('should not accept if email is misformatted', () =>
-      checkEvent({ ...example, email: 'testexample.com' }, 400)
-    )
-
-    it('should not accept if comment is not string', () =>
-      checkEvent({ ...example, comment: [] }, 400)
-    )
-
-    it('should not accept if category is not an option', () =>
-      checkEvent({ ...example, category: 'Fabulous' }, 400)
-    )
-  })
-
-  describe('EXPERIMENT', () => {
-    const example = {
-      type: 'EXPERIMENT',
-      user: 'ef17cf45-ba3c-4de0-9140-84eb85f0797d',
-      test: 'my-example-test',
-      group: 'control',
-      success: 'yes'
-    }
-
-    it('should accept a valid object', () =>
-      checkEvent(example, 201)
-    )
-
-    it('should reject extra fields', () =>
-      checkEvent({ ...example, toothpaste: false }, 400)
-    )
-
-    it('should require a long unique user-id', () =>
-      checkEvent({ ...example, 'user-id': 'short' }, 400)
-    )
-
-    it('should require a test', () =>
-      checkEvent({ ...example, test: undefined }, 400)
-    )
-
-    it('should require a valid group', () =>
-      checkEvent({ ...example, group: 'revolution' }, 400)
-    )
-
-    it('should default the success field', () =>
-      checkEvent({ ...example, success: undefined }, 201)
-    )
-  })
-
   const baseExample = {
     context: {
       // Primitives
@@ -142,6 +50,7 @@ describe('POST /events', () => {
 
       // Content information
       path: '/github/docs/issues',
+      hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
@@ -212,6 +121,16 @@ describe('POST /events', () => {
       }, 400)
     )
 
+    it('should allow page_event_id', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          page_event_id: baseExample.context.event_id
+        }
+      }, 201)
+    )
+
     it('should not allow a honeypot token', () =>
       checkEvent({
         ...pageExample,
@@ -228,6 +147,16 @@ describe('POST /events', () => {
         context: {
           ...pageExample.context,
           path: ' '
+        }
+      }, 400)
+    )
+
+    it('should hostname be uri-reference', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          hostname: ' '
         }
       }, 400)
     )
@@ -351,20 +280,13 @@ describe('POST /events', () => {
         }
       }, 400)
     )
-
-    it('should page_render_duration is a positive number', () =>
-      checkEvent({
-        ...pageExample,
-        page_render_duration: -0.5
-      }, 400)
-    )
   })
 
   describe('exit', () => {
     const exitExample = {
       ...baseExample,
       type: 'exit',
-      exit_page_id: 'c93c2d16-8e07-43d5-bc3c-eacc999c184d',
+      exit_render_duration: 0.9,
       exit_first_paint: 0.1,
       exit_dom_interactive: 0.2,
       exit_dom_complete: 0.3,
@@ -376,12 +298,11 @@ describe('POST /events', () => {
       checkEvent(exitExample, 201)
     )
 
-    it('should require exit_page_id', () =>
-      checkEvent({ ...exitExample, exit_page_id: undefined }, 400)
-    )
-
-    it('should require exit_page_id is a uuid', () =>
-      checkEvent({ ...exitExample, exit_page_id: 'afjdskalj' }, 400)
+    it('should exit_render_duration is a positive number', () =>
+      checkEvent({
+        ...exitExample,
+        exit_render_duration: -0.5
+      }, 400)
     )
 
     it('exit_first_paint is a number', () =>
@@ -505,43 +426,52 @@ describe('POST /events', () => {
       checkEvent({ ...experimentExample, experiment_success: undefined }, 201)
     )
   })
-})
 
-describe('PUT /events/:id', () => {
-  jest.setTimeout(60 * 1000)
+  describe('redirect', () => {
+    const redirectExample = {
+      ...baseExample,
+      type: 'redirect',
+      redirect_from: 'http://example.com/a',
+      redirect_to: 'http://example.com/b'
+    }
 
-  let csrfToken = ''
-  let agent
+    it('should record an redirect event', () =>
+      checkEvent(redirectExample, 201)
+    )
 
-  beforeEach(async () => {
-    process.env.AIRTABLE_API_KEY = '$AIRTABLE_API_KEY$'
-    process.env.AIRTABLE_BASE_KEY = '$AIRTABLE_BASE_KEY$'
-    agent = request.agent(app)
-    const csrfRes = await agent.get('/csrf')
-    csrfToken = csrfRes.body.token
+    it('redirect_from is required url', () =>
+      checkEvent({ ...redirectExample, redirect_from: ' ' }, 400)
+    )
+
+    it('redirect_to is required url', () =>
+      checkEvent({ ...redirectExample, redirect_to: undefined }, 400)
+    )
   })
 
-  afterEach(() => {
-    delete process.env.AIRTABLE_API_KEY
-    delete process.env.AIRTABLE_BASE_KEY
-    csrfToken = ''
+  describe('clipboard', () => {
+    const clipboardExample = {
+      ...baseExample,
+      type: 'clipboard',
+      clipboard_operation: 'copy'
+    }
+
+    it('should record an clipboard event', () =>
+      checkEvent(clipboardExample, 201)
+    )
+
+    it('clipboard_operation is required copy, paste, cut', () =>
+      checkEvent({ ...clipboardExample, clipboard_operation: 'destroy' }, 400)
+    )
   })
 
-  const example = {
-    type: 'HELPFULNESS',
-    url: 'https://example.com',
-    vote: 'Yes',
-    email: 'test@example.com',
-    comment: 'This is the best page ever',
-    category: 'Other'
-  }
+  describe('print', () => {
+    const printExample = {
+      ...baseExample,
+      type: 'print'
+    }
 
-  it('should update an existing HELPFULNESS event', () =>
-    agent
-      .put('/events/TESTID')
-      .send(example)
-      .set('Accept', 'application/json')
-      .set('csrf-token', csrfToken)
-      .expect(200)
-  )
+    it('should record a print event', () =>
+      checkEvent(printExample, 201)
+    )
+  })
 })

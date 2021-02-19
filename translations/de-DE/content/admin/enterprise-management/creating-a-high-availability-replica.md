@@ -49,7 +49,7 @@ Diese Beispielkonfiguration verwendet eine primäre Instanz und zwei Replikate, 
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. Standardmäßig sind Replikate für das gleiche Rechenzentrum konfiguriert{% if currentVersion ver_gt "enterprise-server@2.17" %} und versuchen nun, ein Seeding von einem vorhandenen Knoten im gleichen Rechenzentrum aus auszuführen{% endif %}. Konfigurieren Sie die Replikate für unterschiedliche Rechenzentren, indem Sie für die Rechenzentrumsoption einen anderen Wert festlegen. Die entsprechenden Werte sind beliebig, sie müssen sich nur voneinander unterscheiden. Führen Sie den Befehl `ghe-repl-node` auf jedem Knoten aus, und geben Sie das Rechenzentrum an.
+3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Konfigurieren Sie die Replikate für unterschiedliche Rechenzentren, indem Sie für die Rechenzentrumsoption einen anderen Wert festlegen. Die entsprechenden Werte sind beliebig, sie müssen sich nur voneinander unterscheiden. Führen Sie den Befehl `ghe-repl-node` auf jedem Knoten aus, und geben Sie das Rechenzentrum an.
 
   Auf der primären Instanz:
   ```shell

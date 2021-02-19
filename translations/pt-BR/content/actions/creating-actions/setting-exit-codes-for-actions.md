@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ O {% data variables.product.prodname_dotcom %} usa o código de saída para defi
 
 ### Definir um código de saída de falha em uma ação JavaScript
 
-Se estiver criando uma ação JavaScript, você poderá usar o pacote [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) do conjunto de ferramentas de ações para registrar em log uma mensagem e definir um código de saída de falha. Por exemplo:
+Se estiver criando uma ação JavaScript, você poderá usar o pacote [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) do conjunto de ferramentas de ações para registrar em log uma mensagem e definir um código de saída de falha. Por exemplo:
 
 ```javascript
 try {
@@ -40,6 +41,7 @@ Para obter mais informações, consulte "[Criar uma ação JavaScript](/articles
 
 Se estiver criando uma ação de contêiner do Docker, você poderá definir um código de saída de falha no seu script `entrypoint.sh`. Por exemplo:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
@@ -48,5 +50,6 @@ fi
   exit 1
 fi
 ```
+{% endraw %}
 
 Para obter mais informações, consulte "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)".

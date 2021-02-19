@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -20,22 +21,22 @@ versions:
 
 ### サイト全体のショートカット
 
-| キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                                                   |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                        |
-| <kbd>g</kbd> <kbd>n</kbd>     | 通知に移動します。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。 |
-| <kbd>esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                                             |
+| キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                                                                                                          |
+| <kbd>g</kbd> <kbd>n</kbd>     | 通知に移動します。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」{% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications)」を参照してください{% endif %}。 |
+| <kbd>esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                                                                                                                          |
 
 ### リポジトリ
 
-| キーボードショートカット              | 説明                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                        |
-| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                 |
-| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。                                             |
-| <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)." |
-| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                    |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                       |
+| キーボードショートカット              | 説明                                                                                                                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                                                                                                |
+| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                                                                                         |
+| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| <kbd>g</kbd> <kbd>a</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
+| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                            |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                               |
 
 ### ソースコード編集
 
@@ -67,22 +68,23 @@ versions:
 
 ### コメント
 
-| キーボードショートカット                                              | 説明                                                                                                                                        |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> または <kbd>command b</kbd>             | 太字テキストの Markdown 書式を挿入します                                                                                                                 |
-| <kbd>control i</kbd> または <kbd>command i</kbd>             | イタリック体のテキストの Markdown 書式を挿入します                                                                                                            |
-| <kbd>control k</kbd> または <kbd>command k</kbd>             | リンクを作成するための Markdown 書式を挿入します                                                                                                             |
-| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | **Write** と **Preview** のコメントタブを切り替えます。                                                                                                   |
-| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                             |
-| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 |{% endif %}
-| <kbd>r</kbd>                                              | 返信で選択したテキストを引用します。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。                                      |
+| キーボードショートカット                                              | 説明                                                                                                                                                               |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>control b</kbd> または <kbd>command b</kbd>             | 太字テキストの Markdown 書式を挿入します                                                                                                                                        |
+| <kbd>control i</kbd> または <kbd>command i</kbd>             | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                   |
+| <kbd>control k</kbd> または <kbd>command k</kbd>             | リンクを作成するための Markdown 書式を挿入します                                                                                                                                    |
+| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | **Write** と **Preview** のコメントタブを切り替えます。                                                                                                                          |
+| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                                                    |
+| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳しい情報については「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 
+{% endif %}
+| <kbd>r</kbd>                                              | 返信で選択したテキストを引用します。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。                                                             |
 
 ### Issue およびプルリクエストのリスト
 
 | キーボードショートカット                                  | 説明                                                                                                                                                     |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>c</kbd>                                  | Issue を作成します                                                                                                                                           |
+| <kbd>c</kbd>                                  | Issueの作成                                                                                                                                               |
 | <kbd>control /</kbd> または <kbd>command /</kbd> | Issue またはプルリクエストの検索バーにカーソルを合わせます。 詳細は「[検索を使用して Issue およびプルリクエストをフィルタリングする](/articles/using-search-to-filter-issues-and-pull-requests)」を参照してください。       |
 | <kbd>u</kbd>                                  | 作者によりフィルタリングします                                                                                                                                        |
 | <kbd>l</kbd>                                  | ラベルによりフィルタリグするか、ラベルを編集します。 詳細は「[Issue およびプルリクエストをラベルでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-labels)」を参照してください。                     |
@@ -92,101 +94,106 @@ versions:
 | <kbd>o</kbd> または <kbd>enter</kbd>             | Issue を開きます                                                                                                                                            |
 
 ### Issue およびプルリクエスト
-| キーボードショートカット                                                  | 説明                                                                                                                                                                                    |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>q</kbd>                                                  | レビュー担当者にリクエストします。 詳細は「[Pull Request レビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。                                                                             |
-| <kbd>m</kbd>                                                  | マイルストーンを設定します。 詳細は「[Issue およびプルリクエストにマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)」を参照してください。                                                        |
-| <kbd>l</kbd>                                                  | ラベルを適用します。 詳細は「[Issue およびプルリクエストにラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。                                                                          |
+| キーボードショートカット                                                  | 説明                                                                                                                                                                               |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>q</kbd>                                                  | レビュー担当者にリクエストします。 詳細は「[Pull Request レビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。                                                                        |
+| <kbd>m</kbd>                                                  | マイルストーンを設定します。 詳細は「[Issue およびプルリクエストにマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)」を参照してください。                                                   |
+| <kbd>l</kbd>                                                  | ラベルを適用します。 詳細は「[Issue およびプルリクエストにラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。                                                                     |
 | <kbd>a</kbd>                                                  | アサインされた人を設定します。 詳細は「[{% data variables.product.company_short %} の他のユーザに Issue およびプルリクエストをアサインする](/articles/assigning-issues-and-pull-requests-to-other-github-users/)」を参照してください。 |
-| <kbd>cmd + shift + p</kbd> または <kbd>control + shift + p</kbd> | [**Write**] タブと [**Preview**] タブを切り替えます。                                                                                                                                              |
+| <kbd>cmd + shift + p</kbd> または <kbd>control + shift + p</kbd> | [**Write**] タブと [**Preview**] タブを切り替えます。                                                                                                                                         |
 
 ### プルリクエストの変更
 
-| キーボードショートカット                    | 説明                                                                                                                                                                                                                                                 |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>c</kbd>                    | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                             |
-| <kbd>t</kbd>                    | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                         |
-| <kbd>j</kbd>                    | リストで選択を下に移動します                                                                                                                                                                                                                                     |
-| <kbd>k</kbd>                    | リストで選択を上に移動します                                                                                                                                                                                                                                     |
-| <kbd>cmd + shift + enter </kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                          |
-| <kbd>alt</kbd> およびクリック          | `alt` を押しながら、[**Show outdated**] または [**Hide outdated**] をクリックして、期限切れのレビューコメントをすべて折りたたむか展開するかを切り替えます。|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| クリック後、<kbd>shift</kbd> およびクリック  | プルリクエストの複数行にコメントするには、行番号をクリックし、<kbd>shift</kbd> を押したまま、別の行番号をクリックします。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。|{% endif %}
+| キーボードショートカット                    | 説明                                                                                                                                                                                                                                                      |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>c</kbd>                    | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                                  |
+| <kbd>t</kbd>                    | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                              |
+| <kbd>j</kbd>                    | リストで選択を下に移動します                                                                                                                                                                                                                                          |
+| <kbd>k</kbd>                    | リストで選択を上に移動します                                                                                                                                                                                                                                          |
+| <kbd>cmd + shift + enter </kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                               |
+| <kbd>alt</kbd> およびクリック          | `alt` キーを押しながら [**Show outdated**] または [**Hide outdated**] をクリックして、プルリクエスト内のすべての古いレビューコメントの折りたたみと展開を切り替えます。|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| クリック後、<kbd>shift</kbd> およびクリック  | プルリクエストの複数行にコメントするには、行番号をクリックし、<kbd>shift</kbd> を押したまま、別の行番号をクリックします。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。
+{% endif %}
 
 ### プロジェクトボード
 
 #### 列を移動する
 
-| キーボードショートカット                                                                                     | 説明                |
-| ------------------------------------------------------------------------------------------------ | ----------------- |
-| <kbd>enter</kbd> または <kbd>space</kbd>                                                            | フォーカスされた列を動かし始めます |
-| <kbd>escape</kbd>                                                                                | 進行中の移動をキャンセルします   |
-| <kbd>enter</kbd>                                                                                 | 進行中の移動を完了します      |
-| <kbd>←</kbd> または <kbd>h</kbd>                                                                    | 左に列を移動します         |
-| <kbd>command ←</kbd> または <kbd>command h</kbd> あるいは <kbd>control ←</kbd> または <kbd>control h</kbd> | 左端に列を移動します        |
-| <kbd>→</kbd> または <kbd>l</kbd>                                                                    | 右に列を移動します         |
-| <kbd>command →</kbd> または <kbd>command l</kbd> あるいは <kbd>control →</kbd> または <kbd>control l</kbd> | 右端に列を移動します        |
+| キーボードショートカット                                                                                            | 説明                |
+| ------------------------------------------------------------------------------------------------------- | ----------------- |
+| <kbd>enter</kbd> または <kbd>space</kbd>                                                                   | フォーカスされた列を動かし始めます |
+| <kbd>escape</kbd>                                                                                       | 進行中の移動をキャンセルします   |
+| <kbd>enter</kbd>                                                                                        | 進行中の移動を完了します      |
+| <kbd>←</kbd> または <kbd>h</kbd>                                                                           | 左に列を移動します         |
+| <kbd>command + ←</kbd> または <kbd>command + h</kbd> または <kbd>control + ←</kbd> または <kbd>control + h</kbd> | 左端に列を移動します        |
+| <kbd>→</kbd> または <kbd>l</kbd>                                                                           | 右に列を移動します         |
+| <kbd>command + →</kbd> または <kbd>command + l</kbd> または <kbd>control + →</kbd> または <kbd>control + l</kbd> | 右端に列を移動します        |
 
 #### カードを移動する
 
-| キーボードショートカット                                                                                                             | 説明                  |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| <kbd>enter</kbd> または <kbd>space</kbd>                                                                                    | フォーカスされたカードを動かし始めます |
-| <kbd>escape</kbd>                                                                                                        | 進行中の移動をキャンセルします     |
-| <kbd>enter</kbd>                                                                                                         | 進行中の移動を完了します        |
-| <kbd>↓</kbd> または <kbd>j</kbd>                                                                                            | カードを下に移動します         |
-| <kbd>command ↓</kbd> または <kbd>command j</kbd> あるいは <kbd>control ↓</kbd> または <kbd>control j</kbd>                         | カードを列の一番下に移動します     |
-| <kbd>↑</kbd> または <kbd>k</kbd>                                                                                            | カードを上に移動します         |
-| <kbd>command ↑</kbd> または <kbd>command k</kbd> あるいは <kbd>control ↑</kbd> または <kbd>control k</kbd>                         | カードを列の一番上に移動します     |
-| <kbd>←</kbd> または <kbd>h</kbd>                                                                                            | カードを左側の列の一番下に移動します  |
-| <kbd>shift ←</kbd> または <kbd>shift h</kbd>                                                                                | カードを左側の列の一番上に移動します  |
-| <kbd>command ←</kbd> または <kbd>command h</kbd> あるいは <kbd>control ←</kbd> または <kbd>control h</kbd>                         | カードを一番左の列の一番下に移動します |
-| <kbd>command shift ←</kbd> または <kbd>command shift h</kbd> あるいは <kbd>control shift ←</kbd> または <kbd>control shift h</kbd> | カードを一番左の列の一番上に移動します |
-| <kbd>→</kbd>                                                                                                             | カードを右側の列の一番下に移動します  |
-| <kbd>shift →</kbd> または <kbd>shift l</kbd>                                                                                | カードを右側の列の一番上に移動します  |
-| <kbd>command →</kbd> または <kbd>command l</kbd> あるいは <kbd>control →</kbd> または <kbd>control l</kbd>                         | カードを一番右の列の一番下に移動します |
-| <kbd>command shift →</kbd> または <kbd>command shift l</kbd> あるいは <kbd>control shift →</kbd> または <kbd>control shift l</kbd> | カードを一番右の列の一番下に移動します |
+| キーボードショートカット                                                                                                                            | 説明                  |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <kbd>enter</kbd> または <kbd>space</kbd>                                                                                                   | フォーカスされたカードを動かし始めます |
+| <kbd>escape</kbd>                                                                                                                       | 進行中の移動をキャンセルします     |
+| <kbd>enter</kbd>                                                                                                                        | 進行中の移動を完了します        |
+| <kbd>↓</kbd> または <kbd>j</kbd>                                                                                                           | カードを下に移動します         |
+| <kbd>command + ↓</kbd> または <kbd>command + j</kbd> または <kbd>control + ↓</kbd> または <kbd>control + j</kbd>                                 | カードを列の一番下に移動します     |
+| <kbd>↑</kbd> または <kbd>k</kbd>                                                                                                           | カードを上に移動します         |
+| <kbd>command + ↑</kbd> または <kbd>command + k</kbd> または <kbd>control + ↑</kbd> または <kbd>control + k</kbd>                                 | カードを列の一番上に移動します     |
+| <kbd>←</kbd> または <kbd>h</kbd>                                                                                                           | カードを左側の列の一番下に移動します  |
+| <kbd>shift + ←</kbd> または <kbd>shift + h</kbd>                                                                                           | カードを左側の列の一番上に移動します  |
+| <kbd>command + ←</kbd> または <kbd>command + h</kbd> または <kbd>control + ←</kbd> または <kbd>control + h</kbd>                                 | カードを一番左の列の一番下に移動します |
+| <kbd>command + shift + ←</kbd> または <kbd>command + shift + h</kbd> または <kbd>control + shift + ←</kbd> または <kbd>control + shift + h</kbd> | カードを一番左の列の一番上に移動します |
+| <kbd>→</kbd>                                                                                                                            | カードを右側の列の一番下に移動します  |
+| <kbd>shift + →</kbd> または <kbd>shift + l</kbd>                                                                                           | カードを右側の列の一番上に移動します  |
+| <kbd>command + →</kbd> または <kbd>command + l</kbd> または <kbd>control + →</kbd> または <kbd>control + l</kbd>                                 | カードを一番右の列の一番下に移動します |
+| <kbd>command + shift + →</kbd> または <kbd>command + shift + l</kbd> または <kbd>control + shift + →</kbd> または <kbd>control + shift + l</kbd> | カードを一番右の列の一番下に移動します |
 
-#### Previewing a card
+#### カードをプレビューする
 
-| キーボードショートカット   | 説明                          |
-| -------------- | --------------------------- |
-| <kbd>esc</kbd> | Close the card preview pane |
+| キーボードショートカット   | 説明               |
+| -------------- | ---------------- |
+| <kbd>esc</kbd> | カードのプレビューペインを閉じる |
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### {% data variables.product.prodname_actions %}
 
-| キーボードショートカット                                           | 説明                                   |
-| ------------------------------------------------------ | ------------------------------------ |
-| <kbd>command space </kbd> または <kbd>control space</kbd> | ワークフローエディターで、ワークフローファイルに対する提案を取得します。 |
+| キーボードショートカット                                               | 説明                                   |
+| ---------------------------------------------------------- | ------------------------------------ |
+| <kbd>command + space </kbd> または <kbd>control + space</kbd> | ワークフローエディターで、ワークフローファイルに対する提案を取得します。 |
+| <kbd>g</kbd> <kbd>f</kbd>                                  | Go to the workflow file              |
+| <kbd>shift + t</kbd> or <kbd>T</kbd>                       | Toggle timestamps in logs            |
+| <kbd>shift + f</kbd> or <kbd>F</kbd>                       | Toggle fullscreen logs               |
+| <kbd>esc</kbd>                                             | Exit fullscreen logs                 |
 
 {% endif %}
 
 ### 通知
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| キーボードショートカット       | 説明           |
-| ------------------ | ------------ |
-| <kbd>e</kbd>       | 完了済としてマークします |
-| <kbd>shift u</kbd> | 未読としてマークします  |
-| <kbd>shift i</kbd> | 既読としてマークします  |
-| <kbd>shift m</kbd> | サブスクライブ解除します |
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| キーボードショートカット         | 説明           |
+| -------------------- | ------------ |
+| <kbd>e</kbd>         | 完了済としてマークします |
+| <kbd>shift + u</kbd> | 未読としてマークします  |
+| <kbd>shift + i</kbd> | 既読としてマークします  |
+| <kbd>shift + m</kbd> | サブスクライブ解除します |
 
 {% else %}
 
 | キーボードショートカット                                   | 説明           |
 | ---------------------------------------------- | ------------ |
 | <kbd>e</kbd> または <kbd>I</kbd> または <kbd>y</kbd> | 既読としてマークします  |
-| <kbd>shift m</kbd>                             | スレッドをミュートします |
+| <kbd>shift + m</kbd>                           | スレッドをミュートします |
 {% endif %}
 
 ### ネットワークグラフ
 
-| キーボードショートカット                              | 説明           |
-| ----------------------------------------- | ------------ |
-| <kbd>←</kbd> または <kbd>h</kbd>             | 左にスクロールします   |
-| <kbd>→</kbd> または <kbd>l</kbd>             | 右にスクロールします   |
-| <kbd>↑</kbd> または <kbd>k</kbd>             | 上にスクロールします   |
-| <kbd>↓</kbd> または <kbd>j</kbd>             | 下にスクロールします   |
-| <kbd>shift ←</kbd> または <kbd>shift h</kbd> | 左端までスクロールします |
-| <kbd>shift →</kbd> または <kbd>shift l</kbd> | 右端までスクロールします |
-| <kbd>shift ↑</kbd> または <kbd>shift k</kbd> | 上端までスクロールします |
-| <kbd>shift ↓</kbd> または <kbd>shift j</kbd> | 下端までスクロールします |
+| キーボードショートカット                                  | 説明           |
+| --------------------------------------------- | ------------ |
+| <kbd>←</kbd> または <kbd>h</kbd>                 | 左にスクロールします   |
+| <kbd>→</kbd> または <kbd>l</kbd>                 | 右にスクロールします   |
+| <kbd>↑</kbd> または <kbd>k</kbd>                 | 上にスクロールします   |
+| <kbd>↓</kbd> または <kbd>j</kbd>                 | 下にスクロールします   |
+| <kbd>shift + ←</kbd> または <kbd>shift + h</kbd> | 左端までスクロールします |
+| <kbd>shift + →</kbd> または <kbd>shift + l</kbd> | 右端までスクロールします |
+| <kbd>shift + ↑</kbd> または <kbd>shift + k</kbd> | 上端までスクロールします |
+| <kbd>shift + ↓</kbd> または <kbd>shift + j</kbd> | 下端までスクロールします |

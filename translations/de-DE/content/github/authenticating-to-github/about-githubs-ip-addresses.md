@@ -1,6 +1,6 @@
 ---
 title: Informationen zu den IP-Adressen von GitHub
-intro: '{% data variables.product.product_name %} dient Anwendungen aus mehreren IP-Adressbereichen, die über die API verfügbar sind.'
+intro: '{% data variables.product.product_name %} versorgt Anwendungen aus mehreren IP-Adressbereichen, die über die API verfügbar sind.'
 redirect_from:
   - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
   - /categories/73/articles/
@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Du kannst eine Liste der IP-Adressen von {% data variables.product.prodname_dotcom %} über den [meta](https://api.github.com/meta)-API-Endpunkt abrufen. For more information, see "[Meta](/v3/meta/)."
+Sie können eine Liste der IP-Adressen von {% data variables.product.prodname_dotcom %} über den [meta](https://api.github.com/meta)-API-Endpunkt abrufen. For more information, see "[Meta](/rest/reference/meta)."
 
 Diese Bereiche sind in [CIDR-Notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). Mit einem Online-Konvertierungstool wie zum Beispiel [CIDR/VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php) kannst Du eine Konvertierung von CIDR-Notation in IP-Adressbereiche durchführen.
 

@@ -18,7 +18,7 @@ versions:
 
 ### 查看组织的 {% data variables.product.prodname_registry %} 使用情况
 
-Organization owners and billing managers can view {% data variables.product.prodname_registry %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_registry %} usage in the organization billing page.
+组织所有者和帐单管理员可查看组织的 {% data variables.product.prodname_registry %} 使用情况。 对于由企业帐户管理的组织，只有组织所有者可以在组织的帐单页面中查看 {% data variables.product.prodname_registry %} 使用情况。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -30,7 +30,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 
 ### 查看企业帐户的 {% data variables.product.prodname_registry %} 使用情况
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_registry %} usage for an enterprise account.
+企业所有者和帐单管理员可查看企业帐户的 {% data variables.product.prodname_registry %} 使用情况。
 
 {% note %}
 
@@ -41,6 +41,8 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. 在“{% data variables.product.prodname_registry %}”下，查看您的企业帐户中每个组织的数据传输使用详情。 ![数据传输使用详情](/assets/images/help/billing/packages-data-enterprise.png)
+1. 在“
+{% data variables.product.prodname_registry %}”下，查看您的企业帐户中每个组织的数据传输使用详情。
+  ![数据传输使用详情](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

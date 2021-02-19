@@ -1,7 +1,7 @@
 ---
 title: Workflow-Befehle für GitHub-Aktionen
 shortTitle: Workflow-Befehle
-intro: 'Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.'
+intro: Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
@@ -21,7 +21,11 @@ versions:
 
 Aktionen können mit dem Runner-Rechner kommunizieren, um Umgebungsvariablen zu setzen, Werte zur Verwendung in anderen Aktionen auszugeben, Debug-Meldungen zu den Ausgabeprotokollen zuzufügen und für andere Zwecke.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
+{% else %}
 Workflow-Befehle verwenden den Befehl `echo` in einem bestimmten Format.
+{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -41,40 +45,48 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 ### Workflow-Befehle verwenden, um auf Funktionen des Toolkits zuzugreifen
 
-Das [actions/toolkit](https://github.com/actions/toolkit) enthält eine Reihe von Funktionen, die als Workflow-Befehle ausgeführt werden können. Verwende die Syntax `::`, um die Workflow-Befehle in Deiner YAML-Datei auszuführen. Diese Befehle werden dann über `stdout` an den Runner gesandt. Anstatt beispielsweise zum Setzen einer Umgebungsvariablen Code folgendermaßen zu verwenden:
+Das [actions/toolkit](https://github.com/actions/toolkit) enthält eine Reihe von Funktionen, die als Workflow-Befehle ausgeführt werden können. Verwende die Syntax `::`, um die Workflow-Befehle in Deiner YAML-Datei auszuführen. Diese Befehle werden dann über `stdout` an den Runner gesandt. For example, instead of using code to set an output, as below:
 
 ```javascript
-core.exportVariable('SELECTED_COLOR', 'green');
+core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-kannst Du den Befehl `set-env` in Deinem Workflow verwenden, um den gleichen Wert zu setzen:
+You can use the `set-output` command in your workflow to set the same value:
 
+{% raw %}
 ``` yaml
       - name: Set selected color
-        run: echo '::set-env name=SELECTED_COLOR::green'
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' $SELECTED_COLOR
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 Die folgende Tabelle zeigt, welche Toolkit-Funktionen innerhalb eines Workflows verfügbar sind:
 
-| Toolkit-Funktion      | Äquivalenter Workflow-Befehl                            |
-| --------------------- | ------------------------------------------------------- |
-| `core.addPath`        | `add-path`                                              |
-| `core.debug`          | `debug`                                                 |
-| `core.error`          | `error`                                                 |
-| `core.endGroup`       | `endgroup`                                              |
-| `core.exportVariable` | `set-env`                                               |
-| `core.getInput`       | Zugänglich durch Umgebungsvariable `INPUT_{NAME}`       |
-| `core.getState`       | Zugänglich durch Umgebungsvariable `STATE_{NAME}`       |
-| `core.isDebug`        | Zugänglich durch Umgebungsvariable `RUNNER_DEBUG`       |
-| `core.saveState`      | `save-state`                                            |
-| `core.setFailed`      | Wird als Abkürzung für `::error` und `exit 1` verwendet |
-| `core.setOutput`      | `set-output`                                            |
-| `core.setSecret`      | `add-mask`                                              |
-| `core.startGroup`     | `Gruppe`                                                |
-| `core.warning`        | `warning file`                                          |
+| Toolkit-Funktion                                                                                                                                                                    | Äquivalenter Workflow-Befehl                            |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `core.addPath`                                                                                                                                                                      |                                                         |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                                         |
+|                                                                                                                                                                                     |                                                         |
+| `core.debug`                                                                                                                                                                        | `debug`                                                 |
+| `core.error`                                                                                                                                                                        | `error`                                                 |
+| `core.endGroup`                                                                                                                                                                     | `endgroup`                                              |
+| `core.exportVariable`                                                                                                                                                               |                                                         |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}   |                                                         |
+|                                                                                                                                                                                     |                                                         |
+| `core.getInput`                                                                                                                                                                     | Zugänglich durch Umgebungsvariable `INPUT_{NAME}`       |
+| `core.getState`                                                                                                                                                                     | Zugänglich durch Umgebungsvariable `STATE_{NAME}`       |
+| `core.isDebug`                                                                                                                                                                      | Zugänglich durch Umgebungsvariable `RUNNER_DEBUG`       |
+| `core.saveState`                                                                                                                                                                    | `save-state`                                            |
+| `core.setFailed`                                                                                                                                                                    | Wird als Abkürzung für `::error` und `exit 1` verwendet |
+| `core.setOutput`                                                                                                                                                                    | `set-output`                                            |
+| `core.setSecret`                                                                                                                                                                    | `add-mask`                                              |
+| `core.startGroup`                                                                                                                                                                   | `Gruppe`                                                |
+| `core.warning`                                                                                                                                                                      | `warning file`                                          |
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Setting an environment variable
 
 `::set-env name={name}::{value}`
@@ -86,6 +98,7 @@ Erstellt oder aktualisiert eine Umgebungsvariable für alle Aktionen, die als n�
 ``` bash
 echo "::set-env name=action_state::yellow"
 ```
+{% endif %}
 
 ### Setting an output parameter
 
@@ -101,6 +114,7 @@ Optional kannst Du auch Ausgabeparameter in der Metadaten-Datei einer Aktion dek
 echo "::set-output name=action_fruit::strawberry"
 ```
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Adding a system path
 
 `::add-path::{path}`
@@ -112,12 +126,13 @@ Fügt für alle nachfolgenden Aktionen im aktuellen Auftrag vor der Systemvariab
 ``` bash
 echo "::add-path::/path/to/dir"
 ```
+{% endif %}
 
 ### Setting a debug message
 
 `::debug::{message}`
 
-Gibt eine Debugging-Meldung im Protokoll aus. Sie müssen ein Geheimnis mit dem Namen `ACTIONS_STEP_DEBUG` und dem Wert `true` erstellen, um die durch diesen Befehl festgelegten Debugging-Meldungen im Protokoll zu sehen. Weitere Informationen findest Du unter „[Eine Workflow-Ausführung verwalten](/actions/configuring-and-managing-workflows/managing-a-workflow-run#enabling-debug-logging)“.
+Gibt eine Debugging-Meldung im Protokoll aus. Sie müssen ein Geheimnis mit dem Namen `ACTIONS_STEP_DEBUG` und dem Wert `true` erstellen, um die durch diesen Befehl festgelegten Debugging-Meldungen im Protokoll zu sehen. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
 #### Beispiel
 
@@ -148,6 +163,25 @@ Erstellt eine Fehlermeldung und fügt die Mitteilung in das Protokoll ein. Optio
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### Beispiel
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
 ### Masking a value in log
 
@@ -213,3 +247,79 @@ Die Variable `STATE_processID` ist dann exklusiv für das Bereinigungsskript ver
 ``` javascript
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Environment Files
+
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+
+{% warning %}
+
+**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+
+```yaml
+steps:
+  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+```
+
+{% endwarning %}
+
+### Setting an environment variable
+
+`echo "{name}={value}" >> $GITHUB_ENV`
+
+Erstellt oder aktualisiert eine Umgebungsvariable für alle Aktionen, die als nächstes in einem Auftrag ausgeführt werden. Die Aktion, die die Umgebungsvariable erstellt oder aktualisiert, kann nicht auf den neuen Wert zugreifen; alle nachfolgenden Aktionen in einem Auftrag haben dagegen Zugriff auf den neuen Wert. Bei Umgebungsvariablen wird die Groß- und Kleinschreibung berücksichtigt. Sie können auch Satzzeichen enthalten.
+
+#### Beispiel
+
+{% raw %}
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+#### Multiline strings
+
+For multiline strings, you may use a delimiter with the following syntax.
+
+```
+{name}<<{delimiter}
+{value}
+{delimiter}
+```
+
+##### Beispiel
+
+In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
+```yaml
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+        curl https://httpbin.org/json >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+```
+
+### Adding a system path
+
+`echo "{path}" >> $GITHUB_PATH`
+
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
+
+#### Beispiel
+
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
+``` bash
+echo "$HOME/.local/bin" >> $GITHUB_PATH
+```
+{% endif %}

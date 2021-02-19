@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中嵌入项目
-intro: '您可以将 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}Gist 和{% endif %}仓库嵌入您的个人资料中，以便其他人能够快速查看您的最佳作品。'
+intro: '您可以将 Gist 和仓库置顶在个人资料中，使其他人可以很快看到您的得意之作。'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
@@ -11,7 +11,7 @@ versions:
 
 您可以嵌入您拥有的或者对其做出了贡献的公共仓库。 对复刻的提交不计为贡献，因此不能嵌入非自己所有的复刻。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
 
-You can pin any public gist you own.
+您可以置顶自己的任何公开 Gist。
 
 固定项包括有关项目的重要信息，例如仓库收到的星标数或 Gist 的前几行。 在将项目嵌入到个人资料后，个人资料中的“Pinned（已嵌入）”部分将替换“Popular repositories（常用仓库）”部分。
 

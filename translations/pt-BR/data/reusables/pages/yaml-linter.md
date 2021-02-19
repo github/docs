@@ -1,1 +1,1 @@
-To identify any errors, you can copy and paste the contents of your YAML file into a YAML linter, such as [YAML Validator](http://codebeautify.org/yaml-validator).
+Para identificar quaisquer erros, você pode copiar e colar o conteúdo do seu arquivo YAML em um linter de YAML, como, por exemplo, [YAML Validator](http://codebeautify.org/yaml-validator).

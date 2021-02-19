@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Action development'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,9 +21,9 @@ Nachdem Sie dieses Projekt abgeschlossen haben, sollten Sie verstehen, wie Sie I
 
 ### Vorrausetzungen
 
-Bevor Sie beginnen, erstellen Sie ein {% data variables.product.product_name %} Repository.
+Before you begin, you'll create a {% data variables.product.product_name %} repository.
 
-1. Erstellen Sie ein neues öffentliches Repository auf {% data variables.product.product_location %}. Sie können einen beliebigen Repository-Namen auswählen oder die folgenden `hello-world-composite-run-steps-action` Beispiel verwenden. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {% data variables.product.product_name %} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
+1. Create a new public repository on {% data variables.product.product_location %}. Sie können einen beliebigen Repository-Namen auswählen oder die folgenden `hello-world-composite-run-steps-action` Beispiel verwenden. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
 
 1. Clone Dein Repository auf Deinen Computer. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
@@ -36,7 +39,7 @@ Bevor Sie beginnen, erstellen Sie ein {% data variables.product.product_name %} 
   echo "Auf Wiedersehen"
   ```
 
-1. Machen Sie von Ihrem Terminal aus `goodbye.sh` ausführbare Datei und checken Sie sie in Ihr Repository ein.
+3. From your terminal, make `goodbye.sh` executable.
 
   ```shell
   chmod +x goodbye.sh
@@ -56,26 +59,26 @@ Bevor Sie beginnen, erstellen Sie ein {% data variables.product.product_name %} 
     {% raw %}
     **action.yml**
     ```yaml
-    Name: 'Hello World'
-    Beschreibung: 'Greet someone'
+    name: 'Hello World'
+    description: 'Greet someone'
     inputs:
-      who-to-greet: 'id of input
+      who-to-greet:  # id of input
         description: 'Who to greet'
         required: true
         default: 'World'
     outputs:
-      zuzufällige Zahl: 
-        Beschreibung: "Zufallszahl"
-        Wert:{{ steps.random-number-generator.outputs.random-id }}
-    läuft:
-      mit: "composite"
-      Schritten: 
-        - laufen:{{ inputs.who-to-greet }}echo
+      random-number:
+        description: "Random number"
+        value: ${{ steps.random-number-generator.outputs.random-id }}
+    runs:
+      using: "composite"
+      steps:
+        - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::'(echo $RANDOM)"
+          run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: '{{ github.action_path }}/goodbye.sh
+        - run: ${{ github.action_path }}/goodbye.sh
           shell: bash
     ```
     {% endraw %}
@@ -85,31 +88,44 @@ Bevor Sie beginnen, erstellen Sie ein {% data variables.product.product_name %} 
 
   Weitere Informationen zur Verwendung von `github.action_path`finden Sie unter "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. Erstellen Sie eine neue Bezeichnung. In diesem Beispiel wird eine Bezeichnung mit dem Namen `v1` für den Hauptzweig verwendet. Weitere Informationen finden Sie unter "[Erstellen einer Bezeichnung ](/github/managing-your-work-on-github/creating-a-label)."
+1. From your terminal, check in your `action.yml` file.
+
+  ```shell
+  git add action.yml
+  git commit -m "Add action"
+  git push
+  ```
+
+1. From your terminal, add a tag. This example uses a tag called `v1`. Weitere Informationen finden Sie unter „[Informationen zu Aktionen](/actions/creating-actions/about-actions#using-release-management-for-actions)“.
+
+  ```shell
+  git tag -a -m "Description of this release" v1
+  git push --follow-tags
+  ```
 
 ### Deine Aktion in einem Workflow testen
 
 Der folgende Workflowcode verwendet die abgeschlossene Hello-World-Aktion, die Sie in "[Erstellen einer Aktionsmetadatendatei](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)" ausgeführt haben.
 
-Kopieren Sie den Workflowcode in eine `.github/workflows/main.yml` Datei in einem anderen Repository, ersetzen Sie jedoch `actions/hello-world-composite-run-steps-action@v1` durch das Repository und die Von Ihnen erstellte Bezeichnung. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
 
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-zu: [push]
+on: [push]
 
-Jobs:
+jobs:
   hello_world_job:
-    läuft auf: ubuntu-latest
-    Name: Ein Job, um Hallo zu sagen
-    Schritte:
-    - verwendet: aktionen/checkout@v2
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - uses: actions/checkout@v2
     - id: foo
-      verwendet: actions/hello-world-composite-run-steps-action@v1
-      mit:
+      uses: actions/hello-world-composite-run-steps-action@v1
+      with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-{{ steps.foo.outputs.random-number }} 
-      number
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      shell: bash
 ```
 {% endraw %}
 

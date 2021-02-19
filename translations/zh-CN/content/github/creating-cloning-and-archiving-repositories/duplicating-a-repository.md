@@ -1,12 +1,13 @@
 ---
 title: 复制仓库
-intro: 要复制存储库而不对其进行复制，可以运行特殊克隆命令，然后镜像推送到新仓库。
+intro: '要复制存储库而不对其进行复刻，可以运行特殊克隆命令，然后镜像推送到新仓库。'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在复制仓库和和推送到仓库的新副本或_镜像_之前，必须在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository)。 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。

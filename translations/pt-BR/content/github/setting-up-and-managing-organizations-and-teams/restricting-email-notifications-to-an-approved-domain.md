@@ -9,13 +9,19 @@ versions:
   free-pro-team: '*'
 ---
 
-Quando as restrições das notificações de e-mail são habilitadas na organização, os integrantes só conseguem receber notificações de e-mail sobre atividades da organização em um endereço de e-mail associado ao domínio verificado da organização. Para obter mais informações, consulte "[Verificar o domínio da sua organização](/articles/verifying-your-organization-s-domain)".
+### Sobre restrições de e-mail
+
+Quando notificações de e-mail restritas são habilitadas em uma organização, os integrantes só podem usar um endereço de e-mail associado aos domínios verificados da organização para receber notificações de e-mail sobre a atividade da organização. Para obter mais informações, consulte "[Verificar o domínio da sua organização](/articles/verifying-your-organization-s-domain)".
 
 Os colaboradores externos não estão sujeitos a restrições de notificações por e-mail para domínios verificados. Para obter mais informações sobre colaboradores externos, consulte "[Níveis de permissão para uma organização](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)".
+
+Se a sua organização pertencer a uma conta corporativa, os integrantes da organização poderão receber notificações sobre quaisquer domínios verificados para a conta corporativa, além de quaisquer domínios verificados para a organização. Para obter mais informações, consulte "[Verificar o domínio da sua conta corporativa](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)".
+
+### Restringir notificações de e-mail para um domínio aprovado
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.verified-domains %}
-5. Em "Enforcement preferences" (Preferências de aplicação), selecione **Restrict email notifications to domain email** (Restringir notificações de e-mail aos e-mails do domínio). ![Caixa de seleção para restringir as notificações de e-mail aos e-mails do domínio verificado](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
+{% data reusables.organizations.restrict-email-notifications %}
 6. Clique em **Salvar**.

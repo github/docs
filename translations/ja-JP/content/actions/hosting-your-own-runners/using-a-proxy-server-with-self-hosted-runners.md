@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 環境変数を利用したプロキシサーバーの設定
 
@@ -37,7 +38,7 @@ Windowsマシンで、プロキシ環境変数名で大文字小文字は区別�
 
 以下に_.env_プロキシ設定の例を示します。
 
-```
+```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

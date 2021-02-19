@@ -1,1 +1,1 @@
-1. In the Okta Dashboard, click **Applications**. !["Applications" item in the Okta Dashboard navigation bar](/assets/images/help/saml/okta-applications.png)
+1. No painel do Okta, clique em **Aplicativos**. ![Item "Aplicativos" na barra de navegação do Painel do Okta](/assets/images/help/saml/okta-applications.png)

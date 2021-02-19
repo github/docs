@@ -1,41 +1,42 @@
 ---
-title: Using content attachments
-intro: Content attachments allow a GitHub App to provide more information in GitHub for URLs that link to registered domains. GitHub renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+title: 添付コンテンツを使用する
+intro: 添付コンテンツを使うと、GitHub Appは登録されたドメインにリンクするURLに対し、GitHub内でより多くの情報を提供できます。 GitHubは、アプリケーションから提供された情報を、IssueやPull Requestのボディやコメント内のURLの下に表示します。
 redirect_from:
   - /apps/using-content-attachments
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-### About content attachments
+### 添付コンテンツについて
 
-A GitHub App can register domains that will trigger `content_reference` events. When someone includes a URL that links to a registered domain in the body or comment of an issue or pull request, the app receives the [`content_reference` webhook](/webhooks/event-payloads/#content_reference). You can use content attachments to visually provide more context or data for the URL added to an issue or pull request. The URL must be a fully-qualified URL, starting with either `http://` or `https://`. URLs that are part of a markdown link are ignored and don't trigger the `content_reference` event.
+GitHub Appは、`content_reference`イベントをトリガーするドメインを登録できます。 Issueまたはプルリクエストの、ボディまたはコメントに、登録されたドメインにリンクするURLが含まれている場合、アプリケーションは[`content_reference` webhook](/webhooks/event-payloads/#content_reference)を受け取ります。 添付コンテンツを使用して、Issueまたはプルリクエストに追加したURLについてのコンテキストやデータを視覚的に追加できます。 URLは、`http://`または`https://`から始まる、完全修飾URLである必要があります。 Markdownリンクの一部であるURLは無視され、`content_reference`イベントをトリガーしません。
 
-Before you can use the {% data variables.product.prodname_unfurls %} API, you'll need to configure content references for your GitHub App:
-* Give your app `Read & write` permissions for "Content references."
-* Register up to 5 valid, publicly accessible domains when configuring the "Content references" permission. Do not use IP addresses when configuring content reference domains. You can register a domain name (example.com) or a subdomain (subdomain.example.com).
-* Subscribe your app to the "Content reference" event.
+{% data variables.product.prodname_unfurls %} APIを使用する前に、以下を行ってGitHub Appのコンテンツ参照を設定する必要があります。
+* アプリケーションに、[Content references] に対する`Read & write`権限を付与します。
+* [Content references] 権限を設定する際に、一般にアクセス可能なドメインを5つまで登録します。 コンテンツ参照ドメインを設定する際は、IPアドレスは使用しないでください。 ドメイン名 (example.com) またはサブドメイン (subdomain.example.com) を登録できます。
+* アプリケーションを [Content reference] イベントにサブスクライブします。
 
-Once your app is installed on a repository, issue or pull request comments in the repository that contain URLs for your registered domains will generate a content reference event. アプリケーションは、コンテンツ参照URLがポストされてから6時間以内に添付コンテンツを作成しなければなりません。
+アプリケーションがリポジトリにインストールされると、登録されたドメインへのURLが含まれるIssueまたはプルリクエストのコメントでは、コンテンツ参照イベントが生成されます。 アプリケーションは、コンテンツ参照URLがポストされてから6時間以内に添付コンテンツを作成しなければなりません。
 
-Content attachments will not retroactively update URLs. It only works for URLs added to issues or pull requests after you configure the app using the requirements outlined above and then someone installs the app on their repository.
+添付コンテンツが、URLを遡って更新することはありません。 上記でまとめた要件に従ってアプリケーションを設定した後に、ユーザがリポジトリにアプリケーションをインストールしてから、Issueまたはプルリクエストに追加したURLに対してのみ機能します。
 
-See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" or "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" for the steps needed to configure GitHub App permissions and event subscriptions.
+GitHub App の権限やイベントのサブスクリプションを設定するために必要なステップに関する詳しい情報については、「<[GitHub App を作成する](/apps/building-github-apps/creating-a-github-app/)」または「[GitHub App の権限を編集する](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
-### Implementing the content attachment flow
+### 添付コンテンツフローを実装する
 
-The content attachment flow shows you the relationship between the URL in the issue or pull request, the `content_reference` webhook event, and the REST API endpoint you need to call to update the issue or pull request with additional information:
+添付コンテンツのフローは、IssueもしくはPull Request中のURL、`content_reference` webhookイベント、追加情報でIssueもしくはPull Requestを更新するために呼ぶ必要があるREST APIエンドポイント間の関係を示します。
 
-**Step 1.** Set up your app using the guidelines outlined in [About content attachments](#about-content-attachments). You can also use the [Probot App example](#example-using-probot-and-github-app-manifests) to get started with content attachments.
+**ステップ 1.** [添付コンテンツについて](#about-content-attachments)に記載されているガイドラインに従ってアプリケーションを設定します。 添付コンテンツを使い始めるには、[Probotアプリケーションのサンプル](#example-using-probot-and-github-app-manifests)を使うこともできます。
 
-**Step 2.** Add the URL for the domain you registered to an issue or pull request. You must use a fully qualified URL that starts with `http://` or `https://`.
+**ステップ2。**IssueもしくはPull Requestに登録したドメインのURLを追加します。 `http://`もしくは`https://`で始まる完全修飾URLを使わなければなりません。
 
-![URL added to an issue](/assets/images/github-apps/github_apps_content_reference.png)
+![Issueに追加されたURL](/assets/images/github-apps/github_apps_content_reference.png)
 
-**Step 3.** Your app will receive the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) with the action `created`.
+**ステップ3。**アプリケーションは`created`アクション付きで[`content_reference` webhook](/webhooks/event-payloads/#content_reference)を受信します。
 
 ``` json
 {
@@ -54,12 +55,12 @@ The content attachment flow shows you the relationship between the URL in the is
 }
 ```
 
-**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/v3/apps/installations/#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**ステップ4。**アプリケーションはREST APIを使って[添付コンテンツを作成する](/rest/reference/apps#create-a-content-attachment)ために`content_reference` `id`を使います。 [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 
-The `body` parameter can contain markdown:
+`body`パラメータにはMarkdownが含まれていることがあります。
 
     ```shell
     curl -X POST \
@@ -72,14 +73,14 @@ The `body` parameter can contain markdown:
     }'
     ```
 
-For more information about creating an installation token, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
+インストールトークンの作成に関する詳しい情報については「[GitHub Appとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-**Step 5.** You'll see the new content attachment appear under the link in a pull request or issue comment:
+**ステップ5。** Pull RequestもしくはIssueコメント内のリンクの下に、新しい添付コンテンツが表示されます。
 
-![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/github_apps_content_reference_attachment.png)
 
-### Using content attachments in GraphQL
-We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
+### GraphQLでの添付コンテンツの利用
+[`content_reference` webhook](/webhooks/event-payloads/#content_reference)イベント中で`node_id`を提供しているので、GraphQL APIの`createContentAttachment`ミューテーションを参照できます。
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -103,7 +104,7 @@ mutation {
   }
 }
 ```
-Example cURL:
+cURLの例:
 
 ```shell
 curl -X "POST" "https://api.github.com/graphql" \
@@ -115,25 +116,25 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs](/v4/guides/using-global-node-ids/)."
+`node_id`の詳しい情報については「[グローバルノードIDの利用](/graphql/guides/using-global-node-ids)」を参照してください。
 
-### Example using Probot and GitHub App Manifests
+### ProbotとGitHub Appマニフェストの利用例
 
-To quickly setup a GitHub App that can use the {% data variables.product.prodname_unfurls %} API, you can use [Probot](https://probot.github.io/). See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" to learn how Probot uses GitHub App Manifests.
+{% data variables.product.prodname_unfurls %} APIを使用できるGitHub Appを手早くセットアップするには、[Probot](https://probot.github.io/)が利用できます。 ProbotがどのようにGitHub Appのマニフェストを使用するかを学ぶには、「[マニフェストからのGitHub Appの作成](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
 
-To create a Probot App, follow these steps:
+Probotアプリケーションを作成するには、以下のステップに従ってください。
 
-1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
-2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
+1. [新しい GitHub App を作成](https://probot.github.io/docs/development/#generating-a-new-app)します。
+2. 作成したプロジェクトを開き、 `app.yml` ファイルの設定をカスタマイズします。 `content_reference`イベントをサブスクライブし、`content_references`の書き込み権限を有効化してください。
 
    ``` yml
 
     default_events:
     - content_reference
-    # The set of permissions needed by the GitHub App. The format of the object uses
-    # the permission name for the key (for example, issues) and the access type for
-    # the value (for example, write).
-    # Valid values are `read`, `write`, and `none`
+    # GitHub Appが必要とする権限セット。 このオブジェクトのフォーマットは、
+    # キーの権限名（たとえばissues）と値のためのアクセスの
+    # 種類（たとえばwrite）を使います。
+    # 取り得る値は `read`、`write`、`none`
     default_permissions:
       content_references: write
 
@@ -144,34 +145,34 @@ To create a Probot App, follow these steps:
       value: example.org
    ```
 
-3. Add this code to the `index.js` file to handle `content_reference` events and call the REST API:
+3. このコードを`index.js` ファイルに追加して、`content_reference`を処理してREST APIを呼ぶようにします。
 
     ``` javascript
     module.exports = app => {
-      // Your code here
+      // ここにコードを書く
       app.log('Yay, the app was loaded!')
        app.on('content_reference.created', async context => {
         console.log('Content reference created!', context.payload)
-         // Call the "Create a content reference" REST endpoint
+         // "Create a content reference" RESTエンドポイントを呼ぶ
         await context.github.request({
           method: 'POST',
           headers: { accept: 'application/vnd.github.corsair-preview+json' },
           url: `/content_references/${context.payload.content_reference.id}/attachments`,
-          // Parameters
+          // パラメータ
           title: '[A-1234] Error found in core/models.py file',
           body: 'You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\nself.save()'
         })
       })
-    }
+    }body
     ```
 
-4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to [localhost:3000](http://localhost:3000), and click the **Register GitHub App** button:
+4. [GitHub Appをローカルで動作させます](https://probot.github.io/docs/development/#running-the-app-locally)。 `http://localhost:3000`にアクセスして、**Register GitHub App**ボタンをクリックしてください。
 
-   ![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
+   ![Probot GitHub App の登録](/assets/images/github-apps/github_apps_probot-registration.png)
 
-5. Install the app on a test repository.
-6. Create an issue in your test repository.
-7. Add a comment to the issue you opened that includes the URL you configured in the `app.yml` file.
-8. Take a look at the issue comment and you'll see an update that looks like this:
+5. テストリポジトリにアプリケーションをインストールしてください。
+6. テストリポジトリでIssueを作成してください。
+7. オープンしたIssueに`app.yml`ファイルで設定したURLを含むコメントを追加してください。
+8. Issueのコメントを見ると、以下のように更新されています。
 
-   ![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/github_apps_content_reference_attachment.png)

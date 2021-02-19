@@ -8,12 +8,16 @@ versions:
 
 ### About billing for {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 Minutes reset every month, while storage usage does not.
 
-| 제품                                                                       | Storage | Minutes (per month) |
-| ------------------------------------------------------------------------ | ------- | ------------------- |
+| 제품                                                                  | Storage | Minutes (per month) |
+| ------------------------------------------------------------------- | ------- | ------------------- |
 | {% data variables.product.prodname_free_user %}                   | 500 MB  | 2,000               |
 | {% data variables.product.prodname_pro %}                           | 1 GB    | 3,000               |
 | {% data variables.product.prodname_free_team %} for organizations | 500 MB  | 2,000               |
@@ -44,14 +48,14 @@ The storage used by a repository is the total storage used by {% data variables.
 | macOS            | $0.08           |
 | Windows          | $0.016          |
 
-The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)."
+The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 ### Calculating minute and storage spending
 
 At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account. For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56, depending on the operating systems used to run jobs.
 
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 ($24 + $32).
-  - 3,000 Linux minutes at $0.008 per = $24.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2,000 Windows minutes at $0.016 per minute = $32.
 
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
@@ -69,8 +73,8 @@ Your {% data variables.product.prodname_actions %} usage shares your account's e
 
 ### About spending limits
 
-By default, your account will have a spending limit of $0 for {% data variables.product.prodname_actions %} usage. To enable using minutes and storage for private repositories beyond the amounts included with your account, you can increase the spending limit or allow unlimited spending. For more information, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

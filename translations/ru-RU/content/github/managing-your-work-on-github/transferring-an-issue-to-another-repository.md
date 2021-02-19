@@ -5,14 +5,15 @@ redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 To transfer an open issue to another repository, you must have write permissions on the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
-You can only transfer issues between repositories owned by the same user or organization account. You can't transfer an issue from a private repository to a public repository.
+You can only transfer issues between repositories owned by the same user or organization account. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
-When you transfer an issue, comments and assignees are retained. The issue's labels{% if currentVersion ver_lt "enterprise-server@2.19" %}, projects,{% endif %} and milestones are not retained.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."{% endif %}
+When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
 
 People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 

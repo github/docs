@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以拖放或使用键盘快捷键对列中的卡片重新排序，在不同列之间移动卡片，以及更改列的顺序。
@@ -59,7 +60,7 @@ versions:
 ### 延伸阅读
 
 - "[创建项目板](/articles/creating-a-project-board)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- “[编辑项目板](/articles/editing-a-project-board)”{% if currentVersion == "free-pro-team@latest" %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"

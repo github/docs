@@ -29,13 +29,15 @@ versions:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 在 OpenStack Horizon 中，上传您下载的 {% data variables.product.prodname_ghe_server %} 映像。 For instructions, see the "Upload an image" section of the OpenStack guide "[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)."
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the OpenStack guide "[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)."
+1. 在 OpenStack Horizon 中，上传
+
+您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 OpenStack 指南“[上传和管理图像](https://docs.openstack.org/horizon/latest/user/manage-images.html)”的“上传图像”部分。
+{% data reusables.enterprise_installation.create-attached-storage-volume %}有关说明，请参阅 OpenStack 指南“[创建和管理卷](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)”。
 3. 创建安全组，并为下表中的各个端口添加新的安全组规则。 有关说明，请参阅 OpenStack 指南“[为实例配置访问和安全](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)”。
 
   {% data reusables.enterprise_installation.necessary_ports %}
 4. 也可以将浮动 IP 关联到实例。 根据 OpenStack 设置，您可能需要将浮动 IP 分配给项目并将其关联到实例。 请联系您的系统管理员以确定您是否属于这种情况。 更多信息请参阅 OpenStack 文档中的“[为实例分配浮动 IP 地址](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)”。
-5. 使用在前几步创建的映像、数据卷和安全组启动 {% data variables.product.product_location_enterprise %}。 有关说明，请参阅 OpenStack 指南“[启动和管理实例](https://docs.openstack.org/horizon/latest/user/launch-instances.html)”。
+5. 使用在前几步创建的映像、数据卷和安全组启动 {% data variables.product.product_location %}。 有关说明，请参阅 OpenStack 指南“[启动和管理实例](https://docs.openstack.org/horizon/latest/user/launch-instances.html)”。
 
 ### 配置 {% data variables.product.prodname_ghe_server %} 实例
 
@@ -47,4 +49,5 @@ versions:
 
 ### 延伸阅读
 
- - "[系统概述](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

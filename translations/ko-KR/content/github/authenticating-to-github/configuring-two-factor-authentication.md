@@ -45,7 +45,9 @@ A time-based one-time password (TOTP) application automatically generates an aut
 8. On the Two-factor authentication page, do one of the following:
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code you can copy and manually enter on {% data variables.product.product_name %} instead. ![Click enter this code](/assets/images/help/2fa/totp-click-enter-code.png)
-9. The TOTP mobile application saves your {% data variables.product.product_name %} account and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, on the 2FA page, type the code and click **Enable**. ![TOTP Enable field](/assets/images/help/2fa/totp-enter-code.png)
+9. The TOTP mobile application saves your
+{% data variables.product.product_name %} account and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, on the 2FA page, type the code and click **Enable**.
+    ![TOTP Enable field](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -82,29 +84,13 @@ On most devices and browsers, you can use a physical security key over USB or NF
 Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
 1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
-2. Ensure that you have a
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}WebAuthn{% else %}FIDO U2F{% endif %} compatible security key inserted into your computer.
+2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. Next to "Security keys", click **Add**. ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
-6. Under "Security keys", click **Register new security key**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
-  {% else %}
-  ![Registering a new FIDO U2F device](/assets/images/help/2fa/register_new_fido_u2f_device.png)
-  {% endif %}
-7. Type a nickname for the security key, then click **Add**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
-  {% else %}
-  ![Providing a nickname for a FIDO U2F device](/assets/images/help/2fa/fido_u2f_nickname.png)
-  {% endif %}
-8. Activate your security key, following your security key's documentation.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
-  {% else %}
-  ![Prompt for a FIDO U2F device](/assets/images/help/2fa/fido_u2f_prompt_key.png)
-  {% endif %}
+6. Under "Security keys", click **Register new security key**. ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
+7. Type a nickname for the security key, then click **Add**. ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
+8. Activate your security key, following your security key's documentation. ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
 9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. If you lose access to your account, you can use your recovery codes to get back into your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)." ![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 

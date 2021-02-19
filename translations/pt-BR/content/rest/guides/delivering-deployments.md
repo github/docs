@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
+  
 
-
-
-A [API de Implantações][deploy API] fornece seus projetos hospedados em {% data variables.product.product_name %} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você poderá coordenar suas implantações no momento em que seu código chegar a `mestre`.
+A [API de Implantações][deploy API] fornece seus projetos hospedados em {% data variables.product.product_name %} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você será capaz de coordenar suas implantações no momento em que seu código chegar ao branch-padrão.
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
@@ -144,7 +145,7 @@ No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implanta
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

@@ -17,7 +17,7 @@ versions:
 
 ### Configuring the first node
 
-1. Connect to the node that will be designated as the `mysql-master` in `cluster.conf`. For more information, see “[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
+1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
 2. In your web browser, visit `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -43,9 +43,9 @@ This example `cluster.conf` defines a cluster with five nodes.
 
 The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
 
-Specify the first cluster node you configured as the MySQL master via `mysql-server` and `mysql-master`.
+Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

@@ -15,7 +15,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Applying the imported data on {% data variables.product.prodname_ghe_server %}
+### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
@@ -106,7 +106,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 失敗したインポートに関する懸念があるなら、{% data variables.contact.contact_ent_support %}に連絡してください。
 
-### Completing the import on {% data variables.product.prodname_ghe_server %}
+### {% data variables.product.prodname_ghe_server %} でインポートを完了する
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. ソースデータを削除する前に、すべてが期待どおりに機能していることを確認するため2週間ほど待つことをおすすめします。
 
@@ -117,7 +117,7 @@ After your migration is applied to your target instance and you have reviewed th
 
 ### ソース上でのリポジトリのアンロック
 
-#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
 {% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
   * 認証のためのアクセストークン
@@ -129,9 +129,9 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/reference/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

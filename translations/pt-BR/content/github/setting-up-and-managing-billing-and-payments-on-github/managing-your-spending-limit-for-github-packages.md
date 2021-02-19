@@ -10,11 +10,15 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
-Você pode definir um limite de gastos mais alto ou, em algumas contas, permitir gastos ilimitados. Se você pagar a conta da organização ou empresa por fatura, você poderá pagar antecipadamente por excessos para definir um limite de despesas mais elevado. O limite de gastos aplica-se aos seus excessos conjuntos para {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}. Para obter mais informações sobre preços para o uso de {% data variables.product.prodname_registry %}, consulte "[Sobre cobranças para o {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-spending-limit-brief %}
 
-Assim que você definir um limite de gastos acima de $0, você será responsável por quaisquer excessos ocorridos no passado. Por exemplo, se a sua organização usa o {% data variables.product.prodname_team %}, não permite excessos, e publica uma nova versão de um pacote privado que aumenta seu uso de armazenamento para o mês de 1.9GB para 2.1GB, a publicar a versão, você usará um pouco mais de armazenamento do que os 2GB que seu produto inclui.
+{% data reusables.actions.actions-packages-set-spending-limit %} Para obter mais informações sobre os preços para uso de {% data variables.product.prodname_registry %}, consulte "[Sobre cobrança para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
 
-Como você não ativou os excessos, sua próxima tentativa de publicar uma versão do pacote irá falhar. Você não receberá uma fatura pelo excesso de 0.1GB naquele mês. No entanto, se você habilitar excessos em um mês futuro, sua primeira fatura incluirá o 0.1 GB de excesso do passado, além de qualquer excesso para o ciclo de faturamento atual.
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+
+Assim que você definir um limite de gastos diferente de $ 0, você será responsável por todos os excedentes existentes no período de cobrança atual. Por exemplo, se a sua organização usa o {% data variables.product.prodname_team %}, não permite excessos, e publica uma nova versão de um pacote privado que aumenta seu uso de armazenamento para o mês de 1.9GB para 2.1GB, a publicar a versão, você usará um pouco mais de armazenamento do que os 2GB que seu produto inclui.
+
+Como você não ativou os excessos, sua próxima tentativa de publicar uma versão do pacote irá falhar. Você não receberá uma fatura pelo excesso de 0.1GB naquele mês. No entanto, se você habilitar os excedentes, a sua primeira conta incluirá o 0,1 GB do excedente existente para o ciclo de cobrança atual, bem como qualquer superação adicional que você acumular.
 
 ### Gerenciando o limite de gastos de {% data variables.product.prodname_registry %} para sua conta de usuário
 
@@ -30,8 +34,6 @@ Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.p
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_registry %} para uma organização.
 
-Se você pagar pela conta da organização por fatura, você não poderá gerenciar o limite de gastos para a conta corporativa em {% data variables.product.product_name %}. Se desejar permitir que repositórios pertencentes à sua organização usem o {% data variables.product.prodname_registry %} além do armazenamento ou da transferência de dados incluída em cada repositório, você pode efetuar um pré-pagamento por excessos. Como os excessos devem ser pagos antecipadamente, você não pode permitir gastos ilimitados em contas pagas por fatura. Seu limite de gastos será de 150% do valor que você pagou antecipadamente. Se tiver alguma dúvida, [entre em contato com nossa equipe de gerenciamento de conta](https://enterprise.github.com/contact).
-
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -44,11 +46,11 @@ Se você pagar pela conta da organização por fatura, você não poderá gerenc
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_registry %} para uma conta corporativa.
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Em "{% data variables.product.prodname_actions %} e Pacotes de uso mensal", clique em **Gestão de custos**. ![Aba de gestão de custos](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Em "
+{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Gestão de custo**.
+  ![Aba de gestão de custos](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

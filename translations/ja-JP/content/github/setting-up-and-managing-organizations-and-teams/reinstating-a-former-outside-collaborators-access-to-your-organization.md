@@ -1,15 +1,16 @@
 ---
 title: 以前の外部のコラボレータの Organization へのアクセスを復帰させる
-intro: Organization で 2 要素認証を要求しており、外部コラボレーターが 2 要素認証を有効化していないために Organization から削除された場合、以前の外部コラボレーターの Organization リポジトリへのアクセス権、フォーク、設定を復帰させることができます。
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-[メンバーと外部コラボレーターに 2 要素認証を有効化するよう要求](/articles/requiring-two-factor-authentication-in-your-organization)したために Organization のプライベートリポジトリへの 外部コラボレーターのアクセスが削除される場合、そのユーザのアクセス権限と設定は 3 か月間保存されます。 そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -24,7 +25,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
  - 外部コラボレーターの Organization へのアクセスを復帰させることができるのは、Organization のオーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
  - {% data variables.product.product_location %} のメンバー復帰フローでは、外部コラボレーターの復帰を説明するために「メンバー」という用語を使用することがありますが、この個人を復帰させて以前の権限を保持しても、付与されるのはその[外部コラボレーターの以前の権限](/articles/permission-levels-for-an-organization/#outside-collaborators)のみです。{% if currentVersion == "free-pro-team@latest" %}
  - Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳しい情報については、「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。{% endif %}

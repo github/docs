@@ -21,7 +21,11 @@ versions:
 
 As ações podem comunicar-se com a máquina do executor para definir as variáveis de ambiente, valores de saída usados por outras ações, adicionar mensagens de depuração aos registros de saída e outras tarefas.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+A maioria dos comandos de fluxo de trabalho usa o comando `echo` em um formato específico, enquanto outros são chamados escrevendo um arquivo. Para obter mais informações, consulte ["Arquivos de ambiente".](#environment-files)
+{% else %}
 Os comandos do gluxo de trabalho usam o comando `echo` em um formato específico.
+{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -41,40 +45,48 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 ### Usar comandos do fluxo de trabalho para acessar funções do kit de de ferramentas
 
-O [actions/toolkit](https://github.com/actions/toolkit) inclui uma quantidade de funções que podem ser executadas como comandos do fluxo de trabalho. Use a sintaxe `::` para executar os comandos do fluxo de trabalho no arquivo YAML. Em seguida, esses comandos serão enviados para a o executor por meio do `stdout`. Por exemplo, em vez de usar o código para definir uma variável de ambiente, como abaixo:
+O [actions/toolkit](https://github.com/actions/toolkit) inclui uma quantidade de funções que podem ser executadas como comandos do fluxo de trabalho. Use a sintaxe `::` para executar os comandos do fluxo de trabalho no arquivo YAML. Em seguida, esses comandos serão enviados para a o executor por meio do `stdout`. Por exemplo, em vez de usar o código para definir uma saída, como abaixo:
 
 ```javascript
-core.exportVariable('SELECTED_COLOR', 'green');
+core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-Você pode usar o comando `set-env` no seu fluxo de trabalho para definir o mesmo valor:
+Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o mesmo valor:
 
+{% raw %}
 ``` yaml
-      - nome: Define a cor selecionada
-        executar: echo '::set-env name=SELECTED_COLOR::green'
-      - nome: Get color
-        executar: echo 'A cor selecionada é ' $SELECTED_COLOR
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
-| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                         |
-| ---------------------------- | ---------------------------------------------------------------- |
-| `core.addPath`               | `add-path`                                                       |
-| `core.debug`                 | `debug`                                                          |
-| `core.error`                 | `erro`                                                           |
-| `core.endGroup`              | `endgroup`                                                       |
-| `core.exportVariable`        | `set-env`                                                        |
-| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
-| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
-| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
-| `core.saveState`             | `save-state`                                                     |
-| `core.setFailed`             | Usado como um atalho para `::error` e `exit 1`                   |
-| `core.setOutput`             | `set-output`                                                     |
-| `core.setSecret`             | `add-mask`                                                       |
-| `core.startGroup`            | `grupo`                                                          |
-| `core.warning`               | `arquivo de aviso`                                               |
+| Função do kit de ferramentas                                                                                                                                                        | Comando equivalente do fluxo de trabalho                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `core.addPath`                                                                                                                                                                      |                                                                  |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                                                  |
+|                                                                                                                                                                                     |                                                                  |
+| `core.debug`                                                                                                                                                                        | `debug`                                                          |
+| `core.error`                                                                                                                                                                        | `erro`                                                           |
+| `core.endGroup`                                                                                                                                                                     | `endgroup`                                                       |
+| `core.exportVariable`                                                                                                                                                               |                                                                  |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}   |                                                                  |
+|                                                                                                                                                                                     |                                                                  |
+| `core.getInput`                                                                                                                                                                     | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
+| `core.getState`                                                                                                                                                                     | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
+| `core.isDebug`                                                                                                                                                                      | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
+| `core.saveState`                                                                                                                                                                    | `save-state`                                                     |
+| `core.setFailed`                                                                                                                                                                    | Usado como um atalho para `::error` e `exit 1`                   |
+| `core.setOutput`                                                                                                                                                                    | `set-output`                                                     |
+| `core.setSecret`                                                                                                                                                                    | `add-mask`                                                       |
+| `core.startGroup`                                                                                                                                                                   | `grupo`                                                          |
+| `core.warning`                                                                                                                                                                      | `arquivo de aviso`                                               |
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Definir uma variável de ambiente
 
 `::set-env name={name}::{value}`
@@ -86,6 +98,7 @@ Cria ou atualiza uma variável de ambiente para quaisquer ações a serem execut
 ``` bash
 echo "::set-env name=action_state::yellow"
 ```
+{% endif %}
 
 ### Definir um parâmetro de saída
 
@@ -101,6 +114,7 @@ Opcionalmente, você também pode declarar os parâmetros de saída no arquivo d
 echo "::set-output name=action_fruit::strawberry"
 ```
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Adicionar um caminho do sistema
 
 `::add-path::{path}`
@@ -112,12 +126,13 @@ Agrega um diretório à variável de sistema `PATH` para todas as ações subseq
 ``` bash
 echo "::add-path::/path/to/dir"
 ```
+{% endif %}
 
 ### Configurar uma mensagem de depuração
 
 `::debug::{message}`
 
-Imprime uma mensagem de erro no log. Você deve criar um segredo nomeado `ACTIONS_STEP_DEBUG` com o valor `true` para ver as mensagens de erro configuradas por esse comando no log. Para obter mais informações, consulte "[Gerenciar a execução de fluxos de trabalho](/actions/configuring-and-managing-workflows/managing-a-workflow-run#enabling-debug-logging)".
+Imprime uma mensagem de erro no log. Você deve criar um segredo nomeado `ACTIONS_STEP_DEBUG` com o valor `true` para ver as mensagens de erro configuradas por esse comando no log. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging)".
 
 #### Exemplo
 
@@ -141,13 +156,32 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 `::error file={name},line={line},col={col}::{message}`
 
-Cria uma mensagem de erro e a imprime no log. Como opção, você pode fornecer um nome de arquivo (`file`), número de linha (`line`) e número de coluna (`col`) onde o aviso ocorreu.
+Cria uma mensagem de erro e a imprime no log. Cria uma mensagem de erro e a imprime no log. Como opção, você pode fornecer um nome de arquivo (`file`), número de linha (`line`) e número de coluna (`col`) onde o aviso ocorreu.
 
 #### Exemplo
 
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### Agrupar linhas dos registros
+
+```
+::group::{title}
+::endgroup::
+```
+
+Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
+
+#### Exemplo
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
 
 ### Mascarar um valor no registro
 
@@ -213,3 +247,79 @@ A variável `STATE_processID` está exclusivamente disponível para o script de 
 ``` javascript
 console.log("O PID em execução a partir da ação principal é: " +  process.env.STATE_processID);
 ```
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Arquivos de Ambiente
+
+Durante a execução de um fluxo de trabalho, o executor gera arquivos temporários que podem ser usados para executar certas ações. O caminho para esses arquivos são expostos através de variáveis de ambiente. Você precisará usar a codificação UTF-8 ao escrever para esses arquivos para garantir o processamento adequado dos comandos. Vários comandos podem ser escritos no mesmo arquivo, separados por novas linhas.
+
+{% warning %}
+
+**Aviso:** O Powershell não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
+
+```yaml
+steps:
+  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+```
+
+{% endwarning %}
+
+### Definir uma variável de ambiente
+
+`echo "{name}={value}" >> $GITHUB_ENV`
+
+Cria ou atualiza uma variável de ambiente para quaisquer ações a serem executadas em seguida no trabalho. A ação que cria ou atualiza a variável de ambiente não tem acesso a um valor novo, mas todas as ações subsequentes em um trabalho terão. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
+
+#### Exemplo
+
+{% raw %}
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+#### Strings de linha múltipla
+
+Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
+
+```
+{name}<<{delimiter}
+{value}
+{delimiter}
+```
+
+##### Exemplo
+
+Neste exemplo, usamos `EOF` como um delimitador e definimos a variável de ambiente `JSON_RESPONSE` como o valor da resposta de curl.
+```yaml
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+        curl https://httpbin.org/json >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+```
+
+### Adicionar um caminho do sistema
+
+`echo "{path}" >> $GITHUB_PATH`
+
+Prepara um diretório para a variável `PATH` do sistema e o torna disponível para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
+
+#### Exemplo
+
+Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
+
+``` bash
+echo "$HOME/.local/bin" >> $GITHUB_PATH
+```
+{% endif %}

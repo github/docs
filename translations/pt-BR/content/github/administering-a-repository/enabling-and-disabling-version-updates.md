@@ -10,17 +10,13 @@ versions:
 
 ### Sobre atualizações de versão para dependências
 
-Você habilita {% data variables.product.prodname_dependabot_version_updates %}, verificando um arquivo de configuração *dependabot.yml* no diretório do seu repositório `.github`. Em seguida, o {% data variables.product.prodname_dependabot_short %} cria um pull request para manter as dependências que você configura atualizadas. Para cada dependência do gerenciador de pacotes que você deseja atualizar, você deve especificar a localização dos arquivos de manifesto do pacote e a frequência de busca por atualizações nas dependências listadas nesses arquivos. Para obter mais informações sobre habilitar atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Você habilita {% data variables.product.prodname_dependabot_version_updates %}, verificando um arquivo de configuração *dependabot.yml* no diretório do seu repositório `.github`. Em seguida, o {% data variables.product.prodname_dependabot %} cria um pull request para manter as dependências que você configura atualizadas. Para cada dependência do gerenciador de pacotes que você deseja atualizar, você deve especificar a localização dos arquivos de manifesto do pacote e a frequência de busca por atualizações nas dependências listadas nesses arquivos. Para obter mais informações sobre habilitar atualizações de segurança, consulte "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 {% data reusables.dependabot.initial-updates %} Para obter mais informações, consulte "[Personalizar atualizações de dependência](/github/administering-a-repository/customizing-dependency-updates)".
 
-### Habilitar o {% data variables.product.prodname_dependabot_version_updates %}
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
 
-{% note %}
-
-{% data reusables.dependabot.private-dependencies %}
-
-{% endnote %}
+### Habilitar {% data variables.product.prodname_dependabot_version_updates %}
 
 {% data reusables.dependabot.create-dependabot-yml %}
 1. Use `package-ecosystem` para especificar os gerenciadores de pacote a monitorar.
@@ -72,7 +68,7 @@ Em uma bifurcação, você também precisa habilitar explicitamente {% data vari
 
 ### Verificando o status das atualizações da versão
 
-Depois que você habilitar as atualizações da versão, você verá uma nova aba **Dependabot** no gráfico de dependências para o repositório. Esta aba mostra quais gerentes de pacote de {% data variables.product.prodname_dependabot %} estão configurados para monitorar e quando {% data variables.product.prodname_dependabot_short %} fez a última verificação com relação a novas versões.
+Depois que você habilitar as atualizações da versão, você verá uma nova aba **Dependabot** no gráfico de dependências para o repositório. Esta aba mostra quais gerentes de pacote de {% data variables.product.prodname_dependabot %} estão configurados para monitorar e quando {% data variables.product.prodname_dependabot %} fez a última verificação com relação a novas versões.
 
 ![Aba de Insights do Repositório, gráfico de dependências, aba Dependabot](/assets/images/help/dependabot/dependabot-tab-view-beta.png)
 

@@ -1,19 +1,20 @@
 ---
 title: Inhalte zur GitHub Pages-Website mit Jekyll hinzufügen
-intro: 'Du kannst Du Deiner Jekyll-Website auf {% data variables.product.prodname_pages %} eine neue Seite oder einen neuen Beitrag hinzufügen.'
+intro: 'Sie können zu Ihrer Jekyll-Website auf {% data variables.product.prodname_pages %} eine neue Seite oder einen neuen Beitrag hinzufügen.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll Inhalte zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.
 
 ### Informationen zu Inhalten von Jekyll-Websites
 
-Bevor Du Inhalte zu einer Jekyll-Website auf {% data variables.product.prodname_pages %} hinzufügen kannst, musst Du eine Jekyll-Website erstellen. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
+Bevor Sie Inhalte zu einer Jekyll-Website auf {% data variables.product.prodname_pages %} hinzufügen können, müssen Sie eine Jekyll-Website erstellen. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
 
 Die hauptsächlichen Arten von Inhalten für Jekyll-Websites sind Seiten und Beiträge. Eine Seite wird für eigenständige Inhalte genutzt, die nicht mit einem bestimmten Datum verknüpft sind, z. B. eine Seite mit Informationen zu Deiner Person oder Organisation. Die standardmäßige Jekyll-Website enthält eine Datei mit dem Namen `about.md`, die als Seite Deiner Website unter `YOUR-SITE-URL/about` angezeigt wird. Du kannst den Inhalt dieser Datei bearbeiten, um Deine Informationsseite zu personalisieren. Die Informationsseite kannst Du außerdem als Vorlage für neue Seiten verwenden. Weitere Informationen findest Du unter „[Pages](https://jekyllrb.com/docs/pages/)“ (Seiten) in der Jekyll-Dokumentation.
 
@@ -50,7 +51,7 @@ Dein Design umfasst standardmäßige Layouts, Includes und Stylesheets, die auto
 4. Erstelle eine neue Datei mit dem Namen _YYYY-MM-DD-NAME-OF-POST.md_, wobei Du _YYYY-MM-DD_ durch das Datum des Beitrags und _NAME-OF-POST_ durch den Namen des Beitrags ersetzt.
 4. Füge den folgenden YAML-Frontmatter oben in der Datei hinzu, und ersetze dabei _POST TITLE_ durch den Titel des Beitrags, _YYYY-MM-DD hh:mm:ss -0000_ durch das Datum und die Uhrzeit für den Beitrag und _CATEGORY-1_ und _CATEGORY-2_ durch so viele Kategorien, wie Dein Beitrag aufweisen soll.
   ```shell
-  layout: page
+  layout: post
   title: "<em>POST TITLE</em>"
   date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
   categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>
@@ -60,6 +61,8 @@ Dein Design umfasst standardmäßige Layouts, Includes und Stylesheets, die auto
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
 ### Nächste Schritte:
 

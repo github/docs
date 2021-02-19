@@ -8,6 +8,9 @@ intro: 'Existem muitos recursos Git e {% data variables.product.product_name %} 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Usar o Git
@@ -22,15 +25,13 @@ O {% data variables.product.prodname_learning %} oferece cursos interativos grá
 
 {% endif %}
 
-Conheça melhor o {% data variables.product.product_name %} por meio de nossos artigos [bootcamp](/categories/bootcamp/). Consulte nosso fluxo [{% data variables.product.prodname_dotcom %} ](https://guides.github.com/introduction/flow) para uma introdução ao processo. Examine as [orientações gerais](https://guides.github.com) para conhecer os conceitos básicos.
+Conheça melhor o {% data variables.product.product_name %} por meio dos nossos [artigos](/categories/getting-started-with-github/). Consulte nosso fluxo [{% data variables.product.prodname_dotcom %} ](https://guides.github.com/introduction/flow) para uma introdução ao processo. Examine as [orientações gerais](https://guides.github.com) para conhecer os conceitos básicos.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Branches, bifurcações e pull requests
 
-Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/articles/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}.
-
-Faça consultas rápidas sobre [linha de comando](https://hub.github.com) e também sobre {% data variables.product.prodname_dotcom %} [ listas de verificação, folhas de consultas e mais](https://services.github.com/on-demand/resources).
+Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/articles/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}. Acesse as referências sobre como usar {% data variables.product.prodname_dotcom %} na [linha de comando](https://cli.github.com/).
 
 #### Fique antenado
 
@@ -38,9 +39,9 @@ Nosso {% data variables.product.prodname_dotcom %} [canal do YouTube de Treiname
 
 ### Treinamentos
 
-#### Aulas grátis
+#### Cursos grátis
 
-O {% data variables.product.product_name %} oferece uma série de [treinamentos sob demanda](https://services.github.com/on-demand/) interativos, inclusive {% data variables.product.prodname_dotcom %} 101: [Introdução](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %} 102: [Desktop GitHub](https://services.github.com/on-demand/github-desktop) e {% data variables.product.prodname_dotcom %} 103: [Linha de comando](https://services.github.com/on-demand/github-cli).
+{% data variables.product.product_name %} oferece uma série de treinamentos interativos, [sob demanda](https://lab.github.com/), incluindo [Introdução a {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); cursos sobre linguagens de programação e ferramentas, como HTML, Python e NodeJS; e cursos sobre ferramentas específicas de {% data variables.product.product_name %}, como {% data variables.product.prodname_actions %}.
 
 #### Programas educacionais online do {% data variables.product.prodname_dotcom %}
 
@@ -54,6 +55,6 @@ O {% data variables.product.prodname_dotcom %} oferece [aulas presenciais](https
 
 Um [curso online e interativo sobre o Git](http://www.codeschool.com/courses/git-real) da [Code School](http://codeschool.com) tem sete níveis com dezenas de exercícios em formato de jogos divertidos. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
 
-Amplie seu alcance {% data variables.product.prodname_dotcom %} com {% if currentVersion == "free-pro-team@latest" %}[integrações](/articles/about-integrations){% else %}integrações{% endif %} ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) o robusto editor de texto [Atom](https://atom.io).
+Estenda o seu alcance de {% data variables.product.prodname_dotcom %} por meio de {% if currentVersion == "free-pro-team@latest" %}[integrações](/articles/about-integrations){% else %}integrações{% endif %}, ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) e o robusto editor de texto [Atom](https://atom.io).
 
 Saiba como iniciar e desenvolver seu projeto de código aberto em [Open Source Guides](https://opensource.guide/) (Guias de Código aberto).

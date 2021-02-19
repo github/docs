@@ -1,10 +1,11 @@
 ---
 title: ユーザあるいはOrganizationへの訴訟ホールドの配置
-intro: 'ユーザあるいはOrganizationが所有するリポジトリを{% data variables.product.product_location_enterprise %}から恒久的に削除できないようにするため、ユーザあるいはOrganizationに訴訟ホールドを配置できます。'
+intro: 'ユーザまたは Organization を法的に保留して、それらが所有するリポジトリを Enterprise から完全に削除できないようにすることができます。'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 通常は、誰かがリポジトリを削除するとそのリポジトリは90日間はディスク上にあり、サイト管理ダッシュボード経由でリストアできます。 90日を過ぎると、そのリポジトリはパージされ、恒久的に削除されます。 ユーザあるいはOrganizationに訴訟ホールドを配置すると、所有しているリポジトリは無期限にリストアできるようになります。

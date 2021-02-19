@@ -1,11 +1,12 @@
 ---
 title: SSH-Verbindung testen
-intro: 'Wenn Du Deinen SSH-Schlüssel eingerichtet und Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du die Verbindung testen.'
+intro: 'Wenn Sie Ihren SSH-Schlüssel eingerichtet und Ihrem {% data variables.product.product_name %}-Konto hinzugefügt haben, können Sie die Verbindung testen.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Vor dem Test Deiner SSH-Verbindung solltest Du:
@@ -26,19 +27,11 @@ Für den Test Deiner Verbindung musst Du diese Aktion mit Deinem Passwort authen
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Are you sure you want to continue connecting (yes/no)?
-  ```
-
-  oder wie diese:
-
-  ```shell
-  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Vergewissere Dich, dass der in dieser Meldung angegebene Fingerprint mit einem der Fingerprints der Meldungen aus Schritt 2 übereinstimmt, und gib dann `yes` ein:
+3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

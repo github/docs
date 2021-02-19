@@ -1,20 +1,69 @@
 const { get } = require('lodash')
-const env = require('lil-env-thing')
 const { liquid } = require('../lib/render-content')
 const patterns = require('../lib/patterns')
 const layouts = require('../lib/layouts')
 const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
+const statsd = require('../lib/statsd')
+const RedisAccessor = require('../lib/redis-accessor')
+
+const { HEROKU_RELEASE_VERSION } = process.env
+const pageCacheDatabaseNumber = 1
+const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
+
+const pageCache = new RedisAccessor({
+  databaseNumber: pageCacheDatabaseNumber,
+  prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
+  // Allow for graceful failures if a Redis SET operation fails
+  allowSetFailures: true
+})
+
+// a list of query params that *do* alter the rendered page, and therefore should be cached separately
+const cacheableQueries = ['learn']
+
+function addCsrf (req, text) {
+  return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
 
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
+
+  // Remove any query string (?...) and/or fragment identifier (#...)
+  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
+
+  for (const queryKey in req.query) {
+    if (!cacheableQueries.includes(queryKey)) {
+      searchParams.delete(queryKey)
+    }
+  }
+  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
+
+  // Serve from the cache if possible (skip during tests)
+  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
+
+  // Is the request for JSON debugging info?
+  const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
+
+  if (isCacheable && !isRequestingJsonForDebugging) {
+    const cachedHtml = await pageCache.get(originalUrl)
+    if (cachedHtml) {
+      console.log(`Serving from cached version of ${originalUrl}`)
+      statsd.increment('page.sent_from_cache')
+      return res.send(addCsrf(req, cachedHtml))
+    }
+  }
 
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
       console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
     }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+    return res.status(404).send(
+      addCsrf(
+        req,
+        await liquid.parseAndRender(layouts['error-404'], req.context)
+      )
+    )
   }
 
   if (req.method === 'HEAD') {
@@ -51,7 +100,7 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // `?json` query param for debugging request context
-  if ('json' in req.query && !env.production) {
+  if (isRequestingJsonForDebugging) {
     if (req.query.json.length > 1) {
       // deep reference: ?json=page.permalinks
       return res.json(get(context, req.query.json))
@@ -74,5 +123,12 @@ module.exports = async function renderPage (req, res, next) {
 
   const output = await liquid.parseAndRender(layout, context)
 
-  res.send(output)
+  // First, send the response so the user isn't waiting
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+  res.send(addCsrf(req, output))
+
+  // Finally, save output to cache for the next time around
+  if (isCacheable) {
+    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+  }
 }

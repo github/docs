@@ -44,7 +44,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
-| U.S. holiday                | Date observed in 2018       |
+| U.S. holiday                | Date observed               |
 | --------------------------- | --------------------------- |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |
@@ -57,7 +57,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 ### Installing {% data variables.product.prodname_advanced_security %} updates
@@ -70,8 +70,8 @@ When you contact {% data variables.contact.enterprise_support %} for help with {
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                              Priority                              | 설명                                                                                                                                                                                                                         |
-|:------------------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                           Priority                            | 설명                                                                                                                                                                                                                    |
+|:-------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity.                                                                            |
 |  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.     |

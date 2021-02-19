@@ -15,7 +15,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_advanced_security %} 的支持
 
-{% data variables.product.prodname_advanced_security %} includes {% data variables.contact.enterprise_support %} in English, by email.
+{% data variables.product.prodname_advanced_security %} 包括英语版的 {% data variables.contact.enterprise_support %}，通过电子邮件提供。
 
 ### 支持范围
 
@@ -32,7 +32,7 @@ versions:
 
 ### 联系 {% data variables.contact.enterprise_support %}
 
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
+您可以通过 {% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
 - 安装和使用 {% data variables.product.prodname_advanced_security %}
 - 识别并验证受支持错误的原因
 
@@ -44,7 +44,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays. </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
 
-| U.S. 美国节假日  | 2018 年的庆祝日  |
+| 美国 美国节假日    | 观察日期        |
 | ----------- | ----------- |
 | 元旦          | 1 月 1 日     |
 | 马丁·路德·金纪念 日 | 1 月的第三个星期一  |
@@ -57,12 +57,12 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | 感恩节后的第一天    | 11 月的第四个星期五 |
 | 平安夜         | 12 月 24 日   |
 | 圣诞节         | 12 月 25 日   |
-| 圣诞节后的第一天    | 12 月 26 日   |
+| 圣诞节后的第一天    | 12 月 28 日   |
 | 新年除夕        | 12 月 31 日   |
 
 ### 安装 {% data variables.product.prodname_advanced_security %} 更新
 
-To ensure that your {% data variables.product.prodname_advanced_security %} instance is stable, you must install and implement new releases when they are made available. This ensures that you have the latest features, modifications, and enhancements as well as any updates to features, code corrections, patches, or other general updates and fixes to {% data variables.product.prodname_advanced_security %}.
+为确保您的 {% data variables.product.prodname_advanced_security %} 实例稳定，您必须在新版本可用时安装并实施新版本。 这可确保您有最新功能、修改和增强，以及功能的所有更新、代码更正、补丁或 {% data variables.product.prodname_advanced_security %} 的其他一般更新和修复。
 
 ### 为支持事件单分配优先级
 
@@ -70,8 +70,8 @@ To ensure that your {% data variables.product.prodname_advanced_security %} inst
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                                优先级                                 | 描述                                                                                                          |
-|:------------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------- |
+|                              优先级                              | 描述                                                                                                     |
+|:-------------------------------------------------------------:| ------------------------------------------------------------------------------------------------------ |
 |  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} 未运行、已停止或受到严重影响，以致终端用户无法合理地继续使用软件，也没有可用的解决方法。 |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} 运行不一致，影响终端用户的使用和效率。                          |
 |  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} 能够一致地运行，但终端用户要求对软件稍作改动，例如文档更新、装饰性缺陷或增强功能。    |

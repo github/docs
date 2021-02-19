@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
+### 移行したデータを {% data variables.product.prodname_ghe_server %} にインポートするための準備
 
 1. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {% data variables.product.prodname_ghe_server %} ターゲットにコピーします:
 
@@ -120,7 +120,7 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 たとえばユーザ`octocat`の名前をターゲット`https://example-gh.target`上で`monalisa`に変更したいのであれば、以下の内容の行を作成します。
 
-| `model_name` | `source_url`                        | `target_url`                         | `状態`     |
+| `model_name` | `source_url`                        | `target_url`                         | `state`  |
 | ------------ | ----------------------------------- | ------------------------------------ | -------- |
 | `ユーザ`        | `https://example-gh.source/octocat` | `https://example-gh.target/monalisa` | `rename` |
 

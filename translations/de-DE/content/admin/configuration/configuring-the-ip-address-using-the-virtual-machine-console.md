@@ -8,7 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
 {% data reusables.enterprise_installation.open-vm-console-start %}
 3. Wählen Sie aus, dass `IPv4`- oder `IPv6`-Protokoll zu konfigurieren. ![Auswahloptionen für das IPv4- oder für das IPv6-Protokoll](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
 4. Konfigurieren Sie die Optionen für das gewünschte Protokoll. ![Menü mit IP-Protokolloptionen](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
+
+

@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### セルフホストランナーのグループについて
 
@@ -33,7 +34,7 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 ランナーはデフォルトグループから作成した任意のグループに移動できます。
 
-グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。 ランナーグループを設定して、リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできます。
+グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -41,9 +42,21 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 1. [**Self-hosted runners**] セクションで、[**Add new**] をクリックし、次に [**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Repository access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
 
-    ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} リポジトリの特定のリスト、または Organization 内のすべてのリポジトリにアクセスできるようにランナーグループを設定できます。 デフォルトでは、パブリックリポジトリはランナーグループ内のランナーにアクセスできませんが、[**Allow public repositories**] オプションを使用してこれをオーバーライドできます。{% else if currentVersion == "enterprise-server@2.22"%} リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできるようにランナーグループを設定できます。{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
+
+   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
 
 ### Enterprise のセルフホストランナーグループを作成する
@@ -52,21 +65,28 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 登録処理中にランナーを特定のグループに割り当てることも、後でランナーをデフォルトグループからカスタムグループに移動することもできます。
 
-グループを作成するときは、Enterprise 内のすべての Organization にアクセスを付与するポリシーを選択するか、特定の Organization を選択する必要があります。
+グループを作成するときは、ランナーグループにアクセスできる Organization を定義するポリシーを選択する必要があります。
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. [**Self-hosted runners**] タブをクリックします。
 1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Organization access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. ランナーグループの名前を入力し、Organization アクセスのポリシーを割り当てます。
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} ランナーグループを設定して、特定の Organization のリスト、または Enterprise 内のすべての Organization にアクセスできるようにすることができます。 デフォルトでは、パブリックリポジトリはランナーグループ内のランナーにアクセスできませんが、[**Allow public repositories**] オプションを使用してこれをオーバーライドできます。{% else if currentVersion == "enterprise-server@2.22"%} Enterprise 内のすべての Organization がアクセスできるようにランナーグループを設定することも、特定の Organization を選択することもできます。{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
 
     ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。

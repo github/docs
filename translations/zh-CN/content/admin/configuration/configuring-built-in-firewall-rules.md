@@ -1,6 +1,6 @@
 ---
 title: 配置内置防火墙规则
-intro: '您可以查看默认防火墙规则并自定义 {% data variables.product.product_location_enterprise %} 的规则。'
+intro: '您可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### 关于 {% data variables.product.product_location_enterprise %} 的防火墙
+### 关于 {% data variables.product.product_location %} 的防火墙
 
 {% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 更多信息请参阅 Ubuntu 文档中的“[UFW](https://help.ubuntu.com/community/UFW)”。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
 
@@ -66,7 +66,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-升级 {% data variables.product.product_location_enterprise %} 后，您必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
+升级 {% data variables.product.product_location %} 后，您必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
 
 ### 恢复默认防火墙规则
 
@@ -74,7 +74,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**警告**：如果您对防火墙进行更改之前未备份原始规则，请联系 {% data variables.contact.contact_ent_support %} 获取更多帮助。
 
 {% endwarning %}
 

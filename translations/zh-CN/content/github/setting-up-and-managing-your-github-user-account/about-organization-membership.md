@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。

@@ -8,7 +8,10 @@ permissions: '拥有仓库管理员权限的人员可以使用 Jekyll 创建 {% 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
 ### 基本要求
 
@@ -22,8 +25,6 @@ versions:
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -32,6 +33,8 @@ versions:
 ### 创建站点
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 如果您还没有本地版仓库，请导航到您想要存储站点源文件的位置，将 _PARENT-FOLDER_ 替换为要包含仓库文件夹的文件夹。
@@ -44,14 +47,14 @@ versions:
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
   ```
-  4. Change directories to the repository.
+  4. 将目录更改为仓库。
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   # Changes the working directory
   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
-  For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
+  例如，如果选择从默认分支上的 `docs` 文件夹发布站点，则创建并切换目录到 `docs` 文件夹。
  ```shell
  $ mkdir docs
  # Creates a new folder called docs
@@ -80,7 +83,7 @@ gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. 保存并关闭 Gemfile。
 11. （可选）在本地测试您的站点。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
-12. 将您的 {% data variables.product.product_name %} 仓库添加为远程，使用您的设备的主机名替换 {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_，{% endif %} _USER_ 替换为拥有该仓库的帐户{% if currentVersion != "free-pro-team@latest" %}，{% endif %}并且 _REPOSITORY_ 替换为仓库名称。
+12. 将您的 {% data variables.product.product_name %} 仓库添加为远程仓库，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ 替换为您企业的主机名，将 {% endif %} _USER_ 替换为拥有该仓库的帐户{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}，{% endif %}并将 _REPOSITORY_ 替换为仓库名称。
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -94,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

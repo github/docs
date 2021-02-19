@@ -6,13 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### Introduction
 
-This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/v3/checks/), which you'll use to build a continuous integration (CI) server that runs tests.
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
 
@@ -22,15 +22,15 @@ A CI server hosts code that runs CI tests such as code linters (which check styl
 
 #### Checks API overview
 
-The [Checks API](/v3/checks/) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
+The [Checks API](/rest/reference/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/v3/repos/branches/) can prevent people from merging pull requests prematurely. See "[Enabling required status checks](/articles/enabling-required-status-checks/)" for more details.
+A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
 
-The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/v3/checks/suites/#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
+The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
 
 1. Whenever someone pushes code to the repository, GitHub sends the `check_suite` event with an action of `requested` to all GitHub Apps installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed and that GitHub has automatically created a new check suite.
-1. When your app receives this event, it can [add check runs](/v3/checks/runs/#create-a-check-run) to that suite.
-1. Your check runs can include [annotations](/v3/checks/runs/#annotations-object) that are displayed on specific lines of code.
+1. When your app receives this event, it can [add check runs](/rest/reference/checks#create-a-check-run) to that suite.
+1. Your check runs can include [annotations](/rest/reference/checks#annotations-object) that are displayed on specific lines of code.
 
 **In this guide, you’ll learn how to:**
 
@@ -49,7 +49,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ### Требования
 
-Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/v3/checks/), if you're not already. You'll find more APIs in the [REST API docs](/v3/). The Checks API is also available to use in [GraphQL](/v4/), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/v4/object/checksuite/) and [Check Run](/v4/object/checkrun/) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -134,12 +134,32 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /v3/checks/runs/#create-a-check-run
+  # /rest/reference/checks#create-a-check-run
+  check_run = @installation_client.post(
+    "repos/#{@payload['repository']['full_name']}/check-runs",
+    {
+      accept: 'application/vnd.github.v3+json',
+      # The name of your check run.
+      name: 'Octo RuboCop',
+      # The payload structure differs depending on whether a check run or a check suite event occurred.
+      head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
+    }
+  )
+end
+```
+{% else %}
+``` ruby
+# Create a new check run with the status queued
+def create_check_run
+  # # At the time of writing, Octokit does not support the Checks API yet, but
+  # it does provide generic HTTP methods you can use:
+  # /rest/reference/checks#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -153,8 +173,9 @@ def create_check_run
   )
 end
 ```
+{% endif %}
 
-This code calls the "[Create a check run](/v3/checks/runs/#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). This method takes two parameters: the URL of the endpoint and the input parameters to the method.
+This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). This method takes two parameters: the URL of the endpoint and the input parameters to the method.
 
 To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [Rubocop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo Rubocop" is used here, but you can choose any name you'd like for the check run.
 
@@ -182,7 +203,7 @@ Great! You've told GitHub to create a check run. You can see the check run statu
 
 ### Step 1.4. Updating a check run
 
-When your `create_check_run` method runs, it asks GitHub to create a new check run. When Github finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
+When your `create_check_run` method runs, it asks GitHub to create a new check run. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
 
 You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on GitHub by clicking the "Re-run" button, GitHub sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
 
@@ -209,6 +230,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -218,7 +240,43 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /v3/checks/runs/#update-a-check-run
+  # /rest/reference/checks#update-a-check-run
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'in_progress',
+      started_at: Time.now.utc.iso8601
+    }
+  )
+
+  # ***** RUN A CI TEST *****
+
+  # Mark the check run as complete!
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'completed',
+      conclusion: 'success',
+      completed_at: Time.now.utc.iso8601
+    }
+  )
+end
+```
+{% else %}
+``` ruby
+# Start the CI process
+def initiate_check_run
+  # Once the check run is created, you'll update the status of the check run
+  # to 'in_progress' and run the CI process. When the CI finishes, you'll
+  # update the check run status to 'completed' and add the CI results.
+
+  # Octokit doesn't yet support the Checks API, but it does provide generic
+  # HTTP methods you can use:
+  # /rest/reference/checks#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -245,12 +303,13 @@ def initiate_check_run
   )
 end
 ```
+{% endif %}
 
-The code above calls the "[Update a check run](/v3/checks/runs/#update-a-check-run)" API endpoint using the generic [`patch` HTTP method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) to update the check run that you already created.
+The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the generic [`patch` HTTP method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) to update the check run that you already created.
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
-You'll notice in the "[Update a check run](/v3/checks/runs/#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
+You'll notice in the "[Update a check run](/rest/reference/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
 You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
 
@@ -376,7 +435,7 @@ The code above gets the full repository name and the head SHA of the commit from
 
 ### Step 2.3. Running RuboCop
 
-Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) and [Checks API annotations](/v3/checks/runs/#create-a-check-run).
+Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
 
 The following code runs RuboCop and saves the style code errors in JSON format. Add this code below the call to `clone_repository` you added in the [previous step](#step-22-cloning-the-repository) and above the code that updates the check run to complete.
 
@@ -388,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` is a handy way to save a copy of the linting results in a machine-parsable format. See the [RuboCop docs](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter) for details and an example of the JSON format.
+The code above runs RuboCop on all files in the repository's directory. The option `--format json` is a handy way to save a copy of the linting results in a machine-parsable format. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
 
 Because this code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository. This code also parses the JSON so you can easily access the keys and values in your GitHub App using the `@output` variable.
 
@@ -464,11 +523,11 @@ You should see the linting errors in the debug output, although they aren't prin
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
-The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/v3/checks/runs/#update-a-check-run) with annotations.
+The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/rest/reference/checks#update-a-check-run) with annotations.
 
-The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/v3/checks/runs/#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/v3/checks/runs/#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
+The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
-A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/v3/checks/runs/#annotations-object-1) reference documentation for details.
+A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/rest/reference/checks#annotations-object-1) reference documentation for details.
 
 You'll extract the required information from RuboCop needed to create each annotation. Append the following code to the code you added in the [previous section](#step-23-running-rubocop):
 
@@ -477,7 +536,7 @@ annotations = []
 # You can create a maximum of 50 annotations per request to the Checks
 # API. To add more than 50 annotations, use the "Update a check run" API
 # endpoint. This example code limits the number of annotations to 50.
-# See /v3/checks/runs/#update-a-check-run
+# See /rest/reference/checks#update-a-check-run
 # for details.
 max_annotations = 50
 
@@ -529,7 +588,7 @@ This code limits the total number of annotations to 50. But you can modify this 
 
 When the `offense_count` is zero, the CI test is a `success`. If there are errors, this code sets the conclusion to `neutral` in order to prevent strictly enforcing errors from code linters. But you can change the conclusion to `failure` if you would like to ensure that the check suite fails when there are linting errors.
 
-When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
 
 This code also iterates through each error in the `offenses` array and collects the location of the offense and error message. After extracting the information needed, the code creates an annotation for each error and stores it in the `annotations` array. Because annotations only support start and end columns on the same line, `start_column` and `end_column` are only added to the `annotation` object if the start and end line values are the same.
 
@@ -549,6 +608,21 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+``` ruby
+# Mark the check run as complete!
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: 'success',
+    completed_at: Time.now.utc.iso8601
+  }
+)
+```
+{% else %}
 ``` ruby
 # Mark the check run as complete!
 updated_check_run = @installation_client.patch(
@@ -562,9 +636,36 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+``` ruby
+# Mark the check run as complete! And if there are warnings, share them.
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: conclusion,
+    completed_at: Time.now.utc.iso8601,
+    output: {
+      title: 'Octo RuboCop',
+      summary: summary,
+      text: text,
+      annotations: annotations
+    },
+    actions: [{
+      label: 'Fix this',
+      description: 'Automatically fix all linter notices.',
+      identifier: 'fix_rubocop_notices'
+    }]
+  }
+)
+```
+{% else %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 updated_check_run = @installation_client.patch(
@@ -589,6 +690,7 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
 
@@ -616,13 +718,13 @@ If the annotations are related to a file already included in the PR, the annotat
 
 If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
 
-The RuboCop tool [offers](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to GitHub after RuboCop does its magic.
+The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to GitHub after RuboCop does its magic.
 
 To push to a repository, your app must have write permissions for "Repository contents." You set that permission back in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) to **Read & write**, so you're all set.
 
 In order to commit files, Git must know which [username](/articles/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. Например:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```
@@ -734,7 +836,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 * **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your intallation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
+    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
 
 * **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
 
@@ -767,4 +869,4 @@ After walking through this guide, you've learned the basics of using the Checks 
 Here are some ideas for what you can do next:
 
 * Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
-* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/v3/pulls/#create-a-pull-request) with a new branch based on the head branch.
+* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/reference/pulls#create-a-pull-request) with a new branch based on the head branch.

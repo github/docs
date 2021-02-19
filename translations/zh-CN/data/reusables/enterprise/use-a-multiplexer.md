@@ -1,1 +1,1 @@
-This command can take some time to finish, so we recommend running the command in a terminal multiplexer like `screen` or `tmux`.
+此命令可能需要一些时间才能完成，因此我们建议在终端多路复用器（例如 `screen` 或 `tmux`）中运行该命令。

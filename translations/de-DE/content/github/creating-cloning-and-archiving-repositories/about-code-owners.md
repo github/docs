@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Codeinhabern
-intro: 'Du kannst eine CODEOWNERS-Datei verwenden, um Personen oder Teams zu definieren, die für den Code in einem Repository verantwortlich sind.'
+intro: Du kannst eine CODEOWNERS-Datei verwenden, um Personen oder Teams zu definieren, die für den Code in einem Repository verantwortlich sind.
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
@@ -8,6 +8,7 @@ product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Administrator- oder Inhaberberechtigungen können eine CODEOWNERS-Datei in einem Repository einrichten.
@@ -18,11 +19,11 @@ Die Personen, die Du als Codeinhaber auswählst, müssen Schreibberechtigung fü
 
 Code-Besitzer werden automatisch zur Überprüfung aufgefordert, wenn jemand einen Pull Request öffnet, der den Code ändert, den sie besitzen. Code-Besitzer werden nicht automatisch aufgefordert, Entwürfe für Pull Requests zu überprüfen. Weitere Informationen zu Entwürfen von Pull Requests finden Sie unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)“. Code-Besitzer werden nicht automatisch aufgefordert, Entwürfe für Pull Requests zu überprüfen. Wenn Du einen Pull Request in einen Entwurf konvertierst, werden Personen, die bereits Benachrichtigungen abonniert haben, nicht automatisch abgemeldet. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request).“
 
-Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlichen Reviews aktiviert hat, kann er optional auch die Genehmigung von einem Codeinhaber anfordern, bevor der Autor einen Pull Request im Repository zusammenführen kann. Weitere Informationen findest Du unter „[Erforderliche Reviews für Pull Requests aktivieren](/github/administering-a-repository/enabling-required-reviews-for-pull-requests).“
+Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlichen Reviews aktiviert hat, kann er optional auch die Genehmigung von einem Codeinhaber anfordern, bevor der Autor einen Pull Request im Repository zusammenführen kann. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Wenn ein Team die Zuweisung zur Code-Überprüfung aktiviert hat, werden die individuellen Genehmigungen alleine nicht die Anforderung für die Genehmigung des Codeinhabers in einem geschützten Zweig erfüllen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist, bevor Du einen Pull Request öffnest. In the repository, you can browse to the file and hover over
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
@@ -39,9 +40,9 @@ Damit Codeinhaber Review-Anfragen erhalten können, muss sich die CODEINHABER-Da
 
 ### CODEOWNERS-Syntax
 
-Eine CODEINHABER-Datei verwendet ein Muster, das den gleichen Regeln folgt wie in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format)-Dateien. Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Sie können auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Du kannst auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 #### Beispiel für eine CODEOWNERS-Datei
 ```
 # Dies ist ein Kommentar.
@@ -78,10 +79,18 @@ docs/*  docs@beispiel.com
 # in einem Apps-Verzeichnis irgendwo in Ihrem Repository.
 apps/ @octocat
 
-# In diesem Beispiel ist @doctocat Inhaber irgendeiner Datei
-# im Verzeichnis `/docs` im Stammverzeichnis Ihres Repositorys.
+# In this example, @doctocat owns any file in the `/docs`
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
+#### Syntax exceptions
+There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
+- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
+
+
 
 ### Weiterführende Informationen
 

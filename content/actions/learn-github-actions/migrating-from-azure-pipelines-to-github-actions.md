@@ -6,6 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Azure Pipelines'
+  - 'Migration'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -41,7 +47,7 @@ Jobs and steps in Azure Pipelines are very similar to jobs and steps in {% data 
 
 ### Migrating script steps
 
-You can run a script or a shell command as a step in a workflow. In Azure Pipelines, script steps can be specified using the `script` key, or with the `bash`, `powershell`, or `pwsh` keys. Scripts can also be specified as an input to the [Bash task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) or the [PowerShell task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
+You can run a script or a shell command as a step in a workflow. In Azure Pipelines, script steps can be specified using the `script` key, or with the `bash`, `powershell`, or `pwsh` keys. Scripts can also be specified as an input to the [Bash task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) or the [PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
 
 In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. To select a particular shell, you can specify the `shell` key when providing the script. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
@@ -61,16 +67,16 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: scripts
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in the default shell"
-  - bash: echo "This step runs in bash"
-  - pwsh: Write-Host "This step runs in PowerShell Core"
-  - task: PowerShell@2
-    inputs:
-      script: Write-Host "This step runs in PowerShell"
+  - job: scripts
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in the default shell"
+      - bash: echo "This step runs in bash"
+      - pwsh: Write-Host "This step runs in PowerShell Core"
+      - task: PowerShell@2
+        inputs:
+          script: Write-Host "This step runs in PowerShell"
 ```
 {% endraw %}
 </td>
@@ -81,13 +87,13 @@ jobs:
   scripts:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in the default shell"
-    - run: echo "This step runs in bash"
-      shell: bash
-    - run: Write-Host "This step runs in PowerShell Core"
-      shell: pwsh
-    - run: Write-Host "This step runs in PowerShell"
-      shell: powershell
+      - run: echo "This step runs in the default shell"
+      - run: echo "This step runs in bash"
+        shell: bash
+      - run: Write-Host "This step runs in PowerShell Core"
+        shell: pwsh
+      - run: Write-Host "This step runs in PowerShell"
+        shell: powershell
 ```
 {% endraw %}
 </td>
@@ -104,7 +110,7 @@ In Azure Pipelines, scripts can be configured to error if any output is sent to 
 
 In Azure Pipelines, the default shell for scripts on Windows platforms is the Command shell (_cmd.exe_). In {% data variables.product.prodname_actions %}, the default shell for scripts on Windows platforms is PowerShell. PowerShell has several differences in built-in commands, variable expansion, and flow control.
 
-If you're running a simple command, you might be able to run a Command shell script in PowerShell without any changes. But in most cases, you will either need to update your script with PowerShell syntax or instruct {% data variables.product.prodname_actions %} to run the script with the Command shell instead of PowerShell. You can do this by specifying `shell` as `cmd`. 
+If you're running a simple command, you might be able to run a Command shell script in PowerShell without any changes. But in most cases, you will either need to update your script with PowerShell syntax or instruct {% data variables.product.prodname_actions %} to run the script with the Command shell instead of PowerShell. You can do this by specifying `shell` as `cmd`.
 
 Below is an example of the syntax for each system:
 
@@ -122,11 +128,11 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_command
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in CMD on Windows by default"
+  - job: run_command
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in CMD on Windows by default"
 ```
 {% endraw %}
 </td>
@@ -137,9 +143,9 @@ jobs:
   run_command:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in PowerShell on Windows by default"
-    - run: echo "This step runs in CMD on Windows explicitly"
-      shell: cmd
+      - run: echo "This step runs in PowerShell on Windows by default"
+      - run: echo "This step runs in CMD on Windows explicitly"
+        shell: cmd
 ```
 {% endraw %}
 </td>
@@ -170,12 +176,12 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: conditional
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This step runs with str equals 'ABC' and num equals 123"
-    condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
+  - job: conditional
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This step runs with str equals 'ABC' and num equals 123"
+        condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
 {% endraw %}
 </td>
@@ -186,8 +192,8 @@ jobs:
   conditional:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This step runs with str equals 'ABC' and num equals 123"
-      if: ${{ env.str == 'ABC' && env.num == 123 }}
+      - run: echo "This step runs with str equals 'ABC' and num equals 123"
+        if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
 {% endraw %}
 </td>
@@ -216,29 +222,29 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: initial
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This job will be run first."
-- job: fanout1
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout2."
-- job: fanout2
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout1."
-- job: fanin:
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: [fanout1, fanout2]
-  steps:
-  - script: echo "This job will run after fanout1 and fanout2 have finished."
+  - job: initial
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This job will be run first."
+  - job: fanout1
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout2."
+  - job: fanout2
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout1."
+  - job: fanin:
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: [fanout1, fanout2]
+    steps:
+      - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -249,22 +255,22 @@ jobs:
   initial:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
   fanout1:
     runs-on: ubuntu-latest
     needs: initial
     steps:
-    - run: echo "This job will run after the initial job, in parallel with fanout2."
+      - run: echo "This job will run after the initial job, in parallel with fanout2."
   fanout2:
     runs-on: ubuntu-latest
     needs: initial
     steps:
-    - run: echo "This job will run after the initial job, in parallel with fanout1."
+      - run: echo "This job will run after the initial job, in parallel with fanout1."
   fanin:
     runs-on: ubuntu-latest
     needs: [fanout1, fanout2]
     steps:
-    - run: echo "This job will run after fanout1 and fanout2 have finished."
+      - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -293,15 +299,15 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_python
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-      architecture: 'x64'
-  - script: python script.py
+  - job: run_python
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+      - script: python script.py
 ```
 {% endraw %}
 </td>
@@ -312,11 +318,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -324,4 +330,3 @@ jobs:
 </table>
 
 You can find actions that you can use in your workflow in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see "[Creating actions](/actions/creating-actions)."
-

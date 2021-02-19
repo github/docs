@@ -6,11 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-Eventos de problemas são acionados pela atividade em problemas e pull requests e estão disponíveis na [API de eventos de problemas](/v3/issues/events) e na [API de eventos da linha do tempo](/v3/issues/timeline). Cada tipo de evento especifica se o evento está disponível nos eventos do problema ou na API de eventos da linha do tempo.
-
+Eventos de problemas são acionados pela atividade em problemas e pull requests e estão disponíveis na [API de eventos de problemas](/rest/reference/issues#events) e na [API de eventos da linha do tempo](/rest/reference/issues#timeline). Cada tipo de evento especifica se o evento está disponível nos eventos do problema ou na API de eventos da linha do tempo.
 
 A API REST do GitHub considera que todo pull request é um problema, mas nem todos os problemas são pull request. Por este motivo, os eventos de problemas e os pontos de extremidade dos eventos da linha do tempo podem retornar problemas e pull requests na resposta. Pull requests têm uma propriedade `pull_request` no objeto `problema`. Como os pull requests são problemas, os números de problemas e pull requests não se sobrepõem em um repositório. Por exemplo, se você abrir seu primeiro problema em um repositório, o número será 1. Se você abrir um pull request, o número será 2. Cada tipo de evento especifica se o evento ocorre em um pull request, em um problema ou em ambos.
 
@@ -91,7 +91,7 @@ O branch de referência do pull request alterado.
 |:------------------------- |:--------------------------:|:--------------------------------:|
 | <ul><li>Pull requests</li></ul> |           **X**            |                                  |
 
- ### Propriedades do objeto do evento
+#### Propriedades do objeto do evento
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -129,7 +129,7 @@ Um comentário foi adicionado ao problema ou pull request.
 | `html_url`           | `string`  | A URL de HTML do comentário do problema.                                                                                                                        |
 | `issue_url`          | `string`  | A URL de HTML do problema.                                                                                                                                      |
 | `id`                 | `inteiro` | O identificador exclusivo do evento.                                                                                                                            |
-| `node_id`            | `string`  | O [ID de nó global](/v4/guides/using-global-node-ids) do evento.                                                                                                |
+| `node_id`            | `string`  | O [Global Node ID](/graphql/guides/using-global-node-ids) do evento.                                                                                            |
 | `usuário`            | `objeto`  | A pessoa que comentou sobre o problema.                                                                                                                         |
 | `created_at`         | `string`  | A marca de tempo que indica quando o comentário foi adicionado.                                                                                                 |
 | `updated_at`         | `string`  | A marca de tempo que indica quando o comentário foi atualizado ou criado, se o comentário nunca for atualizado.                                                 |
@@ -152,19 +152,19 @@ Um commit foi adicionado ao branch `HEAD` do pull request.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nome          | Tipo               | Descrição                                                                                                                                                                       |
-| ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sha`         | `string`           | O SHA do commit no pull request.                                                                                                                                                |
-| `node_id`     | `string`           | O [ID de nó global](/v4/guides/using-global-node-ids) do evento.                                                                                                                |
-| `url`         | `string`           | A URL da API REST para recuperar o commit.                                                                                                                                      |
-| `html_url`    | `string`           | A URL de HTML do commit.                                                                                                                                                        |
-| `autor`       | `objeto`           | A pessoa que autorizou o commit.                                                                                                                                                |
-| `committer`   | `objeto`           | A pessoa que confirmou o commit em nome do autor.                                                                                                                               |
-| `árvore`      | `objeto`           | A árvore Git do commit.                                                                                                                                                         |
-| `mensagem`    | `string`           | A mensagem do commit.                                                                                                                                                           |
-| `principais`  | `array de objetos` | Uma lista de commits principais.                                                                                                                                                |
-| `verificação` | `objeto`           | O resultado de verificação da assinatura do commit. Para obter mais informações, consulte "[Objeto verificação de assinatura](/v3/git/commits/#signature-verification-object)". |
-| `event`       | `string`           | O valor do evento é `"commited"`.                                                                                                                                               |
+| Nome          | Tipo               | Descrição                                                                                                                                                                          |
+| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`         | `string`           | O SHA do commit no pull request.                                                                                                                                                   |
+| `node_id`     | `string`           | O [Global Node ID](/graphql/guides/using-global-node-ids) do evento.                                                                                                               |
+| `url`         | `string`           | A URL da API REST para recuperar o commit.                                                                                                                                         |
+| `html_url`    | `string`           | A URL de HTML do commit.                                                                                                                                                           |
+| `autor`       | `objeto`           | A pessoa que autorizou o commit.                                                                                                                                                   |
+| `committer`   | `objeto`           | A pessoa que confirmou o commit em nome do autor.                                                                                                                                  |
+| `árvore`      | `objeto`           | A árvore Git do commit.                                                                                                                                                            |
+| `mensagem`    | `string`           | A mensagem do commit.                                                                                                                                                              |
+| `principais`  | `array de objetos` | Uma lista de commits principais.                                                                                                                                                   |
+| `verificação` | `objeto`           | O resultado de verificação da assinatura do commit. Para obter mais informações, consulte "[Objeto verificação de assinatura](/rest/reference/git#signature-verification-object)". |
+| `event`       | `string`           | O valor do evento é `"commited"`.                                                                                                                                                  |
 
 ### conectado
 
@@ -348,7 +348,7 @@ O problema ou pull request foi bloqueado.
 
 #### Propriedades do objeto do evento
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -632,7 +632,7 @@ O pull request foi revisado.
 | Nome                 | Tipo      | Descrição                                                                                                                                                       |
 | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `inteiro` | O identificador exclusivo do evento.                                                                                                                            |
-| `node_id`            | `string`  | O [ID de nó global](/v4/guides/using-global-node-ids) do evento.                                                                                                |
+| `node_id`            | `string`  | O [Global Node ID](/graphql/guides/using-global-node-ids) do evento.                                                                                            |
 | `usuário`            | `objeto`  | A pessoa que comentou sobre o problema.                                                                                                                         |
 | `texto`              | `string`  | O texto do resumo da revisão.                                                                                                                                   |
 | `commit_id`          | `string`  | O SHA do último commit no pull request no momento da revisão.                                                                                                   |
@@ -714,7 +714,7 @@ O problema estava desbloqueado.
 
 #### Propriedades do objeto do evento
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

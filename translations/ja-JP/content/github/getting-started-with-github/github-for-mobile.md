@@ -1,15 +1,18 @@
 ---
 title: GitHub for mobile
-intro: '{% data variables.product.company_short %} での作業をモバイルデバイスからトリアージ、コラボレーション、および管理します。'
+intro: '{% data variables.product.product_name %} での作業をモバイルデバイスからトリアージ、コラボレーション、および管理します。'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 ---
 
-### {% data variables.product.prodname_mobile %}について
+{% data reusables.mobile.ghes-release-phase %}
 
-現在、{% data variables.product.prodname_mobile %} は {% data variables.product.prodname_dotcom_the_website %} ユーザが Android および iOS アプリとして利用できます。
+### {% data variables.product.prodname_mobile %} について
 
-{% data variables.product.prodname_mobile %} を使用すると、{% data variables.product.prodname_dotcom %} に対してインパクトのある作業をすばやく、どこからでも行うことができます。 {% data variables.product.prodname_mobile %} は、信頼できるファーストパーティクライアントアプリケーションを介して {% data variables.product.prodname_dotcom %} データにアクセスする安心で安全な方法です。
+{% data reusables.mobile.about-mobile %}
+
+{% data variables.product.prodname_mobile %} を使用すると、{% data variables.product.product_name %} に対してインパクトのある作業をすばやく、どこからでも行うことができます。 {% data variables.product.prodname_mobile %} は、信頼できるファーストパーティクライアントアプリケーションを介して {% data variables.product.product_name %} データにアクセスする安心で安全な方法です。
 
 {% data variables.product.prodname_mobile %} では、次のことができます。
 - 通知の管理、トリアージ、クリア
@@ -23,18 +26,55 @@ versions:
 
 Android または iOS に {% data variables.product.prodname_mobile %} をインストールするには、「[{% data variables.product.prodname_mobile %}](https://github.com/mobile)」を参照してください。
 
+### アカウントの管理
+
+{% data variables.product.prodname_dotcom_the_website %} のユーザーアカウントと、{% data variables.product.prodname_ghe_server %}のユーザーアカウントとを使用して同時にモバイルにサインインすることができます。
+
+{% data reusables.mobile.push-notifications-on-ghes %}
+
+VPN で Enterprise にアクセスする必要がある場合、{% data variables.product.prodname_mobile %} は Enterprise では動作しません。
+
+#### 必要な環境
+
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、デバイスに {% data variables.product.prodname_mobile %} 1.4 以降をインストールする必要があります。
+
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 詳しい情報については、「[リリースノート](/enterprise-server/admin/release-notes)」と「[Enterprise 向けに {% data variables.product.prodname_mobile %} を管理する](/admin/configuration/managing-github-for-mobile-for-your-enterprise)」を参照してください。
+
+During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}.
+
+#### Adding, switching, or signing out of accounts
+
+You can sign into mobile with a user account on {% data variables.product.product_location %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+
+After you sign into mobile with a user account on {% data variables.product.product_location %}, you can switch between the account and your account on  {% data variables.product.prodname_dotcom_the_website %}.  At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
+
+If you no longer need to access data for your user account on {% data variables.product.product_location %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+
+### {% data variables.product.prodname_mobile %} でサポートされている言語
+
+{% data variables.product.prodname_mobile %} は次の言語で利用できます。
+
+- 英語
+- 日本語
+- ポルトガル語 (ブラジル)
+- Simplified Chinese
+- スペイン語
+
+デバイスの言語をサポートされている言語に設定すると、{% data variables.product.prodname_mobile %} はデフォルトでその言語になります。 {% data variables.product.prodname_mobile %} の [**Settings**] メニューで {% data variables.product.prodname_mobile %} の言語を変更できます。
+
 ### iOS で {% data variables.product.prodname_mobile %} のユニバーサルリンクを管理する
 
 {% data variables.product.prodname_mobile %} は、iOS のユニバーサルリンクを自動的に有効にします。 {% data variables.product.product_name %} リンクをタップすると、リンク先 URL が Safari ではなく {% data variables.product.prodname_mobile %} で開きます。 詳しい情報については、Apple Developer サイトの「[Universal Links](https://developer.apple.com/ios/universal-links/)」を参照してください。
 
-ユニバーサルリンクを無効にするには、{% data variables.product.prodname_dotcom %} リンクを長押しして、[**Open**] をタップします。 今後 {% data variables.product.prodname_dotcom %} リンクをタップするたびに、リンク先 URL は {% data variables.product.prodname_mobile %} ではなく Safari で開きます。
+ユニバーサルリンクを無効にするには、{% data variables.product.product_name %} リンクを長押しして、[**Open**] をタップします。 今後 {% data variables.product.product_name %} リンクをタップするたびに、リンク先 URL は {% data variables.product.prodname_mobile %} ではなく Safari で開きます。
 
-ユニバーサルリンクを再度有効にするには、{% data variables.product.prodname_dotcom %} リンクを長押しして、[**Open in {% data variables.product.prodname_dotcom %}**] をタップします。
+ユニバーサルリンクを再度有効にするには、{% data variables.product.product_name %} リンクを長押しして、[**Open in {% data variables.product.prodname_dotcom %}**] をタップします。
 
 ### フィードバックを送る
 
-{% data variables.product.prodname_mobile %} に関するフィードバックまたは機能のリクエストがある場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> にメールでお問い合わせください。
+{% data variables.product.prodname_mobile %} でバグを見つけた場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> までメールでお知らせください。
 
+[GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22) で {% data variables.product.prodname_mobile %} の機能リクエストやその他のフィードバックを送信できます。
 
 ### iOS のベータリリースをオプトアウトする
 

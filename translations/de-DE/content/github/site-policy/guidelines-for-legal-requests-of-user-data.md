@@ -141,11 +141,19 @@ Bitte beachten Sie, dass die verfügbaren Informationen von Fall zu Fall variier
   - Kommunikation oder Dokumentation (wie Probleme oder Wikis) in privaten Repositorys
   - Alle Sicherheitsschlüssel, die für die Authentifizierung oder Verschlüsselung verwendet werden
 
-- <a name="in-exigent-circumstances"></a>**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
+- <a name="in-exigent-circumstances"></a>
+**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
 
 ### Kostenerstattung
 
-Wir behalten uns das Recht vor, die Erstattung von Verwaltungskosten im Zusammenhang mit der Beantwortung von Informationsanfragen zu beantragen, soweit dies gesetzlich zulässig ist.
+Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+
+While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+
+- Initial search of up to 25 identifiers: Free
+- Production of subscriber information/data for up to 5 accounts: Free
+- Production of subscriber information/data for more than 5 accounts: $20 per account
+- Secondary searches: $10 per search
 
 ### Datenaufbewahrung
 
@@ -161,8 +169,6 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505, USA.
 ```
-
-Sie können auch eine Kopie an legal@support.github.com senden.
 
 Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, einschließlich der folgenden Informationen:
 

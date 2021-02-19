@@ -8,19 +8,23 @@ versions:
 
 ### 关于 {% data variables.product.prodname_actions %} 的计费
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 分钟数每月都会重置，而存储使用量不重置。
 
-| 产品                                                         | 存储器    | 分钟数（每月） |
-| ---------------------------------------------------------- | ------ | ------- |
+| 产品                                                    | 存储器    | 分钟数（每月） |
+| ----------------------------------------------------- | ------ | ------- |
 | {% data variables.product.prodname_free_user %}     | 500 MB | 2,000   |
 | {% data variables.product.prodname_pro %}             | 1 GB   | 3,000   |
 | 组织的 {% data variables.product.prodname_free_team %} | 500 MB | 2,000   |
 | {% data variables.product.prodname_team %}            | 2 GB   | 3,000   |
 | {% data variables.product.prodname_ghe_cloud %}     | 50 GB  | 50,000  |
 
-Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
+在 {% data variables.product.prodname_dotcom %} 主机的 Windows 和 macOS 运行器上运行的作业，其消耗分钟数是在 Linux 运行器上运行的作业的 2 倍和 10 倍。 例如，使用 1,000 Windows 分钟将消耗帐户中包含的 2,000 分钟。 使用 1,000 macOS 分钟，将消耗帐户中包含的 10,000 分钟。
 
 | 操作系统    | 分钟乘数 |
 | ------- | ---- |
@@ -28,13 +32,13 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | macOS   | 10   |
 | Windows | 2    |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+仓库使用的存储空间是 {% data variables.product.prodname_actions %} 构件和 {% data variables.product.prodname_registry %} 使用的存储空间总计。 您的存储成本是您帐户拥有的所有帐户的总使用量。 有关 {% data variables.product.prodname_registry %} 定价的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)”。
 
- If your account's usage surpasses these limits and you have set a spending limit above $0, you will pay $0.25 USD per GB of storage per month and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes each job uses up to the nearest minute.
+ 如果您的帐户使用量超出了这些限额，并且您设置的支出限额高于 0 美元，则每月的每 GB 存储用量和每分钟用量需要支付 0.25 美元，具体取决于 {% data variables.product.prodname_dotcom %} 托管运行器使用的操作系统。 {% data variables.product.prodname_dotcom %} 将每个作业使用的分钟数舍入到最接近的分钟整数。
 
 {% note %}
 
-**Note:** Minute multipliers do not apply to the per-minute rates shown below.
+**注：**分钟倍数不适用于以下所示的每分钟费率。
 
 {% endnote %}
 
@@ -44,11 +48,11 @@ The storage used by a repository is the total storage used by {% data variables.
 | macOS   | $0.08  |
 | Windows | $0.016 |
 
-The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. 更多信息请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)”。
+可在用户或组织帐户的所有仓库中同时运行的作业数量取决于您的 GitHub 计划。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
 ### 计算分钟和存储支出
 
-At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account. For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56, depending on the operating systems used to run jobs.
+在月末，{% data variables.product.prodname_dotcom %} 会计算您使用的超过帐户自带限额的分钟数和存储空间费用。 例如，如果您的组织使用 {% data variables.product.prodname_team %} 并允许无限制支出，则使用 15,000 分钟可能会产生 56 美元的总存储空间和分钟数超额费用，具体取决于用于运行作业的操作系统。
 
 - 5,000（3,000 Linux 加 2,000 Windows）分钟 = $56 ($24 + $32)。
   - 3,000 Linux 分钟（每分钟 $0.008）= $24。
@@ -69,8 +73,8 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 
 ### 关于支出限制
 
-默认情况下，您的帐户对 {% data variables.product.prodname_actions %} 使用的支出限额为 0 美元。 To enable using minutes and storage for private repositories beyond the amounts included with your account, you can increase the spending limit or allow unlimited spending. 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

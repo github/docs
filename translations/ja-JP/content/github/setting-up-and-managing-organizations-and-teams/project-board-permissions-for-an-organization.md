@@ -1,11 +1,12 @@
 ---
 title: Organization のプロジェクトボード権限
-intro: Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。
+intro: 'Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 権限の概要
@@ -29,7 +30,7 @@ Organization のオーナーと、プロジェクトボードに対する管理�
 
 ### プロジェクトボードの可視性
 
-{% data reusables.project-management.project-board-visibility %}プロジェクトボードの可視性を、プライベートからパブリックへ、またその逆に変更することができます。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
+{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
 
 ### 参考リンク
 

@@ -1,6 +1,6 @@
 ---
 title: Permalinks zu Dateien abrufen
-intro: 'Wenn Du eine Datei auf {% data variables.product.product_location %} anzeigst, kannst Du die Taste „y" drücken, um aus der URL einen Permalink zu genau der angezeigten Version der Datei zu erstellen.'
+intro: 'Wenn Sie eine Datei auf {% data variables.product.product_location %} anzeigen, können Sie die Taste Y drücken, um aus der URL einen Permalink zu genau der angezeigten Version der Datei zu erstellen.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -18,21 +19,21 @@ versions:
 
 ### Dateiansichten zeigen die aktuelle Version auf einem Branch
 
-Wenn Du eine Datei auf {% data variables.product.product_location %} anzeigst, siehst Du in der Regel die Version am aktuellen Head eines Branches.  Ein Beispiel:
+Wenn Sie eine Datei auf {% data variables.product.product_location %} anzeigen, sehen Sie in der Regel die Version am aktuellen Head eines Branches.  Ein Beispiel:
 
-* [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
+* [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-bezieht sich auf das GitHub-Repository `hubot` und zeigt die aktuelle Version der `README.md`-Datei des `master`-Branches.
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
 Die Version einer Datei am Head eines Branches kann sich durch neue Commits ändern. Wenn Du also die normale URL kopierst und jemand die Datei später über diese URL aufruft, ist der Inhalt der Datei möglicherweise nicht mehr derselbe.
 
 ### Mit der Taste <kbd>y</kbd> einen Permalink zu einer Datei in einem spezifischen Commit erstellen
 
-Um einen Permalink zu der angezeigten spezifischen Version einer Datei zu erhalten, verwende in der URL statt des Branch-Namen (z. B. `master` im Beispiel oben) eine Commit-ID.  Dadurch entsteht ein Permalink zu der genauen Version der Datei in diesem Commit.  Ein Beispiel:
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  Dadurch entsteht ein Permalink zu der genauen Version der Datei in diesem Commit.  Ein Beispiel:
 
-* [https://github.com/github/hubot/blob/**ed25584f5ac2520a6c28547ffd0961c7abd7ea49**/README.md](https://github.com/github/hubot/blob/ed25584f5ac2520a6c28547ffd0961c7abd7ea49/README.md)
+* [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-ersetzt `master` durch eine spezifische Commit-ID, wodurch sich der Inhalt der Datei nicht ändert.
+replaces `main` with a specific commit id and the file content will not change.
 
 Die manuelle Suche der Commit-SHA ist unpraktisch. Drücke stattdessen einfach auf <kbd>y</kbd>, um die URL automatisch in die Permalink-Version zu ändern.  Dann kannst Du die URL kopieren und sicher sein, dass jeder, der die Datei über diesen Link aufruft, dieselben Inhalte sieht wie Du.
 

@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
-  - /enterprise/admin/user-management/managing-projects-using-jira
 versions:
   enterprise-server: '*'
 ---

@@ -3,10 +3,11 @@ header:
   github_docs: GitHub Docs
   contact: 联系我们
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>了解更多信息。
+    release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
     localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
-    product_in_progress: '👋你好，探索者！ 此页面正在积极开发中。有关最新和最准确的信息，请访问我们的<a href="https://developer.github.com">开发者文档</a>。'
+    early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品...
@@ -15,10 +16,11 @@ homepage:
   version_picker: 版本
 toc:
   getting_started: 入门指南
-  popular_articles: 热门文章
+  popular_articles: 热门
   guides: 指南
+  whats_new: 新增内容
 pages:
-  article_version: "文章版本："
+  article_version: '文章版本：'
   miniToc: 本文内容
 errors:
   oops: 哎呀！
@@ -26,34 +28,42 @@ errors:
   we_track_errors: 我们会自动跟踪这些错误，但如果问题仍然存在，请随时联系我们。
   page_doesnt_exist: 看来此页面不存在。
 support:
-  still_need_help: Still need help?
+  still_need_help: 还需要帮助？
   contact_support: 联系支持
-  ask_community: Ask the GitHub community
+  ask_community: 询问 GitHub 社区
 helpfulness:
-  able_to_find: Did this doc help you?
+  able_to_find: 此文档对您有帮助吗？
   yes: true
   no: false
-  yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
+  yes_feedback: 想了解新的文档功能和更新？注册更新！
   email_placeholder: email@example.com
-  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  category_label: What problem did you have?
-  category_default: Choose an option
-  category_unclear: Information was unclear
-  category_confusing: The content was confusing
-  category_unhelpful: The article didn't answer my question
-  category_other: Other
-  comment_label: Let us know what we can do better
+  no_feedback: 我们在不断改进文档，希望听到您的改进建议。
+  category_label: 您遇到了什么问题？
+  category_default: 选择一个选项
+  category_unclear: 信息不清楚
+  category_confusing: 内容令人困惑
+  category_unhelpful: 这篇文章没有回答我的问题
+  category_other: 其他
+  comment_label: 告诉我们如何改进
   optional: 可选
   required: 必选
-  email_label: Can we contact you if we have more questions?
+  email_label: 如果有更多问题，我们能联系您吗？
   send: 发送​​
   feedback: 谢谢！您的反馈已提交。
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
+  title: 帮助我们创建出色的文档！
+  body: 所有 GitHub 文档都是开源的。看到错误或不清楚的内容了吗？提交拉取请求。
+  button: 做出贡献
   or: 或,
-  to_guidelines: learn how to contribute.
+  to_guidelines: 了解如何参与。
+enterprise_releases_list:
+  title: Enterprise Server 发行版
+  currently_supported: 当前支持
+  currently_supported_message: 请参阅 <a href="https://github.com/enterprise">GitHub Enterprise</a> 以获取最新版本的信息。
+  deprecated: 已废弃
+  deprecated_message: '这些文档仍然可用，但不再维护：'
+  deprecated_developer: 在 developer.github.com 上已废弃
+  deprecated_developer_message: '这些文档在旧<a href="https://developer.github.com">开发者站点</a>上仍然可用，但不再维护：'
 products:
   graphql:
     reference:
@@ -118,3 +128,29 @@ footer:
       careers: 招聘
       press: 新闻
       shop: 商店
+product_landing:
+  quick_start: 快速入门
+  reference_guides: 参考指南
+  overview: 概览
+product_sublanding:
+  start: 开始
+  start_path: 开始路径
+  learning_paths: 学习路径
+  learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
+  more_guides: 更多指南
+  load_more: 加载更多指南
+  all_guides: 所有指南
+  no_result: 抱歉，没有与过滤条件匹配的指南。
+  filters:
+    type: 类型
+    topic: 主题
+    all: 所有
+  guide_types:
+    overview: 概览
+    quick_start: 快速入门
+    tutorial: 教程
+    how_to: 操作方法指南
+    reference: 参考
+learning_track_nav:
+  prevGuide: 上一个指南
+  nextGuide: 下一个指南

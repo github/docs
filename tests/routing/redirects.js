@@ -5,7 +5,7 @@ const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -17,36 +17,41 @@ describe('redirects', () => {
     done()
   })
 
-  test('page.redirects is an array', () => {
-    const page = new Page({
+  test('page.redirects is an array', async () => {
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
+    page.buildRedirects()
     expect(isPlainObject(page.redirects)).toBe(true)
   })
 
-  test('dotcom homepage page.redirects', () => {
-    const page = new Page({
+  test('dotcom homepage page.redirects', async () => {
+    const page = await Page.init({
       relativePath: 'github/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
-    expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    page.buildRedirects()
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/github`]).toBe('/en/github')
+    expect(page.redirects['/articles']).toBe('/en/github')
+    expect(page.redirects['/en/articles']).toBe('/en/github')
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/articles`]).toBe('/en/github')
+    expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
+    expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-conversations-on-github.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
-    const expected = `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
+    page.buildRedirects()
+    const expected = '/en/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github'
     expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
   })
 
@@ -122,7 +127,7 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
+      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop'
       expect(res.headers.location).toBe(expected)
     })
   })
@@ -329,7 +334,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
+    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

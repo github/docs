@@ -1,6 +1,6 @@
 ---
 title: Eine Docker-Container-Aktion erstellen
-intro: In diesem Leitfaden werden die mindestens erforderlichen Schritte zum Erstellen einer Docker-Container-Aktion beschrieben.
+intro: 'In diesem Leitfaden werden die mindestens erforderlichen Schritte zum Erstellen einer Docker-Container-Aktion beschrieben.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Action development'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Erstellen Sie zunächst ein GitHub-Repository.
 
 1. Gehe in Deinem Terminal zum Verzeichnisse Deines neuen Repositorys.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
@@ -47,7 +51,7 @@ Erstellen Sie zunächst ein GitHub-Repository.
 Erstelle im neuen Verzeichnis `hello-world-docker-action` eine neue `Dockerfile`-Datei. Weitere Informationen findest Du unter „[Dockerfile-Support für {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)“.
 
 **Dockerfile**
-```dockerfile
+```dockerfile{:copy}
 # Container-Image, das Deinen Code ausführt
 FROM alpine:3.10
 
@@ -64,7 +68,7 @@ Erstellen Sie eine neue `action.yml`-Datei im von Ihnen oben erstellten Verzeich
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -96,24 +100,23 @@ Als Nächstes ruft das Skript die aktuelle Zeit ab und legt sie als eine Ausgabe
 
 1. Erstelle eine neue `entrypoint.sh`-Datei im Verzeichnis `hello-world-docker-action`.
 
-1. Mache Deine Datei `entrypoint.sh` ausführbar:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
-
 1. Füge Deiner Datei `entrypoint.sh` den folgenden Code hinzu.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
 
   echo "Hello $1"
   time=$(date)
   echo "::set-output name=time::$time"
   ```
-
   Wenn `entrypoint.sh` ohne Fehler durchläuft, wird der Status der Aktion auf `success` (erfolgreich) festgelegt. Du kannst auch explizit Exit-Codes im Code Deiner Aktion festlegen, um einen Status der Aktion anzugeben. Weitere Informationen findest Du unter "[Exit Codes für Aktionen setzen](/actions/creating-actions/setting-exit-codes-for-actions)."
+
+1. Make your `entrypoint.sh` file executable by running the following command on your system.
+
+  ```shell{:copy}
+  $ chmod +x entrypoint.sh
+  ```
 
 ### Eine README erstellen
 
@@ -129,7 +132,7 @@ Erstelle in Deinem Verzeichnis `hello-world-docker-action` eine Datei `README.md
 - Ein Beispiel für die Verwendung Deiner Aktion in einem Workflow.
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Docker-Aktion „Hello world“
 
 Diese Aktion gibt „Hello World“ oder „Hello“ + den Namen einer Person aus, die im Protokoll gegrüßt werden soll.
@@ -159,7 +162,7 @@ Committen Sie in Ihrem Terminal Ihre Dateien `action.yml`, `entrypoint.sh`, `Doc
 
 Es hat sich bewährt, auch ein Versions-Tag für Releases Deiner Aktion hinzuzufügen. Weitere Informationen zur Versionierung Deiner Aktion findest Du unter "[Informationen zu Aktionen](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
@@ -174,11 +177,11 @@ Nun sind Sie bereit, Ihre Aktion in einem Workflow zu testen. Wenn eine Aktion i
 
 #### Beispiel mit einer öffentlichen Aktion
 
-Der folgende Workflow-Code verwendet die fertiggestellte Aktion „hello world“ im öffentlichen Repository [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Kopiere den folgenden Workflow-Beispielcode in eine Datei `.github/workflows/main.yml`. Ersetze jedoch `actions/hello-world-docker-action` durch Deinen Repository- und Aktionsnamen. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
+The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Kopiere den folgenden Workflow-Beispielcode in eine Datei `.github/workflows/main.yml`. Ersetze jedoch `actions/hello-world-docker-action` durch Deinen Repository- und Aktionsnamen. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen. {% if currentVersion == "free-pro-team@latest" %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -199,11 +202,11 @@ jobs:
 
 #### Beispiel mit einer privaten Aktion
 
-Kopieren Sie den folgenden Workflow-Beispielcode im Repository Ihrer Aktion in eine `.github/workflows/main.yml`-Datei. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
+Kopieren Sie den folgenden Workflow-Beispielcode im Repository Ihrer Aktion in eine `.github/workflows/main.yml`-Datei. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen. {% if currentVersion == "free-pro-team@latest" %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 zu: [push]
 
 Jobs:
@@ -226,6 +229,10 @@ Jobs:
 ```
 {% endraw %}
 
-Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. Es sollten „Hello Mona the Octocat“ oder der von Dir für die Eingabe `who-to-greet` verwendete Name und der im Protokoll ausgegebene Zeitstempel angezeigt werden.
+Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+{% else %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/docker-action-workflow-run.png)
+{% endif %}

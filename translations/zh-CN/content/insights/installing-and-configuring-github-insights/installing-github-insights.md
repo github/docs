@@ -16,6 +16,7 @@ versions:
 - 您必须在应用程序服务器上安装依赖项。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/)，通过 apt 用于 [Debian](https://packages.debian.org/search?keywords=netcat) 和 [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -28,7 +29,8 @@ versions:
 要将 {% data variables.product.prodname_insights %} 连接到 {% data variables.product.prodname_enterprise %}，您必须在 {% data variables.product.prodname_enterprise %} 上的组织中创建 {% data variables.product.prodname_github_app %}。 当您的集成执行操作时，应用程序名称的缓存版本将显示在 {% data variables.product.prodname_enterprise %} 上。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. 导航至要连接到 {% data variables.product.prodname_insights %} 的组织。
+2. 导航到要连接到的组织
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. 单击**新建 {% data variables.product.prodname_github_app %}**。 ![新建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_new.png)
@@ -60,7 +62,7 @@ versions:
     - 仓库
     - 团队 ![订阅事件复选框](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
-13. 要启用 {% data variables.product.prodname_github_app %} 访问 {% data variables.product.product_location_enterprise %} 中任何用户或组织的数据，请在“此 {% data variables.product.prodname_github_app %} 可安装在何处？”下，选择 **Any account（任何帐户）**。 ![启用访问任何帐户的单选按钮](/assets/images/help/apps/github_apps_installation_options_any_account.png)
+13. 要启用 {% data variables.product.prodname_github_app %} 访问 {% data variables.product.product_location %} 中任何用户或组织的数据，请在“此 {% data variables.product.prodname_github_app %} 可安装在何处？”下，选择 **Any account（任何帐户）**。 ![启用访问任何帐户的单选按钮](/assets/images/help/apps/github_apps_installation_options_any_account.png)
 14. 单击**创建 {% data variables.product.prodname_github_app %}**。 ![创建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_create_github_app.png)
 15. 检查应用程序的配置。
 16. 在“Private keys（私钥）”下，单击 **Generate a private key（生成私钥）**。 ![生成私钥按钮](/assets/images/help/apps/generate-private-key.png)
@@ -98,4 +100,4 @@ versions:
 ### 延伸阅读
 
 - "[管理仓库](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- [{% data variables.product.prodname_insights %} 和组织的数据保护](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} 和组织的数据保护</a>"

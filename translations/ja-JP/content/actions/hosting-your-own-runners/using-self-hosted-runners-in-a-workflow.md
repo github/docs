@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 カスタム及びデフォルトラベルの作成に関する情報については「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
 
@@ -28,7 +29,7 @@ versions:
 
 * `self-hosted`: セルフホストランナーに適用されるデフォルトのラベル。
 * `linux`、`windows`、`macOS`: オペレーティングシステムに基づいて適用されます。
-* `x86`、`x64`、`ARM`、`ARM64`: ハードウェアアーキテクチャに基づいて適用されます。
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 ワークフローのYAMLを使って、これらのラベルの組み合わせに対してジョブを送信できます。 この例では、3つのラベルすべてにマッチするセルフホストランナーが、ジョブを実行する資格を持つことになります。
 
@@ -63,8 +64,11 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### セルフホストランナーのルーティングの優先順位
 
-リポジトリレベルと Organization レベルの両方のランナーを使用する場合、{% data variables.product.prodname_dotcom %} は、次の優先順位に従ってジョブをセルフホストランナーにルーティングします。
+ジョブをセルフホストランナーにルーティングする際に、{% data variables.product.prodname_dotcom %}はジョブの`runs-on`ラベルにマッチするランナーを探します。
 
-1. ジョブの `runs-on` ラベルが処理されます。 次に、{% data variables.product.prodname_dotcom %} は、ラベル要件に一致するランナーを検索します。
-2. ジョブは、ジョブラベルに一致するリポジトリレベルのランナーに送信されます。 リポジトリレベルのランナーが利用できない（ビジー、オフライン、または一致するラベルがない）場合:
-3. ジョブは、ジョブラベルに一致する Organization レベルのランナーに送信されます。 Organization レベルのランナーが利用できない場合、ジョブ要求はエラーで失敗します。
+1. {% data variables.product.prodname_dotcom %}ま、まずリポジトリレベルで、続いてOrganizationのレベルで{% if currentVersion ver_gt "enterprise-server@2.21" %}、そしてEnterpriseのレベルで{% endif %}ランナーを探します。
+2. ジョブは最初にマッチした、オンラインでアイドル状態のランナーに送信されます。
+   - マッチしたすべてのランナーがビジーだった場合、ジョブはマッチしたオンラインのランナーが最も多いレベルでキューイングされます。
+   - マッチしたランナーがすべてオフラインだった場合、ジョブはマッチしたオフラインのランナーが最も多いレベルでキューイングされます。
+   - マッチするランナーがどのレベルにもなかった場合、そのジョブは失敗します。
+   - 24時間以上にわたってキューに残っていたジョブは失敗します。
