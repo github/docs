@@ -13,7 +13,7 @@ versions: '*'
 
 ## Parking widget <!--for Android-->
 
-Shows the distance from users location to the parking place in default distance units <br>
+Shows the distance from users location to the parking place in default distance units. <br>
 <!-- можно добавить что Unit s можно изменить в -->
 To change default distance units follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. <br>
@@ -32,11 +32,12 @@ Step 4: Choose ‘Mark as parking location’ <br>
 Step 5: Choose one of the parking options Time-unlimited or Time-limited parking <br>
 
 The following menu will show the configurations of the parking spot such as parking time and date, information about parking limitation, distance from the current location to the parking spot. <br>
-User can delete the parking location marker anytime with ‘Delete’ button. It will be removed from the map and from the calendar if such option has been chosen earlier.<br>
+User can delete the parking location marker anytime with ‘Delete’ button. <br>
+It will be removed from the map and from the calendar if such option has been chosen earlier. <br>
 
 ![Time limited unlimited](/assets/images/docs/widgets/time_limited_unlimited.png)
 
-If Time-limited parking has been selected at Step 5 a user can set the parking time interval.
+If 'Time-limited parking' has been selected at Step 5 a user can set the parking time interval. <br>
 There are three ways to configure the parking time limit. The first one is by using the electronic watch control and the second one is by using analogue watch control. The third way is to tap the small keyboard image under numeric clock and set the time manually. <br>
 The user can optionally add a notification to the Calendar by selecting appropriate option with the checkbox below. Click Ok when done.<br>
 User may also add some extra information on the calendar screen appeared and press the ‘Save’ button in the upper-right corner to save an event to the default device calendar. <br>
@@ -44,7 +45,9 @@ User may also add some extra information on the calendar screen appeared and pre
 ## Trip recording (REC) widget
 
 Is used to get the quick access to recording button. <br>
+
 ![Trip recording (REC) widget](/assets/images/docs/widgets/trip_recording_widget.png)
+
 IMPORTANT: Enable ‘Trip recording’ plugin before attempting to use Trip recording widget <br>
 
 User can enable Trip recording widget in Configure screen menu. <br>
@@ -53,7 +56,7 @@ Before recording the trip a Trip recording settings to be defined. Trip recordin
 
 ![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png) <!-- добавить картинки Android IOS Каждое описать отдельно--->
 
-In the REC settings menu user can enable Show track on the map feature and configure the style of the track line. <br>
+In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line. <br>
 The 'Line configuration button' next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
 <!-- На данный момент изменить цвет записываемого трека во время симуляции из этого меню не удалось. Переписка в саппорт чате от 16.02 17:36 -->
 Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
@@ -73,9 +76,9 @@ The REC widget will change to the red circle.  The distance passed will be disp
 
 To tap REC widget again will give an opportunity  to:
 * Pause the trip recording - will pause The trip recording. Then pressing the widget again will give and options to:
-+ Resume trip recording
-+ Save current track
-+ Clear recorded data
+    + Resume trip recording
+    + Save current track
+    + Clear recorded data
 * Start new segment <!-- если начинается запись нового сегмента, означает ли это что предыдущий сегмент автоматически сохранится в мои теки?-->
 * Save current track - user can add GPX file name. Can switch the toggle button 'Show on map' and to click the button 'Open the track'.
 * Clear recorded data- the track will not be saved
@@ -89,7 +92,7 @@ To tap REC widget again will give an opportunity  to:
 * Start new segment
 * Save current trip - the track will be automatically saved. User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → {% data variables.ios-values.menu_my_trips %} → {% data variables.ios-values.menu_all_trips %}.
 
-Track recording issues troubleshooting [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
+ [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
 
 ## Audio-video notes widget
 
