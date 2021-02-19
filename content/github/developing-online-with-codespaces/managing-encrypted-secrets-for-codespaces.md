@@ -8,7 +8,10 @@ versions:
 
 {% note %}
 
-**Note:** Encrypted secrets for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
+**Notes:** 
+
+- Encrypted secrets for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
+- Tokens starting with GITHUB_ are reserved
 
 {% endnote %}
 
