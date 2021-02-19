@@ -18,7 +18,9 @@ Shows the distance from users location to the parking place in default distance 
 To change default distance units follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. <br>
 
-IMPORTANT: Enable ‘Parking position’ plugin to use Parking widget. <br>
+![Parking widget](/assets/images/docs/widgets/parking_widget.png)
+
+IMPORTANT: Enable ‘Parking position’ plugin to use Parking widget. <br> <!--сделать на него сслыку-->
 
 User can enable Parking widget in Configure screen menu. <br>
 
@@ -32,6 +34,8 @@ Step 5: Choose one of the parking options Time-unlimited or Time-limited parking
 The following menu will show the configurations of the parking spot such as parking time and date, information about parking limitation, distance from the current location to the parking spot. <br>
 User can delete the parking location marker anytime with ‘Delete’ button. It will be removed from the map and from the calendar if such option has been chosen earlier.<br>
 
+![Time limited unlimited](/assets/images/docs/widgets/time_limited_unlimited.png)
+
 If Time-limited parking has been selected at Step 5 a user can set the parking time interval.
 There are three ways to configure the parking time limit. The first one is by using the electronic watch control and the second one is by using analogue watch control. The third way is to tap the small keyboard image under numeric clock and set the time manually. <br>
 The user can optionally add a notification to the Calendar by selecting appropriate option with the checkbox below. Click Ok when done.<br>
@@ -40,13 +44,15 @@ User may also add some extra information on the calendar screen appeared and pre
 ## Trip recording (REC) widget
 
 Is used to get the quick access to recording button. <br>
-
+![Trip recording (REC) widget](/assets/images/docs/widgets/trip_recording_widget.png)
 IMPORTANT: Enable ‘Trip recording’ plugin before attempting to use Trip recording widget <br>
 
 User can enable Trip recording widget in Configure screen menu. <br>
 
 Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
-<!-- добавить картинки Android IOS Каждое описать отдельно--->
+
+![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png) <!-- добавить картинки Android IOS Каждое описать отдельно--->
+
 In the REC settings menu user can enable Show track on the map feature and configure the style of the track line. <br>
 The 'Line configuration button' next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
 <!-- На данный момент изменить цвет записываемого трека во время симуляции из этого меню не удалось. Переписка в саппорт чате от 16.02 17:36 -->
@@ -57,10 +63,33 @@ In the REC Settings menu user can configure the logging interval from 0 seconds 
 The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line.
 If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
 When all settings are defined, user can push the ‘Start recording’ button
-<!-- Не нашла способа как сбросить настройки установленные. ВКЛ/выкл виджета и плагина не помогает. В плагине сбросить в настройках плагина-->
-The Logging interval can be additionally checked/ changed in Menu – Configure profile – Trip recording – Logging interval during navigation <br>
+<!-- Не нашла способа как сбросить настройки установленные. ВКЛ/выкл виджета и плагина не помогает. В плагине сбросить в настройках плагина тоже не помогает-->
+The Logging interval can be additionally checked/ changed in: <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.shared_string_trip_recording %} → {% data variables.android-values.save_track_interval %}. <br>
+<!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br> -->
 
-<!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
+When all settings are configured, press ‘Start recording’ button.
+The REC widget will change to the red circle.  The distance passed will be displayed in the widget.
+
+To tap REC widget again will give an opportunity  to:
+* Pause the trip recording - will pause The trip recording. Then pressing the widget again will give and options to:
++ Resume trip recording
++ Save current track
++ Clear recorded data
+* Start new segment <!-- если начинается запись нового сегмента, означает ли это что предыдущий сегмент автоматически сохранится в мои теки?-->
+* Save current track - user can add GPX file name. Can switch the toggle button 'Show on map' and to click the button 'Open the track'.
+* Clear recorded data- the track will not be saved
+
+![Start Trip recording (REC) Settings](/assets/images/docs/widgets/start_rec_setings.png)
+
+***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
+To tap REC widget again will give an opportunity  to:
+* Stop recording - will pause The trip recording. Then pressing the widget again will give and options to 'Continue recording'
+* Show Info - will display statistics data such as speed, route time, uphills/downhills
+* Start new segment
+* Save current trip - the track will be automatically saved. User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → {% data variables.ios-values.menu_my_trips %} → {% data variables.ios-values.menu_all_trips %}.
+
+Track recording issues troubleshooting [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
 
 ## Audio-video notes widget
 
