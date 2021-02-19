@@ -11,7 +11,11 @@ versions:
 
 Anyone with write permissions to a repository can assign issues and pull requests.
 
+### About issue and pull request assignees
+
 You can assign up to 10 people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+
+### Assigning an individual issue or pull request
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -22,6 +26,16 @@ You can assign up to 10 people to each issue or pull request, including yourself
   ![Issues assignment drop-down](/assets/images/help/issues/issues_assigning_dropdown.png)
 6. If no one is assigned to an issue or pull request, click **assign yourself** to assign yourself.
   ![The assign yourself item](/assets/images/help/issues/assign_yourself.png)
+
+### Assigning multiple issues or pull requests
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+3. Select the checkbox next to the items you want to assign to someone.
+  ![Issues metadata checkbox](/assets/images/help/issues/issues_assign_checkbox.png)
+4. In the upper-right corner, click **Assign**.
+5. To assign the items to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
+  ![Issues assignment drop-down](/assets/images/help/issues/issues_assigning_dropdown.png)
 
 ### Further reading
 
