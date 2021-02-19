@@ -14,6 +14,7 @@ versions:
 
 **Note:** Updated permissions won't take effect on an installation until the owner of the account or organization approves the changes. You can use the [InstallationEvent webhook](/webhooks/event-payloads/#installation) to find out when people accept new permissions for your app. One exception is [user-level permissions](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions), which don't require the account owner to approve permission changes.
 
+
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
