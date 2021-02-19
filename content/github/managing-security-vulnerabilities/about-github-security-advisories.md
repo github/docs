@@ -14,6 +14,8 @@ versions:
 
 ### About {% data variables.product.prodname_security_advisories %}
 
+{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About disclosing vulnerabilities](/github/managing-security-vulnerabilities/about-disclosing-vulnerabilities)."
+
 {% data reusables.security-advisory.security-advisory-overview %}
 
 With {% data variables.product.prodname_security_advisories %}, you can:
