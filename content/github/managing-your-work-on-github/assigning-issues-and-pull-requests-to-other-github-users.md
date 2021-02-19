@@ -15,11 +15,13 @@ You can assign up to 10 people to each issue or pull request, including yourself
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Select the checkbox next to the items you want to assign to someone.
-  ![Issues metadata checkbox](/assets/images/help/issues/issues_assign_checkbox.png)
-4. In the upper-right corner, click **Assignee**.
-5. To assign the items to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
+3. Select the issue or pull request that you want to assign to someone.
+4. In the right side menu, click **Assignees**.
+   ![The Assignees menu item](/assets/images/help/issues/assignee_menu.png)
+5. To assign the issue or pull request to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
   ![Issues assignment drop-down](/assets/images/help/issues/issues_assigning_dropdown.png)
+6. If no one is assigned to an issue or pull request, click **assign yourself** to assign yourself.
+  ![The assign yourself item](/assets/images/help/issues/assign_yourself.png)
 
 ### Further reading
 
