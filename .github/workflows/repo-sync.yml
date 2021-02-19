@@ -46,7 +46,7 @@ jobs:
 
       - name: Create pull request
         id: create-pull
-        uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3
+        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
@@ -66,21 +66,8 @@ jobs:
           base: main
           author: Octomerger
 
-      # Sometimes the `repo-sync` branch gets created but GitHub thinks a pull
-      # request is already attached to the branch. This may happen when an
-      # external contributor creates a pull request for the `repo-sync` branch
-      # in a fork, then deletes their repository. If there were changes added
-      # to the `repo-sync` branch but no pull request can be found, we should
-      # fail. The failure will then be sent to Slack in the last step.
-      - name: Check for pull request creation errors
-        if: ${{ !steps.find-pull-request.outputs.number && steps.create-pull.outputs.has_changed_files == 'true'}}
-        id: check-pr-creation
-        run: |
-          echo 'Unable to create a new PR for the existing branch `repo-sync`. Delete that branch and re-run this workflow to generate a new PR.'
-          exit 1 # prevents further steps from running
-
       - name: Approve pull request
-        if: ${{ steps.find-pull-request.outputs.number}}
+        if: ${{ steps.find-pull-request.outputs.number }}
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
