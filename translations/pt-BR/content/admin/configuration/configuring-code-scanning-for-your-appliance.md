@@ -73,7 +73,7 @@ Se o servidor em que você está executando
 {% endif %}
 
 #### Habilitar a verificação de código para repositórios individuais
-Depois que você configurar um executor auto-hospedado, {% if currentVersion == "enterprise-server@2.22" %}e provisionar as ações,{% endif %} os usuários poderão habilitar {% data variables.product.prodname_code_scanning %} para repositórios individuais em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning).
+Depois que você configurar um executor auto-hospedado, {% if currentVersion == "enterprise-server@2.22" %}e provisionar as ações,{% endif %} os usuários poderão habilitar {% data variables.product.prodname_code_scanning %} para repositórios individuais em {% data variables.product.product_location %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 ### Executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}
 Se você não quiser usar {% data variables.product.prodname_actions %}, você poderá executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}.
