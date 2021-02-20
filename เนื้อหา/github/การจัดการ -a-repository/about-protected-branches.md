@@ -136,6 +136,6 @@ Enabling force pushes will not override any other branch protection rules. For e
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 
-#### Allow deletions
+#### Allow deletions 
 
 By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
