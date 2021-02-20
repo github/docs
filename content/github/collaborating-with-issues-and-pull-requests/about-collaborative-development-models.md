@@ -5,8 +5,8 @@ redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  free-pro-team: '*Add 1'
+  enterprise-server: '*1080'
   github-ae: '*'
 ---
 
