@@ -1,4 +1,4 @@
----
+---Name: new 
 title: Repository permission levels for an organization
 intro: 'You can customize access to each repository in your organization with granular permission levels, giving people access to the features and tasks they need.'
 miniTocMaxHeadingLevel: 4
@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+--->branches:[trunk]
 
 People with admin permissions can manage individual and team access to an organization-owned repository.
 
