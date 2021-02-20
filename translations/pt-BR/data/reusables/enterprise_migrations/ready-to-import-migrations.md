@@ -1,1 +1,1 @@
-1. To prepare the archived migration data for import into a {% data variables.product.prodname_ghe_server %} instance, see "[Preparing to migrate data to your enterprise](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+1. Para preparar os dados de migração arquivados para fazer a importação para uma instância de {% data variables.product.prodname_ghe_server %}, consulte "[Preparar-se para migrar dados para a sua empresa](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".

@@ -42,7 +42,13 @@ console.log({
 purgeRenderedPageCache()
 
 function purgeRenderedPageCache () {
-  const redisClient = new Redis(REDIS_URL, { db: pageCacheDatabaseNumber })
+  const redisClient = new Redis(REDIS_URL, {
+    db: pageCacheDatabaseNumber,
+    tls: {
+      // Required for production Heroku Redis
+      rejectUnauthorized: false
+    }
+  })
   let totalKeyCount = 0
   let iteration = 0
 

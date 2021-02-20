@@ -17,7 +17,7 @@ versions:
 
 ### About YAML syntax for workflows
 
-Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. {% data reusables.actions.learn-more-about-yaml %}
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
@@ -590,11 +590,26 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-#### Example using a Docker public registry action
+{% if currentVersion == "free-pro-team@latest" %}
+##### Example using the {% data variables.product.prodname_github_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry.
+A Docker image in the {% data variables.product.prodname_github_container_registry %}.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### Example using a Docker public registry action
+
+`docker://{host}/{image}:{tag}`
+
+A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
 
 ```yaml
 jobs:

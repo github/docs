@@ -7,14 +7,15 @@ on:
     branches:
       - main
   pull_request:
-    branches-ignore:
-      - translations
 
 env:
   CI: true
 
 jobs:
   build:
+    # Do not run this job for translations PRs
+    if: ${{ github.ref != 'refs/heads/translations' }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

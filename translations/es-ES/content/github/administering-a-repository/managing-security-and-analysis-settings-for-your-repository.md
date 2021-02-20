@@ -33,10 +33,15 @@ Puedes administrar las características de seguridad y de análisis para tu repo
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**.
-{% if currentVersion == "free-pro-team@latest" %}Si no se muestra "{% data variables.product.prodname_secret_scanning_caps %}", puede que primero necesites habilitar la {% data variables.product.prodname_GH_advanced_security %}.
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
   ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
-  {% endif %}
-  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  {% note %}
+**Note:** If you disable
+
+  {% data variables.product.prodname_GH_advanced_security %}, both {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  {% endnote %}
+
+  {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
   ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
 

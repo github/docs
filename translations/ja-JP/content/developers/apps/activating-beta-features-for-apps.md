@@ -3,6 +3,8 @@ title: アプリケーションのベータ版機能を有効化する
 intro: 'パブリックベータでリリースたれた新しいアプリケーションの機能を、{% data variables.product.prodname_github_apps %} および {% data variables.product.prodname_oauth_app %} でテストできます。'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}

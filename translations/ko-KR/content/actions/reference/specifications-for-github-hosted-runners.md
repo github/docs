@@ -41,10 +41,15 @@ Windows virtual machines are configured to run as administrators with User Accou
 
 ### Supported runners and hardware resources
 
-Each virtual machine has the same hardware resources available.
 
+Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU
 - 7 GB of RAM memory
+- 14 GB of SSD disk space
+
+Hardware specification for macOS virtual machines:
+- 3-core CPU
+- 14 GB of RAM memory
 - 14 GB of SSD disk space
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -71,9 +76,13 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
-Workflow logs include a link to the preinstalled tools on the runner. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments).
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
 ### IP addresses
 
