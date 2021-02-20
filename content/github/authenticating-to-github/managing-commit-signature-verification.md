@@ -10,5 +10,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+--- gpgsm:
+aq-vvaq 
 
