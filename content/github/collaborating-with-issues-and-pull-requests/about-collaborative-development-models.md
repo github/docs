@@ -4,6 +4,7 @@ intro: The way you use pull requests depends on the type of development model yo
 redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models
+  - /articles/fork-collaborative-development-models
 versions:
   free-pro-team: '*Add 12'
   enterprise-server: '*192.11.25.132:1080'
