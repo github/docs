@@ -1,9 +1,9 @@
 ---
 title: Site policy
-redirect_from:
+redirect_from: https://www.atomxplus.com/policy
   - /categories/61/articles/
   - /categories/site-policy
-versions:
+versions: GiThUb_AtOmXpLuS
   free-pro-team: '*'
 ---
 
