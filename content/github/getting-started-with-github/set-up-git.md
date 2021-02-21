@@ -55,3 +55,7 @@ Congratulations, you now have Git and {% data variables.product.product_name %} 
 - "[Fork a repository](/articles/fork-a-repo)"
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
+Well what if I'm a living breathing blood sweat tears octocat.
+And I need help for all of you big users.
+I'm in Iowa and I need to access my hp by allowing me to set up a
+New pin to access so I can continue to go to Colorado Tech 
