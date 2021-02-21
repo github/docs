@@ -1,10 +1,10 @@
 # GraphQL
 
-The `/content/graphql` directory is where the GitHub GraphQL API docs live!
+O diretório `/content/graphql` é onde fica a documentação da API GraphQL do GitHub!
 
-* The `/content/graphql/guides` and `/content/graphql/overview` directories contain articles that are human-editable.
-* The `/content/graphql/reference` directory contains an article for each GraphQL data type used in the GitHub GraphQL API. Most of the content in this directory is rendered using `include` tags.
+* Os diretórios `/content/graphql/guides` e `/content/graphql/overview` contêm artigos que são editáveis pelas pessoas.
+* O diretório `/content/graphql/reference` contém um artigo para cada tipo de dado do GraphQL usado na API GraphQL do GitHub. A maioria do conteúdo nesse diretório é processada usando tags `include`.
 
-  The content rendered by `include` tags is sourced from the `/lib/graphql/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/graphql/README.md`](/lib/graphql/README.md).
+  O conteúdo processado etiquetas de `include` é fornecido no diretório `/lib/graphql/static`, que é gerado automaticamente a partir do código-fonte da API internamente no GitHub e não deve ser editado por uma pessoa. Para obter mais informações, consulte [`/lib/graphql/README.md`](/lib/graphql/README.md).
 
-  **As a result, we cannot accept contributions to GraphQL API reference content in this repository.**
+  **Como resultado, não podemos aceitar contribuições para o conteúdo da API do GraphQL neste repositório.**

@@ -51,6 +51,6 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Remove from organization** (Eliminar de la organización). ![Menú desplegable con la opción para eliminar miembros](/assets/images/help/teams/user-bulk-management-options.png)
 6. Revisa el miembro o los miembros que se eliminarán de la organización, luego haz clic en **Remove members** (Eliminar miembros). ![Lista de miembros que se eliminarán y botón Remove members (Eliminar miembros)](/assets/images/help/teams/confirm-remove-members-bulk.png)
 
-### Further reading
+### Leer más
 
 - "[Eliminar de un equipo a miembros de la organización](/articles/removing-organization-members-from-a-team)"

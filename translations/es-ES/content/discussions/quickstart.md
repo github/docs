@@ -1,7 +1,7 @@
 ---
 title: Guía de inicio rápido para los debates de GitHub
 intro: 'Habilita los {% data variables.product.prodname_discussions %} en un repositorio existente e inicia conversaciones con tu comunidad.'
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
 ---

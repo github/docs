@@ -19,7 +19,7 @@ Predeterminadamente, los miembros de la organización que tengan acceso de lectu
 5. Debajo de "Debates del repositorio", selecciona o deselecciona **Permitir que los usuarios con acceso de lectura creen debates**. ![Casilla de verificación para permitir que las personas con acceso de lectura creen debates](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
 6. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración de debates](/assets/images/help/discussions/click-save.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Administrar debates para tu comunidad](/discussions/managing-discussions-for-your-community)"

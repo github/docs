@@ -48,18 +48,21 @@ Para proteger seus clientes, recomendamos que siga as práticas recomendadas em 
 
 ### Requisitos para aplicativos pagos
 
-Além dos requisitos para todos os aplicativos acima, cada aplicativo que você oferece como serviço pago em {% data variables.product.prodname_marketplace %} também deve atender aos seguintes requisitos:
+Para publicar um plano pago para o seu aplicativo em {% data variables.product.prodname_marketplace %}, seu aplicativo deverá pertencer a uma organização que seja um publicador verificado. Para obter mais informações sobre o processo de verificação ou transferência da propriedade do seu aplicativo, consulte "[Candidatar-se para a verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
+
+Se seu aplicativo já está publicado e você é um editor verificado, você poderá publicar um novo plano pago no editor do plano de preços. Para obter mais informações, consulte "[Configurar planos de preços para sua listagem](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
+
+Para publicar um aplicativo pago (ou um aplicativo que ofereça um plano pago), você também deve atender aos seguintes requisitos:
 
 - Os {% data variables.product.prodname_github_app %}s deve ter, no mínimo, 100 instalações.
 - Os {% data variables.product.prodname_oauth_app %}s devem ter, no mínimo, 200 usuários.
 - Todos os aplicativos pagos devem lidar com eventos de compra de {% data variables.product.prodname_marketplace %} para novas compras, atualizações, downgrades, cancelamentos e testes grátis. Para obter mais informações, consulte "[Requisitos de cobrança para aplicativos pagos](#billing-requirements-for-paid-apps)" abaixo.
-- As organizações publicadoras devem ter um domínio verificado e devem habilitar a autenticação de dois fatores. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
 
-Quando estiver pronto para publicar o aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar a verificação para o anúncio.
+Quando estiver pronto para publicar o aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar a verificação para o anúncio do aplicativo.
 
 {% note %}
 
-O processo de verificação está aberto às organizações. {% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obter informações sobre como fazer isso, consulte: "[Enviar o seu anúncio para publicação](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
+**Observação:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obter informações sobre como transferir um aplicativo para uma organização, consulte: "[Enviar o seu anúncio para publicação](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
 
 {% endnote %}
 

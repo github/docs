@@ -16,6 +16,6 @@ Si eres contribuyente en los Estados Unidos y ganas más de $600 en un año fisc
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
-### Further reading
+### Leer más
 
 - [Ver tus patrocinadores y patrocinios](/github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships)
