@@ -39,6 +39,7 @@ It will be removed from the map and from the calendar if such option has been ch
 
 If 'Time-limited parking' has been selected at Step 5 a user can set the parking time interval. <br>
 There are three ways to configure the parking time limit. The first one is by using the electronic watch control and the second one is by using analogue watch control. The third way is to tap the small keyboard image under numeric clock and set the time manually. <br>
+
 The user can optionally add a notification to the Calendar by selecting appropriate option with the checkbox below. Click Ok when done.<br>
 User may also add some extra information on the calendar screen appeared and press the ‘Save’ button in the upper-right corner to save an event to the default device calendar. <br>
 
@@ -56,11 +57,13 @@ Before recording the trip a Trip recording settings to be defined. Trip recordin
 
 ![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png) <!-- добавить картинки Android IOS Каждое описать отдельно--->
 
-In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line. <br>
-The 'Line configuration button' next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
+In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line (for Android only). <br>
+The 'Line configuration button' (for Android only) next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
 <!-- На данный момент изменить цвет записываемого трека во время симуляции из этого меню не удалось. Переписка в саппорт чате от 16.02 17:36 -->
 Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
 <!-- не получила ответа на вопрос в каких единицах измеряются цифры на ползунке и чем эти цифры лучше/хуже   или толще /худее относительно других категорий width Переписка в саппорт чате от 16.02 17:49. проведенный мною эксперимент  привел к мысли что это настройка вообще не работает-->
+
+![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png) 
 
 In the REC Settings menu user can configure the logging interval from 0 seconds to 5 minutes. <br>
 The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line.
