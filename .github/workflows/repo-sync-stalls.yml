@@ -60,7 +60,7 @@ jobs:
             })
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: failure()
+        if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
