@@ -133,12 +133,18 @@ When the 'Take a photo' option is selected, the user can take a picture. <br>
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
 User can sort files by type/data, share and delete them. <br>
 
-## Tracker widget
+<!-- ## Tracker widget -->
 
-Can’t be configured without [Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin)  <br>
-
+<!-- Can’t be configured without [Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin)  <br> -->
+<!-- не нашла такого ни плагина ни виджета -->
 ## Mapillary widget
+
+The widget is used to get the quick access to Mapillary app to add missed images. <br>
 
 ![Mapillary widget](/assets/images/docs/widgets/mapillary_widget.png) <br>
 
-IMPORTANT: Enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Audio-video notes widget <br>
+IMPORTANT: Enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Mapillary widget.  <br>
+
+User can enable Trip recording widget in Configure screen menu. <br>
+
+To add images, the user have to press the widget. He will be redirected to the Mapillary application. The Mapillary application should be installed separately, for example, from Google Play.
