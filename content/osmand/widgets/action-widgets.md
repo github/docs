@@ -131,7 +131,7 @@ If 'On request' option is selected  user will see three options to choose. <br>
 <!-- ![Audio video notes on request](/assets/images/docs/widgets/audio_video_notes_widget_on_request.png) <br> -->
 When the 'Take an audio note' option is selected, the user  can start doing audio recording.  To stop audio recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. <br>
 
-<!-- ![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br> -->
+![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br>
 When the 'Take a video note' option is selected, the user  can start doing video recording.  To stop video recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. User can optionally show or hide the  video screen view by clicking the relevant button in the bottom-left corner. <br>
 
 ![Take a video note](/assets/images/docs/widgets/take_a_video_note_widget.png) <br>
