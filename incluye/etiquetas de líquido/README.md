@@ -1,4 +1,4 @@
-# Liquid Tags
+ Liquid Tags
 
 This directory contains templates for our custom Liquid tags.
 
