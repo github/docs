@@ -68,7 +68,7 @@ Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
 In the REC Settings menu user can configure the logging interval from 0 seconds to 5 minutes. <br>
 The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
 
-![Logging interval in Trip recording Appearence](/assets/images/docs/widgets/logging_interval_in_tr_widget.png) 
+![Logging interval in Trip recording Appearence](/assets/images/docs/widgets/logging_interval_in_tr_widget.png)
 
 If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
 When all settings are defined, user can push the ‘Start recording’ button.
@@ -81,6 +81,8 @@ The Logging interval can be additionally checked/ changed in: <br>
 When all settings are configured, press ‘Start recording’ button.
 The REC widget will change to the red circle.  The distance passed will be displayed in the widget.
 
+![REC widget](/assets/images/docs/widgets/rec_widget.png)
+
 To tap REC widget again will give an opportunity  to:
 * Pause the trip recording - will pause The trip recording. Then pressing the widget again will give and options to:
     + Resume trip recording
@@ -90,8 +92,7 @@ To tap REC widget again will give an opportunity  to:
 * Save current track - user can add GPX file name. Can switch the toggle button 'Show on map' and to click the button 'Open the track'.
 * Clear recorded data- the track will not be saved
 
-![Start Trip recording (REC) Settings](/assets/images/docs/widgets/start_rec_setings.png)
-
+<!-- ![Start Trip recording (REC) Settings](/assets/images/docs/widgets/start_rec_setings.png) -->
 ***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
 To tap REC widget again will give an opportunity  to:
 * Stop recording - will pause The trip recording. Then pressing the widget again will give and options to 'Continue recording'
