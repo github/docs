@@ -138,9 +138,19 @@ product_sublanding:
   learning_paths: Learning paths
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   more_guides: その他のガイド
-  guideTypes:
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: 種類
+    topic: Topic
+    all: すべて
+  guide_types:
     overview: 概要
     quick_start: クイックスタート
     tutorial: チュートリアル
     how_to: How-to guide
     reference: リファレンス
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

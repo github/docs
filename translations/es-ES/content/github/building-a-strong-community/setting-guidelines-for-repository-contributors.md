@@ -55,7 +55,7 @@ Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribuci�
 - Pautas de contribución de Ruby on Rails [](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
 - Pautas de contribución de Open Government [](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
-### Further reading
+### Leer más
 - La sección de las Open Source Guides llamada "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Agregar una licencia a un repositorio](/articles/adding-a-license-to-a-repository)"{% endif %}

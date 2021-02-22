@@ -46,7 +46,7 @@ module.exports = async (req, res, next) => {
       res.set('location', staticRedirect[1])
     }
 
-    res.send(r.body)
+    return res.send(r.body)
   } catch (err) {
     for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
       try {
@@ -54,7 +54,7 @@ module.exports = async (req, res, next) => {
         return res.redirect(301, fallbackRedirect)
       } catch (err) { } // noop
     }
-    next()
+    return next()
   }
 }
 

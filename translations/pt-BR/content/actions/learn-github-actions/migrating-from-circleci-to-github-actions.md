@@ -7,6 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CircleCI'
+  - 'Migração'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -235,47 +240,47 @@ fluxos de trabalho:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-nome: Contêineres
+name: Containers
 
-em: [push]
+on: [push]
 
-trabalhos:
-  construir:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
-    contêiner: circleci/ruby:2.6.3-node-browsers-legacy
+    container: circleci/ruby:2.6.3-node-browsers-legacy
 
     env:
       PGHOST: postgres
       PGUSER: administrate
       RAILS_ENV: test
 
-    serviços:
+    services:
       postgres:
-        imagem: postgres:10.1-alpine
+        image: postgres:10.1-alpine
         env:
           POSTGRES_USER: administrate
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
-        portas:
-        - 5432:5432
-        # Adicionar uma verificação geral
-        opções: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
+        # Add a health check
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    etapas:
-    # Este arquivo Docker altera as configurações de USUÁRIO para circleci em vez de usar o usuário-padrão. Portanto, precisamos atualizar as permissões do arquivo para esta imagem funcionar no Actions.
-    # Veja https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Configurar permissões do sistema de arquivos
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Instalar dependências
-      run: bundle install --path vendor/bundle
-    - name: Configuração do ambiente de instalação
-      run: cp .sample.env .env
-    - name: Configurar banco de dados
-      run: bundle exec rake db:setup
-    - name: Executar testes
-      run: bundle exec rake
+    steps:
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -386,15 +391,15 @@ fluxos de trabalho:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-nome: Contêineres
+name: Containers
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
-    estratégia:
-      matriz:
+    strategy:
+      matrix:
         ruby: [2.5, 2.6.3]
 
     runs-on: ubuntu-latest
@@ -404,43 +409,43 @@ trabalhos:
       PGUSER: administrate
       RAILS_ENV: test
 
-    serviços:
+    services:
       postgres:
-        imagem: postgres:10.1-alpine
+        image: postgres:10.1-alpine
         env:
           POSTGRES_USER: administrate
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
-        portas:
-        - 5432:5432
-        # Adicionar verificação geral
+        ports:
+          - 5432:5432
+        # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configurar Ruby
-      usa: eregon/use-ruby-action@master
-      com:
-        ruby-version: ${{ matrix.ruby }}
-    - nome: Memorizar dependências
-      usa: actions/cache@v2
-      com:
-        caminho: vendor/bundle
-        chave: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - nome: Instalar títulos do postgres
-      executar : sudo apt-get install libpq-dev
-    - nome: Install dependencies
-      executar : bundle install --path vendor/bundle
-    - Nome: Definir configuração do ambiente
-      executar: cp .sample.env .env
-    - nome: Configurar banco de dados
-      executar: bundle exec rake db:setup
-    - nome: Executar testes
-      executar: bundle exec rake
-    - nome: Install appraisal
-      executar: bundle exec appraisal install
-    - Nome: Run appraisal
-      executar: bundle exec appraisal rake
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

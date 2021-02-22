@@ -8,6 +8,6 @@ versions:
   github-ae: '*'
 ---
 
-Aprender sobre todos os comandos Git disponíveis pode ser uma tarefa muito difícil. Mantenha uma das [Folhas de Consulta Git](https://services.github.com/on-demand/resources/cheatsheets/) perto de você para referências. O artigo Usar Folhas de Consulta Git está disponível em vários idiomas. Para obter mais informações, consulte a [página de recursos no site GitHub Services](https://services.github.com/on-demand/resources/).
+Aprender sobre todos os comandos Git disponíveis pode ser uma tarefa muito difícil. Nossas folhas de dicas fornecem uma referência rápida para os comandos que você usará com mais frequência: consulte "[Folhas de dicas do Git](https://training.github.com/)". A folha de dicas sobre "Como usar o Git" está disponível em vários idiomas.
 
 Complementarmente, entre em nossa página [recursos de aprendizagem Git e GitHub](/articles/git-and-github-learning-resources/), que apresenta links para orientações, vídeos e outros.

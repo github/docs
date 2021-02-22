@@ -42,7 +42,6 @@ const main = async () => {
       'style-loader',
       'webpack-cli',
       'browser-date-formatter',
-      'html-truncate',
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',

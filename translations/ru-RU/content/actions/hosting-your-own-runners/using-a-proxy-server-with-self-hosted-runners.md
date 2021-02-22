@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +38,7 @@ If setting environment variables is not practical, you can set the proxy configu
 
 An example _.env_ proxy configuration is shown below:
 
-```
+```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

@@ -1,58 +1,63 @@
 ---
-title: Migrating from Travis CI to GitHub Actions
-intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
+title: Travis CI から GitHub Actions への移行
+intro: '{% data variables.product.prodname_actions %} と Travis CI は複数の類似点を共有しているため、{% data variables.product.prodname_actions %} への移行は比較的簡単です。'
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Travis CI
+  - 移行
+  - CI
+  - CD
 ---
 
 ### はじめに
 
-This guide helps you migrate from Travis CI to {% data variables.product.prodname_actions %}. It compares their concepts and syntax, describes the similarities, and demonstrates their different approaches to common tasks.
+このガイドは、Travis CI から {% data variables.product.prodname_actions %} に移行するときに役立ちます。 概念と構文を比較して類似点を説明し、一般的なタスクに対するさまざまなアプローチを示します。
 
-### Before you start
+### はじめる前に
 
-Before starting your migration to {% data variables.product.prodname_actions %}, it would be useful to become familiar with how it works:
+{% data variables.product.prodname_actions %} への移行を開始する前に、その仕組みを理解しておくと便利です。
 
-- For a quick example that demonstrates a {% data variables.product.prodname_actions %} job, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
-- To learn the essential {% data variables.product.prodname_actions %} concepts, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+- {% data variables.product.prodname_actions %} ジョブを示す簡単な例については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
+- 本質的な {% data variables.product.prodname_actions %} の概念については、「[GitHub Actions の概要](/actions/learn-github-actions/introduction-to-github-actions)」を参照してください。
 
-### Comparing job execution
+### ジョブ実行の比較
 
-To give you control over when CI tasks are executed, a {% data variables.product.prodname_actions %} _workflow_ uses _jobs_ that run in parallel by default. Each job contains _steps_ that are executed in a sequence that you define. If you need to run setup and cleanup actions for a job, you can define steps in each job to perform these.
+CI タスクがいつ実行されるかを制御できるように、{% data variables.product.prodname_actions %} _ワークフロー_はデフォルトで並行して実行される_ジョブ_を使用します。 各ジョブには、定義した順序で実行される_ステップ_が含まれています。 ジョブのセットアップおよびクリーンアップアクションを実行する必要がある場合は、各ジョブでステップを定義してこれらを実行できます。
 
-### Key similarities
+### 主な類似点
 
-{% data variables.product.prodname_actions %} and Travis CI share certain similarities, and understanding these ahead of time can help smooth the migration process.
+{% data variables.product.prodname_actions %} と Travis CI は特定の類似点を共有しており、これらを事前に理解しておくと、移行プロセスを円滑に進めることができます。
 
-#### Using YAML syntax
+#### YAML 構文の使用
 
-Travis CI and {% data variables.product.prodname_actions %} both use YAML to create jobs and workflows, and these files are stored in the code's repository. For more information on how {% data variables.product.prodname_actions %} uses YAML, see ["Creating a workflow file](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)."
+Travis CI と {% data variables.product.prodname_actions %} はどちらも YAML を使用してジョブとワークフローを作成し、これらのファイルはコードのリポジトリに保存されます。 {% data variables.product.prodname_actions %} が YAML を使用する方法の詳細については、「[ワークフローファイルを作成する](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)」を参照してください。
 
-#### Custom environment variables
+#### カスタム環境変数
 
-Travis CI lets you set environment variables and share them between stages. Similarly, {% data variables.product.prodname_actions %} lets you define environment variables for a step, job, or workflow. For more information, see ["Environment variables](/actions/reference/environment-variables)."
+Travis CI では環境変数を設定し、ステージ間で共有できます。 同様に、{% data variables.product.prodname_actions %} を使用すると、ステップ、ジョブ、またはワークフローの環境変数を定義できます。 詳しい情報については、「[環境変数](/actions/reference/environment-variables)」を参照してください。
 
 #### デフォルトの環境変数
 
-Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+Travis CI と {% data variables.product.prodname_actions %} の両方に、YAML ファイルで使用できるデフォルトの環境変数が含まれています。 {% data variables.product.prodname_actions %} の場合、これらは「[デフォルトの環境変数](/actions/reference/environment-variables#default-environment-variables)」にリストされています。
 
 #### 並列なジョブの処理
 
-Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+Travis CI は、`stages` を使用してジョブを並行して実行できます。 同様に、{% data variables.product.prodname_actions %} は `jobs` を並行して実行します。 詳細については、「[依存ジョブを作成する](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)」を参照してください。
 
-#### Status badges
+#### ステータスバッジ
 
-Travis CI and {% data variables.product.prodname_actions %} both support status badges, which let you indicate whether a build is passing or failing. For more information, see ["Adding a workflow status badge to your repository](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+Travis CI と {% data variables.product.prodname_actions %} はどちらもステータスバッジをサポートしており、ビルドが成功したか失敗したかを示すことができます。 詳しい情報については、「[リポジトリにワークフローステータスバッジを追加する](/actions/managing-workflow-runs/adding-a-workflow-status-badge)」を参照してください。
 
 #### ビルドマトリックスを使用する
 
-Travis CI and {% data variables.product.prodname_actions %} both support a build matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a build matrix](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)."
+Travis CI と {% data variables.product.prodname_actions %} はどちらもビルドマトリックスをサポートしているため、オペレーティングシステムとソフトウェアパッケージの組み合わせを使用してテストを実行できます。 詳しい情報については、「[ビルドマトリックスを使用する](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)」を参照してください。
 
-Below is an example comparing the syntax for each system:
+以下は、各システムの構文を比較した例です。
 
 <table>
 <tr>
@@ -69,8 +74,8 @@ Travis CI
 ```yaml
 matrix:
   include:
-  - rvm: 2.5
-  - rvm: 2.6.3
+    - rvm: 2.5
+    - rvm: 2.6.3
 ```
 {% endraw %}
 </td>
@@ -88,9 +93,9 @@ jobs:
 </tr>
 </table>
 
-#### Targeting specific branches
+#### 特定のブランチをターゲットにする
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -109,8 +114,8 @@ Travis CI
 ```yaml
 branches:
   only:
-  - main
-  - 'mona/octocat'
+    - main
+    - 'mona/octocat'
 ```
 {% endraw %}
 </td>
@@ -119,7 +124,7 @@ branches:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
 ```
@@ -128,9 +133,9 @@ on:
 </tr>
 </table>
 
-#### Checking out submodules
+#### サブモジュールをチェックアウトする
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to control whether submodules are included in the repository clone.
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、サブモジュールをリポジトリクローンに含めるかどうかの制御ができます。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -155,44 +160,44 @@ git:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-    - uses: actions/checkout@v2
-      with:
-        submodules: false
+- uses: actions/checkout@v2
+  with:
+    submodules: false
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-#### Using environment variables in a matrix
+#### マトリックスで環境変数を使用する
 
-Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、カスタム環境変数をテストマトリックスに追加できます。これにより、後のステップで変数を参照できます。
 
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.github-actions.matrix-variable-example %}
 
-### Key features in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} の主な機能
 
-When migrating from Travis CI, consider the following key features in {% data variables.product.prodname_actions %}:
+Travis CI から移行する場合は、{% data variables.product.prodname_actions %} の次の主要機能を考慮してください。
 
 #### シークレットを保存する
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}環境保護ルールでは、ワークフローが環境シークレットにアクセスするための手動承認が必要になる場合があります。 {% endif %}詳しい情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
-#### Sharing files between jobs and workflows
+#### ジョブとワークフロー間でファイルを共有する
 
-{% data variables.product.prodname_actions %} includes integrated support for artifact storage, allowing you to share files between jobs in a workflow. You can also save the resulting files and share them with other workflows. For more information, see "[Sharing data between jobs](/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs)."
+{% data variables.product.prodname_actions %} には、成果物のストレージの統合サポートが含まれており、ワークフロー内のジョブ間でファイルを共有できます。 結果のファイルを保存して、他のワークフローと共有することもできます。 詳しい情報については、「[ジョブ間でデータを共有する](/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs)」を参照してください。
 
 #### 自分のランナーをホストする
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
+ジョブに特定のハードウェアまたはソフトウェアが必要な場合、{% data variables.product.prodname_actions %} を使用すると、自分のランナーをホストして、処理のためにジョブをそれらに送信できます。 {% data variables.product.prodname_actions %} では、ポリシーを使用してこれらのランナーへのアクセス方法を制御し、Organization またはリポジトリレベルでアクセスを許可することもできます。 詳しい情報については、「[自分のランナーをホストする](/actions/hosting-your-own-runners)」を参照してください。
 
-#### Concurrent jobs and execution time
+#### 同時ジョブと実行時間
 
-The concurrent jobs and workflow execution times in {% data variables.product.prodname_actions %} can vary depending on your {% data variables.product.company_short %} plan. 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration)」を参照してください。
+{% data variables.product.prodname_actions %} の同時ジョブとワークフローの実行時間は、{% data variables.product.company_short %} プランによって異なります。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration)」を参照してください。
 
-#### Using different languages in {% data variables.product.prodname_actions %}
+#### {% data variables.product.prodname_actions %} で様々な言語を使用する
 
-When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
+{% data variables.product.prodname_actions %} でさまざまな言語を使用する場合、ジョブにステップを作成して言語の依存関係を設定できます。 特定の言語での作業の詳細については、それぞれのガイドを参照してください。
   - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
   - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
@@ -200,36 +205,36 @@ When working with different languages in {% data variables.product.prodname_acti
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
   - [AntでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-ant)
 
-### Executing scripts
+### スクリプトを実行する
 
-{% data variables.product.prodname_actions %} can use `run` steps to run scripts or shell commands. To use a particular shell, you can specify the `shell` type when providing the path to the script. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
+{% data variables.product.prodname_actions %} は、`run` ステップを使用してスクリプトまたはシェルコマンドを実行できます。 特定のシェルを使用するには、スクリプトへのパスを指定するときに `shell` タイプを指定できます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
 例:
 
 ```yaml
-      steps:
-        - name: Run build script
-          run: ./.github/scripts/build.sh
-          shell: bash
+steps:
+  - name: Run build script
+    run: ./.github/scripts/build.sh
+    shell: bash
 ```
 
-### Error handling in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} でのエラー処理
 
-When migrating to {% data variables.product.prodname_actions %}, there are different approaches to error handling that you might need to be aware of.
+{% data variables.product.prodname_actions %} に移行する場合、エラー処理にはさまざまな方法があり、注意が必要です。
 
-#### Script error handling
+#### スクリプトエラーの処理
 
-{% data variables.product.prodname_actions %} stops a job immediately if one of the steps returns an error code. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)」を参照してください。
+{% data variables.product.prodname_actions %} は、いずれかのステップでエラーコードが返された場合、すぐにジョブを停止します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)」を参照してください。
 
-#### Job error handling
+#### ジョブエラーの処理
 
-{% data variables.product.prodname_actions %} uses `if` conditionals to execute jobs or steps in certain situations. For example, you can run a step when another step results in a `failure()`. 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#example-using-status-check-functions)」を参照してください。  You can also use [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) to prevent a workflow run from stopping when a job fails.
+{% data variables.product.prodname_actions %} は、`if` 条件を使用して、特定の状況でジョブまたはステップを実行します。 たとえば、別のステップで `failure()` が発生したときに、そのステップを実行できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#example-using-status-check-functions)」を参照してください。  また、[`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) を使用して、ジョブが失敗したときにワークフローの実行が停止しないようにすることもできます。
 
-### Migrating syntax for conditionals and expressions
+### 条件文と式の構文を移行する
 
-To run jobs under conditional expressions, Travis CI and {% data variables.product.prodname_actions %} share a similar `if` condition syntax. {% data variables.product.prodname_actions %} lets you use the `if` conditional to prevent a job or step from running unless a condition is met. 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+条件式でジョブを実行するために、Travis CI と {% data variables.product.prodname_actions %} は同様の `if` 条件構文を共有します。 {% data variables.product.prodname_actions %} を使用すると、`if` 条件を使用して、条件が満たされない限りジョブまたはステップが実行されないようにすることができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-This example demonstrates how an `if` conditional can control whether a step is executed:
+次の例は、`if` 条件がステップを実行するかどうかを制御する方法を示しています。
 
 ```yaml
 jobs:
@@ -240,9 +245,9 @@ jobs:
         if: env.str == 'ABC' && env.num == 123
 ```
 
-### Migrating phases to steps
+### フェーズからステップに移行する
 
-Where Travis CI uses _phases_ to run _steps_, {% data variables.product.prodname_actions %} has _steps_ which execute _actions_. You can find prebuilt actions in the [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. 詳細については、「[アクションの構築について](/actions/building-actions)」を参照してください。
+Travis CI が_フェーズ_を使用して_ステップ_を実行する場合、{% data variables.product.prodname_actions %} には_アクション_を実行する_ステップ_があります。 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)でビルド済みのアクションを見つけることも、あるいは独自のアクションを作成することもできます。 詳細については、「[アクションの構築について](/actions/building-actions)」を参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -275,11 +280,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -288,7 +293,7 @@ jobs:
 
 ### 依存関係のキャッシング
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
+Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 
 <table>
 <tr>
@@ -323,15 +328,15 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_actions %} キャッシングは、{% data variables.product.prodname_dotcom %} ホストランナーにのみ適用できます。  詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### 一般的なタスクの例
 
-This section compares how {% data variables.product.prodname_actions %} and Travis CI perform common tasks.
+このセクションは、{% data variables.product.prodname_actions %}とTravis CIでの一般的なタスクの実行方法を比較します。
 
-#### Configuring environment variables
+#### 環境変数の設定
 
-You can create custom environment variables in a {% data variables.product.prodname_actions %} job. 例:
+{% data variables.product.prodname_actions %}のジョブではカスタムの環境変数を作成できます。 例:
 
 <table>
 <tr>
@@ -345,26 +350,26 @@ Travis CI
 <tr>
 <td>
 
-  ```yaml
+```yaml
 env:
   - MAVEN_PATH="/usr/local/maven"
-  ```
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
-      env:
-        MAVEN_PATH: '/usr/local/maven'
-  ```
+```yaml
+jobs:
+  maven-build:
+    env:
+      MAVEN_PATH: '/usr/local/maven'
+```
 
 </td>
 </tr>
 </table>
 
-#### Building with Node.js
+#### Node.jsでのビルド
 
 <table>
 <tr>
@@ -378,24 +383,24 @@ Travis CI
 <tr>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 install:
-    - npm install
+  - npm install
 script:
-    - npm run build
-    - npm test
-  ```
+  - npm run build
+  - npm test
+```
 {% endraw %}
 </td>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 name: Node.js CI
 on: [push]
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -404,7 +409,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-  ```
+```
 {% endraw %}
 </td>
 </tr>
@@ -412,4 +417,4 @@ jobs:
 
 ### 次のステップ
 
-To continue learning about the main features of  {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+{% data variables.product.prodname_actions %}の主な機能について学び続けるには、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」を参照してください。

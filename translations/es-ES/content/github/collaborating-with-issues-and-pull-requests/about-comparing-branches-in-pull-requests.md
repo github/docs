@@ -61,7 +61,7 @@ Para obtener más información acerca de los comandos de Git para comparar los c
 - Has excedido el límite total de archivos o de ciertos tipos de archivos. Para obtener más información, consulta "[Límites para ver el contenido y las diferencias en un repositorio](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)".
 - Tus archivos coinciden con una regla en el archivo *.gitattributes* del repositorio para bloquear ese archivo de mostrarse por defecto. Para obtener más información, consulta "[Personalizar cómo aparecen los archivos modificados en GitHub](/articles/customizing-how-changed-files-appear-on-github)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"
 - "[Acerca de las bifurcaciones](/articles/about-forks)"

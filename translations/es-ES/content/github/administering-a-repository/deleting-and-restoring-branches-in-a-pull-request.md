@@ -34,7 +34,7 @@ Puedes restaurar la rama de encabezado de una solicitud de extracción cerrada.
 4. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción que se asocie con la rama que deseas restaurar.
 5. Junto a la parte inferior de la solicitud de extracción, haz clic en **Restaurar rama**. ![Botón Restaurar rama eliminada](/assets/images/help/branches/branches-restore-deleted.png)
 
-### Further reading
+### Leer más
 
 - "[Crear y borrar ramas dentro de tu repositorio](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - "[Administrar el borrado automático de ramas](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"

@@ -39,7 +39,7 @@ Si eliges un plan pago, pagarás tu suscripción a la app en la fecha de factura
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Revisa la información acerca del acceso de la app a tu cuenta personal y a tus datos, luego haz clic en **Authorize application** (Autorizar aplicación).
 
-### Further reading
+### Leer más
 
 - "[Actualizar el método de pago de tu cuenta personal](/articles/updating-your-personal-account-s-payment-method)"
 - "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)"

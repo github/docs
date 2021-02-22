@@ -1,6 +1,6 @@
 ---
 title: '使用制限、支払い、管理'
-intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの空き時間とストレージの量を超えるリポジトリに適用されます。'
+intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの無料の時間とストレージの量を超えるリポジトリに適用されます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
@@ -29,7 +29,7 @@ GitHub アクションの使用は、
 
 {% note %}
 
-**注釈:** セルフホストランナーの場合、さまざまな使用制限が適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
+**ノート:** セルフホストランナーの場合、さまざまな使用制限が適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 {% endnote %}
 
@@ -57,17 +57,17 @@ GitHub アクションの使用は、
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### アーティファクトとログの保持ポリシー
+### 成果物とログの保持ポリシー
 
-リポジトリ、Organization、または Enterprise アカウントのアーティファクトとログの保持期間を設定できます。
+リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
 詳しい情報については、以下を参照してください。
 
-- [リポジトリ内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [Organization 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
-- [Enterprise 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
+- [リポジトリ内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
+- [Organization 内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Enterprise 内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
 ### リポジトリまたは Organization の {% data variables.product.prodname_actions %} を無効化または制限する

@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 ---
 
-Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.{% endif %}
+Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. Se uma URL de solicitação não incluir um parâmetro `{username}`, a resposta será para o usuário conectado (e você deve passar [informações de autenticação](/rest/overview/resources-in-the-rest-api#authentication) com sua solicitação).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} Informações privadas adicionais, como se um usuário tem autenticação de dois fatores habilitada, estão incluídas quando a autenticação é efetuada por meio da autenticação básica ou OAuth com o escopo do `usuário` .{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

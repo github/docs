@@ -14,7 +14,7 @@ versions:
 
 Después de configurar el SSO de SAML, los miembros de tu organización de {% data variables.product.prodname_dotcom %} continuarán ingresando en sus cuentas de usuario en {% data variables.product.prodname_dotcom %}. Cuando un miembro accede a recursos dentro de tu organización que utiliza el SSO de SAML, {% data variables.product.prodname_dotcom %} lo redirecciona a tu IdP para autenticarse. Después de autenticarse exitosamente, tu IdP redirecciona a este miembro a {% data variables.product.prodname_dotcom %}, en donde puede acceder a los recursos de tu organización.
 
-Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. Para obtener más información, consulta la sección "[Habilitar el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Habilitar el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -52,7 +52,7 @@ Si tu IdP admite SCIM, {% data variables.product.prodname_dotcom %} puede invita
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### Further reading
+### Lecturas adicionales
 
 - "[Acerca de la autenticación de dos factores y el inicio de sesión único de SAML ](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[Acerca de la autenticación con el inicio de sesión único de SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

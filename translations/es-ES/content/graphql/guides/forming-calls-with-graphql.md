@@ -402,7 +402,7 @@ Para obtener más información acerca de la diferencia entre enumeradores y cade
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 Puedes hacer mucho _más_ cuando conformes llamados de GraphQL. Aquí hay algunos lugares que te pueden interesar posteriormente:
 

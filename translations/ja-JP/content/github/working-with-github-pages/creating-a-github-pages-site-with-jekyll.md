@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### 必要な環境
 
 Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する前に、Jekyll と Git をインストールする必要があります。 詳しい情報については、Jekyll ドキュメンテーションの [Installation](https://jekyllrb.com/docs/installation/) および「[Git のセットアップ](/articles/set-up-git)」を参照してください。
@@ -23,8 +25,6 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -33,6 +33,8 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 ### サイトを作成する
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. リポジトリのローカルコピーがまだない場合、サイトのソースファイルを保存したい場所に移動します。_PARENT-FOLDER_ は、リポジトリを保存したいフォルダの名前に置き換えてください。
@@ -95,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

@@ -25,7 +25,7 @@ Aceptamos pagos mediante tarjeta de crédito y PayPal. No aceptamos pagos median
 
 Para una compra más fácil y más eficaz, recomendamos que las empresas de contratación configuren una facturación anual para las organizaciones de sus clientes.
 
-### Further reading
+### Leer más
 
 - "[Crear una organización y pagar por ella en nombre de un cliente](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
 - "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"

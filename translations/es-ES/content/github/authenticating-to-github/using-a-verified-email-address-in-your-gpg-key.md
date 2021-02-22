@@ -17,6 +17,6 @@ Las confirmaciones y etiquetas pueden contener varias direcciones de correo elec
 
 Si debes cambiar la dirección de correo electrónico de la persona que confirma el cambio o del etiquetador, consulta "[Establecer tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address/)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"

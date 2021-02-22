@@ -27,7 +27,7 @@ La organización de Mada paga por 25 asientos el día 15 de cada mes. Si el 4 de
 
 La organización de Stefan paga por 50 asientos el 20 de mayo de cada año. Si Stefan elimina 20 asientos y baja de categoría a un nuevo total de 30 asientos pagos el 30 de septiembre, su organización puede seguir accediendo a sus 50 asientos pagos hasta el final de su ciclo de facturación actual, el 19 de mayo. El 20 de mayo, entrará en vigor la categoría más baja, la organización de Stefan pagará por 30 asientos y tendrá acceso a 30 asientos pagos.
 
-### Further reading
+### Leer más
 
 - "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
 - "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"

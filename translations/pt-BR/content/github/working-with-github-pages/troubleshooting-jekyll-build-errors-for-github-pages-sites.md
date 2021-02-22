@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Jekyll build errors for GitHub Pages sites
-intro: 'You can use Jekyll build error messages to troubleshoot problems with your {% data variables.product.prodname_pages %} site.'
+title: Solucionar problemas de erros de criação do Jekyll para sites do GitHub Pages
+intro: 'Você pode usar mensagens de erro de criação do Jekyll para solucionar problemas com seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
   - /articles/page-build-failed-missing-docs-folder/
   - /articles/page-build-failed-invalid-submodule/
@@ -31,158 +31,158 @@ versions:
   github-ae: '*'
 ---
 
-### Troubleshooting build errors
+### Solucionar problemas de erros de criação
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+Se o Jekyll encontrar um erro ao criar seu site do {% data variables.product.prodname_pages %} localmente ou no {% data variables.product.product_name %}, você poderá usar mensagens de erro para solucionar problemas. Para obter mais informações sobre mensagens de erro e como visualizá-las, consulte "[Sobre erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
-If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
-- Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your publishing source contains a colon (`:`) which is not supported.
+Se você recebeu uma mensagem de erro genérica, verifique os problemas comuns.
+- Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
+- Seu repositório excedeu os limites de tamanho. Para obter mais informações, consulte "[Qual é a minha quota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
+- Você alterou a configuração `source` no arquivo *_config.yml*. {% data variables.product.prodname_pages %} substitui essa configuração durante o processo de criação.
+- Um nome de arquivo na fonte de publicação contém dois pontos (`:`), o que não é permitido.
 
-If you received a specific error message, review the troubleshooting information for the error message below.
+Se você recebeu uma mensagem de erro específica, revise abaixo as informações de solução de problemas relativas à mensagem de erro.
 
-After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.
+Depois que tiver corrigido os possíveis erros, faça push das alterações para a fonte de publicação do seu site para ativar outra criação no {% data variables.product.product_name %}.
 
-### Config file error
+### Erro no arquivo de configuração
 
-This error means that your site failed to build because the *_config.yml* file contains syntax errors.
+Este erro significa que ocorreu falha na criação do seu site porque o arquivo *_config.yml* contém erros de sintaxe.
 
-To troubleshoot, make sure that your *_config.yml* file follows these rules:
+Para solucionar problemas, verifique se o arquivo *_config.yml* segue estas regras:
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-### Date is not a valid datetime
+### Esta é uma data/hora inválida
 
-This error means that one of the pages on your site includes an invalid datetime.
+Este erro significa que uma das páginas do seu site inclui uma data/hora inválida.
 
-To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
+Para solucionar problemas, pesquise o arquivo na mensagem de erro e os layouts do arquivo para as exigências de qualquer filtro de data do Liquid. Verifique se alguma variável passada em filtros de data do Liquid tem valores em todos os casos e nunca passa `nil` ou `""`. Para obter mais informações, consulte "[Filtros do Liquid](https://help.shopify.com/en/themes/liquid/filters)" na documentação do Liquid.
 
-### File does not exist in includes directory
+### O arquivo não existe no diretório includes
 
-This error means that your code references a file that doesn't exist in your *_includes* directory.
+Este erro significa que o código faz referência a um arquivo que não existe no diretório *_includes*.
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} Se algum dos arquivos a que você fez referência não estiver no diretório *_includes*, copie ou mova os arquivos para o diretório *_includes*.
 
-### File is a symlink
+### O arquivo é um link simbólico
 
-This error means that your code references a symlinked file that does not exist in the publishing source for your site.
+Este erro significa que o código faz referência a um arquivo com link simbólico que não existe na fonte de publicação do seu site.
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} Se algum dos arquivos a que você fez referência for com link simbólico, copie ou mova os arquivos para o diretório *_includes*.
 
-### File is not properly UTF-8 encoded
+### Arquivo codificado por UTF-8 incorretamente
 
-This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
+Este erro significa que você usou caracteres não latinos, como `日本語`, sem avisar ao computador que esperava esses símbolos.
 
-To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
-```
+Para solucionar problemas, force a codificação UTF-8 adicionando a seguinte linha ao arquivo *_config.yml*:
+```yaml
 encoding: UTF-8
 ```
 
-### Invalid highlighter language
+### Linguagem inválida do realçador
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+Este erro significa que você especificou algum realçador de sintaxe diferente de [Rouge](https://github.com/jneen/rouge) ou [Pygments](http://pygments.org/) no arquivo de configuração.
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[About {% data variables.product.product_name %} and Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)."
+Para solucionar problemas, atualize o arquivo *_config.yml* para especificar [Rouge](https://github.com/jneen/rouge) ou [Pigmentos](http://pygments.org/). Para obter mais informações, consulte "[Sobre o {% data variables.product.product_name %} e o Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)".
 
-### Invalid post date
+### Data de postagem inválida
 
-This error means that a post on your site contains an invalid date in the filename or YAML front matter.
+Este erro significa que uma postagem no seu site contém uma data inválida no nome de arquivo ou na página inicial YAML.
 
-To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like `2014-04-18 11:30:00 +0800`.
+Para solucionar problemas, verifique se todas as datas estão no formato YYYY-MM-DD HH:MM:SS para UTC e se são datas reais do calendário. Para especificar um fuso horário com um intervalo de tempo UTC, use o formato YYYY-MM-DD HH:MM:SS +/-TTTT (ano-mês-dia horas:minutos:segundos +/-TTTT), como `2014-04-18 11:30:00 +0800`.
 
-If you specify a date format in your *_config.yml* file, make sure the format is correct.
+Se você especificar um formato de data no arquivo *_config.yml*, verifique se o formato está correto.
 
-### Invalid Sass or SCSS
+### SCSS ou Sass inválido
 
-This error means your repository contains a Sass or SCSS file with invalid content.
+Este erro significa que seu repositório contém um arquivo Sass ou SCSS com conteúdo inválido.
 
-To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.
+Para solucionar problemas, revise o número de linha incluído na mensagem de erro referente a Sass ou SCSS inválido. Para ajudar a prevenir erros no futuro, instale um linter Sass ou SCSS para seu editor de texto favorito.
 
-### Invalid submodule
+### Submódulo inválido
 
-This error means that your repository includes a submodule that hasn't been properly initialized.
+Este erro significa que seu repositório inclui um submódulo que não foi inicializado corretamente.
 
 {% data reusables.pages.remove-submodule %}
 
-If do you want to use the submodule, make sure you use `https://` when referencing the submodule (not `http://`) and that the submodule is in a public repository.
+Caso queira utilizar o submódulo, lembre-se de usar `https://` quando fizer referência ao submódulo (a não `http://`) e de que o submódulo está em um repositório público.
 
-### Invalid YAML in data file
+### YAML inválido no arquivo de dados
 
-This error means that one of more files in the *_data* folder contains invalid YAML.
+Este erro significa que um ou mais arquivos na pasta *_data* contém YAML inválido.
 
-To troubleshoot, make sure the YAML files in your *_data* folder follow these rules:
+Para solucionar problemas, verifique se os arquivos YAML na pasta *_data* seguem estas regras:
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
+Para obter mais informações sobre arquivos de dados do Jekyll, consulte ""[Arquivos de dados](https://jekyllrb.com/docs/datafiles/)" na documentação do Jekyll.
 
-### Markdown errors
+### Erros de markdown
 
-This error means that your repository contains Markdown errors.
+Este erro significa que seu repositório contém erros de markdown.
 
-To troubleshoot, make sure you are using a supported Markdown processor. For more information, see "[Setting a Markdown processor for your {% data variables.product.prodname_pages %} site using Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)."
+Para solucionar problemas, verifique se você está usando um processador markdown compatível. Para obter mais informações, consulte "[Definir um processador markdown para seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)".
 
-Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
+Em seguida, verifique se o arquivo na mensagem de erro usa uma sintaxe markdown válida. Para obter mais informações, consulte "[Markdown: sintaxe](https://daringfireball.net/projects/markdown/syntax)" no Daring Fireball.
 
-### Missing docs folder
+### Pasta docs ausente
 
-This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
+Este erro significa que você escolheu a pasta `docs` em um branch como a sua fonte de publicação, mas não há nenhuma pasta de `docs` na raiz do seu repositório naquele branch.
 
-To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-- Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[Creating new files](/articles/creating-new-files)."
-- Change your publishing source. For more information, see "[Configuring a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)."
+Para solucionar esse problema, se a pasta `documentação` foi movida acidentalmente, tente mover a pasta `docs` de volta para a raiz do repositório no branch que você escolheu para a sua fonte de publicação. Se a pasta `docs` tiver sido excluída acidentalmente, siga um destes procedimentos:
+- Use o Git para reverter ou desfazer a exclusão. Para obter mais informações, consulte "[git-revert](https://git-scm.com/docs/git-revert.html)" na documentação do Git.
+- Crie uma nova pasta de `documentação` na raiz do repositório no branch que você escolheu para a sua fonte de publicação e adicione os arquivos de origem do site à pasta. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files)".
+- Altere a fonte de publicação. Para obter mais informações, consulte "[Configurar uma fonte de publicação do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)".
 
-### Missing submodule
+### Submódulo ausente
 
-This error means that your repository includes a submodule that doesn't exist or hasn't been properly initialized.
+Este erro significa que seu repositório inclui um submódulo que não existe ou não foi inicializado corretamente.
 
 {% data reusables.pages.remove-submodule %}
 
-If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
+Se você quiser usar um submódulo, inicialize-o. Para obter mais informações, consulte "[Ferramentas Git - Submódulos](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" no livro _Pro Git_.
 
-### Relative permalinks configured
+### Permalinks relativos configurados
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
+Este erro significa que você tem permalinks relativos, que não são compatíveis com o {% data variables.product.prodname_pages %} no arquivo *_config.yml*.
 
-Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
+Permalinks são URLs permanentes que fazem referência a uma determinada página no seu site. Os permalinks absolutos iniciam com a raiz do site, enquanto os permalinks relativos iniciam com a pasta que contém a página referenciada. O {% data variables.product.prodname_pages %} e o Jekyll não são mais compatíveis com permalinks relativos. Para obter mais informações sobre permalinks, consulte "[Permalinks](https://jekyllrb.com/docs/permalinks/)" na documentação do Jekyll.
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files in your repository](/articles/editing-files-in-your-repository)."
+Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_config.yml* e reformate os permalinks relativos no site com permalinks absolutos. Para obter mais informações, consulte "[Editar arquivos no repositório](/articles/editing-files-in-your-repository)".
 
-### Symlink does not exist within your site's repository
+### O link simbólico não existe no repositório do site
 
-This error means that your site includes a symbolic link (symlink) that does not exist in the publishing source for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
+Este erro significa que seu site inclui um link simbólico que não existe na fonte de publicação do site. Para obter mais informações sobre links simbólicos, consulte "[Link simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" na Wikipédia.
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% if currentVersion == "free-pro-team@latest" %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% if currentVersion == "free-pro-team@latest" %}`submódulo do git` ou {% endif %}um gerenciador de pacotes de terceiros como o [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Usar submódulos com {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
-### Syntax error in 'for' loop
+### Erro de sintaxe no loop 'for'
 
-This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
+Este erro significa que o código inclui sintaxe inválida em uma declaração de loop `for` do Liquid.
 
-To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
+Para solucionar problemas, verifique se todos os loops `for` no arquivo da mensagem de erro têm sintaxe adequada. Para obter mais informações sobre a sintaxe adequada para loops `for`, consulte "[Tags de Iteração](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" na documentação do Liquid.
 
-### Tag not properly closed
+### Tag fechada incorretamente
 
-This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
+Esta mensagem de erro significa que o código inclui uma tag lógica que foi fechada incorretamente. Por exemplo, {% raw %}`{% capture example_variable %}` deve ser fechada por `{% endcapture %}`{% endraw %}.
 
-To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
+Para solucionar problemas, verifique se todas as tags lógicas no arquivo da mensagem de erro estão fechadas corretamente. Para obter mais informações, consulte "[Tags do Liquid](https://help.shopify.com/en/themes/liquid/tags)" na documentação do Liquid.
 
-### Tag not properly terminated
+### Tag terminada incorretamente
 
-This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
+Este erro significa que o código inclui uma tag de saída que não foi terminada corretamente. Por exemplo, {% raw %}`{{ page.title }` em vez de `{{ page.title }}`{% endraw %}.
 
-To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
+Para solucionar problemas, verifique se todas as tags de saída no arquivo da mensagem de erro estão terminadas com `}}`. Para obter mais informações, consulte "[Objetos do Liquid](https://help.shopify.com/en/themes/liquid/objects)" na documentação do Liquid.
 
-### Unknown tag error
+### Erro de tag desconhecida
 
-This error means that your code contains an unrecognized Liquid tag.
+Este erro significa que o código contém uma tag do Liquid não reconhecida.
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+Para solucionar problemas, verifique se todas as tags do Liquid no arquivo da mensagem de erro correspondem a variáveis padrão do Jekyll e se não há erros de digitação nos nomes das tags. Para obter uma lista de variáveis padrão, consulte "[Variáveis](https://jekyllrb.com/docs/variables/)" na documentação do Jekyll.
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."
+Plugins incompatíveis são uma fonte comum de tags não reconhecidas. Se você usar um plugin incompatível ao gerar seu site localmente e fazer push dos arquivos estáticos para o {% data variables.product.product_name %}, verifique se o plugin não está inserindo tags que não estão nas variáveis padrão do Jekyll. Para obter uma lista de plugins compatíveis, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".

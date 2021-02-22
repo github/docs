@@ -42,7 +42,7 @@ versions:
 | `review_comments` | 此拉取请求的[审查评论](/rest/reference/pulls#comments)的 API 位置。                                    |
 | `review_comment`  | 用于为此拉取请求仓库中的[审查评论](/rest/reference/pulls#comments)构建 API 位置的 [URL 模板](/rest#hypermedia)。 |
 | `commits`         | 此拉取请求的[提交](#list-commits-on-a-pull-request)的 API 位置。                                     |
-| `statuses`        | 此拉取请求的[提交状态](/rest/reference/repos#statuses)的 API 位置，即其`头部`分支的状态。                        |
+| `状态`              | 此拉取请求的[提交状态](/rest/reference/repos#statuses)的 API 位置，即其`头部`分支的状态。                        |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

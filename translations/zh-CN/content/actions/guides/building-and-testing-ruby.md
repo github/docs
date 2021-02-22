@@ -5,7 +5,10 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,10 +49,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -63,7 +63,7 @@ jobs:
 
 指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)。
 
-使用 Ruby 的 `ruby/setup-ruby` 操作或 GitHub 的 `actions/setup-ruby` 操作是 Python 与 GitHub Actions 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Ruby 行为一致。
+Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
 `setup-ruby` 操作采用 Ruby 版本作为输入，并在运行器上配置该版本。
 
@@ -119,10 +119,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby ${{ matrix.ruby-version }}
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
     - name: Install dependencies
@@ -316,4 +313,3 @@ jobs:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 ```
 {% endraw %}
-

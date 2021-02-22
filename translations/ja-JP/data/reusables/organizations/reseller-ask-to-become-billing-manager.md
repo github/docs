@@ -1,1 +1,1 @@
-あなたがOrganizationの支払いマネージャーではないなら、Organizationの*オーナー*に[あなたを支払いマネージャーとしてOrganizationに追加](/articles/adding-a-billing-manager-to-your-organization)するようクライアントに求めてください。
+If you're not a billing manager for the organization, ask your client to have an *owner* of the organization [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization).

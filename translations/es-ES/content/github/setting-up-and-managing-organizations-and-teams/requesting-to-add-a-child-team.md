@@ -25,7 +25,7 @@ Si eres propietario de una organización o tienes permisos de mantenedor del equ
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm changes** (Confirmar cambios) para enviar una solicitud para agregar al equipo hijo. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Mover un equipo en la jerarquía de tu organización](/articles/moving-a-team-in-your-organization-s-hierarchy)"

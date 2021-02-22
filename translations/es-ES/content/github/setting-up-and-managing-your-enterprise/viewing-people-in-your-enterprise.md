@@ -33,6 +33,6 @@ Puedes ver {% if currentVersion == "free-pro-team@latest" %}todas las organizaci
 {% if currentVersion == "free-pro-team@latest" %}1. Opcionalmente, para ver una lista de invitaciones pendientes, da clic en **_CANTIDAD_ pendientes**.
   ![botón de "CANTIDAD pendientes" a la derecha de las opciones de búsqueda y de filtrado](/assets/images/help/enterprises/members-pending.png){% endif %}
 
-### Further reading
+### Leer más
 
 - "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)"

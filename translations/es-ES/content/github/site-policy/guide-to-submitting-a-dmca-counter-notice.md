@@ -16,14 +16,13 @@ Como en todas las cuestiones jurídicas, siempre es mejor consultar con un profe
 
 ### Antes de comenzar
 
-***Di la Verdad.*** La DMCA requiere que jures tu contra notificación *bajo pena de perjurio*. Es un crimen federal mentir intencionadamente en una declaración jurada. (*Consulta* [Código de Estados Unidos, Título 18, Sección 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm). Code, Title 18, Section 1621</a>.) La presentación de información falsa también podría resultar en responsabilidad civil, es decir, podrías ser demandado por daños monetarios.
+***Di la Verdad.*** La DMCA requiere que jures tu contra notificación *bajo pena de perjurio*. Es un crimen federal mentir intencionadamente en una declaración jurada. (*Consulta* [el Código de lso EE.UU. , Título 18, Sección 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) La presentación de información falsa también podría resultar en responsabilidad civil, es decir, podrías ser demandado por daños monetarios.
 
 ***Investiga.*** Enviar una contra notificación DMCA puede tener consecuencias legales reales. Si la parte que denuncia no está de acuerdo en que tu notificación de retiro fue errónea, podrían decidir presentar una demanda contra ti para mantener el contenido deshabilitado. Deber llevar a cabo una investigación exhaustiva sobre las acusaciones hechas en la notificación de retiro y probablemente hablar con un abogado antes de enviar una contra notificación.
 
-***Debes tener una razón fundada para emitir una contranotificación.*** Para emitir una contranotificación, deberás tener una "certeza de buena fe de que el material se eliminó o inhabilitó como resultado de un error o mala identificación del material que se quiere eliminar o inhabilitar". (U.S. ([Título 17 del Código de los EEUU, Sección 512(g)](https://www.copyright.gov/title17/92chap5.html#512)). Ya sea que decidas explicar o no el por qué crees que hubo un error, dependerá de ti y de tu abogado, pero *sí* necesitas identificar un error antes de emitir una contranotificación. En el pasado, recibimos contra notificaciones que citan errores en la notificación de retiro, tales como: La parte que reclama no tiene el derecho de autor; tengo una licencia; el código se liberó bajo una licencia de código abierto que permite mi uso; o la queja no tiene en cuenta el hecho de que mi uso está protegido por la doctrina del uso legal. Por supuesto, podría haber otros defectos con la notificación de retiro.</p> 
+***Debes tener una razón fundada para emitir una contranotificación.*** Para emitir una contranotificación, deberás tener una "certeza de buena fe de que el material se eliminó o inhabilitó como resultado de un error o mala identificación del material que se quiere eliminar o inhabilitar". ([Código de los EE.UU. Título 17, Sección 512(g)](https://www.copyright.gov/title17/92chap5.html#512)). Ya sea que decidas explicar o no el por qué crees que hubo un error, dependerá de ti y de tu abogado, pero *sí* necesitas identificar un error antes de emitir una contranotificación. En el pasado, recibimos contra notificaciones que citan errores en la notificación de retiro, tales como: La parte que reclama no tiene el derecho de autor; tengo una licencia; el código se liberó bajo una licencia de código abierto que permite mi uso; o la queja no tiene en cuenta el hecho de que mi uso está protegido por la doctrina del uso legal. Por supuesto, podría haber otros defectos con la notificación de retiro.
 
 ***Las leyes de derechos de autor son complicadas.*** En ocasiones una notificación de retiro podría hacer referencia a una infracción que parece extraña o indirecta. Las leyes de derechos de autor son complicadas y pueden dar lugar a resultados inesperados. En algunos casos una notificación de retiro podría señalar que su código fuente infringe por lo que puede ocasiones posteriormente que se compile y ejecute. Por ejemplo:
-
   - La notificación podrá reclamar que tu software se utiliza para [evitar los controles de acceso](https://www.copyright.gov/title17/92chap12.html) a los trabajos con derechos de autor.
   - [Algunas veces](https://www.copyright.gov/docs/mgm/) la distribución de software puede considerarse como una infracción a los derechos de autor, si induces a los usuarios finales a utilizar el software para infringir el trabajo con derechos de autor.
   - Una queja de derechos de autor también podría basarse en [copia no literal](https://en.wikipedia.org/wiki/Substantial_similarity) de elementos de diseño en el software, en lugar del código fuente en sí mismo, en otras palabras, alguien envió una notificación diciendo que piensa que tu *diseño* es demasiado similar al de ellos.
@@ -37,8 +36,6 @@ Estos son sólo algunos ejemplos de la complejidad de la legislación sobre dere
 ***GitHub no es el juez.*** GitHub ejerce poca discreción en este proceso además de determinar si las notificaciones cumplen con los requisitos mínimos de la DMCA. Corresponde a las partes (y a sus abogados) evaluar el mérito de sus reclamaciones, teniendo en cuenta que los avisos deben realizarse bajo pena de perjurio.
 
 ***Recursos Adicionales.*** Si necesitas ayuda adicional, hay muchos recursos de autoayuda en línea. Lumen tiene un conjunto informativo de guías sobre [copyright](https://www.lumendatabase.org/topics/5) y [puerto seguro de DMCA](https://www.lumendatabase.org/topics/14). Si estás implicado con un proyecto de código abierto que necesita asesoramiento legal, puedes ponerse en contacto con el [Centro de asesoramiento legal sobre software libre](https://www.softwarefreedom.org/about/contact/). Y si consideras que tienes un caso especialmente desafiante, organizaciones sin fines de lucro como la [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) también pueden estar dispuestas a ayudarte directamente o a referirte a un abogado.
-
-
 
 ### Tu contra notificación debe...
 
@@ -54,8 +51,6 @@ Estos son sólo algunos ejemplos de la complejidad de la legislación sobre dere
 
 6. **Incluye tu firma física o electrónica.**
 
-
-
 ### Cómo enviar tu contra notificación
 
 La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {% data variables.contact.contact_dmca %}.
@@ -63,8 +58,6 @@ La forma más rápida de obtener una respuesta es ingresar tu información y res
 También puedes enviar una notificación por correo electrónico a <copyright@github.com>. Puedes incluir un archivo adjunto si lo deseas, pero por favor incluye una versión de texto simple de tu carta en el cuerpo de tu mensaje.
 
 Si debes enviar tu notificación por correo físico, también puedes hacerlo pero tardaremos *substancialmente* en recibirla y responder a ella y el periodo de espera de 10 a 14 días comienza a partir de cuando *recibamos* tu contra notificación. Las notificaciones que recibimos por correo electrónico de texto plano tienen una respuesta mucho más rápida que los archivos adjuntos PDF o el correo. Si aún deseas enviarnos tu aviso, nuestra dirección es:
-
-
 
 ```
 GitHub, Inc

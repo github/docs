@@ -80,7 +80,7 @@ O objeto `hook_attributes` tem a chave a seguir:
 
 Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta de usuário:
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Criar um manifesto do aplicativo GitHub: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -111,7 +111,7 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
 ```
 Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta da organização. Substitua `ORGANIZAÇÃO` pelo nome da conta da organização em que você deseja criar o aplicativo.
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Criar um manifesto do aplicativo GitHub: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">

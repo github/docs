@@ -49,6 +49,8 @@ GitHub mostrará el README de tu perfil en tu página de perfil si cuentas con t
 
   El archivo de README que se ha generado está pre-llenado con una plantilla para que te inspires en completarlo. ![Archivo README con la plantilla pre-llenada](/assets/images/help/repository/personal-repository-readme-template.png)
 
+Para encontrar un resumen de todos los emojis disponibles y de sus códigos, consulta el [Directorio de Emojis](http://www.emoji-cheat-sheet.com/)".
+
 ### Eliminar un README de perfil
 
 El README de tu perfil se eliminará de tu perfil de {% data variables.product.prodname_dotcom %} si sucede cualquiera de los siguientes escenarios:
@@ -59,6 +61,6 @@ El README de tu perfil se eliminará de tu perfil de {% data variables.product.p
 
 The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. Para encontrar los pasos de cómo hacer tu repositorio privado, consulta la sección ["Cambiar la visibilidad de un repositorio".](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
 
-### Further reading
+### Leer más
 
 - [Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)

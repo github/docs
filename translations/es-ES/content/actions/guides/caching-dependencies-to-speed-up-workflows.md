@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 type: 'tutorial'
+topics:
+  - 'Flujos de trabajo'
 ---
 
 ### Acerca de almacenar en caché las dependencias de flujo de trabajo
@@ -68,7 +70,7 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 Este ejemplo crea una nueva memoria caché cuando los paquetes en el archivo `package-lock.json` cambian o cuando cambia el sistema operativo del ejecutor. La clave de caché usa contextos y expresiones para generar una clave que incluye el sistema operativo del ejecutor y un hash SHA-256 del archivo `package-lock.json`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching with npm
 
 on: push
@@ -124,14 +126,14 @@ Una clave de caché puede incluir cualquiera de los contextos, funciones, litera
 Usar expresiones para crear una `key` te permite crear automáticamente una nueva caché cuando las dependencias han cambiado. Por ejemplo, puedes crear una `key` utilizando una expresión que calcule el hash de un archivo `package-lock.json` de npm.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} evalúa la expresión `hash "package-lock.json"` para obtener la última `key`.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +146,7 @@ Puedes proporcionar una lista de claves de restauración para usar cuando haya u
 #### Ejemplo usando múltiples claves de restauración
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +157,7 @@ restore-keys: |
 El ejecutor evalúa las expresiones, que resuelven estas `restore-keys`:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

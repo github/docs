@@ -1,6 +1,6 @@
 ---
 title: GitHub Support からの支援を受ける
-intro: 'You can contact {% data variables.contact.enterprise_support %} to report a range of issues for your enterprise.'
+intro: 'Enterprise のさまざまな問題をレポートするには{% data variables.contact.enterprise_support %} に連絡してください。'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support

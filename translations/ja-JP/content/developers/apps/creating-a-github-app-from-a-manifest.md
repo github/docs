@@ -80,7 +80,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 この例では、ウェブページ上にユーザアカウントに対して `POST` リクエストをトリガするボタンがあるフォームを使用します。
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -111,7 +111,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 ```
 この例では、ウェブページ上に Organization アカウントに対して `POST` リクエストをトリガするボタンがあるフォームを使用します。 `ORGANIZATION` は、アプリケーションを作成する場所の Organization アカウントの名前に置き換えます。
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">

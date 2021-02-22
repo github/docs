@@ -62,7 +62,7 @@ Tu tema incluye diseños predeterminados, inclusiones y hojas de estilos que se 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+¡Ahora tu publicación debería estar disponible en tu sitio! Si la URL base de tu sitio es `https://octocat.github.io`, entonces tu publicación nueva se ubicará en `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
 ### Pasos siguientes
 
