@@ -98,7 +98,9 @@ To tap REC widget again will give an opportunity  to:
 
 Is used to get quick access to audio, video, photo notes button. <br>
 
-IMPORTANT: Enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) plugin before attempting to use Audio-video notes widget <br>
+![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png) <br>
+
+IMPORTANT: Enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget <br>
 
 User can enable Audio-video notes widget in Configure screen menu. <br>
 
@@ -118,12 +120,10 @@ If 'On request' option is selected  user will see three options to choose. <br>
 * Take a video note <br>
 * Take a photo <br>
 
-![Audio video notes on request](/assets/images/docs/widgets/audio_video_notes_widget_on_request.png) <br>
-
+<!-- ![Audio video notes on request](/assets/images/docs/widgets/audio_video_notes_widget_on_request.png) <br> -->
 When the 'Take an audio note' option is selected, the user  can start doing audio recording.  To stop audio recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. <br>
 
-![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br>
-
+<!-- ![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br> -->
 When the 'Take a video note' option is selected, the user  can start doing video recording.  To stop video recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. User can optionally show or hide the  video screen view by clicking the relevant button in the bottom-left corner. <br>
 
 ![Take a video note](/assets/images/docs/widgets/take_a_video_note_widget.png) <br>
@@ -131,7 +131,7 @@ When the 'Take a video note' option is selected, the user  can start doing vide
 When the 'Take a photo' option is selected, the user can take a picture. <br>
 
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
-User can sort them by type/data, share and delete them. <br>
+User can sort files by type/data, share and delete them. <br>
 
 ## Tracker widget
 
@@ -139,4 +139,6 @@ Can’t be configured without [Tracker plugin](https://docs.osmand.net/en/main@l
 
 ## Mapillary widget
 
-Can’t be configured without [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin)  <br>
+![Mapillary widget](/assets/images/docs/widgets/mapillary_widget.png) <br>
+
+IMPORTANT: Enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Audio-video notes widget <br>
