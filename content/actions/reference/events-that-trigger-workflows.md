@@ -271,6 +271,12 @@ on:
   deployment_status
 ```
 
+{% note %}
+
+**Note:** When a deployment status's state is set to `inactive`, a webhook event will not be created.
+
+{% endnote %}
+
 #### `fork`
 
 Runs your workflow anytime when someone forks a repository, which triggers the `fork` event. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
