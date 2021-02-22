@@ -1,4 +1,4 @@
-# Reusables
+Reusables
 
 Reusables are long strings of reusable text.
 
