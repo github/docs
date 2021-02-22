@@ -35,7 +35,7 @@ The `dig` command, which can be used to verify correct configuration of DNS reco
 
 ### Configuring a subdomain
 
-To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must create a _CNAME_ file in your site's repository and configure a `CNAME` record with your DNS provider.
+To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings, which will create a CNAME file in your site’s repository. After that, configure a CNAME record with your DNS provider.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
