@@ -1,4 +1,4 @@
-// Import our SCSS files so webpack will process them
+/ Import our SCSS files so webpack will process them
 import '../stylesheets/index.scss'
 import displayPlatformSpecificContent from './display-platform-specific-content'
 import explorer from './explorer'
