@@ -92,7 +92,7 @@ To tap REC widget again will give an opportunity  to:
 * Start new segment
 * Save current trip - the track will be automatically saved. User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → {% data variables.ios-values.menu_my_trips %} → {% data variables.ios-values.menu_all_trips %}.
 
- [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
+[Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
 
 ## Audio-video notes widget
 
