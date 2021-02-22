@@ -1,6 +1,6 @@
 ---
 title: Administrar las notificaciones en tu bandeja de entrada
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}.'
+intro: 'Utiliza tu bandeja de entrada para clasificar y sincronizar tus notificaciones rápidamente a través de tu correo electrónico{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y dispositivo móvil{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -90,16 +90,16 @@ Los filtros personalizados no son compatibles actualmente con:
 
 ### Queries compatibles para filtros personalizados
 
-These are the types of filters that you can use:
+Estos son los tipos de filtro que puedes utilizar:
   - Filtrar por repositorio con `repo:`
   - Filtrar por tipo de debate con `is:`
-  - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
-  - Filter by notification author with `author:`
-  - Filter by organization with `org:`{% endif %}
+  - Filtrar por razón de la notificación con `reason:`{% if currentVersion == "free-pro-team@latest" %}
+  - Filtrar por autor de la notificación con `author:`
+  - Filtrar por organización con `org:`{% endif %}
 
-#### Supported `repo:` queries
+#### Consultas de `repo:` compatibles
 
-To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
+Para agregar un filtro de `repo:`, debes incluir al propietario del repositorio en la consulta: `repo:owner/repository`. Un propietario es el usuario u organización al que pertenece el activo de {% data variables.product.prodname_dotcom %} que activa la notificación. Por ejemplo, `repo:octo-org/octo-repo` mostrará las notificaciones que se activaron en el repositorio octo-repo dentro de la organización octo-org.
 
 #### Queries de tipo `is:` compatibles
 
@@ -148,38 +148,38 @@ Para filtrar las notificaciones de acuerdo con la razón por la cual recibiste u
 | `reason:ci-activity`      | Cuando un repositorio tiene una actualización de IC, tal como un nuevo estado de ejecución en un flujo de trabajo.                                                     |
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Supported `author:` queries
+#### Consultas de `author:` compatibles
 
-To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
+Para filtrar notificaciones por usuario, puedes utilizar la consulta `author:`. Un autor es el autor original del hilo (propuesta, solicitud de cambios, gist, debate, etc.) del cual se te está notificando. Por ejemplo, para ver las notificaciones de los hilos que creó el usuario Octocat, utiliza `author:octocat`.
 
-#### Supported `org:` queries
+#### Consultas de `org:` compatibles
 
-To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+Para filtrar las notificaciones por organización, puedes utilizar la consulta `org`. La organización que necesitas especificar en la consulta es aquella del repositorio del cual se te está notificando en {% data variables.product.prodname_dotcom %}. Esta consulta es útil si perteneces a varias organizaciones y quieres ver las notificaciones de una organización específica.
 
-For example, to see notifications from the octo-org organization, use `org:octo-org`.
+Por ejemplo, para ver las notificaciones de la organización octo-org, utiliza `org:octo-org`.
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_dependabot %} custom filters
+### Filtros personalizados del {% data variables.product.prodname_dependabot %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-If you use
-{% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
-- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
-- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
-- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
-For more information about
+Si utilizas
+al {% data variables.product.prodname_dependabot %} para mantener actualizadas tus dependencias, puedes usar y guardar estos filtros personalizados:
+- `is:repository_vulnerability_alert` para mostrar notificaciones para las {% data variables.product.prodname_dependabot_alerts %}.
+- `reason:security_alert` para mostrar notificaciones para las {% data variables.product.prodname_dependabot_alerts %} y las solicitudes de cambios de las actualizaciones de seguridad.
+- `author:app/dependabot` para mostrar las notificaciones que genera el {% data variables.product.prodname_dependabot %}. Esto incluye las {% data variables.product.prodname_dependabot_alerts %}, solicitudes de cambios para actualizaciones de seguridad y solicitudes de cambio para actualizaciones de versión.
+Para obtener más información sobre
 
-{% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+el {% data variables.product.prodname_dependabot %}, consulta la sección[Acerca de administrar las dependencias vulnerables](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-If you use
-{% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
-For more information about
+Si utilizas
+el {% data variables.product.prodname_dependabot %} para mantener actualizadas tus dependencias, puedes utilizar y guardar el filtro personalizado `is:repository_vulnerability_alert` para mostrar las notificaciones para las {% data variables.product.prodname_dependabot_alerts %}.
+Para obtener más información sobre
 
-{% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+el {% data variables.product.prodname_dependabot %}, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 {% endif %}
 
 {% endif %}

@@ -30,6 +30,7 @@ versions:
 {% link_in_list /migrations %}
 {% link_in_list /oauth-authorizations %}
 {% link_in_list /orgs %}
+{% link_in_list /packages %}
 {% link_in_list /projects %}
 {% link_in_list /pulls %}
 {% link_in_list /rate-limit %}

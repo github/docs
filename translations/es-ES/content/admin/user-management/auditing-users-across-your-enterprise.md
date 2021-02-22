@@ -76,10 +76,10 @@ El calificador `action` busca los eventos específicos, agrupados dentro de cate
 
 | Nombre de la categoría | Descripción                                                                                           |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hook`                 | Contiene todas las actividades relacionadas con los webhooks.                                         |
+| `gancho`               | Contiene todas las actividades relacionadas con los webhooks.                                         |
 | `org`                  | Contiene todas las actividades relacionadas con los miembros de la organización.                      |
 | `repo`                 | Contiene todas las actividades relacionadas con los repositorios que le pertenecen a tu organización. |
-| `team`                 | Contiene todas las actividades relacionadas con los equipos en tu organización.                       |
+| `equipo`               | Contiene todas las actividades relacionadas con los equipos en tu organización.                       |
 
 Puedes buscar conjuntos específicos de acciones utilizando estos términos. Por ejemplo:
 

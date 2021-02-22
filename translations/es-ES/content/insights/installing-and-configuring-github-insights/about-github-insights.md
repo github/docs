@@ -22,7 +22,7 @@ Las personas con permisos de administrador para {% data variables.product.prodna
 
 Puedes recibir soporte para {% data variables.product.prodname_insights %} de {% data variables.contact.github_support %}. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" %}"[Emitir un ticket](/github/working-with-github-support/submitting-a-ticket)".{% else %}"[Contactar a {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)".{% endif %}
 
-### Further reading
+### Leer más
 
 - "[Instalar {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/installing-github-insights)"
 - "[Configurar {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/configuring-github-insights)"

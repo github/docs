@@ -14,7 +14,7 @@ versions:
 
 {% warning %}
 
-If you offer a GitHub App in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate OAuth App to support this flow. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
 
 {% endwarning %}
 
@@ -24,7 +24,7 @@ Before a customer purchases your {% data variables.product.prodname_marketplace 
 
 The customer completes the purchase by clicking **Complete order and begin installation**.
 
-GitHub then sends the [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook with the `purchased` action to your app.
+{% data variables.product.product_name %} then sends the [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook with the `purchased` action to your app.
 
 Read the `effective_date` and `marketplace_purchase` object from the `marketplace_purchase` webhook to determine which plan the customer purchased, when the billing cycle starts, and when the next billing cycle begins.
 
@@ -34,27 +34,27 @@ See "[{% data variables.product.prodname_marketplace %} webhook events](/marketp
 
 ### Step 2. 설치
 
-If your app is a GitHub App, GitHub prompts the customer to select which repositories the app can access when they purchase it. GitHub then installs the app on the account the customer selected  and grants access to the selected repositories.
+If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected  and grants access to the selected repositories.
 
-At this point, if you specified a **Setup URL** in your GitHub App settings, Github will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your GitHub App.
+At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
 
 {% note %}
 
-**Note:** The **Setup URL** is described as optional in GitHub App settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
+**Note:** The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}
 
-If your app is an OAuth App, GitHub does not install it anywhere. Instead, GitHub redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
+If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
 
-When a customer purchases an OAuth App, GitHub redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
+When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
 
 ### Step 3. Authorization
 
 When a customer purchases your app, you must send the customer through the OAuth authorization flow:
 
-* If your app is a GitHub App, begin the authorization flow as soon as GitHub redirects the customer to the **Setup URL**. Follow the steps in "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
 
-* If your app is an OAuth App, begin the authorization flow as soon as GitHub redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/)."
+* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
 
 For either type of app, the first step is to redirect the customer to https://github.com/login/oauth/authorize.
 

@@ -1,26 +1,26 @@
 ---
-title: Troubleshooting GitHub Actions for your enterprise
-intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
-permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
+title: Enterprise 向け GitHub Actions のトラブルシューティング
+intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を使用するときに発生する一般的な問題のトラブルシューティング。'
+permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} の問題をトラブルシューティングし、{% data variables.product.prodname_ghe_server %} 設定を変更できます。'
 versions:
   enterprise-server: '>=3.0'
 ---
 
-### Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
+### {% data variables.product.prodname_ghe_server %} に自己署名証明書を使用する場合のセルフホストランナーの設定
 
-{% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
+{% data reusables.actions.enterprise-self-signed-cert %} 詳しい情報については、「[TLS を設定する](/admin/configuration/configuring-tls)」を参照してください。
 
-#### Installing the certificate on the runner machine
+#### ランナーマシンに証明書をインストールする
 
-For a self-hosted runner to connect to a {% data variables.product.prodname_ghe_server %} using a self-signed certificate, you must install the certificate on the runner machine so that the connection is security hardened.
+セルフホストランナーが自己署名証明書を使用して {% data variables.product.prodname_ghe_server %} に接続するには、接続がセキュリティで強化されるように、証明書をランナーマシンにインストールする必要があります。
 
-For the steps required to install a certificate, refer to the documentation for your runner's operating system.
+証明書をインストールするステップについては、ランナーのオペレーティングシステムのドキュメントを参照してください。
 
-#### Configuring Node.JS to use the certificate
+#### 証明書を使用するように Node.JS を設定する
 
-Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
+ほとんどのアクションは JavaScript で記述されており、オペレーティングシステムの証明書ストアを使用しない Node.js を使用して実行されます。 セルフホストランナーアプリケーションで証明書を使用するには、ランナーマシンで `NODE_EXTRA_CA_CERTS` 環境変数を設定する必要があります。
 
-You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
+環境変数をシステム環境変数として設定するか、セルフホストランナーアプリケーションディレクトリの _.env_ という名前のファイルで宣言することができます。
 
 例:
 
@@ -28,44 +28,44 @@ You can set the environment variable as a system environment variable, or declar
 NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 ```
 
-Environment variables are read when the self-hosted runner application starts, so you must set the environment variable before configuring or starting the self-hosted runner application. If your certificate configuration changes, you must restart the self-hosted runner application.
+環境変数は、セルフホストランナーアプリケーションの起動時に読み込まれるため、セルフホストランナーアプリケーションを設定または起動する前に、環境変数を設定する必要があります。 証明書の設定が変更された場合は、セルフホストランナーアプリケーションを再起動する必要があります。
 
-#### Configuring Docker containers to use the certificate
+#### 証明書を使用するように Docker コンテナを設定する
 
-If you use Docker container actions or service containers in your workflows, you might also need to install the certificate in your Docker image in addition to setting the above environment variable.
+ワークフローで Docker コンテナアクションまたはサービスコンテナを使用する場合は、上記の環境変数の設定に加えて、Docker イメージに証明書をインストールする必要がある場合もあります。
 
-### Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} の HTTP プロキシ設定
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+これらの設定が正しく行われていない場合、{% data variables.product.prodname_actions %} 設定を設定または変更するときに、`Resource unexpectedly moved to https://<IP_ADDRESS>` などのエラーが発生する可能性があります。
 
-### Runners not connecting to {% data variables.product.prodname_ghe_server %} after changing the hostname
+### ホスト名を変更した後、ランナーは {% data variables.product.prodname_ghe_server %} に接続しません
 
-If you change the hostname of {% data variables.product.product_location %}, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
+{% data variables.product.product_location %} のホスト名を変更すると、セルフホストランナーは古いホスト名に接続できなくなり、ジョブを実行しなくなります。
 
-You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.product.product_location %}. Each self-hosted runner will require one of the following procedures:
+{% data variables.product.product_location %} に新しいホスト名を使用するには、セルフホストランナーの設定を更新する必要があります。 各セルフホストランナーには、次のいずれかの手順を行う必要があります。
 
-* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. 詳しい情報については「[セルフホストランナーの削除](/actions/hosting-your-own-runners/removing-self-hosted-runners)」及び「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
+* セルフホストランナーアプリケーションディレクトリで、`.runner` ファイルと `.credentials` ファイルを編集して、古いホスト名のすべての記述を新しいホスト名に置き換えてから、セルフホストランナーアプリケーションを再起動します。
+* UIを使用して {% data variables.product.prodname_ghe_server %} からランナーを削除し、再度追加します。 詳しい情報については「[セルフホストランナーの削除](/actions/hosting-your-own-runners/removing-self-hosted-runners)」及び「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
 
-### Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
+### スタックジョブと {% data variables.product.prodname_actions %} メモリと CPU の制限
 
-{% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.product.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
+{% data variables.product.prodname_actions %} は、{% data variables.product.product_location %} で実行されている複数のサービスで構成されています。 デフォルトでは、これらのサービスは、ほとんどのインスタンスで機能するデフォルトの CPU およびメモリ制限で設定されています。 ただし、{% data variables.product.prodname_actions %} のヘビーユーザは、これらの設定を調整する必要がある場合があります。
 
-You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
+ジョブが開始されていないことに気付いた場合（アイドル状態のランナーが存在する場合でも）、または UI でジョブの進行状況が更新または変更されていない場合は、CPU またはメモリの上限に達している可能性があります。
 
-#### 1. Check the overall CPU and memory usage in the management console
+#### 1. Management Console で全体的な CPU とメモリの使用率を確認する
 
-Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
+Management Console にアクセスし、モニターダッシュボードを使用して、[System Health] の下の全体的な CPU とメモリのグラフを調べます。 詳しい情報については、「[モニターダッシュボードへのアクセス](/admin/enterprise-management/accessing-the-monitor-dashboard)」を参照してください。
 
-If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.product.product_location %} is running at capacity and needs to be scaled up. For more information, see "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
+[System Health] 全体の CPU 使用率が 100％ に近い場合、または空きメモリが残っていない場合は、{% data variables.product.product_location %} が容量で実行されているため、スケールアップする必要があります。 詳しい情報については、「[CPU またはメモリリソースを増やす](/admin/enterprise-management/increasing-cpu-or-memory-resources)」を参照してください。
 
-#### 2. Check the Nomad Jobs CPU and memory usage in the management console
+#### 2. Management Console で Nomad Jobs の CPU とメモリの使用率を確認する
 
-If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
+全体的な [System Health] の CPU とメモリの使用率に問題がない場合は、モニターダッシュボードページを下にスクロールして [Nomad Jobs] セクションに移動し、[CPU Percent Value] と [Memory Usage] のグラフを確認します。
 
-Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
+これらのグラフの各プロットは、1 つのサービスに対応しています。 {% data variables.product.prodname_actions %} サービスについては、以下を探してください。
 
 * `mps_frontend`
 * `mps_backend`
@@ -74,18 +74,18 @@ Each plot in these graphs corresponds to one service. For {% data variables.prod
 * `actions_frontend`
 * `actions_backend`
 
-If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
+これらのサービスのいずれかが 100％ またはそれに近い CPU 使用率であるか、メモリが上限（デフォルトでは 2 GB）に近い場合、これらのサービスのリソース割り当てを増やす必要がある場合があります。 上記のサービスのどれが上限に達しているか、上限に近いかを注視してください。
 
-#### 3. Increase the resource allocation for services at their limit
+#### 3. 上限に達したサービスへのリソース割り当てを増やす
 
-1. Log in to the administrative shell using SSH. 詳しい情報については「[管理シェル（SSH）にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
-1. Run the following command to see what resources are available for allocation:
+1. SSH を使用して管理シェルにログインします。 詳しい情報については「[管理シェル（SSH）にアクセスする](/admin/configuration/accessing-the-administrative-shell-ssh)」を参照してください。
+1. 次のコマンドを実行して、割り当てに利用可能なリソースを確認します。
 
    ```shell
    nomad node status -self
    ```
 
-   In the output, find the "Allocated Resources" section. It looks similar to the following example:
+   出力で [Allocated Resources] セクションを見つけます。 次の例のようになります。
 
    ```
    Allocated Resources
@@ -93,25 +93,25 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
    ```
 
-   For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
+   CPU とメモリの場合、これは**すべて**のサービスの**合計**に割り当てられているｃ量（左の値）と利用可能な容量（右の値）を示しています。 上記の例では、合計 32GiB のうち 23GiB のメモリが割り当てられています。 これは、9GiB のメモリを割り当てることができるということを示しています。
 
    {% warning %}
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
+   **Warning:** 利用可能なリソースの合計を超える容量を割り当てると、サービスが開始されませんので注意してください。
 
    {% endwarning %}
-1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
+1. ディレクトリを `/etc/consul-templates/etc/nomad-jobs/actions` に変更します。
 
    ```shell
    cd /etc/consul-templates/etc/nomad-jobs/actions
    ```
 
-   In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
+   このディレクトリには、上記の {% data variables.product.prodname_actions %} サービスに対応する 3 つのファイルがあります。
 
    * `mps.hcl.ctmpl`
    * `token.hcl.ctmpl`
    * `actions.hcl.ctmpl`
-1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
+1. 調整が必要なサービスを特定した場合は、対応するファイルを開き、次のような `resources` グループを見つけます。
 
    ```
    resources {
@@ -123,9 +123,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    }
    ```
 
-   The values are in MHz for CPU resources, and MB for memory resources.
+   値は、CPU リソースの場合は MHz、メモリリソースの場合は MB です。
 
-   For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
+   たとえば、上記の例のリソース制限を CPU と 4 GBのメモリの 1GHz に増やすには、次のように変更します。
 
    ```
    resources {
@@ -136,8 +136,8 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
-1. Save and exit the file.
-1. Run `ghe-config-apply` to apply the changes.
+1. ファイルを保存して終了します。
+1. `ghe-config-apply` を実行して、変更を適用します。
 
-    When running `ghe-config-apply`, if you see output like `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, then the change has likely over-allocated CPU or memory resources. If this happens, edit the configuration files again and lower the allocated CPU or memory, then re-run `ghe-config-apply`.
-1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
+    `ghe-config-apply` の実行中に、`Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'` のような出力が表示される場合は、変更によって CPU またはメモリリソースが過剰に割り当てられている可能性があります。 これが発生した場合は、設定ファイルを再度編集し、割り当てられた CPU またはメモリを減らしてから、`ghe-config-apply` を再実行してください。
+1. 設定が適用されたら、`ghe-actions-check` を実行して、{% data variables.product.prodname_actions %} サービスが機能していることを確認します。

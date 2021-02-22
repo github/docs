@@ -10,7 +10,7 @@ redirect_from:
   - /articles/generating-ssh-keys/
   - /articles/generating-an-ssh-key/
   - /articles/connecting-to-github-with-ssh
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

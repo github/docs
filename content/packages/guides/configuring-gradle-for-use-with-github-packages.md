@@ -147,22 +147,22 @@ subprojects {
     }
 }
 ```
-  
+
   #### Authenticating with the `GITHUB_TOKEN`
-  
+
   {% data reusables.package_registry.package-registry-with-github-tokens %}
-  
+
   For more information about using `GITHUB_TOKEN` with Maven, see "[Publishing Java packages with Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)."
-  
+
   ### Publishing a package
-  
+
   {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
-  
+
   {% data reusables.package_registry.viewing-packages %}
-  
+
   {% data reusables.package_registry.authenticate-step %}
   2. After creating your package, you can publish the package.
-  
+
    ```shell
    $ gradle publish
   ```
@@ -201,9 +201,9 @@ You can install a package by adding the package as a dependency to your project.
       `maven`
   }
   ```
-  
+
   3. Install the package.
-  
+
   ```shell
   $ gradle install
   ```
@@ -211,4 +211,4 @@ You can install a package by adding the package as a dependency to your project.
 ### Further reading
 
 - "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.0" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."

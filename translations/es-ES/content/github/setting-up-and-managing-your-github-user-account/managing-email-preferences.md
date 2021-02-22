@@ -4,7 +4,7 @@ intro: 'Puedes agregar o cambiar las direcciones de correo electrónico asociada
 redirect_from:
   - /categories/managing-email-preferences/
   - /articles/managing-email-preferences
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

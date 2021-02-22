@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 允许您在 `cluster.conf` 中查找节点的 uuid。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -545,8 +545,8 @@ ghe-dpages status
 ```
 
 要在撤出集群节点之前撤出 {% data variables.product.prodname_pages %} 存储服务：
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -571,16 +571,16 @@ ghe-spokes route
 
 要撤出集群节点上的存储服务：
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 此实用程序允许您在撤出集群节点之前撤出所有存储服务。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

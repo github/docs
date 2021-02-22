@@ -8,7 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Embalaje
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,6 +50,6 @@ Además de cargar artefactos de empaquetado para las pruebas en un flujo de trab
 
   Puedes automatizar esto creando un flujo de trabajo que publique paquetes en un registro de paquetes en cada creación de lanzamiento. Para obtener más información, consulta "[Crear lanzamientos](/github/administering-a-repository/creating-releases)."
 
-### Further reading
+### Leer más
 
 - "[Publicar paquetes Node.js](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"

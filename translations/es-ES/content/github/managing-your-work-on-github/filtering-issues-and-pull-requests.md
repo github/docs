@@ -23,7 +23,7 @@ Puedes filtrar propuestas y solicitudes de extracción para buscar:
 {% data reusables.repositories.sidebar-issue-pr %}
 3. Haz clic en **Filtros** para elegir el tipo de filtro que te interesa. ![Usar el menú desplegable Filtros](/assets/images/help/issues/issues_filter_dropdown.png)
 
-### Further reading
+### Leer más
 
 - "[Filtrar propuestas y solicitudes de extracción por asignatarios](/articles/filtering-issues-and-pull-requests-by-assignees)"
 - "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"

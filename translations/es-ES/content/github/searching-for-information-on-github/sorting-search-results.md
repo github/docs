@@ -65,7 +65,7 @@ El calificador `sort:updated` clasifica según qué tan recientemente se actuali
 | `sort:updated` or `sort:updated-desc` | [**feature sort:updated**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated&type=Repositories) encuentra repositorios que contienen la palabra "feature," clasificados por la fecha de actualización más reciente.           |
 | `sort:updated-asc`                    | [**feature sort:updated-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated-asc&type=Repositories) encuentra repositorios que contienen la palabra "feature," clasificados por la fecha de actualización menos reciente. |
 
-### Further reading
+### Leer más
 
 - [Acerca de la búsqueda en GitHub](/articles/about-searching-on-github)
 - [Clasificar propuestas y solicitudes de extracción](/articles/sorting-issues-and-pull-requests/)

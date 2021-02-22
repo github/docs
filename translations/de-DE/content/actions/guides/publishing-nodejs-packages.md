@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Pakete erstellen'
+  - 'Publishing'
+  - 'Node'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,7 +59,7 @@ Wenn Du ein Paket veröffentlichst, das einen Präfix für den „scope“ (Gelt
 Dieses Beispiel speichert das Geheimnis `NPM_TOKEN` in der Umgebungsvariablen `NODE_AUTH_TOKEN`. Wenn die Aktion `setup-node` eine Datei *.npmrc* erzeugt, referenziert sie das Token aus der Umgebungsvariable `NODE_AUTH_TOKEN`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -78,7 +83,7 @@ jobs:
 
 Im obigen Beispiel erzeugt die Aktion `setup-node` auf dem Runner eine Datei *.npmrc* mit folgendem Inhalt:
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 registry=https://registry.npmjs.org/
 always-auth=true
@@ -114,7 +119,7 @@ If you want to publish your package to a different repository, you must use a pe
 Dieses Beispiel speichert das Geheimnis `GITHUB_TOKEN` in der Umgebungsvariablen `NODE_AUTH_TOKEN`. Wenn die Aktion `setup-node` eine Datei *.npmrc* erzeugt, referenziert sie das Token aus der Umgebungsvariable `NODE_AUTH_TOKEN`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -140,7 +145,7 @@ jobs:
 
 Die Aktion `setup-node` erzeugt eine Datei *.npmrc* auf dem Runner. Wenn Du für die Aktion `setup-node` die Eingabe `scope` verwendest, enthält die Datei *.npmrc* das Präfix „scope“. Standardmäßig legt die Aktion `setup-node` den „Scope“ (Geltungsbereich) in der Datei *.npmrc* auf das Konto fest, das diese Workflow-Datei enthält.
 
-```
+```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://npm.pkg.github.com
 always-auth=true
@@ -151,7 +156,7 @@ always-auth=true
 Wenn Du den Paketmanager „Yarn“ verwendest, kannst Du mit Yarn Pakete installieren und veröffentlichen.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:
@@ -167,7 +172,7 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
         # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat' 
+        scope: '@octocat'
     - run: yarn
     - run: yarn publish
       env:
@@ -196,7 +201,7 @@ Wenn Du für die Aktion `setup-node` die Eingabe `scope` verwendest, erstellt di
 Dieser Workflow ruft die Aktion `setup-node` zweimal auf. Jedes Mal, wenn die Aktion `setup-node` ausgeführt wird, überschreibt sie die Datei *.npmrc*. Die Datei *.npmrc* referenziert den Token, mit dem Du authentifizierte Operationen in der Paket-Registry durchführen kannst, durch die Umgebungsvariable `NODE_AUTH_TOKEN`. Der Workflow setzt die Umgebungsvariable `NODE_AUTH_TOKEN` jedes Mal, wenn der Befehl `npm publish` ausgeführt wird; zuerst mit einem Token zum Veröffentlichen auf npm (`NPM_TOKEN`) und dann mit einem Token zum Veröffentlichen in der {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js Package
 on:
   release:

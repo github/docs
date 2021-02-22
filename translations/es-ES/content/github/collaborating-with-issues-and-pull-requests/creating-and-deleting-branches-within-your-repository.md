@@ -39,7 +39,7 @@ Si la rama que quieres borrar está asociada con una solicitud de cambios abiert
 {% endif %}
 Para obtener más información, consulta "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
-### Further reading
+### Leer más
 
 - "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches)"
 - "[Ver las ramas en tu repositorio](/github/administering-a-repository/viewing-branches-in-your-repository)"

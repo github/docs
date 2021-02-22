@@ -9,22 +9,22 @@ module.exports = [
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
   'actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e', //actions/setup-node@v2.1.4
-  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
-  'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
+  'ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262', //ruby/setup-ruby@vv1.64.1
+  'actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da', //actions/stale@v3.0.16
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
-  'cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576',
+  'cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
-  'ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb',
+  'ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17',
   'juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8',
   'juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9',
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
   'lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8',
-  'pascalgn/automerge-action@c9bd182',
+  'pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07', //pascalgn/automerge@0.12.0
   'peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326',
   'peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd',
   'peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43',

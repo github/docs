@@ -23,7 +23,7 @@ Como mantenedor de repositorio, puedes crear tus propios lineamientos para contr
 
 Los colaboradores pueden reportar el contenido perjudicial en {% data variables.contact.github_support %} siempre que lo deseen. Si decides incluir el contenido reportado para un repositorio público en tu organización, los colaboradores también pueden reportar los comentarios que presenten comportamiento perjudicial directamente a los mantenedores del mismo. Para encontrar más información, visita la sección "[Gestionar contenido reportado en el repositorio de tu organización](/github/building-a-strong-community/managing-reported-content-in-your-organizations-repository)."
 
-### Further reading
+### Leer más
 
 - "[Tu Código de Conducta](https://opensource.guide/code-of-conduct/)" de las Guías de Código Abierto
 - "[Construyendo Comunidades de Bienvenida](https://opensource.guide/building-community/)" de las Guías de Código Abierto

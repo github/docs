@@ -8,7 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -47,7 +50,7 @@ Puedes usar la palabra clave `services` para crear contenedores de servicios que
 Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. El host de Docker en este ejemplo es el contenedor `node: 10.18-jessie`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -88,7 +91,7 @@ Cuando especificas el puerto del host de Docker pero no el puerto del contenedor
 Este ejemplo asigna el puerto 6379 del contenedor de servicios `redis` al puerto 6379 del host de Docker.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis Service Example
 on: push
 
@@ -110,7 +113,7 @@ Jobs:
 ```
 {% endraw %}
 
-### Further reading
+### Leer más
 
 - "[Crear contenedores de servicios Redis](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
 - "[Crear contenedores de servicios PostgreSQL](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"

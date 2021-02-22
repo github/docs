@@ -18,6 +18,8 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 
 {% data reusables.saml.about-linked-identities %}
 
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.saml.click-person-revoke-identity %}

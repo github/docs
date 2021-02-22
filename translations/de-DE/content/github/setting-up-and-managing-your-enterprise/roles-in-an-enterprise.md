@@ -31,7 +31,7 @@ Enterprise owners have complete control over the enterprise and can take every a
 
 Keinen Zugriff haben Enterprise-Inhaber auf die Einstellungen und Inhalte der einzelnen Organisationen, es sei denn, sie sind auch Inhaber einer Organisation oder ihnen wird direkter Zugriff auf das Repository einer Organisation erteilt. Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
 
-You can add as many enterprise owners as you'd like to your enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
 
 ### Enterprise-Mitglieder
 
@@ -52,7 +52,7 @@ Billing managers only have access to your enterprise's billing settings. Billing
 - Liste der Abrechnungsmanager anzeigen
 - Andere Abrechnungsmanager hinzufügen oder entfernen
 
-Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Abrechnungsmanager müssen über ein persönliches Konto auf {% data variables.product.prodname_dotcom %} verfügen.
+Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Abrechnungsmanager müssen über ein persönliches Konto auf {% data variables.product.prodname_dotcom %} verfügen.
 
 ### Weiterführende Informationen
 

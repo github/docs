@@ -1,6 +1,5 @@
 - [最低要求](#minimum-requirements){% if currentversion == "enterprise-server@2.22" %}
-- [ {% data variables.product.prodname_ghe_server %} 2.22 的测试版功能](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentversion ver_gt "enterprise-server@2.22" %}
-- [可选功能](#optional-features){% endif %}
+- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)
 
@@ -8,20 +7,7 @@
 
 建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} 如果您对 {% endif %}{% data variables.product.prodname_actions %} 启用 {% if currentVersion == "enterprise-server@2.22" %}测试版，请查看以下要求和建议。
-
-- 您必须为 {% data variables.product.prodname_actions %} 工作流程配置至少一个运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
-- 您必须配置外部 Blob 存储。 For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
-- 您可能需要配置额外的 CPU 和内存资源。 需要为 {% data variables.product.prodname_actions %} 预配的额外 CPU 和内存资源取决于用户同时运行的工作流程数量，以及用户活动、自动化和集成的总体水平。
-
-    | 每分钟最大作业数 | 额外的 vCPU |    额外内存 |
-    |:-------- | --------:| -------:|
-    | 轻型测试     |        4 | 30.5 GB |
-    | 25       |        8 |   61 GB |
-    | 35       |       16 |  122 GB |
-    | 100      |       32 |  244 GB |
-
-{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 #### 存储器
 
@@ -31,7 +17,7 @@
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-如果启用{% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %}测试版{% endif %}，则需要配置外部 Blob 存储。 For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+To configure{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% endif %}
 
@@ -39,7 +25,7 @@
 
 #### CPU 和内存
 
-{% data variables.product.prodname_ghe_server %} 需要更多的 CPU 和内存资源，取决于用户活动、自动化和集成的水平。
+The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations. {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data reusables.actions.enterprise-hardware-considerations %}{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

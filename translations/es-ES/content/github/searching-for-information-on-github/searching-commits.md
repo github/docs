@@ -48,10 +48,10 @@ Utiliza los calificadores `author-date` y `committer-date` para encontrar confir
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                 | Ejemplo                                                                                                                                                           |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) encuentra confirmaciones creadas antes del 2016-01-01. |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) matches commits committed after 2016-01-01.      |
+| Qualifier                 | Ejemplo                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) encuentra confirmaciones creadas antes del 2016-01-01.                    |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) encuentra las confirmaciones que se crearon después del 2016-01-01. |
 
 ### Filtrar confirmaciones de fusión
 
@@ -102,6 +102,6 @@ El calificador `is` coincide con las confirmaciones de los repositorios con la v
 
 | Calificador| Ejemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) coincide con las confirmaciones de los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) coincide con las confirmaciones de los repositorios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) coincide con las confirmaciones de los repositorios privados.
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"
