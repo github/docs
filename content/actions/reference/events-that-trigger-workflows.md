@@ -43,7 +43,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 {% note %}
 
-Note: Currently due to load `schedule` actions can have up to an hour delay, this is being looked into but please make considerations for this in the interim.
+Note: Due to load, the `schedule` event may be delayed 
 
 {% endnote %}
 
