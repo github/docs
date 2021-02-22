@@ -367,6 +367,7 @@ describe('Page class', () => {
       })
       const guides = ['/path/guide1', '/path/guide2', '/path/guide3']
       const context = {
+        currentVersion: nonEnterpriseDefaultVersion,
         currentLanguage: 'en'
       }
       await page.render(context)

@@ -4,9 +4,8 @@ intro: 'You can increase development velocity by enabling auto-merge for a pull 
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### About auto-merge
 

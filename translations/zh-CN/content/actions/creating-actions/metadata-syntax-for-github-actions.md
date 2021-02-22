@@ -60,7 +60,7 @@ inputs:
 
 #### `inputs.<input_id>`
 
-**必要** 要与输入关联的 `string` 识别符。 `<input_id>` 的值是输入元数据的映射。 `<input_id>` 必须是 `inputs` 对象中的唯一识别符。 `<input_id>` 必须以字母或 `_` 开关，并且只能包含字母数字、`-` 或 `_`。
+**必要** 要与输入关联的 `string` 识别符。 `<input_id>` 的值是输入元数据的映射。 `<input_id>` 必须是 `inputs` 对象中的唯一识别符。 `<input_id>` 必须以字母或 `_` 开头，并且只能包含字母数字、`-` 或 `_`。
 
 #### `inputs.<input_id>.description`
 

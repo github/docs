@@ -7900,6 +7900,145 @@
       ]
     },
     {
+      "name": "CVSS",
+      "kind": "objects",
+      "id": "cvss",
+      "href": "/graphql/reference/objects#cvss",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "fields": [
+        {
+          "name": "score",
+          "description": "<p>The CVSS score associated with this advisory.</p>",
+          "type": "Float!",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        },
+        {
+          "name": "vectorString",
+          "description": "<p>The CVSS vector string associated with this advisory.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CWE",
+      "kind": "objects",
+      "id": "cwe",
+      "href": "/graphql/reference/objects#cwe",
+      "description": "<p>A common weakness enumeration.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "cweId",
+          "description": "<p>The id of the CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A detailed description of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>ID of the object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CWEConnection",
+      "kind": "objects",
+      "id": "cweconnection",
+      "href": "/graphql/reference/objects#cweconnection",
+      "description": "<p>The connection type for CWE.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CWEEdge]",
+          "id": "cweedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cweedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CWE]",
+          "id": "cwe",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cwe"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "CWEEdge",
+      "kind": "objects",
+      "id": "cweedge",
+      "href": "/graphql/reference/objects#cweedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CWE",
+          "id": "cwe",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cwe"
+        }
+      ]
+    },
+    {
       "name": "CheckAnnotation",
       "kind": "objects",
       "id": "checkannotation",
@@ -38636,6 +38775,14 @@
           ]
         },
         {
+          "name": "repository",
+          "description": "<p>The repository that the release belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this issue.</p>",
           "type": "URI!",
@@ -47220,6 +47367,64 @@
       ],
       "fields": [
         {
+          "name": "cvss",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CVSS!",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        },
+        {
+          "name": "cwes",
+          "description": "<p>CWEs associated with this Advisory.</p>",
+          "type": "CWEConnection!",
+          "id": "cweconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cweconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "databaseId",
           "description": "<p>Identifies the primary key from the database.</p>",
           "type": "Int",
@@ -47827,6 +48032,55 @@
       ]
     },
     {
+      "name": "SponsorsGoal",
+      "kind": "objects",
+      "id": "sponsorsgoal",
+      "href": "/graphql/reference/objects#sponsorsgoal",
+      "description": "<p>A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain.</p>",
+      "fields": [
+        {
+          "name": "description",
+          "description": "<p>A description of the goal from the maintainer.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "kind",
+          "description": "<p>What the objective of this goal is.</p>",
+          "type": "SponsorsGoalKind!",
+          "id": "sponsorsgoalkind",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorsgoalkind"
+        },
+        {
+          "name": "percentComplete",
+          "description": "<p>The percentage representing how complete this goal is, between 0-100.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "targetValue",
+          "description": "<p>What the goal amount is. Represents a dollar amount for monthly sponsorship\namount goals. Represents a count of unique sponsors for total sponsors count goals.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "title",
+          "description": "<p>A brief summary of the kind and target value of this goal.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "SponsorsListing",
       "kind": "objects",
       "id": "sponsorslisting",
@@ -47840,6 +48094,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "activeGoal",
+          "description": "<p>The current goal the maintainer is trying to reach with GitHub Sponsors, if any.</p>",
+          "type": "SponsorsGoal",
+          "id": "sponsorsgoal",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsgoal"
+        },
         {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
@@ -61393,6 +61655,23 @@
         {
           "name": "LOGIN",
           "description": "<p>Order sponsorable entities by login (username).</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsGoalKind",
+      "kind": "enums",
+      "id": "sponsorsgoalkind",
+      "href": "/graphql/reference/enums#sponsorsgoalkind",
+      "description": "<p>The different kinds of goals a GitHub Sponsors member can have.</p>",
+      "values": [
+        {
+          "name": "MONTHLY_SPONSORSHIP_AMOUNT",
+          "description": "<p>The goal is about getting a certain dollar amount from sponsorships each month.</p>"
+        },
+        {
+          "name": "TOTAL_SPONSORS_COUNT",
+          "description": "<p>The goal is about reaching a certain number of sponsors.</p>"
         }
       ]
     },

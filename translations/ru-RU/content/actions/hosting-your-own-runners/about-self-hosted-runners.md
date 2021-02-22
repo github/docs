@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'обзор'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -63,7 +63,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.github-actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Supported operating systems for self-hosted runners
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
@@ -91,6 +91,14 @@ The following operating systems are supported for the self-hosted runner applica
 #### macOS
 
 - macOS 10.13 (High Sierra) or later
+
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
 {% if enterpriseServerVersions contains currentVersion %}
 
