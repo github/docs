@@ -63,13 +63,17 @@ The 'Line configuration button' (for Android only) next to the toggle button 'S
 Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
 <!-- не получила ответа на вопрос в каких единицах измеряются цифры на ползунке и чем эти цифры лучше/хуже   или толще /худее относительно других категорий width Переписка в саппорт чате от 16.02 17:49. проведенный мною эксперимент  привел к мысли что это настройка вообще не работает-->
 
-![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png) 
+![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png)
 
 In the REC Settings menu user can configure the logging interval from 0 seconds to 5 minutes. <br>
-The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line.
+The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
+
+![Logging interval in Trip recording Appearence](/assets/images/docs/widgets/logging_interval_in_tr_widget.png) 
+
 If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
-When all settings are defined, user can push the ‘Start recording’ button
+When all settings are defined, user can push the ‘Start recording’ button.
 <!-- Не нашла способа как сбросить настройки установленные. ВКЛ/выкл виджета и плагина не помогает. В плагине сбросить в настройках плагина тоже не помогает-->
+
 The Logging interval can be additionally checked/ changed in: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.shared_string_trip_recording %} → {% data variables.android-values.save_track_interval %}. <br>
 <!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br> -->
