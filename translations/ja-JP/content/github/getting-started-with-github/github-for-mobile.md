@@ -26,19 +26,19 @@ versions:
 
 Android または iOS に {% data variables.product.prodname_mobile %} をインストールするには、「[{% data variables.product.prodname_mobile %}](https://github.com/mobile)」を参照してください。
 
-### Managing accounts
+### アカウントの管理
 
-You can be simultaneously signed into mobile with one user account on {% data variables.product.prodname_dotcom_the_website %} and one user account on {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_dotcom_the_website %} のユーザーアカウントと、{% data variables.product.prodname_ghe_server %}のユーザーアカウントとを使用して同時にモバイルにサインインすることができます。
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-{% data variables.product.prodname_mobile %} may not work with your enterprise if you're required to access your enterprise over VPN.
+VPN で Enterprise にアクセスする必要がある場合、{% data variables.product.prodname_mobile %} は Enterprise では動作しません。
 
 #### 必要な環境
 
-You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、デバイスに {% data variables.product.prodname_mobile %} 1.4 以降をインストールする必要があります。
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 詳しい情報については、「[リリースノート](/enterprise-server/admin/release-notes)」と「[Enterprise 向けに {% data variables.product.prodname_mobile %} を管理する](/admin/configuration/managing-github-for-mobile-for-your-enterprise)」を参照してください。
 
 During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}.
 

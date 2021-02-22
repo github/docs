@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### 克隆仓库
-{% data variables.product.prodname_dotcom %} 上的仓库作为远程仓库存在。  您可以克隆其他人拥有的公共仓库。 您可以克隆自己的仓库，从而在计算机上创建本地副本，并在两个本地位置之间实现同步。
+### About local repositories
+Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+
+You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
+
+When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
+
+When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
 
 也可以直接从 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 克隆仓库。 更多信息请参阅“[将仓库从 {% data variables.product.prodname_dotcom %} 克隆至 {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)。”
 
-{% mac %}
+### 克隆仓库
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Mac 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. 单击 **Choose...（选择...）**，并使用 Finder 窗口找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-mac.png)
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.choose-clone-repository %}
-  ![Windows 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-windows.png)
-{% data reusables.desktop.cloning-location-tab %}
-  ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}
-  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. 单击 **Choose...（选择...）**，并使用 Windows 资源管理器找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-win.png)
-5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-win.png)
-
-{% endwindows %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
 ### 复刻仓库
-要对您没有写入权限的项目做出贡献，可以使用 {% data variables.product.prodname_desktop %} 创建仓库分支。 分支上的变更不会影响原始仓库。 您可以提交分支上的变更，然后将拉取请求对含有提议变更的原始仓库开放。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
+If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
 
-1. 如果您克隆了自己没有写入权限的仓库，并查实提交变更。{% data variables.product.prodname_desktop %} 将警告您“您对 **REPOSITORY（仓库）**没有写入权限。 单击 **create a fork（创建分支）**。 ![创建分支链接](/assets/images/help/desktop/create-a-fork.png)
-3. 单击 **Fork this repository（复刻此仓库）**。 ![复刻此仓库按钮](/assets/images/help/desktop/fork-this-repo-button.png)
-4. 要查看 {% data variables.product.prodname_dotcom %} 上的分支，请在 {% data variables.product.prodname_dotcom %} 右上角单击个人资料照片，然后再单击 **Your repositories（您的仓库）**。 ![您的仓库链接](/assets/images/help/profile/your-repositories.png)
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
+
+### Managing fork behavior
+You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
+
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
+
+### 延伸阅读
+- [关于远程仓库](/github/using-git/about-remote-repositories)

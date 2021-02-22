@@ -1,7 +1,7 @@
 ---
 title: アクションの検索とカスタマイズ
 shortTitle: アクションの検索とカスタマイズ
-intro: 'アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを検出、使用、およびカスタマイズする方法を説明します。'
+intro: 'アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'how_to'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,7 +20,7 @@ type: 'how_to'
 
 ### 概要
 
-ワークフローで使用するアクションは、次のように定義できます。
+ワークフローで使用するアクションは、以下の場所で定義できます。
 
 - パブリック リポジトリ
 - ワークフローファイルがアクションを参照するのと同じリポジトリ
@@ -68,7 +70,7 @@ steps:
 
 #### SHA の使用
 
-より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 この例では、アクションの SHA を対象としています。
+より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}短縮された値ではなく、コミットの完全なSHA値を使わなければなりません。 {% endif %}この例ではアクションのSHAを対象としています。
 
 ```yaml
 steps:
@@ -77,7 +79,7 @@ steps:
 
 #### ブランチの使用
 
-Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. この例では、`@main` という名前のブランチを対象としています。
+アクションのターゲットブランチを指定すると、そのブランチに現在あるバージョンが常に実行されます。 ブランチの更新に重大な変更が含まれている場合、このアプローチは問題を引き起こす可能性があります。 この例では、`@main` という名前のブランチを対象としています。
 
 ```yaml
 steps:
@@ -88,7 +90,7 @@ steps:
 
 ### アクションで入力と出力を使用する
 
-多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 たとえば、アクションでは、ファイルへのパス、ラベルの名前、またはアクション処理の一部として使用するその他のデータを指定する必要がある場合があります。
 
 アクションの入力と出力を確認するには、リポジトリのルートディレクトリにある `action.yml` または `action.yaml` を確認してください。
 

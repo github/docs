@@ -44,13 +44,13 @@ Quando você fizer push das alterações na fonte de publicação no {% data var
 Você pode configurar um serviço de terceiros, como o [Travis CI](https://travis-ci.org/), para exibir mensagens de erro após cada commit.
 
 1. Se você ainda não tiver, adicione um arquivo chamado _Gemfile_ na raiz da sua fonte de publicação, com o seguinte conteúdo:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Configure o repositório do site para o serviço de teste de sua escolha. Por exemplo, para usar [Travis CI](https://travis-ci.org/), adicione um arquivo chamado _.travis.yml_ na raiz da fonte de publicação, com o seguinte conteúdo:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

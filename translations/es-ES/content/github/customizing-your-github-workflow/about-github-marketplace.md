@@ -19,13 +19,13 @@ Puedes descubrir, buscar e instalar apps y acciones que otros hayan creado en {%
 
 {% data reusables.actions.actions-not-verified %}
 
-Cualquiera puede listar una {% data variables.product.prodname_github_app %} o {% data variables.product.prodname_oauth_app %} gratuita en {% data variables.product.prodname_marketplace %}. {% data variables.product.company_short %} verifica a aquellos que publican apps de pago, y los listados de dichas apps se muestran con una insignia de creador verificado {% octicon "verified" aria-label="Verified creator badge" %}. También podrás ver insignias para las apps verificadas y sin verificar. Estas apps se publicaron utilizando el método anterior para verificar apps individuales. Para obtener más información acerca del proceso actual, consulta las secciones "[Acerca de los creadores verificados](/developers/github-marketplace/about-verified-creators)" y "[Requisitos para listar una app](/developers/github-marketplace/requirements-for-listing-an-app)".
+Cualquiera puede listar una {% data variables.product.prodname_github_app %} o {% data variables.product.prodname_oauth_app %} gratuita en {% data variables.product.prodname_marketplace %}. Publishers of paid apps are verified by {% data variables.product.company_short %} and listings for these apps are shown with a marketplace badge {% octicon "verified" aria-label="Verified creator badge" %}. También podrás ver insignias para las apps verificadas y sin verificar. Estas apps se publicaron utilizando el método anterior para verificar apps individuales. For more information about the current process, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
 
 ### Crear y hacer aparecer una herramienta en {% data variables.product.prodname_marketplace %}
 
 Para obtener más información acerca de cómo crear tu propia herramienta para que se liste en {% data variables.product.prodname_marketplace %}, consulta las secciones de "[Aplicaciones](/developers/apps)" y "[{% data variables.product.prodname_actions %}](/actions)".
 
-### Further reading
+### Leer más
 
 - "[Comprar e instalar aplicaciones en {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
 - "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"

@@ -25,11 +25,15 @@ Puedes hospedar tu sitio en
 El dominio `github.io` de {% data variables.product.prodname_dotcom %} o en tu propio dominio personalizado. Para obtener más información, consulta "[Utilizar un dominio personalizado con {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)".
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.about-private-publishing %} Para obtener más información, consulta la sección "[Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)".
+{% endif %}
+
 Para empezar, vea "[Creando un sitio {% data variables.product.prodname_pages %}](/articles/creating-a-github-pages-site)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 Los propietarios de la organización pueden inhabilitar la publicación de
-sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización. Para obtener más información, consulta la sección "[Inhabilitar la publicación de sitios de {% data variables.product.prodname_pages %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)".
+sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización. Para obtener más información, consulta la sección "[Administrar la publicación de sitios de {% data variables.product.prodname_pages %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)".
 {% endif %}
 
 ### Tipos de sitios {% data variables.product.prodname_pages %}
@@ -39,6 +43,10 @@ Existen tres tipos básicos de {% data variables.product.prodname_pages %} sitio
 Para publicar un sitio de usuario, debes crear un repositorio que pertenezca a tu cuenta de usuario que se llame {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar un sitio de organización, debes crear un repositorio que pertenezca a una organización y que se llame {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}A menos de que estés utilizando un dominio personalizado, los sitios de usuario y de organización se encuentran disponibles en `http(s)://<username>.github.io` o `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}los sitios de organizaciones y usuarios se encuentran disponibles en `http(s)://pages.<hostname>/<username>` o `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
 Los archivos fuente para un sitio de proyecto se almacenan en el mismo repositorio que su proyecto. {% if currentVersion == "free-pro-team@latest" %}A menos de que estés utilizando un dominio personalizado, los sitios de proyecto se encuentran disponibles en `http(s)://<username>.github.io/<repository>` o `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Los sitios de proyecto se encuentran disponibles en `http(s)://pages.<hostname>/<username>/<repository>/` o `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+Si publicas tu sitio de forma privada, la URL de éste será diferente. Para obtener más información, consulta la sección "[Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para obtener más información sobre cómo los dominios personalizados afectan a la URL de tu sitio, consulta "[Acerca de los dominios personalizados y {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)".
@@ -57,7 +65,7 @@ La URL en donde tu sitio está disponible dependerá de si habilitaste o no el a
 
 `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organización| `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Sitio de proyecto que pertenece a una cuenta de usuario | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Sitio de proyecto que pertenece a una cuenta de organización | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-Para obtener más información, consulta "[Habilitar el aislamiento del subdominio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" o comunícate con el administrador del sitio.
+Para obtener más información, consulta la sección "[Habilitar el aislamiento del subdominio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" o contacta a tu administrador de sitio.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -84,15 +92,15 @@ Si eliges la carpeta `/docs` de cualquier rama como tu fuente de publicación, {
 
 {% else %}
 
-La fuente de publicación predeterminada para los sitios de usuario y organización es la rama `principal`. Si el repositorio para tu sitio de usuario u organización tiene una rama `principal`, tu sitio se publicará automáticamente desde esa rama. No puedes elegir una fuente de publicación diferente para sitios de usuario u organización.
+La fuente de publicación predeterminada para los sitios de usuario y organización es la rama `master`. Si el repositorio para tu sitio de usuario u organización tiene una rama `master`, tu sitio se publicará automáticamente desde esa rama. No puedes elegir una fuente de publicación diferente para sitios de usuario u organización.
 
 La fuente de publicación predeterminada para un sitio de proyecto es la rama `gh-pages`. Si el repositorio para tu sitio de proyecto tiene una rama `gh-pages`, tu sitio se publicará automáticamente desde esa rama.
 
-Los sitios del proyecto también pueden publicarse desde la rama `principal` o una carpeta `/docs` en la rama `master`. Para publicar tu sitio desde una de estas fuentes, debes configurar una fuente de publicación diferente. Para obtener más información, consulta "[Configurar una fuente de publicación para tu sitio {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
+Los sitios del proyecto también pueden publicarse desde la rama `master` o una carpeta `/docs` en la rama `master`. Para publicar tu sitio desde una de estas fuentes, debes configurar una fuente de publicación diferente. Para obtener más información, consulta "[Configurar una fuente de publicación para tu sitio {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
 
- Si eliges la carpeta `/docs` de la rama `master` como tu fuente de publicación, {% data variables.product.prodname_pages %} leerá todo para publicar tu sitio{% if currentVersion == "free-pro-team@latest" %}, incluyendo el archivo de _CNAME_,{% endif %} de la carpeta `/docs`. {% if currentVersion == "free-pro-team@latest" %} Por ejemplo, cuando editas tu dominio personalizado a través de la configuración de {% data variables.product.prodname_pages %}, dicho dominio escribirá en `/docs/CNAME`. Para más información sobre los archivos _CNAME_, consulta "[Administrar un dominio personalizado para tu sitio {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
+Si eliges la carpeta `/docs` de la rama `master` como tu fuente de publicación, {% data variables.product.prodname_pages %} leerá todo para publicar tu sitio{% if currentVersion == "free-pro-team@latest" %}, incluyendo el archivo de _CNAME_,{% endif %} de la carpeta `/docs`. {% if currentVersion == "free-pro-team@latest" %} Por ejemplo, cuando editas tu dominio personalizado a través de la configuración de {% data variables.product.prodname_pages %}, dicho dominio escribirá en `/docs/CNAME`. Para más información sobre los archivos _CNAME_, consulta "[Administrar un dominio personalizado para tu sitio {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
 
- No puedes publicar tu sitio de proyecto desde ninguna otra rama, aún si la rama predeterminada es diferente a `master` o `gh-pages`.
+No puedes publicar tu sitio de proyecto desde ninguna otra rama, aún si la rama predeterminada es diferente a `master` o `gh-pages`.
 
 {% endif %}
 
@@ -149,7 +157,7 @@ Un tipo MIME es un encabezado que un servidor envía a un navegador, proporciona
 
 Si bien no puedes especificar los tipos de MIME personalizados en una base por perfil o por repositorio, puedes agregar o modificar los tipos de MIME para usar en {% data variables.product.prodname_pages %}. Para obtener más información, consulta [los lineamientos de contribución de mime-db](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) en {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

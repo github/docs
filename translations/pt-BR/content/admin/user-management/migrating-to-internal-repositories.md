@@ -33,11 +33,11 @@ Se você não tiver o modo privado ativado, o script de migração não terá ef
 
 1. Conecte-se ao shell administrativo. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{}/admin/installation/accessing-the-administrative-shell-ssh)".
 2. Navegue no diretório `/data/github/current`.
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. Execute o comando de migração.
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

@@ -12,6 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Flujos de trabajo'
+  - 'CI'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -35,7 +38,7 @@ Una vez que se hace una inserción en tu repositorio, puedes seguir el estado y 
 
 Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de la integración continua](/articles/about-continuous-integration)"
 - "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)"

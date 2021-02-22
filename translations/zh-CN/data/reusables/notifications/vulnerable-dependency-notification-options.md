@@ -11,7 +11,7 @@
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive
+默认情况下，如果站点管理员配置了使用电子邮件接收实例通知，您将
 {% data variables.product.prodname_dependabot_alerts %} 的通知：
 - 通过电子邮件收到通知， 每次发现{% if currentVersion ver_gt "enterprise-server@2.23" %}关键或严重性{% endif %}高的漏洞时都会发送电子邮件（**每次发现漏洞时发送电子邮件**选项）
 - 在用户界面中接收通知，如有任何漏洞依赖项，将在仓库的文件和代码视图中显示警告（**UI 警报**选项）

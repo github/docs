@@ -1,6 +1,6 @@
 ---
-title: Criar uma pull request
-intro: 'Crie uma pull request para fazer sugestões e colaborar nas alterações de um repositório. Essas alterações são propostas em um *branch*, que garante que o branch-padrão só contém trabalho concluído e aprovado.'
+title: Criar um pull request
+intro: 'Crie um pull request para fazer sugestões e colaborar nas alterações de um repositório. Essas alterações são propostas em um *branch*, que garante que o branch-padrão só contém trabalho concluído e aprovado.'
 redirect_from:
   - /articles/creating-a-pull-request
 versions:
@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-Qualquer pessoa com permissões de leitura em um repositório pode criar uma pull request, mas você deve ter permissões de gravação para criar um branch. Se você quiser criar um branch para sua pull request e não tiver permissões de gravação no repositório, é possível bifurcar o repositório primeiro. Para obter mais informações, consulte "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)" e "[Sobre bifurcações](/articles/about-forks)".
+Qualquer pessoa com permissões de leitura em um repositório pode criar um pull request, mas você deve ter permissões de gravação para criar um branch. Se você quiser criar um branch para seu pull request e não tiver permissões de gravação no repositório, é possível bifurcar o repositório primeiro. Para obter mais informações, consulte "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)" e "[Sobre bifurcações](/articles/about-forks)".
 
 É possível especificar em qual branch você deseja fazer merge de suas alterações quando cria sua pull request. As pull requests só podem ser abertas entre dois branches que são diferentes.
 
