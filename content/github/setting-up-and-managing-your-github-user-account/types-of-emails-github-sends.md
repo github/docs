@@ -1,4 +1,4 @@
----
+Tr---
 title: Types of emails GitHub sends
 intro: 'There are several types of emails you can receive from {% data variables.product.product_name %}, including notifications, account information, customer research invitations, and marketing communications.'
 redirect_from:
