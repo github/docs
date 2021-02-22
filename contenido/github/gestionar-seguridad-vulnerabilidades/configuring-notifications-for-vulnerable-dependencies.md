@@ -1,4 +1,4 @@
----
+--
 title: Configuring notifications for vulnerable dependencies
 shortTitle: Configuring notifications
 intro: 'Optimize how you receive notifications about  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts.'
