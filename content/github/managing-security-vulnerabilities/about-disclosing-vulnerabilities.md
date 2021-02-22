@@ -17,16 +17,16 @@ The initial report of a vulnerability is made privately, and the full details ar
 Security researchers should report vulnerabilities privately to maintainers. It's not acceptable to:
 - Disclose the vulnerability publicly
 - Not contact the maintainer 
-- Disclose the vulnerability before the code has been patched
+- Disclose the vulnerability before a fixed version of the code is available
 
-It's fine for security researchers to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
+It's acceptable for security researchers to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
 
 #### Best practices for maintainers
 
-Maintainers should disclose vulnerabilities in a timely manner, if a security vulnerability has been found in their repository. It's not acceptable to:
-- Not disclose the vulnerability
-- Not identify the vulnerability as a security issue 
-- Wait an unacceptably long time to create a fix
+Maintainers should disclose vulnerabilities in a timely manner. If there is a security vulnerability in your repository, you should:
+- Treat the vulnerability as a security issue rather than a simple bug
+- Plan to disclose the vulnerability responsibly
+- Aim to publish a fix as soon as you can
 
 Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in sofware nowadays, and users will trust maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
 
