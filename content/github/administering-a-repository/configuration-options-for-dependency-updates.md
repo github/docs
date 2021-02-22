@@ -122,7 +122,7 @@ updates:
 
 ### `schedule.interval`
 
-**Required** You must define how often to check for new versions and raise pull requests for version updates to each package manager. By default, this is at 5am UTC. To modify this, use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Required** You must define how often to check for new versions for each package manager. By default, this is at 5am UTC. To modify this, use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
 - `daily`—runs on every weekday, Monday to Friday.
 - `weekly`—runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).

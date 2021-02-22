@@ -9,7 +9,7 @@ versions:
 
 ### Sobre tags no {% data variables.product.prodname_desktop %}
 
-O {% data variables.product.prodname_desktop %} permite que você crie tags anotadas. É possível usar uma tag para marcar um ponto individual no histórico do seu repositório, incluindo um número de versão para uma versão. Para obter mais informações sobre tags de versão, consulte "[Sobre versões](/github/administering-a-repository/about-releases)"
+O {% data variables.product.prodname_desktop %} permite que você crie tags anotadas. As tags são associadas a commits. Portanto, você pode usar uma tag para marcar um ponto individual no histórico do seu repositório, incluindo um número de versão para uma versão. Para obter mais informações sobre tags de versão, consulte "[Sobre versões](/github/administering-a-repository/about-releases)"
 
 {% data reusables.desktop.tags-push-with-commits %}
 
@@ -44,3 +44,7 @@ O {% data variables.product.prodname_desktop %} permite que você crie tags anot
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}
+
+### Leia mais
+
+- "[Princípios básicos do Git - Tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" na documentação do Git
