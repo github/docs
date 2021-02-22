@@ -30,7 +30,7 @@ Si un proyecto no tiene un archivo recomendado, puedes hacer clic en **Proponer*
 
 ![Lista de verificación del perfil de comunidad con estándares de comunidad recomendados para colaboradores](/assets/images/help/repository/propose-button-community-profile.png)
 
-### Further reading
+### Leer más
 
 - "[Agregar un código de conducta a tu proyecto](/articles/adding-a-code-of-conduct-to-your-project)"
 - "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)"

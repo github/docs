@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **January 21, 2021**
+Effective date: **January 29, 2021**
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -27,7 +27,6 @@ When we share your information with third party subprocessors, such as our vendo
 | Discourse | Community forum software provider | United States | United States |
 | Eloqua | Marketing campaign automation | United States | United States |
 | Google Apps | Internal company infrastructure | United States | United States |
-| Google Analytics | Analytics and performance | United States | United States |
 | MailChimp | Customer ticketing mail services provider | United States | United States |
 | Mailgun | Transactional mail services provider | United States | United States |
 | Microsoft | Microsoft Services | United States | United States |
@@ -46,7 +45,7 @@ When we bring on a new subprocessor who handles our Users' Personal Information,
 
 GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
  
-Since the number and names of cookies may change,the table below may be updated from time to time.
+Since the number and names of cookies may change, the table below may be updated from time to time.
 
 | Service Provider | Cookie Name | Description | Expiration* |
 |:---|:---|:---|:---|

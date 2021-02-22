@@ -73,6 +73,6 @@ Cualquier usuario que cuente con permisos de administración puede habilitar un 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 - "[Acerca de {% data variables.product.prodname_sponsors %} para colaboradores de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

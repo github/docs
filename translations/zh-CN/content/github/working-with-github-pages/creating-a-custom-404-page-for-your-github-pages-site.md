@@ -16,7 +16,7 @@ versions:
 {% data reusables.files.add-file %}
 3. 在文件名字段中，键入 `404.html` 或 `404.md`。 ![文件名字段](/assets/images/help/pages/404-file-name.png)
 4. 如果将文件命名为 `404.md`，请将以下 YAML 前页添加到文件的开头：
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---

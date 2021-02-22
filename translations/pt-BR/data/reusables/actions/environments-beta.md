@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Environments, environment protection rules, and environment secrets are currently in beta and subject to change.
+**Observação:** Ambientes, regras de proteção de ambiente e segredos de ambiente estão atualmente na versão beta e sujeitos a alterações.
 
 {% endnote %}
 

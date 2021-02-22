@@ -174,6 +174,6 @@ Exitoso: la réplica se promovió a principal y ahora está aceptando solicitude
 
 El comando `ghe-repl-teardown` inhabilita el modo de replicación por completo, eliminando la configuración de la réplica.
 
-### Further reading
+### Leer más
 
 - "[Crear una réplica de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"

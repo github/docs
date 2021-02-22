@@ -1,23 +1,23 @@
 ---
-title: Restricting email notifications for your enterprise account to approved domains
-intro: "You can prevent your enterprise's information from leaking into personal accounts by restricting email notifications about activity in organizations owned by your enterprise account to verified domains."
+title: 将企业帐户的电子邮件通知限制为已批准的域
+intro: "通过将有关企业帐户所拥有组织中活动的电子邮件通知限制为经过验证的域，可以防止企业的信息泄漏到个人帐户。"
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: Enterprise owners can restrict email notifications for an enterprise account.
+permissions: 企业所有者可以限制企业帐户的电子邮件通知。
 ---
 
 {% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
-### About email restrictions for your enterprise account
+### 关于企业帐户的电子邮件限制
 
-When you restrict email notifications to verified domains, enterprise members can only use an email address associated with a verified domain to receive email notifications about activity in organizations owned by your enterprise account. The domains can be inherited from the enterprise account or configured for the specific organization. For more information about email restrictions for organizations, see "[Restricting email notifications to an approved domain](/github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain)."
+当您将电子邮件通知限制为已验证域时，企业成员只能使用与已验证域关联的电子邮件地址来接收有关企业帐户所拥有组织中活动的电子邮件通知。 可以从企业帐户继承域，也可以为特定组织配置域。 有关组织电子邮件限制的更多信息，请参阅“[将电子邮件通知限制为已批准的域](/github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain)”。
 
-If email restrictions are enabled for an enterprise account, organization owners cannot disable email restrictions for any organization owned by the enterprise account. If changes occur that result in an organization having no verified domains, either inherited from an enterprise account that owns the organization or for the specific organization, email restrictions will be disabled for the organization.
+如果对企业帐户启用了电子邮件限制，则组织所有者无法禁用该企业帐户拥有的任何组织的电子邮件限制。 如果发生更改导致某个组织没有已验证的域（从拥有该组织的企业帐户继承的域或特定组织的域），则该组织的电子邮件限制将被禁用。
 
-### Restricting email notifications for your enterprise account
+### 限制企业帐户的电子邮件通知
 
-Before you can restrict email notifications for your enterprise account, you must verify at least one domain for the enterprise account. For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
+在限制企业帐户的电子邮件通知之前，必须至少验证企业帐户的一个域。 更多信息请参阅“[验证企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

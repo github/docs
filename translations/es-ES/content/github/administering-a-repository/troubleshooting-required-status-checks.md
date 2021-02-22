@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas para verificaciones de estado requeridas
-intro: 'You can check for common errors and resolve issues with required status checks.'
+intro: 'Puedes verificar si hay errores comunes y resolver problemas con las verificaciones de estado requeridas.'
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
@@ -8,9 +8,9 @@ versions:
   github-ae: '*'
 ---
 
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. Para obtener más información, consulta las "[Verificaciones](/rest/reference/checks)".
+Si tienes una verificación y un estado con el mismo nombre y seleccionas dicho nombre como una verificación de estado requerida, tanto la verificación como el estado se requerirán. Para obtener más información, consulta las "[Verificaciones](/rest/reference/checks)".
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. Esto garantiza que tu rama ha sido probada con el último código desde la rama base. Si tu rama no está actualizada, necesitarás fusionar la rama base en tu rama. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
+Después de que habilitas la verificación de estado requerida, tu rama podría tener que actualizarse con la rama base antes de que se pueda fusionar. Esto garantiza que tu rama ha sido probada con el último código desde la rama base. Si tu rama no está actualizada, necesitarás fusionar la rama base en tu rama. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 {% note %}
 
@@ -26,13 +26,13 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. Esto se puede hacer sin las verificaciones de estado ejecutándose en la propia confirmación de fusión.
+**Nota:** Las solicitudes de extracción que están actualizadas y aprobaron las verificaciones de estado requeridas pueden fusionarse localmente y subirse a la rama protegida. Esto se puede hacer sin las verificaciones de estado ejecutándose en la propia confirmación de fusión.
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Algunas veces, los resultados de las verificaciones de estado para la confirmación de la prueba de fusión y de la confirmación principal entrarán en conflicto. If the test merge commit has a status, the test merge commit must pass. De otra manera, el estado de la confirmación principal deberá pasar antes de que puedas fusionar la rama. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+Algunas veces, los resultados de las verificaciones de estado para la confirmación de la prueba de fusión y de la confirmación principal entrarán en conflicto. Si la confirmación de fusión de prueba tiene un estado, ésta pasará. De otra manera, el estado de la confirmación principal deberá pasar antes de que puedas fusionar la rama. Para obtener más información sobre las confirmaciones de fusiones de prueba, consulta la sección "[Extracciones](/rest/reference/pulls#get-a-pull-request)".
 
 ![Ramas con conflictos en las confirmaciones de fusión](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

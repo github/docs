@@ -220,4 +220,4 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 ### Further reading
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.0" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."
