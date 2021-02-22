@@ -1,4 +1,5 @@
-# Content style guide for GitHub Docs <!-- omit in toc -->
+# 
+Content style guide for GitHub Docs <!-- omit in toc -->
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
