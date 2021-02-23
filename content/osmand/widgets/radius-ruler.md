@@ -4,10 +4,7 @@ intro: "Radius-ruler tool helps to determine the radius around the selected poin
 Distance by tap tool helps to calculate the distance between selected points to find the shortest distance. The Ruler tool displays scale. "
 versions: '*'
 ---
-
-
 ![Radius-ruler screen](/assets/images/docs/widgets/radius_ruler_screen.png)
-
 
 ## Radius-ruler tool
 

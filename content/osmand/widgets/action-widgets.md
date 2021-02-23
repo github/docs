@@ -3,14 +3,6 @@ title: "Action widgets"
 intro: "Display information that is provided by additional plugins."
 versions: '*'
 ---
-
-<!-- ## Parking (plugin)
-## Trip recording (plugin)
-## Audio-video notes (plugin)
-## Tracker widget (plugin)
-## Mapillary (plugin)
-## Link to quick-action-->
-
 ## Parking widget <!--for Android-->
 
 Shows the distance from users location to the parking place in default distance units. <br>
@@ -58,6 +50,7 @@ Before recording the trip a Trip recording settings to be defined. Trip recordin
 ![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png) <!-- добавить картинки Android IOS Каждое описать отдельно--->
 
 In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line (for Android only). <br>
+
 The 'Line configuration button' (for Android only) next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
 <!-- На данный момент изменить цвет записываемого трека во время симуляции из этого меню не удалось. Переписка в саппорт чате от 16.02 17:36 -->
 Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
@@ -79,33 +72,35 @@ The Logging interval can be additionally checked/ changed in: <br>
 <!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br> -->
 
 When all settings are configured, press ‘Start recording’ button.
-The REC widget will change to the red circle.  The distance passed will be displayed in the widget.
+***For Android devices*** the REC widget will change to the red circle.  The distance passed will be displayed in the widget.
 
 ![REC widget](/assets/images/docs/widgets/rec_widget.png)
 
 To tap REC widget again will give an opportunity  to:
-* Pause the trip recording - will pause The trip recording. Then pressing the widget again will give and options to:
-    + Resume trip recording
-    + Save current track
-    + Clear recorded data
-* Start new segment <!-- если начинается запись нового сегмента, означает ли это что предыдущий сегмент автоматически сохранится в мои теки?-->
-* Save current track - user can add GPX file name. Can switch the toggle button 'Show on map' and to click the button 'Open the track'.
-* Clear recorded data- the track will not be saved
+* See all general information about the track: distance, ascent, descent, average speed, maximum speed, time span. This panel can  be scrolled by the user right and back.
+* Enable 'Show track' on the map feature and configure the style of the track line.
+* Clear recorded data
+* Start new segment <!--когда починят проверить и записать можно ли делать с разными профилями-->
+* Save (save the recorded track and change GPX file name)
+* Pause and stop recording
 
-<!-- ![Start Trip recording (REC) Settings](/assets/images/docs/widgets/start_rec_setings.png) -->
+User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
+
 ***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
 To tap REC widget again will give an opportunity  to:
 * Stop recording - will pause The trip recording. Then pressing the widget again will give and options to 'Continue recording'
 * Show Info - will display statistics data such as speed, route time, uphills/downhills
 * Start new segment
-* Save current trip - the track will be automatically saved. User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → {% data variables.ios-values.menu_my_trips %} → {% data variables.ios-values.menu_all_trips %}.
+* Save current trip - the track will be automatically saved.
+
+User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → tab {% data variables.ios-values.shared_string_tracks %}.
 
 [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
 
 ## Audio-video notes widget
 
 Is used to get quick access to audio, video, photo notes button. <br>
-<!-- добавить вид на карте самих маркеров-->
+
 ![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png) <br>
 
 IMPORTANT: Enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget <br>
@@ -141,10 +136,18 @@ When the 'Take a photo' option is selected, the user can take a picture. <br>
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
 User can sort files by type/data, share and delete them. <br>
 
-<!-- ## Tracker widget -->
+## Tracker widget
 
-<!-- Can’t be configured without [Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin)  <br> -->
-<!-- не нашла такого ни плагина ни виджета -->
+The widget is used to get quick access to the OsmAnd Tracker app that is used to share user location with other people. <br>
+
+![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) <br>
+
+IMPORTANT: Enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin) before attempting to use Tracker widget.  <br>
+
+User can enable 'OsmAnd Tracker status' in Configure screen menu. <br>
+
+IMPORTANT: tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position. 
+
 ## Mapillary widget
 
 The widget is used to get the quick access to Mapillary app to add missed images. <br>
