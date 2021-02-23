@@ -27,7 +27,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 #### Example *dependabot.yml* file
 
-The example *dependabot.yml* file below configures version updates for two package mangers: npm and Docker. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
+The example *dependabot.yml* file below configures version updates for two package managers: npm and Docker. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
 
 ```yaml
 # Basic dependabot.yml file with
