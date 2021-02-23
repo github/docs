@@ -1,6 +1,8 @@
 export default function () {
   // function to scroll up to page top
   const PageTopBtn = document.getElementById('js-scroll-top')
+  if (!PageTopBtn) return
+  
   PageTopBtn.addEventListener('click', (e) => {
     window.scrollTo({
       top: 0,
