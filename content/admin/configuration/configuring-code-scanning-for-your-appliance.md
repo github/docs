@@ -42,14 +42,6 @@ For the users of {% data variables.product.product_location %} to be able to ena
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-To enable {% data variables.product.prodname_code_scanning %} programmatically, run the following commands on the appliance:
-
-```shell
-ghe-config app.minio.enabled true
-ghe-config app.code-scanning.enabled true
-ghe-config-apply
-```
-
 ### Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
 
 #### Setting up a self-hosted runner
@@ -97,10 +89,24 @@ The {% data variables.product.prodname_codeql_runner %} is a command-line tool t
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-To disable {% data variables.product.prodname_code_scanning %} programmatically, run the following commands on the appliance:
+### Enabling or disabling {% data variables.product.prodname_code_scanning %} via the administrative shell (SSH)
 
-```shell
-ghe-config app.minio.enabled false
-ghe-config app.code-scanning.enabled false
-ghe-config-apply
-```
+You can enable or disable {% data variables.product.prodname_code_scanning %} programmatically on {% data variables.product.product_location %}. For example, you can enable {% data variables.product.prodname_code_scanning %} with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+
+For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
+
+1. SSH into {% data variables.product.product_location %}.
+1. Enable {% data variables.product.prodname_code_scanning %}.
+    ```shell
+    ghe-config app.minio.enabled true
+    ghe-config app.code-scanning.enabled true
+    ```
+2. Optionally, disable {% data variables.product.prodname_code_scanning %}.
+    ```shell
+    ghe-config app.minio.enabled false
+    ghe-config app.code-scanning.enabled false
+    ```
+3. Apply the configuration.
+    ```shell
+  ghe-config-apply
+  ```
