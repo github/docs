@@ -105,7 +105,7 @@ To tap REC widget again will give an opportunity  to:
 ## Audio-video notes widget
 
 Is used to get quick access to audio, video, photo notes button. <br>
-
+<!-- добавить вид на карте самих маркеров-->
 ![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png) <br>
 
 IMPORTANT: Enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget <br>

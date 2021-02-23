@@ -8,7 +8,7 @@ versions: '*'
 - Configure screen (profile based setting)
 - Transparent widgets
 - Widget categories (table with links)-->
-
+<!-- фото со всеми виджетами на симуляции маршрута-->
 Most widgets are clickable and can be found in the Configure screen menu
 
 They have three states:
