@@ -16,7 +16,8 @@ An “altitude” is the vertical measurement measured from a specific datum or 
 
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS <br>
 
-User could find Altitude widget in Configure screen menu. <br>
+"hint"
+User could find Altitude widget in Configure screen menu.
 
 User could make Altitude correction to make sure the up-to-date data is used. <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
@@ -25,10 +26,12 @@ User could make Altitude correction to make sure the up-to-date data is used. <b
 ![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
 
 <!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
-Current time widget shows current time. <br>
-
-OsmAnd takes Current time data from a device. <br>
-
+{% note %}
+Current time widget shows current time. 
+{% endnote %}
+{% warning %}
+OsmAnd takes Current time data from a device. 
+{% endwarning %}
 User could find Current time widget in Configure screen menu <br>
 
 ## Speed
@@ -45,7 +48,7 @@ User could find Speed widget in Configure screen menu <br>
 
 Battery level widget shows battery level of your device. <br>
 
-OsmAnd takes Battery level from a device.  <br>
+OsmAnd takes Battery level from a device.  
 
 Battery level widget can be found in Configure screen menu <br>
 
