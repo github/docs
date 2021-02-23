@@ -41,7 +41,7 @@ OsmAnd takes Speed data from a device. It depend on accelerometer, gyroscope sen
 User could find Speed widget in Configure screen menu <br>
 
 ## Battery level (Android)
-![Battery level Android widget](/assets/images/docs/widgets/battery_level_a_widget.png) <br>
+![Battery level Android widget](/assets/images/docs/widgets/battery_level_widget.png) <br>
 
 Battery level widget shows battery level of your device. <br>
 
