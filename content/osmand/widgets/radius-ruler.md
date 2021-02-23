@@ -22,17 +22,19 @@ For this widget user can additionally choose the option to Show/Hide compass rul
 
 The Radius-ruler widget is a clickable widget and changes its state between the black scale, the grey one and no scale (only ruler) modes. <br>
 
-## Distance by tap tool
+## 'Distance by tap' tool
 
 _To check the distance from the user's location to a point on the map_: touch a spot on the map. It will allow to see the measurement and the line connecting the two points. The line will stay on screen as long as the user is touching it. The measurement will be duplicated on the widget. The line will fade by itself after 2 seconds. <br>
 
+![distance between two random points on the map](/assets/images/docs/widgets/distance_between_two_random_points.png)
+
 _To check the distance between two random points on the map_: touch simultaneously two spots on the map. It will allow to see the measurement and the line connecting the two points. The line will stay on screen as long as the user is touching it. The measurement will be duplicated on the widget. The line will fade by itself after 2 seconds. <br>
 
-![distance between two random points on the map](/assets/images/docs/widgets/distance_between_two_random_points.png)
+<!-- ![distance between two random points on the map](/assets/images/docs/widgets/distance_between_two_random_points.png) -->
 
 ## Ruler
 
-![Ruler tool](/assets/images/docs/widgets/ruler_tool.png)
+![Ruler tool](/assets/images/docs/widgets/ruler_tool.png) <br>
 
 The Ruler tool displays map scale and shows the number of meters/kilometers (other units of measure) in a segment. <br>
 
