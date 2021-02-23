@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `CVSS` was added",
+          "Type `CWEConnection` was added",
+          "Type `CWEEdge` was added",
+          "Type `CWE` was added",
+          "Type `SponsorsGoal` was added",
+          "Type `SponsorsGoalKind` was added",
+          "Field `repository` was added to object type `Release`",
+          "Field `cvss` was added to object type `SecurityAdvisory`",
+          "Field `cwes` was added to object type `SecurityAdvisory`",
+          "Field `activeGoal` was added to object type `SponsorsListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AutoMergeRequest` was added",
           "Type `SponsorableOrder` was added",
           "Type `SponsorableOrderField` was added",

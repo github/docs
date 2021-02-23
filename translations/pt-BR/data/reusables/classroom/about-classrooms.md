@@ -1,1 +1,1 @@
-A classroom in {% data variables.product.prodname_classroom %} is where teachers and students interact during a course. Teachers can create a student roster for the classroom, then create, assign, review, and grade assignments within the classroom.
+Uma sala de aula em {% data variables.product.prodname_classroom %} é onde professores e alunos interagem durante um curso. Os professores podem criar uma lista de alunos para a sala de aula e, em seguida, criar, revisar e avaliar as atividades em sala de aula.
