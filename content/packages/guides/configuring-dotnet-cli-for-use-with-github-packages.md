@@ -76,7 +76,7 @@ If your instance has subdomain isolation disabled:
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-If authenticating to GitHub Packages in a GitHub Actions workflow, use the following command instead of storing a token in a nuget.config file in the repository:
+Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow instead of storing a token in a nuget.config file in the repository:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
