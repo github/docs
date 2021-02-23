@@ -19,7 +19,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+---::branches:[protected-branches].md
 
 ### About branch protection rules
 
