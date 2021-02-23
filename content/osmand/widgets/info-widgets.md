@@ -64,7 +64,7 @@ User could make GPS correction to make sure the up-to-date data is used. <br>
 In a second it will update.  <br>
 
 ## FPS-info (Development plugin)
-![FPS info Android widget](/assets/images/docs/widgets/fps_info_a_wigget.png)
+![FPS info Android widget](/assets/images/docs/widgets/fps_info_a_wigget.png) <br>
 
 FPS debug info widget shows Frames per Second (FPS) of your screen. <br>
 Where the The left number  is the maps Frames per Second (FPS) and the rigt one is general layer Frames per Second (FPS) <br>
