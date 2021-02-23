@@ -76,6 +76,12 @@ If your instance has subdomain isolation disabled:
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
+If running in a GitHub Action, use the following command to authenticate to GitHub Packages without storing a token in a nuget.config file in the repository:
+
+```shell
+dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+```
+
 ### Publishing a package
 
 You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
