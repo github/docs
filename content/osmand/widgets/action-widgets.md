@@ -146,7 +146,7 @@ IMPORTANT: Enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest
 
 User can enable 'OsmAnd Tracker status' in Configure screen menu. <br>
 
-IMPORTANT: tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position. 
+IMPORTANT: Tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position. 
 
 ## Mapillary widget
 
