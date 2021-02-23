@@ -16,7 +16,7 @@ Para obter informações sobre como configurar ou alterar URL remota, consulte "
 
 ### Clonando com as URLs de HTTPS
 
-The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
+As URLs de clone de `https:/` estão disponíveis em todos os repositórios, independentemente da visibilidade. As URL de clone de `https://` funcionam mesmo se você estiver atrás de um firewall ou proxy.
 
 Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um repositório remote usando URLS de HTTPS na linha de comando, o Git solicitará o seu nome de usuário e sua senha do {% data variables.product.product_name %}. {% data reusables.user_settings.password-authentication-deprecation %}
 

@@ -44,7 +44,7 @@ jobs:
     - name: Setup .NET Core SDK ${{ matrix.dotnet }}
       uses: actions/setup-dotnet@v1.6.0
       with:
-        dotnet-version: {{ matrix.dotnet-version }}
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -58,7 +58,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %}ホストランナーにプリインストールされたバージョンの.NET Core SDKを使うには、`setup-dotnet`アクションを使ってください。 このアクションは各ランナーのツールキャッシュから指定されたバージョンの.NETを見つけ、必要なバイナリを`PATH`に追加します。 これらの変更は、ジョブの残りの部分で保持されます。
 
-`setup-dotnet`アクションは、{% data variables.product.prodname_actions %}で.NETを使うための推奨される方法です。これは、それによって様々なランナーや様々なバージョンの.NETに渡って一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、.NETをインストールして`PATH`に追加しなければなりません。 詳しい情報については[`setup-dotnet`](https://github.com/marketplace/actions/setup-dotnet)を参照してください。
+`setup-dotnet`アクションは、{% data variables.product.prodname_actions %}で.NETを使うための推奨される方法です。これは、それによって様々なランナーや様々なバージョンの.NETに渡って一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、.NETをインストールして`PATH`に追加しなければなりません。 詳しい情報については[`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk)アクションを参照してください。
 
 #### 複数の.NETバージョンの利用
 

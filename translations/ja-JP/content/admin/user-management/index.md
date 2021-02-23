@@ -1,7 +1,7 @@
 ---
 title: 'Managing users, organizations, and repositories'
 shortTitle: 'Managing users, organizations, and repositories'
-intro: 'This guide describes authentication methods for users signing in to your enterprise, how to create organizations and teams for repository access and collaboration, and suggested best practices for user security.'
+intro: 'このガイドでは、Enterprise にサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team を作成する方法、およびユーザセキュリティで推奨されるベストプラクティスについて説明します。'
 redirect_from:
   - /enterprise/admin/categories/user-management/
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration

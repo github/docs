@@ -14,5 +14,4 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_in_list /viewing-packages %}
-{% link_in_list /installing-a-package %}
-{% link_in_list /deleting-a-package %}  
+{% link_in_list /installing-a-package %} 

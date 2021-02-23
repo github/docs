@@ -59,7 +59,7 @@ SVN está configurado para suponer que el historial de un proyecto nunca cambia.
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Propiedades de Subversion admitidas por GitHub](/articles/subversion-properties-supported-by-github)"
 - ["Branching and Merging" del libro _Git SCM_](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
