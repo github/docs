@@ -1,0 +1,28 @@
+version = 1
+
+[[analyzers]]
+name = "ruby"
+enabled = true
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  environment = [
+    "nodejs",
+    "jest",
+    "mocha",
+    "jasmine",
+    "mongo",
+    "cypress"
+  ]
+  plugins = [
+    "react",
+    "vue",
+    "ember",
+    "meteor",
+    "angular"
+  ]
+  style_guide = "google"
+  dialect = "typescript"
