@@ -15,6 +15,8 @@ versions:
 
 企业帐户目前适用于通过发票付费的 {% data variables.product.prodname_enterprise %} 客户。 对与企业帐户关联的所有组织和 {% data variables.product.prodname_ghe_server %} 实例的结算将汇总为所有付费 {% data variables.product.prodname_dotcom_the_website %} 服务（包括组织中的付费许可、{% data variables.large_files.product_name_long %} 数据包和 {% data variables.product.prodname_marketplace %} 应用程序的订阅）的单一帐单费用。
 
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."{% endif %}
+
 有关管理帐单管理员的更多信息，请参阅“[邀请人员管理企业](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)”。
 
 ### 查看企业帐户的订阅和使用情况

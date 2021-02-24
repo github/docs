@@ -29,7 +29,7 @@ Um executor auto-hospedado recebe automaticamente certas etiquetas ao ser adicio
 
 * `auto-hospedado`: Etiqueta-padrão aplicada a todos os executores auto-hospedados.
 * `Linux`, `Windows`, ou `macOS`: Aplicado, dependendo do sistema operacional.
-* `x86`, `x64`, `ARM`, ou `ARM64`: Aplicado, dependendo da arquitetura do hardware.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 Você pode usar o YAML do seu fluxo de trabalho para enviar trabalhos para uma combinação dessas etiquetas. Neste exemplo, um executor auto-hospedado que corresponde a todas as três etiquetas será elegível para executar a o trabalho:
 
