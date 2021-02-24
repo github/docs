@@ -1,0 +1,18 @@
+button.arrow-for-scrolling-top {
+    opacity: 0;
+    transition: 1s;
+    background-color: #0367d6;
+    color: #fff;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    &.show {
+        opacity: 1;
+        border: none;
+        transition: 1s;
+    }
+}
