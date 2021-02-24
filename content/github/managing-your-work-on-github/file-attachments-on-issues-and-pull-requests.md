@@ -46,7 +46,7 @@ We support these files:
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
 * Text files (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*)
-* Video (*.mp4*, *.mov*)
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* Video (*.mp4*, *.mov*){% endif %}
 
 ![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
