@@ -28,6 +28,7 @@ jobs:
           days-before-pr-stale: 14
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
+          operations-per-run: 100
           only-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
