@@ -1,0 +1,173 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const walk = require('walk-sync')
+const path = require('path')
+const astFromMarkdown = require('mdast-util-from-markdown')
+const visit = require('unist-util-visit')
+const { loadPages, loadPageMap } = require('../lib/pages')
+const loadSiteData = require('../lib/site-data')
+const loadRedirects = require('../lib/redirects/precompile')
+const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
+const allVersions = Object.keys(require('../lib/all-versions'))
+const frontmatter = require('../lib/read-frontmatter')
+const renderContent = require('../lib/render-content')
+const patterns = require('../lib/patterns')
+
+const walkFiles = (pathToWalk) => {
+  return walk(path.join(process.cwd(), pathToWalk), { includeBasePath: true, directories: false })
+    .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
+    .filter(file => !file.includes('/early-access/')) // ignore EA for now
+}
+
+const allFiles = walkFiles('content').concat(walkFiles('data'))
+
+// [start-readme]
+//
+// Run this script to find internal links in all content and data Markdown files, check if either the title or link
+// (or both) are outdated, and automatically update them if so.
+// 
+// Exceptions:
+// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment 
+// and title will be unchanged (e.g., [Bar](/noo#bar)).
+// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
+// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)). 
+// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
+//
+// [end-readme]
+
+main()
+
+async function main () {
+  console.log('Working...')
+  const pageList = await loadPages()
+  const pageMap = await loadPageMap(pageList)
+  const redirects = await loadRedirects(pageList)
+  const site = await loadSiteData()
+
+  const context = {
+    pages: pageMap,
+    redirects,
+    site: site.en.site,
+    currentLanguage: 'en'
+  }
+
+  for (const file of allFiles) {
+    const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
+    const ast = astFromMarkdown(content)
+
+    let newContent = content
+
+    // We can't do async functions within visit, so gather the nodes upfront
+    const nodesPerFile = []
+
+    visit(ast, node => {
+      if (node.type !== 'link') return
+      if (!node.url.startsWith('/')) return
+      if (node.url.startsWith('/assets')) return
+      if (node.url.startsWith('/public')) return
+      if (node.url.includes('/11.10.340/')) return
+      if (node.url.includes('/2.1/')) return
+      if (node.url === '/') return
+
+      nodesPerFile.push(node)
+    })
+
+    // For every Markdown link...
+    for (const node of nodesPerFile) {
+      const oldLink = node.url
+      const oldTitle = node.children[0].value || node.children[0].children[0].value
+      const oldMarkdownLink = `[${oldTitle}](${oldLink})`
+
+      // As a blanket rule, only update links with quotes around them.
+      // Update: "[Foo](/foo)"
+      // Do not update: [Bar](/bar)
+      let noQuotesAroundLink
+      if (!newContent.includes(`"${oldMarkdownLink}`)) {
+        noQuotesAroundLink = true
+      }
+
+      let foundPage, fragmentMatch, versionMatch
+
+      // Run through all supported versions...
+      for (const version of allVersions) {
+        context.currentVersion = version
+        // Render the link for each version using the renderContent pipeline, which incluides the rewrite-local-links plugin.
+        const $ = await renderContent(oldMarkdownLink, context, { cheerioObject: true })
+        let linkToCheck = $('a').attr('href')
+
+        // We need to preserve fragments and hardcoded versions if any are found.
+        fragmentMatch = oldLink.match(/(#.*$)/)
+        versionMatch = oldLink.match(/(enterprise-server[/@].*?)\//)
+
+        // Remove the fragment for now.
+        linkToCheck = linkToCheck
+          .replace(/#.*$/, '')
+          .replace(patterns.trailingSlash, '$1')
+
+        // Try to find the rendered link in the set of pages!
+        foundPage = findPage(linkToCheck, pageMap, redirects)
+
+        // Once a page is found for a particular version, exit immediately; we don't need to check the other versions
+        // because all we care about is the page title and path.
+        if (foundPage) {
+          break
+        }
+      }
+
+      if (!foundPage) {
+        console.error(`Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`)
+        process.exit(1)
+      }
+
+      // If the original link includes a fragment or the original title includes Liquid, do not change;
+      // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
+      // the title likely points to the fragment section header, not the page title.)
+      const newTitle = fragmentMatch || oldTitle.includes('{%') || noQuotesAroundLink ? oldTitle : foundPage.title
+
+      // If the original link includes a fragment, append it to the found page path.
+      // Also remove the language code because Markdown links don't include language codes.
+      let newLink = getPathWithoutLanguage(fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path)
+
+      // If the original link includes a hardcoded version, preserve it; otherwise, remove versioning
+      // because Markdown links don't include versioning.
+      newLink = versionMatch ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}` : getPathWithoutVersion(newLink)
+
+      let newMarkdownLink = `[${newTitle}](${newLink})`
+
+      // Handle a few misplaced quotation marks.
+      if (oldMarkdownLink.includes('["')) {
+        newMarkdownLink = `"${newMarkdownLink}`
+      }
+
+      // Stream the results to console as we find them.
+      if (oldMarkdownLink !== newMarkdownLink) {
+        console.log('old link', oldMarkdownLink)
+        console.log('new link', newMarkdownLink)
+        console.log('-------')
+      }
+
+      newContent = newContent.replace(oldMarkdownLink, newMarkdownLink)
+    }
+
+    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+  }
+
+  console.log('Done!')
+}
+
+function findPage (tryPath, pageMap, redirects) {
+  if (pageMap[tryPath]) {
+    return {
+      title: pageMap[tryPath].title,
+      path: tryPath
+    }
+  }
+
+  if (pageMap[redirects[tryPath]]) {
+    return {
+      title: pageMap[redirects[tryPath]].title,
+      path: redirects[tryPath]
+    }
+  }
+}
