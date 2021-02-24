@@ -101,10 +101,7 @@ async function main () {
       // As a blanket rule, only update titles in links that have quotes around them.
       // Update: "[Foo](/foo)"
       // Do not update: [Bar](/bar)
-      let noQuotesAroundLink
-      if (!newContent.includes(`"${oldMarkdownLink}`)) {
-        noQuotesAroundLink = true
-      }
+      const hasQuotesAroundLink = newContent.includes(`"${oldMarkdownLink}`)
 
       let foundPage, fragmentMatch, versionMatch
 
@@ -142,7 +139,7 @@ async function main () {
       // If the original link includes a fragment or the original title includes Liquid, do not change;
       // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
       // the title likely points to the fragment section header, not the page title.)
-      const newTitle = fragmentMatch || oldTitle.includes('{%') || noQuotesAroundLink ? oldTitle : foundPage.title
+      const newTitle = fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink ? oldTitle : foundPage.title
 
       // If the original link includes a fragment, append it to the found page path.
       // Also remove the language code because Markdown links don't include language codes.
