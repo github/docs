@@ -25,8 +25,8 @@ const allFiles = walkFiles('content').concat(walkFiles('data'))
 // The script will throw an error if it finds any markup not represented here.
 // Hacky but it captures the current rare edge cases.
 const linkInlineMarkup = {
-  'emphasis': '*',
-  'strong': '**'
+  emphasis: '*',
+  strong: '**'
 }
 
 // [start-readme]
