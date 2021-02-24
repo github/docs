@@ -4,9 +4,9 @@ intro: 'Reviews allow collaborators to comment on the changes proposed in pull r
 redirect_from:
   - /articles/about-pull-request-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: '**'et.al.gh pr checkout 3917'**'
+  enterprise-server: '**'et.al.gh-PR- checkout 3917'**'
+  github-ae: '**'et.al.gh-PR-checkout 3917**
 ---
 
 ### About pull request reviews
@@ -48,7 +48,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% tip %}
 
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
+**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review]/articles/dismissing-a-pull-request-review)."
 
 {% endtip %}
 
