@@ -22,6 +22,13 @@ const walkFiles = (pathToWalk) => {
 
 const allFiles = walkFiles('content').concat(walkFiles('data'))
 
+// The script will throw an error if it finds any markup not represented here.
+// Hacky but it captures the current rare edge cases.
+const linkInlineMarkup = {
+  'emphasis': '*',
+  'strong': '**'
+}
+
 // [start-readme]
 //
 // Run this script to find internal links in all content and data Markdown files, check if either the title or link
@@ -76,10 +83,22 @@ async function main () {
     // For every Markdown link...
     for (const node of nodesPerFile) {
       const oldLink = node.url
-      const oldTitle = node.children[0].value || node.children[0].children[0].value
-      const oldMarkdownLink = `[${oldTitle}](${oldLink})`
 
-      // As a blanket rule, only update links with quotes around them.
+      // Find and preserve any inline markup in link titles, like [*Foo*](/foo)
+      let inlineMarkup = ''
+      if (node.children[0].children) {
+        inlineMarkup = linkInlineMarkup[node.children[0].type]
+
+        if (!inlineMarkup) {
+          console.error(`Cannot find an inline markup entry for ${node.children[0].type}!`)
+          process.exit(1)
+        }
+      }
+
+      const oldTitle = node.children[0].value || node.children[0].children[0].value
+      const oldMarkdownLink = `[${inlineMarkup}${oldTitle}${inlineMarkup}](${oldLink})`
+
+      // As a blanket rule, only update titles in links that have quotes around them.
       // Update: "[Foo](/foo)"
       // Do not update: [Bar](/bar)
       let noQuotesAroundLink
@@ -133,7 +152,7 @@ async function main () {
       // because Markdown links don't include versioning.
       newLink = versionMatch ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}` : getPathWithoutVersion(newLink)
 
-      let newMarkdownLink = `[${newTitle}](${newLink})`
+      let newMarkdownLink = `[${inlineMarkup}${newTitle}${inlineMarkup}](${newLink})`
 
       // Handle a few misplaced quotation marks.
       if (oldMarkdownLink.includes('["')) {
