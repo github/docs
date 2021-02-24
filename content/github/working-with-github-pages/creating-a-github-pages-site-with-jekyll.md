@@ -46,7 +46,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
   $ git init <em>REPOSITORY-NAME</em>
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
-  ```  
+  ```
   4. Change directories to the repository.
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
@@ -65,24 +65,24 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
- 7. To create a new Jekyll site, use the `jekyll new` command, replacing _VERSION_ with the current dependency version for Jekyll. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
-    - If you installed Bundler:
-      ```shell
-      $ bundle exec jekyll <em>VERSION</em> new .
-      # Creates a Jekyll site in the current directory
-      ```
-    - If you don't have Bundler installed:
-     ```shell
-     $ jekyll <em>VERSION</em> new .
-     # Creates a Jekyll site in the current directory
-     ```
-8. Open the Gemfile that was created and follow the instructions in the Gemfile's comments to use {% data variables.product.prodname_pages %}.
-  ![Instructions for updating Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Update the `gem "github-pages"` line so that the line looks like this, replacing _VERSION_ with the current dependency version for `github-pages`. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
-```shell
-gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
-```
+7. To create a new Jekyll site, use the `jekyll new` command:
+   ```shell
+   $ jekyll new .
+   # Creates a Jekyll site in the current directory
+   ```
+8. Open the Gemfile that Jekyll created.
+1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
+1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
+
+   ```shell
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
+   ```
+
+   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+
+   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
+11. From the command line, run `bundle update`.
 11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
 12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell

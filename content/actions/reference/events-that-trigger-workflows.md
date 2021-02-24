@@ -41,6 +41,12 @@ The following steps occur to trigger a workflow run:
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
+{% note %}
+
+Note: Due to load, the `schedule` event may be delayed 
+
+{% endnote %}
+
 #### `schedule`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -270,6 +276,12 @@ For example, you can run a workflow when the `deployment_status` event occurs.
 on:
   deployment_status
 ```
+
+{% note %}
+
+**Note:** When a deployment status's state is set to `inactive`, a webhook event will not be created.
+
+{% endnote %}
 
 #### `fork`
 
@@ -606,7 +618,7 @@ on:
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the REST API. For more information, see "[Get a single commit](/rest/reference/repos#get-a-single-commit)"".
+**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the REST API. For more information, see "[Get a commit](/rest/reference/repos#get-a-commit)".
 
 {% endnote %}
 

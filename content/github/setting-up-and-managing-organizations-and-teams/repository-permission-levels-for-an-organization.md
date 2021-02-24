@@ -90,7 +90,7 @@ In addition to managing organization-level settings, organization owners have ad
 | Edit a repository's description | | | | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | [View and install packages](/packages/publishing-and-managing-packages) | **X** | **X** | **X** | **X** | **X** |
 | [Publish packages](/packages/publishing-and-managing-packages/publishing-a-package) | | | **X** | **X** | **X** |
-| [Delete packages](/packages/publishing-and-managing-packages/deleting-a-package) | | |  |  | **X** | {% endif %}
+| [Delete packages](/packages/learn-github-packages/deleting-and-restoring-a-package) | | |  |  | **X** | {% endif %}
 | Manage [topics](/articles/classifying-your-repository-with-topics) | | | | **X** | **X** |
 | Enable wikis and restrict wiki editors | | | | **X** | **X** |
 | Enable project boards | | | | **X** | **X** |
@@ -140,7 +140,7 @@ In this section, you can find the repository permission levels required for secu
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for vulnerable dependencies | | | | | **X** |
-| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} 
+| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 | Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository | | | | | **X** |
 | [View dependency reviews](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}

@@ -25,13 +25,9 @@ versions:
 
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
 
-{% if currentVersion == "free-pro-team@latest" %}If your organization, or the enterprise that owns it, has a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}If your organization, or the enterprise that owns it, has a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@3.0" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-![{% data variables.product.prodname_GH_advanced_security %} features](/assets/images/help/organizations/security-and-analysis-highlight-ghas.png)
-{% endif %}
+{% if currentVersion ver_gt "enterprise-server@3.0" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
 ### Enabling or disabling a feature for all existing repositories
 
@@ -94,6 +90,27 @@ By default, {% data variables.product.prodname_dependabot %} can't update depend
    ![The Repositories list](/assets/images/help/organizations/repositories-dialog.png)
 1. Select the repositories that {% data variables.product.prodname_dependabot %} can access.
 1. Click **Select repositories**.
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+
+You can manage the use of {% data variables.product.prodname_GH_advanced_security %} for a repository using the "Security & analysis" page, on the "Settings" tab. You can also disable the use of {% data variables.product.prodname_GH_advanced_security %} for any repository in an organization from the "Security & analysis" page of the organization.
+
+1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
+1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
+  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/ghas-repos-list.png)
+  The table lists the number of unique committers for each repository. This is the number of seats you could free up on your license by removing access to {% data variables.product.prodname_GH_advanced_security %}.
+1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
+1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
+
+{% note %}
+
+**Note:** If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. Otherwise they may assume that the change was a mistake and re-enable access.
+
+{% endnote %}
+
 {% endif %}
 
 ### Further reading
