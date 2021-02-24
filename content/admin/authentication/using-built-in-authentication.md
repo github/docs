@@ -31,3 +31,4 @@ Once your instance has been created, you'll need to create your own admin accoun
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+Verified with working and not leaving people out of there own profiles 
