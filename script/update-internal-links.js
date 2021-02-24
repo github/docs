@@ -26,12 +26,12 @@ const allFiles = walkFiles('content').concat(walkFiles('data'))
 //
 // Run this script to find internal links in all content and data Markdown files, check if either the title or link
 // (or both) are outdated, and automatically update them if so.
-// 
+//
 // Exceptions:
-// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment 
+// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
 // and title will be unchanged (e.g., [Bar](/noo#bar)).
 // * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
-// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)). 
+// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
 // * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
 //
 // [end-readme]
