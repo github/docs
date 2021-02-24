@@ -28,7 +28,7 @@ Anyone with write permissions to a project board can link repositories owned by 
 
 {% note %}
 
-**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled (In forked repositories issues are disabled by default).  "For information on how to see if issues are enabled or disabled for a repository, see "[Disabling issues for a repository](/github/managing-your-work-on-github/disabling-issues) ."
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. That is, the repository has an "Issues" tab (in forked repositories issues are disabled by default).  For information on how to enable or disable issues for a repository, see "[Disabling issues for a repository](/github/managing-your-work-on-github/disabling-issues)."
 
 {% endnote %}
 
