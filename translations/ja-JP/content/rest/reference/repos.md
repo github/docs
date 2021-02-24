@@ -141,7 +141,7 @@ GitHub は、あなたのサーバーに実際にアクセスすることはな�
 
 ### 非アクティブのデプロイメント
 
-デプロイメントのステータスを `success` に設定すると、同じリポジトリ内の一時的でない、非本番環境のデプロイメントはすべて `inactive` になります。 これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
 
 `state` を `inactive` に設定することで、一時的な環境が存在しなくなったことを伝えることができます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイメントが `destroyed` と表示され、アクセス権が削除されます。
 
@@ -190,10 +190,10 @@ Repo Merging API は、リポジトリ内にあるブランチのマージをサ
 * `built`: サイトがビルドされています。
 * `errored`: ビルド中にエラーが発生したことを示します。
 
-In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
+GitHub Pages サイトの情報を返す {% data variables.product.prodname_pages %} API エンドポイントにおいては、JSON のレスポンスには以下が含まれます。
 * `html_url`: レンダリングされた Pages サイトの絶対 URL (スキームを含む) 。 たとえば、`https://username.github.io` などです。
 * `source`: レンダリングされた Pages サイトのソースブランチおよびディレクトリを含むオブジェクト。 これは以下のものが含まれます。
-   - `branch`: [サイトのソースファイル](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 For example, _main_ or _gh-pages_.
+   - `branch`: [サイトのソースファイル](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 たとえば、_main_ or _gh-pages_ などです。
    - `path`: サイトの公開元のリポジトリディレクトリ。 `/` または `/docs` のどちらかとなります。
 
 {% for operation in currentRestOperations %}
@@ -220,7 +220,7 @@ Repository Statistics API を使用すると、{% data variables.product.product
 
 リポジトリの統計情報を計算するのは負荷が高い操作なので、可能な限りキャッシュされたデータを返すようにしています。  リポジトリの統計をクエリした際にデータがキャッシュされていなかった場合は、`202` レスポンスを受け取ります。また、この統計をまとめるため、バックグラウンドでジョブが開始します。 このジョブが完了するまで少し待ってから、リクエストを再度サブミットしてください。 ジョブが完了していた場合、リクエストは `200` レスポンスを受けとり、レスポンスの本文には統計情報が含まれています。
 
-Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
+リポジトリの統計情報は、リポジトリのデフォルトブランチに SHA でキャッシュされ、デフォルトのブランチにプッシュすると統計情報のキャッシュがリセットされます。
 
 ### 統計で除外されるコミットのタイプ
 
@@ -298,7 +298,7 @@ GitHub は、すべてのリポジトリに対する [PubSubHubbub](https://gith
 #### コールバック URL
 コールバック URL は `http://` プロトコルを使用できます。
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}また、`github://` コールバックで GitHub のサービスを指定することもできます。
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 

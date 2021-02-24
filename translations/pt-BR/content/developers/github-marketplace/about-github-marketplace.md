@@ -18,15 +18,23 @@ Para saber mais sobre publicação de {% data variables.product.prodname_actions
 
 ### Aplicativos
 
-Qualquer pessoa pode compartilhar seus aplicativos com outros usuários em {% data variables.product.prodname_marketplace %}, mas apenas os anúncios verificados por {% data variables.product.company_short %} podem incluir planos pagos. Para obter mais informações, consulte "[Sobre criadores verificados](/developers/github-marketplace/about-verified-creators)".
+Qualquer pessoa pode compartilhar seus aplicativos com outros usuários gratuitamente em {% data variables.product.prodname_marketplace %}, mas somente os aplicativos pertencentes a organizações podem vender seu aplicativo.
+
+Para publicar planos pagos para o seu aplicativo e exibir um selo do Marketplace, você deve concluir o processo de verificação do publicador. Para obter mais informações, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" ou "[Requisitos para anunciar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app)".
+
+Uma vez que a organização atenda aos requisitos, alguém com permissões de proprietário na organização pode publicar planos pagos para qualquer um dos aplicativos. Cada aplicativo com um plano pago também passa por um processo de integração financeira para habilitar pagamentos.
+
+Para publicar aplicativos com planos grátis, você só precisa atender aos requisitos gerais para anunciar qualquer aplicativo. Para obter mais informações, consulte "[Requisitos para todos os anúncios do GitHub Marketplace](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)".
+
+#### Novo nos aplicativos?
 
 Se estiver interessado em criar um aplicativo para {% data variables.product.prodname_marketplace %}, mas você é novo em {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_app %}s, consulte "[Criar {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" ou "[Criar {% data variables.product.prodname_oauth_app %}s](/developers/apps/building-oauth-apps)".
 
+#### Aplicativos GitHub vs. Aplicativos OAuth
+
 {% data reusables.marketplace.github_apps_preferred %}, embora você possa listar tanto o OAuth quanto {% data variables.product.prodname_github_app %}s no {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/)" e[Migrando {% data variables.product.prodname_oauth_app %}s para {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)
 
-Em caso de dúvidas dúvidas sobre {% data variables.product.prodname_marketplace %}, entre em contato diretamente com {% data variables.contact.contact_support %}.
-
-### Publicar um aplicativo em {% data variables.product.prodname_marketplace %}
+### Publicar um aplicativo na visão geral de {% data variables.product.prodname_marketplace %}
 
 Ao terminar de criar seu aplicativo, você poderá compartilhá-lo com outros usuários publicando-o em {% data variables.product.prodname_marketplace %}. Em resumo, o processo é:
 
@@ -38,13 +46,9 @@ Ao terminar de criar seu aplicativo, você poderá compartilhá-lo com outros us
 
 1. Adicionar um plano de preços. Para obter mais informações, consulte "[Configurar planos de preços para sua listagem](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-1. Verifique se seu aplicativo atende aos requisitos para a listagem em {% data variables.product.prodname_marketplace %} como um aplicativo grátis ou pago. Para obter mais informações, consulte "[Requisitos para listar um app](/developers/github-marketplace/requirements-for-listing-an-app)".
-
 1. Leia e aceite os termos do "[Contrato do Desenvolvedor de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
 
-1. Envie sua listagem para publicação em {% data variables.product.prodname_marketplace %}, solicitando verificação, se você desejar vender o aplicativo. Para obter mais informações, consulte "[Enviar sua listagem para publicação](/developers/github-marketplace/submitting-your-listing-for-publication)".
-
-Um especialista em integração entrará em contato com você com outras dúvidas ou etapas posteriores. Por exemplo, se você adicionou um plano pago, você deverá concluir o processo de verificação e concluir a integração financeira. Assim que seu anúncio for aprovado, o aplicativo será publicado em {% data variables.product.prodname_marketplace %}.
+1. Envie seu anúncio para publicação em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Enviar sua listagem para publicação](/developers/github-marketplace/submitting-your-listing-for-publication)".
 
 ### Ver como seu aplicativo está sendo executado
 
@@ -52,3 +56,7 @@ Você pode acessar métricas e transações para a sua listagem. Para obter mais
 
 - "[Visualizar métricas para a sua listagem](/developers/github-marketplace/viewing-metrics-for-your-listing)"
 - "[Visualizar transações para a sua listagem](/developers/github-marketplace/viewing-transactions-for-your-listing)"
+
+### Entrar em contato com o suporte
+
+Em caso de dúvidas dúvidas sobre {% data variables.product.prodname_marketplace %}, entre em contato diretamente com {% data variables.contact.contact_support %}.

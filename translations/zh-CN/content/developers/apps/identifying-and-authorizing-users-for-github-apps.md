@@ -67,7 +67,7 @@ versions:
 
 {% endnote %}
 
-将此 `code` 交换为访问令牌。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} 启用过期令牌后，访问令牌将在 8 小时后过期，刷新令牌将在 6 个月后过期。 每次刷新令牌时都会得到一个新的刷新令牌。 更多信息请参阅“[刷新用户到服务器访问令牌](/developers/apps/refreshing-user-to-server-access-tokens)”。
+将此 `code` 交换为访问令牌。 {% if currentversion == "free proteam@latest" %} 启用令牌有效期时，访问令牌在 8 小时后过期，刷新令牌在 6 个月后过期。 每次刷新令牌时都会得到一个新的刷新令牌。 更多信息请参阅“[刷新用户到服务器访问令牌](/developers/apps/refreshing-user-to-server-access-tokens)”。
 
 过期用户令牌当前是用户到服务器令牌过期测试版的一部分，可能会更改。 要选择使用用户到服务器令牌过期测试版功能，请参阅“[激活应用程序的测试版功能](/developers/apps/activating-beta-features-for-apps)”。{% endif %}
 
@@ -89,7 +89,7 @@ versions:
 
 默认情况下，响应采用以下形式。 响应参数 `expires_in`、`refresh_token` 和 `refresh_token_expires_in` 仅当您启用过期用户到服务器访问令牌测试版功能时才会返回。
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",

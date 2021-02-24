@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
+topics:
+  - Empacotando
 ---
 
 {% data reusables.actions.enterprise-beta %}

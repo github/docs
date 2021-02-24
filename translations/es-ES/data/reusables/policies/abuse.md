@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} no tolera abusos.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información sobre las políticas de {% data variables.product.prodname_dotcom %}, consulta nuestras [Condiciones de servicio](/articles/github-terms-of-service) y [Lineamientos comunitarios](/articles/github-community-guidelines).{% endif %}

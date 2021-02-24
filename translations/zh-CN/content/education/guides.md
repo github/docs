@@ -1,45 +1,45 @@
 ---
-title: Guides for GitHub Education
-intro: 'These guides for {% data variables.product.prodname_education %} help you teach and learn both {% data variables.product.product_name %} and software development.'
+title: GitHub Education 指南
+intro: '这些 {% data variables.product.prodname_education %} 指南帮助您教授和学习 {% data variables.product.product_name %} 和软件开发。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
 ---
 
-### Get started with {% data variables.product.product_name %}
+### 开始使用 {% data variables.product.product_name %}
 
-Teachers, students, and researchers can use tools from {% data variables.product.product_name %} to enrich a software development curriculum and develop real-world collaboration skills.
+教师、学生和研究人员可以使用 {% data variables.product.product_name %} 的工具来丰富软件开发课程，开发实际协作技能。
 
-- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/github/getting-started-with-github/signing-up-for-a-new-github-account)
-- [Git and {% data variables.product.prodname_dotcom %} quickstart ](/github/getting-started-with-github/quickstart)
-- [Apply for an educator or researcher discount](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)
-- [Apply for a student developer pack](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)
+- [注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)
+- [Git 和 {% data variables.product.prodname_dotcom %} 快速入门 ](/github/getting-started-with-github/quickstart)
+- [申请教育者或研究人员折扣](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
+- [申请学生开发包](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
 
-### Run a software development course with {% data variables.product.company_short %}
+### 使用 {% data variables.product.company_short %} 运行软件开发课程
 
-Administer a classroom, assign and review work from your students, and teach the new generation of software developers with {% data variables.product.prodname_classroom %}.
+使用 {% data variables.product.prodname_classroom %} 管理课堂，分配和检查学生的工作，并且教授新一代软件开发人员。
 
-- [Basics of setting up {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
-- [Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)
-- [Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
-- [Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
-- [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)
-- [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
-- [Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)
+- [设置 {% data variables.product.prodname_classroom %} 的基本知识 ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
+- [管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)
+- [创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
+- [创建组分配](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
+- [从模板仓库创建作业](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)
+- [通过拉取请求留下反馈](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
+- [使用自动分级](/education/manage-coursework-with-github-classroom/use-autograding)
 
-### Learn to develop software
+### 学习开发软件
 
-Incorporate {% data variables.product.prodname_dotcom %} into your education, and use the same tools as the professionals.
+将 {% data variables.product.prodname_dotcom %} 并入您的教育，并使用与专业人士相同的工具。
 
-- [Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/git-and-github-learning-resources)
-- [Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)
-- [Try {% data variables.product.prodname_desktop %}](/desktop)
-- [Try {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
+- [Git 和 {% data variables.product.prodname_dotcom %} 学习资源](/github/getting-started-with-github/git-and-github-learning-resources)
+- [使用 {% data variables.product.prodname_dotcom %} 做功课](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)
+- [试用 {% data variables.product.prodname_desktop %}](/desktop)
+- [试用 {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
-### Contribute to the community
+### 为社区做贡献
 
-Participate in the community, get training from {% data variables.product.company_short %}, and learn or teach new skills.
+参与社区，从 {% data variables.product.company_short %} 获得培训，并学习或教授新技能。
 
 - [{% data variables.product.prodname_education_community %}](https://education.github.community)
-- [关于 Campus Experts](/education/teach-and-learn-with-github-education/about-campus-experts)
-- [关于 Campus Advisors](/education/teach-and-learn-with-github-education/about-campus-advisors)
+- [关于 Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
+- [关于 Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

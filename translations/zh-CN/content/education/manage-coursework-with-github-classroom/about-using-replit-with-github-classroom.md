@@ -1,33 +1,33 @@
 ---
-title: About using Repl.it with GitHub Classroom
-shortTitle: About using Repl.it
-intro: You can configure Repl.it as the online  integrated development environment (IDE) for assignments in {% data variables.product.prodname_classroom %}.
+title: 关于使用 Repl.it 与 GitHub Classroom
+shortTitle: 关于使用 Repl.it
+intro: 您可以将 Repl.it 配置为在线集成开发环境 (IDE)，以用于 {% data variables.product.prodname_classroom %} 中的作业。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-replit
 ---
 
-### About Repl.it
+### 关于 Repl.it
 
-Repl.it is an online integrated development environment (IDE) that supports multiple programming languages. Students can write, edit, run, test, and debug code in a browser with Repl.it. For more information about online IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
+Repl.it 是一个支持多种编程语言的在线集成开发环境 (IDE)。 学生可以使用 Repl.it 在浏览器中写入、编辑、运行、测试和调试代码。 有关在线 IDE 和 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与在线 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)”。
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-The first time the student clicks the button to visit Repl.it, the student must sign into Repl.it with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on Repl.it.
+学生第一次单击按钮访问 Repl.it 时，必须使用 {% data variables.product.product_name %} 证书登录 Repl.it。 登录后，学生将有权访问包含作业仓库中代码、在 Repl.it 上完全配置的开发环境。
 
-For more information about working on Repl.it, see the [Repl.it Quickstart Guide](https://docs.repl.it/misc/quick-start#the-repl-environment).
+有关操作 Repl.it 的更多信息，请参阅 [Repl.it 快速入门指南](https://docs.repl.it/repls/quick-start#the-repl-environment)。
 
-For group assignments, students can use Repl.it Multiplayer to work collaboratively. For more information, see the [Repl.it Multiplayer](https://repl.it/site/multiplayer) website.
+对于小组作业，学生可以使用 Repl.it Multiplayer 协同工作。 更多信息请参阅 [Repl.it Multiplayer](https://repl.it/site/multiplayer) 网站。
 
-### About submission of assignments with Repl.it
+### 关于使用 Repl.it 提交作业
 
-By default, Repl.it is configured to push to the assignment repository on {% data variables.product.product_location %}. After making progress on an assignment with Repl.it, students should push changes to {% data variables.product.product_location %} using the version control functionality in the left sidebar.
+默认情况下，Repl.it 配置为推送到 {% data variables.product.product_location %} 上的作业仓库。 在 Repl.it 的作业中取得进展后，学生应使用左侧边栏中的版本控制功能将更改推送到 {% data variables.product.product_location %}。
 
-![Repl.it version control functionality](/assets/images/help/classroom/ide-replit-version-control-button.png)
+![Repl.it 版本控制功能](/assets/images/help/classroom/ide-replit-version-control-button.png)
 
-For more information about using Git on Repl.it, see the [Repl.it + Git Tutorial](https://repl.it/talk/learn/Replit-Git-Tutorial/23331) on the Repl.it website.
+有关在 Repl.it 上使用 Git 的更多信息，请参阅 Repl.it 网站上的 [Repl.it + Git 教程](https://repl.it/talk/learn/Replit-Git-Tutorial/23331)。
 
 ### 延伸阅读
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[关于 README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

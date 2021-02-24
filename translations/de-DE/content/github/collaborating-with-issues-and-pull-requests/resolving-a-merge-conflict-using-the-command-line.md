@@ -46,14 +46,14 @@ Ein Beispiel: Du und eine andere Person haben die gleichen Zeilen der Datei _sty
 4. Öffne Deinen bevorzugten Texteditor, beispielsweise [Atom](https://atom.io/), und navigiere zu der Datei mit den Mergekonflikten.
 5. Um in der Datei an den Anfang des Mergekonflikts zu gelangen, durchsuche die Datei nach dem Konflikthinweis `<<<<<<<`. Wenn Du die Datei in Deinem Texteditor öffnest, siehst Du die Änderungen im Head- oder Basis-Branch nach der Zeile `<<<<<<< HEAD`. Danach siehst Du `=======`, was Deine Änderungen von den Änderungen im anderen Branch abtrennt. Danach folgt `>>>>>>> BRANCH-NAME`. In diesem Beispiel gab eine Person im Basis- oder Head-Branch „open an issue“ ein, eine andere Person im Vergleichs-Branch (`branch-a`) hingegen „ask your question in IRC“.
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In diesem Beispiel werden beide Änderungen in den Merge übernommen:
 
   ```shell
