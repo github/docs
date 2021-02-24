@@ -66,7 +66,7 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 
 ##### Querying SNMP data
 
-Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.1.3.6.1.2.1.25.41) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level.
+Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (.1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level.
 
 With SNMP v2c, only hardware-level information about your appliance is available. The applications and services within {% data variables.product.prodname_enterprise %} do not have OIDs configured to report metrics. Several MIBs are available, which you can see by running `snmpwalk` on a separate workstation with SNMP support in your network:
 
@@ -108,7 +108,7 @@ snmpget -v 2c -c <em>community-string</em> <em>hostname</em> HOST-RESOURCES-MIB:
 
 {% tip %}
 
-**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.1.3.6.1.2.1.25.41) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
+**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (.1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
 
 {% endtip %}
 
