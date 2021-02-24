@@ -1,4 +1,11 @@
----⁴
+---⁴#'##:Run://Build://Script://</release></Publish'✨'@'hello-World!-🌶️-zypphr-fix-bug-first-ever-bitcoin-creation-script>by.<li>Zachryiixxixiiwood@gmail.com<li></Content/Admin.configuration/bitcoin.index.md/>''#:On::Releases::,energy::@ZachryTylerWood@Administrator@git.gists.sercrets/BITCOIN.gists.git.it/Gemfile.raku.spec_obj_'{'$'{'['('('c')'('r')')']'}'}'['34173']'{'bitore'}'_'id'@gh-docs/bitore''/unicode-utf8/python.js.gitian sigs@ZachryTylerWood@Administrator@.git'':'##://run://Script://Request://Pull://Manifests://::energy:://'Maifests://'energy'://Releases://'✨'@'.''Git'.git@github.com/@Iixixi/iixixii.git
+echo "# iixixii" >> README.md
+git.init@git add README.md
+git.commit'"-0"'first commit"
+git.masterbranch/maintrunk@.git remote add origin https://github.com/Iixixi/iixixii.git
+git remote add origin https://github.com/Iixixi/iixixii.git
+git branch -M release</Publish'@'✨'fix-bug-first-ever-bitcoin-creation-script></release>by.<li>Zachryiixxixiiwood@gmail.com<li>
+::Deploy:'DOCKER.GUI:TYPECONTAINER'REPOSIRTORY@IIXIXI/IIXIXI.README.md.contributing.MD
 title: About your organization dashboard
 intro: 'As an organization member, you can visit your organization''s dashboard throughout the day to stay updated on recent activity and keep track of issues and pull requests you''re working on or following in the organization.'
 redirect_from:
