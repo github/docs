@@ -120,6 +120,7 @@ Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 
