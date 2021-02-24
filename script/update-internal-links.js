@@ -111,7 +111,7 @@ async function main () {
       // Run through all supported versions...
       for (const version of allVersions) {
         context.currentVersion = version
-        // Render the link for each version using the renderContent pipeline, which incluides the rewrite-local-links plugin.
+        // Render the link for each version using the renderContent pipeline, which includes the rewrite-local-links plugin.
         const $ = await renderContent(oldMarkdownLink, context, { cheerioObject: true })
         let linkToCheck = $('a').attr('href')
 
