@@ -24,7 +24,7 @@ The Trip recording plugin enable functionality to record and save users tracks.
 
 User can Enable /Disable Plugin for: list_of_installed_plugins
 
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.list_of_installed_plugins %} → choose The Trip recording plugin → tap on the plugin or tap three vertical dots.
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_menu_group: %} → choose The Trip recording plugin → tap on the plugin or tap three vertical dots.
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → tab {% data variables.ios-values.plugins %} → {% data variables.ios-values.product_title_track_recording %} → tick the button
 
