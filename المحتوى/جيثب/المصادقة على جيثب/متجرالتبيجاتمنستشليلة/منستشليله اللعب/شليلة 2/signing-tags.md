@@ -1,5 +1,5 @@
----
-title: Signing tags
+-متجرمنصةشليله 
+العنوان: علامات التوقيع
 intro: You can sign tags locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-tags-using-gpg/
