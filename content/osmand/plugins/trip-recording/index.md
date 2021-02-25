@@ -30,9 +30,8 @@ User can Enable /Disable Plugin for: list_of_installed_plugins
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → tab {% data variables.ios-values.plugins %} → {% data variables.ios-values.product_title_track_recording %} → tick the button
 
------
-** Note **
-----
+> **_NOTE_** 
+
 
 
 
