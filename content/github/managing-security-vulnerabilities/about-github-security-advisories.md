@@ -24,13 +24,13 @@ With {% data variables.product.prodname_security_advisories %}, you can:
 2. Privately collaborate to fix the vulnerability in a temporary private fork.
 3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[Publishing a security advisory](/github/managing-security-vulnerabilities/publishing-a-security-advisory)."
 
-If you created a security advisory in your repository, the security advisory will stay in your repository. We publish security advisories for any of the ecosystems supported by the dependency graph to the {% data variables.product.prodname_advisory_database %} on [github.com/advisories](https://github.com/advisories). If a security advisory is specifically for npm, we also publish the advisory to the npm security advisories. For more information, see [npmjs.com/advisories](https://www.npmjs.com/advisories).
-
 {% data reusables.repositories.security-advisories-republishing %}
 
 You can give credit to individuals who contributed to a security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory#about-credits-for-security-advisories)."
 
 {% data reusables.repositories.security-guidelines %}
+
+If you created a security advisory in your repository, the security advisory will stay in your repository. We publish security advisories for any of the ecosystems supported by the dependency graph to the {% data variables.product.prodname_advisory_database %} on [github.com/advisories](https://github.com/advisories). If a security advisory is specifically for npm, we also publish the advisory to the npm security advisories. For more information, see [npmjs.com/advisories](https://www.npmjs.com/advisories).
 
 {% data reusables.repositories.github-security-lab %}
 
