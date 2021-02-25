@@ -49,7 +49,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported operating systems for self-hosted runners](#supported-operating-systems-for-self-hosted-runners)."
+* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
 * The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
@@ -120,6 +120,7 @@ You must ensure that the machine has the appropriate network access to communica
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 
