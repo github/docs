@@ -52,3 +52,4 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 * "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
 * "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
 * "[Signing tags](/articles/signing-tags)"
+.
