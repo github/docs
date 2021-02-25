@@ -1,7 +1,7 @@
 ---
 title: Obtener información sobre Git
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/learning-about-git
 versions:

@@ -1,12 +1,17 @@
 ---
 title: CircleCIからGitHub Actionsへの移行
-intro: 'GitHub ActionsとCircleCIには設定に相似点があるので、GitHub Actionsへの移行は比較的単純明快です。'
+intro: GitHub ActionsとCircleCIには設定に相似点があるので、GitHub Actionsへの移行は比較的単純明快です。
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CircleCI
+  - 移行
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,7 +33,7 @@ CircleCIと{% data variables.product.prodname_actions %}は、どちらも自動
 CircleCIから移行する際には、以下の差異を考慮してください。
 
 - CircleCIの自動テストの並列性は、ユーザが指定したルールもしくは過去のタイミングの情報に基づいて、自動的にテストをグループ化します。 この機能は{% data variables.product.prodname_actions %}には組み込まれていません。
-- コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+- コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 {% data variables.product.product_name %}ホストランナー上のDockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
 
 ### ワークフローとジョブの移行
 
@@ -38,7 +43,7 @@ CircleCIと{% data variables.product.prodname_actions %}は、どちらも似た
 
 ### orbsからアクションへの移行
 
-CircleCIと{% data variables.product.prodname_actions %}は、どちらもワークフロー中のタスクを再利用し、共有するための仕組みを提供しています。 CircleCIはorbsという概念を利用します。これはYAMLで書かれ、ワークフロー中で再利用できるタスクを提供します。 {% data variables.product.prodname_actions %}はアクションと呼ばれる協力で柔軟な再利用できるコンポーネントを持っており、これはJavaScriptファイルもしくはDockerイメージで構築できます。 {% data variables.product.product_name %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急のIssueが発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもワークフロー中のタスクを再利用し、共有するための仕組みを提供しています。 CircleCIはorbsという概念を利用します。これはYAMLで書かれ、ワークフロー中で再利用できるタスクを提供します。 {% data variables.product.prodname_actions %}はアクションと呼ばれる強力で柔軟な再利用できるコンポーネントを持っており、これはJavaScriptファイルもしくはDockerイメージで構築できます。 {% data variables.product.product_name %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急のIssueが発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
 CircleCIは、YAMLのアンカーとエイリアスでワークフローの部分を再利用できます。 {% data variables.product.prodname_actions %}はビルドマトリックスを使って、再利用性についての一般的な要求のほとんどをサポートします。 ビルドマトリックスに関する詳細な情報については「[複雑なワークフローを管理する](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)」を参照してください。
 
@@ -53,7 +58,7 @@ CircleCIは、共通の依存関係を持つ一連のビルド済みのイメー
 
 Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}ホストの仮想環境で利用できるツールとパッケージに関する詳しい情報については「[{% data variables.product.prodname_dotcom %} ホストランナーにインストールされているソフトウェア](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストの仮想環境で利用できるツールとパッケージに関する詳しい情報については「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 
 ### 変数とシークレットの利用
 
@@ -102,7 +107,7 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_actions %} キャッシングは、{% data variables.product.prodname_dotcom %} ホストランナーにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 {% data variables.product.prodname_actions %}は、CircleCIのDocker Layer Caching（DLC）に相当する機能を持っていません。
 
@@ -258,24 +263,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
-        # Add a health check
+          - 5432:5432
+        # ヘルスチェックを追加
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem 参照
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # このDockerファイルは、デフォルトユーザではなくUSERをcirceciに変更するので、このイメージのファイルの権限をGH Actionsで動作するように変更しなければならない。
+      # https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem を参照
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -412,35 +417,35 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
-        # ヘルスチェックを追加する
+          - 5432:5432
+        # ヘルスチェックを追加
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

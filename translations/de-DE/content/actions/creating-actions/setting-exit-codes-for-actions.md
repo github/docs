@@ -41,11 +41,13 @@ Weitere Informationen finden Sie unter „[Eine JavaScript-Aktion erstellen](/ar
 
 Wenn Sie eine Docker-Container-Aktion erstellen, können Sie einen Fehler-Exit-Code im `entrypoint.sh`-Skript festlegen. Ein Beispiel:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 Weitere Informationen finden Sie unter „[Eine Docker-Container-Aktion erstellen](/articles/creating-a-docker-container-action)“.

@@ -146,7 +146,14 @@ Organization アカウントの場合、当社はアカウントオーナーの�
 
 ### 費用の払い戻し
 
-当社は、法律で許可されているとおり、情報の要求への対応に伴う管理費の払い戻しを求める権利を留保します。
+Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+
+While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+
+- Initial search of up to 25 identifiers: Free
+- Production of subscriber information/data for up to 5 accounts: Free
+- Production of subscriber information/data for more than 5 accounts: $20 per account
+- Secondary searches: $10 per search
 
 ### データ保存
 

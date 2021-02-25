@@ -41,12 +41,6 @@ versions:
     - 在 **Authentication** 下拉菜单中，选择您的 SMTP 服务器使用的加密类型。
     - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
 
-    {% note %}
-
-    **注**：如果您在仓库的 **Services** 电子邮件 web 挂钩中选中 **Send from author** 复选框，则该仓库的出站电子邮件将从作者而不是无回复电子邮件地址发送。 更多信息请参阅“[关于推送到仓库的电子邮件通知](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)。”
-
-    {% endnote %}
-
 6. 如果您想丢弃发送到无回复电子邮件地址的所有传入电子邮件，请选中 **Discard email addressed to the no-reply email address**。 ![用于丢弃发送到无回复电子邮件地址的电子邮件的复选框](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. 在 **Support** 下，选择用于向您的用户提供附加支持的链接类型：
     - **Email**：内部电子邮件地址。
@@ -155,7 +149,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### 验证 DNS 设置
 
-为了正确处理入站电子邮件，您必须配置有效的 A 记录（或 CNAME）和 MX 记录。 更多信息请参阅“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。
+为了正确处理入站电子邮件，您必须配置有效的 A 记录（或 CNAME）和 MX 记录。 For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### 检查防火墙或 AWS 安全组设置
 

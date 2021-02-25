@@ -23,7 +23,7 @@ Debes administrar los parámetros de facturación, el método de pago y las cara
 
 Para obtener más información, consulta "[Administrar tus parámetros de facturación {% data variables.product.prodname_dotcom %}](/articles/managing-your-github-billing-settings)".
 
-### Further reading
+### Leer más
 
 - "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
 - "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"

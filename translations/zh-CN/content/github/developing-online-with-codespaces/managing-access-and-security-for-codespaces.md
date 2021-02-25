@@ -1,6 +1,6 @@
 ---
-title: Managing access and security for Codespaces
-intro: You can manage the repositories that codespaces can access.
+title: 管理代码空间的访问和安全
+intro: 您可以管理代码空间可以访问的仓库。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
@@ -8,30 +8,30 @@ versions:
 
 {% note %}
 
-**Note:** Access and security for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
+**注意：**{% data variables.product.prodname_codespaces %} 访问和安全目前处于测试阶段，可能会更改。
 
 {% endnote %}
 
-### Managing security and access for your user account
+### 管理用户帐户的安全和访问
 
-When you enable access and security for a repository owned by your user account, any codespaces you create for that repository will have read and write permissions to all other repositories you own. You can enable access and security for none of your repositories, all of your repositories, or specific repositories. You should only enable access and security for repositories you trust.
+为用户帐户拥有的仓库启用访问和安全后，您为该仓库创建的任何代码空间都将对您拥有的所有其他仓库具有读取和写入权限。 您可以不对任何仓库、对所有仓库或特定仓库启用访问和安全。 您应该只对您信任的仓库启用访问和安全。
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Access and security", select the setting you want for your user account. ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own. !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+1. 在“Access and security（访问和安全）”下，为用户帐户选择所需的设置。 ![管理信任仓库的单选按钮](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问您拥有的其他仓库。 对于您要允许其代码空间访问您拥有的其他仓库的所有仓库重复此操作。 !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
 
-### Managing security and access for your organization
+### 管理组织的安全和访问
 
-Organization owners can manage security and access for {% data variables.product.prodname_codespaces %}.
+组织所有者可以管理 {% data variables.product.prodname_codespaces %} 的安全和访问。
 
-When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will have read and write permissions to all other repositories the organization owns. You can enable access and security for none of your organization's repositories, all of your organization's repositories, or specific repositories. You should only enable access and security for repositories you trust.
+为组织拥有的仓库启用访问和安全后，则为该仓库创建的任何代码空间都将对该组织拥有的所有其他仓库具有读取和写入权限。 您可以不对组织的任何仓库、对组织的所有仓库或特定仓库启用访问和安全。 您应该只对您信任的仓库启用访问和安全。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-5. To approve of the [pre-release program terms of service](/github/site-policy/github-pre-release-program) on behalf of your organization and enable {% data variables.product.prodname_codespaces %}, under "User permissions", select **Selected users**, then type the username for each person to grant access to. Repeat for all users who you want to have access to your organization's codespaces.  
-   ![Radio button for "Selected users"](/assets/images/help/organizations/select-selected-users-radio-button.png)
-1. Under "Access and security", select the setting you want for your organization. ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories. !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+5. 要代表您的组织批准[预发布计划服务条款](/github/site-policy/github-pre-release-program)并启用 {% data variables.product.prodname_codespaces %}，请在“User permissions（用户权限）”下，选择 **Selected users（所选用户）**，然后输入要授予访问权限的每个人的用户名。 对要授予组织代码空间访问权限的所有用户重复此操作。  
+   !["所选用户"单选按钮](/assets/images/help/organizations/select-selected-users-radio-button.png)
+1. 在“Access and security（访问和安全）”下，为组织选择所需的设置。 ![管理信任仓库的单选按钮](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问组织拥有的其他仓库。 对于您要允许其代码空间访问其他仓库的所有仓库重复此操作。 !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)

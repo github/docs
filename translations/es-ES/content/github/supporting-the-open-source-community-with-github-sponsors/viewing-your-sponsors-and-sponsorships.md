@@ -23,9 +23,9 @@ Puedes ver la analítica de tus patrocinios actuales y pasados, los pagos que ha
 
 ### Exportar tus datos de patrocinio
 
-You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. Después de que se complete la exportación, puedes exportar otor mes de datos. Puedes exportar hasta 10 conjuntos de datos por hora para cualquiera de tus cuentas patrocinadas.
+Puedes exportar tus transacciones de patrocinio mensualmente. {% data variables.product.company_short %} te enviará un correo electrónico con los datos de las transacciones de todos tus patrocinadores para el mes que selecciones. Después de que se complete la exportación, puedes exportar otor mes de datos. Puedes exportar hasta 10 conjuntos de datos por hora para cualquiera de tus cuentas patrocinadas.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.activity-tab %}
-1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![Botón de exportar](/assets/images/help/sponsors/export-all.png)
+1. Da clic en {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botón de exportar](/assets/images/help/sponsors/export-all.png)
 1. Elige un formato y periodo de tiempo para los datos que quieres exportar. Posteriormente, da clic en **Comenzar exportación**. ![Opciones para exportar datos](/assets/images/help/sponsors/export-your-sponsors.png)

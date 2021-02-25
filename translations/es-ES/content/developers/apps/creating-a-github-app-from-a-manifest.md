@@ -56,12 +56,12 @@ Se redirigirá al creador de la app a una página de GitHub en donde encontrará
  | --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | `name (nombre)`       | `secuencia` | El nombre dela GitHub App.                                                                                                                                                                                                                                      |
  | `url`                 | `secuencia` | **Requerido.** La página principal de tu GitHub App.                                                                                                                                                                                                            |
- | `hook_attributes`     | `object`    | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
+ | `hook_attributes`     | `objeto`    | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
  | `redirect_url`        | `secuencia` | La URL completa a la cual se redireccionará a la persona después de que instale la GitHub App.                                                                                                                                                                  |
- | `description`         | `secuencia` | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
+ | `descripción`         | `secuencia` | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
  | `public`              | `boolean`   | Configúralo como `true` cuando tu GitHub App esté disponible al público o como `false` si solo puede acceder el propietario de la misma.                                                                                                                        |
  | `default_events`      | `arreglo`   | La lista de [eventos](/webhooks/event-payloads) a la cual se suscribe la GitHub App.                                                                                                                                                                            |
- | `default_permissions` | `object`    | El conjunto de [permisos](/rest/reference/permissions-required-for-github-apps) que requiere la GitHub App. El formato del objeto utiliza el nombre del permiso para la clave (por ejemplo, `issues`) y el tipo de acceso para el valor (por ejemplo, `write`). |
+ | `default_permissions` | `objeto`    | El conjunto de [permisos](/rest/reference/permissions-required-for-github-apps) que requiere la GitHub App. El formato del objeto utiliza el nombre del permiso para la clave (por ejemplo, `issues`) y el tipo de acceso para el valor (por ejemplo, `write`). |
 
 El objeto `hook_attributes` tiene la siguiente clave:
 
@@ -80,7 +80,7 @@ El objeto `hook_attributes` tiene la siguiente clave:
 
 Este ejemplo utiliza un formato en una página web con un botón que activa la solicitud de tipo `POST` para una cuenta de usuario:
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -111,7 +111,7 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
 ```
 Este ejemplo utiliza un formato en una página web con un botón que activa la solicitud de tipo `POST` para una cuenta de organización. Reemplaza a `ORGANIZATION` con el nombre de la cuenta de organización en donde quieras crear la app.
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
