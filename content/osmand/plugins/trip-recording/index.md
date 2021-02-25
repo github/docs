@@ -20,19 +20,30 @@ versions: '*'
 
 The Trip recording plugin enable functionality to record and save users tracks.
 
+![Enable /Disable Plugin](/assets/images/docs/widgets/enable_disable_plugin.png)
+
 ##  Enable /Disable Plugin
 
-User can Enable /Disable Plugin for: list_of_installed_plugins
-
-![Enable /Disable Plugin](/assets/images/docs/widgets/enable_disable_plugin.png)
+User can Enable /Disable Plugin for:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_menu_group: %} → choose The Trip recording plugin → tap on the plugin or tap three vertical dots.
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → tab {% data variables.ios-values.plugins %} → {% data variables.ios-values.product_title_track_recording %} → tick the button
 
-> **_Note:_** Enable  [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget). 
+> **_Note:_** Enable  [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget).
 
+##  Trip recording Plugin settings for Android
 
+To configure settings follow {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_menu_group: %} → tap the Trip recording plugin
+
+![REC Settings Plugin](/assets/images/docs/widgets/rec_settings_plugin.png)
+
+| Step 1 | configure profile |
+| Step 2 | set 'navigation' |
+| Step 3 | set 'logging accuracy'|
+| Step 4  | choose the 'track storage folder' |
+| Step 5 | enable/disable 'notification'  |
+| Step 6 | enable/disable 'online tracking' | 
 
 <!-- ## Trip recording settings
 {% link_in_list /settings-android %}
