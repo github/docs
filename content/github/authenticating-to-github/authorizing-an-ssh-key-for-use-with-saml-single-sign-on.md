@@ -14,6 +14,8 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 **Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
+Revocation of an ssh key by an organization administrator is specific to that organization. You will be unable to re-use that key again with this organization, but it will not impact your ability to use it github.com in general or with other organizations. 
+
 {% endnote %}
 
 {% data reusables.user_settings.access_settings %}
