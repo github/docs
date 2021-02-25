@@ -49,7 +49,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`org`](#org-category-actions) | Contains activities related to organization membership.{% if currentVersion == "free-pro-team@latest" %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
-| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps. {% if currentVersion == "free-pro-team@latest" %}
+| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your organization's profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
@@ -127,7 +128,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)." 
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.
@@ -140,7 +141,7 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 {% note %}
 
-**Note:** The audit log REST API is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only. 
+**Note:** The audit log REST API is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only.
 
 {% endnote %}
 
@@ -249,7 +250,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% note %}
 
-**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only. 
+**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only.
 
 For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
 
@@ -395,6 +396,19 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
 | `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
 | `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+#### `packages` category actions
+
+| Action | Description |
+|--------|-------------|
+| `package_version_published` | Triggered when a package version is published. |
+| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
