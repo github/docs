@@ -19,9 +19,14 @@ module.exports = rateLimit({
   store: REDIS_URL && new RedisStore({
     client: new Redis(REDIS_URL, {
       db: rateLimitDatabaseNumber,
-      tls: {
-        // Required for production Heroku Redis
-        rejectUnauthorized: false
+
+      // Only add this configuration for TLS-enabled REDIS_URL values.
+      // Otherwise, it breaks for local Redis instances without TLS enabled.
+      ...REDIS_URL.startsWith('rediss://') && {
+        tls: {
+          // Required for production Heroku Redis
+          rejectUnauthorized: false
+        }
       }
     }),
     // 1 minute (or practically unlimited outside of production)
