@@ -1,4 +1,4 @@
----
+git clone https://github.com/loveLay/Hack-Tools
 title: Fork a repo
 redirect_from:
   - /fork-a-repo/
