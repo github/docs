@@ -8,15 +8,17 @@ versions: '*'
 
 ![Trip recording](/assets/images/plugins/placeholder-intro.png)
 
-### How to use
+## How to use
+
 {% link_in_list /how-to-use-android %}
 {% link_in_list /how-to-use-ios %}
 
-### Trip recording settings
+## Trip recording settings
+
 {% link_in_list /settings-android %}
 {% link_in_list /settings-ios %}
 
-### Troubleshooting -->
+## Troubleshooting -->
 
 The Trip recording plugin enable functionality to record and save users tracks.
 
