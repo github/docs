@@ -38,7 +38,8 @@ module.exports = async (req, res, next) => {
   let isRedirect = false
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
     try {
-      const redirectJson = await got(getProxyPath('redirects.json', requestedVersion))
+      const res = await got(getProxyPath('redirects.json', requestedVersion))
+      const redirectJson = JSON.parse(res.body)
 
       if (redirectJson[req.path]) {
         isRedirect = true
