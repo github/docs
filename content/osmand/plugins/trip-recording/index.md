@@ -55,6 +55,14 @@ User can find his track in {% data variables.android-values.shared_string_menu %
 
 > :warning: **Track recording impacts the battery life**. Even if the screen is off, it continues to run. Check notifications in the background in status bar!
 
+Logging interval during navigation controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
+By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minutes.
+
+###  Configure trip recording logging accuracy
+
+![REC logging accuracy](/assets/images/docs/widgets/rec_plugin_logging_accuracy.png)
+
+
 
 <!-- | settings to configure| Description |
 |--------------------------|-------------|
