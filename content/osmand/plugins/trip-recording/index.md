@@ -20,15 +20,6 @@ versions: '*'
 
 ## Troubleshooting -->
 
-
-## Use cases
-
-## Default Map styles:
-
-### OsmAnd
-
-
-
 The Trip recording plugin enable functionality to record and save users tracks.
 
 ![Enable /Disable Plugin](/assets/images/docs/widgets/enable_disable_plugin.png)
