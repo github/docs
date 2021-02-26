@@ -40,7 +40,7 @@ To configure settings follow {% data variables.android-values.shared_string_menu
 
 ![REC Settings Plugin](/assets/images/docs/widgets/rec_settings_plugin.png)
 
-### Configure trip recording profile
+## Configure trip recording profile
 
 Default 'Trip recording' profile is Browse map profile. User can choose other OsmAnd profile or create his own (Manage<!--сделать ссылку на инстукцию как сделать уникальный профиль [Manage profile ](text)-->) profile.
 
@@ -48,7 +48,7 @@ Default 'Trip recording' profile is Browse map profile. User can choose other Os
 
 To change the profile please click the globe icon in the upper-right corner.
 
-### Configure trip recording navigation
+## Configure trip recording navigation
 
 ![REC navigation](/assets/images/docs/widgets/rec_plugin_navigation.png)
 
@@ -60,7 +60,7 @@ User may find his track under {% data variables.android-values.shared_string_men
 Logging interval during navigation controls the frequency of queries to the GPS sensor along with the frequency of new dots appearing in the track line. <br>
 By default, it is set to 5 seconds, but it can be configured in the range from 0 seconds to 5 minutes.
 
-### Configure trip recording logging accuracy
+## Configure trip recording logging accuracy
 
 ![REC logging accuracy](/assets/images/docs/widgets/rec_plugin_logging_accuracy.png)
 
@@ -84,7 +84,7 @@ By default, it is set to 5 seconds, but it can be configured in the range from 0
 > **_TIP:_**
 > Try to disable 'Minimum displacement' first (set to 'Not selected'). It will help you not to lose data.  If the resulting track looks noisy, try non zero value for this parameter and also raise 'Minimum speed'.
 
-### Configure trip informational settings
+## Configure trip informational settings
 
 ![REC informational settings](/assets/images/docs/widgets/rec_plugin_info_settings.png)
 
