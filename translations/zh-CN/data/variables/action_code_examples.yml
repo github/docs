@@ -12,7 +12,7 @@
   languages: JavaScript
   href: lannonbr/issue-label-manager-action
   tags:
-    - issues
+    - 议题
     - labels
 - 
   title: 声明同步 GitHub 标签
@@ -20,11 +20,11 @@
   languages: 'Go, Dockerfile'
   href: micnncim/action-label-syncer
   tags:
-    - issues
+    - 议题
     - labels
 - 
   title: 向 GitHub 添加版本
-  description: 在操作中发布 Github 版本
+  description: Publish GitHub releases in an action
   languages: 'Dockerfile, Shell'
   href: elgohr/Github-Release-Action
   tags:
@@ -32,7 +32,7 @@
     - 发布
 - 
   title: 向 Dockerhub 发布 Docker 映像
-  description: 用于生成和发布 Docker 映像的 Github 操作
+  description: A GitHub Action used to build and publish Docker images
   languages: 'Dockerfile, Shell'
   href: elgohr/Publish-Docker-Github-Action
   tags:
@@ -45,7 +45,7 @@
   languages: 'JavaScript, Python'
   href: peter-evans/create-issue-from-file
   tags:
-    - issues
+    - 议题
 - 
   title: 使用资产发布 GitHub 版本
   description: 用于创建 GitHub 版本的 GitHub 操作
@@ -62,7 +62,7 @@
   tags:
     - projects
     - automation
-    - issues
+    - 议题
     - 拉取请求
 - 
   title: 使用 Web 界面在本地运行 GitHub Actions
@@ -123,16 +123,16 @@
     - 发布
 - 
   title: 自动标记您的拉取请求（使用提交的文件）
-  description: 自动标记拉取请求（使用提交的文件）的 Github 操作
+  description: GitHub action to label your pull requests auto-magically (using committed files)
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:
     - projects
-    - issues
+    - 议题
     - labels
 - 
   title: 根据作者团队名称向拉取请求添加标签
-  description: 根据作者名称标记拉取请求的 Github 操作
+  description: GitHub action to label your pull requests based on the author name
   languages: 'TypeScript, JavaScript'
   href: JulienKode/team-labeler-action
   tags:
@@ -163,7 +163,7 @@
     - 工作流程
     - tools
     - labels
-    - issues
+    - 议题
 - 
   title: 回滚 GitHub 版本
   description: 回滚或删除版本的 GitHub 操作
@@ -178,7 +178,7 @@
   languages: 'JavaScript'
   href: dessant/lock-threads
   tags:
-    - issues
+    - 议题
     - 拉取请求
     - 工作流程
 - 
@@ -234,7 +234,7 @@
   href: robvanderleek/create-issue-branch
   tags:
     - probot
-    - issues
+    - 议题
     - labels
 - 
   title: 删除旧构件

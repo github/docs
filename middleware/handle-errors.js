@@ -37,6 +37,12 @@ module.exports = async function handleError (error, req, res, next) {
       .send(await liquid.parseAndRender(layouts['error-404'], req.context))
   }
 
+  // If the error contains a status code, just send that back. This is usually
+  // from a middleware like `express.json()` or `csrf`.
+  if (error.statusCode || error.status) {
+    return res.sendStatus(error.statusCode || error.status)
+  }
+
   if (process.env.NODE_ENV !== 'test') {
     console.error('500 error!', req.path)
     console.error(error)

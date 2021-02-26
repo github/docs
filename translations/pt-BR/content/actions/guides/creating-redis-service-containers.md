@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=2.22'
 type: 'tutorial'
 topics:
-  - 'Containers'
+  - 'Contêineres'
   - 'Docker'
 ---
 

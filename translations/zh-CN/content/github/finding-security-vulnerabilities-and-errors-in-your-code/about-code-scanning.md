@@ -1,6 +1,6 @@
 ---
-title: 关于代码扫描
-intro: '您可以使用 {% data variables.product.prodname_code_scanning %} 在 {% data variables.product.prodname_dotcom %} 上查找项目中的安全漏洞和代码错误。'
+title: About code scanning
+intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-automated-code-scanning
@@ -12,39 +12,40 @@ versions:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### 关于 {% data variables.product.prodname_code_scanning %}
+### About {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-您可以使用 {% data variables.product.prodname_code_scanning %} 来查找代码中现有的问题，并且对其进行分类和确定修复的优先级。 {% data variables.product.prodname_code_scanning_capc %} 还可防止开发者引入新问题。 您可以计划在特定的日期和时间进行扫描，或在仓库中发生特定事件（如推送）时触发扫描。
+You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_capc %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
 
-如果 {% data variables.product.prodname_code_scanning %} 发现您的代码中可能存在漏洞或错误，{% data variables.product.prodname_dotcom %} 会在仓库中显示警报。 在修复触发警报的代码之后，{% data variables.product.prodname_dotcom %} 将关闭警报。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
+If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-要监控您的仓库或组织的 {% data variables.product.prodname_code_scanning %} 结果，您可以使用 web 挂钩和 {% data variables.product.prodname_code_scanning %} API。 有关用于 {% data variables.product.prodname_code_scanning %} 的 web 挂钩的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。 有关 API 端点的信息，请参阅“[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)”。
+To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see 
+"[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)." 
 
-要开始 {% data variables.product.prodname_code_scanning %}，请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”。
+To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
-### 关于 {% data variables.product.prodname_codeql %}
+### About {% data variables.product.prodname_codeql %}
 
-您可以在 [`github/codeql`](https://github.com/github/codeql) 仓库中查看并参与 {% data variables.product.prodname_code_scanning %} 的查询。 {% data variables.product.prodname_codeql %} 将代码视为数据，允许您在代码中查找潜在漏洞，比传统的静态分析工具更可靠。
+You can use {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, a semantic code analysis engine. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
 
-{% data variables.product.prodname_ql %} 是授权 {% data variables.product.prodname_codeql %} 的查询语言。 {% data variables.product.prodname_ql %} 是一种面向对象的逻辑编程语言。 {% data variables.product.company_short %}、语言专家和安全研究人员创建用于 {% data variables.product.prodname_code_scanning %} 的查询，查询是开源的。 社区维护和更新查询，以改善分析和减少误报。 更多信息请参阅 GitHub Security Lab 网站上的 [{% data variables.product.prodname_codeql %}](https://securitylab.github.com/tools/codeql)。
+{% data variables.product.prodname_ql %} is the query language that powers {% data variables.product.prodname_codeql %}. {% data variables.product.prodname_ql %} is an object-oriented logic programming language. {% data variables.product.company_short %}, language experts, and security researchers create the queries used for {% data variables.product.prodname_code_scanning %}, and the queries are open source. The community maintains and updates the queries to improve analysis and reduce false positives. For more information, see [{% data variables.product.prodname_codeql %}](https://securitylab.github.com/tools/codeql) on the GitHub Security Lab website.
 
-有关 {% data variables.product.prodname_code_scanning %} 的 API 端点的更多信息，请参阅“[{% data variables.product.prodname_code_scanning_capc %}](http://developer.github.com/v3/code-scanning)”。
+{% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
 {% data reusables.code-scanning.supported-languages %}
 
-您可以在 [`github/codeql`](https://github.com/github/codeql) 仓库中查看并参与 {% data variables.product.prodname_code_scanning %} 的查询。 更多信息请参阅 {% data variables.product.prodname_codeql %} 文档中的 [{% data variables.product.prodname_codeql %} 查询](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html)。
+You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html) in the {% data variables.product.prodname_codeql %} documentation.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### 关于 {% data variables.product.prodname_code_scanning %} 的计费
+### About billing for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}，{% data variables.product.prodname_code_scanning %} 工作流程的每次运行将耗用 {% data variables.product.prodname_actions %} 的分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
+{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
 
 {% endif %}
 
-### 关于第三方代码扫描工具
+### About third-party code scanning tools
 
 {% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
@@ -52,9 +53,9 @@ versions:
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### 延伸阅读
+### Further reading
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
-- OASIS Committee 网站上的 [OASIS 静态分析结果交换格式 (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)
+- [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website
