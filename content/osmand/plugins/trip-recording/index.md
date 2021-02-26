@@ -50,7 +50,7 @@ To change profile click the globe icon in the upper-right corner.
 
 ![REC navigation](/assets/images/docs/widgets/rec_plugin_navigation.png)
 
-Auto-record track during navigation – the function that can enable/disable saving each 'trip recording' track automatically.
+Auto-record track during navigation – the function that can enable/disable saving each 'trip recording' track automatically. <br>
 User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.shared_string_gpx_files %}
 
 > :warning: **Track recording impacts the battery life**. Even if the screen is off, it continues to run. Check notifications in the background in status bar!
