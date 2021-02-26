@@ -67,19 +67,15 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 | function | Description |
 |--------------------------|-------------|
 | General logging interval |Specifies the logging interval for the general track recording. Can be chosen as 'always ask' or optionally chosen from 0 seconds  to 5 minutes. Can be turned on via [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget). |
-| Minimum displacement | Specifies the minimum displacement for the track recording. Can be chosen as 'not selected' or optionally chosen from 2 meters  to 50 meters. >[!Note]: > Set 5 meters distance  if there are no needs to capture precise data while rest. |
-| `actor` | The user that triggered the event. |
-| `actor.id` | The unique identifier for the actor. |
-| `actor.login` | The username of the actor. |
-| `actor.display_login` | The specific display format of the username. |
-| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
-| `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
-| `actor.avatar_url` | The URL of the actor's profile image. |
-| `repo` | The repository object where the event occurred.  |
-| `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
-| `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
+| Minimum displacement | Specifies the minimum displacement for the track recording. Can be chosen as 'not selected' or optionally chosen from 2 meters  to 50 meters.  This function should be configured to avoid duplicating points being recorded where too little actual motion may have occurred. |
+| Minimum accuracy |   |
+| Minimum speed |   |
+| Auto-split recording after gap |   |
+| Prevent standalone logging |   | 
+| include heading |   |   
+
+
+>[!Note]: > Set 5 meters distance for 'Minimum displacement' function if there are no needs to capture precise data while rest.
 
 <!-- ## Trip recording settings
 {% link_in_list /settings-android %}
