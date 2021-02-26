@@ -71,29 +71,8 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 | Minimum accuracy |   |
 | Minimum speed |   |
 | Auto-split recording after gap |   |
-| Prevent standalone logging |   | 
+| Prevent standalone logging |   |
 | include heading |   |   
 
 
 >[!Note]: > Set 5 meters distance for 'Minimum displacement' function if there are no needs to capture precise data while rest.
-
-<!-- ## Trip recording settings
-{% link_in_list /settings-android %}
-{% link_in_list /settings-ios %}
-
-| Event API attribute name | Description |
-|--------------------------|-------------|
-| `id` | Unique identifier for the event. |
-| `type` | The type of event. Events uses PascalCase for the name. |
-| `actor` | The user that triggered the event. |
-| `actor.id` | The unique identifier for the actor. |
-| `actor.login` | The username of the actor. |
-| `actor.display_login` | The specific display format of the username. |
-| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
-| `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
-| `actor.avatar_url` | The URL of the actor's profile image. |
-| `repo` | The repository object where the event occurred.  |
-| `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
-| `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
