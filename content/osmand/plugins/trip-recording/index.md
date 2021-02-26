@@ -64,16 +64,24 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 
 ![REC logging accuracy](/assets/images/docs/widgets/rec_plugin_logging_accuracy.png)
 
-
-
-<!-- | settings to configure| Description |
+| function | Description |
 |--------------------------|-------------|
-| configure profile | configure profile |
-| Step 2 | set 'navigation' |
-| Step 3 | set 'logging accuracy'|
-| Step 4  | choose the 'track storage folder' |
-| Step 5 | enable/disable 'notification'  |
-| Step 6 | enable/disable 'online tracking' | -->
+| General logging interval |Specifies the logging interval for the general track recording.
+Can be chosen as 'always ask' or optionally chosen from 0 seconds  to 5 minutes.
+Can be turned on via [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget). |
+| `type` | The type of event. Events uses PascalCase for the name. |
+| `actor` | The user that triggered the event. |
+| `actor.id` | The unique identifier for the actor. |
+| `actor.login` | The username of the actor. |
+| `actor.display_login` | The specific display format of the username. |
+| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
+| `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
+| `actor.avatar_url` | The URL of the actor's profile image. |
+| `repo` | The repository object where the event occurred.  |
+| `repo.id` | The unique identifier of the repository. |
+| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
+| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
+| `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 
 <!-- ## Trip recording settings
 {% link_in_list /settings-android %}
