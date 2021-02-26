@@ -24,7 +24,7 @@ The Trip recording plugin enables functionality to record and save users tracks.
 
 ![Enable /Disable Plugin](/assets/images/docs/widgets/enable_disable_plugin.png)
 
-## Enable /Disable Plugin
+## Enable / Disable Plugin
 
 In order to Enable/Disable plugin please use:
 
