@@ -70,26 +70,24 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 | Minimum displacement | Specifies the minimum displacement for the track recording. Can be chosen as 'not selected' or optionally chosen from 2 meters  to 50 meters.  This function should be configured to avoid duplicating points being recorded where too little actual motion may have occurred. |
 | Minimum accuracy | Accuracy means the proximity of  measurements to the actual position. It is not directly related to precision, which is the spread of repeated measurements. Minimum accuracy will record only points measured with a minimum accuracy indication. If set accuracy is much higher than current, the point will be missed by the device. |
 | Minimum speed | It is used  to detach the low speed and ignore the low speed data. The tracks will look smoother on the map. |
-| Auto-split recording after gap |
-Enable/disable function that helps to start new segment. The new segment might start after 6 minutes gap. The new track might start after 2 hours gap. The new track might start  after a one-day gap.  |
+| Auto-split recording after gap | Enable/disable function that helps to start new segment. The new segment might start after 6 minutes gap. The new track might start after 2 hours gap. The new track might start  after a one-day gap. |
 | Prevent standalone logging | Enable/disable function that helps to pause track logging when the app is killed. In this case, the OsmAnd background indication will disappear from the Android's notification bar.  |
 | Include heading | Enable/disable function that saves heading to each track pint while recording. |   
 
 
-> **_TIP_**:
+> **_TIP:_**
 > Set 5 meters distance for 'Minimum displacement' function if there are no need to capture precise data while rest.
 
-> **_TIP_**:
+> **_TIP:_**
 > It is hard to predict the set of data that will be recorded. If the user is not sure about signal quality it makes sense to turn off (not select) the 'Minimum accuracy' filter.
 
-> **_TIP_**:
+> **_TIP:_**
 > Try to configure 'Minimum displacement first. It will help you not to lose data.  If the track looks noisy try to configure more than zero speed in the 'Minimum speed' function.
 
 ### Configure trip informational settings
 
 ![REC informational settings](/assets/images/docs/widgets/rec_plugin_info_settings.png)
-
-#### Track storage folder
+*Track storage folder*
 
 Is used to define where the tracks will be stored. There are two options:
 
@@ -98,11 +96,11 @@ Is used to define where the tracks will be stored. There are two options:
 
 > **_Note:_** User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} →  tab {% data variables.android-values.shared_string_gpx_files %}.
 
-#### Notification
+*Notification*
 
 Is used to enable/disable system notifications that allows to start trip recording.
 
-#### Online tracking
+*Online tracking*
 
 Is used to enable/disable function that allows sharing current location using trip recording.
 
@@ -110,7 +108,7 @@ Is used to enable/disable function that allows sharing current location using tr
 - Tracking interval - Allows user to specify online tracking interval from 0 seconds to 5 minutes.
 - Time buffer - Allows user to specify a time buffer that will keep locations to send without connection
 
-### Configure trip general settings
+*Configure trip general settings*
 
 ![REC general settings](/assets/images/docs/widgets/rec_plugin_general_settings.png)
 
