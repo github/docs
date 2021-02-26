@@ -92,7 +92,7 @@ If your content is describing a new feature that was added to GitHub.com and wil
 In this example:
 
 - `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
-- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.7+.
+- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
 - `{% endif %}` ends the statement.
 
 #### Including content for *changed* Dotcom features that will also change in Enterprise
@@ -100,7 +100,7 @@ In this example:
 If your content is describing a change to existing functionality in Dotcom, such as changed UI text or a more simple means of completing a task, use this logic:
 
 ```
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.20" %}This is the new way of doing things {% else %}This is the old way of doing things {% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}This is the new way of doing things {% else %}This is the old way of doing things {% endif %}
 ```
 
 In this example:
@@ -115,12 +115,11 @@ In this example:
 If your content is describing a change to existing functionality in Dotcom, and that functionality doesn't exist in all older Enterprise versions, use logic like this:
 
 ```
-{% if currentVersion == 'dotcom' or currentVersion ver_gt "2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 This is the new way of doing things.
 
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "2.21" %}
+{% elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "enterprise-server@2.21" %}
 
 This is the old way of doing things (which did not exist before 2.20).
 
@@ -130,8 +129,8 @@ This is the old way of doing things (which did not exist before 2.20).
 In this example:
 
 - `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
-- `or currentVersion ver_gt "2.20"` will include the content for releases *after* Enterprise 2.20, which means the content will be included for 2.21+.
-- `elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "2.21"` means if the above is NOT true, and the version is 2.20, then display the content that follows, `This is the old way of doing things`. No content will be displayed for versions older than 2.20.
+- `or currentVersion ver_gt "enterprise-server@2.20"` will include the content for releases *after* Enterprise 2.20, which means the content will be included for 2.21+.
+- `elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "enterprise-server@2.21"` means if the above is NOT true, and the version is 2.20, then display the content that follows, `This is the old way of doing things`. No content will be displayed for versions older than 2.20.
 - `{% endif %}` ends the statement.
 
 #### Including content for *new Enterprise features* that don't exist on Dotcom
