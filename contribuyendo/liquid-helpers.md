@@ -1,4 +1,4 @@
-# Liquid helpers <!-- omit in toc -->
+Liquid helpers <!-- omit in toc -->
 
 We use the [liquid template language](https://shopify.github.io/liquid/basics/introduction/) (specifically, [this Node.js port](https://github.com/docs/liquid)) to create different versions of our content.
 
