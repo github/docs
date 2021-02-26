@@ -8,21 +8,21 @@ versions: '*'
 
 ![Trip recording](/assets/images/plugins/placeholder-intro.png)
 
-### How to use
+## How to use
 {% link_in_list /how-to-use-android %}
 {% link_in_list /how-to-use-ios %}
 
-### Trip recording settings
+## Trip recording settings
 {% link_in_list /settings-android %}
 {% link_in_list /settings-ios %}
 
-### Troubleshooting -->
+## Troubleshooting -->
 
 The Trip recording plugin enable functionality to record and save users tracks.
 
 ![Enable /Disable Plugin](/assets/images/docs/widgets/enable_disable_plugin.png)
 
-##  Enable /Disable Plugin
+###  Enable /Disable Plugin
 
 User can Enable /Disable Plugin for:
 
@@ -32,13 +32,13 @@ User can Enable /Disable Plugin for:
 
 > **_Note:_** Enable  [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget).
 
-##  Trip recording Plugin settings for Android
+###  Trip recording Plugin settings for Android
 
 To configure settings follow {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_menu_group: %} → tap the Trip recording plugin
 
 ![REC Settings Plugin](/assets/images/docs/widgets/rec_settings_plugin.png)
 
-###  Configure trip recording profile
+##  Configure trip recording profile
 
 Default 'Trip recording' profile is Browse map profile. User can choose other OsmAnd profiles or creates his own (Manage <!--сделать ссылку на инстукцию как сделать уникальный профиль [Manage profile ](text)-->) profile.
 
@@ -46,7 +46,7 @@ Default 'Trip recording' profile is Browse map profile. User can choose other Os
 
 To change profile click the globe icon in the upper-right corner.
 
-###  Configure trip recording navigation
+##  Configure trip recording navigation
 
 ![REC navigation](/assets/images/docs/widgets/rec_plugin_navigation.png)
 
@@ -58,7 +58,7 @@ User can find his track in {% data variables.android-values.shared_string_menu %
 Logging interval during navigation controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
 By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minutes.
 
-###  Configure trip recording logging accuracy
+##  Configure trip recording logging accuracy
 
 ![REC logging accuracy](/assets/images/docs/widgets/rec_plugin_logging_accuracy.png)
 
