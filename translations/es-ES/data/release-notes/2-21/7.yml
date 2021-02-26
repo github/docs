@@ -1,9 +1,8 @@
----
-date: '08-09-2020'
+date: '2020-09-08'
 sections:
   bugs:
     - 'Una revisión de salud del servicio causó un crecimiento de sesión que resultó en el agotamiento del sistema de archivos en el nodo. {% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
-    - "Hacer mejoras utilizando hotpatches podría fallar con un error de `'libdbi1' was not found`{% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - 'Hacer mejoras utilizando hotpatches podría fallar con un error de `''libdbi1'' was not found`{% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}'
   known_issues:
     - 'En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

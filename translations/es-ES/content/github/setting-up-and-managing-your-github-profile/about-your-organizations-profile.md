@@ -19,6 +19,6 @@ Opcionalmente, puedes optar por agregar una descripción, una ubicación, un sit
 ![Muestra de la página de perfil de una organización](/assets/images/help/profile/org_profile.png)
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las organizaciones](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"

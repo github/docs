@@ -17,7 +17,7 @@ Cuando ves una revisión completa, verás la misma versión de la solicitud de e
 {% data reusables.repositories.choose-pr-review %}
 3. En la pestaña "Conversation" (Conversación), desplázate hasta la revisión que deseas ver y luego haz clic en **View changes (Ver cambios)**. ![Encabezado de revisión con el vínculo de revisión completa](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las revisiones de solicitudes de extracción](/articles/about-pull-request-reviews)"
 - "[Revisar los cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)"

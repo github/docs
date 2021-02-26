@@ -39,6 +39,6 @@ Cuando termines de moderar el contenido ofensivo, puedes marcar el reporte como 
 {% data reusables.repositories.reported-content-resolved-tab %}
 5. Da clic en {% octicon "kebab-horizontal" aria-label="The edit icon" %} a la derecha del reporte que quisieras marcar como no resuelto. Posteriormente, da clic en **Marcar como no resuelto**. !["Marcar como no resuelto" en el menú desplegable de Editar para el contenido reportado](/assets/images/help/repository/reported-content-mark-report-as-unresolved.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración y moderación de la comunidad](/github/building-a-strong-community/about-community-management-and-moderation)"

@@ -40,6 +40,7 @@ Para obter mais informações, consulte [Personalizar](https://docs.microsoft.co
 
 {% endnote %}
 
+Você também pode definir as configurações para que a sua conta de usuário adicione segredos criptografados, habilitar a verificação de GPG e permitir que os seus codespaces acessem outros repositórios. Para obter mais informações, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Gerenciar verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)" e "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
 
 ### Leia mais
 

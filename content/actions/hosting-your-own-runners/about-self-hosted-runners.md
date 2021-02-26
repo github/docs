@@ -49,7 +49,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported operating systems for self-hosted runners](#supported-operating-systems-for-self-hosted-runners)."
+* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
 * The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
@@ -63,7 +63,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.github-actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Supported operating systems for self-hosted runners
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
@@ -92,6 +92,14 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) or later
 
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### Supported actions on self-hosted runners
@@ -112,6 +120,7 @@ You must ensure that the machine has the appropriate network access to communica
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

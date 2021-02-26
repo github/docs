@@ -1,13 +1,6 @@
 import { tags } from './hyperscript'
 import { sendEvent } from './events'
-const searchWithYourKeyboard = require('search-with-your-keyboard')
-const truncate = require('html-truncate')
-const languages = require('../lib/languages')
-const allVersions = require('../lib/all-versions')
-const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
-
-const languageCodes = Object.keys(languages)
-const maxContentLength = 300
+import searchWithYourKeyboard from 'search-with-your-keyboard'
 
 let $searchInputContainer
 let $searchResultsContainer
@@ -29,8 +22,13 @@ export default function search () {
   $searchOverlay = document.querySelector('.search-overlay-desktop')
 
   // There's an index for every version/language combination
-  version = deriveVersionFromPath()
-  language = deriveLanguageCodeFromPath()
+  const {
+    languages,
+    versions,
+    nonEnterpriseDefaultVersion
+  } = JSON.parse(document.getElementById('expose').text).searchOptions
+  version = deriveVersionFromPath(versions, nonEnterpriseDefaultVersion)
+  language = deriveLanguageCodeFromPath(languages)
 
   // Find search placeholder text in a <meta> tag, falling back to a default
   const $placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
@@ -109,23 +107,16 @@ function closeSearch () {
   onSearch()
 }
 
-function deriveLanguageCodeFromPath () {
+function deriveLanguageCodeFromPath (languageCodes) {
   let languageCode = location.pathname.split('/')[1]
   if (!languageCodes.includes(languageCode)) languageCode = 'en'
   return languageCode
 }
 
-function deriveVersionFromPath () {
+function deriveVersionFromPath (allVersions, nonEnterpriseDefaultVersion) {
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const versionStr = location.pathname.split('/')[2] || nonEnterpriseDefaultVersion
-  const versionObject = allVersions[versionStr] || allVersions[nonEnterpriseDefaultVersion]
-
-  // if GHES, returns the release number like 2.21, 2.22, etc.
-  // if FPT, returns 'dotcom'
-  // if GHAE, returns 'ghae'
-  return versionObject.plan === 'enterprise-server'
-    ? versionObject.currentRelease
-    : versionObject.miscBaseName
+  return allVersions[versionStr] || allVersions[nonEnterpriseDefaultVersion]
 }
 
 // Wait for the event to stop triggering for X milliseconds before responding
@@ -280,14 +271,13 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
       ),
       div(
         { class: 'search-result-content d-block text-gray' },
-        // Truncate without breaking inner HTML tags
-        markify(truncate(content, maxContentLength))
+        markify(content)
       )
     )
   )
 }
 
-// Convert em to mark tags in search responses
+// Convert mark tags in search responses
 function markify (text) {
   const { mark } = tags
   return text

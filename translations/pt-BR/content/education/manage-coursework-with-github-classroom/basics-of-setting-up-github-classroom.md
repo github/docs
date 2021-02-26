@@ -30,4 +30,4 @@ Para obter mais informações sobre aulas com {% data variables.product.prodname
 
 ### Leia mais
 
-- "[Ensine e aprenda com {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Explore os benefícios do ensino e da aprendizagem com {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
