@@ -67,7 +67,7 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 | function | Description |
 |--------------------------|-------------|
 | General logging interval |Specifies the logging interval for the general track recording. Can be chosen as 'always ask' or optionally chosen from 0 seconds  to 5 minutes. Can be turned on via [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget). |
-| `type` | The type of event. Events uses PascalCase for the name. |
+| Minimum displacement | Specifies the minimum displacement for the track recording. Can be chosen as 'not selected' or optionally chosen from 2 meters  to 50 meters. > [!Note]: > Set 5 meters distance  if there are no needs to capture precise data while rest. |
 | `actor` | The user that triggered the event. |
 | `actor.id` | The unique identifier for the actor. |
 | `actor.login` | The username of the actor. |
