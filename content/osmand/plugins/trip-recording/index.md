@@ -68,11 +68,16 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 |--------------------------|-------------|
 | General logging interval |Specifies the logging interval for the general track recording. Can be chosen as 'always ask' or optionally chosen from 0 seconds  to 5 minutes. Can be turned on via [Trip recording (REC) widget](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#trip-recording-rec-widget). |
 | Minimum displacement | Specifies the minimum displacement for the track recording. Can be chosen as 'not selected' or optionally chosen from 2 meters  to 50 meters.  This function should be configured to avoid duplicating points being recorded where too little actual motion may have occurred. |
-| Minimum accuracy |   |
+| Minimum accuracy | Accuracy means the proximity of  measurements to the actual position. It is not directly related to precision, which is the spread of repeated measurements. Minimum accuracy will record only points measured with a minimum accuracy indication. If set accuracy is much higher than current, the point will be missed by the device. |
 | Minimum speed |   |
 | Auto-split recording after gap |   |
 | Prevent standalone logging |   |
 | include heading |   |   
 
 
->[!Note]: > Set 5 meters distance for 'Minimum displacement' function if there are no needs to capture precise data while rest.
+>[!TIP]:
+>
+> Set 5 meters distance for 'Minimum displacement' function if there are no need to capture precise data while rest.
+
+| TIP: Set 5 meters distance for 'Minimum displacement' function if there are no need to capture precise data while rest. |
+| --- |
