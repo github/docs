@@ -8,6 +8,6 @@
   
   {% windows %}
   
-  ![Restore stashed changes button](/assets/images/help/desktop/windows-discard-stashed-changes-button.png)
+  ![Discard stashed changes button](/assets/images/help/desktop/windows-discard-stashed-changes-button.png)
   
   {% endwindows %}
