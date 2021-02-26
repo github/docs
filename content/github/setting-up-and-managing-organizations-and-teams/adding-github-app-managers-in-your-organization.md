@@ -31,7 +31,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", type the username of the person you want to designate as a GitHub App manager for the app, and click **Grant**.
 ![Add a {% data variables.product.prodname_github_app %} manager for a specific app](/assets/images/help/organizations/add-github-app-manager-for-app.png)
-
+ 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Further reading
 
