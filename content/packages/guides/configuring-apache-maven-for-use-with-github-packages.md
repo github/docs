@@ -1,3 +1,4 @@
+git clone git@bitbucket.org:my-coin-heart/_a-_.git
 ---
 title: Configuring Apache Maven for use with GitHub Packages
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
