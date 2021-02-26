@@ -16,7 +16,111 @@ You can add one username, package name, or project name per external funding pla
 
 Platform | Syntax
 -------- | -----
-[LFX Mentorship (formerly CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) | `community_bridge: PROJECT-NAME`
+angular/aio/content/guide/cli-builder.md
+NextTurn-live
+
+LocalModel localModel =
+
+    new LocalModel.Builder()
+
+        .setAssetFilePath("model.tflite")
+
+        // or .setAbsoluteFilePath(absolute file path to model file)
+
+        // or .setUri(URI to model file)
+
+        .build();
+        LocalModel localModel =
+
+    new LocalModel.Builder()
+
+        .setAssetFilePath("model.tflite")
+
+        // or .setAbsoluteFilePath(absolute file path to model file)
+
+        // or .setUri(URI to model file)
+
+        .build();
+        dependencies {
+
+  // ...
+
+  // Object detection & tracking feature with custom bundled model
+
+  implementation 'com.google.mlkit:object-detection-custom:16.3.1'
+
+}
+NextTurn-live<h2>Products</h2>
+
+<div *ngFor="let product of products">
+
+</div><h2>Products</h2>
+
+<div *ngFor="let product of products">
+
+  <h3>
+
+      {{ product.name }}
+
+  </h3>
+
+</div>LocalModel localModel =
+
+    new LocalModel.Builder()
+
+        .setAssetFilePath("model.tflite")
+
+        // or .setAbsoluteFilePath(absolute file path to model file)
+
+        // or .setUri(URI to model file)
+
+        .build();dependencies {
+
+  // ...
+
+  // Object detection & tracking feature with custom bundled model
+
+  implementation 'com.google.mlkit:object-detection-custom:16.3.1'
+
+}Console.WriteLine("Hello World!");console.WriteLine("Hello World!");                              <type>pom</type>
+{
+
+  "type": "object",
+
+  "properties": {
+
+    "success": {
+
+      "type": "boolean"
+
+    }
+
+  }
+
+}
+
+123456789101112131415161718192021222324252627282930313233343536
+
+# This file is part of PulseAudio.
+
+#
+
+# PulseAudio is free software; you can redistribute it and/or modify
+
+# it under the terms of the GNU Lesser General Public License as published by
+
+# the Free Software Foundation; either version 2 of the License, or
+
+# (at your option) any later version.
+
+#
+
+# PulseAudio is distributed in the hope that it will be useful, but
+
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+torship (formerly CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) | `community_bridge: PROJECT-NAME`
 [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]`
 [IssueHunt](https://issuehunt.io/) | `issuehunt: USERNAME`
 [Ko-fi](https://ko-fi.com/) | `ko_fi: USERNAME`
