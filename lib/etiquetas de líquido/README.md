@@ -1,4 +1,4 @@
-# Liquid Tags
+*Liquid Tags
 
 See also [contributing/liquid-helpers.md](../../contributing/liquid-helpers.md)
 
