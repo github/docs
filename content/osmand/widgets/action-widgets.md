@@ -84,7 +84,7 @@ To tap REC widget again will give an opportunity  to:
 * Save (save the recorded track and change GPX file name)
 * Pause and stop recording
 
-User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} → {% data variables.android-values.tracks_view_descr %} <br>
+User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} →  tab {% data variables.android-values.shared_string_gpx_files %} <br>
 
 ***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
 To tap REC widget again will give an opportunity  to:
