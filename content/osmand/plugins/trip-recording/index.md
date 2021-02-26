@@ -38,12 +38,29 @@ To configure settings follow {% data variables.android-values.shared_string_menu
 
 ![REC Settings Plugin](/assets/images/docs/widgets/rec_settings_plugin.png)
 
-| Step 1 | configure profile |
+###  Configure trip recording profile
+
+Default 'Trip recording' profile is Browse map profile. User can choose other OsmAnd profiles or creates his own (Manage <!--сделать ссылку на инстукцию как сделать уникальный профиль [Manage profile ](text)-->) profile.
+
+![REC profile](/assets/images/docs/widgets/rec_plugin_change_profile.png)
+
+To change profile click the globe icon in the upper-right corner.
+
+###  Configure trip recording navigation
+
+![REC navigation](/assets/images/docs/widgets/rec_plugin_navigation.png)
+
+Auto-record track during navigation – the function that can enable/disable saving each 'trip recording' track automatically. User can find all his tracks in Menu- my plases - tab tracks
+
+
+<!-- | settings to configure| Description |
+|--------------------------|-------------|
+| configure profile | configure profile |
 | Step 2 | set 'navigation' |
 | Step 3 | set 'logging accuracy'|
 | Step 4  | choose the 'track storage folder' |
 | Step 5 | enable/disable 'notification'  |
-| Step 6 | enable/disable 'online tracking' | 
+| Step 6 | enable/disable 'online tracking' | -->
 
 <!-- ## Trip recording settings
 {% link_in_list /settings-android %}
