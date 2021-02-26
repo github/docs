@@ -87,6 +87,7 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 ### Configure trip informational settings
 
 ![REC informational settings](/assets/images/docs/widgets/rec_plugin_info_settings.png)
+
 **Track storage folder**
 
 Is used to define where the tracks will be stored. There are two options:
