@@ -42,7 +42,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core SDK ${{ matrix.dotnet }}
-      uses: actions/setup-dotnet@v1.6.0
+      uses: actions/setup-dotnet@v1.7.2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
@@ -79,7 +79,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup dotnet ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v1.6.0
+      uses: actions/setup-dotnet@v1.7.2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     # You can test your matrix by printing the current dotnet version
@@ -111,7 +111,7 @@ You can configure your job to use a specific version of .NET, such as `3.1.3`. A
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -132,7 +132,7 @@ For more information, see "[Caching dependencies to speed up workflows](/actions
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - uses: actions/cache@v2
@@ -164,7 +164,7 @@ You can use the same commands that you use locally to build and test your code. 
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -199,7 +199,7 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - name: Setup dotnet
-        uses: actions/setup-dotnet@v1.6.0
+        uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
