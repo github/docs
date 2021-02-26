@@ -75,8 +75,7 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 | include heading |   |   
 
 
->[!TIP]:
->
+>TIP:
 > Set 5 meters distance for 'Minimum displacement' function if there are no need to capture precise data while rest.
 
 | TIP: Set 5 meters distance for 'Minimum displacement' function if there are no need to capture precise data while rest. |
