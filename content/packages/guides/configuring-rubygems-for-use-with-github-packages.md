@@ -11,6 +11,95 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
+GitHub Docs
+English
+GitHub.com Authentication Managing commit signature verification Associating an email with your GPG key
+Associating an email with your GPG key
+
+Your GPG key must be associated with a GitHub verified email that matches your committer identity.
+
+If you're using a GPG key that matches your committer identity and your verified email address associated with your GitHub account, then you can begin signing commits and signing tags.
+
+    Open Terminal.
+
+    Use the gpg --list-secret-keys --keyid-format LONG command to list GPG keys for which you have both a public and private key. A private key is required for signing commits or tags.
+
+    $ gpg --list-secret-keys --keyid-format LONG
+
+    Note: Some GPG installations on Linux may require you to use gpg2 --list-keys --keyid-format LONG to view a list of your existing keys instead. In this case you will also need to configure Git to use gpg2 by running git config --global gpg.program gpg2.
+
+    From the list of GPG keys, copy the GPG key ID you'd like to use. In this example, the GPG key ID is 3AA5C34371567BD2:
+
+    $ gpg --list-secret-keys --keyid-format LONG
+    /Users/hubot/.gnupg/secring.gpg
+    ------------------------------------
+    sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+    uid                          Hubot 
+    ssb   4096R/42B317FD4BA89E7A 2016-03-10
+
+    Enter gpg --edit-key GPG key ID, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is 3AA5C34371567BD2:
+
+    $ gpg --edit-key 3AA5C34371567BD2
+
+    Enter gpg> adduid to add the user ID details.
+
+    $ gpg> adduid
+
+    Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing N, C, or E. To keep your email address private, use your GitHub-provided no-reply email address. For more information, see "Setting your commit email address."
+
+    Real Name: Octocat
+      Email address: octocat@github.com
+      Comment: GitHub key
+      Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
+
+    Enter O to confirm your selections.
+
+    Enter your key's passphrase.
+
+    Enter gpg> save to save the changes
+
+    $ gpg> save
+
+    Enter gpg --armor --export GPG key ID, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is 3AA5C34371567BD2:
+
+    $ gpg --armor --export 3AA5C34371567BD2
+    # Prints the GPG key, in ASCII armor format
+
+    Upload the GPG key by adding it to your GitHub account.
+
+Further reading
+
+    "Checking for existing GPG keys"
+    "Generating a new GPG key"
+    "Using a verified email address in your GPG key"
+    "Adding a new GPG key to your GitHub account"
+    "Signing commits"
+    "Signing tags"
+
+Did this doc help you?
+
+Privacy policy
+
+Help us make these docs great!
+
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Or, learn how to contribute.
+Still need help?
+
+    © 2021 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+    Contact GitHub
+    Pricing
+    Developer API
+    Training
+    About
+Zachry T Wood III to
+
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
