@@ -87,7 +87,7 @@ By default, it is 5 seconds, but it can be configured from 0 seconds to 5 minute
 ### Configure trip informational settings
 
 ![REC informational settings](/assets/images/docs/widgets/rec_plugin_info_settings.png)
-*Track storage folder*
+**Track storage folder**
 
 Is used to define where the tracks will be stored. There are two options:
 
@@ -96,11 +96,11 @@ Is used to define where the tracks will be stored. There are two options:
 
 > **_Note:_** User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} →  tab {% data variables.android-values.shared_string_gpx_files %}.
 
-*Notification*
+**Notification**
 
 Is used to enable/disable system notifications that allows to start trip recording.
 
-*Online tracking*
+**Online tracking**
 
 Is used to enable/disable function that allows sharing current location using trip recording.
 
@@ -108,7 +108,7 @@ Is used to enable/disable function that allows sharing current location using tr
 - Tracking interval - Allows user to specify online tracking interval from 0 seconds to 5 minutes.
 - Time buffer - Allows user to specify a time buffer that will keep locations to send without connection
 
-*Configure trip general settings*
+**Configure trip general settings**
 
 ![REC general settings](/assets/images/docs/widgets/rec_plugin_general_settings.png)
 
