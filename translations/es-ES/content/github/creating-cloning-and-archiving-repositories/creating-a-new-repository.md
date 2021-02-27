@@ -45,7 +45,7 @@ versions:
 9. En la parte inferior de la página de Configuración rápida resultante, en "Importar el código del repositorio anterior", puedes elegir importar un proyecto en tu nuevo repositorio. Para hacerlo, haz clic en **Importar código**.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Administrar el acceso a los repositorios de tu organización](/articles/managing-access-to-your-organization-s-repositories)"
 - [Open Source Guides](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}

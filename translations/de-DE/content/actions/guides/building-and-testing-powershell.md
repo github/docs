@@ -8,6 +8,9 @@ versions:
 authors:
   - potatoqualitee
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Powershell'
 ---
 
 {% data reusables.actions.enterprise-beta %}

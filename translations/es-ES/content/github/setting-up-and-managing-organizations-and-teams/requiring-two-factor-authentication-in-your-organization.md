@@ -68,7 +68,7 @@ Para ver las personas que se eliminaron automáticamente de tu organización por
 
 Si algún miembro o colaborador externo se eliminó de la organización cuando habilitaste el uso requerido de autenticación de dos factores, recibirá un correo electrónico que le notifique que ha sido eliminado. Debe entonces habilitar la 2FA para su cuenta personal y contactarse con un propietario de la organización para solicitar acceso a tu organización.
 
-### Further reading
+### Leer más
 
 - "[Ver si los usuarios de tu organización tienen la 2FA habilitada](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[Proteger tu cuenta con autenticación de dos factores (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa)"

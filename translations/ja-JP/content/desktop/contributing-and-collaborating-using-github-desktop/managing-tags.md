@@ -9,7 +9,7 @@ versions:
 
 ### {% data variables.product.prodname_desktop %} のタグについて
 
-{% data variables.product.prodname_desktop %} を使用すると、アノテーションされたタグを作成できます。 タグを使用して、リリースのバージョン番号など、リポジトリの履歴内の個々のポイントをマークできます。 リリースタグに関する詳しい情報については、「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。
+{% data variables.product.prodname_desktop %} を使用すると、アノテーションされたタグを作成できます。 Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. リリースタグに関する詳しい情報については、「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。
 
 {% data reusables.desktop.tags-push-with-commits %}
 
@@ -33,3 +33,18 @@ versions:
   ![履歴でタグを表示する](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. コミットに関連付けられているすべてのタグは、そのコミットのメタデータに表示されます。 ![コミットでタグを表示する](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Deleting tags
+
+{% note %}
+
+**Note**: You can only delete tags associated with commits that have not yet been pushed.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}
+
+### 参考リンク
+
+- "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation

@@ -18,7 +18,7 @@ Para executar um fluxo de trabalho manualmente, o fluxo de trabalho deve ser con
 
 Para acionar o evento `workflow_dispatch` em {% data variables.product.prodname_dotcom %}, seu fluxo de trabalho deve estar no branch-padrão. Siga estas etapas para acionar manualmente uma execução do fluxo de trabalho.
 
-{% data reusables.repositories.permissions-statement-read %}
+{% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

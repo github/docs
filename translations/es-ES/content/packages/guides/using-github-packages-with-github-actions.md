@@ -1,6 +1,6 @@
 ---
-title: Usar GitHub Packages con GitHub Actions
-intro: 'Puedes configurar un flujo de trabajo en {% data variables.product.prodname_actions %} para publicar o instalar automáticamente un paquete desde {% data variables.product.prodname_registry %}.'
+title: Using GitHub Packages with GitHub Actions
+intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
@@ -12,30 +12,30 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### Acerca de {% data variables.product.prodname_registry %} con {% data variables.product.prodname_actions %}
+### About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
 
-Puedes ampliar las capacidades de CI y CD de tu repositorio publicando o instalando paquetes como parte de tu flujo de trabajo.
+You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Autenticarte en {% data variables.product.prodname_github_container_registry %}
+#### Authenticating to {% data variables.product.prodname_github_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-Para ver un ejemplo de autenticación, consulta la sección "[Autenticarse con el {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)".
+For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
 
 {% endif %}
 
-#### Autenticarse en los registros de paquetes en {% data variables.product.prodname_dotcom %}
+#### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% if currentVersion == "free-pro-team@latest" %}Si quieres que tu flujo de trabajo se autentique en {% data variables.product.prodname_registry %} para acceder a un registro de paquetes diferente al {% data variables.product.prodname_container_registry %} en {% data variables.product.product_name %}, entonces{% else %}Para autenticarse en los registros de paquetes de {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que {% data variables.product.product_name %} crea automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. El `GITHUB_TOKEN` tiene ámbitos `read:packages` y `write:packages` en el repositorio actual. Para las bifurcaciones, el token también tiene el ámbito `read:packages` para el repositorio padre.
+{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. The `GITHUB_TOKEN` has `read:packages` and `write:packages` scopes to the current repository. For forks, the token also has the `read:packages` scope for the parent repository.
 
-Puedes hacer referencia al `GITHUB_TOKEN` en tu archivo de flujo de trabajo mediante el contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
-### Publicar un paquete mediante una acción
+### Publishing a package using an action
 
 You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
 
@@ -106,7 +106,9 @@ The following example demonstrates how you can use {% data variables.product.pro
   ```
   {% endraw %}
 
-  The relevant settings are explained in the following table: <table>
+  The relevant settings are explained in the following table:
+
+  <table>
   <tr>
   <td>
 
@@ -303,15 +305,14 @@ tag_with_ref: true
 - This new workflow will run automatically every time you push a change to the repository. You can view the progress in the **Actions** tab.
 - A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
 
-### Instalar un paquete mediante una acción
+### Installing a package using an action
 
-Puedes instalar paquetes como parte de tu flujo de CI mediante {% data variables.product.prodname_actions %}. Por ejemplo, podrías configurar un flujo de trabajo para que cada vez que un programador suba código a una solicitud de extracción, el flujo de trabajo resuelva las dependencias al descargar e instalar paquetes alojados por el {% data variables.product.prodname_registry %}. Luego, el flujo de trabajo puede ejecutar pruebas de CI que requieran las dependencias.
+You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-El instalar paquetes que hospeda el {% data variables.product.prodname_registry %} a través de las {% data variables.product.prodname_actions %} requiere una configuración mínima o autenticación adicional cuando utilizas un `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} También, la transferencia de datos es gratuita cuando una acción instala un paquete. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-`GITHUB_TOKEN` no puede instalar paquetes desde ningún repositorio privado además del repositorio donde se ejecuta la acción.  Actualmente, no puedes utilizar `GITHUB_TOKEN` para autenticarte en el
-{% data variables.product.prodname_github_container_registry %}.
+`GITHUB_TOKEN` cannot install packages from any private repository besides the repository where the action runs.  You cannot currently use `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.
 {% endif %}
 
 {% data reusables.package_registry.actions-configuration %}

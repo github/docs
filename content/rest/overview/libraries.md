@@ -25,7 +25,7 @@ versions:
 
 ### Clojure
 
-Library name | Repository 
+Library name | Repository
 |---|---|
 **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
@@ -80,7 +80,7 @@ Library name | Repository |
 
 Library name | Repository |
 |---|---|
-**Github.jl**|[WestleyArgentum/Github.jl](https://github.com/WestleyArgentum/GitHub.jl)
+**GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
 
 ### OCaml
 
@@ -93,7 +93,7 @@ Library name | Repository |
 Library name | Repository | metacpan Website for the Library
 |---|---|---|
 **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub)
-**Net::Github**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:Github CPAN](https://metacpan.org/pod/Net::GitHub)
+**Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
@@ -105,8 +105,8 @@ Library name | Repository
 **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)
 **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github)
 **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
-**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub)
-**PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
+**PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
 
 ### Python
 

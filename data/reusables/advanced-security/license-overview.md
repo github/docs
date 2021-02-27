@@ -1,0 +1,1 @@
+Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of committers whose work can use these features. A committer is someone who authored at least one commit that was pushed to the repository in the last 90 days. Each committer is counted once, no matter how many repositories they contribute to.

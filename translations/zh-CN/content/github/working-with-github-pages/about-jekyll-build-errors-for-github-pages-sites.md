@@ -44,13 +44,13 @@ versions:
 您可以配置第三方服务（例如 [Travis CI](https://travis-ci.org/)）以在每次提交后显示错误消息。
 
 1. 如果尚未在发布源的根目录中添加名为 _Gemfile_、包含以下内容的文件，请添加：
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. 为您选择的测试服务配置站点仓库。 例如，要使用 [Travis CI](https://travis-ci.org/)，请在发布源的根目录下添加一个名为 _.travis.yml_、包含以下内容的文件：
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

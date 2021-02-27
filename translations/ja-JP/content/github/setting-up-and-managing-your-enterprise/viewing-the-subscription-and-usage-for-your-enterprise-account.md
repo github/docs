@@ -15,6 +15,8 @@ versions:
 
 現時点では、Enterprise アカウントは請求書で支払いを行っている {% data variables.product.prodname_enterprise %} のお客様が利用できます。 Enterprise アカウントに接続されたすべての Organization および {% data variables.product.prodname_ghe_server %} インスタンスの支払いは、すべての有料の {% data variables.product.prodname_dotcom_the_website %} サービス (これには Organization の有料ライセンス、{% data variables.large_files.product_name_long %} のデータパック、{% data variables.product.prodname_marketplace %} アプリケーションに対するプランが含まれます) に対する単一の支払いに集約されます。
 
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."{% endif %}
+
 For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 ### Enterprise アカウントのプランおよび利用状況を表示する

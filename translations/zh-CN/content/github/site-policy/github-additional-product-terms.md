@@ -55,7 +55,7 @@ GitHub Actions 按用量计费。 [Actions 文档](/actions)包含详细信息�
 - 任何给我们的服务器带来负担的活动，如果这种负担与提供给用户的收益不成比例（例如，不要将 Action 用作内容交付网络或作为无服务器应用程序的一部分，但收益低负担也低的 Action 可能没问题）；或
 - 与使用 GitHub Actions 的仓库相关的软件项目创建、测试、部署或发布无关的任何其他活动。
 
-为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能会导致作业终止，或者您使用 GitHub Actions 的权限受限。
+为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能导致作业终止、使用 GitHub Actions 的权限受到限制，或者禁用以违反这些条款的方式运行 Actions 的仓库。
 
 #### b. Packages 的使用
 GitHub Packages 按用量计费。 [Packages 文档](/packages)包含详细信息，包括带宽和存储量（取决于您的帐户计划）以及如何监控您的 Packages 使用和设置使用限制。 Packages 带宽使用受 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)限制。

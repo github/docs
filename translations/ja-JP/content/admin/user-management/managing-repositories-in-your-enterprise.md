@@ -1,6 +1,6 @@
 ---
 title: Managing repositories in your enterprise
-intro: 'You can manage the settings available to repository administrators in your enterprise.'
+intro: 'Enterprise のリポジトリ管理者向けに利用可能な設定を管理できます。'
 redirect_from:
   - /enterprise/admin/user-management/repositories
   - /enterprise/admin/user-management/managing-repositories-in-your-enterprise

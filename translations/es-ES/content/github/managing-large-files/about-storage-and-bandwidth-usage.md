@@ -40,7 +40,7 @@ Si utilizas más de {% data variables.large_files.initial_storage_quota %} de al
 
 Si usas más de {% data variables.large_files.initial_bandwidth_quota %} de ancho de banda por mes sin comprar un paquete de datos, el soporte de {% data variables.large_files.product_name_short %} se desactiva en tu cuenta hasta el próximo mes.
 
-### Further reading
+### Leer más
 
 - "[Ver tu uso de {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
 - "[Administrar la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"

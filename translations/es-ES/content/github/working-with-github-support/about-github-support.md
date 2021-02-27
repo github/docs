@@ -23,9 +23,9 @@ Para ver si actualmente hay algún incidente que afecte los servicios en {% data
 
 ### Contactar a {% data variables.contact.github_support %}
 
-You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
+Puedes utilizar el {% data variables.contact.community_support_forum %} para buscar temas, hacer preguntas, compartir soluciones e interactuar directamente con {% data variables.contact.community_support %}.
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
+Para reportar incidentes de cuenta, seguridad y abuso, o para recibir soporte asistido para una cuenta de pago, visita el {% data variables.contact.contact_support_portal %}. Si eres un administrador de {% data variables.product.prodname_ghe_server %} sin una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}, vista el {% data variables.contact.contact_enterprise_portal %}.
 
 ### Otorgar a {% data variables.contact.github_support %} acceso temporal a un repositorio privado
 

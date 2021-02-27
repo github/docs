@@ -89,6 +89,11 @@ mark,
   }
 }
 
+.search-result-content {
+  max-height: 4rem;
+  overflow: hidden;
+}
+
 .search-result-title em {
   font-style: normal;
   text-decoration: underline;

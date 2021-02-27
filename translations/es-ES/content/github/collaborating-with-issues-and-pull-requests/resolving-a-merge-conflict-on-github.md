@@ -56,6 +56,6 @@ Si un administrador de sitio inhabilita el editor de conflicto de fusión para l
 {% endif %}
 1. Para fusionar tu solicitud de extracción, haz clic en **Merge pull request** (Fusionar solicitud de extracción). Para obtener más información acerca de otras opciones de fusión de solicitudes de extracción, consulta "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request/)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/)"

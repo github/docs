@@ -1,1 +1,1 @@
-A group assignment is collaborative coursework for groups of students on {% data variables.product.prodname_classroom %}.
+Uma atividade em grupo é curso colaborativo para grupos de estudantes em {% data variables.product.prodname_classroom %}.

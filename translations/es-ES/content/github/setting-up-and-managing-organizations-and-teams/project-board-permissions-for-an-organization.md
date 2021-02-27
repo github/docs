@@ -30,9 +30,9 @@ Por ejemplo, si el propietario de la organización ha otorgado a todos los miemb
 
 ### Visibilidad del tablero de proyecto
 
-{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} puedes cambiar la visibilidad del tablero de proyecto de privado a {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
 
-### Further reading
+### Leer más
 
 - "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)."
 - "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"

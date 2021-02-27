@@ -499,7 +499,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.issue_comment.created }}
 
-### issues
+### 议题
 
 {% data reusables.webhooks.issues_short_desc %}
 

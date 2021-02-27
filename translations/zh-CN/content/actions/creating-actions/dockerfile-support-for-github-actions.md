@@ -1,14 +1,14 @@
 ---
 title: Dockerfile 对 GitHub 操作的支持
 shortTitle: Docker
-intro: '为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub 操作及操作的元数据文件交互。'
+intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub 操作及操作的元数据文件交互。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,20 +48,21 @@ Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPO
 
 如果您配置容器使用 _exec_ 形式的 `ENTRYPOINT` 指令，在操作元数据文件中配置的 `args` 不会在命令 shell 中运行。 如果操作的 `args` 包含环境变量，不会替换该变量。 例如，使用以下 _exec_ 格式将不会打印存储在 `$GITHUB_SHA` 中的值， 但会打印 `"$GITHUB_SHA"`。
 
-```
+```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
  如果要替代变量，则可使用 _shell_ 形式或直接执行 shell。 例如，使用以下 _exec_ 格式可以执行 shell 来打印存储在 `GITHUB_SHA` 环境变量中的值。
 
-```
+```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
  要将操作元数据文件中定义的 `args` 提供到在 `ENTRYPOINT` 中使用 _exec_ 形式的 Docker 容器，建议创建一个可从 `ENTRYPOINT` 指令调用、名为 `entrypoint.sh` 的 shell 脚本。
 
 ##### 示例 *Dockerfile*
-```
+
+```dockerfile
 # Container image that runs your code
 FROM debian:9.5-slim
 

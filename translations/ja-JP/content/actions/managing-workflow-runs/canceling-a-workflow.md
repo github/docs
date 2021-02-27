@@ -17,8 +17,8 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel. ![ワークフローの実行の名前](/assets/images/help/repository/in-progress-run.png)
-1. ワークフローの右上隅にある [**ワークフローのキャンセル**] をクリックします。
+1. ワークフローの実行のリストから、キャンセルしたい`queued`もしくは`in progress`の実行の名前をクリックしてください。 ![ワークフローの実行の名前](/assets/images/help/repository/in-progress-run.png)
+1. ワークフローの右上隅にある [**Cancel workflow（ワークフローのキャンセル）**] をクリックします。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
  ![[Cancel check suite] ボタン](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}

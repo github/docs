@@ -1,6 +1,6 @@
 ---
-title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
-intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
+title: Guia de início rápido para configurar o seu bucket de armazenamento de MinIO para o GitHub Packages
+intro: 'Configure seu bucket de armazenamento do MinIO personalizado para uso com {% data variables.product.prodname_registry %}.'
 versions:
   enterprise-server: '>=2.22'
 ---
@@ -129,4 +129,4 @@ Para concluir a configuração de armazenamento para {% data variables.product.p
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+Para os próximos passos, consulte "[Habilitar {% data variables.product.prodname_registry %} com o MinIO](/admin/packages/enabling-github-packages-with-minio)".

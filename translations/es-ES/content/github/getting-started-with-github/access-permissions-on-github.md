@@ -34,6 +34,6 @@ Los *propietarios de empresa* tienen máximo poder sobre la cuenta de la empresa
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

@@ -102,5 +102,5 @@ redirect_from:
 {% data reusables.classroom.click-settings %}
 1. 在“Delete this classroom（删除此教室）”右侧，单击 **Delete classroom（删除教室）**。 !["删除仓库"按钮](/assets/images/help/classroom/click-delete-classroom-button.png)
 1. **阅读警告**。
-1. 要验证删除的是否为正确的教室，请键入要删除的教室的名称。 ![Modal for deleting a classroom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. 要验证删除的是否为正确的教室，请键入要删除的教室的名称。 ![用于删除包含警告的教室的模式和教室名称的文本字段](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
 1. 单击 **Delete classroom（删除教室）**。 !["删除教室"按钮](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

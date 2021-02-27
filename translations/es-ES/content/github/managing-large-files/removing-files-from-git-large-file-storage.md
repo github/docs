@@ -46,7 +46,7 @@ Para eliminar los objetos de {% data variables.large_files.product_name_short %}
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
 - "[Colaborar con {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"

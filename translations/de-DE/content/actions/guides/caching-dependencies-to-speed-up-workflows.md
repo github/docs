@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 type: 'tutorial'
+topics:
+  - 'Workflows'
 ---
 
 ### Informationen zum Zwischenspeichern von Workflow-Abhängigkeiten
@@ -68,7 +70,7 @@ Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/act
 Dieses Beispiel erzeugt einen neuen Cache, wenn sich die Pakete in `package-lock.json` ändern oder wenn das Betriebssystem des Runners wechselt. Das folgende Beispiel verwendet Kontexte und Ausdrücke, um einen Schlüssel zu erzeugen, der eine Kennung des Runner-Betriebssystems und einen SHA-256-Hash der Datei `package-lock.json` enthält.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching mit npm
 
 on: push
@@ -124,14 +126,14 @@ Ein Cache-Key (Cache-Schlüssel) kann Kontexte, Funktionen, Literale und Operato
 Wenn Du zum Erstellen eines `key`s Ausdrücke verwendest, kannst Du automatisch einen neuen Cache zu erstellen, sobald sich die Abhängigkeiten geändert haben. Zum Beispiel kannst Du einen `key` mittels eines Ausdrucks erstellen, der den Hash-Code einer npm-Datei `package-lock.json` errechnet.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} wertet den Ausdruck aus `hash "package-lock.json"` um daraus den endgültigen `key` abzuleiten.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +146,7 @@ Du kannst eine Liste der `restore-keys` angeben, die verwendet werden sollen, we
 #### Beispiel für die Verwendung mehrerer Restore-Keys
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +157,7 @@ restore-keys: |
 Der Runner bewertet die Ausdrücke, die sich in folgende `restore-keys` auflösen lassen:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

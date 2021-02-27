@@ -54,11 +54,11 @@ Your contributions calendar shows your contribution activity.
 #### Viewing contributions from specific times
 
 - Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that timespan.
+- Press *Shift* and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger timespan, we will only display one month of contributions.
+**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
 
 {% endnote %}
 

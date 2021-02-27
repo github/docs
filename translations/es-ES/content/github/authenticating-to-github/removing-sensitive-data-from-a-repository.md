@@ -28,7 +28,7 @@ Este artículo te explica cómo hacer confirmaciones con datos confidenciales in
 
 #### Usar el BFG
 
-El [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) es una herramienta construida y mantenida por la comunidad de código abierto. Proporciona una alternativa más rápida y simple que `git filter-branch` para eliminar datos no deseados. Por ejemplo, para eliminar tu archivo con datos confidenciales y dejar intacta tu última confirmación, ejecuta lo siguiente:
+El [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) es una herramienta construida y mantenida por la comunidad de código abierto. Proporciona una alternativa más rápida y simple que `git filter-branch` para eliminar datos no deseados. Por ejemplo, para eliminar tu archivo con datos confidenciales y dejar intacta tu última confirmación, ejecuta lo siguiente:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -46,7 +46,7 @@ Después de que se eliminan los datos sensibles, debes subir forzadamente tus ca
 $ git push --force
 ```
 
-Consulta los documentos de [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) para obtener todas las indicaciones para el uso y la descarga.
+Consulta los documentos de [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) para obtener todas las indicaciones para el uso y la descarga.
 
 #### Utilizar filter-branch
 
@@ -150,7 +150,7 @@ Existen algunos trucos sencillos para evitar confirmar cosas que no quieres conf
 - Utiliza `git add --interactive` para revisar por separado y preparar los cambios de cada archivo.
 - Utiliza `git diff --cached` para revisar los cambios que hayas preparado para la confirmación. Esta es la diferencia exacta que `git commit` generará siempre que no utilices la marca `-a`.
 
-### Further reading
+### Leer más
 
 - [man page de `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Herramientas de Git - Rescribir historial](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

@@ -21,9 +21,9 @@ versions:
 
 If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
 
-To reduce the number of versions you have published for your npm package, consider deleting package versions. Weitere Informationen findest Du unter „[Ein Paket löschen](/packages/manage-packages/deleting-a-package)."
+In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-In the future,  {% data variables.product.company_short %} will enforce a hard limit on publishing more than 1,000 versions of an npm package.  When we start enforcing the 1,000 versions limit for each npm package hosted on {% data variables.product.prodname_registry %}, we will offer more guidance on how to manage your package versions.
+If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" or "[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
 
 {% endif %}
 
@@ -166,7 +166,7 @@ You also need to add the *.npmrc* file to your project so all requests to instal
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",

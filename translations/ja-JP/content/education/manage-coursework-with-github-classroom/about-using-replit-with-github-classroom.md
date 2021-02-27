@@ -16,7 +16,7 @@ Repl.itは、複数の複数のプログラミング言語をサポートする�
 
 学生がボタンをクリックして、初めてRepl.itにアクセスする際は、{% data variables.product.product_name %}認証情報でMakeCode Arcadeにサインインする必要があります。 サインインすると、学生はRepl.itで完全に構成された、課題リポジトリのコードが含まれる開発環境にアクセスできます。
 
-Repl.itでの作業に関する詳しい情報については、[Repl.itクイックスタートガイド](https://docs.repl.it/misc/quick-start#the-repl-environment)を参照してください。
+Repl.itでの作業に関する詳しい情報については、[Repl.itクイックスタートガイド](https://docs.repl.it/repls/quick-start#the-repl-environment)を参照してください。
 
 グループ課題の場合、学生はRepl.it Multiplayerを利用して共同作業を行うことができます。 詳しい情報については、[Repl.it Multiplayer](https://repl.it/site/multiplayer)のウェブサイトを参照してください。
 

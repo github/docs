@@ -80,6 +80,14 @@ Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será i
 
 Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
 
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Nota:** Se {% data variables.product.product_location %} tiver {% data variables.product.prodname_actions %} habilitado, você deverá primeiro configurar o provedor de armazenamento externo de {% data variables.product.prodname_actions %} no aplicativo de substituição antes de executar o comando `ghe-restore`. Para obter mais informações, consulte "[Backup e restauração de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %} ativado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
 Para restaurar a {% data variables.product.product_location %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
 
 ```shell

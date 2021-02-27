@@ -73,7 +73,7 @@ Una vez que tu solicitud de extracción ha sido revisada, esta se puede [fusiona
 
 
 
-### Further reading
+### Leer más
 
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"
 - "[Cambiar la rama base de una solicitud de extracción](/articles/changing-the-base-branch-of-a-pull-request)"

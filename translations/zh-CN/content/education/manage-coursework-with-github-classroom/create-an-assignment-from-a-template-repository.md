@@ -11,8 +11,6 @@ redirect_from:
 
 要将模板仓库用于作业，模板仓库必须由您的组织拥有，或者模板仓库的可见性必须是公共的。
 
-{% data reusables.classroom.you-may-want-to-predefine-repository-settings %} 更多信息请参阅“[配置作业仓库的默认设置](/education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories)”。
-
 ### 延伸阅读
 
 - "[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

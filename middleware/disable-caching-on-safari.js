@@ -3,5 +3,5 @@ module.exports = (req, res, next) => {
   if (isSafari) {
     res.header('Last-Modified', (new Date()).toUTCString())
   }
-  next()
+  return next()
 }

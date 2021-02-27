@@ -41,12 +41,6 @@ For more information about contacting support, see "[About {% data variables.con
     - [** Authentication（認証）**] ドロップダウンでは、SMTP サーバが利用する暗号化の種類を選択してください。
     - [**No-reply email address（No-replyメールアドレス）**] フィールドには、すべての通知メールの From および To フィールドに使うメールアドレスを入力してください。
 
-    {% note %}
-
-    **注釈:** リポジトリの [**Services**] メール webhook で [**Send from author**] チェックボックスを選択した場合、そのリポジトリのアウトバウンドメールは no-reply メールアドレスではなく、作者から送信されます。 For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
-
-    {% endnote %}
-
 6. no-replyメールアドレスへの着信メールをすべて破棄したい場合には、**Discard email addressed to the no-reply email address（no-replyメールアドレスへのメールの破棄）**を選択してください。 ![no-reply メールアドレス宛のメールを廃棄するチェックボックス](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. [**Support（サポート）**] の下で、ユーザに追加のサポートを提供するリンクの種類を選択してください。
     - **Email（メール）：** 内部的なメールアドレス。
@@ -155,7 +149,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### DNS設定の検証
 
-インバウンドのメールを適切に処理するには、適切にAレコード（あるいはCNAME）と共にMXレコードを設定しなければなりません。 詳細は「[着信メールを許可するよう DNS およびファイアウォールを設定する](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)」を参照してください。
+インバウンドのメールを適切に処理するには、適切にAレコード（あるいはCNAME）と共にMXレコードを設定しなければなりません。 For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### ファイアウォールあるいはAWSセキュリティグループの設定のチェック
 

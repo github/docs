@@ -44,13 +44,13 @@ Build-Fehler (aber keine Build-Warnungen) für Ihre Website können Sie auf {% d
 Du kannst einen Drittanbieterdienst, beispielsweise [Travis CI](https://travis-ci.org/), so konfigurieren, dass nach jedem Commit Fehlermeldungen angezeigt werden.
 
 1. Wenn Du dies noch nicht getan hast, füge eine Datei namens _Gemfile_ in das Root-Verzeichnis Deiner Veröffentlichungsquelle ein. Die Gemfile-Datei sollte den folgenden Inhalt aufweisen:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Konfiguriere das Repository Deiner Website für die gewünschte Test-Dienstleistung. Wenn Du beispielsweise [Travis CI](https://travis-ci.org/) verwenden möchtest, füge eine Datei namens _.travis.yml_ in das Root-Verzeichnis Deiner Veröffentlichungsquelle ein, und zwar mit folgendem Inhalt:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

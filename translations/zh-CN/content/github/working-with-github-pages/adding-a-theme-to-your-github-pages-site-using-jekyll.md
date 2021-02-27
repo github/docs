@@ -40,7 +40,7 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 1. 创建一个名为 _/assets/css/style.scss_ 的新文件。
 2. 在文件顶部添加以下内容：
-  ```
+  ```scss
   ---
   ---
 

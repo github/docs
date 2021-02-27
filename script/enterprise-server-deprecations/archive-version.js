@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const server = require('../server')
+const server = require('../../server')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
@@ -15,6 +15,7 @@ const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
 const loadRedirects = require('../../lib/redirects/precompile')
 const { loadPageMap } = require('../../lib/pages')
+const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]
 //
@@ -47,21 +48,42 @@ class RewriteAssetPathsPlugin {
       process.stdout.write('.')
 
       // Only operate on HTML files
-      if (!resource.isHtml()) return
+      if (!resource.isHtml() && !resource.isCss()) return
 
       // Get the text contents of the resource
       const text = resource.getText()
+      let newBody = ''
 
-      // Rewrite asset paths. Example:
-      // ../../javascripts/index.js -> /enterprise/2.17/javascripts/index.js
-      const newBody = text.replace(
-        /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets|node_modules)/g,
-        (match, attribute, basepath) => {
-          const replaced = path.join('/enterprise', this.version, basepath)
-          const returnValue = `${attribute}="${replaced}`
-          return returnValue
-        }
-      )
+      // Rewrite HTML asset paths. Example:
+      // ../assets/images/foo/bar.png ->
+      // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
+      if (resource.isHtml()) {
+        newBody = text.replace(
+          /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
+          (match, attribute, basepath) => {
+            let replaced = path.join('/enterprise', this.version, basepath)
+            if (basepath === 'assets/images') {
+              replaced = remoteImageStoreBaseURL + replaced
+            }
+            const returnValue = `${attribute}="${replaced}`
+            return returnValue
+          }
+        )
+      }
+
+      // Rewrite CSS asset paths. Example
+      // url("../assets/fonts/alliance/alliance-no-1-regular.woff") ->
+      // url("https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/fonts/alliance/alliance-no-1-regular.woff")
+      if (resource.isCss()) {
+        newBody = text.replace(
+          /(?<attribute>url)\("(?:\.\.\/)*(?<basepath>assets\/fonts|assets\/images)/g,
+          (match, attribute, basepath) => {
+            const replaced = path.join(`${remoteImageStoreBaseURL}/enterprise`, this.version, basepath)
+            const returnValue = `${attribute}("${replaced}`
+            return returnValue
+          }
+        )
+      }
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
 
@@ -75,7 +97,8 @@ class RewriteAssetPathsPlugin {
 async function main () {
   if (!pathToArchivalRepo) {
     console.log(`Please specify a path to a local checkout of ${archivalRepoUrl}`)
-    console.log(`Example: script/archive-enterprise-version.js ../${archivalRepoName}`)
+    const scriptPath = path.relative(process.cwd(), __filename)
+    console.log(`Example: ${scriptPath} -p ../${archivalRepoName}`)
     process.exit()
   }
 

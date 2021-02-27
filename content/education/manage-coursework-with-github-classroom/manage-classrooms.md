@@ -20,7 +20,7 @@ redirect_from:
 
 After you create a classroom, {% data variables.product.prodname_classroom %} will prompt you to invite teaching assistants (TAs) and admins to the classroom. Each classroom can have one or more admins. Admins can be teachers, TAs, or any other course administrator who you'd like to have control over your classrooms on {% data variables.product.prodname_classroom %}.
 
-Invite TAs and admins to your classroom by inviting the user accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classrom. Organization owners can administer any classroom for the organization. For more information, see "[Permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)" and "[Inviting users to join your organization](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)."
+Invite TAs and admins to your classroom by inviting the user accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Organization owners can administer any classroom for the organization. For more information, see "[Permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)" and "[Inviting users to join your organization](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)."
 
 When you're done using a classroom, you can archive the classroom and refer to the classroom, roster, and assignments later, or you can delete the classroom if you no longer need the classroom.
 
@@ -65,7 +65,7 @@ If your course already has a roster, you can update the students on the roster o
 
 ### Adding students to the roster for your classroom
 
-Your classroom must have an existing roster to add students to the roster. For more information about creating a roster, see "[Creating a roster for your classrom](#creating-a-roster-for-your-classroom)."
+Your classroom must have an existing roster to add students to the roster. For more information about creating a roster, see "[Creating a roster for your classroom](#creating-a-roster-for-your-classroom)."
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

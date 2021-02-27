@@ -156,7 +156,7 @@ Si no se desea divulgar dicha información, su empresa u organización debe rest
 
 El {% data variables.product.prodname_ghe_server %} admite estas clases de objetos del grupo LDAP. Los grupos se pueden anidar.
 
-- `group`
+- `grupo`
 - `groupOfNames`
 - `groupOfUniqueNames`
 - `posixGroup`

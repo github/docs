@@ -81,7 +81,7 @@ Para reducir el número de asientos pagos que usa tu organización, puedes elimi
 1. En "Eliminar asientos" selecciona el número de asientos pagos de la categoría a la que deseas bajar. ![opción de eliminar plazas](/assets/images/help/billing/remove-seats-amount.png)
 1. Revisa la información sobre tu nuevo pago en tu siguiente fecha de facturación, posteriormente, da clic en **Eliminar plazas**. ![botón de eliminar plazas](/assets/images/help/billing/remove-seats-button.png)
 
-### Further reading
+### Leer más
 
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

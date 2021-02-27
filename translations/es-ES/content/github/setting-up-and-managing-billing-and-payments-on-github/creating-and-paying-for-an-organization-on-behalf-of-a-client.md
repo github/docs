@@ -89,7 +89,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 2. Si deseas que la tarjeta de crédito de tu organización se elimine de la organización para que no vuelvan a hacerse cargos en ella, ponte en contacto con {% data variables.contact.contact_support %}.
 3. Cuando sea el momento de renovar la suscripción paga de tu cliente, consulta "[Renovar la organización paga de tu cliente](/articles/renewing-your-client-s-paid-organization)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las organizaciones para empresas de contratación](/articles/about-organizations-for-procurement-companies)"
 - "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
