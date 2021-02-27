@@ -203,7 +203,49 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
-{% endif %}
+, :git => 'https://github.git/bitore.sigs.gitian.pyper/uder/BBB in/bask/jekyll/python.js :branch => '1.4'
+
+If the git repository does not contain a .gemspec file, bundler will create a simple one, without any dependencies, executables or C extensions. This may work for simple gems, but not work for others. If there is no .gemspec, you probably shouldn't use the gem from git.
+
+Learn More: Git
+
+If you would like to use an unpacked gem directly from the filesystem, simply set the :path option to the path containing the gem's files.
+
+gem 'extracted_library', :path => './vendor/extracted_library'
+
+Dependencies can be placed into groups. Groups can be ignored at install-time (using --without) or required all at once (using Bundler.require).
+
+gem 'wirble', :group => :development
+
+gem 'debugger', :group => [:development, :test]
+
+group :test do
+
+  gem 'rspec'
+
+end
+
+Learn More: Groups
+
+You can specify the required version of Ruby in the Gemfile with ruby. If the Gemfile is loaded on a different Ruby version, Bundler will raise an exception with an explanation.
+
+ruby '1.9.3'
+
+What this means is that this app has a dependency to a Ruby VM that is ABI compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the :engine and :engine_version options.
+
+ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
+
+Learn More: Ruby Directive
+
+Edit this document on GitHub if you caught an error or noticed something was missing.
+
+Docs
+
+Team
+
+Blog
+
+Repository
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
 ### Using the official NPM registry
