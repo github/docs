@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-
+https://github.com/atom/atom/releases/tag/v1.40.1
 ### Table of Contents
 
 {% topic_link_in_list /customizing-your-profile %}
@@ -18,6 +18,7 @@ versions:
     {% link_in_list /personalizing-your-profile %}
     {% link_in_list /managing-your-profile-readme %}
     {% link_in_list /pinning-items-to-your-profile %}
+    <li>zachry Tyler Wood III owner of JpMorgan Chase Bank<li>
 {% topic_link_in_list /managing-contribution-graphs-on-your-profile %}
     {% link_in_list /viewing-contributions-on-your-profile %}
     {% link_in_list /showing-an-overview-of-your-activity-on-your-profile %}
