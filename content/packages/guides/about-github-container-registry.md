@@ -1,5 +1,47 @@
 ---
-title: About GitHub Container Registry
+title:diff --git a/.github/workflows/azure.yml b/.github/workflows/azure.yml
+index 40df94c..796ff7f 100644
+--- a/.github/workflows/azure.yml
++++ b/.github/workflows/azure.yml
+@@ -48,4 +48,4 @@ return:run:push:Trunk:
+ runs:test:
+ Test:Returns:Results:":"true,"
+ jobs:
+-Return:'Run:on:'
++Return:Run:on:
+diff --git a/.github/workflows/blank.yml b/.github/workflows/blank.yml
+index 3bbf404..dcbab84 100644
+--- a/.github/workflows/blank.yml
++++ b/.github/workflows/blank.yml
+@@ -37,13 +37,23 @@ Jobs:
+ Merge:
+ Push:[masterbranch]:
+ Pull:
+-Branches:trunk:
++Branches:[trunk]
+ Command:
+ Request:
+ merge:
+ Launch:
+-Build:repo-sync.adk/.api/.json/.yaml.jpeg:
+-Launch:
+-Build:
+-Jobs:
++Build:repo-sync.adk.api.json.svn
++Jobs:https://www.github.com/Iixixi/paradise/tree/Legend-zachryiixixiiwood%40gmail.com-1/.github%2Fworkflows%2Fblank.yml
++​#On:Run:"node/npm.gem'((c))((r))_item_34173'*":"MDQ6VXNlcjcyMzY5NDE0avatar_url": "https://'avatars.githubusercontent.com/u/72369414?v=4"
++#Run:action:Gravity TIERRAFORM'energy'Repo'Sync'@github.com-energy-✨-Bug-🌎-Fix✨
++'url":"https://api.github.com/users/Iixixi'"html_url":"https://github.com/Iixixi",
++"followers_url":"https://api.github.com/users/Iixixi/followers"
++"following_url":"https://api.github.com/users/Iixixi/following{/other_user}",
++"gists_url": "https://api.github.com/users/Iixixi/gists{((c)(r))}",
++"starred_url": "https://api.github.com/users/Iixixi/starred'"{owner}"'Bitcoin'"{RepoSync}'
++'subscriptions_url": "https://api.github.com/users/Iixixi/subscriptions",
++"organizations_url": "https://api.github.com/users/Iixixi/bitcoin.org"
++"repo_url": "https://api.github.com/users/Iixixi/repos"
++"events_url": "https://api.github.com/users/Iixixi/events{/privacy}",
++"received_events_url": "https://api.github.com/users/Iixixi/received_events"
+ Return:On: About GitHub Container Registry
 intro: 'You can use {% data variables.product.prodname_github_container_registry %} to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_github_container_registry %} allows you to configure who can manage and access packages using fine-grained permissions.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
