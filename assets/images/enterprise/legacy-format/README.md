@@ -1,0 +1,7 @@
+### Legacy assets
+
+**Do not add new images to this directory.** This directory will be removed after GHES 3.0 is deprecated.
+
+This directory stores images that were migrated to this repository from AWS S3. These images are not referenced directly in Markdown content. Images in this directory are rendered conditionally using a Unified.js plugin located at [`lib/render-content/plugins/rewite-legacy-asset-paths.js`](lib/render-content/plugins/rewite-legacy-asset-paths.js). When a page is rendered, the plugin checks whether the image referenced in the Markdown content (e.g., /assets/images/foo/bar.png) has a corresponding image in this directory for the version being rendered (e.g., /assets/images/enterprise/legacy-format/<ghes version>/assets/images/foo/bar.png. If a corresponding image does exist in the `legacy-format` directory, the image from the `legacy-format` directory is rendered. If not, the image path referenced in the Markdown is used (e.g., /assets/images/foo/bar.png).
+
+This directory and the `rewrite-legacy-asset-paths` plugin will be removed when GHES 3.0 is deprecated in favor of single-sourcing the images referenced in Markdown, which requires versioning the images in the Markdown content using Liquid conditionals.

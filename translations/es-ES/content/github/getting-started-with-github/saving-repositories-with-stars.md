@@ -48,6 +48,6 @@ En el lateral derecho de la página, puedes filtrar tu lista de repositorios con
 
 ![Ver las estrellas de tus amigos](/assets/images/help/stars/stars_jump_to_a_friend.png)
 
-### Further reading
+### Leer más
 
 - "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"

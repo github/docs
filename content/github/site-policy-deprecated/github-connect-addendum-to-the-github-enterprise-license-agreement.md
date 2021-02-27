@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 PLEASE READ THIS ADDENDUM CAREFULLY AS IT AMENDS THE TERMS OF YOUR ENTERPRISE LICENSE AGREEMENT WITH US AND SPECIFICALLY GOVERNS YOUR USE OF GITHUB CONNECT (AS DEFINED BELOW), UNLESS GITHUB (“WE” OR “US”) HAS EXECUTED A SEPARATE WRITTEN ADDENDUM WITH YOU FOR THAT PURPOSE.
 

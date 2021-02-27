@@ -18,15 +18,23 @@ versions:
 
 ### 应用
 
-任何人都可以在 {% data variables.product.prodname_marketplace %} 上与其他用户分享其应用程序，但只有经 {% data variables.product.company_short %} 验证的上架产品才能包含付费计划。 更多信息请参阅“[关于经验证的创作者](/developers/github-marketplace/about-verified-creators)”。
+任何人都可以在 {% data variables.product.prodname_marketplace %} 上与其他用户分享其应用程序，但只有组织拥有的应用程序才能出售。
+
+要发布应用程序付费计划并显示 Marketplace 徽章，您必须完成发布者验证过程。 更多信息请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”或“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
+
+组织满足要求后，组织中具有所有者权限的人可以发布其任何应用程序的付费计划。 每个具有付费计划的应用程序还要完成财务手续才能启用付款。
+
+要发布具有免费计划的应用程序，只需满足上架任何应用程序的一般要求即可。 更多信息请参阅“[所有 GitHub Marketplace 上架产品的要求](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)”。
+
+#### 不熟悉应用程序？
 
 如果您有兴趣为 {% data variables.product.prodname_marketplace %} 创建应用程序，但对于 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %} 比较陌生，请参阅“[构建 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”或“[构建 {% data variables.product.prodname_oauth_app %}](/developers/apps/building-oauth-apps)”。
 
+#### GitHub 应用程序与 OAuth 应用程序
+
 {% data reusables.marketplace.github_apps_preferred %}，尽管您可以在 {% data variables.product.prodname_marketplace %} 中上架 OAuth 和 {% data variables.product.prodname_github_app %}。 更多信息请参阅“[{% data variables.product.prodname_github_apps %} 与 {% data variables.product.prodname_oauth_app %} 之间的差异](/apps/differences-between-apps/)”和“[将 {% data variables.product.prodname_oauth_app %} 迁移到 {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)”。
 
-如果您对 {% data variables.product.prodname_marketplace %} 有疑问，请直接联系 {% data variables.contact.contact_support %}。
-
-### 将应用程序发布到 {% data variables.product.prodname_marketplace %}
+### 将应用程序发布到 {% data variables.product.prodname_marketplace %} 概述
 
 完成创建应用程序后，您可以将其发布到 {% data variables.product.prodname_marketplace %}，以便与其他用户分享它。 过程归纳如下：
 
@@ -38,13 +46,9 @@ versions:
 
 1. 添加定价计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
-1. 检查您的应用程序是否满足在 {% data variables.product.prodname_marketplace %} 中作为免费或付费应用程序上架的要求。 更多信息请参阅“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
-
 1. 阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
 
-1. 提交要在 {% data variables.product.prodname_marketplace %} 中发布的上架信息，如果要出售应用程序，还需要请求验证。 更多信息请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication)”。
-
-上架专家将联系您，提出一些问题或要求您完成其他步骤。 例如，如果您添加了付费计划，则需要完成验证过程并完成财务手续。 一旦您的上架信息得到批准，应用程序将发布到 {% data variables.product.prodname_marketplace %}。
+1. 提交要在 {% data variables.product.prodname_marketplace %} 中发布的上架信息。 更多信息请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication)”。
 
 ### 查看应用程序的表现
 
@@ -52,3 +56,7 @@ versions:
 
 - “[查看上架产品的指标](/developers/github-marketplace/viewing-metrics-for-your-listing)”
 - “[查看上架产品的交易](/developers/github-marketplace/viewing-transactions-for-your-listing)”
+
+### 联系支持
+
+如果您对 {% data variables.product.prodname_marketplace %} 有疑问，请直接联系 {% data variables.contact.contact_support %}。
