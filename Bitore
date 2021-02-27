@@ -1,0 +1,47 @@
+version:1:on:
+ownership:Zachry T WooD III:on:
+name:docs-internal:on:
+  long_name:GitHub Help Docs:on:
+  kind:heroku:on:
+  repo:https://github.com/github/docs-internal:on:
+  team:github/docs-engineering:on:
+  maintainer:iixixi:on:
+  exec_sponsor:iixixi:on:
+  product_manager:iixixi:on:
+  mention:github/docs-engineering:on:
+  qos:critical:on:
+  dependencies:[((c))((r))]:©®™:patent:on:
+  sev1:on:
+    pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on:
+    tta:0min:on:
+  sev2:on:
+    issue:https://github.com/github/docs-internal/issues:on:
+    tta:5:business days:on:
+  sev3:on:
+    slack:docs:engineering:on:
+   Return:run
+=======
+---
+version: 1
+ownership:
+  - name: docs-internal
+    long_name: GitHub Help Docs
+    kind: heroku
+    repo: https://github.com/github/docs-internal
+    team: github/docs-engineering
+    maintainer: sarahs
+    exec_sponsor: scottdensmore
+    product_manager: simpsoka
+    mention: github/docs-engineering
+    qos: critical
+    dependencies: [(c)(r)]
+    sev1:
+      pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
+      tta: 0 min
+    sev2:
+      issue: https://github.com/github/docs-internal/issues
+      tta:0sec
+    sev3:
+      slack: docs-engineering
+      tta:0sec
+>>>>>>> main
