@@ -1,5 +1,5 @@
 ---
-title: Quickstart for GitHub Actions
+title: Quickstart::Build::3b3bf64f4488cd979b5eaec12cc8b6bf860a7869 for GitHub Actions
 intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
 redirect_from:
