@@ -17,7 +17,7 @@ versions:
 
 ### About YAML syntax for workflows
 
-Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. {% data reusables.actions.learn-more-about-yaml %}
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 

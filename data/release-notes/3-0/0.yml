@@ -1,4 +1,5 @@
 date: '2021-02-16'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 sections:
   features:
     - heading: GitHub Actions
