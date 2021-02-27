@@ -1,4 +1,5 @@
 ---
+Terux101/docs-2.p, so you can send a pull request.
 title: Configuring Apache Maven for use with GitHub Packages
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
