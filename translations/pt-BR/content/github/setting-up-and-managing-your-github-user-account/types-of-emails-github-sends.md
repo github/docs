@@ -1,6 +1,6 @@
 ---
 title: Tipos de e-mails enviados pelo GitHub
-intro: 'Há vários tipos de e-mails que você pode receber do {% data variables.product.product_name %}, como notificações, informações da conta e comunicações de marketing.'
+intro: 'Existem vários tipos de e-mails que você pode receber de {% data variables.product.product_name %}, incluindo notificações, informações da conta, convites de pesquisa de clientes e comunicações de marketing.'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
@@ -24,6 +24,17 @@ Você também pode escolher qual tipo de atualizações de e-mail deseja receber
 ### E-mails de conta
 
 Se você tiver atualizado para recursos ou produtos pagos, receberá recibos de cobrança no endereço de e-mail principal da conta. Para obter mais informações, consulte "[Configurar o e-mail de cobrança](/articles/setting-your-billing-email)".
+
+### E-mails de pesquisa de cliente
+
+Ocasionalmente, {% data variables.product.product_name %} procura clientes para participar de sessões de pesquisa para nos ajudar a construir um GitHub melhor. Isso é realizado remotamente, aberto a clientes em todo o mundo, e pode incluir:
+
+- Pesquisas de feedback
+- Entrevistas de pesquisa
+- Sessões de teste de usabilidade
+- Pré-visualizar protótipos iniciais ou conceitos
+
+Esses e-mails são infrequentes e você pode escolher participar ou não. Se estiver interessado em oportunidades adicionais para participar de sessões de pesquisa, você poderá adicionar você mesmo ao Painel de Pesquisa de Cliente do GitHub. Para obter mais informações, consulte "[Pesquisa de Experiência do Cliente do GitHub](https://cxr.github.com)."
 
 ### E-mails de marketing
 

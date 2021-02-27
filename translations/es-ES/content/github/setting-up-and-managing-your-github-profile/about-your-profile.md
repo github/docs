@@ -32,7 +32,7 @@ Las personas que visitan tu perfil también pueden ver la siguiente información
 
 También puedes establecer un estado en tu perfil para brindar información sobre tu disponibilidad. Para obtener más información, consulta "[Configurar un estado](/articles/personalizing-your-profile/#setting-a-status)".
 
-### Further reading
+### Leer más
 
 - "[¿Cómo configuro mi foto de perfil?](/articles/how-do-i-set-up-my-profile-picture)"
 - "[Divulgar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"

@@ -44,7 +44,7 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 3. Da clic en **Editar** a un costado de la organización para la cual quieres borrar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+### Leer más
 
 - "[Administrar los recordatorios programados para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)"
 - "[Administrar los recordatorios programados para tu equipo](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)"

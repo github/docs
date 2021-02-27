@@ -1,6 +1,6 @@
 {% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
-<div class="mt-3 f5 contribution">
-  <h2 class="f5">{% data ui.contribution_cta.title %}</h2>
+<div class="f5 contribution">
+  <h2 class="f4">{% data ui.contribution_cta.title %}</h2>
   <p class="text-gray f6">{% data ui.contribution_cta.body %}</p>
   <a class="btn btn-outline" href={{ "https://github.com/github/docs/edit/main/content/" | append: page.relativePath }}>
     {% octicon "git-pull-request" height="16" %}

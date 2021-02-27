@@ -47,6 +47,6 @@ Buscar de manera manual el SHA de confirmación es muy poco práctico. No obstan
 
 Puedes crear un enlace permanente a una línea específica o a un rango de líneas de código en una versión específica de un archivo o de una solicitud de extracción. Para obtener más información, consulta "[Crear un enlace permanente al fragmento de código](/articles/creating-a-permanent-link-to-a-code-snippet/)".
 
-### Further reading
+### Leer más
 
 - "[Archivar un repositorio de GitHub](/articles/archiving-a-github-repository)"

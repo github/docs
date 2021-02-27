@@ -22,7 +22,7 @@ Si no has utilizado tu llave SSH por un año, entonces
 
 Si eres miembro de una organización que provee certificados SSH, puedes usar tu certificado para acceder a los repositorios de esa organización sin agregar el certificado a tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/articles/about-ssh-certificate-authorities)".
 
-### Further reading
+### Leer más
 
 - "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
 - "[Probar tu conexión SSH](/articles/testing-your-ssh-connection)"

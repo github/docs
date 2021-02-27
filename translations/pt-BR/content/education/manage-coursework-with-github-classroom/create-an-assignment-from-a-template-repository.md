@@ -11,8 +11,6 @@ Você pode utilizar um repositório de modelo em {% data variables.product.produ
 
 Para usar o repositório de modelo para a sua atribuição, o repositório de modelo deve pertencer à sua organização, ou a visibilidade do repositório de modelos deverá ser pública.
 
-{% data reusables.classroom.you-may-want-to-predefine-repository-settings %} Para obter mais informações, consulte "[Definir as configurações-padrão para repositórios de atividades](/education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories)".
-
 ### Leia mais
 
 - "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

@@ -18,7 +18,7 @@ versions:
 
 要在 {% data variables.product.prodname_dotcom %} 上触发 `Workflow_spoch` 事件，您的工作流程必须在默认分支中。 按照以下步骤手动触发工作流程运行。
 
-{% data reusables.repositories.permissions-statement-read %}
+{% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

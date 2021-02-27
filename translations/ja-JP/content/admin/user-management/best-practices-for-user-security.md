@@ -1,6 +1,6 @@
 ---
 title: ユーザセキュリティのベストプラクティス
-intro: '{% if enterpriseServerVersions contains currentVersion %}Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there {% else %}There {% endif %}are steps your users can take to help protect your enterprise.'
+intro: '{% if enterpriseServerVersions contains currentVersion %}サイト管理者が実装できるインスタンスレベルのセキュリティ対策（SSL、Subdomain Isolation、ファイアウォールの設定）以外では、{% else %}{% endif %}Enterprise を保護するためにユーザが実行できるステップがあります。'
 redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
 versions:
@@ -18,7 +18,7 @@ versions:
 
 ### パスワードマネージャの要求
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/)--on any computer they use to connect to your enterprise. そうすることで、確実に、パスワードが強力になり、侵犯されたり盗まれたりする可能性が低くなります。
+Enterprise への接続に使用するすべてのコンピュータに、[LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[Keeper](https://keepersecurity.com/) などのパスワードマネージャをインストールして使用するようにユーザに求めることを強くお勧めします。 そうすることで、確実に、パスワードが強力になり、侵犯されたり盗まれたりする可能性が低くなります。
 
 ### Teamやリポジトリへのアクセス制限
 

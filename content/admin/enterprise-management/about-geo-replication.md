@@ -12,7 +12,7 @@ Multiple active replicas can provide a shorter distance to the nearest replica. 
 
 The active replica proxies requests that it can't process itself to the primary instance. The replicas function as a point of presence terminating all SSL connections. Traffic between hosts is sent through an encrypted VPN connection, similar to a two-node high availability configuration without geo-replication.
 
-Git requests and specific fileserver requests, such as LFS and file uploads, can be served directly from the replica without loading any data from the primary. Web requests are always routed to the primary, but if the replica is closer to the user the requests are faster due to the closer SSL termination.
+Git requests and specific file server requests, such as LFS and file uploads, can be served directly from the replica without loading any data from the primary. Web requests are always routed to the primary, but if the replica is closer to the user the requests are faster due to the closer SSL termination.
 
 Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo), is required for geo-replication to work seamlessly. The hostname for the instance should resolve to the replica that is closest to the user's location.
 

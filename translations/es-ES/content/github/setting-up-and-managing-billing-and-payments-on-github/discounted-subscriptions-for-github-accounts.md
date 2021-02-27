@@ -1,6 +1,6 @@
 ---
-title: Suscripciones con descuentos para cuentas GitHub
-intro: '{% data variables.product.product_name %} ofrece descuentos a estudiantes, educadores, instituciones educativas, bibliotecas y organizaciones sin fines de lucro.'
+title: Discounted subscriptions for GitHub accounts
+intro: '{% data variables.product.product_name %} provides discounts to students, educators, educational institutions, nonprofits, and libraries.'
 redirect_from:
   - /articles/discounted-personal-accounts/
   - /articles/discounted-organization-accounts/
@@ -12,24 +12,24 @@ versions:
 
 {% tip %}
 
-**Sugerencia**: Los descuentos para {% data variables.product.prodname_dotcom %} no se tienen vigencia para las suscripciones de otros productos y características pagos.
+**Tip**: Discounts for {% data variables.product.prodname_dotcom %} do not apply to subscriptions for other paid products and features.
 
 {% endtip %}
 
-### Descuentos para cuentas personales
+### Discounts for personal accounts
 
-Además del número ilimitado de repositorios públicos y privados para estudiantes y miembros del cuerpo docente con {% data variables.product.prodname_free_user %}, los estudiantes validados pueden solicitar el {% data variables.product.prodname_student_pack %} para recibir beneficios adicionales ofrecidos por los socios de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Postularse para un paquete de desarrollo para estudiantes](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)".
+In addition to the unlimited public and private repositories for students and faculty with {% data variables.product.prodname_free_user %}, verified students can apply for the {% data variables.product.prodname_student_pack %} to receive additional benefits from {% data variables.product.prodname_dotcom %} partners. For more information, see "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)."
 
-### Descuentos para escuelas y universidades
+### Discounts for schools and universities
 
-Los miembros del cuerpo docente validados pueden solicitar {% data variables.product.prodname_team %} para la enseñanza y la investigación académica. Para obtener más información, consulta la sección "[Utilizar {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)". Para obtener más información, consulta "[Usar {{ site.data.variables.product.prodname_dotcom }} en tu clase y en tu investigación](/articles/using-github-in-your-classroom-and-research)". Para obtener más información, visita [{% data variables.product.prodname_education %}](https://education.github.com/).
+Verified academic faculty can apply for {% data variables.product.prodname_team %} for teaching or academic research. For more information, see "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)." You can also request educational materials goodies for your students. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
 
-### Descuentos para bibliotecas y organizaciones sin fines de lucro
+### Discounts for nonprofits and libraries
 
-{% data variables.product.product_name %}proporciona {% data variables.product.prodname_team %} gratuito para organizaciones y cuenta con repositorios privados ilimitados, colaboradores ilimitados, y un juego completo de características a organizaciones y bibliotecas que califiquen como 501(c)3 (o equivalentes). Puedes solicitar un descuento para tu organización en [nuestra página de organizaciones sin fines de lucro](https://github.com/nonprofit).
+{% data variables.product.product_name %} provides free {% data variables.product.prodname_team %} for organizations with unlimited private repositories, unlimited collaborators, and a full feature set to qualifying 501(c)3 (or equivalent) organizations and libraries. You can request a discount for your organization on [our nonprofit page](https://github.com/nonprofit).
 
-Si tu organización ya tiene una suscripción paga, la última transacción de tu organización se reembolsará una vez que se haya aplicado tu descuento para organizaciones sin fines de lucro.
+If your organization already has a paid subscription, your organization's last transaction will be refunded once your nonprofit discount has been applied.
 
 ### Further reading
 
-- "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"
+- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"

@@ -33,10 +33,10 @@ Puedes filtrar las notificaciones por correo electrónico que recibes para las i
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
 5. Escribe hasta dos direcciones de correo electrónico, separadas por espacio en blanco, donde quieras que se envíen las notificaciones. Si quieres enviar los correos electrónicos a más de dos cuentas, configura una de las direcciones de correo electrónico a una dirección de correo electrónico del grupo. ![Cuadro de texto dirección de correo electrónico](/assets/images/help/settings/email_services_addresses.png)
-6. Si operas tu propio servidor, puedes verificar la integridad de los correos electrónicos mediante el token **Secreto**. Este token se envía con el correo electrónico como el encabezado `Aprobado`. Si el encabezado `Aprobado` coincide con el token que enviaste, puedes confiar en que el correo electrónico es de {% data variables.product.product_name %}. ![Cuadro de texto correo electrónico secreto](/assets/images/help/settings/email_services_token.png)
-7. Haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/help/settings/save_notification_settings.png)
+1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}. ![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
+7. Click **Setup notifications**. ![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
-### Further reading
+### Leer más
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 {% else %}

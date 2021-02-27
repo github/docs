@@ -4,10 +4,9 @@ intro: "You can allow or disallow auto-merge for pull requests in your repositor
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 If you allow auto-merge for pull requests in your repository, people can configure individual pull requests in the repository to merge automatically when all merge requirements are met. For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
 

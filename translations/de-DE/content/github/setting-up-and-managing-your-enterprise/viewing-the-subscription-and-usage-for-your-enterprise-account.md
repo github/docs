@@ -15,6 +15,8 @@ versions:
 
 Enterprise-Konten sind derzeit für {% data variables.product.prodname_enterprise %}-Kunden verfügbar, die per Rechnung bezahlen. Die Abrechnung für alle Organisationen und {% data variables.product.prodname_ghe_server %}-Instanzen, die mit Deinem Enterprise-Konto verbunden sind, wird in eine einzige Rechnung für alle Deine bezahlten {% data variables.product.prodname_dotcom_the_website %}-Dienste zusammengefasst (inklusive bezahlte Lizenzen in Organisationen, {% data variables.large_files.product_name_long %}-Datenpakete und Abonnements für {% data variables.product.prodname_marketplace %}-Apps).
 
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."{% endif %}
+
 For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 ### Abonnement und Nutzung für Dein Enterprise-Konto anzeigen

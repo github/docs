@@ -29,7 +29,7 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 6. En la página "Manage access" (Administrar el acceso), al lado del repositorio, haz clic en **Manage access (Administrar el acceso)**. ![Botón de administración de acceso a un repositorio](/assets/images/help/organizations/repository-manage-access.png)
 7. Revisa el acceso de la persona a un repositorio determinado, como si fuera un colaborador o si tuviera acceso a un repositorio por medio de una membresía de equipo. ![Matriz de acceso a repositorio para el usuario](/assets/images/help/organizations/repository-access-matrix-for-user.png)
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}- "[Limitar las interacciones con tu repositorio](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"

@@ -12,6 +12,7 @@ versions:
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
 ### O comando `init` leva muito tempo
 

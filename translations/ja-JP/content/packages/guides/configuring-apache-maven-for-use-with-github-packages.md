@@ -38,7 +38,7 @@ versions:
 パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
 {% endif %}
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -80,7 +80,7 @@ versions:
 {% if enterpriseServerVersions contains currentVersion %}
 たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -138,7 +138,7 @@ versions:
   {% if enterpriseServerVersions contains currentVersion %}
   パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -149,7 +149,7 @@ versions:
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -174,7 +174,7 @@ versions:
 {% data reusables.package_registry.authenticate-step %}
 2. パッケージの依存関係をプロジェクトの*pom.xml*ファルの`dependencies`要素に追加し、`com.example:test`をパッケージで置き換えてください。
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>

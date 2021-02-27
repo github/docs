@@ -18,6 +18,6 @@ Antes de aplicar un SSO de SAML en tu organización, deberías:
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

@@ -19,7 +19,7 @@ Environment protection rules and environment secrets are only available on publi
 
 #### Environment protection rules
 
-Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use environment protection rules to require a manual approval or to delay a job.
+Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.
 
 ##### Required reviewers
 
@@ -30,6 +30,16 @@ For more information on reviewing jobs that reference an environment with requir
 ##### Wait timer
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+
+##### Deployment branches
+
+Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
+
+* **All branches**: All branches in the repository can deploy to the environment.
+* **Protected branches**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+* **Selected branches**: Only branches that match your specified name patterns can deploy to the environment.
+
+  For example, if you specify `releases/*` as a deployment branch rule, only branches whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a deployment branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
 #### Environment secrets
 

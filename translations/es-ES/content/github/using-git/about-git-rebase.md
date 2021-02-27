@@ -52,7 +52,7 @@ Hay seis comandos disponibles mientras se cambia la base:
 <dt><code>reword</code></dt>
 <dd>El comando <code>reword</code> es similar a <code>pick</code>, pero después de usarlo, el proceso de cambio de base se pausará y te dará una oportunidad de alterar el mensaje de confirmación. Cualquier cambio hecho por la confirmación no se ve afectado. </dd>
 
-<dt><code>editar</code></dt>
+<dt><code>edit</code></dt>
 <dd>Si eliges <code>edit</code> una confirmación, se te dará la oportunidad de modificar la confirmación, lo que significa que puedes agregar o cambiar la confirmación por completo. También puedes realizar más confirmaciones antes de continuar con el cambio de base. Esto te permite dividir una confirmación grande en otras más pequeñas o eliminar cambios erróneos hechos en una confirmación. </dd>
 
 <dt><code>squash</code></dt>
@@ -97,14 +97,14 @@ Desglosando esta información, de principio a fin, vemos que:
 
 - Se enumeran siete confirmaciones, lo que indica que hubo siete cambios entre nuestro punto de partida y el estado de nuestra rama actual.
 - Las confirmaciones que eliges cambiar de base se clasifican en el orden de los cambios más antiguos (arriba) a los cambios más nuevos (abajo).
-- Cada línea detalla un comando (por defecto, `pick`), la confirmación SHA y el mensaje de confirmación. Todo el procedimiento `git rebase` se centra en tu manipulación de estas tres columnas. The changes you make are *rebased* onto your repository.
+- Cada línea detalla un comando (por defecto, `pick`), la confirmación SHA y el mensaje de confirmación. Todo el procedimiento `git rebase` se centra en tu manipulación de estas tres columnas. Los cambios que realizas se *rebasan* en tu repositorio.
 - Después de las confirmaciones, Git te dice el rango de confirmaciones con las que estamos trabajando (`41a72e6..7b36971`).
 - Finalmente, Git te ayuda diciéndote los comandos que están disponibles para ti cuando cambias de base las confirmaciones.
 
-### Further reading
+### Leer más
 
 - "[Usar Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- [El capítulo "Ramificación de Git" del libro _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [El capítulo "Rebase interactivo" del libro _Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Combinar confirmaciones con cambio de base](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
 - "[Sincronizar tu rama](/desktop/contributing-to-projects/syncing-your-branch)" en la documentación de {% data variables.product.prodname_desktop %}

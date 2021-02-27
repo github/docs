@@ -1,1 +1,1 @@
-個人の割引を適用する前に、あなたの学習コミュニティがすでに弊社と{% data variables.product.prodname_education %}学校としてパートナーになっているかを確認してください。 詳しい情報については、「[{% data variables.product.prodname_education %} について](/education/teach-and-learn-with-github-education/about-github-education)」を参照してください。
+個人の割引を適用する前に、あなたの学習コミュニティがすでに弊社と{% data variables.product.prodname_education %}学校としてパートナーになっているかを確認してください。 詳しい情報については、「[{% data variables.product.prodname_education %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education)」を参照してください。

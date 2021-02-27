@@ -50,7 +50,7 @@ Puedes vincular una solicitud de cambios con una propuesta si utilizas una palab
 * fix
 * fixes
 * fixed
-* resolve
+* resolver
 * resuelve
 * resuelto
 
@@ -66,6 +66,6 @@ La sintaxis para palabras clave de cierre dependerá de si el informe de problem
 
 También puedes utilizar palabras clave de cierre en un mensaje de confirmación. La propuesta se cerrará cuando fusiones la confirmación en la rama predeterminada, pero la solicitud de cambios que contiene la confirmación no se listará como una solicitud de cambios enlazada.
 
-### Further reading
+### Leer más
 
 - "[URL y referencias auto-enlazadas](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

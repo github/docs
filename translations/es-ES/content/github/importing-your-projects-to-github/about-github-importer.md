@@ -20,7 +20,7 @@ Durante una importación, dependiendo del sistema de control de la versión del 
 | Mover archivos grandes a [Large File Storage de Git](/articles/about-git-large-file-storage)                               |   **X**    |   **X**   |         **X**          |       |
 | Eliminar archivos grandes de tu repositorio                                                                                |   **X**    |   **X**   |         **X**          |       |
 
-### Further reading
+### Leer más
 
 - "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"
 - "[Actualizar la atribución del autor de la confirmación con Importador GitHub ](/articles/updating-commit-author-attribution-with-github-importer)"

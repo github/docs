@@ -9,7 +9,6 @@ versions:
   github-ae: '*'
 ---
 
-
 ### Informationen zum Zusammenführen von Pull Requests
 
 Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. Standardmäßig kann jeder Pull Request jederzeit zusammengeführt werden, es sei denn, der Head-Branch steht in Konflikt mit dem Basisbranch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“

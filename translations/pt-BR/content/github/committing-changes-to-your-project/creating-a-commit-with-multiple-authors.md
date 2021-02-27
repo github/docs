@@ -39,7 +39,17 @@ Você pode usar o {% data variables.product.prodname_desktop %} para criar um co
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Dica:** Se estiver usando um editor de texto na linha de comando para digitar sua mensagem de commit, certifique-se de que existam duas novas linhas entre o final da sua descrição de commit e o indicador `Co-authored-by:`.
+
+  {% endtip %}
 
 3. Na próxima linha da mensagem do commit, digite `Co-authored-by: name <name@example.com>` com informações específicas para cada coautor. Depois das informações do coautor, adicione aspas de fechamento.
 

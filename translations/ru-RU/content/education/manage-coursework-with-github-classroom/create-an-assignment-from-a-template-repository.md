@@ -11,8 +11,6 @@ You can use a template repository on {% data variables.product.product_name %} a
 
 To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
 
-{% data reusables.classroom.you-may-want-to-predefine-repository-settings %} For more information, see "[Configure default settings for assignment repositories](/education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories)."
-
 ### Дополнительная литература
 
 - "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

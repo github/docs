@@ -1,14 +1,14 @@
-You can mark a comment in the discussion as an answer to the discussion if a discussion is within a category that accepts answers. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
+Você pode marcar um comentário na discussão como uma resposta para a discussão se uma discussão estiver dentro de uma categoria que aceita respostas. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
-When you mark a question as an answer, {% data variables.product.product_name %} will highlight the comment and replies to the comment to help visitors quickly find the answer.
+Ao marcar uma pergunta como resposta, {% data variables.product.product_name %} destacará o comentário e as respostas ao comentário para ajudar os visitantes a encontrar a resposta rapidamente.
 
-![Comment marked as answer to a discussion](/assets/images/help/discussions/comment-marked-as-answer.png)
+![Comentário marcado como resposta para uma discussão](/assets/images/help/discussions/comment-marked-as-answer.png)
 
-You can't mark a threaded comment in response to a comment as the answer to a discussion. You also can't mark a minimized comment as the answer to a discussion.
+You can't mark a threaded comment in response to a comment as the answer to a discussion. Você também não pode marcar um comentário minimizado como resposta para uma discussão.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, click the unanswered discussion you want to mark as answered. ![Unanswered discussion](/assets/images/help/discussions/unanswered-discussion.png)
-1. In the discussion, find the comment you want to mark as the answer.
-1. In the upper-right corner of the comment, click {% octicon "check-circle" aria-label="The circular check icon" %}. !["Mark as answer" circular check icon for marking comment as answer in a discussion](/assets/images/help/discussions/comment-mark-as-answer-button.png)
-1. Optionally, to unmark a comment as the answer, click {% octicon "check-circle-fill" aria-label="The filled circular check icon" %}.
+1. Na lista de discussões, clique na discussão não respondida que você deseja marcar como respondida. ![Discussão não respondida](/assets/images/help/discussions/unanswered-discussion.png)
+1. Na discussão, encontre o comentário que deseja marcar como resposta.
+1. No canto superior direito do comentário, clique em {% octicon "check-circle" aria-label="The circular check icon" %}. ![Ícone circular de verificação "Marcar como resposta" para marcar comentário como resposta em uma discussão](/assets/images/help/discussions/comment-mark-as-answer-button.png)
+1. Opcionalmente, para desmarcar um comentário como a resposta, clique em {% octicon "check-circle-fill" aria-label="The filled circular check icon" %}.

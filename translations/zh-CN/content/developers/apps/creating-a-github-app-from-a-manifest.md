@@ -80,7 +80,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 
 此示例使用网页上的表单，其中包含一个按钮，该按钮可触发用户帐户的 `POST` 请求：
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -111,7 +111,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 ```
 此示例使用网页上的表单，其中包含一个按钮，该按钮可触发组织帐户的 `POST` 请求： 将 `ORGANIZATION` 替换为要在其中创建应用程序的组织帐户的名称。
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">

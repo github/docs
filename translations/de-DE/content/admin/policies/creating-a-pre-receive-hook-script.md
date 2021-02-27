@@ -58,7 +58,8 @@ Außerhalb der `stdin` bereitgestellten Werte sind zusätzliche Variablen vorhan
 | $GITHUB_VIA                           | Die zum Erstellen des ref-Werts verwendete Methode.<br> **Mögliche Werte:**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | Die Anzahl der Push-Optionen, die vom Client gesendet wurden. Weitere Informationen zu den Push-Optionen finden Sie unter „[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)“ in der Git-Dokumentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | $GIT_PUSH_OPTION_N                  | <em>N</em> entspricht hierbei einer ab 0 beginnenden Ganzzahl. Diese Variable enthält den String der vom Client gesendeten Push-Option. Die erste gesendete Option wird in GIT_PUSH_OPTION_0 gespeichert. Die zweite gesendete Option wird in GIT_PUSH_OPTION_1 gespeichert usw. Weitere Informationen zu den Push-Optionen finden Sie unter „[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)“ in der Git-Dokumentation. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
+| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. 
+{% endif %}
 
 ### Berechtigungen festlegen und einen Pre-Receive-Hook per Push-Vorgang an {% data variables.product.prodname_ghe_server %} übertragen
 
@@ -93,30 +94,30 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
 
 2. Erstellen Sie eine Datei namens `Dockerfile.dev`, die Folgendes enthält:
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. Erstellen Sie ein Pre-Receive-Testskript namens `always_reject.sh`. Dieses Beispielskript lehnt alle Push-Vorgänge ab, was zum Sperren eines Repositorys nützlich ist:
+   3. Erstellen Sie ein Pre-Receive-Testskript namens `always_reject.sh`. Dieses Beispielskript lehnt alle Push-Vorgänge ab, was zum Sperren eines Repositorys nützlich ist:
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1

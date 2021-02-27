@@ -57,8 +57,9 @@ Fuera de los valores que se brindan a `stdin`, existen variables adicionales que
 | $GITHUB_PULL_REQUEST_BASE           | Una secuencia en el formato: `user:branch` para la BASE de la Solicitud de Extracción.<br> Ejemplo: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | $GITHUB_VIA                           | Método usado para crear la ref.<br> **Valores posibles:**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | El número de opciones de extracción que envió el cliente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| $GIT_PUSH_OPTION_N                  | Where <em>N</em> is an integer starting at 0, this variable contains the push option string that was sent by the client. La primera opción que se envió se almacenó en GIT_PUSH_OPTION_0, la segunda opción que se envió se almacenó en GIT_PUSH_OPTION_1, y así sucesivamente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | La secuencia de usuario-agente que envió el cliente que subió los cambios. |{% endif %}
+| $GIT_PUSH_OPTION_N                  | En donde <em>N</em> es un número entero que comienza con 0, esta variable contiene la cadena de opción de subida que envió el cliente. La primera opción que se envió se almacenó en GIT_PUSH_OPTION_0, la segunda opción que se envió se almacenó en GIT_PUSH_OPTION_1, y así sucesivamente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
+| $GIT_USER_AGENT                     | La secuencia de usuario-agente que envió el cliente que subió los cambios. 
+{% endif %}
 
 ### Establecer permisos y subidas a un ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %}
 
@@ -93,30 +94,30 @@ Puedes probar un script de gancho de pre-recepción localmente antes de crear o 
 
 2. Crear un archivo denominado `Dockerfile.dev` que contenga:
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. Crear un script de pre-recepción de prueba denominado `always_reject.sh`. Este script del ejemplo rechazará todas las subidas, lo cual es útil para bloquear un repositorio:
+   3. Crear un script de pre-recepción de prueba denominado `always_reject.sh`. Este script del ejemplo rechazará todas las subidas, lo cual es útil para bloquear un repositorio:
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1
@@ -197,5 +198,5 @@ Puedes probar un script de gancho de pre-recepción localmente antes de crear o 
 
    Observa que la subida fue rechazada después de ejecutar el ganchos de pre-recepción y de hace eco la salida del script.
 
-### Further reading
+### Leer más
  - "[Personalizar Git - Un ejemplo de la política activa de Git](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" desde el *sitio web de Pro Git*

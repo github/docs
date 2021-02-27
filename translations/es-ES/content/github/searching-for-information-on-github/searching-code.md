@@ -100,7 +100,7 @@ El calificador `extension` (extensión) encuentra archivos de código con una de
 | <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) encuentra el código con la palabra "form", debajo de <em>cgi-bin</em>, con la extensión de archivo <em>.pm</em>. |
 |                            | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) busca archivos más grandes de 200 KB que terminan en .css y tienen la palabra "icon".                               |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"
 - "[Buscar en las bifurcaciones](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}

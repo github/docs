@@ -42,6 +42,6 @@ El calificador `updated` (actualizada) empareja páginas wiki que fueron actuali
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**usage updated:>2016-01-01**](https://github.com/search?q=usage+updated%3A>2016-01-01&type=Wikis) coincidirá con las páginas de wiki con la palabra "uso" que se actualizaron por última vez después del 2016-01-01. |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

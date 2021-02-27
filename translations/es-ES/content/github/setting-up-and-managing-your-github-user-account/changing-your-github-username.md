@@ -50,7 +50,7 @@ Luego de cambiar tu nombre de usuario, los enlaces a tu página de perfil anteri
 6. Si el nombre de usuario que elegiste está disponible, haz clic en **Change my username** (Cambiar mi nombre de usuario). Si el nombre de usuario que elegiste no está disponible, puedes probar un nombre de usuario diferente o una de las sugerencias que ves. ![Cambiar botón Username warning (Advertencia de nombre de usuario)](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)"
 - "[¿Por qué se enlazan mis confirmaciones a un usuario incorrecto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}

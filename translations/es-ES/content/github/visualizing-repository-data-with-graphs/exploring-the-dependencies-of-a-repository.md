@@ -67,7 +67,7 @@ Se listará cualquier dependencia directa e indirecta que se especifique en los 
 
 Para los repositorios públicos, la vista de dependientes muestra cómo otros repositorios utilizan este repositorio. Para mostrar únicamente los repositorios que contienen una biblioteca en un administrador de paquetes, da cilc en **CANTIDAD de paquetes** inmediatamente sobre la lista de repositorios dependientes. La cantidad de dependientes es aproximada y podría no siempre empatar con los dependientes listados.
 
-![Dependents graph](/assets/images/help/graphs/dependents_graph.png)
+![Gráfica de dependientes](/assets/images/help/graphs/dependents_graph.png)
 
 ### Habilitar e inhabilitar la gráfica de dependencias para un repositorio privado
 
@@ -82,22 +82,22 @@ También puedes habilitar o inhabilitar la gráfica de dependencias para todos l
 
 Puedes inhabilitar la gráfica de dependencias en cualquier momento si das clic en **Inhabilitar** junto a "Gráfica de Dependencias" en la pestaña de Seguridad & análisis.
 
-### Changing the "Used by" package
+### Cambiar el paquete "Utilizado por"
 
-If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+Si está habilitada la gráfica de dependencias y tu repositorio contiene un paquete que se publica en un ecosistema de paquetes compatible, {% data variables.product.prodname_dotcom %} muestra una sección de "Utilizado por" en la barra lateral de la pestaña de **Código** de tu repositorio. Para obtener más información sobre los ecosistemas de paquetes compatibles, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+La sección de "Utilizado por" muestra la cantidad de referencias públicas al paquete que se encontró, y muestra los avatares de algunos de los propietarios de los proyectos dependientes.
 
-!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+![Sección de "Utilizado por" en la barra lateral](/assets/images/help/repository/used-by-section.png)
 
-Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+Dar clic en cualquier elemento de esta sección te lleva a la pestaña de **Dependientes** de la gráfica de dependencias.
 
-The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+La sección de "Utilizado por" representa un solo paquete del repositorio. Si tienes permisos de administrador en un repositorio que contenga paquetes múltiples, puedes elegir qué paquete reporesenta la sección de "Utilizado por".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+4. Debajo de "Configurar las caracetrísticas de análisis y seguridad"; da clic en el menú desplegable dentro de la sección "Contador de utilizado por" y elige un paquete. ![Elige un paquete de "Utilizado por"](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
@@ -111,7 +111,7 @@ usuario de {% data variables.product.prodname_enterprise %}. Este procesa hasta 
 
 Si un archivo de manifiesto o de bloqueo no se procesa, sus dependencias se omiten de la gráfica de dependencias y no podrán verificar si hay dependencias vulnerables.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Visualizar las perspectivas para tu organización](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
