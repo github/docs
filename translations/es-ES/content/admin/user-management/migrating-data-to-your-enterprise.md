@@ -45,19 +45,19 @@ Los tipos de registro coinciden con los encontrados en los [datos migrados](/ent
 
 | Tipo de registro                                                | Nombre del filtro                                   |
 | --------------------------------------------------------------- | --------------------------------------------------- |
-| Usuarios                                                        | `user`                                              |
+| Usuarios                                                        | `usuario`                                           |
 | Organizaciones                                                  | `organization`                                      |
 | Repositorios                                                    | `repositorio`                                       |
-| Equipos                                                         | `team`                                              |
-| Hitos                                                           | `milestone`                                         |
+| Equipos                                                         | `equipo`                                            |
+| Hitos                                                           | `hito`                                              |
 | Tableros de proyecto                                            | `project`                                           |
-| Problemas                                                       | `issue`                                             |
+| Problemas                                                       | `propuesta`                                         |
 | Comentarios de propuestas                                       | `comentario_propuesta`                              |
 | Solicitudes de cambios                                          | `solicitud_extracción`                              |
 | Revisiones de solicitudes de extracción                         | `revisión_solicitud de extracción`                  |
 | Comentarios sobre confirmación de cambios                       | `comentario_confirmación de cambios`                |
 | Comentarios sobre revisiones de solicitudes de extracción       | `comentarios _revisiones_solicitudes de extracción` |
-| Lanzamientos                                                    | `release`                                           |
+| Lanzamientos                                                    | `lanzamiento`                                       |
 | Medidas adoptadas en las solicitudes de extracción o propuestas | `evento_propuesta`                                  |
 | Ramas protegidas                                                | `rama_protegida`                                    |
 
@@ -67,9 +67,9 @@ Los tipos de registro coinciden con los encontrados en los [datos migrados](/ent
 | --------------------- | ---------------------------------- |
 | `exportar`            | El registro se exportará.          |
 | `importar`            | El registro se importará.          |
-| `asignar`             | El registro se asignará.           |
+| `map`                 | El registro se asignará.           |
 | `rename (renombrar)`  | El registro se renombrará.         |
-| `merge`               | El registro se fusionará.          |
+| `fusionar`            | El registro se fusionará.          |
 | `exportado`           | El registro se exportó con éxito.  |
 | `importado`           | El registro se importó con éxito.  |
 | `asignado`            | El registro se asignó con éxito.   |

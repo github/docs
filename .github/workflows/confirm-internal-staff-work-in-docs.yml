@@ -4,12 +4,10 @@ on:
   issues:
     types:
       - opened
-      - reopened
       - transferred
   pull_request_target:
     types:
       - opened
-      - reopened
 
 jobs:
   check-team-membership:

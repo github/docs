@@ -22,7 +22,7 @@ versions:
 4. Haz clic en **Eliminar proyecto**. ![Botón Eliminar proyecto](/assets/images/help/projects/delete-project-button.png)
 5. Para confirmar que deseas eliminar el tablero de proyecto, haz clic en **Aceptar**.
 
-### Further reading
+### Leer más
 
 - "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"
 - "[Inhabilitar tableros de proyectos en un repositorio](/articles/disabling-project-boards-in-a-repository)"

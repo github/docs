@@ -31,7 +31,7 @@ Para encontrar un resumen de la seguridad a nivel de repositorio, consulta la se
 {% data reusables.user_settings.security-analysis %}
 3. Debajo de "Configurar las características de seguridad y análisis", a la derecha de la característica, habilítala o inhabilítala para los repositorios nuevos en tu organización. ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Administrar las vulnerabilidades en las dependencias de tu proyecto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"

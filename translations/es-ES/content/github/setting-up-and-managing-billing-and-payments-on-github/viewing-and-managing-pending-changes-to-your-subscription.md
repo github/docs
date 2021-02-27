@@ -34,6 +34,6 @@ Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-### Further reading
+### Leer más
 
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

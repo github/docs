@@ -80,7 +80,7 @@ The `hook_attributes` object has the following key:
 
 This example uses a form on a web page with a button that triggers the `POST` request for a user account:
 
-```
+```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
@@ -111,7 +111,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
 ```
 This example uses a form on a web page with a button that triggers the `POST` request for an organization account. Replace `ORGANIZATION` with the name of the organization account where you want to create the app.
 
-```
+```html
 <form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">

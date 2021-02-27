@@ -18,7 +18,7 @@ versions:
     - Para editar la invitación del usuario, selecciona un rol o equipo diferente, luego haz clic en **Update invitation** (Actualizar invitación).
     - Para cancelar la invitación del usuario para unirte a tu organización, haz clic en **Cancel invitation** (Cancelar invitación).
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Invitar a usuarios para que se unan a nuestra organización](/articles/inviting-users-to-join-your-organization)"

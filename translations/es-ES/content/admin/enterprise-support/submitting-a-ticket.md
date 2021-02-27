@@ -57,7 +57,7 @@ Para problemas urgentes, para asegurar una respuesta rápida, después de emitir
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".{% endif %}

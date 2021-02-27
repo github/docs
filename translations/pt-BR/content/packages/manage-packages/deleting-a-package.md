@@ -15,7 +15,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 ### Sobre a exclusão de imagem de contêiner
 
-To delete a container image package on {% data variables.product.product_name %}, see "[Deleting a container image](/packages/guides/deleting-a-container-image)."
+Para excluir um pacote de imagem de contêiner em {% data variables.product.product_name %}, consulte "[Excluir uma imagem de contêiner](/packages/guides/deleting-a-container-image)".
 
 {% endif %}
 
@@ -54,7 +54,7 @@ Use a mutação `deletePackageVersion` na API do GraphQL. Você deve usar um tok
 Aqui está um exemplo de comando cURL para excluir uma versão de pacote com o ID de versão do pacote `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`, usando um token de acesso pessoal.
 
 {% if currentVersion == "free-pro-team@latest" %}
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \
@@ -64,7 +64,7 @@ https://api.github.com/graphql
 
 {% else %}
 
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \

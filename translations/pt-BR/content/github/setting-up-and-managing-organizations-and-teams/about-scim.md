@@ -17,7 +17,7 @@ Estes provedores de identidade são compatíveis com a API de SCIM de {% data va
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} Para obter mais informações, consulte "[Aplicando configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)".
+{% data reusables.scim.enterprise-account-scim %} Para obter mais informações, consulte "[Sobre o provisionamento do usuário para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".
 
 ### Leia mais
 

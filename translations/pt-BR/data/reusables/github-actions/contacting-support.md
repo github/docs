@@ -1,4 +1,4 @@
-If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_gcf %}'s {% data variables.product.prodname_actions %} category](https://github.community/c/code-to-cloud/github-actions/41).
+Se precisar de ajuda com algo relacionado com a configuração do fluxo de trabalho, como sintaxe, executores hospedados em {% data variables.product.prodname_dotcom %}, ou ações de criação, procure por um tópico existente ou comece um novo na categoria de [{% data variables.product.prodname_gcf %} {% data variables.product.prodname_actions %} ](https://github.community/c/code-to-cloud/github-actions/41).
 
 Se você tiver comentários ou solicitações de recursos para {% data variables.product.prodname_actions %}, compartilhe-os na {% data variables.contact.contact_feedback_actions %}.
 

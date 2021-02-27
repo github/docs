@@ -1,6 +1,6 @@
 ---
 title: Visualizar transações para a sua listagem
-intro: 'A página de transações do {% data variables.product.prodname_marketplace %} permite que você faça o download e visualize todas as transações para a sua listagem do {% data variables.product.prodname_marketplace %}. Você pode visualizar as transações para o último dia (24 horas), semana, mês ou referente a todo o tempo em que sua {% data variables.product.prodname_github_app %} foi listado.'
+intro: 'A página de transações do {% data variables.product.prodname_marketplace %} permite que você faça o download e visualize todas as transações para a sua listagem do {% data variables.product.prodname_marketplace %}. Você pode visualizar as transações do último dia (24 horas), semana, mês ou por todo o período em que o seu {% data variables.product.prodname_github_app %} foi listado.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:

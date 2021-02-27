@@ -9,7 +9,7 @@ versions:
 
 ### Sobre a navegação do código no {% data variables.product.prodname_dotcom %}
 
-As funções de navegar por código usam a biblioteca de código aberto [`semântica`](https://github.com/github/semantic). As linguagens a seguir são compatíveis:
+A navegação por código usa a biblioteca de código aberto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). As linguagens a seguir são compatíveis:
 - C#
 - CodeQL
 - Go

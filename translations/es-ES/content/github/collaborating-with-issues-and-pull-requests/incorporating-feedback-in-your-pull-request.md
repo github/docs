@@ -33,7 +33,7 @@ Cada una de las personas que sugirieron alguna de las modificaciones incluidas e
 
 Si alguna persona sugiere cambios para tu solicitud de extracción, y los cambios están fuera del alcance de la solicitud de extracción, puedes abrir una propuesta nueva para hacer el seguimiento de los comentarios. Para obtener más información, consulte la sección "[Abrir un informe de problemas desde un comentario](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las revisiones de solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)"
 - "[Revisar los cambios propuestos en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

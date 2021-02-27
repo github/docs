@@ -1,1 +1,1 @@
-When you enable an interaction limit, you can choose a duration for the limit: 24 hours, 3 days, 1 week, 1 month, or 6 months.
+Cuando habilitas un límite de interacción, puedes elegir una duración para el límite: 24 horas, 3 días, 1 semana, 1mes, o 6 meses.

@@ -26,6 +26,16 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### About {% data variables.product.prodname_advanced_security %} licensing
+
+{% data reusables.advanced-security.license-overview %}
+
+{% data reusables.advanced-security.enable-disable-committer-info %}
+
+{% endif %}
+
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_ghe_server %}
 
@@ -40,7 +50,13 @@ For information about purchasing a license for {% data variables.product.prodnam
 
 For public repositories on {% data variables.product.prodname_dotcom_the_website %}, these features are permanently on and are only disabled if you change the visibility of the project so that the code is no longer public.
 
-For all other repositories, once you have a license, you can enable and disable these features at the organization or repository level. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+For other repositories, once you have a license for your organization or enterprise, you can enable and disable these features at the organization or repository level. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+If you have an enterprise account, license use for the enterprise is shown on your billing page. For more information, see "[Managing use of Advanced Security for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account)."
+
+{% endif %}
 
 For information about purchasing a license for {% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.
 {% endif %}

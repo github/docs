@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_code_scanning_capc %} is in beta in {% data variables.product.prodname_ghe_server %} 2.22. For the generally available release of code scanning, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
+**Nota:** El {% data variables.product.prodname_code_scanning_capc %} se encuentra en beta dentro de {% data variables.product.prodname_ghe_server %} 2.22. Para encontrar un lanzamiento de disponibilidad general del escaneo de código, mejora al último lanzamiento de {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 

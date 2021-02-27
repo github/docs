@@ -9,7 +9,7 @@ versions:
 
 ### {% data variables.product.prodname_dotcom %} のナビゲーションコードについて
 
-コードナビゲーションの機能は、オープンソースの ライブラリ[`semantic`](https://github.com/github/semantic)を使用しています。 以下の言語がサポートされています:
+Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). 以下の言語がサポートされています:
 - C#
 - CodeQL
 - Go

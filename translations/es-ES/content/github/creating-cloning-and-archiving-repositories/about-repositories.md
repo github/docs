@@ -23,14 +23,14 @@ Cada persona y organización puede tener repositorios ilimitados e invitar a un 
 {% endif %}
 
 Puedes utilizar repositorios para administrar tu trabajo y colaborar con otros.
-- Puedes utilizar propuestas para recolectar la retroalimentación de los usuarios, reportar errores de software y organizar las tareas que te gustaría realizar. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- Puedes utilizar propuestas para recolectar la retroalimentación de los usuarios, reportar errores de software y organizar las tareas que te gustaría realizar. Para obtener más información, consulta la sección "[Acerca de las propuestas](/github/managing-your-work-on-github/about-issues)".{% if currentVersion == "free-pro-team@latest" %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - Puedes utilizar las solicitudes de cambios para proponer cambios a un repositorio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 - Puedes utilizar tableros de proyecto para organizar y priorizar tus propuestas y solicitudes de cambios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/github/managing-your-work-on-github/about-project-boards)."
 
 {% data reusables.repositories.repo-size-limit %}
 
-### Further reading
+### Leer más
 
 - "[Crear un repositorio nuevo](/articles/creating-a-new-repository)"
 - "[Colaborar con propuestas y solicitudes de extracción](/categories/collaborating-with-issues-and-pull-requests)"

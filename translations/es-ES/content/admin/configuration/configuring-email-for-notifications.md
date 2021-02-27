@@ -41,12 +41,6 @@ Para obtener más información sobre contactar a soporte, consulta la sección "
     - En el desplegable **Autenticación**, elige el tipo de cifrado usado por tu servidor SMTP.
     - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
 
-    {% note %}
-
-    **Nota:** si seleccionas la casilla de verificación **Send from author (Enviar desde autor)** en el webhook del correo electrónico **Services (Servicios)** de un repositorio, el correo electrónico de salida para ese repositorio se enviará desde el autor y no desde el correo electrónico sin respuesta. Para obtener más información, consulta la sección "[Acerca de las notificaciones por correo electrónico para las cargas a tu repositorio](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)".
-
-    {% endnote %}
-
 6. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de verificación para descartar los correos electrónicos dirigidos a la dirección de correo electrónico sin respuesta](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. En **Soporte**, elige un tipo de enlace para ofrecer un soporte adicional a tus usuarios:
     - **Correo electrónico:** Una dirección de correo electrónico interna.
@@ -129,7 +123,7 @@ Este registro muestra que el aparato:
 
 Si necesitas verificar que tu correo electrónico entrante está funcionando, hay dos archivos de registro que puedes examinar en tu instancia: para verificar */var/log/mail.log* y */var/log/mail-replies/metroplex.log*.
 
-*/var/log/mail.log* verifies that messages are reaching your server. Este es un ejemplo de una respuesta de correo electrónico exitosa:
+*/var/log/mail.log* verifica que los mensajes estén alcanzando tu servidor. Este es un ejemplo de una respuesta de correo electrónico exitosa:
 
 ```
 Oct 30 00:47:18 54-171-144-1 postfix/smtpd[13210]: connect from st11p06mm-asmtp002.mac.com[17.172.124.250]
@@ -143,7 +137,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 Ten en cuenta que el cliente primero se conecta; luego, la cola se vuelve activa. Entonces, el mensaje es entregado, el cliente es retirado de la cola y la sesión se desconecta.
 
-*/var/log/mail-replies/metroplex.log* shows whether inbound emails are being processed to add to issues and pull requests as replies. Este es un ejemplo de un mensaje exitoso:
+*/var/log/mail-replies/metroplex.log* muestra si los correos electrónicos entrantes están siendo procesados para agregarse a las propuestas y a las solicitudes de extracción como respuestas. Este es un ejemplo de un mensaje exitoso:
 
 ```
 [2014-10-30T00:47:23.306 INFO (5284) #] metroplex: processing <b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
@@ -155,7 +149,7 @@ Notarás que `metroplex` captura el mensaje entrante, lo procesa y luego desplaz
 
 #### Verificar los parámetros de tu DNS
 
-Para procesar los correos electrónicos entrantes de manera adecuada, debes configurar un Registro A válido (o CNAME), así como un Registro MX. Para obtener más información, consulta "[Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+Para procesar los correos electrónicos entrantes de manera adecuada, debes configurar un Registro A válido (o CNAME), así como un Registro MX. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### Controlar los parámetros de AWS Security Group o firewall
 

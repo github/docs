@@ -257,7 +257,7 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 **警告：**Powershell 默认不使用 UTF-8。 请确保使用正确的编码写入文件。 例如，在设置路径时需要设置 UTF-8 编码：
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -272,11 +272,19 @@ steps:
 
 #### 示例
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
-
-在未来步骤中运行 `$action_state` 现在会返回 `yellow`
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
 #### 多行字符串
 
@@ -291,7 +299,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 ##### 示例
 
 在此示例中， 我们使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 cURL 响应的值。
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one
@@ -305,11 +313,11 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
+为系统 `PATH` 变量预先设置一个目录，使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
 
 #### 示例
 
-This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
 
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH

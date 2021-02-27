@@ -21,7 +21,7 @@ Para integrar el {% data variables.product.prodname_code_scanning %} en tu siste
 
 En general, se invoca el {% data variables.product.prodname_codeql_runner %} de la siguiente manera.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
@@ -39,7 +39,7 @@ El {% data variables.product.prodname_codeql_runner %} detecta automáticamente 
 
 Para anular la detección automática de lenguajes, ejecuta el comando `init` con el marcador `--languages`, seguido de una lista separada por comas de las palabras clave de los lenguajes. Las palabras clave para los lenguajes compatibles son `cpp`, `csharp`, `go`, `java`, `javascript`, y `python`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -55,7 +55,7 @@ Si también estás usando un archivo de configuración para los ajustes personal
 
 En el siguiente ejemplo, el símbolo `+` garantiza que el {% data variables.product.prodname_codeql_runner %} utilizará consultas adicionales junto con cualquier otra consulta que se especifique en el archivo de configuración referenciado.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -68,7 +68,7 @@ El archivo de configuración es un archivo de YAML. Utiliza una sintaxis similar
 
 Utiliza el marcador `--config-file` del comando `init` para especificar el archivo de configuración. El valor de <nobr>`--config-file`</nobr> es la ruta al archivo de configuración que quieres utilizar. Este ejemplo carga el archivo de configuración _.github/codeql/codeql-config.yml_.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
@@ -84,7 +84,7 @@ Para varios sistemas de compilación comunes, el {% data variables.product.prodn
 
 El proceso de `autobuild` solo intenta siempre compilar _un_ solo lenguaje compilado para un repositorio. El lenguaje que se selecciona automáticamente para su análisis es aquél presente en más archivos. Si quieres elegir un lenguaje explícitamente, utiliza el marcador `--language` del comando `autobuild`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
@@ -134,21 +134,24 @@ Intenta compilar el código para los lenguajes compilados de C/C++, C#, y Java. 
 
 Analiza el código en las bases de datos de {% data variables.product.prodname_codeql %} y carga los resultados a {% data variables.product.product_location %}.
 
-| Marcador                         | Requerido | Valor de entrada                                                                                                                                                                                           |
-| -------------------------------- |:---------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--repositorio`                  |     ✓     | Nombre del repositorio que se analizará.                                                                                                                                                                   |
-| `--commit`                       |     ✓     | SHA de la confirmación que se analizará. En Git y en Azure DevOps, este corresponde al valor de `git rev-parse HEAD`. En Jenkins, este corresponde a `$GIT_COMMIT`.                                        |
-| `--ref`                          |     ✓     | Nombre de la referencia a analizar, por ejemplo `refs/heads/main`. En Git y en Jenkins, esto corresponde al valor de `git symbolic-ref HEAD`. En Azure DevOps, esto corresponde a `$(Build.SourceBranch)`. |
-| `--github-url`                   |     ✓     | URL de la instancia de {% data variables.product.prodname_dotcom %} donde se hospeda tu repositorio.                                                                                                       |
-| `--github-auth`                  |     ✓     | Un token de {% data variables.product.prodname_github_apps %} o un token de acceso personal.                                                                                                             |
-| <nobr>`--checkout-path`</nobr> |           | La ruta a la confirmación de salida de tu repositorio. El predeterminado es el directorio de trabajo.                                                                                                      |
-| `--no-upload`                    |           | Ninguno. Impide que el {% data variables.product.prodname_codeql_runner %} cargue los resultados a {% data variables.product.product_location %}.                                                        |
-| `--output-dir`                   |           | Directorio en donde se almacenan los archivos SARIF de salida. El predeterminado está en el directorio de archivos temporales.                                                                             |
-| `--temp-dir`                     |           | Directorio donde se almacenan los archivos temporales. El predeterminado es _./codeql-runner_.                                                                                                             |
-| `--debug`                        |           | Ninguno. Imprime una salida más verbosa.                                                                                                                                                                   |
-| `-h`, `--help`                   |           | Ninguno. Muestra la ayuda para el comando.                                                                                                                                                                 |
+| Marcador                           | Requerido | Valor de entrada                                                                                                                                                                                           |
+| ---------------------------------- |:---------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--repositorio`                    |     ✓     | Nombre del repositorio que se analizará.                                                                                                                                                                   |
+| `--commit`                         |     ✓     | SHA de la confirmación que se analizará. En Git y en Azure DevOps, este corresponde al valor de `git rev-parse HEAD`. En Jenkins, este corresponde a `$GIT_COMMIT`.                                        |
+| `--ref`                            |     ✓     | Nombre de la referencia a analizar, por ejemplo `refs/heads/main`. En Git y en Jenkins, esto corresponde al valor de `git symbolic-ref HEAD`. En Azure DevOps, esto corresponde a `$(Build.SourceBranch)`. |
+| `--github-url`                     |     ✓     | URL de la instancia de {% data variables.product.prodname_dotcom %} donde se hospeda tu repositorio.                                                                                                       |
+| `--github-auth`                    |     ✓     | Un token de {% data variables.product.prodname_github_apps %} o un token de acceso personal.                                                                                                             |
+| <nobr>`--checkout-path`</nobr>   |           | La ruta a la confirmación de salida de tu repositorio. El predeterminado es el directorio de trabajo.                                                                                                      |
+| `--no-upload`                      |           | Ninguno. Impide que el {% data variables.product.prodname_codeql_runner %} cargue los resultados a {% data variables.product.product_location %}.                                                        |
+| `--output-dir`                     |           | Directorio en donde se almacenan los archivos SARIF de salida. El predeterminado está en el directorio de archivos temporales.                                                                             |
+| `--ram`                            |           | Amount of memory to use when running queries. The default is to use all available memory.                                                                                                                  |
+| <nobr>`--no-add-snippets`</nobr> |           | Ninguno. Excludes code snippets from the SARIF output.                                                                                                                                                     |
+| `--threads`                        |           | Number of threads to use when running queries. The default is to use all available cores.                                                                                                                  |
+| `--temp-dir`                       |           | Directorio donde se almacenan los archivos temporales. El predeterminado es _./codeql-runner_.                                                                                                             |
+| `--debug`                          |           | Ninguno. Imprime una salida más verbosa.                                                                                                                                                                   |
+| `-h`, `--help`                     |           | Ninguno. Muestra la ayuda para el comando.                                                                                                                                                                 |
 
-#### `upload`
+#### `cargar`
 
 Carga los archivos SARIF a {% data variables.product.product_location %}.
 

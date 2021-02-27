@@ -9,11 +9,11 @@ versions:
 
 ### Sobre o bloqueio de usuários
 
-Você pode bloquear um usuário nas configurações da sua conta ou no perfil do usuário. {% data variables.product.prodname_dotcom %} não notificará o usuário quando você bloqueá-lo. Se quiser evitar contribuir com o mesmo projeto da pessoa que foi bloqueada, você pode [optar por exibir um aviso](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) em todos os repositórios com contribuições anteriores de um usuário bloqueado. Você ainda pode ver a atividade dos usuários bloqueados em espaços compartilhados e os usuários bloqueados podem excluir seu conteúdo existente.
+Você pode bloquear um usuário nas configurações da sua conta ou no perfil do usuário. {% data variables.product.prodname_dotcom %} não notificará o usuário quando você bloqueá-lo. Se você quiser evitar contribuir para o mesmo projeto que alguém bloqueou, você pode optar por exibir um aviso em qualquer repositório com contribuições anteriores de um usuário bloqueado. Para obter mais informações, consulte "[Bloquear um usuário nas configurações da sua conta](#blocking-a-user-in-your-account-settings)". Você ainda pode ver a atividade dos usuários bloqueados em espaços compartilhados e os usuários bloqueados podem excluir seu conteúdo existente.
 
 {% tip %}
 
-**Dica:** se for bloquear um usuário por conta de uma conversa acalorada, considere [bloquear a conversa](/articles/locking-conversations) para que apenas colaboradores possam comentar.
+**Dica:** se for bloquear um usuário por conta de uma conversa acalorada, considere bloquear a conversa para que apenas colaboradores possam comentar. Para obter mais informações, consulte "[Bloquear conversas](/github/building-a-strong-community/locking-conversations)".
 
 {% endtip %}
 
@@ -22,8 +22,6 @@ Quando você bloqueia um usuário:
 - O usuário para de inspecionar e deixa de fixar seus repositórios
 - O usuário não pode participar de nenhuma organização da qual você é proprietário
 - As estrelas e atribuições de problema do usuário são removidas dos repositórios
-- As bifurcações dos seus repositórios são excluídas
-- Você exclui qualquer bifurcação dos repositórios do usuário
 - Os votos do usuário em discussões ou comentários em seus repositórios são excluídos
 - O usuário é removido como um colaborador dos seus repositórios
 - As contribuições do usuário nos seus repositórios não são mais contabilizadas como contribuições para eles

@@ -31,7 +31,7 @@ Si utilizas {% data variables.product.prodname_ghe_server %}, {% data variables.
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Further reading
+### Leer más
 - "[Productos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
 - "[Acerca de {% data variables.contact.github_support %}](/articles/about-github-support)"
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

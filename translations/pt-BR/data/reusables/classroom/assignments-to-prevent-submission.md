@@ -1,1 +1,1 @@
-To prevent acceptance or submission of an assignment by students, deselect **Enable assignment invitation URL**. To edit the assignment, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment**.
+Para impedir a aceitação ou submissão de uma atividade por alunos, desmarque **Habilitar a URL do convite da atividade**. Para editar a atividade, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar atividade**.

@@ -14,6 +14,8 @@ versions:
 
 {% data variables.product.prodname_dotcom %} には、コードを安全に保つために役立つセキュリティ機能が追加されています。 これらは、リポジトリの [**セキュリティ**] タブにあります。
 
+#### Available for all repositories
+
 {% if currentVersion == "free-pro-team@latest" %}
 - **セキュリティポリシー**
 
@@ -43,15 +45,23 @@ Use
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
+#### Available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
+
+These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+
 - **{% data variables.product.prodname_code_scanning_capc %} アラート**
 
   新しいコードまたは変更されたコードのセキュリティの脆弱性とコーディングエラーを自動的に検出します。 潜在的な問題が強調表示され、あわせて詳細情報も確認できるため、デフォルトのブランチにマージする前にコードを修正できます。 詳しい情報については、「[コードスキャニングについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。
 
 - **検出されたシークレット**
-View any secrets that
 
-  {% data variables.product.prodname_dotcom %} has found in your code. リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
-  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else if %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+- **依存関係のレビュー** - プルリクエストをマージする前に、依存関係に対する変更の影響を詳細に示し、脆弱性なバージョンがあればその詳細を確認できます。 For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+{% endif %}
 
 ### 依存関係を調べる
 {% data variables.product.prodname_dotcom %} の依存関係グラフを使用すると、次の情報を調べることができます。
@@ -59,6 +69,6 @@ View any secrets that
 * リポジトリが依存しているエコシステムとパッケージ
 * リポジトリに依存しているリポジトリとパッケージ
 
-You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_alerts %} for dependencies with security vulnerabilities.
+You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_alerts %} for dependencies with security vulnerabilities. {% if currentVersion == "free-pro-team@latest" %}Enabling the dependency graph also enables {% data variables.product.prodname_dotcom %} to run dependency reviews of pull requests.{% endif %}
 
 依存関係グラフは、リポジトリの [**Insights**] タブにあります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。

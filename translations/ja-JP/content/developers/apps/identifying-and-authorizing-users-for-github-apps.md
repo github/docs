@@ -89,7 +89,7 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 デフォルトでは、レスポンスは以下の形式になります。 レスポンスパラメータの `expires_in`、`refresh_token`、`refresh_token_expires_in` は、ベータ版の機能である、ユーザからサーバに対するアクセストークンの期限設定を有効にしている場合にのみ返されます。
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",

@@ -4,7 +4,7 @@ intro: 'Después de que creas tu organización, puedes {% if currentVersion == "
 redirect_from:
   - /articles/removing-a-user-from-your-organization/
   - /articles/managing-membership-in-your-organization
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

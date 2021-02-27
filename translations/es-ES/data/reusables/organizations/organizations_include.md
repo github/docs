@@ -6,3 +6,4 @@ Las organizaciones incluyen:
 - [Los elementos anidados que reflejan la estructura de tu grupo o compañía](/articles/about-teams) con permisos de acceso y menciones en cascada{% if currentVersion != "github-ae@latest" %}
 - La posibilidad de que los propietarios de la organización vean el [estado de autenticación de dos factores(2FA)](/articles/about-two-factor-authentication) de los miembros
 - La opción de [requerir que todos los miembros de la organización utilicen autenticación bifactorial](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- The option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}{% endif %}

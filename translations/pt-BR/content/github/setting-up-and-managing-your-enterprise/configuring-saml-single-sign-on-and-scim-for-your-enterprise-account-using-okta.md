@@ -54,7 +54,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 1. À direita do menu suspenso, digite `.*.*`.
 1. Clique em **Salvar**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
+1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. Para obter mais informações, consulte "[Habilitar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 ### Criar grupos no Okta
 

@@ -23,7 +23,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Crear una respuesta guardada](/articles/creating-a-saved-reply)"
 - "[Editar una respuesta guardada](/articles/editing-a-saved-reply)"

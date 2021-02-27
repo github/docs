@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
+LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 

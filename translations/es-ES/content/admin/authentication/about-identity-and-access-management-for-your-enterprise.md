@@ -21,7 +21,7 @@ Para aprender cómo configurar tanto la autenticación como el aprovisionamiento
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Wiki de SAML](https://wiki.oasis-open.org/security) en el sitio de OASIS
 - [Sistema para la Administración de Identidad entre Dominios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) en el sitio web de IETF

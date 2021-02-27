@@ -49,7 +49,7 @@ Si aún quieres cambiar de base las confirmaciones, pero no puedes cambiar de ba
 
 Cualquiera con permisos de escritura en el repositorio, entonces puede [fusionar los cambios](/articles/merging-a-pull-request/) usando el botón Cambiar de base y fusionar en {% data variables.product.product_location %}.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests/)"
 - "[Abordar conflictos de fusión](/articles/addressing-merge-conflicts)"

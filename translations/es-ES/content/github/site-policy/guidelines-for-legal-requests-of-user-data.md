@@ -146,7 +146,14 @@ Tenga en cuenta que la información disponible variará de un caso a otro. Parte
 
 ### Reembolso de costes
 
-Nos reservamos el derecho de solicitar el reembolso de los gastos administrativos asociados con la respuesta a las solicitudes de información, de acuerdo con lo permitido por la ley.
+Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+
+While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+
+- Initial search of up to 25 identifiers: Free
+- Production of subscriber information/data for up to 5 accounts: Free
+- Production of subscriber information/data for more than 5 accounts: $20 per account
+- Secondary searches: $10 per search
 
 ### Conservación de datos
 
@@ -176,7 +183,7 @@ Por favor, espera al menos dos semanas para que podamos examinar tu solicitud.
 
 ### Solicitudes de aplicación de la ley extranjera
 
-Como empresa de Estados Unidos con sede en California, GitHub no está obligada a proporcionar datos a los gobiernos extranjeros en respuesta al proceso legal emitido por autoridades extranjeras. Los funcionarios encargados de hacer cumplir la ley extranjera que deseen solicitar información a GitHub deben ponerse en contacto con la Oficina de Asuntos Internacionales del Departamento de Justicia de los Estados Unidos. GitHub responderá rápidamente a las solicitudes que se emitan a través del tribunal de los Estados Unidos mediante un tratado de asistencia legal mutuo (“MLAT”) o exhorto. court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
+Como empresa de Estados Unidos con sede en California, GitHub no está obligada a proporcionar datos a los gobiernos extranjeros en respuesta al proceso legal emitido por autoridades extranjeras. Los funcionarios encargados de hacer cumplir la ley extranjera que deseen solicitar información a GitHub deben ponerse en contacto con la Oficina de Asuntos Internacionales del Departamento de Justicia de los Estados Unidos. GitHub responderá rápidamente a las solicitudes que se emitan a través del tribunal de los Estados Unidos mediante un tratado de asistencia legal mutuo (“MLAT”) o exhorto. mediante un tratado de asistencia legal mutuo (“MLAT”) o exhorto.
 
 ### Preguntas
 

@@ -58,7 +58,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 1. 外部ツールを設定します。
 1. {% data variables.product.prodname_classroom %}で生成された構成認証情報を入力します。
     - Consumer key
-    - Shared secret
+    - 共有シークレット
     - Launch URL (「ツールURL」などと呼ばれることもあります)
 
 ### Canvasを設定する
@@ -113,7 +113,7 @@ Moodleのバージョンは3.0以上である必要があります。
     | **LTI version**              | LTI 1.0/1.1                                                                                                                       |
     | **Default launch container** | 新規ウィンドウ                                                                                                                           |
     | **Consumer key**             | {% data variables.product.prodname_classroom %}からのConsumer key                                                                    |
-    | **Shared secret**            | {% data variables.product.prodname_classroom %}からのShared secret                                                                   |
+    | **共有シークレット**                 | {% data variables.product.prodname_classroom %}からのShared secret                                                                   |
 
 1. [**Services**] までスクロールしてクリックします。
 1. [IMS LTI Names and Role Provisioning] の右にあるドロップダウンメニューを選択し、[**Use this service to retrieve members' information as per privacy settings**] をクリックします。

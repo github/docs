@@ -14,6 +14,8 @@ versions:
 
 {% data variables.product.prodname_dotcom %} 有越来越多的安全功能，可帮助您保护代码安全。 您可以在仓库的 **Security（安全）**选项卡上找到这些功能。
 
+#### Available for all repositories
+
 {% if currentVersion == "free-pro-team@latest" %}
 - **安全策略**
 
@@ -43,15 +45,23 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
+#### Available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
+
+These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+
 - **{% data variables.product.prodname_code_scanning_capc %} 警报**
 
   自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
 - **检测到的密钥**
-查看
 
-  {% data variables.product.prodname_dotcom %} 在您的代码中找到的任何密钥。 应将已检入仓库的令牌或凭据视为已泄露。 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
-  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else if %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. 应将已检入仓库的令牌或凭据视为已泄露。 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+{% endif %}
 
 ### 探索依赖项
 {% data variables.product.prodname_dotcom %} 的依赖项图允许您探索：
@@ -59,6 +69,6 @@ versions:
 * 您的仓库依赖的生态系统和包
 * 依赖于您的仓库的仓库和包
 
-必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_alerts %}。
+必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_alerts %}。 {% if currentVersion == "free-pro-team@latest" %}Enabling the dependency graph also enables {% data variables.product.prodname_dotcom %} to run dependency reviews of pull requests.{% endif %}
 
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。

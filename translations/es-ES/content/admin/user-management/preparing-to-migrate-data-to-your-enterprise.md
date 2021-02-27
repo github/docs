@@ -53,10 +53,10 @@ El archivo *conflicts.csv* contiene un *mapa de migración* de conflictos y acci
 
 | `nombre_modelo` | `url_origen`                                           | `url_destino`                                          | `recommended_action` |
 | --------------- | ------------------------------------------------------ | ------------------------------------------------------ | -------------------- |
-| `user`          | `https://example-gh.source/octocatc`                   | `https://example-gh.target/octocat`                    | `asignar`            |
-| `organization`  | `https://example-gh.source/octo-org`                   | `https://example-gh.target/octo-org`                   | `asignar`            |
+| `usuario`       | `https://example-gh.source/octocatc`                   | `https://example-gh.target/octocat`                    | `map`                |
+| `organization`  | `https://example-gh.source/octo-org`                   | `https://example-gh.target/octo-org`                   | `map`                |
 | `repositorio`   | `https://example-gh.source/octo-org/widgets`           | `https://example-gh.target/octo-org/widgets`           | `rename (renombrar)` |
-| `team`          | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge`              |
+| `equipo`        | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `fusionar`           |
 
 Cada fila de *conflicts.csv* proporciona la siguiente información:
 
@@ -74,10 +74,10 @@ Hay varias acciones de asignación diferentes que `ghe-migrator` puede realizar 
 | `Acción`              | Descripción                                                                                  | Modelos aplicables                     |
 | --------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------- |
 | `importar`            | (predeterminado) Los datos del origen se importan al destino.                                | Todos los tipos de registro            |
-| `asignar`             | Los datos del origen se reemplazan por los datos existentes en el destino.                   | Usuarios, organizaciones, repositorios |
+| `map`                 | Los datos del origen se reemplazan por los datos existentes en el destino.                   | Usuarios, organizaciones, repositorios |
 | `rename (renombrar)`  | Los datos del origen se renombran y luego se copian en el destino.                           | Usuarios, organizaciones, repositorios |
 | `asignar_o_renombrar` | Si el destino existe, asignar a ese destino. De lo contrario, renombrar el modelo importado. | Usuarios                               |
-| `merge`               | Los datos del origen se combinan con los datos existentes en el destino.                     | Equipos                                |
+| `fusionar`            | Los datos del origen se combinan con los datos existentes en el destino.                     | Equipos                                |
 
 **Te recomendamos ampliamente que revises el archivo *conflicts.csv* y que utilices [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) para garantizar que se estén tomando las acciones adecuadas.** Si todo se ve bien, puedes continuar con las acciones para "[Migrar los datos a tu empresa](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
 
@@ -90,13 +90,13 @@ Por ejemplo, supongamos que observas que el usuario `octocat` del origen se est�
 
 | `nombre_modelo` | `url_origen`                         | `url_destino`                       | `recommended_action` |
 | --------------- | ------------------------------------ | ----------------------------------- | -------------------- |
-| `user`          | `https://example-gh.source/octocatc` | `https://example-gh.target/octocat` | `asignar`            |
+| `usuario`       | `https://example-gh.source/octocatc` | `https://example-gh.target/octocat` | `map`                |
 
 Puedes optar por asignar el usuario a un usuario diferente en el destino. Supongamos que sabes que `octocat` en realidad debe ser `monalisa` en el destino. Puedes cambiar la columna `target_url` en *conflicts.csv* a `monalisa`:
 
 | `nombre_modelo` | `url_origen`                         | `url_destino`                        | `recommended_action` |
 | --------------- | ------------------------------------ | ------------------------------------ | -------------------- |
-| `user`          | `https://example-gh.source/octocatc` | `https://example-gh.target/monalisa` | `asignar`            |
+| `usuario`       | `https://example-gh.source/octocatc` | `https://example-gh.target/monalisa` | `map`                |
 
 Como otro ejemplo, si deseas cambiar el nombre del repositorio `octo-org/widgets` a `octo-org/amazing-widgets` en la instancia de destino, cambia la `target_url` a `octo-org/amazing-widgets` y la `recommended_action` a `rename`:
 
@@ -122,7 +122,7 @@ Por ejemplo, para cambiar el nombre del usuario `octocat` a `monalisa` en el `ht
 
 | `nombre_modelo` | `url_origen`                         | `url_destino`                        | `state`              |
 | --------------- | ------------------------------------ | ------------------------------------ | -------------------- |
-| `user`          | `https://example-gh.source/octocatc` | `https://example-gh.target/monalisa` | `rename (renombrar)` |
+| `usuario`       | `https://example-gh.source/octocatc` | `https://example-gh.target/monalisa` | `rename (renombrar)` |
 
 Se puede usar el mismo proceso para crear asignaciones para cada registro que admita asignaciones personalizadas. Para obtener más información, consulta [nuestra tabla sobre las posibles asignaciones de registro](/enterprise/admin/guides/migrations/reviewing-migration-conflicts#possible-mappings-for-each-record-type).
 

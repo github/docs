@@ -11,6 +11,7 @@ versions:
 ---
 
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
 ### Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
@@ -81,17 +82,6 @@ Para obter mais informações sobre a especificação de etapas de criação, co
 
 O recurso de {% data variables.product.prodname_codeql %} `autobuild` usa heurística para criar o código em um repositório. No entanto, às vezes, essa abordagem resulta em uma análise incompleta de um repositório. Por exemplo, quando uma compilação múltipla de `build.sh` existe em um único repositório, é possível que a análise não seja concluída, já que a etapa `autobuild` executará apenas um dos comandos. A solução é substituir a etapa `autobuild` pelas etapas de criação que criam todo o código-fonte que você deseja analisar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### Error: "Erro do servidor"
-
-Se a execução de um fluxo de trabalho para {% data variables.product.prodname_code_scanning %} falhar devido a um erro no servidor, tente executar o fluxo de trabalho novamente. Se o problema persistir, entre em contato com {% data variables.contact.contact_support %}.
-
-### Erro: "Fora do disco" ou "Sem memória"
-Em projetos muito grandes,
-
-{% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
-{% if currentVersion == "free-pro-team@latest" %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
-{% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
-
 ### A criação demora muito tempo
 
 Se a sua criação com a análise de {% data variables.product.prodname_codeql %} demorar muito para ser executada, existem várias abordagens que você pode tentar para reduzir o tempo de criação.
@@ -126,3 +116,54 @@ Se você estiver analisando o código escrito no Python, você poderá ver resul
 Nos executores hospedados no GitHub que usam o Linux, o {% data variables.product.prodname_codeql_workflow %} tenta instalar e analisar as dependências do Python, o que pode gerar mais resultados. Para desabilitar a instalação automática, adicione `setup-python-dependencies: false` à etapa "Inicializar CodeQL" do fluxo de trabalho. Para obter mais informações sobre a configuração da análise de dependências do Python, consulte "[Analisar as dependências do Python](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)".
 
 {% endif %}
+
+### Error: "Erro do servidor"
+
+Se a execução de um fluxo de trabalho para {% data variables.product.prodname_code_scanning %} falhar devido a um erro no servidor, tente executar o fluxo de trabalho novamente. Se o problema persistir, entre em contato com {% data variables.contact.contact_support %}.
+
+### Erro: "Fora do disco" ou "Sem memória"
+Em projetos muito grandes,
+
+{% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
+{% if currentVersion == "free-pro-team@latest" %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
+{% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
+
+### Aviso: "git checkout HEAD^2 is no longer necessary"
+
+Se você estiver usando um fluxo de trabalho antigo de {% data variables.product.prodname_codeql %}, você poderá receber o aviso a seguir na saída "Inicializar {% data variables.product.prodname_codeql %}" da ação:
+
+```
+Aviso: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
+necessary. Please remove this step as Code Scanning recommends analyzing the merge 
+commit for best results.
+```
+
+Corrija isto removendo as seguintes linhas do fluxo de trabalho {% data variables.product.prodname_codeql %}. Essas linhas foram incluídas na seção `etapas` do trabalho `Analyze` nas versões iniciais do fluxo de trabalho de {% data variables.product.prodname_codeql %}.
+
+```yaml
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 2
+
+    # If this run was triggered by a pull request event, then checkout
+    # the head of the pull request instead of the merge commit.
+    - run: git checkout HEAD^2
+      if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+```
+
+A seção revisada de `etapas` do fluxo de trabalho será parecida com esta:
+
+```yaml
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+    - name: Initialize {% data variables.product.prodname_codeql %}
+      uses: github/codeql-action/init@v1
+
+    ...
+```
+
+Para obter mais informações sobre a edição do arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %}, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".

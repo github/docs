@@ -28,5 +28,5 @@ versions:
 5. Selecciona las automatizaciones del flujo de trabajo que deseas configurar para la columna. ![Lista de opciones para automatizar la columna](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Haz clic en **Update automation** (Actualizar automatización).
 
-### Further reading
+### Leer más
 - "[Acerca de la automatización de los tableros de proyecto](/articles/about-automation-for-project-boards)"

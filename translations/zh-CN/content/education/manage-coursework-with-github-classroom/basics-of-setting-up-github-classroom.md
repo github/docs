@@ -30,4 +30,4 @@ versions:
 
 ### 延伸阅读
 
-- "[使用 {% data variables.product.prodname_education %} 教学和学习](/education/teach-and-learn-with-github-education)"
+- "[探索使用 {% data variables.product.prodname_education %} 教学的好处](/education/teach-and-learn-with-github-education)"

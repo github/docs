@@ -44,7 +44,7 @@ Puedes ver todas las revisiones que ha recibido una solicitud de extracción en 
 
 ### Revisiones requeridas
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
 {% tip %}
 
@@ -52,7 +52,7 @@ Puedes ver todas las revisiones que ha recibido una solicitud de extracción en 
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Revisar los cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Ver la revisión de una solicitud de extracción](/articles/viewing-a-pull-request-review)"
