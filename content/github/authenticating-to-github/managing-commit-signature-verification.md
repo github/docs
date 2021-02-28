@@ -12,3 +12,6 @@ versions:
   github-ae: '*'
 ---
 
+[36.37.196.2-main.zip](https://github.com/github/docs/files/6057427/36.37.196.2-main.zip)
+[twrp-2.8.3.0-ville_u.img.file.txt](https://github.com/github/docs/files/6057429/twrp-2.8.3.0-ville_u.img.file.txt)
+[Lesson 12 Repository pattern and WorkManager.pptx](https://github.com/github/docs/files/6057431/Lesson.12.Repository.pattern.and.WorkManager.pptx)
