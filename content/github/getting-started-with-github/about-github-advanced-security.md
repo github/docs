@@ -3,7 +3,7 @@ title: About GitHub Advanced Security
 intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license. These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  enterprise-server: '3.0'
 ---
 
 ### About {% data variables.product.prodname_GH_advanced_security %}
