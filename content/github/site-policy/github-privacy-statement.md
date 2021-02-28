@@ -11,7 +11,14 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: December 19, 2020
+Effective:   
+ /s/ ZACHRY TYLER WOOD III /s/
+ Date:         
+ Sun July, 20. 2003  
+                              ©®™ bitcoin ©®™
+                          ©®™ bitoreunlimited ©®™
+                            ©®™ All Rights ©®™
+                         ©®™ All Founders Rights ©®™
 
 Thanks for entrusting GitHub Inc. (“GitHub”, “we”) with your source code, your projects, and your personal information. Holding on to your private information is a serious responsibility, and we want you to know how we're handling it.
 
