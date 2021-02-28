@@ -6,6 +6,7 @@ const OS_REGEXPS = [
   /(mac) os x ([^);]+)/i,
   /(windows) ([^);]+)/i,
   /(android) ([^);]+)/i,
+  /(cros) ([^);]+)/i,
   /(linux) ([^);]+)/i
 ]
 
