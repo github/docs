@@ -1,4 +1,4 @@
----
+Run::Request::Pull:Branch:mainbrnch:
 title: Linking to releases
 intro: You can share every release you create on GitHub with a unique URL.
 redirect_from:
@@ -6,9 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
----
-
+  github-ae#Request::Pushs::branches:Tree:trunk: ✨
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Find the release you want to link to and click the version number.
