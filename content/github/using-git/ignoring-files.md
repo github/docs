@@ -35,13 +35,21 @@ $ git rm --cached <em>FILENAME</em>
 
 ### Configuring ignored files for all repositories on your computer
 
-You can also create a global *.gitignore* file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at *~/.gitignore_global* and add some rules to it.
+You may find yourself ignoring a pattern in all your git repositories. For example temporary files created by your operating system like `Thumbs.db` or `.DS_Store`. In this case it is more efficient to configure a global ignore to be excluded for all your local checkouts on your computer.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Configure Git to use the exclude file *~/.gitignore_global* for all Git repositories.
+2. Create a global ignore file:
+  * On non-Windows platform like macOS and linux, do:
   ```shell
-  $ git config --global core.excludesfile ~/.gitignore_global
+  mkdir -p ~/.config/git
+  nano ~/.config/git/ignore
   ```
+  * On Windows, do:
+  ```shell
+  mkdir %USERPROFILE%\git
+  notepad %USERPROFILE%\git\ignore
+  ```
+3. Add global patterns in this file and save it.
 
 ### Excluding local files without creating a *.gitignore* file
 
