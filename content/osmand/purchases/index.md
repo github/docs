@@ -1,8 +1,14 @@
 ---
 title: Purchases
-intro: "OsmAnd offers its full functionality and most features already in the free version. In addition, you can expand your possibilities with paid OsmAnd services. Let's take a look at them in detail."
+intro: There are a great variety of features that OsmAnd offers. Most of them are available in a free version of the application. The paid OsmAnd services provide extended functionality."
 versions: '*'
 ---
+
+| Header One     | Header Two     |
+| :------------- | :------------- |
+| OsmAnd Unlimited | Unlimited map downloads. Map updates one time per month. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.  |
+|  OsmAnd+ | Unlimited map downloads. Map updates one time per month. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.  |
+| Live (month, 3 months, yearly subscription)     |Unlimited map downloads. Map updates hourly. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.     |
 
 ### Free version limitation
 - Limited number of map downloads and updates
@@ -13,7 +19,7 @@ versions: '*'
 ### In Apps
 - Maps package:
   - Unlimited map downloads monthly
-  - Wikipedia maps 
+  - Wikipedia maps
    iOS version has packaged it by continent, Android version has separate inApp and OsmAnd+ application they are not compatible with each other!). To view all the options, please visit the 'Maps & Resources' menu. {% data reusables.links.osmand-maps-app-store %}
 - Contour lines / hillshade package
 
@@ -53,6 +59,4 @@ There are several possibilities to do that:
  - {% data reusables.links.osmand-plus-google-play %}
  - {% data reusables.links.osmand-plus-amazon %}
  - {% data reusables.links.osmand-maps-app-store %}
- - {% data reusables.links.osmand-huawei %} 
-
-
+ - {% data reusables.links.osmand-huawei %}
