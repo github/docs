@@ -9,20 +9,7 @@ versions: '*'
 | OsmAnd (Unlimited) | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 |  OsmAnd+ | Unlimited map downloads. <br> Map updates one time per month. <br>  Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 | Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     | -->
-
-<table class="iksweb">
-	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-      
+    
 ### Free version limitation
 
 | Android   | iOS  |
