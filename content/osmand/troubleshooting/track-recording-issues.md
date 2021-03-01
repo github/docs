@@ -58,7 +58,7 @@ I have successfully tested the following Power saving settings under Android 9 a
 
 
 ## OsmAnd 3.9 - Google Play Services (Altitude issues)
-![Google issue](https://issuetracker.google.com/issues/180218747) reported, probably will be fixed 09-03-2021.
+[Google issue](https://issuetracker.google.com/issues/180218747) is already reported, probably will be fixed 09-03-2021.
 Since OsmAnd 3.9 Google Play has changed their policy and in order to comply, OsmAnd had to use Google Play Services to obtain locations while running in background (as a foreground service by Android terminology - notification is always visible). Note: this change didn't affect Nightly, F-Droid, Huawei, Amazon builds. 
 We've discovered that after that change there is a problem of recording altitude [Github issue related to altitude problems](https://github.com/osmandapp/OsmAnd/issues/10864), looks like Google Play Services very aggressively interpolate altitude and leads to a problem.
 
