@@ -93,6 +93,7 @@ module.exports = function (app) {
 
   // *** Preparation for render-page ***
   app.use(asyncMiddleware(instrument('./contextualizers/enterprise-release-notes')))
+  app.use(asyncMiddleware(instrument('./contextualizers/github-ae-release-notes')))
   app.use(instrument('./contextualizers/graphql'))
   app.use(instrument('./contextualizers/rest'))
   app.use(instrument('./contextualizers/webhooks'))
