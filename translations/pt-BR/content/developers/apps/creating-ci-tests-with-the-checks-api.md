@@ -12,7 +12,7 @@ versions:
 
 ### Introdução
 
-Este guia irá apresentá-lo aos [aplicativos Github](/apps/) e à [API de verificação](/rest/reference/checks), que você usará para criar um servidor de integração contínua (CI) que executa testes.
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 A CI é uma prática de software que exige o commit do código em um repositório compartilhado. Fazer commits de códigos com frequência detecta erros com mais antecedência e reduz a quantidade de código necessária para depuração quando os desenvolvedores chegam à origem de um erro. As atualizações frequentes de código também facilitam o merge de alterações dos integrantes de uma equipe de desenvolvimento de software. Assim, os desenvolvedores podem se dedicar mais à gravação de códigos e se preocupar menos com erros de depuração ou conflitos de merge. 🙌
 
@@ -49,7 +49,7 @@ Para ter uma ideia do que seu servidor de CI da API de verificações fará quan
 
 ### Pré-requisitos
 
-Antes de começar, é possível que você deseje familiarizar-se com os [aplicativos Github](/apps/), [Webhooks](/webhooks) e a [API de verificação](/rest/reference/checks), caso você ainda não esteja familiarizado. Você encontrará mais APIs na [documentação da API REST](/rest). A API de Verificações também está disponível para uso no [GraphQL](/graphql), mas este início rápido foca no REST. Consulte o GraphQL [Conjunto de verificações](/graphql/reference/objects#checksuite) e os objetos de [execução de verificação](/graphql/reference/objects#checkrun) objetos para obter mais informações.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. Você encontrará mais APIs na [documentação da API REST](/rest). A API de Verificações também está disponível para uso no [GraphQL](/graphql), mas este início rápido foca no REST. Consulte o GraphQL [Conjunto de verificações](/graphql/reference/objects#checksuite) e os objetos de [execução de verificação](/graphql/reference/objects#checkrun) objetos para obter mais informações.
 
 Você usará a [linguagem de programação Ruby](https://www.ruby-lang.org/en/), o serviço de entrega de da carga do webhook [Smee](https://smee.io/), a [biblioteca do Ruby Octokit.rb](http://octokit.github.io/octokit.rb/) para a API REST do GitHub e a [estrutura web Sinatra](http://sinatrarb.com/) para criar seu aplicativo do servidor de verificações de CI da API.
 
@@ -203,7 +203,7 @@ Se você vir outros aplicativos na aba Verificações, isso significa que você 
 
 ### Etapa 1.4. Atualizar a execução de verificação
 
-Quando o seu método `create_check_run` é executado, ele pede ao GitHub para criar uma nova execução de verificação. Quando o Github terminar de criar a execução de verificação, você receberá o evento do webhook `check_run` com a ação `criada`. Esse evento é o sinal para começar a executar a verificação.
+Quando o seu método `create_check_run` é executado, ele pede ao GitHub para criar uma nova execução de verificação. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. Esse evento é o sinal para começar a executar a verificação.
 
 Você vai atualizar o manipulador do evento para procurar a ação `criada`. Enquanto você está atualizando o manipulador de eventos, você pode adicionar uma condição para a ação `ressolicitada`. Quando alguém executa novamente um único teste no GitHub clicando no botão "Reexecutar", o GitHub envia o evento da execução de verificação `ressolicitado` para o seu aplicativo. Quando a execução de uma verificação é `ressolicitada`, você irá iniciar todo o processo e criar uma nova execução de verificação.
 

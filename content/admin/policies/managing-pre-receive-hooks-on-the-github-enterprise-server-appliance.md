@@ -68,4 +68,4 @@ A repository owner can only configure a hook if the site administrator selected 
 4. In the left sidebar, click **Hooks & Services**.
 ![Hooks and services](/assets/images/enterprise/repos/hooks-services.png)
 5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook.
-![Repo hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)
+![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)

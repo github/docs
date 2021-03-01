@@ -20,7 +20,7 @@ Para el cifrado en tránsito, {% data variables.product.product_name %} utiliza 
 
 La llave que proporciones se almacena en un módulo de seguridad de hardware (HSM) en una bóveda de llaves que administra {% data variables.product.company_short %}.
 
-Para configurar tu llave de cifrado, utiliza la API de REST. Existen varias terminales de la API, por ejemplo, para verificar el estado de cifrado, actualiza tu llave de cifrado y bórrala. Nota que el borrar tu llave hará que tu empresa se congele. Para obtener más información acerca de las terminales de la API, consulta la sección "[Cifrado estático](/rest/reference/enterprise-admin#encryption-at-rest)" en la documentación de la API de REST.
+Para configurar tu llave de cifrado, utiliza la API de REST. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. Para obtener más información acerca de las terminales de la API, consulta la sección "[Cifrado estático](/rest/reference/enterprise-admin#encryption-at-rest)" en la documentación de la API de REST.
 
 ### Agregar o actualizar una llave de cifrado
 
@@ -48,23 +48,23 @@ Tu llave privada de RSA de 2048 bits deberá estar en formato PEM, por ejemplo, 
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Borrar tu llave de cifrado
+### Disabling your encryption key
 
-Para congelar tu empresa, por ejemplo, en caso de alguna irrupción, puedes inhabilitar el cifrado estático si borras tu llave de cifrado.
+To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by marking your encryption key as disabled.
 
-Para descongelar tu empresa después de que hayas borrado tu llave de cifrado, contacta a soporte. Para obtener más información, consulta la sección "[Acerca de {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
-
-1. Para borrar tu llave e inhabilitar el cifrado estático, utiliza la terminal `DELETE /enterprise/encryption`.
+1. To disable your key and encryption at rest, use the `DELETE /enterprise/encryption` endpoint. This operation does not delete the key permanently.
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. Opcionalmente, verifica el estado de la operación de borrado.
+2. Opcionalmente, verifica el estado de la operación de borrado. It takes approximately ten minutes to disable encryption at rest.
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
+
+To unfreeze your enterprise after you've disabled your encryption key, contact support. Para obtener más información, consulta la sección "[Acerca de {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
 
 ### Leer más
 

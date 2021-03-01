@@ -1,4 +1,4 @@
-1. Right-click the commit.
+1. Clique com o botão direito no commit.
 
-    - If a commit has only one tag, click **Delete Tag TAG NAME**. ![Select the delete tag menu item](/assets/images/help/desktop/select-delete-tag.png)
-    - If a commit has multiple tags, hover over **Delete Tag...** and then click the tag that you want to delete. ![Hover over the delete tag menu](/assets/images/help/desktop/delete-tag-multiple.png)
+    - Se um commit tiver apenas uma tag, clique em **Excluir NOME DA TAG**. ![Selecione o item de menu de exclusão da tag](/assets/images/help/desktop/select-delete-tag.png)
+    - Se um commit tiver várias tags, passe o mouse sobre **Excluir Tag...** e, em seguida, clique na tag que você deseja excluir. ![Passe sobre o menu de exclusão de tag](/assets/images/help/desktop/delete-tag-multiple.png)

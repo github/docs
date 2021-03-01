@@ -141,7 +141,7 @@ Nota que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) `repo_dep
 
 ### Despliegues inactivos
 
-Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues de ambiente no productivos y no transitorios previos en el mismo repositorio se pondrán como `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
 
 Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.
 
