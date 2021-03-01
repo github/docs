@@ -152,7 +152,7 @@ You can communicate that a transient environment no longer exists by setting its
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ## Environments
 
 The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)."
