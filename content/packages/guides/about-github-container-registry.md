@@ -74,7 +74,7 @@ To use or manage a package hosted by a package registry, you must use a token wi
 | --- | --- |
 |`read:packages`| Download and install container images from {% data variables.product.prodname_github_container_registry %} |
 |`write:packages`| Upload and publish container images to {% data variables.product.prodname_github_container_registry %} |
-| `delete:packages` | Delete specified versions of private or public container images from {% data variables.product.prodname_github_container_registry %}. For more information, see "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.0" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}." |
+| `delete:packages` | Delete specified versions of private or public container images from {% data variables.product.prodname_github_container_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)." |
 
 To learn about available scopes and permissions for container images, see "[Configuring access control and visibility for container images](/packages/guides/configuring-access-control-and-visibility-for-container-images)."
 

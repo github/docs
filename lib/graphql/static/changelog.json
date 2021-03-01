@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `ApproveVerifiableDomainInput` was added",
+          "Type `ApproveVerifiableDomainPayload` was added",
+          "Field `approveVerifiableDomain` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `CVSS` was added",
           "Type `CWEConnection` was added",
           "Type `CWEEdge` was added",

@@ -14152,577 +14152,1152 @@ type Mutation {
   """
   Adds assignees to an assignable object.
   """
-  addAssigneesToAssignable(input: AddAssigneesToAssignableInput!): AddAssigneesToAssignablePayload
+  addAssigneesToAssignable(
+    """
+    Parameters for AddAssigneesToAssignable
+    """
+    input: AddAssigneesToAssignableInput!
+  ): AddAssigneesToAssignablePayload
 
   """
   Adds a comment to an Issue or Pull Request.
   """
-  addComment(input: AddCommentInput!): AddCommentPayload
+  addComment(
+    """
+    Parameters for AddComment
+    """
+    input: AddCommentInput!
+  ): AddCommentPayload
 
   """
   Adds an administrator to the global enterprise account.
   """
-  addEnterpriseAdmin(input: AddEnterpriseAdminInput!): AddEnterpriseAdminPayload
+  addEnterpriseAdmin(
+    """
+    Parameters for AddEnterpriseAdmin
+    """
+    input: AddEnterpriseAdminInput!
+  ): AddEnterpriseAdminPayload
 
   """
   Adds labels to a labelable object.
   """
-  addLabelsToLabelable(input: AddLabelsToLabelableInput!): AddLabelsToLabelablePayload
+  addLabelsToLabelable(
+    """
+    Parameters for AddLabelsToLabelable
+    """
+    input: AddLabelsToLabelableInput!
+  ): AddLabelsToLabelablePayload
 
   """
   Adds a card to a ProjectColumn. Either `contentId` or `note` must be provided but **not** both.
   """
-  addProjectCard(input: AddProjectCardInput!): AddProjectCardPayload
+  addProjectCard(
+    """
+    Parameters for AddProjectCard
+    """
+    input: AddProjectCardInput!
+  ): AddProjectCardPayload
 
   """
   Adds a column to a Project.
   """
-  addProjectColumn(input: AddProjectColumnInput!): AddProjectColumnPayload
+  addProjectColumn(
+    """
+    Parameters for AddProjectColumn
+    """
+    input: AddProjectColumnInput!
+  ): AddProjectColumnPayload
 
   """
   Adds a review to a Pull Request.
   """
-  addPullRequestReview(input: AddPullRequestReviewInput!): AddPullRequestReviewPayload
+  addPullRequestReview(
+    """
+    Parameters for AddPullRequestReview
+    """
+    input: AddPullRequestReviewInput!
+  ): AddPullRequestReviewPayload
 
   """
   Adds a comment to a review.
   """
-  addPullRequestReviewComment(input: AddPullRequestReviewCommentInput!): AddPullRequestReviewCommentPayload
+  addPullRequestReviewComment(
+    """
+    Parameters for AddPullRequestReviewComment
+    """
+    input: AddPullRequestReviewCommentInput!
+  ): AddPullRequestReviewCommentPayload
 
   """
   Adds a new thread to a pending Pull Request Review.
   """
-  addPullRequestReviewThread(input: AddPullRequestReviewThreadInput!): AddPullRequestReviewThreadPayload
+  addPullRequestReviewThread(
+    """
+    Parameters for AddPullRequestReviewThread
+    """
+    input: AddPullRequestReviewThreadInput!
+  ): AddPullRequestReviewThreadPayload
 
   """
   Adds a reaction to a subject.
   """
-  addReaction(input: AddReactionInput!): AddReactionPayload
+  addReaction(
+    """
+    Parameters for AddReaction
+    """
+    input: AddReactionInput!
+  ): AddReactionPayload
 
   """
   Adds a star to a Starrable.
   """
-  addStar(input: AddStarInput!): AddStarPayload
+  addStar(
+    """
+    Parameters for AddStar
+    """
+    input: AddStarInput!
+  ): AddStarPayload
 
   """
   Marks a repository as archived.
   """
-  archiveRepository(input: ArchiveRepositoryInput!): ArchiveRepositoryPayload
+  archiveRepository(
+    """
+    Parameters for ArchiveRepository
+    """
+    input: ArchiveRepositoryInput!
+  ): ArchiveRepositoryPayload
 
   """
   Update your status on GitHub.
   """
-  changeUserStatus(input: ChangeUserStatusInput!): ChangeUserStatusPayload
+  changeUserStatus(
+    """
+    Parameters for ChangeUserStatus
+    """
+    input: ChangeUserStatusInput!
+  ): ChangeUserStatusPayload
 
   """
   Clears all labels from a labelable object.
   """
-  clearLabelsFromLabelable(input: ClearLabelsFromLabelableInput!): ClearLabelsFromLabelablePayload
+  clearLabelsFromLabelable(
+    """
+    Parameters for ClearLabelsFromLabelable
+    """
+    input: ClearLabelsFromLabelableInput!
+  ): ClearLabelsFromLabelablePayload
 
   """
   Creates a new project by cloning configuration from an existing project.
   """
-  cloneProject(input: CloneProjectInput!): CloneProjectPayload
+  cloneProject(
+    """
+    Parameters for CloneProject
+    """
+    input: CloneProjectInput!
+  ): CloneProjectPayload
 
   """
   Create a new repository with the same files and directory structure as a template repository.
   """
-  cloneTemplateRepository(input: CloneTemplateRepositoryInput!): CloneTemplateRepositoryPayload
+  cloneTemplateRepository(
+    """
+    Parameters for CloneTemplateRepository
+    """
+    input: CloneTemplateRepositoryInput!
+  ): CloneTemplateRepositoryPayload
 
   """
   Close an issue.
   """
-  closeIssue(input: CloseIssueInput!): CloseIssuePayload
+  closeIssue(
+    """
+    Parameters for CloseIssue
+    """
+    input: CloseIssueInput!
+  ): CloseIssuePayload
 
   """
   Close a pull request.
   """
-  closePullRequest(input: ClosePullRequestInput!): ClosePullRequestPayload
+  closePullRequest(
+    """
+    Parameters for ClosePullRequest
+    """
+    input: ClosePullRequestInput!
+  ): ClosePullRequestPayload
 
   """
   Convert a project note card to one associated with a newly created issue.
   """
-  convertProjectCardNoteToIssue(input: ConvertProjectCardNoteToIssueInput!): ConvertProjectCardNoteToIssuePayload
+  convertProjectCardNoteToIssue(
+    """
+    Parameters for ConvertProjectCardNoteToIssue
+    """
+    input: ConvertProjectCardNoteToIssueInput!
+  ): ConvertProjectCardNoteToIssuePayload
 
   """
   Create a new branch protection rule
   """
-  createBranchProtectionRule(input: CreateBranchProtectionRuleInput!): CreateBranchProtectionRulePayload
+  createBranchProtectionRule(
+    """
+    Parameters for CreateBranchProtectionRule
+    """
+    input: CreateBranchProtectionRuleInput!
+  ): CreateBranchProtectionRulePayload
 
   """
   Create a check run.
   """
-  createCheckRun(input: CreateCheckRunInput!): CreateCheckRunPayload
+  createCheckRun(
+    """
+    Parameters for CreateCheckRun
+    """
+    input: CreateCheckRunInput!
+  ): CreateCheckRunPayload
 
   """
   Create a check suite
   """
-  createCheckSuite(input: CreateCheckSuiteInput!): CreateCheckSuitePayload
+  createCheckSuite(
+    """
+    Parameters for CreateCheckSuite
+    """
+    input: CreateCheckSuiteInput!
+  ): CreateCheckSuitePayload
 
   """
   Create a content attachment.
   """
-  createContentAttachment(input: CreateContentAttachmentInput!): CreateContentAttachmentPayload @preview(toggledBy: "corsair-preview")
+  createContentAttachment(
+    """
+    Parameters for CreateContentAttachment
+    """
+    input: CreateContentAttachmentInput!
+  ): CreateContentAttachmentPayload @preview(toggledBy: "corsair-preview")
 
   """
   Creates a new deployment event.
   """
-  createDeployment(input: CreateDeploymentInput!): CreateDeploymentPayload @preview(toggledBy: "flash-preview")
+  createDeployment(
+    """
+    Parameters for CreateDeployment
+    """
+    input: CreateDeploymentInput!
+  ): CreateDeploymentPayload @preview(toggledBy: "flash-preview")
 
   """
   Create a deployment status.
   """
-  createDeploymentStatus(input: CreateDeploymentStatusInput!): CreateDeploymentStatusPayload @preview(toggledBy: "flash-preview")
+  createDeploymentStatus(
+    """
+    Parameters for CreateDeploymentStatus
+    """
+    input: CreateDeploymentStatusInput!
+  ): CreateDeploymentStatusPayload @preview(toggledBy: "flash-preview")
 
   """
   Creates a new IP allow list entry.
   """
-  createIpAllowListEntry(input: CreateIpAllowListEntryInput!): CreateIpAllowListEntryPayload
+  createIpAllowListEntry(
+    """
+    Parameters for CreateIpAllowListEntry
+    """
+    input: CreateIpAllowListEntryInput!
+  ): CreateIpAllowListEntryPayload
 
   """
   Creates a new issue.
   """
-  createIssue(input: CreateIssueInput!): CreateIssuePayload
+  createIssue(
+    """
+    Parameters for CreateIssue
+    """
+    input: CreateIssueInput!
+  ): CreateIssuePayload
 
   """
   Creates a new label.
   """
-  createLabel(input: CreateLabelInput!): CreateLabelPayload @preview(toggledBy: "bane-preview")
+  createLabel(
+    """
+    Parameters for CreateLabel
+    """
+    input: CreateLabelInput!
+  ): CreateLabelPayload @preview(toggledBy: "bane-preview")
 
   """
   Creates a new project.
   """
-  createProject(input: CreateProjectInput!): CreateProjectPayload
+  createProject(
+    """
+    Parameters for CreateProject
+    """
+    input: CreateProjectInput!
+  ): CreateProjectPayload
 
   """
   Create a new pull request
   """
-  createPullRequest(input: CreatePullRequestInput!): CreatePullRequestPayload
+  createPullRequest(
+    """
+    Parameters for CreatePullRequest
+    """
+    input: CreatePullRequestInput!
+  ): CreatePullRequestPayload
 
   """
   Create a new Git Ref.
   """
-  createRef(input: CreateRefInput!): CreateRefPayload
+  createRef(
+    """
+    Parameters for CreateRef
+    """
+    input: CreateRefInput!
+  ): CreateRefPayload
 
   """
   Create a new repository.
   """
-  createRepository(input: CreateRepositoryInput!): CreateRepositoryPayload
+  createRepository(
+    """
+    Parameters for CreateRepository
+    """
+    input: CreateRepositoryInput!
+  ): CreateRepositoryPayload
 
   """
   Creates a new team discussion.
   """
-  createTeamDiscussion(input: CreateTeamDiscussionInput!): CreateTeamDiscussionPayload
+  createTeamDiscussion(
+    """
+    Parameters for CreateTeamDiscussion
+    """
+    input: CreateTeamDiscussionInput!
+  ): CreateTeamDiscussionPayload
 
   """
   Creates a new team discussion comment.
   """
-  createTeamDiscussionComment(input: CreateTeamDiscussionCommentInput!): CreateTeamDiscussionCommentPayload
+  createTeamDiscussionComment(
+    """
+    Parameters for CreateTeamDiscussionComment
+    """
+    input: CreateTeamDiscussionCommentInput!
+  ): CreateTeamDiscussionCommentPayload
 
   """
   Delete a branch protection rule
   """
-  deleteBranchProtectionRule(input: DeleteBranchProtectionRuleInput!): DeleteBranchProtectionRulePayload
+  deleteBranchProtectionRule(
+    """
+    Parameters for DeleteBranchProtectionRule
+    """
+    input: DeleteBranchProtectionRuleInput!
+  ): DeleteBranchProtectionRulePayload
 
   """
   Deletes a deployment.
   """
-  deleteDeployment(input: DeleteDeploymentInput!): DeleteDeploymentPayload
+  deleteDeployment(
+    """
+    Parameters for DeleteDeployment
+    """
+    input: DeleteDeploymentInput!
+  ): DeleteDeploymentPayload
 
   """
   Deletes an IP allow list entry.
   """
-  deleteIpAllowListEntry(input: DeleteIpAllowListEntryInput!): DeleteIpAllowListEntryPayload
+  deleteIpAllowListEntry(
+    """
+    Parameters for DeleteIpAllowListEntry
+    """
+    input: DeleteIpAllowListEntryInput!
+  ): DeleteIpAllowListEntryPayload
 
   """
   Deletes an Issue object.
   """
-  deleteIssue(input: DeleteIssueInput!): DeleteIssuePayload
+  deleteIssue(
+    """
+    Parameters for DeleteIssue
+    """
+    input: DeleteIssueInput!
+  ): DeleteIssuePayload
 
   """
   Deletes an IssueComment object.
   """
-  deleteIssueComment(input: DeleteIssueCommentInput!): DeleteIssueCommentPayload
+  deleteIssueComment(
+    """
+    Parameters for DeleteIssueComment
+    """
+    input: DeleteIssueCommentInput!
+  ): DeleteIssueCommentPayload
 
   """
   Deletes a label.
   """
-  deleteLabel(input: DeleteLabelInput!): DeleteLabelPayload @preview(toggledBy: "bane-preview")
+  deleteLabel(
+    """
+    Parameters for DeleteLabel
+    """
+    input: DeleteLabelInput!
+  ): DeleteLabelPayload @preview(toggledBy: "bane-preview")
 
   """
   Deletes a project.
   """
-  deleteProject(input: DeleteProjectInput!): DeleteProjectPayload
+  deleteProject(
+    """
+    Parameters for DeleteProject
+    """
+    input: DeleteProjectInput!
+  ): DeleteProjectPayload
 
   """
   Deletes a project card.
   """
-  deleteProjectCard(input: DeleteProjectCardInput!): DeleteProjectCardPayload
+  deleteProjectCard(
+    """
+    Parameters for DeleteProjectCard
+    """
+    input: DeleteProjectCardInput!
+  ): DeleteProjectCardPayload
 
   """
   Deletes a project column.
   """
-  deleteProjectColumn(input: DeleteProjectColumnInput!): DeleteProjectColumnPayload
+  deleteProjectColumn(
+    """
+    Parameters for DeleteProjectColumn
+    """
+    input: DeleteProjectColumnInput!
+  ): DeleteProjectColumnPayload
 
   """
   Deletes a pull request review.
   """
-  deletePullRequestReview(input: DeletePullRequestReviewInput!): DeletePullRequestReviewPayload
+  deletePullRequestReview(
+    """
+    Parameters for DeletePullRequestReview
+    """
+    input: DeletePullRequestReviewInput!
+  ): DeletePullRequestReviewPayload
 
   """
   Deletes a pull request review comment.
   """
-  deletePullRequestReviewComment(input: DeletePullRequestReviewCommentInput!): DeletePullRequestReviewCommentPayload
+  deletePullRequestReviewComment(
+    """
+    Parameters for DeletePullRequestReviewComment
+    """
+    input: DeletePullRequestReviewCommentInput!
+  ): DeletePullRequestReviewCommentPayload
 
   """
   Delete a Git Ref.
   """
-  deleteRef(input: DeleteRefInput!): DeleteRefPayload
+  deleteRef(
+    """
+    Parameters for DeleteRef
+    """
+    input: DeleteRefInput!
+  ): DeleteRefPayload
 
   """
   Deletes a team discussion.
   """
-  deleteTeamDiscussion(input: DeleteTeamDiscussionInput!): DeleteTeamDiscussionPayload
+  deleteTeamDiscussion(
+    """
+    Parameters for DeleteTeamDiscussion
+    """
+    input: DeleteTeamDiscussionInput!
+  ): DeleteTeamDiscussionPayload
 
   """
   Deletes a team discussion comment.
   """
-  deleteTeamDiscussionComment(input: DeleteTeamDiscussionCommentInput!): DeleteTeamDiscussionCommentPayload
+  deleteTeamDiscussionComment(
+    """
+    Parameters for DeleteTeamDiscussionComment
+    """
+    input: DeleteTeamDiscussionCommentInput!
+  ): DeleteTeamDiscussionCommentPayload
 
   """
   Disable auto merge on the given pull request
   """
-  disablePullRequestAutoMerge(input: DisablePullRequestAutoMergeInput!): DisablePullRequestAutoMergePayload
+  disablePullRequestAutoMerge(
+    """
+    Parameters for DisablePullRequestAutoMerge
+    """
+    input: DisablePullRequestAutoMergeInput!
+  ): DisablePullRequestAutoMergePayload
 
   """
   Dismisses an approved or rejected pull request review.
   """
-  dismissPullRequestReview(input: DismissPullRequestReviewInput!): DismissPullRequestReviewPayload
+  dismissPullRequestReview(
+    """
+    Parameters for DismissPullRequestReview
+    """
+    input: DismissPullRequestReviewInput!
+  ): DismissPullRequestReviewPayload
 
   """
   Enable the default auto-merge on a pull request.
   """
-  enablePullRequestAutoMerge(input: EnablePullRequestAutoMergeInput!): EnablePullRequestAutoMergePayload
+  enablePullRequestAutoMerge(
+    """
+    Parameters for EnablePullRequestAutoMerge
+    """
+    input: EnablePullRequestAutoMergeInput!
+  ): EnablePullRequestAutoMergePayload
 
   """
   Follow a user.
   """
-  followUser(input: FollowUserInput!): FollowUserPayload
+  followUser(
+    """
+    Parameters for FollowUser
+    """
+    input: FollowUserInput!
+  ): FollowUserPayload
 
   """
   Creates a new project by importing columns and a list of issues/PRs.
   """
-  importProject(input: ImportProjectInput!): ImportProjectPayload @preview(toggledBy: "slothette-preview")
+  importProject(
+    """
+    Parameters for ImportProject
+    """
+    input: ImportProjectInput!
+  ): ImportProjectPayload @preview(toggledBy: "slothette-preview")
 
   """
   Creates a repository link for a project.
   """
-  linkRepositoryToProject(input: LinkRepositoryToProjectInput!): LinkRepositoryToProjectPayload
+  linkRepositoryToProject(
+    """
+    Parameters for LinkRepositoryToProject
+    """
+    input: LinkRepositoryToProjectInput!
+  ): LinkRepositoryToProjectPayload
 
   """
   Lock a lockable object
   """
-  lockLockable(input: LockLockableInput!): LockLockablePayload
+  lockLockable(
+    """
+    Parameters for LockLockable
+    """
+    input: LockLockableInput!
+  ): LockLockablePayload
 
   """
   Mark a pull request file as viewed
   """
-  markFileAsViewed(input: MarkFileAsViewedInput!): MarkFileAsViewedPayload
+  markFileAsViewed(
+    """
+    Parameters for MarkFileAsViewed
+    """
+    input: MarkFileAsViewedInput!
+  ): MarkFileAsViewedPayload
 
   """
   Marks a pull request ready for review.
   """
-  markPullRequestReadyForReview(input: MarkPullRequestReadyForReviewInput!): MarkPullRequestReadyForReviewPayload
+  markPullRequestReadyForReview(
+    """
+    Parameters for MarkPullRequestReadyForReview
+    """
+    input: MarkPullRequestReadyForReviewInput!
+  ): MarkPullRequestReadyForReviewPayload
 
   """
   Merge a head into a branch.
   """
-  mergeBranch(input: MergeBranchInput!): MergeBranchPayload
+  mergeBranch(
+    """
+    Parameters for MergeBranch
+    """
+    input: MergeBranchInput!
+  ): MergeBranchPayload
 
   """
   Merge a pull request.
   """
-  mergePullRequest(input: MergePullRequestInput!): MergePullRequestPayload
+  mergePullRequest(
+    """
+    Parameters for MergePullRequest
+    """
+    input: MergePullRequestInput!
+  ): MergePullRequestPayload
 
   """
   Minimizes a comment on an Issue, Commit, Pull Request, or Gist
   """
-  minimizeComment(input: MinimizeCommentInput!): MinimizeCommentPayload
+  minimizeComment(
+    """
+    Parameters for MinimizeComment
+    """
+    input: MinimizeCommentInput!
+  ): MinimizeCommentPayload
 
   """
   Moves a project card to another place.
   """
-  moveProjectCard(input: MoveProjectCardInput!): MoveProjectCardPayload
+  moveProjectCard(
+    """
+    Parameters for MoveProjectCard
+    """
+    input: MoveProjectCardInput!
+  ): MoveProjectCardPayload
 
   """
   Moves a project column to another place.
   """
-  moveProjectColumn(input: MoveProjectColumnInput!): MoveProjectColumnPayload
+  moveProjectColumn(
+    """
+    Parameters for MoveProjectColumn
+    """
+    input: MoveProjectColumnInput!
+  ): MoveProjectColumnPayload
 
   """
   Pin an issue to a repository
   """
-  pinIssue(input: PinIssueInput!): PinIssuePayload @preview(toggledBy: "elektra-preview")
+  pinIssue(
+    """
+    Parameters for PinIssue
+    """
+    input: PinIssueInput!
+  ): PinIssuePayload @preview(toggledBy: "elektra-preview")
 
   """
   Removes assignees from an assignable object.
   """
-  removeAssigneesFromAssignable(input: RemoveAssigneesFromAssignableInput!): RemoveAssigneesFromAssignablePayload
+  removeAssigneesFromAssignable(
+    """
+    Parameters for RemoveAssigneesFromAssignable
+    """
+    input: RemoveAssigneesFromAssignableInput!
+  ): RemoveAssigneesFromAssignablePayload
 
   """
   Removes an administrator from the enterprise.
   """
-  removeEnterpriseAdmin(input: RemoveEnterpriseAdminInput!): RemoveEnterpriseAdminPayload
+  removeEnterpriseAdmin(
+    """
+    Parameters for RemoveEnterpriseAdmin
+    """
+    input: RemoveEnterpriseAdminInput!
+  ): RemoveEnterpriseAdminPayload
 
   """
   Removes labels from a Labelable object.
   """
-  removeLabelsFromLabelable(input: RemoveLabelsFromLabelableInput!): RemoveLabelsFromLabelablePayload
+  removeLabelsFromLabelable(
+    """
+    Parameters for RemoveLabelsFromLabelable
+    """
+    input: RemoveLabelsFromLabelableInput!
+  ): RemoveLabelsFromLabelablePayload
 
   """
   Removes outside collaborator from all repositories in an organization.
   """
-  removeOutsideCollaborator(input: RemoveOutsideCollaboratorInput!): RemoveOutsideCollaboratorPayload
+  removeOutsideCollaborator(
+    """
+    Parameters for RemoveOutsideCollaborator
+    """
+    input: RemoveOutsideCollaboratorInput!
+  ): RemoveOutsideCollaboratorPayload
 
   """
   Removes a reaction from a subject.
   """
-  removeReaction(input: RemoveReactionInput!): RemoveReactionPayload
+  removeReaction(
+    """
+    Parameters for RemoveReaction
+    """
+    input: RemoveReactionInput!
+  ): RemoveReactionPayload
 
   """
   Removes a star from a Starrable.
   """
-  removeStar(input: RemoveStarInput!): RemoveStarPayload
+  removeStar(
+    """
+    Parameters for RemoveStar
+    """
+    input: RemoveStarInput!
+  ): RemoveStarPayload
 
   """
   Reopen a issue.
   """
-  reopenIssue(input: ReopenIssueInput!): ReopenIssuePayload
+  reopenIssue(
+    """
+    Parameters for ReopenIssue
+    """
+    input: ReopenIssueInput!
+  ): ReopenIssuePayload
 
   """
   Reopen a pull request.
   """
-  reopenPullRequest(input: ReopenPullRequestInput!): ReopenPullRequestPayload
+  reopenPullRequest(
+    """
+    Parameters for ReopenPullRequest
+    """
+    input: ReopenPullRequestInput!
+  ): ReopenPullRequestPayload
 
   """
   Set review requests on a pull request.
   """
-  requestReviews(input: RequestReviewsInput!): RequestReviewsPayload
+  requestReviews(
+    """
+    Parameters for RequestReviews
+    """
+    input: RequestReviewsInput!
+  ): RequestReviewsPayload
 
   """
   Rerequests an existing check suite.
   """
-  rerequestCheckSuite(input: RerequestCheckSuiteInput!): RerequestCheckSuitePayload
+  rerequestCheckSuite(
+    """
+    Parameters for RerequestCheckSuite
+    """
+    input: RerequestCheckSuiteInput!
+  ): RerequestCheckSuitePayload
 
   """
   Marks a review thread as resolved.
   """
-  resolveReviewThread(input: ResolveReviewThreadInput!): ResolveReviewThreadPayload
+  resolveReviewThread(
+    """
+    Parameters for ResolveReviewThread
+    """
+    input: ResolveReviewThreadInput!
+  ): ResolveReviewThreadPayload
 
   """
   Submits a pending pull request review.
   """
-  submitPullRequestReview(input: SubmitPullRequestReviewInput!): SubmitPullRequestReviewPayload
+  submitPullRequestReview(
+    """
+    Parameters for SubmitPullRequestReview
+    """
+    input: SubmitPullRequestReviewInput!
+  ): SubmitPullRequestReviewPayload
 
   """
   Transfer an issue to a different repository
   """
-  transferIssue(input: TransferIssueInput!): TransferIssuePayload
+  transferIssue(
+    """
+    Parameters for TransferIssue
+    """
+    input: TransferIssueInput!
+  ): TransferIssuePayload
 
   """
   Unarchives a repository.
   """
-  unarchiveRepository(input: UnarchiveRepositoryInput!): UnarchiveRepositoryPayload
+  unarchiveRepository(
+    """
+    Parameters for UnarchiveRepository
+    """
+    input: UnarchiveRepositoryInput!
+  ): UnarchiveRepositoryPayload
 
   """
   Unfollow a user.
   """
-  unfollowUser(input: UnfollowUserInput!): UnfollowUserPayload
+  unfollowUser(
+    """
+    Parameters for UnfollowUser
+    """
+    input: UnfollowUserInput!
+  ): UnfollowUserPayload
 
   """
   Deletes a repository link from a project.
   """
-  unlinkRepositoryFromProject(input: UnlinkRepositoryFromProjectInput!): UnlinkRepositoryFromProjectPayload
+  unlinkRepositoryFromProject(
+    """
+    Parameters for UnlinkRepositoryFromProject
+    """
+    input: UnlinkRepositoryFromProjectInput!
+  ): UnlinkRepositoryFromProjectPayload
 
   """
   Unlock a lockable object
   """
-  unlockLockable(input: UnlockLockableInput!): UnlockLockablePayload
+  unlockLockable(
+    """
+    Parameters for UnlockLockable
+    """
+    input: UnlockLockableInput!
+  ): UnlockLockablePayload
 
   """
   Unmark a pull request file as viewed
   """
-  unmarkFileAsViewed(input: UnmarkFileAsViewedInput!): UnmarkFileAsViewedPayload
+  unmarkFileAsViewed(
+    """
+    Parameters for UnmarkFileAsViewed
+    """
+    input: UnmarkFileAsViewedInput!
+  ): UnmarkFileAsViewedPayload
 
   """
   Unmark an issue as a duplicate of another issue.
   """
-  unmarkIssueAsDuplicate(input: UnmarkIssueAsDuplicateInput!): UnmarkIssueAsDuplicatePayload
+  unmarkIssueAsDuplicate(
+    """
+    Parameters for UnmarkIssueAsDuplicate
+    """
+    input: UnmarkIssueAsDuplicateInput!
+  ): UnmarkIssueAsDuplicatePayload
 
   """
   Unminimizes a comment on an Issue, Commit, Pull Request, or Gist
   """
-  unminimizeComment(input: UnminimizeCommentInput!): UnminimizeCommentPayload
+  unminimizeComment(
+    """
+    Parameters for UnminimizeComment
+    """
+    input: UnminimizeCommentInput!
+  ): UnminimizeCommentPayload
 
   """
   Unpin a pinned issue from a repository
   """
-  unpinIssue(input: UnpinIssueInput!): UnpinIssuePayload @preview(toggledBy: "elektra-preview")
+  unpinIssue(
+    """
+    Parameters for UnpinIssue
+    """
+    input: UnpinIssueInput!
+  ): UnpinIssuePayload @preview(toggledBy: "elektra-preview")
 
   """
   Marks a review thread as unresolved.
   """
-  unresolveReviewThread(input: UnresolveReviewThreadInput!): UnresolveReviewThreadPayload
+  unresolveReviewThread(
+    """
+    Parameters for UnresolveReviewThread
+    """
+    input: UnresolveReviewThreadInput!
+  ): UnresolveReviewThreadPayload
 
   """
   Create a new branch protection rule
   """
-  updateBranchProtectionRule(input: UpdateBranchProtectionRuleInput!): UpdateBranchProtectionRulePayload
+  updateBranchProtectionRule(
+    """
+    Parameters for UpdateBranchProtectionRule
+    """
+    input: UpdateBranchProtectionRuleInput!
+  ): UpdateBranchProtectionRulePayload
 
   """
   Update a check run
   """
-  updateCheckRun(input: UpdateCheckRunInput!): UpdateCheckRunPayload
+  updateCheckRun(
+    """
+    Parameters for UpdateCheckRun
+    """
+    input: UpdateCheckRunInput!
+  ): UpdateCheckRunPayload
 
   """
   Modifies the settings of an existing check suite
   """
-  updateCheckSuitePreferences(input: UpdateCheckSuitePreferencesInput!): UpdateCheckSuitePreferencesPayload
+  updateCheckSuitePreferences(
+    """
+    Parameters for UpdateCheckSuitePreferences
+    """
+    input: UpdateCheckSuitePreferencesInput!
+  ): UpdateCheckSuitePreferencesPayload
 
   """
   Sets whether private repository forks are enabled for an enterprise.
   """
-  updateEnterpriseAllowPrivateRepositoryForkingSetting(input: UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput!): UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload
+  updateEnterpriseAllowPrivateRepositoryForkingSetting(
+    """
+    Parameters for UpdateEnterpriseAllowPrivateRepositoryForkingSetting
+    """
+    input: UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput!
+  ): UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload
 
   """
   Sets the default repository permission for organizations in an enterprise.
   """
-  updateEnterpriseDefaultRepositoryPermissionSetting(input: UpdateEnterpriseDefaultRepositoryPermissionSettingInput!): UpdateEnterpriseDefaultRepositoryPermissionSettingPayload
+  updateEnterpriseDefaultRepositoryPermissionSetting(
+    """
+    Parameters for UpdateEnterpriseDefaultRepositoryPermissionSetting
+    """
+    input: UpdateEnterpriseDefaultRepositoryPermissionSettingInput!
+  ): UpdateEnterpriseDefaultRepositoryPermissionSettingPayload
 
   """
   Sets whether organization members with admin permissions on a repository can change repository visibility.
   """
-  updateEnterpriseMembersCanChangeRepositoryVisibilitySetting(input: UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput!): UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload
+  updateEnterpriseMembersCanChangeRepositoryVisibilitySetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanChangeRepositoryVisibilitySetting
+    """
+    input: UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput!
+  ): UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload
 
   """
   Sets the members can create repositories setting for an enterprise.
   """
-  updateEnterpriseMembersCanCreateRepositoriesSetting(input: UpdateEnterpriseMembersCanCreateRepositoriesSettingInput!): UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload
+  updateEnterpriseMembersCanCreateRepositoriesSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanCreateRepositoriesSetting
+    """
+    input: UpdateEnterpriseMembersCanCreateRepositoriesSettingInput!
+  ): UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload
 
   """
   Sets the members can delete issues setting for an enterprise.
   """
-  updateEnterpriseMembersCanDeleteIssuesSetting(input: UpdateEnterpriseMembersCanDeleteIssuesSettingInput!): UpdateEnterpriseMembersCanDeleteIssuesSettingPayload
+  updateEnterpriseMembersCanDeleteIssuesSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanDeleteIssuesSetting
+    """
+    input: UpdateEnterpriseMembersCanDeleteIssuesSettingInput!
+  ): UpdateEnterpriseMembersCanDeleteIssuesSettingPayload
 
   """
   Sets the members can delete repositories setting for an enterprise.
   """
-  updateEnterpriseMembersCanDeleteRepositoriesSetting(input: UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput!): UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload
+  updateEnterpriseMembersCanDeleteRepositoriesSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanDeleteRepositoriesSetting
+    """
+    input: UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput!
+  ): UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload
 
   """
   Sets whether members can invite collaborators are enabled for an enterprise.
   """
-  updateEnterpriseMembersCanInviteCollaboratorsSetting(input: UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput!): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload
+  updateEnterpriseMembersCanInviteCollaboratorsSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanInviteCollaboratorsSetting
+    """
+    input: UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput!
+  ): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload
 
   """
   Sets whether or not an organization admin can make purchases.
   """
-  updateEnterpriseMembersCanMakePurchasesSetting(input: UpdateEnterpriseMembersCanMakePurchasesSettingInput!): UpdateEnterpriseMembersCanMakePurchasesSettingPayload
+  updateEnterpriseMembersCanMakePurchasesSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanMakePurchasesSetting
+    """
+    input: UpdateEnterpriseMembersCanMakePurchasesSettingInput!
+  ): UpdateEnterpriseMembersCanMakePurchasesSettingPayload
 
   """
   Sets the members can update protected branches setting for an enterprise.
   """
-  updateEnterpriseMembersCanUpdateProtectedBranchesSetting(input: UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput!): UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload
+  updateEnterpriseMembersCanUpdateProtectedBranchesSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanUpdateProtectedBranchesSetting
+    """
+    input: UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput!
+  ): UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload
 
   """
   Sets the members can view dependency insights for an enterprise.
   """
-  updateEnterpriseMembersCanViewDependencyInsightsSetting(input: UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput!): UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload
+  updateEnterpriseMembersCanViewDependencyInsightsSetting(
+    """
+    Parameters for UpdateEnterpriseMembersCanViewDependencyInsightsSetting
+    """
+    input: UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput!
+  ): UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload
 
   """
   Sets whether organization projects are enabled for an enterprise.
   """
-  updateEnterpriseOrganizationProjectsSetting(input: UpdateEnterpriseOrganizationProjectsSettingInput!): UpdateEnterpriseOrganizationProjectsSettingPayload
+  updateEnterpriseOrganizationProjectsSetting(
+    """
+    Parameters for UpdateEnterpriseOrganizationProjectsSetting
+    """
+    input: UpdateEnterpriseOrganizationProjectsSettingInput!
+  ): UpdateEnterpriseOrganizationProjectsSettingPayload
 
   """
   Updates an enterprise's profile.
   """
-  updateEnterpriseProfile(input: UpdateEnterpriseProfileInput!): UpdateEnterpriseProfilePayload
+  updateEnterpriseProfile(
+    """
+    Parameters for UpdateEnterpriseProfile
+    """
+    input: UpdateEnterpriseProfileInput!
+  ): UpdateEnterpriseProfilePayload
 
   """
   Sets whether repository projects are enabled for a enterprise.
   """
-  updateEnterpriseRepositoryProjectsSetting(input: UpdateEnterpriseRepositoryProjectsSettingInput!): UpdateEnterpriseRepositoryProjectsSettingPayload
+  updateEnterpriseRepositoryProjectsSetting(
+    """
+    Parameters for UpdateEnterpriseRepositoryProjectsSetting
+    """
+    input: UpdateEnterpriseRepositoryProjectsSettingInput!
+  ): UpdateEnterpriseRepositoryProjectsSettingPayload
 
   """
   Sets whether team discussions are enabled for an enterprise.
   """
-  updateEnterpriseTeamDiscussionsSetting(input: UpdateEnterpriseTeamDiscussionsSettingInput!): UpdateEnterpriseTeamDiscussionsSettingPayload
+  updateEnterpriseTeamDiscussionsSetting(
+    """
+    Parameters for UpdateEnterpriseTeamDiscussionsSetting
+    """
+    input: UpdateEnterpriseTeamDiscussionsSettingInput!
+  ): UpdateEnterpriseTeamDiscussionsSettingPayload
 
   """
   Sets whether two factor authentication is required for all users in an enterprise.
   """
-  updateEnterpriseTwoFactorAuthenticationRequiredSetting(input: UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput!): UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload
+  updateEnterpriseTwoFactorAuthenticationRequiredSetting(
+    """
+    Parameters for UpdateEnterpriseTwoFactorAuthenticationRequiredSetting
+    """
+    input: UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput!
+  ): UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload
 
   """
   Sets whether an IP allow list is enabled on an owner.
   """
-  updateIpAllowListEnabledSetting(input: UpdateIpAllowListEnabledSettingInput!): UpdateIpAllowListEnabledSettingPayload
+  updateIpAllowListEnabledSetting(
+    """
+    Parameters for UpdateIpAllowListEnabledSetting
+    """
+    input: UpdateIpAllowListEnabledSettingInput!
+  ): UpdateIpAllowListEnabledSettingPayload
 
   """
   Updates an IP allow list entry.
   """
-  updateIpAllowListEntry(input: UpdateIpAllowListEntryInput!): UpdateIpAllowListEntryPayload
+  updateIpAllowListEntry(
+    """
+    Parameters for UpdateIpAllowListEntry
+    """
+    input: UpdateIpAllowListEntryInput!
+  ): UpdateIpAllowListEntryPayload
 
   """
   Updates an Issue.
   """
-  updateIssue(input: UpdateIssueInput!): UpdateIssuePayload
+  updateIssue(
+    """
+    Parameters for UpdateIssue
+    """
+    input: UpdateIssueInput!
+  ): UpdateIssuePayload
 
   """
   Updates an IssueComment object.
   """
-  updateIssueComment(input: UpdateIssueCommentInput!): UpdateIssueCommentPayload
+  updateIssueComment(
+    """
+    Parameters for UpdateIssueComment
+    """
+    input: UpdateIssueCommentInput!
+  ): UpdateIssueCommentPayload
 
   """
   Updates an existing label.
   """
-  updateLabel(input: UpdateLabelInput!): UpdateLabelPayload @preview(toggledBy: "bane-preview")
+  updateLabel(
+    """
+    Parameters for UpdateLabel
+    """
+    input: UpdateLabelInput!
+  ): UpdateLabelPayload @preview(toggledBy: "bane-preview")
 
   """
   Updates an existing project.
   """
-  updateProject(input: UpdateProjectInput!): UpdateProjectPayload
+  updateProject(
+    """
+    Parameters for UpdateProject
+    """
+    input: UpdateProjectInput!
+  ): UpdateProjectPayload
 
   """
   Updates an existing project card.
   """
-  updateProjectCard(input: UpdateProjectCardInput!): UpdateProjectCardPayload
+  updateProjectCard(
+    """
+    Parameters for UpdateProjectCard
+    """
+    input: UpdateProjectCardInput!
+  ): UpdateProjectCardPayload
 
   """
   Updates an existing project column.
   """
-  updateProjectColumn(input: UpdateProjectColumnInput!): UpdateProjectColumnPayload
+  updateProjectColumn(
+    """
+    Parameters for UpdateProjectColumn
+    """
+    input: UpdateProjectColumnInput!
+  ): UpdateProjectColumnPayload
 
   """
   Update a pull request
   """
-  updatePullRequest(input: UpdatePullRequestInput!): UpdatePullRequestPayload
+  updatePullRequest(
+    """
+    Parameters for UpdatePullRequest
+    """
+    input: UpdatePullRequestInput!
+  ): UpdatePullRequestPayload
 
   """
   Updates the body of a pull request review.
   """
-  updatePullRequestReview(input: UpdatePullRequestReviewInput!): UpdatePullRequestReviewPayload
+  updatePullRequestReview(
+    """
+    Parameters for UpdatePullRequestReview
+    """
+    input: UpdatePullRequestReviewInput!
+  ): UpdatePullRequestReviewPayload
 
   """
   Updates a pull request review comment.
   """
-  updatePullRequestReviewComment(input: UpdatePullRequestReviewCommentInput!): UpdatePullRequestReviewCommentPayload
+  updatePullRequestReviewComment(
+    """
+    Parameters for UpdatePullRequestReviewComment
+    """
+    input: UpdatePullRequestReviewCommentInput!
+  ): UpdatePullRequestReviewCommentPayload
 
   """
   Update a Git Ref.
   """
-  updateRef(input: UpdateRefInput!): UpdateRefPayload
+  updateRef(
+    """
+    Parameters for UpdateRef
+    """
+    input: UpdateRefInput!
+  ): UpdateRefPayload
 
   """
   Creates, updates and/or deletes multiple refs in a repository.
@@ -14744,37 +15319,72 @@ type Mutation {
   If `RefUpdate.force` is set to `true`, a non-fast-forward updates
   for the given reference will be allowed.
   """
-  updateRefs(input: UpdateRefsInput!): UpdateRefsPayload @preview(toggledBy: "update-refs-preview")
+  updateRefs(
+    """
+    Parameters for UpdateRefs
+    """
+    input: UpdateRefsInput!
+  ): UpdateRefsPayload @preview(toggledBy: "update-refs-preview")
 
   """
   Update information about a repository.
   """
-  updateRepository(input: UpdateRepositoryInput!): UpdateRepositoryPayload
+  updateRepository(
+    """
+    Parameters for UpdateRepository
+    """
+    input: UpdateRepositoryInput!
+  ): UpdateRepositoryPayload
 
   """
   Updates the state for subscribable subjects.
   """
-  updateSubscription(input: UpdateSubscriptionInput!): UpdateSubscriptionPayload
+  updateSubscription(
+    """
+    Parameters for UpdateSubscription
+    """
+    input: UpdateSubscriptionInput!
+  ): UpdateSubscriptionPayload
 
   """
   Updates a team discussion.
   """
-  updateTeamDiscussion(input: UpdateTeamDiscussionInput!): UpdateTeamDiscussionPayload
+  updateTeamDiscussion(
+    """
+    Parameters for UpdateTeamDiscussion
+    """
+    input: UpdateTeamDiscussionInput!
+  ): UpdateTeamDiscussionPayload
 
   """
   Updates a discussion comment.
   """
-  updateTeamDiscussionComment(input: UpdateTeamDiscussionCommentInput!): UpdateTeamDiscussionCommentPayload
+  updateTeamDiscussionComment(
+    """
+    Parameters for UpdateTeamDiscussionComment
+    """
+    input: UpdateTeamDiscussionCommentInput!
+  ): UpdateTeamDiscussionCommentPayload
 
   """
   Updates team review assignment.
   """
-  updateTeamReviewAssignment(input: UpdateTeamReviewAssignmentInput!): UpdateTeamReviewAssignmentPayload @preview(toggledBy: "stone-crop-preview")
+  updateTeamReviewAssignment(
+    """
+    Parameters for UpdateTeamReviewAssignment
+    """
+    input: UpdateTeamReviewAssignmentInput!
+  ): UpdateTeamReviewAssignmentPayload @preview(toggledBy: "stone-crop-preview")
 
   """
   Replaces the repository's topics with the given topics.
   """
-  updateTopics(input: UpdateTopicsInput!): UpdateTopicsPayload
+  updateTopics(
+    """
+    Parameters for UpdateTopics
+    """
+    input: UpdateTopicsInput!
+  ): UpdateTopicsPayload
 }
 
 """
