@@ -15,6 +15,8 @@ versions:
 
 Las cuentas empresariales actualmente están disponibles para los clientes de {% data variables.product.prodname_enterprise %} que pagan por factura. La facturación para todas las organizaciones e instancias de {% data variables.product.prodname_ghe_server %} conectadas con tu cuenta empresarial se conjunta en un solo cargo por factura para todos tus servicios pagados de {% data variables.product.prodname_dotcom_the_website %} (incluyendo las licencias pagadas en organizaciones, paquetes de datos de {% data variables.large_files.product_name_long %}, y suscripciones a las apps de {% data variables.product.prodname_marketplace %}).
 
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."{% endif %}
+
 Para obtener más información acerca de administrar a los gerentes de facturación, consulta la sección "[Invitar a las personas a administrar tu empresa](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
 
 ### Ver la suscripción y el uso de tu cuenta de empresa

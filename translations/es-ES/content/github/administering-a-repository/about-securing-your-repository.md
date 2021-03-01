@@ -14,6 +14,8 @@ El primer paso para asegurar un repositorio es configurar quién puede ver y mod
 
 {% data variables.product.prodname_dotcom %} cuenta con un conjunto de características cada vez mayor que te ayuda a mantener tu código seguro. Puedes encontrarlas en la pestaña de **Seguridad** de tu repositorio.
 
+#### Available for all repositories
+
 {% if currentVersion == "free-pro-team@latest" %}
 - **Política de seguridad**
 
@@ -43,15 +45,23 @@ Utiliza
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
+#### Available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
+
+These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+
 - **Alertas de {% data variables.product.prodname_code_scanning_capc %}**
 
   Detecta automáticamente las vulnerabilidades de seguridad y los errores de código en el código nuevo o modificado. Se resaltan los problemas potenciales, con información detallada, lo cual te permite arreglar el código antes de que se fusione en tu rama predeterminada. Para obtener más información, consulta la sección "[Acerca del escaneo de código"](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
 
 - **Secretos detectados**
-Visualiza cualquier secreto que
 
-  haya encontrado el {% data variables.product.prodname_dotcom %} en tu código. Deberías tratar a los tokens o las credenciales que se hayan registrado en tu repositorio como puestos en riesgo. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
-  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else if %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. Deberías tratar a los tokens o las credenciales que se hayan registrado en tu repositorio como puestos en riesgo. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+- **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Revisar los cambios a las dependencias en una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+{% endif %}
 
 ### Explorar las dependencias
 La gráfica de dependencias de {% data variables.product.prodname_dotcom %} te permite explorar:
@@ -59,6 +69,6 @@ La gráfica de dependencias de {% data variables.product.prodname_dotcom %} te p
 * Ecosistemas y paquetes de los cuales depende tu repositorio
 * Repositorios y paquetes que dependen de tu repositorio
 
-Debes habilitar la gráfica de dependencias antes de que {% data variables.product.prodname_dotcom %} pueda generar {% data variables.product.prodname_dependabot_alerts %} para las dependencias con vulnerabilidades de seguridad.
+Debes habilitar la gráfica de dependencias antes de que {% data variables.product.prodname_dotcom %} pueda generar {% data variables.product.prodname_dependabot_alerts %} para las dependencias con vulnerabilidades de seguridad. {% if currentVersion == "free-pro-team@latest" %}Enabling the dependency graph also enables {% data variables.product.prodname_dotcom %} to run dependency reviews of pull requests.{% endif %}
 
 Puedes encontrar la gráfica de dependencias en lapestaña de **Perspectivas** para tu repositorio. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".

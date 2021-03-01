@@ -10,7 +10,7 @@ versions:
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
 ### About expiring user access tokens
@@ -57,8 +57,8 @@ You can enable or disable expiring user-to-server authorization tokens from your
 {% data reusables.user-settings.github_apps %}
 4. Click **Edit** next to your chosen {% data variables.product.prodname_github_app %}.
   ![Settings to edit a GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Beta Features**.
-  ![Beta Features menu option](/assets/images/github-apps/beta-features-option.png)
+5. In the left sidebar, click **{% if currentVersion ver_lt "enterprise-server@3.1" %} Beta {% else %} Optional {% endif %} Features**.
+  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
 
 ### Opting out of expiring tokens for new GitHub Apps

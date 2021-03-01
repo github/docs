@@ -31,7 +31,7 @@ Los propietarios de las empresas tienen el control absoluto de las mismas y pued
 
 Los propietarios de empresa no pueden acceder a los parámetros o el contenido de la organización, a menos que se conviertan en propietarios de la organización o que se les otorgue acceso directo al repositorio que le pertenece a una organización. De forma similar, los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los conviertas en propietarios de ella.
 
-Puedes agregar tantos propietarios de la empresa como quieras. {% if currentVersion == "free-pro-team@latest" %}Los propietrios de la empresa deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.{% endif %} Como mejor práctica, te recomendamos que solo algunas personas en tu compañía se conviertan en propietarios, para reducir el riesgo en tu negocio.
+An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% if currentVersion == "free-pro-team@latest" %}Los propietrios de la empresa deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.{% endif %} Como mejor práctica, te recomendamos que solo algunas personas en tu compañía se conviertan en propietarios, para reducir el riesgo en tu negocio.
 
 ### Miembros de empresa
 
@@ -52,7 +52,7 @@ Los gerentes de facturación solo tienen acceso a la configuración de facturaci
 - Ver una lista de gerentes de facturación
 - Agregar o eliminar otros gerentes de facturación
 
-Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu empresa y no pueden agregar o eliminar propietarios de la misma. Los gerentes de facturación deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.
+Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu empresa y no pueden agregar o eliminar propietarios de la misma. Los gerentes de facturación deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.
 
 ### Leer más
 
