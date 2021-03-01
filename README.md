@@ -9,7 +9,7 @@ In this article:
 - [READMEs](#readmes)
 - [License](#license)
 
-## Contributing
+## Contributing #1✨🌎✨🌶️🐛✅🗝️💱
 
 ### Start contributing right now:
 
