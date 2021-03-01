@@ -4,11 +4,11 @@ intro: There are a great variety of features that OsmAnd offers. Most of them ar
 versions: '*'
 ---
 
-| Header One     | Header Two     |
+| Purchase   | Android  |
 | :------------- | :------------- |
-| OsmAnd Unlimited | Unlimited map downloads. Map updates one time per month. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.  |
-|  OsmAnd+ | Unlimited map downloads. Map updates one time per month. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.  |
-| Live (month, 3 months, yearly subscription)     |Unlimited map downloads. Map updates hourly. Wikipedia and WikiVoyage articles available offline. Contour lines plugin. Nautical Chars plugin.     |
+| OsmAnd Unlimited | Unlimited map downloads. Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. Nautical Chars plugin.  |
+|  OsmAnd+ | Unlimited map downloads. Map updates one time per month. <br>  Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. Nautical Chars plugin.  |
+| Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> Hourly map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. Nautical Chars plugin.     |
 
 ### Free version limitation
 - Limited number of map downloads and updates
