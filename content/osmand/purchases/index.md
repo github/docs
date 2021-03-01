@@ -6,16 +6,19 @@ versions: '*'
 
 | Purchase   | Android  |
 | :------------- | :------------- |
-| OsmAnd Unlimited | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
+| OsmAnd (Unlimited) | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 |  OsmAnd+ | Unlimited map downloads. <br> Map updates one time per month. <br>  Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 | Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     |
 
 ### Free version limitation
-- Limited number of map downloads and updates
-- No wikipedia / wikivoyage
-- No contour lines / hillshade / nautical depth maps
-- Map updates are provided monthly i.e. At ~15 December maps dated of 1 December will be available to download. It takes 2-3 weeks to prepare regular maps whether Live Maps (hourly) are provided by subscription.
 
+| Android   | iOS  |
+| :------------- | :------------- |
+| up 7 map downloads or updates | up 5 map downloads or updates  |
+| no Wikipedia and WikiVoyage articles |  Wikipedia and WikiVoyage articles  |
+| No contour lines and  Nautical Chars plugins   |No contour lines and  Nautical Chars plugins     |
+
+<!-- - Map updates are provided monthly i.e. At ~15 December maps dated of 1 December will be available to download. It takes 2-3 weeks to prepare regular maps whether Live Maps (hourly) are provided by subscription. -->
 ### In Apps
 - Maps package:
   - Unlimited map downloads monthly
