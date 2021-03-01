@@ -3,7 +3,8 @@ title: About securing your repository
 intro: '{% data variables.product.product_name %} provides a number of ways that you can help keep your repository secure.'
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.0'  
+  enterprise-server: '>=3.0'
+  github-ae: '*'
 ---
 
 ### Setting up your repository securely
@@ -14,6 +15,7 @@ The first step to securing a repository is to set up who can see and modify your
 
 {% data variables.product.prodname_dotcom %} has a growing set of security features that help you keep your code secure. You can find these on the **Security** tab for your repository.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### Available for all repositories
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -31,7 +33,7 @@ The first step to securing a repository is to set up who can see and modify your
   and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
  {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 - **{% data variables.product.prodname_dependabot_alerts %}**
 
   View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
@@ -42,12 +44,15 @@ The first step to securing a repository is to set up who can see and modify your
 
   Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
   {% endif %}
+  {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### Available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+  {% endif %}
 
 - **{% data variables.product.prodname_code_scanning_capc %} alerts** 
 
@@ -63,6 +68,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### Exploring dependencies 
 {% data variables.product.prodname_dotcom %}'s dependency graph allows you to explore:
 
@@ -72,3 +78,4 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_alerts %} for dependencies with security vulnerabilities. {% if currentVersion == "free-pro-team@latest" %}Enabling the dependency graph also enables {% data variables.product.prodname_dotcom %} to run dependency reviews of pull requests.{% endif %}
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+{% endif %}

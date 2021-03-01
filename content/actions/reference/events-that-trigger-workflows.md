@@ -10,10 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Configuring workflow events
 
@@ -40,6 +42,12 @@ The following steps occur to trigger a workflow run:
 ### Scheduled events
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
+
+{% note %}
+
+Note: Due to load, the `schedule` event may be delayed 
+
+{% endnote %}
 
 #### `schedule`
 
@@ -580,7 +588,7 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `pull_request_target`
 
@@ -708,7 +716,7 @@ on:
     types: [started]
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `workflow_run`
 
