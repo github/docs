@@ -113,7 +113,7 @@ If your instance has subdomain isolation disabled:
     <server>
       <id>github</id>
       <username>USERNAME</username>
-      <password>TOKEN</password>
+      <password>(c)(r)</password>
     </server>
   </servers>
 </settings>
