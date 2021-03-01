@@ -2,6 +2,7 @@
 import '../stylesheets/index.scss'
 import displayPlatformSpecificContent from './display-platform-specific-content'
 import explorer from './explorer'
+import scrollUp from './scroll-up'
 import search from './search'
 import nav from './nav'
 import browserDateFormatter from 'browser-date-formatter'
@@ -23,6 +24,7 @@ import airgapLinks from './airgap-links'
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
   explorer()
+  scrollUp()
   search()
   nav()
   browserDateFormatter()

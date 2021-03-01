@@ -1,5 +1,5 @@
 ---
-title: Specifications for GitHub-hosted runners
+title: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,6 +9,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners
   - /actions/reference/virtual-environments-for-github-hosted-runners
   - /actions/reference/software-installed-on-github-hosted-runners
+  - /actions/reference/specifications-for-github-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -76,9 +77,7 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow.
-![Installed software link](/assets/images/actions-runner-installed-software-link.png)
-For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
 - Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
