@@ -20,7 +20,7 @@ versions:
 
 您提供的钥匙存储在 {% data variables.product.company_short %} 管理的密钥保管库的硬件安全模块 (HSM) 中。
 
-要配置加密密钥，请使用 REST API。 有许多 API 端点，例如检查加密状态、更新加密密钥以及删除加密密钥的端点。 请注意，删除密钥将冻结企业。 有关 API 端点的详细信息，请参阅 REST API 文档中的“[休息时加密](/rest/reference/enterprise-admin#encryption-at-rest)”。
+要配置加密密钥，请使用 REST API。 There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. 有关 API 端点的详细信息，请参阅 REST API 文档中的“[休息时加密](/rest/reference/enterprise-admin#encryption-at-rest)”。
 
 ### 添加或更新加密密钥
 
@@ -48,23 +48,23 @@ versions:
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### 删除加密密钥
+### Disabling your encryption key
 
-要冻结企业（例如在发生违规的情况下），可以通过删除加密密钥来禁用休息时加密。
+To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by marking your encryption key as disabled.
 
-要在删除加密密钥后解冻企业，请联系支持人员。 更多信息请参阅“[关于 {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)”。
-
-1. 要删除密钥并禁用休息时加密，请使用 `DELETE /enterprise/encryption` 端点。
+1. To disable your key and encryption at rest, use the `DELETE /enterprise/encryption` endpoint. This operation does not delete the key permanently.
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. （可选）检查删除操作的状态。
+2. （可选）检查删除操作的状态。 It takes approximately ten minutes to disable encryption at rest.
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
+
+To unfreeze your enterprise after you've disabled your encryption key, contact support. 更多信息请参阅“[关于 {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)”。
 
 ### 延伸阅读
 

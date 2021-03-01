@@ -16,6 +16,17 @@ versions:
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+### 已发布 npm 版本的限制
+
+如果您发布超过 1,000npm 软件包版本到 {% data variables.product.prodname_registry %}，在使用过程中可能会出现性能问题和超时。
+
+将来，为了提高服务的性能，您将无法在 {% data variables.product.prodname_dotcom %} 上发布超过 1，000 个版本的包。 在达到此限制之前发布的任何版本仍将是可读的。
+
+如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“[删除包](/packages/manage-packages/deleting-a-package)”或“[联系支持人员](/packages/learn-github-packages/about-github-packages#contacting-support)”。
+
+{% endif %}
+
 ### 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -155,7 +166,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. 配置项目中的 *package.json* 使用要安装的包。 要将包依赖项添加到 {% data variables.product.prodname_registry %} 的 *package.json* 文件，请指定完整的作用域内包名称，例如 `@my-org/server`。 对于来自 *npmjs.com* 的包，请指定全名，例如 `@babel/core` 或 `@lodash`。 例如，以下 *package.json* 将 `@octo-org/octo-app` 包用作依赖项。
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",
@@ -196,6 +207,12 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
+{% endif %}
+
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### 使用官方 NPM 注册表
+
+{% data variables.product.prodname_registry %} 允许您访问 `registry.npmjs.com` 上的官方 NPM 注册表，前提是您的 {% data variables.product.prodname_ghe_server %} 管理员已启用此功能。 更多信息请参阅[连接到官方 NPM 注册表](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry)。
 {% endif %}
 
 ### 延伸阅读

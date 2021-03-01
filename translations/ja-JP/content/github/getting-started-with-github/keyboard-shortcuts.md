@@ -29,14 +29,14 @@ versions:
 
 ### リポジトリ
 
-| キーボードショートカット              | 説明                                                                                                                                                                                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                                                                                                                          |
-| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                                                                                                                   |
-| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+| キーボードショートカット              | 説明                                                                                                                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                                                                                                |
+| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                                                                                         |
+| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
-| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                                                      |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                                                         |
+| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                            |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                               |
 
 ### ソースコード編集
 
@@ -76,14 +76,15 @@ versions:
 | <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | **Write** と **Preview** のコメントタブを切り替えます。                                                                                                                          |
 | <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                                                    |
 | <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳しい情報については「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 |{% endif %}
+| <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 
+{% endif %}
 | <kbd>r</kbd>                                              | 返信で選択したテキストを引用します。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。                                                             |
 
 ### Issue およびプルリクエストのリスト
 
 | キーボードショートカット                                  | 説明                                                                                                                                                     |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>c</kbd>                                  | Issue を作成します                                                                                                                                           |
+| <kbd>c</kbd>                                  | Issueの作成                                                                                                                                               |
 | <kbd>control /</kbd> または <kbd>command /</kbd> | Issue またはプルリクエストの検索バーにカーソルを合わせます。 詳細は「[検索を使用して Issue およびプルリクエストをフィルタリングする](/articles/using-search-to-filter-issues-and-pull-requests)」を参照してください。       |
 | <kbd>u</kbd>                                  | 作者によりフィルタリングします                                                                                                                                        |
 | <kbd>l</kbd>                                  | ラベルによりフィルタリグするか、ラベルを編集します。 詳細は「[Issue およびプルリクエストをラベルでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-labels)」を参照してください。                     |
@@ -111,7 +112,8 @@ versions:
 | <kbd>k</kbd>                    | リストで選択を上に移動します                                                                                                                                                                                                                                          |
 | <kbd>cmd + shift + enter </kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                               |
 | <kbd>alt</kbd> およびクリック          | `alt` キーを押しながら [**Show outdated**] または [**Hide outdated**] をクリックして、プルリクエスト内のすべての古いレビューコメントの折りたたみと展開を切り替えます。|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-| クリック後、<kbd>shift</kbd> およびクリック  | プルリクエストの複数行にコメントするには、行番号をクリックし、<kbd>shift</kbd> を押したまま、別の行番号をクリックします。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。|{% endif %}
+| クリック後、<kbd>shift</kbd> およびクリック  | プルリクエストの複数行にコメントするには、行番号をクリックし、<kbd>shift</kbd> を押したまま、別の行番号をクリックします。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。
+{% endif %}
 
 ### プロジェクトボード
 
@@ -159,6 +161,10 @@ versions:
 | キーボードショートカット                                               | 説明                                   |
 | ---------------------------------------------------------- | ------------------------------------ |
 | <kbd>command + space </kbd> または <kbd>control + space</kbd> | ワークフローエディターで、ワークフローファイルに対する提案を取得します。 |
+| <kbd>g</kbd> <kbd>f</kbd>                                  | Go to the workflow file              |
+| <kbd>shift + t</kbd> or <kbd>T</kbd>                       | Toggle timestamps in logs            |
+| <kbd>shift + f</kbd> or <kbd>F</kbd>                       | Toggle fullscreen logs               |
+| <kbd>esc</kbd>                                             | Exit fullscreen logs                 |
 
 {% endif %}
 

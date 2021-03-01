@@ -31,7 +31,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
 
-3. Verifique se a impressão digital na mensagem exibida corresponde à das mensagens na etapa 2 e digite `sim`:
+3. Verifique se a impressão digital na mensagem em que você vê correspondências com {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} é da chave pública de RSA de](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} é da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
   ```shell
   > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

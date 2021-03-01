@@ -25,11 +25,15 @@ You can host your site on
 {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. Weitere Informationen finden Sie unter „[Eine benutzerdefinierte Domain mit {% data variables.product.prodname_pages %} verwenden](/articles/using-a-custom-domain-with-github-pages)“.
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% endif %}
+
 Informationen zu den ersten Schritten findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website erstellen](/articles/creating-a-github-pages-site).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 Organization owners can disable the publication of
-{% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+{% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
 ### Arten von {% data variables.product.prodname_pages %}-Websites
@@ -39,6 +43,10 @@ Es gibt drei Arten von {% data variables.product.prodname_pages %}-Websites: Pro
 To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
 Die Quelldateien für eine Projekt-Website werden im selben Repository gespeichert wie das zugehörige Projekt. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+If you publish your site privately, the URL for your site will be different. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 Weitere Informationen dazu, wie sich die URL Ihrer Website bei benutzerdefinierten Domains ändert, finden Sie unter „[Informationen zu benutzerdefinierten Domains und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)“.
@@ -57,7 +65,7 @@ The URL where your site is available depends on whether subdomain isolation is e
 
 `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-Weitere Informationen findest Du unter „[Subdomänen-Isolation aktivieren](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)“. Bei Fragen kannst Du Dich auch an den Websiteadministrator wenden.
+For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -90,9 +98,9 @@ Die standardmäßige Veröffentlichungsquelle für Projekt-Websites ist der `gh-
 
 Du kannst Projekt-Websites auch vom `master`-Branch oder einem `/docs`-Ordner auf dem `master`-Branch veröffentlichen. Um Deine Website aus einer dieser Quellen zu veröffentlichen, musst Du eine andere Veröffentlichungsquelle konfigurieren. Weitere Informationen findest Du unter „[Eine Veröffentlichungsquelle für Deine {% data variables.product.prodname_pages %}-Website konfigurieren](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).“
 
- If you choose the `/docs` folder of the `master` branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. Weitere Informationen zu _CNAME_-Dateien findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site)“.{% endif %}
+If you choose the `/docs` folder of the `master` branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. Weitere Informationen zu _CNAME_-Dateien findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site)“.{% endif %}
 
- Du kannst Deine Projekt-Website nicht aus einem anderen Branch veröffentlichen, auch wenn der Standard-Branch nicht `Master` oder `gh-pages` ist.
+Du kannst Deine Projekt-Website nicht aus einem anderen Branch veröffentlichen, auch wenn der Standard-Branch nicht `Master` oder `gh-pages` ist.
 
 {% endif %}
 
@@ -118,8 +126,8 @@ Du kannst Projekt-Websites auch vom `master`-Branch oder einem `/docs`-Ordner au
   - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1GB.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[What is my disk quota?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
   - Veröffentlichte {% data variables.product.prodname_pages %}-Websites dürfen nicht größer als 1 GB sein.
 {% if currentVersion == "free-pro-team@latest" %}
-  - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100GB per month.
-  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.
+  - {% data variables.product.prodname_pages %}-Websites besitzen eine *weiche* Bandbreitenbegrenzung von 100 GB pro Monat.
+  - {% data variables.product.prodname_pages %}-Websites besitzen eine *weiche* Begrenzung von 10 Builds pro Stunde.
 
 Wenn Ihre Website diese Nutzungskontingente überschreitet, kann Ihre Website ggf. nicht bedient werden oder Sie erhalten eine höfliche E-Mail von {% data variables.contact.contact_support %}, in der Strategien vorgeschlagen werden, um die Auswirkung Ihrer Website auf unsere Server zu reduzieren. Dazu zählen das Einsetzen eines Drittanbieter-CDNs (Content Distribution Networks) vor Ihrer Website, die Nutzung anderer {% data variables.product.prodname_dotcom %}-Features, beispielsweise Veröffentlichungen, oder der Wechsel zu einem anderen Hosting-Dienst, der ggf. besser zu Ihren Anforderungen passt.
 
