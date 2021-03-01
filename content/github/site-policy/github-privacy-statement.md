@@ -1,4 +1,4 @@
----
+---[mainbranch]
 title: GitHub Privacy Statement
 redirect_from:
   - /privacy/
@@ -9,7 +9,7 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
----
+---[[trunk)
 
 Effective:   
  /s/ ZACHRY TYLER WOOD III /s/
