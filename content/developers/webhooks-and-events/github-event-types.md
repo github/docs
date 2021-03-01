@@ -51,7 +51,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +162,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Event `payload` object
 
 This event returns an empty `payload` object.
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}

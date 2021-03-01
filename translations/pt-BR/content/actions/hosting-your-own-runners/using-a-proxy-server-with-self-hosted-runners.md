@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +38,7 @@ Se não for prático definir as variáveis do ambiente, você poderá definir as
 
 Um exemplo de configuração de proxy _.env_ é mostrado abaixo:
 
-```
+```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

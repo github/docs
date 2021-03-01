@@ -1,0 +1,1 @@
+Puedes solicitar la publicación con o sin verificación. El solicitar una publicación sin verificación te permite lanzar una versión gratuita de tu app rápidamente. If you then request publication with verification, your listing will be updated to include the marketplace badge and any paid pricing plans when you complete verification and financial onboarding.

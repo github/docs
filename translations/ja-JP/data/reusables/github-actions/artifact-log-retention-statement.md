@@ -1,2 +1,2 @@
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and this retention period can be customized. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".{% endif %}
-{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} には、完全なビルドログとアーティファクトが 90 日間保存されます。{% endif %}
+{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} には、完全なビルドログと成果物が 90 日間保存されます。{% endif %}

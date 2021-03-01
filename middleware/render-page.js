@@ -18,11 +18,25 @@ const pageCache = new RedisAccessor({
   allowSetFailures: true
 })
 
+// a list of query params that *do* alter the rendered page, and therefore should be cached separately
+const cacheableQueries = ['learn']
+
+function addCsrf (req, text) {
+  return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
+
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
 
   // Remove any query string (?...) and/or fragment identifier (#...)
-  const originalUrl = new URL(req.originalUrl, 'https://docs.github.com').pathname
+  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
+
+  for (const queryKey in req.query) {
+    if (!cacheableQueries.includes(queryKey)) {
+      searchParams.delete(queryKey)
+    }
+  }
+  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
 
   // Serve from the cache if possible (skip during tests)
   const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
@@ -35,7 +49,7 @@ module.exports = async function renderPage (req, res, next) {
     if (cachedHtml) {
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(cachedHtml)
+      return res.send(addCsrf(req, cachedHtml))
     }
   }
 
@@ -44,7 +58,12 @@ module.exports = async function renderPage (req, res, next) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
       console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
     }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+    return res.status(404).send(
+      addCsrf(
+        req,
+        await liquid.parseAndRender(layouts['error-404'], req.context)
+      )
+    )
   }
 
   if (req.method === 'HEAD') {
@@ -105,7 +124,8 @@ module.exports = async function renderPage (req, res, next) {
   const output = await liquid.parseAndRender(layout, context)
 
   // First, send the response so the user isn't waiting
-  res.send(output)
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+  res.send(addCsrf(req, output))
 
   // Finally, save output to cache for the next time around
   if (isCacheable) {

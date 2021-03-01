@@ -1,1 +1,1 @@
-默认情况下，您的项目板为私有，只有对项目板具有读取、写入或管理权限的人才能看到。 公共项目板对有项目板 URL 的任何人都可见。
+默认情况下，您的项目板为私有，只有对项目板具有读取、写入或管理权限的人才能看到。 {% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}项目板对具有项目板 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}可见。
