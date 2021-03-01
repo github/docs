@@ -3,13 +3,26 @@ title: Purchases
 intro: There are a great variety of features that OsmAnd offers. Most of them are available in a free version of the application. The paid OsmAnd services provide extended functionality."
 versions: '*'
 ---
-
-| Purchase   | Android  |
+<!-- ставить вместо этой таблицы картинку со сравнительной таблицей-->
+<!--| Purchase   | Android  |
 | :------------- | :------------- |
 | OsmAnd (Unlimited) | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 |  OsmAnd+ | Unlimited map downloads. <br> Map updates one time per month. <br>  Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
-| Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     |
+| Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     | -->
 
+<table class="iksweb">
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+      
 ### Free version limitation
 
 | Android   | iOS  |
