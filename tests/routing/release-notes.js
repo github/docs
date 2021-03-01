@@ -1,6 +1,6 @@
 const { get } = require('../helpers/supertest')
 
-describe('enterprise release notes', () => {
+describe('release notes', () => {
   jest.setTimeout(60 * 1000)
 
   beforeAll(async () => {
