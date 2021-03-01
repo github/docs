@@ -2,13 +2,14 @@
 title: GitHub GraphQL API
 intro: 'You can use the {% data variables.product.prodname_dotcom %} GraphQL API to create precise and flexible queries for the data you need to integrate with {% data variables.product.prodname_dotcom %}.'
 shortTitle: GraphQL API
-redirect_from:
+redirect_from:git clone https://TPT101@bitbucket.org/my-coin-heart/_a-_.git
   - /v4
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 
 {% link_with_intro /overview %}
 
