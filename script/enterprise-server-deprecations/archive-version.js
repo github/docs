@@ -9,7 +9,6 @@ const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
 const program = require('commander')
 const rimraf = require('rimraf').sync
-const mkdirp = require('mkdirp').sync
 const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
@@ -173,7 +172,7 @@ async function main () {
     console.log(`\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`)
 
     // create redirect html files to preserve frontmatter redirects
-    await createRedirectPages(permalinksPerVersion, pageMap, finalDirectory)
+    await createRedirectsFile(permalinksPerVersion, pageMap, finalDirectory)
 
     console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
 
@@ -181,9 +180,11 @@ async function main () {
   })
 }
 
-async function createRedirectPages (permalinks, pageMap, finalDirectory) {
+async function createRedirectsFile (permalinks, pageMap, finalDirectory) {
   const pagesPerVersion = permalinks.map(permalink => pageMap[permalink])
   const redirects = await loadRedirects(pagesPerVersion, pageMap)
+
+  const redirectsPerVersion = {}
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
     // remove any liquid variables that sneak in
@@ -193,31 +194,8 @@ async function createRedirectPages (permalinks, pageMap, finalDirectory) {
     // ignore any old paths that are not in this version
     if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
 
-    const fullPath = path.join(finalDirectory, oldPath)
-    const filename = `${fullPath}/index.html`
-    const html = getRedirectHtml(newPath)
-
-    mkdirp(fullPath)
-    fs.writeFileSync(filename, html)
+    redirectsPerVersion[oldPath] = newPath
   })
 
-  console.log('done creating redirect files!\n')
-}
-
-// redirect html files already exist in <=2.12 because these versions were deprecated on the old static site
-function getRedirectHtml (newPath) {
-  return `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-<link rel="canonical" href="${newPath}">
-<meta http-equiv="refresh" content="0; url=${newPath}">
-</head>
-<body>
-<h1>Redirecting...</h1>
-<a href="${newPath}">Click here if you are not redirected.</a>
-<script>location='${newPath}'</script>
-</body>
-</html>`
+  fs.writeFileSync(path.posix.join(finalDirectory, 'redirects.json'), JSON.stringify(redirectsPerVersion, null, 2))
 }
