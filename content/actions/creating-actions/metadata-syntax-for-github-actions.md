@@ -76,6 +76,26 @@ For example, if a workflow defined the numOctocats and octocatEyeColor inputs, t
 
 **Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
 
+### `inputs` for composite run steps actions
+
+Composite actions won't automatically convert an input argument into `INPUT_<VARIABLE_NAME>`, instead a similar behavior can be attained by manually mapping every variable wanted, for instance:
+
+```
+inputs:
+  `my-input-parameter:
+    description: 'An input parameter to illustrate the use case'
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - run: my-awesome-action.sh
+      shell: bash
+      env:
+        INPUT_MY_INPUT_PARAMETER: ${{ inputs.my-input-parameter }}
+```
+
+Other alternatives include passing the input parameter as arguments to the command, etcetera. Further discussion on the subject happened at [actions/runner#665](https://github.com/actions/runner/issues/665).
+
 ### `outputs`
 
 **Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
