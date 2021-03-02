@@ -1,4 +1,4 @@
----
+Tr---
 title: Managing commit signature verification
 intro: 'You can sign your work locally using GPG or S/MIME. {% data variables.product.product_name %} will verify these signatures so other people will know that your commits come from a trusted source.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} will automatically sign commits you make using the {% data variables.product.product_name %} web interface.{% endif %}'
 redirect_from:
