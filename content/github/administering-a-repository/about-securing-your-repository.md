@@ -60,7 +60,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 
 - **Detected secrets**
 
-  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else if %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 
 {% endif %}
 
