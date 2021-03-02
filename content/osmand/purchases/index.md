@@ -9,7 +9,8 @@ versions: '*'
 | OsmAnd (Unlimited) | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 |  OsmAnd+ | Unlimited map downloads. <br> Map updates one time per month. <br>  Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 | Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     | -->
-    
+
+
 ### Free version limitation
 
 | Android   | iOS  |
@@ -20,6 +21,22 @@ versions: '*'
 
 <!-- - Map updates are provided monthly i.e. At ~15 December maps dated of 1 December will be available to download. It takes 2-3 weeks to prepare regular maps whether Live Maps (hourly) are provided by subscription. -->
 ### In Apps
+
+## Android
+
+| Purchase   | Android  |
+| :------------- | :------------- |
+| OsmAnd (Unlimited) <br> OsmAnd+  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
+
+> **_Note:_**
+OsmAnd+ is a separate paid application that can be shared with other accounts using the Google Play Family Share service.
+OsmAnd Unlimited can only be activated in the free version of the application and this version cannot be shared.
+
+## IOS
+
+| Purchase   | IOS  |
+| :------------- | :------------- |
+| OsmAnd  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 - Maps package:
   - Unlimited map downloads monthly
   - Wikipedia maps
