@@ -82,7 +82,7 @@ Composite actions won't automatically convert an input argument into `INPUT_<VAR
 
 ```yaml
 inputs:
-  `my-input-parameter:
+  my-input-parameter:
     description: 'An input parameter to illustrate the use case'
     required: false
 runs:
@@ -91,7 +91,7 @@ runs:
     - run: my-awesome-action.sh
       shell: bash
       env:
-        INPUT_MY_INPUT_PARAMETER: ${{ inputs.my-input-parameter }}
+        INPUT_MY_INPUT_PARAMETER: ${{ inputs.my-input-parameter }} 
 ```
 
 Other alternatives include passing the input parameter as arguments to the command, and similarly map the input to a different environment variable, not following the `INPUT_<VARIABLE_NAME>` convention at all. For more examples and discussion about the design, see [GitHub Actions Runner issue #665](https://github.com/actions/runner/issues/665).
