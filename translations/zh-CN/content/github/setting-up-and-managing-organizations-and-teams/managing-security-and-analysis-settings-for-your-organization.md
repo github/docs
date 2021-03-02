@@ -23,8 +23,13 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-显示的页面允许您为组织中的仓库启用或禁用所有安全和分析功能。 {% if currentVersion == "free-pro-team@latest" %}如果您的组织或拥有它的企业具有 {% data variables.product.prodname_GH_advanced_security %} 许可，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。
+显示的页面允许您为组织中的仓库启用或禁用所有安全和分析功能。
 
+{% if currentVersion == "free-pro-team@latest" %}If your organization, or the enterprise that owns it, has a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
+
+{% if currentVersion ver_gt "enterprise-server@3.0" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 ![{% data variables.product.prodname_GH_advanced_security %} 功能](/assets/images/help/organizations/security-and-analysis-highlight-ghas.png)
 {% endif %}
 
@@ -42,24 +47,21 @@ versions:
 
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
 1. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。
-   {% if currentVersion == "free-pro-team@latest" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
    !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
-   {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
    !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghe.png)
    {% endif %}
 2. （可选）为组织中的新仓库默认启用该功能。
-   {% if currentVersion == "free-pro-team@latest" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
    ![新仓库的"Enable by default（默认启用）"选项](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
-   {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
    ![新仓库的"Enable by default（默认启用）"选项](/assets/images/help/organizations/security-and-analysis-secret-scanning-enable-by-default-ghe.png)
    {% endif %}
-1. 单击 **Disable FEATURE（禁用功能）**或 **Enable FEATURE（启用功能）**以禁用或启用组织中所有仓库的功能。
-   {% if currentVersion == "free-pro-team@latest" %}
+3. 单击 **Disable FEATURE（禁用功能）**或 **Enable FEATURE（启用功能）**以禁用或启用组织中所有仓库的功能。
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
    ![用于禁用或启用功能的按钮](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
-   {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
    ![用于禁用或启用功能的按钮](/assets/images/help/organizations/security-and-analysis-enable-secret-scanning-ghe.png)
    {% endif %}
 
@@ -68,10 +70,9 @@ versions:
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
 1. 在功能右侧的“Configure security and analysis features（配置安全和分析功能）”下，默认对组织中的新仓库
 {% if currentVersion == "free-pro-team@latest" %} 或所有新私有仓库{% endif %} 启用或禁用该功能。
-   {% if currentVersion == "free-pro-team@latest" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
    ![用于对新仓库启用或禁用功能的复选框](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
-   {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
    ![用于对新仓库启用或禁用功能的复选框](/assets/images/help/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghe.png)
    {% endif %}
 
