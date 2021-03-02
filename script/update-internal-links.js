@@ -29,6 +29,9 @@ const linkInlineMarkup = {
   strong: '**'
 }
 
+const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
+const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
+
 // [start-readme]
 //
 // Run this script to find internal links in all content and data Markdown files, check if either the title or link
@@ -61,9 +64,13 @@ async function main () {
 
   for (const file of allFiles) {
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
-    const ast = astFromMarkdown(content)
-
     let newContent = content
+
+    // Do a blanket find-replace for /enterprise/{{ currentVersion }}/ to /enterprise/{{currentVersion}}/
+    // so that the AST parser recognizes the link as a link node. The spaces prevent it from doing so.
+    newContent = newContent.replace(currentVersionWithSpacesRegex, currentVersionWithoutSpaces)
+
+    const ast = astFromMarkdown(newContent)
 
     // We can't do async functions within visit, so gather the nodes upfront
     const nodesPerFile = []
@@ -98,8 +105,9 @@ async function main () {
       const oldTitle = node.children[0].value || node.children[0].children[0].value
       const oldMarkdownLink = `[${inlineMarkup}${oldTitle}${inlineMarkup}](${oldLink})`
 
-      // As a blanket rule, only update titles in links that have quotes around them.
-      // Update: "[Foo](/foo)"
+      // As a blanket rule, only update titles in links that begin with quotes. (Many links
+      // have punctuation before the closing quotes, so we'll only check for opening quotes.)
+      // Update: "[Foo](/foo)
       // Do not update: [Bar](/bar)
       const hasQuotesAroundLink = newContent.includes(`"${oldMarkdownLink}`)
 
@@ -136,7 +144,7 @@ async function main () {
         process.exit(1)
       }
 
-      // If the original link includes a fragment or the original title includes Liquid, do not change;
+      // If the original link includes a fragment OR the original title includes Liquid, do not change;
       // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
       // the title likely points to the fragment section header, not the page title.)
       const newTitle = fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink ? oldTitle : foundPage.title
