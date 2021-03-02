@@ -1,3 +1,4 @@
+![Z8VlIEmnLaikD_hyWEUkvw 1](https://user-images.githubusercontent.com/72708690/109715588-44e7a800-7bbd-11eb-9cf7-92de9e10febe.png)
 ---
 title: Setting permissions for adding outside collaborators
 intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
