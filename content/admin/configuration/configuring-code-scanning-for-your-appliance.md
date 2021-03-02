@@ -42,6 +42,11 @@ For the users of {% data variables.product.product_location %} to be able to ena
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
+To enable {% data variables.product.prodname_code_scanning %} programmatically, run the following command on the appliance:
+
+```shell
+ghe-config app.code-scanning.enabled true
+```
 
 ### Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
 
@@ -89,3 +94,9 @@ The {% data variables.product.prodname_codeql_runner %} is a command-line tool t
 1. Under "{% data variables.product.prodname_advanced_security %}", unselect **{% data variables.product.prodname_code_scanning_capc %}**.
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}
+
+To disable {% data variables.product.prodname_code_scanning %} programmatically, run the following command on the appliance:
+
+```shell
+ghe-config app.code-scanning.enabled false
+```

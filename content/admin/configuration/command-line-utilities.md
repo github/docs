@@ -74,8 +74,8 @@ $ ghe-config -l
 ```
 Allows you to find the uuid of your node in `cluster.conf`.
 
-```shell
-  $ ghe-config <em>HOSTNAME</em>.uuid
+``` shell
+  $ ghe-config _hostname_.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -543,8 +543,8 @@ ghe-dpages status
 ```
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
-```shell
-ghe-dpages evacuate pages-server-<em>UUID</em>
+``` shell
+ghe-dpages evacuate pages-server-<uuid>
 ```
 
 #### ghe-spokes
@@ -569,16 +569,16 @@ ghe-spokes route
 
 To evacuate storage services on a cluster node:
 
-```shell
-ghe-spokes server evacuate git-server-<em>UUID</em>
+``` shell
+ghe-spokes server evacuate git-server-<uuid>
 ```
 
 #### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
 
-```shell
-ghe-storage evacuate storage-server-<em>UUID</em>
+``` shell
+ghe-storage evacuate storage-server-<uuid>
 ```
 
 ### Git
