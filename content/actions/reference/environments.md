@@ -5,9 +5,11 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### About environments
 

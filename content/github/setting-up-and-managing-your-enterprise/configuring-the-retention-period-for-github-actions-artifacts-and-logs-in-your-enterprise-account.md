@@ -8,6 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}
