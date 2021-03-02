@@ -1,5 +1,4 @@
 date: '2021-03-01'
-intro: 'March 1, 2021'
 sections:
   features:
     - heading: 'GitHub Actions beta'
