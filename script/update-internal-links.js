@@ -15,7 +15,7 @@ const renderContent = require('../lib/render-content')
 const patterns = require('../lib/patterns')
 
 const walkFiles = (pathToWalk) => {
-  return walk(path.join(process.cwd(), pathToWalk), { includeBasePath: true, directories: false })
+  return walk(path.posix.join(__dirname, '..', pathToWalk), { includeBasePath: true, directories: false })
     .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
     .filter(file => !file.includes('/early-access/')) // ignore EA for now
 }
