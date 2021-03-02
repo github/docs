@@ -103,12 +103,14 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private repositories. However, if a dependency is in a private {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository. For more information, including details of limitations to private dependency support, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates)."
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. In the "{% data variables.product.prodname_dependabot %} repository access" section, click the settings button **{% octicon "gear" aria-label="The Gear icon" %}**. 
-   ![Repository access setting button](/assets/images/help/organizations/repository-access-cog-button.png)
-   A list is displayed showing all of the private repositories in your organization.
-   ![The Repositories list](/assets/images/help/organizations/repositories-dialog.png)
-1. Select the repositories that {% data variables.product.prodname_dependabot %} can access.
-1. Click **Select repositories**.
+1. Under "{% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories**.
+   ![Add repositories button](/assets/images/help/organizations/dependabot-private-repository-access.png)
+1. Start typing the name of the repository you want to allow.
+   ![Add repositories button](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+1. Click the repository you want to allow. 
+
+1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
+   !["X" button to remove a repository](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
