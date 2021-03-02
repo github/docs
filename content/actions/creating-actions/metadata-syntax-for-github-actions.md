@@ -80,7 +80,7 @@ For example, if a workflow defined the numOctocats and octocatEyeColor inputs, t
 
 Composite actions won't automatically convert an input argument into `INPUT_<VARIABLE_NAME>`, instead a similar behavior can be attained by manually mapping every variable wanted, for instance:
 
-```
+```yaml
 inputs:
   `my-input-parameter:
     description: 'An input parameter to illustrate the use case'
@@ -94,7 +94,7 @@ runs:
         INPUT_MY_INPUT_PARAMETER: ${{ inputs.my-input-parameter }}
 ```
 
-Other alternatives include passing the input parameter as arguments to the command, etcetera. Further discussion on the subject happened at [actions/runner#665](https://github.com/actions/runner/issues/665).
+Other alternatives include passing the input parameter as arguments to the command, or similarly map the input to a different environment variable (not following the [conventions above](/actions/creating-actions/metadata-syntax-for-github-actions#example). Further discussion on the subject happened at [actions/runner#665](/actions/runner/issues/665).
 
 ### `outputs`
 
