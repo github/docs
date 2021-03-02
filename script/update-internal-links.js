@@ -122,7 +122,7 @@ async function main () {
 
         // We need to preserve fragments and hardcoded versions if any are found.
         fragmentMatch = oldLink.match(/(#.*$)/)
-        versionMatch = oldLink.match(/(enterprise-server[/@].*?)\//)
+        versionMatch = oldLink.match(/(enterprise-server(?:@.[^\/]*?)?)\//)
 
         // Remove the fragment for now.
         linkToCheck = linkToCheck
