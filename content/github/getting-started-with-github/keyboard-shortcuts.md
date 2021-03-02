@@ -64,6 +64,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>w</kbd> | Switch to a new branch or tag
 |<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
 |<kbd>i</kbd> | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)."
+|<kbd>a</kbd> | Show or hide annotations on diffs
 |<kbd>b</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
 
 ### Comments
