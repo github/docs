@@ -94,7 +94,7 @@ runs:
         INPUT_MY_INPUT_PARAMETER: ${{ inputs.my-input-parameter }}
 ```
 
-Other alternatives include passing the input parameter as arguments to the command, or similarly map the input to a different environment variable (not following the [conventions above](/actions/creating-actions/metadata-syntax-for-github-actions#example). Further discussion on the subject happened at [actions/runner#665](/actions/runner/issues/665).
+Other alternatives include passing the input parameter as arguments to the command, and similarly map the input to a different environment variable, not following the `INPUT_<VARIABLE_NAME>` convention at all. For more examples and discussion about the design, see issue [actions/runner#665](/actions/runner/issues/665).
 
 ### `outputs`
 
