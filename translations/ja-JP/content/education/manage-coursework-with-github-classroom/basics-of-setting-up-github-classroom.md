@@ -13,12 +13,12 @@ versions:
 {% data variables.product.prodname_classroom %}の用語に関する詳細については、「[用語集](/education/manage-coursework-with-github-classroom/glossary)」を参照してください。
 
 1. <a href="https://youtu.be/xVVeqIDgCvM" target="_blank">はじめに</a> {% octicon "link-external" aria-label="The external link icon" %}
-2. <a href="https://youtu.be/DTzrKduaHj8" target="_blank">生徒の名簿を追加する</a> {% octicon "link-external" aria-label="The external link icon" %}
+2. <a href="https://youtu.be/DTzrKduaHj8" target="_blank">学生の名簿を追加する</a> {% octicon "link-external" aria-label="The external link icon" %}
 3. 課題を作成する
     - <a href="https://youtu.be/6QzKZ63KLss" target="_blank">{% data variables.product.prodname_dotcom %} リポジトリを使用して課題を作成する</a> {% octicon "link-external" aria-label="The external link icon" %}
     - <a href="https://youtu.be/Qmwh6ijsQJU" target="_blank">オンラインIDEにMicrosoft MakeCodeを使用して課題を作成する</a> {% octicon "link-external" aria-label="The external link icon" %}
     - <a href="https://youtu.be/p_g5sQ7hUis" target="_blank">オンラインIDEにRepl.itを使用して課題を作成する</a> {% octicon "link-external" aria-label="The external link icon" %}
-4. <a href="https://youtu.be/ObaFRGp_Eko" target="_blank">生徒が課題を仕上げる方法</a> {% octicon "link-external" aria-label="The external link icon" %}
+4. <a href="https://youtu.be/ObaFRGp_Eko" target="_blank">学生が課題を仕上げる方法</a> {% octicon "link-external" aria-label="The external link icon" %}
 5. <a href="https://youtu.be/g45OJn3UyCU" target="_blank">教師が課題を確認する方法</a> {% octicon "link-external" aria-label="The external link icon" %}
 6. <a href="https://youtu.be/QxrA3taZdNM" target="_blank">グループ課題を作成する</a> {% octicon "link-external" aria-label="The external link icon" %}
 7. <a href="https://youtu.be/tJK2cmoh1KM" target="_blank">開始するための次のステップ</a> {% octicon "link-external" aria-label="The external link icon" %}
@@ -30,4 +30,4 @@ versions:
 
 ### 参考リンク
 
-- [{% data variables.product.prodname_education %}で教える、学ぶ](/education/teach-and-learn-with-github-education)
+- 「[{% data variables.product.prodname_education %} で教える・学ぶメリットの探求](/education/teach-and-learn-with-github-education)」

@@ -1,7 +1,7 @@
 ---
-title: Container guides for GitHub Packages
-shortTitle: Container guides for GitHub Packages
-intro: 'You can publish and retrieve Docker images using {% data variables.product.prodname_registry %}.'
+title: Guias do contêiner para o GitHub Packages
+shortTitle: Guias do contêiner para o GitHub Packages
+intro: 'Você pode publicar e recuperar imagens do Docker usando {% data variables.product.prodname_registry %}.'
 mapTopic: true
 versions:
   free-pro-team: '*'

@@ -19,15 +19,19 @@ versions:
   github-ae: '*'
 ---
 
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
+
 ### Notification delivery options
 
 You can receive notifications for activity on {% data variables.product.product_name %} in the following locations.
 
-  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" %}
+  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
   - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 {% endif %}
 
@@ -35,7 +39,7 @@ You can receive notifications for activity on {% data variables.product.product_
 
 #### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
   - Triage multiple notifications at once.
   - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
   - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
@@ -45,7 +49,7 @@ The notifications inbox on {% data variables.product.product_name %}{% if curren
   - Create custom filters to focus on different notifications when you want.
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 In addition, the notifications inbox on
 {% data variables.product.prodname_mobile %} allows you to triage notifications in dark mode and receive push notifications for direct mentions. For more information, see "[Enabling push notifications with GitHub for mobile](#enabling-push-notifications-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
@@ -77,7 +81,7 @@ You can customize notifications for a repository, for example, you can choose to
 #### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}.
 
 ![Participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -85,7 +89,7 @@ For conversations you're watching or participating in, you can choose whether yo
   - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
   - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
 
-If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
 
 ### Customizing your email notifications
 
@@ -129,7 +133,8 @@ Email notifications from {% data variables.product.product_name %} contain the f
 | `To` field                | This field connects directly to the thread.{% if currentVersion != "github-ae@latest" %} If you reply to the email, you'll add a new comment to the conversation.{% endif %}
 | `Cc` address              | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li>{% endif %}<li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
 | `mailing list` field      | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
+| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." 
+{% endif %}
 
 ### Choosing your notification settings
 
@@ -197,12 +202,14 @@ Choose how you want to receive workflow run updates for repositories that you ar
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 ### Enabling push notifications with {% data variables.product.prodname_mobile %}
 
 When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. You can then enable push notifications for direct mentions within the app.
 
 You can only receive notifications for pushes to repositories on {% data variables.product.prodname_mobile %} at this time.
+
+{% data reusables.mobile.push-notifications-on-ghes %}
 
 #### Enabling push notifications with {% data variables.product.prodname_ios %}
 
@@ -211,9 +218,11 @@ You can only receive notifications for pushes to repositories on {% data variabl
 3. To update your notification settings, tap **Push notifications**.
 4. To turn on push notifications for direct mentions, use the **Direct Mentions** toggle.
 
+{% if currentVersion == "free-pro-team@latest" %}
 #### Enabling push notifications with {% data variables.product.prodname_android %}
 
 1. Above "Home", tap your profile photo.
 2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}. ![Settings icon for GitHub for Android](/assets/images/help/mobile/android-settings-icon.png)
 3. To turn on push notifications for direct mentions, use the **Direct mentions** toggle.
+{% endif %}
 {% endif %}

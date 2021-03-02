@@ -9,11 +9,31 @@ const enterpriseReleases = require('../../lib/enterprise-server-releases').suppo
  */
 function sortPatchKeys (release, version) {
   const keys = Object.keys(release)
-    .map(key => ({ version: `${version}.${key}`, patchVersion: key, ...release[key] }))
+    .map(key => {
+      const keyWithDots = key.replace(/-/g, '.')
+      return {
+        version: `${version}.${keyWithDots}`,
+        patchVersion: keyWithDots,
+        downloadVersion: `${version}.${keyWithDots.replace(/\.rc\d*$/, '')}`,
+        ...release[key]
+      }
+    })
   return keys
     .sort((a, b) => {
-      if (semver.gt(a.version, b.version)) return -1
-      if (semver.lt(a.version, b.version)) return 1
+      let aTemp = a.version
+      let bTemp = b.version
+
+      // There's an RC version here, so doing regular semver
+      // comparisons won't work. So, we'll convert the incompatible version
+      // strings to real semver strings, then compare.
+      const [aBase, aRc] = a.version.split('.rc')
+      if (aRc) aTemp = `${aBase}-rc.${aRc}`
+
+      const [bBase, bRc] = b.version.split('.rc')
+      if (bRc) bTemp = `${bBase}-rc.${bRc}`
+
+      if (semver.gt(aTemp, bTemp)) return -1
+      if (semver.lt(aTemp, bTemp)) return 1
       return 0
     })
 }
@@ -34,6 +54,11 @@ async function renderPatchNotes (patch, ctx) {
             notes: await Promise.all(noteOrHeading.notes.map(note => renderContent(note, ctx)))
           }
     }))
+  }
+
+  // Also render the patch's intro
+  if (patch.intro) {
+    patch.intro = await renderContent(patch.intro, ctx)
   }
 
   return patch

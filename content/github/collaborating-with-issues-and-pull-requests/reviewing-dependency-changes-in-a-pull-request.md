@@ -36,7 +36,7 @@ Dependency review supports the same languages and package management ecosystems 
 
    ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
@@ -69,6 +69,4 @@ Dependency review supports the same languages and package management ecosystems 
    * The severity of the vulnerability.
    * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
 
-1. You can return to the original view of the file by clicking the source diff button. 
-
-   ![The source diff button](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+{% data reusables.repositories.return-to-source-diff %}

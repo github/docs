@@ -14,7 +14,7 @@ versions:
 ### Seguir o fluxo GitHub
 
 1. [Crie um branch](/articles/creating-and-deleting-branches-within-your-repository) do repositório.
-2. [Crie](/articles/creating-new-files), [edite](/articles/editing-files), [renomeie](/articles/renaming-a-file), [mova](/articles/moving-a-file-to-a-new-location) ou [exclua](/articles/deleting-files) arquivos.
+2. [Crie](/articles/creating-new-files), [edite](/articles/editing-files), [renomeie](/articles/renaming-a-file), [mova](/articles/moving-a-file-to-a-new-location) ou [exclua](/github/managing-files-in-a-repository/deleting-files-in-a-repository) arquivos.
 3. [Envie uma pull request](/articles/creating-a-pull-request) de seu branch com as modificações propostas para iniciar uma discussão.
 4. Faça as modificações necessárias em seu branch. Sua pull request atualizará automaticamente.
 5. [Faça o merge da pull request](/articles/merging-a-pull-request) assim que o branch estiver pronto.

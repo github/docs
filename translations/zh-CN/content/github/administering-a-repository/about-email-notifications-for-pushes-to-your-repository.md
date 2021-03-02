@@ -33,8 +33,8 @@ versions:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
 5. 输入最多两个您希望通知发送到的电子邮件地址，用空格分隔。 如果要将电子邮件发送到两个以上的帐户，请将其中一个电子邮件地址设为群组电子邮件地址。 ![电子邮件地址文本框](/assets/images/help/settings/email_services_addresses.png)
-6. 如果您操作自己的服务器，可通过**秘密**令牌验证电子邮件的真实性。 此令牌随电子邮件作为 `Approved` 标头发送。 如果 `Approved` 标头与您发送的令牌匹配，则可以信任该电子邮件来自 {% data variables.product.product_name %}。 ![电子邮件密码文本框](/assets/images/help/settings/email_services_token.png)
-7. 单击 **Save settings（保存设置）**。 ![Save settings 按钮](/assets/images/help/settings/save_notification_settings.png)
+1. 如果您操作自己的服务器，可通过 **Approved 标头**验证电子邮件的真实性。 **Approved 标头**是您在此字段中输入的令牌或密码，它将随电子邮件一起发送。 如果电子邮件的 `Approved` 标头与令牌匹配，则可以信任该电子邮件来自 {% data variables.product.product_name %}。 ![电子邮件已批准标头文本框](/assets/images/help/settings/email_services_approved_header.png)
+7. 单击 **Setup notifications（设置通知）**。 ![设置通知按钮](/assets/images/help/settings/setup_notifications_settings.png)
 
 ### 延伸阅读
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
