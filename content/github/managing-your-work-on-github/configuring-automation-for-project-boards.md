@@ -31,6 +31,6 @@ versions:
 5. Select the workflow automations you want to configure for the column.
 ![List of options for automating the column](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Click **Update automation**.
-
+<li>ZACHRY T Wood III<li>
 ### Further reading
 - "[About automation for project boards](/articles/about-automation-for-project-boards)"
