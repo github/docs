@@ -32,6 +32,12 @@ Clicking to Compass widget changes [{% data variables.android-values.rotate_map_
 
 In navigation, bearing is the horizontal angle between the direction of an object and another object, or between it and that of true north.
 
+You can choose  {% data variables.android-values.map_widget_magnetic_bearing %} or {% data variables.android-values.map_widget_bearing %} in the menu:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_bearing %} or {% data variables.android-values.map_widget_magnetic_bearing %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_magnetic_bearing %} or {% data variables.ios-values.map_widget_bearing %}
+
 [Relative bearing](https://en.wikipedia.org/wiki/Bearing_(angle)#Relative) refers to the angle between the craft's forward direction and the location of another object. For example, an object relative bearing of 0 degrees would be dead ahead; an object relative bearing 180 degrees would be behind. Bearings can be measured in mils or degrees.
 
 ![navigational widgets](/assets/images/docs/widgets/nw-3.png)
@@ -40,20 +46,9 @@ In navigation, bearing is the horizontal angle between the direction of an objec
 
 ![navigational widgets](/assets/images/docs/widgets/nw-4.png)
 
-
+{% note %}
 Cliking to this widget in the screen you choose between {% data variables.android-values.map_widget_bearing %} (degree) or  {% data variables.android-values.map_widget_magnetic_bearing %} (dergree with "M").
-
-Or you can choose  {% data variables.android-values.map_widget_magnetic_bearing %} or {% data variables.android-values.map_widget_bearing %} in the menu:
-
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_bearing %} or {% data variables.android-values.map_widget_magnetic_bearing %} 
-
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_magnetic_bearing %} or {% data variables.ios-values.map_widget_bearing %}
-
-In this menu you can choose tree parameters for this widget: <br>
-* {% data variables.android-values.shared_string_show %} – allows user to see the widget on the map.<br>
-* {% data variables.android-values.shared_string_hide %} – allows user to hide the widget from the map.<br>
-* {% data variables.android-values.shared_string_collapse %} – allows user to see the widget on the map and hide it when it is not used.<br>
-
+{% endnote %}
 
 ## Destination
 
