@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
+Installing
 
 ### Table of Contents
 
