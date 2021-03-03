@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-对仓库具有 `write` 权限的任何人都可以创建、读取和使用密码。
-
 ### 关于 `GITHUB_TOKEN` 密码
 
 {% data variables.product.prodname_dotcom %} 会自动创建 `GITHUB_TOKEN` 密码以在工作流程中使用。 您可以使用 `GITHUB_TOKEN` 在工作流程运行中进行身份验证。
@@ -81,18 +79,18 @@ versions:
 
 有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/rest/reference/permissions-required-for-github-apps)”。
 
-| 权限       | 访问类型 | 通过复刻的仓库访问 |
-| -------- | ---- | --------- |
-| 操作       | 读/写  | 读取        |
-| 检查       | 读/写  | 读取        |
-| 内容       | 读/写  | 读取        |
-| 部署       | 读/写  | 读取        |
-| issues   | 读/写  | 读取        |
-| 元数据      | 读取   | 读取        |
-| 包        | 读/写  | 读取        |
-| 拉取请求     | 读/写  | 读取        |
-| 仓库项目     | 读/写  | 读取        |
-| statuses | 读/写  | 读取        |
+| 权限   | 访问类型 | 通过复刻的仓库访问 |
+| ---- | ---- | --------- |
+| 操作   | 读/写  | 读取        |
+| 检查   | 读/写  | 读取        |
+| 内容   | 读/写  | 读取        |
+| 部署   | 读/写  | 读取        |
+| 议题   | 读/写  | 读取        |
+| 元数据  | 读取   | 读取        |
+| 包    | 读/写  | 读取        |
+| 拉取请求 | 读/写  | 读取        |
+| 仓库项目 | 读/写  | 读取        |
+| 状态   | 读/写  | 读取        |
 
 如果您需要的令牌需要 `GITHUB_TOKEN` 中未提供的权限，您可以创建个人访问令牌并将其设置为仓库中的密码：
 

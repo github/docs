@@ -27,6 +27,8 @@ You can upload the results using {% data variables.product.prodname_actions %}{%
 - {% data variables.product.prodname_dotcom %} will display {% data variables.product.prodname_code_scanning %} alerts from the uploaded SARIF file in your repository. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
 - The SARIF file can be generated from a SARIF-compatible analysis tool that you run in the same {% data variables.product.prodname_actions %} workflow used to upload the file. Alternatively, when the file is generated as an artifact outside of your repository, you can push the SARIF file directly to a repository and use a workflow to upload the SARIF file.
 
+{% data reusables.code-scanning.not-available %}
+
 ### Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 
 To upload a third-party SARIF file to {% data variables.product.prodname_dotcom %}, you'll need a {% data variables.product.prodname_actions %} workflow. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" and "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
@@ -36,6 +38,8 @@ Your workflow will need to use the `upload-sarif` action, which has input parame
 The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
 If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### Example workflow for SARIF files generated outside of a repository
 

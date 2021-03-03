@@ -19,15 +19,17 @@ versions:
 
 ### Sobre a configuração dos planos de preços
 
-Se desejar vender um aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar verificação ao publicar o anúncio do seu aplicativo. Durante o processo de verificação, um especialista em integração verifica as configurações de identidade e segurança da organização. O especialista em integração fará com que a organização passe pela integração financeira. Para mais informações, consulte: "[Requisitos para anunciar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
+{% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de planos de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
 
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obter informações sobre como fazer isso, consulte: "[Enviar o seu anúncio para publicação](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
+Para oferecer um plano pago para seu aplicativo, este deve ser pertencente a uma organização que tenha concluído o processo de verificação de editor e atendido a certos critérios. Para obter mais informações, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" e "[Requisitos para listar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-{% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de plano de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
+Se seu aplicativo já foi publicado com um plano pago e você é um editor verificado, você poderá publicar um novo plano pago a partir da página "Editar um plano de preços" nas configurações da listagem do seu aplicativo do Marketplace.
+
+![Botão Publicar este plano](/assets/images/marketplace/publish-this-plan-button.png)
 
 ### Sobre como salvar planos de preços
 
-Você pode salvar planos de preços com status de rascunho ou publicado. If you haven't submitted your {% data variables.product.prodname_marketplace %} listing for approval, a published plan will function in the same way as a draft plan until your listing is approved and shown on {% data variables.product.prodname_marketplace %}. Draft plans allow you to create and save new pricing plans without making them available on your {% data variables.product.prodname_marketplace %} listing page. Depois de publicar um plano de preços em um anúncio publicado, os clientes poderão comprar imediatamente. Você pode publicar até 10 planos de preços.
+Você pode salvar planos de preços com status de rascunho ou publicado. Se você não enviou seu anúncio de {% data variables.product.prodname_marketplace %} para aprovação, um plano publicado funcionará da mesma forma que um plano provisório até que o seu anúncio seja aprovado e exibido em {% data variables.product.prodname_marketplace %}. Os planos de rascunho permitem criar e salvar novos planos de preços sem torná-los disponíveis na sua página de anúncio de {% data variables.product.prodname_marketplace %}. Depois de publicar um plano de preços em um anúncio publicado, os clientes poderão comprar imediatamente. Você pode publicar até 10 planos de preços.
 
 Para obter diretrizes sobre os clientes de cobrança, consulte "[Clientes de cobrança](/developers/github-marketplace/billing-customers)".
 
@@ -46,23 +48,23 @@ Ao clicar em **Novo rascunho do plano**, você verá um formulário que permite 
   - Você deve solicitar verificação para publicar um anúncio com um plano pago.
   - {% data reusables.marketplace.marketplace-pricing-free-trials %}
 
-  For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %} apps](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+  Para obter informações detalhadas, consulte "[Planos de preços para aplicativos de {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)" e "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-- **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal and organization accounts**, **Personal accounts only**, or **Organization accounts only**. Por exemplo, se o seu plano de preços for por unidade e fornecer várias estações, você selecionaria **apenas contas de organização**, porque não há nenhuma maneira de atribuir estações a pessoas de uma organização a partir de uma conta pessoal.
+- **Disponível para** - planos de preços de {% data variables.product.prodname_marketplace %} podem ser aplicados a **Contas pessoais e da organização**, **apenas contas pessoais**ou **apenas contas de organização**. Por exemplo, se o seu plano de preços for por unidade e fornecer várias estações, você selecionaria **apenas contas de organização**, porque não há nenhuma maneira de atribuir estações a pessoas de uma organização a partir de uma conta pessoal.
 
-- **Short description** - Write a brief summary of the details of the pricing plan. A descrição pode incluir o tipo de cliente para o qual o plano se destina ou os recursos que o plano inclui.
+- **Breve descrição** - Escreva um breve resumo dos detalhes do plano de preços. A descrição pode incluir o tipo de cliente para o qual o plano se destina ou os recursos que o plano inclui.
 
-- **Bullets** - You can write up to four bullets that include more details about your pricing plan. Os marcadores podem incluir casos de uso do seu aplicativo ou listar informações mais detalhadas sobre as características ou os recursos incluídos no plano.
+- **Marcadores** - Você pode escrever até quatro marcadores que incluem mais detalhes sobre o seu plano de precificação. Os marcadores podem incluir casos de uso do seu aplicativo ou listar informações mais detalhadas sobre as características ou os recursos incluídos no plano.
 
 {% data reusables.marketplace.free-plan-note %}
 
 ### Alterar um plano de preços da listagem do {% data variables.product.prodname_marketplace %}
 
-If a pricing plan for your {% data variables.product.prodname_marketplace %} listing is no longer needed, or if you need to adjust pricing details, you can remove it.
+Se um plano de preços para o seu anúncio de {% data variables.product.prodname_marketplace %} não for mais necessário, ou se você precisar ajustar os detalhes de preços, você poderá removê-lo.
 
 ![Botão para remover o seu plano de preços](/assets/images/marketplace/marketplace_remove_this_plan.png)
 
-Once you publish a pricing plan for an app that is already listed in {% data variables.product.prodname_marketplace %}, you can't make changes to the plan. Em vez disso, você precisará remover o plano de preços e criar um novo plano. Os clientes que já compraram o plano de preços removido continuarão a usá-lo até que optem por sair o plano e passar para um novo plano de preços. Para obter mais informações sobre os planos de preços, consulte[ planos de preços do {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/github-marketplace-pricing-plans/)".
+Depois de publicar um plano de preços para um aplicativo que já está listado em {% data variables.product.prodname_marketplace %}, você não poderá fazer alterações no plano. Em vez disso, você precisará remover o plano de preços e criar um novo plano. Os clientes que já compraram o plano de preços removido continuarão a usá-lo até que optem por sair o plano e passar para um novo plano de preços. Para obter mais informações sobre os planos de preços, consulte[ planos de preços do {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/github-marketplace-pricing-plans/)".
 
 Depois de remover um plano de preços, os usuários não poderão comprar seu aplicativo que usa esse plano. Os usuários existentes no plano de preços removido continuarão no plano até que cancelem sua assinatura do plano.
 

@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
+以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 它还配置 {% data variables.product.prodname_codeql %} 扫描 _src_ 目录中的文件（相对于根目录），并且排除 _src/node_modules_ 目录以及名称以 _.test.js_ 结尾的任何文件。 因此，_src/node_modules_ 中的文件以及名称以 _.test.js_ 结尾的文件被排除在分析之外。
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
