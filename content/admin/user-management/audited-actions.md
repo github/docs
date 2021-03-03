@@ -1,6 +1,7 @@
 ---
 title: Audited actions
 intro: You can search the audit log for a wide variety of actions.
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/articles/audited-actions/
   - /enterprise/admin/installation/audited-actions
@@ -55,6 +56,22 @@ Action                                          | Description
 `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% if enterpriseServerVersions contains currentVersion %}
 `enterprise.config.lock_anonymous_git_access`   | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
 `enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+#### IP allow lists
+
+Name                                 | Description
+------------------------------------:| -----------------------------------------------------------
+`ip_allow_list_entry.create`         | An IP address was added to an IP allow list.
+`ip_allow_list_entry.update`         | An IP address or its description was changed.
+`ip_allow_list_entry.destroy`        | An IP address was deleted from an IP allow list.
+`ip_allow_list.enable`               | An IP allow list was enabled.
+`ip_allow_list.enable_for_installed_apps` | An IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
+`ip_allow_list.disable`              | An IP allow list was disabled.
+`ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+
+{% endif %}
 
 #### Issues and pull requests
 
