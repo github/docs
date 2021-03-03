@@ -57,8 +57,8 @@ There are 8 options to extend OsmAnd functions. To find them please use: {% data
 |![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
 |*Participate in Giveaways*: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
 |![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
-|*Get OsmAnd live*: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
-|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
+|*Get OsmAnd Live*: There are three variants: month, 3 months and yearly subscription. User will  have an opportunity to get <br> hourly maps updates <br> unlimited maps downloads <br> offline Wikipedia articles <br> Contour lines & Hillshade maps  |
+|![ IOS Unlimited access purchases](/assets/images/purchases/ios_live_purchase.png)|
 
 <!--
 | :------------- | :------------- |
