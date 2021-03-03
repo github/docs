@@ -10,7 +10,7 @@ versions:
   enterprise-server: '>=2.22'
 type: overview
 topics:
-  - Containers
+  - Contêineres
   - Docker
 ---
 
