@@ -9,7 +9,7 @@ The Coordinates' widget is shown at the top of the screen. It shows North and Ea
 
 To enable or disable a widget, click switcher (toggle button) <br>
 
-> **_Note:_** Coordinates widget is available only for Android. <br>
+> **Note**: Coordinates widget is available only for Android. <br>
 
 Users can find the Coordinates' widget in the Configure screen menu. <br>
 
