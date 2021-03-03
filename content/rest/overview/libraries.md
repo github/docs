@@ -108,6 +108,12 @@ Library name | Repository
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
 
+### PowerShell
+
+Library name | Repository
+|---|---|
+**PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
+
 ### Python
 
 Library name | Repository
