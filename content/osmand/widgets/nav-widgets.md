@@ -75,7 +75,7 @@ The widget shows {% data variables.android-values.access_arrival_time %} or {% d
 ![navigational widgets](/assets/images/docs/widgets/nw-6.png)
 
 {% note %}
-Clicking to this widget to change Arrival time to Time to go and vice versa.
+Clicking to this widget to change "Arrival time" to "Time to go" and vice versa.
 {% endnote %}
 
 ## Speed and Speed limit
