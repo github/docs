@@ -38854,6 +38854,14 @@
           "href": "/graphql/reference/objects#ref"
         },
         {
+          "name": "tagCommit",
+          "description": "<p>The tag commit for this release.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
           "name": "tagName",
           "description": "<p>The name of the release's Git tag.</p>",
           "type": "String!",
@@ -53921,6 +53929,14 @@
         {
           "name": "isEmployee",
           "description": "<p>Whether or not this user is a GitHub employee.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isGitHubStar",
+          "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
