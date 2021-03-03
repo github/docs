@@ -24,6 +24,14 @@ versions: '*'
 
 ## Android
 
+User can buy {% data reusables.links.osmand-maps-google-store %}.
+
+> **_Note:_** Use the same  Google Play account which you used for the purchase to share the app with other Google devices or restore your purchases. <br>
+
+{% note %}
+User can control all purchases and subscription from Google account.
+{% endnote %}
+
 | Purchase   | Features  |
 | :------------- | :------------- |
 | OsmAnd (Unlimited) <br> OsmAnd+  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
@@ -36,9 +44,15 @@ OsmAnd Unlimited can only be activated in the free version of the application an
 
 User can buy {% data reusables.links.osmand-maps-app-store %}.
 
-> **_Note:_** Use the same Apple ID to share the app with other Apple devices. <br>
+> **_Note:_** Use the same Apple ID to restore your purchases. <br>
 
-There are 8 options to extend OsmAnd functions. To find them please use: {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
+<!-- > **_Note:_** User can control all purchases and subscription from Apple account. b <br> -->
+{% note %}
+User can control all purchases and subscription from Apple account.
+{% endnote %}
+
+There are 8 options to extend OsmAnd functions.
+To find them please use: {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
 
 
 |Options to extend OsmAnd functions:|   
@@ -80,7 +94,7 @@ Also, everyone who gets OsmAnd Live automatically supports the volunteers who ed
 ### Giveaway
 
 ### Giftcards
-You can purchase OsmAnd using Google Play and App store gift cards. Using this method does not imply sharing your credit card information to the service. Just purchase a gift card from a retailer on the list and redeem the code one Google Play and App store.
+User can purchase OsmAnd using Google Play and App store gift cards. Using this method does not imply sharing a credit card information to the service. Just purchase a gift card from a retailer on the list and redeem the code one Google Play and App store.
 - [Detailed guide on buying Google Play gift cards.](https://support.google.com/googleplay/answer/3422734?hl=en)
 - [Detailed guide on buying App store gift cards.](https://www.apple.com/shop/gift-cards)
 - You can also use [Amazon gift cards](https://www.amazon.com/gift-cards/b?ie=UTF8&node=2238192011). [Here's how to redeem them.](https://www.amazon.com/gp/help/customer/display.html?nodeId=201357470)
