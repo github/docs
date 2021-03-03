@@ -43,7 +43,9 @@ Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OA
 * Os usuários não precisam alterar suas configurações SSH locais.
 * Não são necessários vários tokens (um para cada usuário); um token por servidor é suficiente.
 * Um token pode ser revogado a qualquer momento, transformando-o, basicamente, em uma senha de uso único.
+{% if enterpriseServerVersions contains currentVersion %}
 * Gerar novos tokens pode ser facilmente programado usando [a API do OAuth](/rest/reference/oauth-authorizations#create-a-new-authorization).
+{% endif %}
 
 ##### Contras
 

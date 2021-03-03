@@ -1,13 +1,14 @@
 <!-- product > category > maptopic > article -->
 <div class="sidebar d-none d-lg-block">
 
-  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo">
-    <a href="/{{ currentLanguage }}" class="text-white" aria-hidden="true">
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="/{{ currentLanguage }}" class="text-white" aria-hidden="true" tabindex="-1">
       {% octicon "mark-github" height="32" %}
     </a>
     <a href="/{{ currentLanguage }}" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">{% data ui.header.github_docs %}</a>
   </div>
 
+  <nav>
     {% if error == '404' or page.relativePath == 'index.md' %}
     <ul class="sidebar-products mt-4">
       {% include sidebar-homepage %}
@@ -17,4 +18,5 @@
       {% include sidebar-specific-product %}
     </ul>
     {% endif %}
+  </nav>
 </div>

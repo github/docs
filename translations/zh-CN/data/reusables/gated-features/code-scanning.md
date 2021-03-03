@@ -1,1 +1,4 @@
-{% data variables.product.prodname_code_scanning_capc %} 可用于{% if currentVersion == "free-pro-team@latest" %}公共仓库，以及具有{% else %}您有{% endif %} {% data variables.product.prodname_advanced_security %} 许可的组织拥有的私有仓库。 {% data reusables.gated-features.more-info %}
+{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
+{%- elsif currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_code_scanning_capc %} is available if {% data variables.product.prodname_GH_advanced_security %} is enabled for the repository.
+{%- else %}
+{% data variables.product.prodname_code_scanning_capc %} is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}

@@ -80,6 +80,8 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 
 Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
 
+As notificações de fluxos de trabalho agendados são enviadas ao usuário que modificou a sintaxe cron no arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Notificações para execuções do fluxo de trabalho](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
+
 ### Eventos manuais
 
 Você pode acionar as execuções de fluxo de trabalho manualmente. Para acionar fluxos de trabalho específicos em um repositório, use o evento `workflow_dispatch`. Para acionar mais de um fluxo de trabalho em um repositório e criar eventos personalizados e tipos de eventos, use o evento `repository_dispatch`.
@@ -309,9 +311,9 @@ Executa o fluxo de trabalho sempre que o evento `issue_comment` ocorre. {% data 
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                                   | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| --------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
-| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                                                                      | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -576,7 +578,13 @@ on:
 
 #### `pull_request_target`
 
-Este evento é semelhante ao `pull_request`, exceto que é executado no contexto do repositório-base do pull request, em vez de ser executado no commit de merge. Isso significa que você pode disponibilizar os seus segredos de forma mais segura nos fluxos de trabalho acionados pelo pull request, porque apenas os fluxos de trabalho definidos no commit no repositório-base são executados. Por exemplo, este evento permite que você crie fluxos de trabalho que etiquetam e façam comentários em pull requests, com base no conteúdo da carga do evento.
+Este evento é executado no contexto da base do pull request, em vez de no commit de merge como o evento `pull_request` faz.  Isso impede a execução de código de fluxo de trabalho inseguro do cabeçalho do pull request que poderia alterar seu repositório ou roubar quaisquer segredos que você usa no fluxo de trabalho. Este evento permite que você faça coisas como criar fluxos de trabalho que etiquetam e comentam em pull requests com base no conteúdo da carga do evento.
+
+{% warning %}
+
+**Aviso:** O evento `pull_request_target` recebe um token de repositório de leitura/gravação e pode acessar segredos, mesmo quando é acionado a partir de uma bifurcação. Embora o fluxo de trabalho seja executado no contexto da base do pull request, você deve certificar-se de que você não irá fazer checkout, construir ou executar o código não confiável do pull request com este evento. Além disso, qualquer cache compartilham o mesmo escopo do branch de base e ajuda a evitar envenenamento do cache. Você não deve salvar o cache se houver a possibilidade de que o conteúdo de cache ter sido alterado.
+
+{% endwarning %}
 
 | Carga de evento webhook                                  | Tipos de atividade                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`                          | `GITHUB_REF`                |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------- |
@@ -587,7 +595,8 @@ Por padrão, um fluxo de trabalho só é executado quando o tipo de atividade de
 Por exemplo, você pode executar um fluxo de trabalho quando um pull request tiver sido `atribuído`, `aberto`, `sincronizado` ou `reaberto`.
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 
@@ -725,4 +734,4 @@ on:
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} Para obter mais informações, consulte "[Efetuando a autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Se você deseja acionar um fluxo de trabalho a partir de uma execução do fluxo de trabalho, você pode acionar o evento usando um token de acesso pessoal. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Se você deseja acionar um fluxo de trabalho a partir de uma execução do fluxo de trabalho, você pode acionar o evento usando um token de acesso pessoal. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para mais informações sobre como armazenar um token de acesso pessoal como segredo, consulte "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".

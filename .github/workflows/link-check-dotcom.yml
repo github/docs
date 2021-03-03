@@ -1,0 +1,60 @@
+name: 'Link Checker: Dotcom'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  see_if_should_skip:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
+        with:
+          cancel_others: 'false'
+          github_token: ${{ github.token }}
+          paths: '[".github/workflows/link-check-dotcom.yml", "assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
+  build:
+    needs: see_if_should_skip
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
+      # Even if if doesn't do anything
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Setup node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 14.x
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Install
+        run: npm ci
+
+      ## TODO
+      # - if: ${{ github.repository == 'github/docs-internal' &&  needs.see_if_should_skip.outputs.should_skip != 'true' }}
+      #   name: Clone early access
+      #   run: npm run heroku-postbuild
+      #   env:
+      #     DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
+      #     GIT_BRANCH: ${{ github.ref }}
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Build
+        run: npm run build
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: 'Link check: Dotcom'
+        env:
+          DOCS_VERSION: 'dotcom'
+        run: npm run link-check

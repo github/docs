@@ -19,6 +19,7 @@ O seu gerente de contas técnico dedicado em
 {% data variables.contact.github_support %} pode configurar o e-mail para notificações serem enviadas através de seu servidor SMTP. Certifique-se de incluir os detalhes a seguir na sua solicitação de suporte.
 
 - O endereço do seu servidor SMTP
+- Informações de login para efetuar a autenticação no servidor: nome de usuário e senha
 - A porta que o seu servidor SMTP usa para enviar e-mail
 - O nome de domínio que o seu servidor SMTP enviará com uma resposta HELO, se houver
 - O tipo de criptografia usado pelo seu servidor SMTP
@@ -39,12 +40,6 @@ Para obter mais informações sobre como entrar em contato com o suporte, consul
     - No campo **Domain** (Domínio), digite o nome do domínio que o servidor SMTP enviará com resposta HELO, se houver.
     - No menu suspenso **Authentication** (Autenticação), escolha o tipo de criptografia usado pelo servidor SMTP.
     - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
-
-    {% note %}
-
-    **Observação:** se você marcar a caixa de seleção **Send from author** (Enviar do autor) no webhook de e-mail de um repositório **Services** (Serviços), os e-mails de saída do repositório em questão serão enviados pelo autor, e não pelo endereço de e-mail no-reply. Para obter mais informações, consulte "[Sobre notificações de email para push no seu repositório](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)".
-
-    {% endnote %}
 
 6. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção para descartar e-mails destinados ao endereço no-reply](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. Em **Support** (Suporte), escolha um tipo de link para dar suporte adicional aos usuários:
@@ -154,7 +149,7 @@ Você verá que `metroplex` capta a mensagem de entrada, processa a mensagem e d
 
 #### Verificar as configurações DNS
 
-Para processar corretamente os e-mails de entrada, você deve configurar um registro A válido (ou CNAME) e um registro MX. Para obter mais informações, consulte "[Configurar DNS e firewall para o recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
+Para processar corretamente os e-mails de entrada, você deve configurar um registro A válido (ou CNAME) e um registro MX. Para obter mais informações, consulte "[Definir as configurações de DNS e firewall para permitir recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
 
 #### Verificar as configurações de firewall ou grupo de segurança do AWS
 

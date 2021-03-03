@@ -10,12 +10,12 @@ versions:
 
 ### Sobre os perfis dos patrocinadores
 
-Seu perfil do {% data variables.product.prodname_sponsors %} diz aos patrocinadores potenciais por que eles devem apoiá-lo. People see your sponsor profile when they click the **Sponsor** button on your profile. Recomendamos incluir as seguintes informações.
+Seu perfil do {% data variables.product.prodname_sponsors %} diz aos patrocinadores potenciais por que eles devem apoiá-lo. As pessoas veem seu perfil de patrocinador quando clicam no botão **Patrocinador** no seu perfil. Recomendamos incluir as seguintes informações.
 
 - Trabalho de código aberto para o qual você contribui
 - Por que você está comprometido com o desenvolvimento de código aberto
 
-### Editing your profile details
+### Editar as informações do seu perfil
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

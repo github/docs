@@ -1,42 +1,42 @@
 ---
-title: Integrate GitHub Classroom with an online IDE
-shortTitle: Integrate with an online IDE
-intro: You can preconfigure a supported online integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.
+title: 将 GitHub Classroom 与在线 IDE 集成
+shortTitle: 与在线 IDE 集成
+intro: 您可以为您在 {% data variables.product.prodname_classroom %} 中创建的作业预配置受支持的在线集成开发环境 (IDE)。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
 ---
 
-### About integration with an online IDE
+### 关于与在线 IDE 集成
 
 {% data reusables.classroom.about-online-ides %}
 
-After a student accepts an assignment with an online IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+学生接受具有联机 IDE 的作业后，学生作业仓库中的 README 文件将包含一个按钮，用于打开 IDE 中的作业。 学生可以立即开始工作，无需进行其他配置。
 
-![Button for online IDE in README.md for assignment repository](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
+![作业仓库的 README.md 中的在线 IDE 按钮](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
 
-### Supported online IDEs
+### 支持的在线 IDE
 
-{% data variables.product.prodname_classroom %} supports the following online IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %} 支持以下在线 IDE。 您可以详细了解每个 IDE 的学生体验。
 
-| IDE                       | 更多信息                                                                                                                                                                                       |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Repl.it                   | "[About using Repl.it with GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)"                                                 |
+| IDE                       | 更多信息                                                                                                                                                                               |
+|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microsoft MakeCode Arcade | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
+| Repl.it                   | "[关于结合使用 Repl.it 与 GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)"                                                 |
 
-### Configuring an online IDE for an assignment
+### 为作业配置在线 IDE
 
-You can choose the online IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an online IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+创建作业时，您可以选择要用于作业的在线 IDE。 要了解如何创建使用在线 IDE 的新作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
-### Authorizing the OAuth app for an online IDE
+### 为在线 IDE 授权 OAuth 应用程序
 
-The first time you configure an assignment with an online IDE, you must authorize the OAuth app for the online IDE for your organization.
+第一次使用在线 IDE 配置作业时，必须为组织的在线 IDE 授权 OAuth 应用程序。
 
-!["Go grant access" button in popover for authorizing OAuth app for online IDE](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
+![用于为在线 IDE 授权 OAuth 应用程序的弹出窗口中的 "Go grant access（授予访问）"按钮](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
+对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
 
 ### 延伸阅读
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[关于 README](/github/creating-cloning-and-archiving-repositories/about-readmes)"
