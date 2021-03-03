@@ -8,6 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Empacotando'
+  - 'Publicar'
+  - 'Java'
+  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -43,7 +48,7 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 É possível definir um novo repositório do Maven no bloco de publicação do seu arquivo _build.gradle_ que aponta para o repositório de pacotes.  Por exemplo, se você estava fazendo uma implementaão no Central Repositório do Maven por meio do projeto de hospedagem OSSRH, seu _build.gradle_ poderá especificar um repositório com o nome `"OSSRH"`.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -67,7 +72,7 @@ Na etapa de implementação, você deverá definir variáveis de ambiente para o
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Publicar pacote no Repositório Central do Maven
 em:
   versão:
@@ -105,7 +110,7 @@ O `GITHUB_TOKEN` existe no repositório por padrão e tem permissões de leitura
 Por exemplo, se sua organização é denominado "octocat" e seu repositório é denominado de "hello-world", a configuração do {% data variables.product.prodname_registry %} no _build.gradle_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -126,7 +131,7 @@ publicando {
 Com essa configuração, é possível criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven ao executar o comando `publicação do gradle`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Publicar pacote nos pacotes do GitHub
 em:
   versão:
@@ -162,7 +167,7 @@ Por exemplo, se fizer a implementação no Repositório Central por meio do proj
 Se sua organização for denominada "octocat" e seu repositório for denominado "hello-world", a configuração de {% data variables.product.prodname_registry %} em _build.gradle_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -191,7 +196,7 @@ publicando {
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven e em {% data variables.product.prodname_registry %}, executando o comando `publicação do gradle`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Publicar pacote no Repositório Central do Maven e nos Pacotes do GitHub
 em:
   versão:

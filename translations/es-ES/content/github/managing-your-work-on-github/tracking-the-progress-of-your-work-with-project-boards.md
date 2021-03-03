@@ -4,7 +4,7 @@ intro: 'Puedes hacer el seguimiento y priorizar tu trabajo en {% data variables.
 redirect_from:
   - /articles/tracking-the-progress-of-your-work-with-projects/
   - /articles/tracking-the-progress-of-your-work-with-project-boards
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

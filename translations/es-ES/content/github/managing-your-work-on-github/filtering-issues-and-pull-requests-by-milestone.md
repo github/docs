@@ -24,7 +24,7 @@ versions:
 3. Selecciona **Hitos** para ver una lista de todos los hitos disponibles para el repositorio. ![Botón Hitos](/assets/images/help/issues/issues_milestone_button.png)
 4. Selecciona el hito que te interesa en la lista. En la página del hito puedes ver información relevante sobre el hito, incluidas todas las propuestas y solicitudes de extracción asociadas con él. Para obtener más información, consulta "[Acerca de los hitos](/articles/about-milestones)".
 
-### Further reading
+### Leer más
 
 - [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"
 - [Clasificar propuestas y solicitudes de extracción](/articles/sorting-issues-and-pull-requests)"

@@ -1,6 +1,6 @@
 ---
 title: Anular la publicación de un sitio de Páginas de GitHub
-intro: 'Puedes dejar de publicar tu sitio de {% data variables.product.prodname_pages %} para que éste ya no esté disponible para el {% if currentVersion == "free-pro-team@latest" %}público{% else %}todos si utilizas {% data variables.product.product_location %}{% endif %}.'
+intro: 'Puedes publicar tu sitio de {% data variables.product.prodname_pages %} para que éste deje de estar disponible.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/

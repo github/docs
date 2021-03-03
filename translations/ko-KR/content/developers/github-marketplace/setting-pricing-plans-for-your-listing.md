@@ -19,11 +19,13 @@ versions:
 
 ### About setting pricing plans
 
-If you want to sell an app on {% data variables.product.prodname_marketplace %}, you need to request verification when you publish the listing for your app. During the verification process, an onboarding expert checks the organization's identity and security settings. The onboarding expert will also take the organization through financial onboarding. For more information, see: "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+{% data variables.product.prodname_marketplace %} offers several different types of pricing plans. For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)."
 
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to do this, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
+To offer a paid plan for your app, your app must be owned by an organization that has completed the publisher verification process and met certain criteria. For more information, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" and "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
 
-{% data variables.product.prodname_marketplace %} offers several different types of pricing plan. For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)."
+If your app is already published with a paid plan and you're a verified publisher, then you can publish a new paid plan from the "Edit a pricing plan" page in your Marketplace app listing settings.
+
+![Publish this plan button](/assets/images/marketplace/publish-this-plan-button.png)
 
 ### About saving pricing plans
 

@@ -38,6 +38,6 @@ Puedes subir {% data variables.large_files.product_name_short %} objetos a las b
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Duplicar un repositorio con objetos de almacenamiento de gran tamaño de Git](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
