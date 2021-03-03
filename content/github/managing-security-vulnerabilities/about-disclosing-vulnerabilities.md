@@ -36,7 +36,9 @@ Publishing the details of a security vulnerability doesn't make maintainers look
 
 The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
 
- If you are a security researcher who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. If there isn't a security policy for the repository, you may try to privately contact the maintainers based on information available in the _security.md_ file.
+ If you are a security researcher who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository. If there isn't a security policy for the repository, you may try to privately contact the maintainers:
+- by looking at all the text files in the root directory. In some cases, the contact details may 
+- by creating an issue requesting contact details.
 
 {% note %}
 
