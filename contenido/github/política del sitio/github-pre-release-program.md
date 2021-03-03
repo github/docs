@@ -1,4 +1,4 @@
----
+--
 title: GitHub Pre-release Program
 redirect_from:
   - /articles/github-pre-release-program
