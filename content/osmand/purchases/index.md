@@ -3,7 +3,7 @@ title: Purchases
 intro: There are a great variety of features that OsmAnd offers. Most of them are available in a free version of the application. The paid OsmAnd services provide extended functionality."
 versions: '*'
 ---
-<!-- ставить вместо этой таблицы картинку со сравнительной таблицей-->
+<!-- ставить вместо этой таблицы картинку со сравнительной таблицей Где указать и амазон и хуавей (без ценообразования)->
 <!--| Purchase   | Android  |
 | :------------- | :------------- |
 | OsmAnd (Unlimited) | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
@@ -15,7 +15,7 @@ versions: '*'
 
 | Android   | iOS  |
 | :------------- | :------------- |
-| up 7 map downloads or updates | up 5 map downloads or updates  |
+| up 7 maps to downloads or update | 5 free maps to download without updates  |
 | no Wikipedia and WikiVoyage articles |  Wikipedia and WikiVoyage articles  |
 | No contour lines and  Nautical Chars plugins   |No contour lines and  Nautical Chars plugins     |
 
@@ -34,14 +34,40 @@ OsmAnd Unlimited can only be activated in the free version of the application an
 
 ## IOS
 
-| Purchase   | IOS  |
+User can buy application from the Apple store market {% data reusables.links.osmand-maps-app-store %}.
+
+> **_Note:_** Use the same Apple ID to share the app with other Apple devices. <br>
+
+There are 8 options to extend OsmAnd functions. All of them can be found {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
+
+*<!-- -  
+*
+*
+*
+* Buy Nautical map on the tab Plugins
+* Buy Wikipedia on the tab Plugins (for 0 Dollar/Euro)
+* Buy Contour lines on the tab Plugins
+* Buy  the map package on the tab Purchases-->
+
+|Options to extend OsmAnd functions|   
+|------------|
+|**Get Unlimited access**: One-time payment that allows to get maps from 'All World' package. It means that user will have unlimited maps downloads  and will get map updates every month.  |
+|![ IOS Unlimited access purchases](/assets/images/map/ios_unlim_access_purchase.png)|
+|**Subscribe to mail list**: Will give user an opportunity to get 3 EXTRA maps to download. The Subscriber will get information about the latest news and discounts. |
+|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
+|**Participate in Giveaways**: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
+|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
+|**Get OsmAnd live**: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
+|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
+
+<!--
 | :------------- | :------------- |
 | OsmAnd  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 - Maps package:
   - Unlimited map downloads monthly
   - Wikipedia maps
    iOS version has packaged it by continent, Android version has separate inApp and OsmAnd+ application they are not compatible with each other!). To view all the options, please visit the 'Maps & Resources' menu. {% data reusables.links.osmand-maps-app-store %}
-- Contour lines / hillshade package
+- Contour lines / hillshade package-->
 
 ### Subscription
 The OsmAnd Live subscription for (Android/iOS) has three periods: monthly, three months, yearly. This feature allows you to get unlimited download of all maps and get all the plug-ins for the subscription period. You also get the opportunity to frequently updated maps (hourly instead of monthly updates).
