@@ -1,0 +1,34 @@
+trigger: project_status
+title: Project status
+description: Update the team on your project's status.
+surfaces:
+- issue
+steps:
+- type: menu
+  id: project
+  label: Project name
+  options:
+    - Technical Debt
+    - Add Widget
+    - Bug Bash
+- type: form
+  style: embedded
+  body:
+  - type: dropdown
+    attributes:
+      label: Color
+      description: What's the status of your project?
+      options:
+      - label: 🟢 Green
+        value: 🟢
+      - label: 🟡 Yellow
+        value: 🟡
+      - label: 🔴 Red
+        value: 🔴
+  - type: textarea
+    attributes:
+      label: Details
+      description: What should the team know about the status of your project?
+      placeholder: Recent achievements, blockers, requests for help, etc.
+- type: fill
+  template: "The {{ data.project }} project is status {{ data.Color }}. {{ data.Details }}"
