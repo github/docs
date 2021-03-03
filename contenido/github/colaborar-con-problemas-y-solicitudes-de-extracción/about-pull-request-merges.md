@@ -1,4 +1,4 @@
----
+--
 title: About pull request merges
 intro: 'You can [merge pull requests](/articles/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
 redirect_from:
