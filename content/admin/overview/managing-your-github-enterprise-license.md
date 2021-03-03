@@ -25,7 +25,7 @@ You can allocate the user licenses included in your {% data variables.product.pr
 
 If your {% data variables.product.prodname_ghe_server %} license expires, you won't be able to access {% data variables.product.product_location_enterprise %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data. For more information, see "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)." If you have any questions about renewing your license, contact {% data variables.contact.contact_enterprise_sales %}.
 
-You can download your {% data variables.product.prodname_ghe_server %} license from your [Enterprise Account](https://docs.github.com/en/enterprise-server/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server), if you do not have an Enterprise Account you can log in to our [Enterprise Portal](https://enterprise.github.com/download) and download your license. 
+You can download your {% data variables.product.prodname_ghe_server %} license from your [enterprise account](https://enterprise.github.com/download). For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)." 
 
 ### Uploading a new license to {% data variables.product.prodname_ghe_server %}  
 
