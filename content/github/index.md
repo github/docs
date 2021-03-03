@@ -67,4 +67,4 @@ versions:
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}
 {% link_in_list /understanding-how-github-uses-and-protects-your-data %}
-{% link_in_list /site-policy %}
+{% link_in_list /site-policy %}ms-msa://code=M.R3_BAY.34c762d9-29f7-a3cd-1850-9aaa78dd4fad&uaid=06d0db470d3e4b81ac7b646a02f2ac8b&expires=0
