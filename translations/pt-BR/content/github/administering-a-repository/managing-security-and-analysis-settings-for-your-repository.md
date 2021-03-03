@@ -33,10 +33,15 @@ Você pode gerenciar os recursos de segurança e análise do repositório {% if 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**.
-{% if currentVersion == "free-pro-team@latest" %}Se "{% data variables.product.prodname_secret_scanning_caps %}" não for exibido, talvez seja necessário habilitar {% data variables.product.prodname_GH_advanced_security %} primeiro.
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
   ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
-  {% endif %}
-  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  {% note %}
+**Note:** If you disable
+
+  {% data variables.product.prodname_GH_advanced_security %}, both {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  {% endnote %}
+
+  {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
   ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
 

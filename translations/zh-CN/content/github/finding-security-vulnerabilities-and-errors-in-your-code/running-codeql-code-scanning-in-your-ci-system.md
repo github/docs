@@ -24,7 +24,7 @@ versions:
 
 {% data reusables.code-scanning.about-code-scanning %} 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-您可以使用 {% data variables.product.prodname_codeql_runner %} 在第三方持续集成 (CI) 系统中处理的代码上运行 {% data variables.product.prodname_code_scanning %}。 您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_location %} 上运行 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅“[为仓库启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)”。
+您可以使用 {% data variables.product.prodname_codeql_runner %} 在第三方持续集成 (CI) 系统中处理的代码上运行 {% data variables.product.prodname_code_scanning %}。 您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_location %} 上运行 {% data variables.product.prodname_code_scanning %}。 For information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data variables.product.prodname_codeql_runner %} 是在 {% data variables.product.prodname_dotcom %} 仓库的检出上运行 {% data variables.product.prodname_codeql %} 分析的命令行工具。 您可以将运行器添加到第三方系统，然后调用运行器以分析代码并将结果上传到 {% data variables.product.product_location %}。 这些结果在仓库中显示为 {% data variables.product.prodname_code_scanning %} 警报。
 
