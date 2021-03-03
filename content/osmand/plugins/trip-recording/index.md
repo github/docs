@@ -38,19 +38,19 @@ In order to Enable / Disable plugin please use:
 
 To configure settings follow {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_menu_group: %} → tap the Trip recording plugin
 
-![REC Settings Plugin](/assets/images/docs/widgets/rec_settings_plugin.png)
+![REC Settings Plugin](/assets/images/plugins/rec_settings_plugin.png)
 
 ### Configure trip recording profile
 
 Default 'Trip recording' profile is Browse map profile. User can choose other OsmAnd profile or create his own (Manage<!--сделать ссылку на инстукцию как сделать уникальный профиль [Manage profile ](text)-->) profile.
 
-![REC profile](/assets/images/docs/widgets/rec_plugin_change_profile.png)
+![REC profile](/assets/images/plugins/rec_plugin_change_profile.png)
 
 To change the profile please click the globe icon in the upper-right corner.
 
 ### Configure trip recording navigation
 
-![REC navigation](/assets/images/docs/widgets/rec_plugin_navigation.png)
+![REC navigation](/assets/images/plugins/rec_plugin_navigation.png)
 
 Auto-record track during navigation – the function that enables saving each 'trip recording' track automatically. <br>
 User may find his track under {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → {% data variables.android-values.shared_string_gpx_files %} tab
@@ -62,7 +62,7 @@ By default, it is set to 5 seconds, but it can be configured in the range from 0
 
 ### Configure trip recording logging accuracy
 
-![REC logging accuracy](/assets/images/docs/widgets/rec_plugin_logging_accuracy.png)
+![REC logging accuracy](/assets/images/plugins/rec_plugin_logging_accuracy.png)
 
 | Parameter | Description |
 |--------------------------|-------------|
@@ -86,7 +86,7 @@ By default, it is set to 5 seconds, but it can be configured in the range from 0
 
 ### Configure trip informational settings
 
-![REC informational settings](/assets/images/docs/widgets/rec_plugin_info_settings.png)
+![REC informational settings](/assets/images/plugins/rec_plugin_info_settings.png)
 
 **Track storage folder**
 
