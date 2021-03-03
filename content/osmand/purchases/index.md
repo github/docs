@@ -40,34 +40,30 @@ User can buy {% data reusables.links.osmand-maps-app-store %}.
 
 There are 8 options to extend OsmAnd functions. To find them please use: {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
 
-<!-- -  
-*
-*
-*
-* Buy Nautical map on the tab Plugins
-* Buy Wikipedia on the tab Plugins (for 0 Dollar/Euro)
-* Buy Contour lines on the tab Plugins
-* Buy  the map package on the tab Purchases-->
 
 |Options to extend OsmAnd functions:|   
 |------------|
 |*Get Unlimited access*: One-time payment that allows to get maps from 'All World' package. It means that user will have unlimited maps downloads  and will get map updates every month.  |
 |![ IOS Unlimited access purchases](/assets/images/purchases/ios_unlim_access_purchase.png)|
 |*Subscribe to mail list*: Will give user an opportunity to get 3 EXTRA maps to download. The Subscriber will get information about the latest news and discounts. |
-|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
-|*Participate in Giveaways*: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
-|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
-|*Get OsmAnd Live*: There are three variants: month, 3 months and yearly subscription. User will  have an opportunity to get <br> hourly maps updates <br> unlimited maps downloads <br> offline Wikipedia articles <br> Contour lines & Hillshade maps  |
-|![ IOS Unlimited access purchases](/assets/images/purchases/ios_live_purchase.png)|
+|![ IOS Subscribtion to mail list](/assets/images/purchases/ios_subscribe_purchase.png)|
+|*Participate in Giveaways*: User will  have an opportunity to participate in promo code [giveaways](https://osmand.net/).  |
+|![ IOS Giveaways](/assets/images/purchases/ios_giveaway_purchase.png)|
+|*Get OsmAnd Live*: There are three variants: month, 3 months and yearly subscription. User will  have an opportunity to get hourly maps updates, unlimited maps downloads, offline Wikipedia articles, Contour lines & Hillshade maps.  |
+|![ IOS OsmAnd Live](/assets/images/purchases/ios_live_purchase.png)|
+|*Buy Nautical map*: They are available in the tab Plugins in the same menu. The Nautical Charts is a detailed graphical view of oceans, seas, coastal areas and rivers. The charts can contain various information like sailing routes, navigation lights, dangerous areas, areas where is not allowed to sailor dock, etc.  |
+|![ IOS Nautical map](/assets/images/purchases/ios_nautical_map.png)|
+|*Buy Wikipedia map*: They are available in the tab Plugins in the same menu. The Wikipedia maps are used to get information about points of interest (POI) or objects around from Wikipedia articles.   |
+|![ IOS Wikipedia map](/assets/images/purchases/ios_wikipedia_map.png)|
+|*Buy Contour lines*: They are available in the tab Plugins in the same menu. The Contour lines provide the information about heights of the area while hillshade is their visualisation. User will be able to see names of mountain peaks and specific features of terrain.   |
+|![ IOS Contour lines](/assets/images/purchases/ios_contour_lines.png)|
+|*Buy  the map package*: They are available in the tab Purchases in the same menu. There are nine map packages: All World Maps, Russia, Africa, Asia, Australia, Europe, Central America, North America, South America.   |
+|![ IOS map package](/assets/images/purchases/ios_map_package.png)|
 
-<!--
-| :------------- | :------------- |
-| OsmAnd  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
-- Maps package:
-  - Unlimited map downloads monthly
-  - Wikipedia maps
-   iOS version has packaged it by continent, Android version has separate inApp and OsmAnd+ application they are not compatible with each other!). To view all the options, please visit the 'Maps & Resources' menu. {% data reusables.links.osmand-maps-app-store %}
-- Contour lines / hillshade package-->
+> **_Note:_** It is highly recommended downloading nautical basemap to see the maps regardless of detailed map presence. To turn on Nautical charts, tap the map button and set map type to Nautical. <br>
+
+> **_Note:_** Wikipedia map should be charged by 0 dollar/euro price! <br>
+
 
 ### Subscription
 The OsmAnd Live subscription for (Android/iOS) has three periods: monthly, three months, yearly. This feature allows you to get unlimited download of all maps and get all the plug-ins for the subscription period. You also get the opportunity to frequently updated maps (hourly instead of monthly updates).
