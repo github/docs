@@ -15,7 +15,7 @@ versions: '*'
 
 | Android   | iOS  |
 | :------------- | :------------- |
-| up 7 maps to downloads or update | 5 free maps to download without updates  |
+| 7 free maps to download or update | 5 free maps to download without updates  |
 | no Wikipedia and WikiVoyage articles |  Wikipedia and WikiVoyage articles  |
 | No contour lines and  Nautical Chars plugins   |No contour lines and  Nautical Chars plugins     |
 
@@ -24,7 +24,7 @@ versions: '*'
 
 ## Android
 
-| Purchase   | Android  |
+| Purchase   | Features  |
 | :------------- | :------------- |
 | OsmAnd (Unlimited) <br> OsmAnd+  | Unlimited map downloads. <br> Map updates one time per month. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.  |
 
@@ -34,13 +34,13 @@ OsmAnd Unlimited can only be activated in the free version of the application an
 
 ## IOS
 
-User can buy application from the Apple store market {% data reusables.links.osmand-maps-app-store %}.
+User can buy {% data reusables.links.osmand-maps-app-store %}.
 
 > **_Note:_** Use the same Apple ID to share the app with other Apple devices. <br>
 
-There are 8 options to extend OsmAnd functions. All of them can be found {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
+There are 8 options to extend OsmAnd functions. To find them please use: {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %}  
 
-*<!-- -  
+<!-- -  
 *
 *
 *
@@ -49,16 +49,16 @@ There are 8 options to extend OsmAnd functions. All of them can be found {% data
 * Buy Contour lines on the tab Plugins
 * Buy  the map package on the tab Purchases-->
 
-|Options to extend OsmAnd functions|   
+|Options to extend OsmAnd functions:|   
 |------------|
-|**Get Unlimited access**: One-time payment that allows to get maps from 'All World' package. It means that user will have unlimited maps downloads  and will get map updates every month.  |
-|![ IOS Unlimited access purchases](/assets/images/map/ios_unlim_access_purchase.png)|
-|**Subscribe to mail list**: Will give user an opportunity to get 3 EXTRA maps to download. The Subscriber will get information about the latest news and discounts. |
-|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
-|**Participate in Giveaways**: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
-|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
-|**Get OsmAnd live**: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
-|![ IOS Unlimited access purchases](/assets/images/map/ios_subscribe_purchase.png)|
+|*Get Unlimited access*: One-time payment that allows to get maps from 'All World' package. It means that user will have unlimited maps downloads  and will get map updates every month.  |
+|![ IOS Unlimited access purchases](/assets/images/purchases/ios_unlim_access_purchase.png)|
+|*Subscribe to mail list*: Will give user an opportunity to get 3 EXTRA maps to download. The Subscriber will get information about the latest news and discounts. |
+|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
+|*Participate in Giveaways*: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
+|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
+|*Get OsmAnd live*: User will  have an opportunity to participate in promo code giveaways [giveaways](https://osmand.net/).  |
+|![ IOS Unlimited access purchases](/assets/images/purchases/ios_subscribe_purchase.png)|
 
 <!--
 | :------------- | :------------- |
