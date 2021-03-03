@@ -52,7 +52,7 @@ Cliking to this widget in the screen you choose between {% data variables.androi
 
 ## Destination
 
-The widget shows current distance to the finish line. Clicking to this widget move to finish point:
+The widget shows current distance to the finish line: 
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.route_descr_destination %}
 
@@ -60,15 +60,23 @@ The widget shows current distance to the finish line. Clicking to this widget mo
 
 ![navigational widgets](/assets/images/docs/widgets/nw-5.png)
 
+{% note %}
+Clicking to this widget move to finish point.
+{% endnote %}
+
 ## Arrival time or Time to go
 
-The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %}, in order to change it just click to widget on the screen or choose it in menu:
+The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} of your navigation:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.access_arrival_time %} or {% data variables.ios-values.map_widget_time %}
 
 ![navigational widgets](/assets/images/docs/widgets/nw-6.png)
+
+{% note %}
+Clicking to this widget to change Arrival time to Time to go and vice versa.
+{% endnote %}
 
 ## Speed and Speed limit
 
@@ -82,7 +90,7 @@ Widgets show your current speed (speedometer icon) and speed limit (red speedome
 
 ## Lanes
 
-The wThe widget shows which lanes you need to drive during navigation. Yellow is the usual position, green is the approach to the nearest maneuver (100 meters before the maneuver). The numbers on the widget are the distance to the nearest maneuver.
+The widget shows which lanes you need to drive during navigation. Yellow is the usual position, green is the approach to the nearest maneuver (100 meters before the maneuver). The numbers on the widget are the distance to the nearest maneuver.
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.show_lanes %}
 
