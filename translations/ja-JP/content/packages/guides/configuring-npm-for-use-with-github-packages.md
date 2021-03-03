@@ -16,6 +16,17 @@ versions:
 
 {% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+### Limits for published npm versions
+
+If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+
+In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
+
+If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" or "[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
+
+{% endif %}
+
 ### {% data variables.product.prodname_registry %} への認証を行う
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -155,7 +166,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. インストールしているパッケージを使うには、プロジェクトの*package.json*を設定してください。 {% data variables.product.prodname_registry %}のためにパッケージの依存関係を*package.json*ファイルに追加するには、`@my-org/server`というように完全なスコープ付きのパッケージ名を指定してください。 *npmjs.com*からのパッケージについては、`@babel/core`あるいは`@lodash`というような完全な名前を指定してください。 たとえば、以下の*package.json*は`@octo-org/octo-app`パッケージを依存関係として使っています。
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",
@@ -196,6 +207,12 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
+{% endif %}
+
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Using the official NPM registry
+
+{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
 
 ### 参考リンク

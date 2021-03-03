@@ -2,28 +2,28 @@
 date: '2020-10-20'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}
+    - パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}
   bugs:
     - |
-      If the storage account settings failed to validate while configuring GitHub Actions, running `ghe-actions-teardown` was required before making a new attempt. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+      GitHub Actionsの設定中にストレージアカウント設定の検証に失敗した場合、新たに試行する前に`ghe-actions-teardown`の実行が必要でした。{% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
     - |
-      A custom proxy configuration could adversely affect the GitHub Actions environment. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+      カスタムのプロキシ設定が、GitHub Actionsの環境に悪影響を及ぼすことがありました。{% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
     - |
-      On a change of an address on eth0, Nomad and Consul could get unresponsive. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+      eth0のアドレス変更時に、Nomad及びConsulがレスポンスを返さなくなることがありました。{% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
     - |
-      When using self-signed certificates, GHES could have SSL validation exceptions upon configuring GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+      自己署名証明書を使用した場合、GitHub Actionsの設定の際にGHESがSSL検証の例外を起こすことがありました。{% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
     - |
-      Using a GitHub Action from a branch name with a `+` or `/` character resulted in an error: `Unable to resolve action`. {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+      `+`あるいは`/`キャラクタをブランチ名に含むブランチからGitHub Actionを利用すると、`Unable to resolve action`というエラーになりました。{% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
     - |
-      The enterprise account "Confirm two-factor requirement policy" messaging was incorrect. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+      Enterpriseアカウントの"Confirm two-factor requirement policy"メッセージが正しくありませんでした。{% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
     - |
-      On certain requests above 100MB, Kafka's buffer could be over-allocated. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+      100MBを超える特定のリクエストで、Kafkaのバッファが過剰に割り当てられることがありました。{% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
   known_issues:
-    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
-    - Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
-    - GitHub Actions can fail to start up successfully if it was previously enabled on an instance running 2.22.0 and is upgraded to 2.22.2. (updated 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
-    - On a freshly set up 2.22.2 instance or after upgrading to 2.22.2, the activity feed on an organization's dashboard will no longer update. (updated 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
-    - Audit logs may be attributed to 127.0.0.1 instead of the actual source IP address. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - 新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
+    - カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
+    - ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
+    - GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
+    - "2.22.0を実行しているインスタンスで以前にGitHub Actionsが有効化されており、2.22.2へアップグレードすると、GitHub Actionsの起動に失敗することがあります。（2020-10-23更新）\n{% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - 新たにセットアップされた2.22.2のインスタンス、もしくは2.22.2へのアップグレード後、Organizationのダッシュボード上のアクティビティフィードが更新されなくなります。（2020-10-27更新）{% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
+    - 監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。（2020-11-02更新）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
