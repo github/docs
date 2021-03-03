@@ -80,7 +80,7 @@ User could find FPS debug info widget in Configure screen menu. <br>
 > **_Note:_** FPS debug info widget is available only for Android. <br>
 
 To debug the map speed drawing needed to choose <br>
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap three &#x224d;→ {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %} . <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %} . <br>
 In a second it will update. <br>
 
 ## Read more
