@@ -8,7 +8,7 @@ Distance by tap tool helps to calculate the distance between selected points to
 ![Radius-ruler screen](/assets/images/docs/widgets/radius_ruler_screen.png)
 
 ## Radius-ruler widget <!--tool-->
-Radius-ruler widget shows distance between users location and inner point of the distance-circles on the map. Widget is clickable and changes its state between the black scale, the grey one and no scale modes. <br>
+Radius-ruler widget shows distance between users location and inner point of the 'Radius-ruler' tool distance-circles on the map. Widget is clickable and changes its state between the black scale, the grey one and no scale modes. <br>
 
 To find Radius-ruler widget follow: <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.radius_ruler_item %}  <br>
