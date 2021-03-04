@@ -108,7 +108,7 @@ snmpget -v 2c -c <em>community-string</em> <em>hostname</em> HOST-RESOURCES-MIB:
 
 {% tip %}
 
-**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (.1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
+**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
 
 {% endtip %}
 
