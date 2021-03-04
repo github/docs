@@ -3,7 +3,8 @@ title: "Informational widgets"
 intro: "Informational widgets allow user see information about current location, speed, time, battery level on the map display."
 versions: '*'
 ---
-Informational widgets is a text in the top right-hand corner in frame over the map. Some of them can be clickable.
+
+Informational widgets is blocks on the top side of the device screen which show next information. 
 
 ![Altitude Android widget](/assets/images/docs/widgets/iw-1.png)
 
@@ -18,8 +19,10 @@ Altitude widget shows the height above sea level.
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_altitude %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_altitude %} |
 | Click | Nothing |
-| Format | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %} |
-|        | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %} |
+| Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
+|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
+| Note   | **Android:** make Altitude correction to accurately display the altitude on the terrain. |
+|        | {% data variables.product.android_button_seq %}{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %}  |
 
 > **_Note:_** User could make Altitude correction (for Android only) to make sure the up-to-date data is used.
 
