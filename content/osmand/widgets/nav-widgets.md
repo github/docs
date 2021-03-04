@@ -105,15 +105,13 @@ The widget shows which lanes you need to drive during navigation. Yellow is the 
 
 ## Next turns
 
-Widget shows warnings about your maneuvers with a picture of maneuver and distance to it.
+![navigational widgets](/assets/images/docs/widgets/nw-9.png)
 
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %} 
+The widget shows warnings about your maneuvers with a picture of maneuver and distance to it. The color of a maneuver can be grey, yellow (less 900m), or green(less 100m.), depending on the distance to it. Up to three turns can be shown:
 
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_next_turn %}, {% data variables.android-values.map_widget_next_turn_small %}, {% data variables.android-values.map_widget_next_next_turn %} 
 
-- Purpose
-- How to use
-- How to configure
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_next_turn %} {% data variables.ios-values.map_widget_next_turn_small %} {% data variables.ios-values.map_widget_next_next_turn %}
 
 ## Street name / POIs
 - Purpose
