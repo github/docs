@@ -76,16 +76,16 @@ With SNMP v2c, only hardware-level information about your appliance is available
 $ snmpwalk -v 2c -c <em>community-string</em> -O e <em>hostname</em>
 ```
 
-Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (.1.3.6.1.2.1.25). See the table below for some important objects in this MIB:
+Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25). See the table below for some important objects in this MIB:
 
 | Name | OID | Description |
 | ---- | --- | ----------- |
-| hrSystemDate.2 | .1.3.6.1.2.1.25.1.2 | The hosts notion of the local date and time of day. |
-| hrSystemUptime.0 |.1.3.6.1.2.1.25.1.1.0 | How long it's been since the host was last initialized. |
-| hrMemorySize.0 | .1.3.6.1.2.1.25.2.2.0 | The amount of RAM on the host. |
-| hrSystemProcesses.0 | .1.3.6.1.2.1.25.1.6.0 | The number of process contexts currently loaded or running on the host. |
-| hrStorageUsed.1 | .1.3.6.1.2.1.25.2.3.1.6.1 | The amount of storage space consumed on the host, in hrStorageAllocationUnits. |
-| hrStorageAllocationUnits.1 | .1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit |
+| hrSystemDate.2 | 1.3.6.1.2.1.25.1.2 | The hosts notion of the local date and time of day. |
+| hrSystemUptime.0 | 1.3.6.1.2.1.25.1.1.0 | How long it's been since the host was last initialized. |
+| hrMemorySize.0 | 1.3.6.1.2.1.25.2.2.0 | The amount of RAM on the host. |
+| hrSystemProcesses.0 | 1.3.6.1.2.1.25.1.6.0 | The number of process contexts currently loaded or running on the host. |
+| hrStorageUsed.1 | 1.3.6.1.2.1.25.2.3.1.6.1 | The amount of storage space consumed on the host, in hrStorageAllocationUnits. |
+| hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit |
 
 For example, to query for `hrMemorySize` with SNMP v3, run the following command on a separate workstation with SNMP support in your network:
 ```shell
