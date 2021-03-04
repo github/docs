@@ -17,9 +17,9 @@ Altitude widget shows the height above sea level. <br>
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS. <br>
 {% endnote %}
 
-To find Altitude widget follow: <br>
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_altitude %}  <br>
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_altitude %} <br>
+To find Altitude widget follow <br>
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} <br>
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} <br>
 
 > **_Note:_** User could make Altitude correction (for Android only) to make sure the up-to-date data is used. <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
@@ -28,12 +28,10 @@ To find Altitude widget follow: <br>
 ![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
 
 <!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
-
+{% note %}
 Current time widget shows current time.
-
-To find Altitude widget follow: <br>
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} <br>
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} <br>
+{% endnote %}
+{% warning %}
 OsmAnd takes Current time data from a device.
 {% endwarning %}
 User could find Current time widget in Configure screen menu. <br>
