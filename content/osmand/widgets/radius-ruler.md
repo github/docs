@@ -15,8 +15,9 @@ To find Radius-ruler widget follow: <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.radius_ruler_item %}  <br>
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_radius_ruler %} <br>
 
- >**_Note:_** To check the distance between two random points on the map**: <br>
- {% data variables.product.android_button_seq %} enable 'Distance by tap' tool. <!--{% link_with_intro /'Distance by tap' tool %}--> <br>
+ >**_Note:_**
+ To check the distance between two random points on the map**: <br>
+ {% data variables.product.android_button_seq %} enable 'Distance by tap' tool.  <br>
  {% data variables.product.ios_button_seq %} touch simultaneously two spots on the map. It will allow to see the measurement and the line connecting the two points. The line will stay on screen as long as the user is touching it. <br>
 The line will fade by itself after 2 seconds. <br>
 
