@@ -25,14 +25,14 @@ To find Altitude widget follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
-![Current time widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
+![Current time widget](/assets/images/docs/widgets/current_time_android_widget.png | width=320px) <br>
 
 This widget shows current time from a device.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_plain_time %}
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_plain_time %} |
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_plain_time %} |
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_plain_time %} |
 | Click | Nothing |
 | Format | Takes format from device settings |
 
@@ -52,7 +52,7 @@ To find Speed widget follow: <br>
 ## Coordinates widget (Android)
 The Coordinates widget is shown at the top of the screen. It shows geographic coordinates of the user's location.
 
-![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
+![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png | width=320px)
 
 | | |
 |------------|------------|
