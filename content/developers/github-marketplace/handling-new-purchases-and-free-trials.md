@@ -36,7 +36,7 @@ See "[{% data variables.product.prodname_marketplace %} webhook events](/marketp
 
 If your app is a GitHub App, GitHub prompts the customer to select which repositories the app can access when they purchase it. GitHub then installs the app on the account the customer selected  and grants access to the selected repositories.
 
-At this point, if you specified a **Setup URL** in your GitHub App settings, Github will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your GitHub App.
+At this point, if you specified a **Setup URL** in your GitHub App settings, GitHub will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your GitHub App.
 
 {% note %}
 
