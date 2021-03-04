@@ -1,0 +1,1 @@
+1. Debajo de "Dominio personalizado", teclea tu dominio personalizado y luego da clic en **Guardar**. Esto creará una confirmación que agregará un archivo _CNAME_ en la raíz de tu fuente de publicación. ![Botón de guardar dominio personalizado](/assets/images/help/pages/save-custom-domain.png)

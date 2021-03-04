@@ -18,7 +18,7 @@ versions:
 
 下面是 YAML 前页的示例。
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.

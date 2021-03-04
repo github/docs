@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -32,13 +33,15 @@ Each time the results of a new code scan are uploaded, the results are processed
 
 SARIF files created by the {% data variables.product.prodname_codeql_workflow %} or using the {% data variables.product.prodname_codeql_runner %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
 
-If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload a SARIF file](/rest/reference/code-scanning#upload-a-sarif-file)."
+If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
 
 ### Validating your SARIF file
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
 You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 ### Supported SARIF output file properties
 
@@ -82,6 +85,8 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 
 #### `result` object
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 | Name | Description |
 |----|----|
 | `ruleId`| **Optional.** The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.
@@ -89,11 +94,10 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `rule`| **Optional.** A reference used to locate the rule (reporting descriptor) for this result. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object).
 | `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
 | `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
-| `locations[]`| **Required.** The set of locations where the result was detected. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_capc %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
+| `locations[]`| **Required.** The set of locations where the result was detected up to a maximum of 10. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_capc %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
 | `partialFingerprints`| **Required.** A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_capc %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_capc %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Preventing duplicate alerts using fingerprints](#preventing-duplicate-alerts-using-fingerprints)."  **Note:** {% data variables.product.prodname_code_scanning_capc %} only uses the `primaryLocationLineHash`.
 | `codeFlows[].threadFlows[].locations[]`| **Optional.** An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
 | `relatedLocations[]`| A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_capc %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
-| `suppressions[].state`| **Optional.** When the `state` is set to `accepted`, {% data variables.product.prodname_code_scanning %} will update the state of the result to `Closed` on {% data variables.product.prodname_dotcom %}.
 
 #### `location` object
 

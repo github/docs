@@ -2,6 +2,7 @@
 title: Varredura de código
 redirect_from:
   - /v3/code-scanning
+product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

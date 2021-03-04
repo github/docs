@@ -1,0 +1,1 @@
+Una llave de despliegue se agrega o se elimina de un repositorio. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[Llaves de despliegue](/rest/reference/repos#keys)".

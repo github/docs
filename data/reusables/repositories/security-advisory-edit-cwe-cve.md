@@ -1,0 +1,2 @@
+1. Add common weakness enumerators (CWEs) for the kinds of security weaknesses that this security advisory addresses. For a full list of CWEs, see the "[Common Weakness Enumeration](https://cwe.mitre.org/index.html)" from MITRE.
+1. If you have an existing CVE identifier, select "I have an existing CVE identifier" and type the CVE identifier in the text box. Otherwise, you can request a CVE from {% data variables.product.prodname_dotcom %} later.
