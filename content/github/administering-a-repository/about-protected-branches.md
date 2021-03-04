@@ -31,7 +31,7 @@ By default, the restrictions of a branch protection rule don't apply to people w
 
 {% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
-{% data reusables.pull_requests.you-can-auto-merge %}
+{% data reusables.pull_requests.you-hcan-auto-merge %}
 
 ### About branch protection settings
 
