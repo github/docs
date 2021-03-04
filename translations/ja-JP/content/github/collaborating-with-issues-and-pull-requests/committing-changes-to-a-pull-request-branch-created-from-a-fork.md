@@ -13,7 +13,7 @@ versions:
 - あなたがプッシュアクセス権限を持つリポジトリでオープンされ、かつそのリポジトリのフォークから作成されている
 - ユーザ所有のフォーク上にある
 - プルリクエストの作者から権限を付与されている
-- コミットを妨げる[ブランチ制限](/articles/about-branch-restrictions)がない
+- コミットを妨げる[ブランチ制限](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches)がない
 
 プルリクエストを作成したユーザのみが、ユーザー所有のフォークにコミットをプッシュする権限を与えることができます。 詳しい情報については、「[フォークから作成されたプルリクエストブランチへの変更を許可する](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」を参照してください。
 

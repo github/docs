@@ -19,7 +19,7 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 ## Take on the enterprise
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}.
+[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## Have an integration that works with GitHub?

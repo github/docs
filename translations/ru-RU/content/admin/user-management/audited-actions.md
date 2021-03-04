@@ -80,7 +80,7 @@ versions:
 |                                       Name | Description                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |                              `repo.access` | The visibility of a repository changed to private{% if enterpriseServerVersions contains currentVersion %}, public,{% endif %} or internal.                                                                                                                                                                                                                             |
-|                             `repo.archive` | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."                                                                                                                                                        |
+|                            `repo.archived` | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."                                                                                                                                                        |
 |                          `repo.add_member` | A collaborator was added to a repository.                                                                                                                                                                                                                                                                                                                               |
 |                              `repo.config` | A site admin blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.                                                                                                                                          |
 |                              `repo.create` | A repository was created.                                                                                                                                                                                                                                                                                                                                               |
@@ -89,7 +89,7 @@ versions:
 |                              `repo.rename` | A repository was renamed.                                                                                                                                                                                                                                                                                                                                               |
 |                            `repo.transfer` | A user accepted a request to receive a transferred repository.                                                                                                                                                                                                                                                                                                          |
 |                      `repo.transfer_start` | A user sent a request to transfer a repository to another user or organization.                                                                                                                                                                                                                                                                                         |
-|                           `repo.unarchive` | A repository was unarchived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."{% if enterpriseServerVersions contains currentVersion %}
+|                          `repo.unarchived` | A repository was unarchived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."{% if enterpriseServerVersions contains currentVersion %}
 | `repo.config.disable_anonymous_git_access` | Anonymous Git read access is disabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."                                                                                                                          |
 |  `repo.config.enable_anonymous_git_access` | Anonymous Git read access is enabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."                                                                                                                           |
 |    `repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting is locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."    |
@@ -107,32 +107,36 @@ versions:
 
 #### Teams
 
-|           Name | Description                                           |
-| --------------:| ----------------------------------------------------- |
-|  `team.create` | A user account or repository was added to a team.     |
-|  `team.delete` | A user account or repository was removed from a team. |
-| `team.destroy` | A team was deleted.                                   |
+|                      Name | Description                                                                                                                                          |
+| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             `team.create` | A user account or repository was added to a team.                                                                                                    |
+|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
+|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
+
 
 #### Users
 
-|                        Name | Description                                                                                                                                              |
-| ---------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            `user.add_email` | An email address was added to a user account.                                                                                                            |
-|         `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
-|      `user.change_password` | A user changed his or her password.{% endif %}
-|               `user.create` | A new user account was created.                                                                                                                          |
-|               `user.delete` | A user account was destroyed by an asynchronous job.                                                                                                     |
-|               `user.demote` | A site admin was demoted to an ordinary user account.                                                                                                    |
-|              `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
-|         `user.failed_login` | A user tried to sign in with an incorrect username, password, or two-factor authentication code.                                                         |
-|      `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
-|                `user.login` | A user signed in.                                                                                                                                        |
-|              `user.promote` | An ordinary user account was promoted to a site admin.                                                                                                   |
-|         `user.remove_email` | An email address was removed from a user account.                                                                                                        |
-|               `user.rename` | A username was changed.                                                                                                                                  |
-|              `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
-| `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
-|            `user.unsuspend` | A user account was unsuspended by a site admin.                                                                                                          |
+|                            Name | Description                                                                                                                                                          |
+| -------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                `user.add_email` | An email address was added to a user account.                                                                                                                        |
+|             `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+|          `user.change_password` | A user changed his or her password.{% endif %}
+|                   `user.create` | A new user account was created.                                                                                                                                      |
+|                   `user.delete` | A user account was destroyed by an asynchronous job.                                                                                                                 |
+|                   `user.demote` | A site admin was demoted to an ordinary user account.                                                                                                                |
+|                  `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+|             `user.failed_login` | A user tried to sign in with an incorrect username, password, or two-factor authentication code.                                                                     |
+|          `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
+|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+|                  `user.promote` | An ordinary user account was promoted to a site admin.                                                                                                               |
+|             `user.remove_email` | An email address was removed from a user account.                                                                                                                    |
+|                   `user.rename` | A username was changed.                                                                                                                                              |
+|                  `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
+|     `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
+|                `user.unsuspend` | A user account was unsuspended by a site admin.                                                                                                                      |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [deploy key]: /guides/managing-deploy-keys/#deploy-keys

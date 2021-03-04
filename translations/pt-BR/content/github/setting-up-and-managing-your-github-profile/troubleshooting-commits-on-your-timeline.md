@@ -36,23 +36,23 @@ Na maioria das vezes, a data de criação e a data do commit são as mesmas, mas
 Você pode usar o comando `git show` com o sinalizador `--pretty=fuller` para verificar se a data de criação do commit e a data do commit são diferentes.
 
 ```shell
-$ git show <em>O número de SHA do commit</em> --pretty=fuller
-commit <em>O número de SHA do commit</em>
-Author:     octocat <em>e-mail do usuário</em>
-AuthorDate: Wed Jul 13 02:02:30 2016 +0900
-Commit:     Sally Johnson <em>e-mail do usuário</em>
-CommitDate: Wed Jul 20 06:25:08 2016 +0900
+$ git show <em>Your commit SHA number</em> --pretty=fuller
+commit <em>Your commit SHA number</em>
+Author:     octocat <em>user email</em>
+AuthorDate: Tue Apr 03 02:02:30 2018 +0900
+Commit:     Sally Johnson <em>user email</em>
+CommitDate: Tue Apr 10 06:25:08 2018 +0900
 ```
 
 Se a data de criação e do commit forem diferentes, é possível alterar manualmente a data do commit na URL para ver os detalhes do commit.
 
 Por exemplo:
-- Esta URL usa a data de criação `2016-07-13`:
+- Esta URL usa a data de criação `2018-04-03`:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-13T00:00:00Z&until=2016-07-13T23:59:59Z`
-- Esta URL usa a data do commit `2016-07-19`:
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
+- Esta URL usa a data do commit `2018-04-10`:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-19T00:00:00Z&until=2016-07-19T23:59:59Z`
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
 Quando você abrir a URL com a data do commit modificada, poderá ver os detalhes do commit.
 

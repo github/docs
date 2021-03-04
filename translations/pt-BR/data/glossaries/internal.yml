@@ -110,7 +110,7 @@
   description: Unidade de processamento central.
 - 
   term: auxiliar de credenciais
-  description: Programa que armazena e regula as credenciais do Git.
+  description: Um programa que armazena e obtém credenciais do Git.
 - 
   term: creole
   description: >-
@@ -739,7 +739,7 @@
 - 
   term: WYSIWYG
   description: >-
-    What You See Is What You Get, acrônimo indicativo de que o texto na tela é exatamente igual ao texto exibido após a renderização.
+    O que você vê é o que você obtém. Uma sigla significa que o texto na tela parece exatamente como será quando ele for processado.
 - 
   term: XenServer
   description: Plataforma de virtualização.

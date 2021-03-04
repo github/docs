@@ -1,0 +1,168 @@
+---
+#Contains versioned and unversioned variables for all of our product names
+## WARNING: Versioned variables don't work as expected in articles under "content/enterprise/admin/". Use unversioned variables instead.
+#Company
+company_short: 'GitHub'
+#GitHub's flagship products
+## Until we have versioning to support GitHub Enterprise Cloud content, avoid using this variable if the output should specifically be GitHub Enterprise Cloud or GitHub Enterprise Server
+product_name: >-
+  {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% else %}GitHub{% endif %}
+## Use this variable when the output should always be GitHub, regardless of the product the user is using
+prodname_dotcom: 'GitHub'
+## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
+prodname_enterprise: 'GitHub Enterprise'
+## Use this variable only when the output should specifically be GitHub.com, to distinguish from GitHub the company or other GitHub products (e.g. connecting GHE to GitHub.com)
+prodname_dotcom_the_website: 'GitHub.com'
+## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
+prodname_ghe_server: 'GitHub Enterprise Server'
+prodname_ghe_cloud: 'Nube de GitHub Enterprise'
+prodname_ghe_managed: 'GitHub AE'
+prodname_ghe_one: 'GitHub One'
+## Use these variables when referring specifically to a location within a product
+product_location: >-
+  {% if enterpriseServerVersions contains currentVersion %}tu instancia de GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}tu empresa{% else %}GitHub{% endif %}
+#Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
+#Do not use in other situations!
+product_location_enterprise: 'tu instancia de servidor de GitHub Enterprise'
+prodname_free_user: 'GitHub Free'
+prodname_pro: 'GitHub Pro'
+prodname_team: 'GitHub Team'
+prodname_free_team: 'GitHub Free'
+prodname_enterprise_backup_utilities: 'Utilidades de respaldo del servidor de GitHub Enterprise'
+#GitHub Connect (enterprise accounts, other unified features)
+## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.
+prodname_github_connect: 'GitHub Connect'
+prodname_unified_contributions: 'contribuciones unificadas'
+prodname_unified_search: 'búsqueda unificada'
+#GitHub Education
+prodname_education: 'GitHub Education'
+prodname_education_community: 'Education Community'
+prodname_education_community_with_url: 'la [Comunidad Educativa de GitHub](https://education.github.community)'
+prodname_classroom: 'GitHub Classroom'
+prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
+prodname_campus_program: 'Programa del Campus de GitHub'
+prodname_student_pack: 'Paquete de desarrollo para estudiantes de GitHub'
+#GitHub CLI
+prodname_cli: 'CLI de GitHub'
+#GitHub Desktop
+prodname_desktop: 'GitHub Desktop'
+desktop_link: 'https://desktop.github.com/'
+#GitHub for Mobile
+prodname_mobile: 'GitHub para móviles'
+prodname_ios: 'GitHub para iOS'
+prodname_android: 'GitHub para Android'
+#GitHub Pages
+prodname_pages: 'Páginas de GitHub'
+#CodeQL
+prodname_codeql: 'CodeQL'
+prodname_ql: 'QL'
+#Apps, GitHub Marketplace, and integrations
+prodname_marketplace: 'GitHub Marketplace'
+prodname_github_app: 'GitHub App'
+prodname_github_apps: 'GitHub Apps'
+prodname_oauth_app: 'App OAuth'
+prodname_oauth_apps: 'OAuth Apps'
+#API and developer docs
+prodname_enterprise_api: 'las API de {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %}'
+prodname_support_forum_with_url: '[Foro de desarrollo y soporte de la API de GitHub](https://github.community/c/github-api-development-and-support/37)'
+prodname_unfurls: 'Adjuntos de Contenido'
+#Azure AD
+ae_azure_ad_app_link: 'la [Aplicación de GitHub AE](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
+#GitHub Actions
+## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
+prodname_actions: 'GitHub Actions'
+#GitHub Debug
+prodname_debug: 'Depuración de GitHub'
+#GitHub Discussions
+prodname_discussions: 'GitHub Discussions'
+#GitHub Packages
+prodname_registry: 'Registro del paquete de GitHub'
+prodname_github_container_registry: 'Registro de Contenedores de GitHub'
+prodname_container_registry: 'registro de contenedores'
+#GitHub Insights
+prodname_insights: 'GitHub Insights'
+#GitHub Sponsors
+prodname_sponsors: 'Patrocinadores de GitHub'
+prodname_matching_fund: 'Fondo Compensatorio para Patrocinios de GitHub'
+#GitHub Advanced Security
+prodname_GH_advanced_security: 'GitHub Advanced Security'
+prodname_advanced_security: 'Advanced Security'
+#Codespaces
+prodname_codespaces: 'Codespaces'
+prodname_vs_codespaces: 'Codespaces de Visual Studio'
+prodname_github_codespaces: 'Acerca de GitHub Codespaces'
+#GitHub resources: blog, jobs, Learning Lab
+prodname_gcf: 'Soporte de la Comunidad de GitHub'
+prodname_blog: 'el blog de GitHub'
+prodname_jobs: 'Empleos GitHub'
+prodname_learning: 'Laboratorio de aprendizaje de GitHub'
+prodname_learning_link: 'https://lab.github.com/'
+prodname_roadmap: 'Itinerario público de GitHub'
+prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
+#GitHub support
+premium_support_plan: 'Plan prémium'
+premium_plus_support_plan: 'Premium Plus Plan/GitHub Engineering Direct'
+microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
+support_ticket_priority_urgent: 'Urgente'
+support_ticket_priority_high: 'Alto'
+support_ticket_priority_normal: 'Normal'
+support_ticket_priority_low: 'Bajo'
+#Security features / code scanning platform / Security Lab
+prodname_security: 'GitHub Security Lab'
+prodname_security_link: 'https://securitylab.github.com/'
+prodname_security_advisories: 'GitHub Security Advisories'
+#Security features and code scanning platform
+prodname_secret_scanning: 'escaneo de secretos'
+prodname_secret_scanning_caps: 'Escaneo de secretos'
+prodname_code_scanning: 'escaneo de código'
+prodname_code_scanning_capc: 'Escaneo de código'
+prodname_codeql_runner: 'Ejecutor de CodeQL'
+prodname_advisory_database: 'GitHub Advisory Database'
+prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
+#Visual Studio
+prodname_vs: 'Visual Studio'
+prodname_vscode: 'Visual Studio Code'
+prodname_vss_ghe: 'Suscripción de Visual Studio con GitHub Enterprise'
+prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
+#GitHub Dependabot
+prodname_dependabot: 'Dependabot'
+prodname_dependabot_alerts: 'Las alertas del dependabot'
+prodname_dependabot_security_updates: 'Actualizaciones de seguridad del dependabot'
+prodname_dependabot_version_updates: 'Actualizaciones de versión del dependabot'
+#GitHub Archive Program
+prodname_archive: 'Programa de Archivo de GitHub'
+prodname_arctic_vault: 'Bóveda de Código del Ártico'
+#Links
+product_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
+pricing_url: 'https://github.com/pricing'
+signin_link: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Iniciar sesión](https://github.com/login){% else %}Iniciar sesión (`https://[hostname]/login`){% endif %}
+signout_link: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Salir de sesión](https://github.com/logout){% else %}Salir de sesión (`https://[hostname]/logout`){% endif %}
+raw_github_com: >-
+  {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
+#GitHub Enterprise Server past versions
+current-340-version: '11.10.354'
+#Developer site product variables
+#Use this inside command-line and other code blocks
+doc_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://docs.github.com/rest{% elsif enterpriseServerVersions contains currentVersion %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% elsif currentVersion == "github-ae@latest" %}https://docs.github.com/github-ae@latest/rest{% endif %}
+#Use this inside command-line code blocks
+api_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>{% endif %}
+#Use this inside command-line code blocks
+#Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
+oauth_host_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://github.com{% else %}http(s)://[hostname]{% endif %}
+device_authorization_url: >-
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
+#Use this all other code blocks
+api_url_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.[hostname]{% endif %}
+#Use this inside command-line code blocks
+graphql_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/graphql{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>/graphql{% endif %}
+#Use this all other code blocks
+graphql_url_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/graphql{% elsif currentVersion == "github-ae@latest" %}https://api.[hostname]/graphql{% endif %}

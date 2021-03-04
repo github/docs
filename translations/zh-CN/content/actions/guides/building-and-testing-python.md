@@ -7,6 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +40,7 @@ versions:
 要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -99,7 +103,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -132,12 +136,12 @@ jobs:
 
 #### 使用特定的 Python 版本
 
-您可以配置 python 的特定版本。 例如，3.8。 或者，您也可以通过语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
+您可以配置 python 的特定版本。 例如，3.8。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
 
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -175,7 +179,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -222,7 +226,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -245,7 +249,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -272,7 +276,7 @@ Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Setup Python
@@ -317,7 +321,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -347,7 +351,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -376,7 +380,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -416,7 +420,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -429,26 +433,26 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python # Set Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      # Install pip and pytest
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-      - name: Test with pytest
-        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-      - name: Upload pytest test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: pytest-results-${{ matrix.python-version }}
-          path: junit/test-results-${{ matrix.python-version }}.xml
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python # Set Python version
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    # Install pip and pytest
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+    - name: Test with pytest
+      run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+    - name: Upload pytest test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
 ```
 
 
@@ -465,7 +469,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Upload Python Package
 
 on:
