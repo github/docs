@@ -619,7 +619,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example using action inside a different private repository as the workflow
+#### Example using action inside a different private repository than the workflow
 
 Your workflow must checkout the private repository and reference the action locally.
 
@@ -633,7 +633,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
