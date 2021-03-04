@@ -8,7 +8,9 @@ The Coordinates widget is shown at the top of the screen. It shows geographic co
 ![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
 
 To find Coordinates widget follow: 
+
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.coordinates %} 
+
 To enable or disable a widget, click switcher (toggle button) 
 
 Click on the widget to copy coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom. 
