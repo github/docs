@@ -95,7 +95,7 @@ To find FPS debug info widget follow: <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.map_widget_fps_info %}  <br>
 
 > **_Note:_** To debug the map speed drawing needed to choose <br>
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %} . <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}. <br>
 In a second it will update. <br>
 
 ## Read more
