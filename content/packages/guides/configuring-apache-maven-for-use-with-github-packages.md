@@ -78,7 +78,6 @@ If your instance has subdomain isolation enabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-
         </repositories>
     </profile>
   </profiles>
