@@ -180,7 +180,7 @@ GitHub may offer subscription-based access to our API for those Users who requir
 Some Service features may be subject to additional terms specific to that feature or product as set forth in the GitHub Additional Product Terms. By accessing or using the Services, you also agree to the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms).
 
 ### J. Beta Previews
-**Short version:** *Beta Previews may not be supported or may change at any time, you may receive confidential information through those programs that must remain confidential while the program is private, and we'd love your feedback to make our Beta Previews better.*
+**Short version:** *Beta Previews may not be supported or may change at any time. You may receive confidential information through those programs that must remain confidential while the program is private. We'd love your feedback to make our Beta Previews better.*
 
 #### 1. Subject to Change
 
