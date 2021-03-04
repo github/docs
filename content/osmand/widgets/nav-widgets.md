@@ -10,19 +10,19 @@ Navigational widgets show information about your route during navigation or movi
 
 ## Compass
 
-Compass widget shows North on the map. Of course, this widget is clickable: changing {% data variables.android-values.rotate_map_to_bearing %}.
-
-For showing Compass widget on the screen:
+Compass widget shows North on the map. For showing Compass widget on the screen:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %} 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
 
+{% note %}
 Clicking to Compass widget changes [{% data variables.android-values.rotate_map_to_bearing %}](/osmand/navigation):
 
-- {% data variables.android-values.rotate_map_none_opt %}
 - {% data variables.android-values.rotate_map_bearing_opt %}
 - {% data variables.android-values.rotate_map_compass_opt %}
+- {% data variables.android-values.rotate_map_none_opt %}
+{% endnote %}
 
 ![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
@@ -52,13 +52,13 @@ Cliking to this widget in the screen you choose between {% data variables.androi
 
 ## Destination
 
+![navigational widgets](/assets/images/docs/widgets/nw-5.png)
+
 The widget shows current distance to the finish line: 
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.route_descr_destination %}
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_distance%}
-
-![navigational widgets](/assets/images/docs/widgets/nw-5.png)
 
 {% note %}
 Clicking to this widget move to finish point.
@@ -66,13 +66,13 @@ Clicking to this widget move to finish point.
 
 ## Arrival time or Time to go
 
+![navigational widgets](/assets/images/docs/widgets/nw-6.png)
+
 The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} of your navigation:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.access_arrival_time %} or {% data variables.ios-values.map_widget_time %}
-
-![navigational widgets](/assets/images/docs/widgets/nw-6.png)
 
 {% note %}
 Clicking to this widget to change "Arrival time" to "Time to go" and vice versa.
@@ -80,15 +80,17 @@ Clicking to this widget to change "Arrival time" to "Time to go" and vice versa.
 
 ## Speed and Speed limit
 
+![navigational widgets](/assets/images/docs/widgets/nw-7.png)
+
 Widgets show your current speed (speedometer icon) and speed limit (red speedometer icon) for the current road:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.map_widget_speed %} or {% data variables.android-values.map_widget_max_speed %} 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.gpx_speed %} or {% data variables.ios-values.map_widget_max_speed %}
 
-![navigational widgets](/assets/images/docs/widgets/nw-7.png)
-
 ## Lanes
+
+![navigational widgets](/assets/images/docs/widgets/nw-8.png)
 
 The widget shows which lanes you need to drive during navigation. Yellow is the usual position, green is the approach to the nearest maneuver (100 meters before the maneuver). The numbers on the widget are the distance to the nearest maneuver.
 
@@ -96,14 +98,19 @@ The widget shows which lanes you need to drive during navigation. Yellow is the 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.show_lanes %}
 
-![navigational widgets](/assets/images/docs/widgets/nw-8.png)
-
 ## Alert information
 - Purpose
 - How to use
 - How to configure
 
 ## Next turns
+
+Widget shows warnings about your maneuvers with a picture of maneuver and distance to it.
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
+
 - Purpose
 - How to use
 - How to configure
