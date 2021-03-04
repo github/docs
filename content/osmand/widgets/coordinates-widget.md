@@ -1,5 +1,5 @@
 ---
-title: "Coordinates widget (for Android)"
+title: "Coordinates widget (Android)"
 intro: "The Coordinate widget shows user’s current coordinates"
 versions: '*'
 ---
