@@ -21,7 +21,7 @@ Altitude widget shows the height above sea level.
 | Click | Nothing |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
-| Note   | **Android:** Make Altitude correction to accurately display the altitude on the terrain. |
+| Note   | **Android:** Download file of Altitude correction to accurately display the altitude on the terrain. |
 |        | {% data variables.product.android_button_seq %}{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %}  |
 
 ## Current time
@@ -74,7 +74,7 @@ The widget is shown at the top of the screen. It shows the geographic coordinate
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.coordinates %}  |
-| Click | to copy coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom |
+| Click | Coping the coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom. |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.coordinates_format %} |
 
 ## GPS Info (Android)
@@ -87,8 +87,8 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.gps_provider %}    |
 | Click | to see a GPS status menu. GPS status menu provides additional tools for tuning onboard GPS device. |
-| Note  | OsmAnd takes GPS info from a device. The more satellites a device can see, the better positioning will be provided. |
-|       | For making GPS correction to make sure the up-to-date data is used:  |
+| Note  | 1. OsmAnd takes GPS info from a device. The more satellites a device can see, the better positioning will be provided. |
+|       | 2. For making GPS correction to make sure the up-to-date data is used:  |
 |       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ {% data variables.android-values.agps_info %}  |
 
 ## FPS-info (Android)
@@ -101,8 +101,8 @@ The widget shows Frames per Second (FPS) of a device screen.
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → &#xe802; → {% data variables.android-values.shared_string_settings %} → {% data variables.android-values.trace_rendering %}    |
 | Click | Nothing |
-| Note  | The left number  is the maps Frames per Second (FPS) and the right one is general layer Frames per Second (FPS). |
-|       | To debug the map speed drawing:  |
+| Note  | 1. The left number  is the maps Frames per Second (FPS) and the right one is general layer Frames per Second (FPS). |
+|       | 2. To debug the map speed drawing:  |
 |       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → &#xe802; → {% data variables.android-values.shared_string_settings %} → {% data variables.android-values.trace_rendering %}  |
 
 ## Read more
