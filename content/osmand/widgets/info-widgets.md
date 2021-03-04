@@ -27,8 +27,6 @@ To find Altitude widget follow: <br>
 ## Current time
 ![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
 
-<!--Current time widget откуда берет информацию? Он с устройства ее считывает? Если на устройстве время не правильно показывает. что и виджет будет не правильно показывать время?-->
-
 Current time widget shows current time.
 
 {% note %}
@@ -57,14 +55,11 @@ The Coordinates widget is shown at the top of the screen. It shows geographic co
 
 ![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
 
-### Enable Coordinates widget
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.coordinates %} 
-
-### Action
-Click on the widget to copy coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom. 
-
-### Change coordinates format
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %}.
+|?|?|   
+|------------|------------|
+| Enable widget | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.coordinates %}  |
+| Click | Click on the widget to copy coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom |
+| Change Format | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %} |
 
 ## Battery level (Android)
 ![Battery level Android widget](/assets/images/docs/widgets/battery_level_widget.png) <br>
