@@ -141,6 +141,7 @@ For GitHub-hosted runners that use Linux only, the {% data variables.product.pro
 
 Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
 
+{% raw %}
 ```yaml
 jobs:
   CodeQL-Build:
@@ -174,7 +175,8 @@ jobs:
         # Override the default behavior so that the action doesn't attempt 
         # to auto-install Python dependencies
         setup-python-dependencies: false
-```  
+```
+{% endraw %}
 {% endif %}
 
 ### Running additional queries

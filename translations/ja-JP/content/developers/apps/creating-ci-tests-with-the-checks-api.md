@@ -12,7 +12,7 @@ versions:
 
 ### はじめに
 
-このガイドでは、[Github App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI とは、ソフトウェアの開発においてコードを頻繁に共有リポジトリにコミットする手法のことです。 コードをコミットする頻度が高いほどエラーの発生が早くなり、開発者がエラーの原因を見つけようとしてデバッグする必要性も減ります。 コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 コードの記述により多くの時間をかけられるようになり、エラーのデバッグやマージコンフリクトの解決にかける時間が減るので、これは開発者にとって素晴らしいやり方です。 🙌
 
@@ -49,7 +49,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 ### 必要な環境
 
-以下の作業に取りかかる前に、[Github Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、ある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
 
 [Ruby プログラミング言語](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) webhook ペイロード配信サービス、GitHub REST API 用の [Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)、および [Sinatra ウェブフレームワーク](http://sinatrarb.com/) を使用して、Checks API CI サーバーアプリケーションを作成します。
 
@@ -203,7 +203,7 @@ $ ruby template_server.rb
 
 ### ステップ 1.4. チェック実行を更新する
 
-`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 Github がチェック実行の作成を完了すると、`created` アクションの `check_run` webhook イベントを受信します。 このイベントは、チェックの実行を開始する合図です。
+`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. このイベントは、チェックの実行を開始する合図です。
 
 イベントハンドラーを更新し、`created` アクションを待ち受けるようにしましょう。 イベントハンドラーを更新する際、`rerequested` アクションに条件を追加できます。 誰かが [Re-run] ボタンをクリックして GitHub 上で単一のテストを再実行すると、GitHub はアプリケーションに `rerequested` チェック実行イベントを送信します。 チェック実行が `rerequested` の場合、すべてのプロセスを開始し、新しいチェック実行を作成します。
 
@@ -435,7 +435,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 ### ステップ 2.3. RuboCop を実行する
 
-これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
+これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 それではいよいよ [RuboCop 文法チェッカー](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) と [Checks API アノテーション](/rest/reference/checks#create-a-check-run)の核心に迫ります。
 
 次のコードは、RuboCop を実行し、スタイル コード エラーを JSON フォーマットで保存します。 [前のステップ](#step-22-cloning-the-repository) で追加した`clone_repository` への呼び出しの下と、チェック実行を更新するコードの上に追加して完了です。
 
@@ -447,7 +447,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
+上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 JSON フォーマットの詳細および例については、[RuboCop ドキュメント](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)を参照してください。
 
 このコードは RuboCop の結果を `@report` 変数に格納するため、リポジトリのチェックアウトを安全に削除できます。 また、このコードは JSON も解析するため、`@output` 変数を使用して GitHub App のキーと変数に簡単にアクセスできます。
 
@@ -588,7 +588,7 @@ end
 
 `offense_count` が 0 の場合、CI テストは `success` となります。 エラーがある場合、このコードは結果を `neutral` に設定します。これは、コードの文法チェッカーによるエラーを厳格に強制することを防ぐためです。 ただし、文法エラーがある場合にチェックスイートが失敗になるようにしたい場合は、結果を `failure` に変更できます。
 
-エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 さらに細かく、[RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html) の各タイプに特定の警告レベルを設定することもできますが、このクイックスタートでは簡単さを優先し、すべてのエラーを `notice` のレベルに設定します。
 
 このコードはまた、`offenses` 配列の各エラーを反復処理し、違反の場所とエラー メッセージを収集します。 必要な情報を抽出後、コードは各エラーに対してアノテーションを作成し、それを `annotations` 配列に格納します。 アノテーションは同一行の開始列と終了列のみをサポートしているため、開始行と終了行の値が同じである場合にのみ `annotation` オブジェクトに `start_column` と `end_column` が追加されます。
 
@@ -718,7 +718,7 @@ $ ruby template_server.rb
 
 ここまで来たのはすごいですよ！ 👏 あなたはもう CI テストを作成しました。 このセクションでは、もう 1 つの機能を追加します。RuboCop を使用して、見つけたエラーを自動的に修正するために使用するための機能です。 すでに[前のセクション](#step-25-updating-the-check-run-with-ci-test-results)で、[Fix this] ボタンを追加しました。 ここでは、ユーザが [Fix this] ボタンをクリックしたときにトリガーされる、`requested_action` チェック実行イベントを処理するコードを追加します。
 
-The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
+RuboCop ツールには、見つけたエラーを自動的に修正する `--auto-correct` コマンドラインオプションの [機能](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) があります。 `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
 
 リポジトリにブッシュするには、アプリケーションに [Repository contents] への書き込み権限が必要です。 この権限については、[ステップ 2.2. リポジトリをクローンする](#step-22-cloning-the-repository)で既に [**Read & write**] に設定しているので、もう準備は整っています。
 
