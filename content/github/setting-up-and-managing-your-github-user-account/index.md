@@ -1,7 +1,7 @@
 ---
 title: Setting up and managing your GitHub user account
 shortTitle: User accounts
-redirect_from:
+redirect_https://github.com/AtOmXpLuS
   - /categories/setting-up-and-managing-your-github-user-account
 versions:
   free-pro-team: '*'
