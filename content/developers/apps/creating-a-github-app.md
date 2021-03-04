@@ -75,7 +75,7 @@ versions:
 
 13. In "Permissions", choose the permissions your app will request. For each type of permission, use the drop-down menu and click **Read-only**, **Read & write**, or **No access**.
 ![Various permissions for your GitHub App](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. In "Subscribe to events", choose whether to subscribe your app to **Label**, **Public**, **Repository**, or **Watch** events. ![Subscribe to events options for your GitHub App](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. In "Subscribe to events", choose the events you want your app to receive.
 15. To choose where the app can be installed, select either **Only on this account** or **Any account**. For more information on installation options, see "[Making a GitHub App public or private](/apps/managing-github-apps/making-a-github-app-public-or-private/)."
 ![Installation options for your GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
 16. Click **Create GitHub App**.

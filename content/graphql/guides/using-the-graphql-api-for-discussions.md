@@ -83,7 +83,7 @@ discussionCategories(
 
 ### Repository.discussion
 
-Get a discussion. Returns `null` if discussion with the specified ID exists.
+Get a discussion. Returns `null` if discussion with the specified ID does not exist.
 
 _Signature:_
 
