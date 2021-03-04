@@ -33,7 +33,8 @@ sections:
   changes:
     - heading: Developer Changes
       notes:
-        - [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
+        - |
+          [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
         - Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
         - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
         - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
@@ -63,7 +64,8 @@ sections:
       notes:
         - Users can no longer set a backup email address on their profile. Their email address is set through the IdP only.
         - You can no longer enable two-factor authentication after configuring authentication through your IdP.
-        - {% data variables.product.product_name %} can now connect to Azure Boards.
+        - |
+          {% data variables.product.product_name %} can now connect to Azure Boards.
         - Version headers were missing from the APIs, and have now been set to "GitHub AE."
         - Links to documentation have been fixed.
         - Configuration of audit log forwarding within the enterprise's settings was failing.
