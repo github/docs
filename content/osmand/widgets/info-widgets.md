@@ -25,17 +25,16 @@ To find Altitude widget follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
-![Current time Android widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
+![Current time widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
 
-Current time widget shows current time.
+This widget shows current time from a device.
 
-{% note %}
-OsmAnd takes Current time data from a device.
-{% endnote %}
-
-To find Current time widget follow: <br>
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_plain_time %}  <br>
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_plain_time %} <br>
+| | |
+|------------|------------|
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_plain_time %}
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_plain_time %} |
+| Click | Nothing |
+| Format | Takes format from device settings |
 
 ## Speed
 ![Speed Android widget](/assets/images/docs/widgets/speed_a_widget.png) <br>
