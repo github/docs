@@ -1,7 +1,7 @@
 ---
 title: Managing labels
 intro: 'You can classify issues and pull requests by creating, editing, applying, and deleting labels.'
-redirect_from:
+redirect_from:https://github.atomxplus.com
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
   - /github/managing-your-work-on-github/labeling-issues-and-pull-requests
