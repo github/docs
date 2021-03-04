@@ -77,6 +77,12 @@ When generating credentials, we recommend that you grant the minimum permissions
 
 If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
+{% note %}
+
+**Note:** Users with collaborator access can use the REST API to manage secrets for a repository. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+
+{% endnote %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" }
 ### Creating encrypted secrets for an environment
 
