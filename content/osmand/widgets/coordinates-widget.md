@@ -15,5 +15,3 @@ Click on the widget to copy coordinates to the clipboard and then paste them any
 
 > **_Note:_** To change coordinates format follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %}.<br>
-
-<!-- Coordinate format. (уточнить написать про форматы тут или будет другая статья на которую в этом документе будет ссылка? -->
