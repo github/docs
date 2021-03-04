@@ -99,11 +99,11 @@ The widget shows Frames per Second (FPS) of a device screen.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}    |
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → &#xe802; → {% data variables.android-values.shared_string_settings %} → {% data variables.android-values.trace_rendering %}    |
 | Click | Nothing |
 | Note  | The left number  is the maps Frames per Second (FPS) and the right one is general layer Frames per Second (FPS). |
 |       | To debug the map speed drawing:  |
-|       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}  |
+|       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → &#xe802; → {% data variables.android-values.shared_string_settings %} → {% data variables.android-values.trace_rendering %}  |
 
 ## Read more
 {% link_with_intro /nav-widgets %}
