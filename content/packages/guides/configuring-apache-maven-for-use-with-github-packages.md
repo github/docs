@@ -71,9 +71,6 @@ If your instance has subdomain isolation enabled:
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
             <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY-2</url>
-            <releases>
-              <enabled>true</enabled>
-            </releases>
             <snapshots>
               <enabled>true</enabled>
             </snapshots>
