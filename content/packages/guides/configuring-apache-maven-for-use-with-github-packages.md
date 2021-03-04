@@ -59,9 +59,6 @@ If your instance has subdomain isolation enabled:
           <repository>
             <id>github</id>
             <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
-            <releases>
-              <enabled>true</enabled>
-            </releases>
             <snapshots>
               <enabled>true</enabled>
             </snapshots>
@@ -69,7 +66,7 @@ If your instance has subdomain isolation enabled:
         </repositories>
     </profile>
   </profiles>
-  
+
   <servers>
     <server>
       <id>github</id>
