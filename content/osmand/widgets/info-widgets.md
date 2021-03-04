@@ -79,7 +79,7 @@ To find GPS Info widget follow: <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.gps_provider %}  <br>
 
 > **_Note:_** User could make GPS correction to make sure the up-to-date data is used. <br>
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ long tao on the {% data variables.android-values.agps_info %}. <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ long tap on the {% data variables.android-values.agps_info %}. <br>
 In a second it will update.  <br>
 
 ## FPS-info (Android)
