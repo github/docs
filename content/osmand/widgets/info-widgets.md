@@ -35,7 +35,7 @@ This widget shows current time from a device.
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_plain_time %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_plain_time %} |
 | Click | Nothing |
-| Format | Takes format from device settings |
+| Format | From device settings |
 
 ## Speed
 
@@ -45,10 +45,10 @@ This widget shows your current speed.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.map_widget_speed %} |
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_speed %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.gpx_speed %} |
 | Click | Nothing |
-| Format | Takes format from device settings |
+| Format | From device settings |
 | Note   | OsmAnd takes Speed data from a device. It depend on accelerometer, gyroscope sensors on mobile device and GPS. |
 
 ## Battery level
@@ -59,10 +59,10 @@ This widget shows battery level of your device.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.map_widget_battery %}  |
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_battery %}  |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_battery %} |
 | Click | Nothing |
-| Format | Takes format from device settings |
+| Format | From device settings |
 | Note   | OsmAnd takes Battery level from a device. |
 
 ## Coordinates widget (Android)
@@ -85,30 +85,26 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.gps_provider %}    |
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.gps_provider %}    |
 | Click | to see a GPS status menu. GPS status menu provides additional tools for tuning onboard GPS device. |
 | Note  | OsmAnd takes GPS info from a device. The more satellites a device can see, the better positioning will be provided. |
 |       | For making GPS correction to make sure the up-to-date data is used:  |
-|       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ long tap on the {% data variables.android-values.agps_info %}  |
+|       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ {% data variables.android-values.agps_info %}  |
 
 ## FPS-info (Android)
 
-FPS debug info widget shows Frames per Second (FPS) of your screen. 
+The widget shows Frames per Second (FPS) of a device screen. 
 
 ![FPS info Android widget](/assets/images/docs/widgets/iw-8.png) 
 
-Where the The left number  is the maps Frames per Second (FPS) and the right one is general layer Frames per Second (FPS). 
-
-To find FPS debug info widget follow:
-
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.map_widget_fps_info %}  
-
-> **_Note:_** To debug the map speed drawing needed to choose 
-> 
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}.
-
-In a second it will update.
+| | |
+|------------|------------|
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}    |
+| Click | Nothing |
+| Note  | The left number  is the maps Frames per Second (FPS) and the right one is general layer Frames per Second (FPS). |
+|       | To debug the map speed drawing:  |
+|       | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}  |
 
 ## Read more
-{% link_with_intro /radius-ruler %}
-{% link_with_intro /coordinates-widget %}
+{% link_with_intro /nav-widgets %}
+{% link_with_intro /action-widgets %}
