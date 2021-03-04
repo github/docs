@@ -148,7 +148,11 @@
 
 .markdown-body img {
   max-width: 400px;
+  @media (max-width: $width-md) {
+    max-width: 100%;
+  }
 }
+
 
 .procedural-image-wrapper {
   display: block;
