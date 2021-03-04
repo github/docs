@@ -10,19 +10,19 @@ Navigational widgets show information about your route during navigation or movi
 
 ## Compass
 
-Compass widget shows North on the map. Of course, this widget is clickable: changing {% data variables.android-values.rotate_map_to_bearing %}.
-
-For showing Compass widget on the screen:
+Compass widget shows North on the map. For showing Compass widget on the screen:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %} 
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
 
+{% note %}
 Clicking to Compass widget changes [{% data variables.android-values.rotate_map_to_bearing %}](/osmand/navigation):
 
 - {% data variables.android-values.rotate_map_none_opt %}
 - {% data variables.android-values.rotate_map_bearing_opt %}
 - {% data variables.android-values.rotate_map_compass_opt %}
+{% endnote %}
 
 ![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
