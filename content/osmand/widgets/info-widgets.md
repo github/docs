@@ -52,6 +52,19 @@ To find Speed widget follow: <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.map_widget_speed %}  <br>
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.gpx_speed %} <br>
 
+## Coordinates widget (Android)
+The Coordinates widget is shown at the top of the screen. It shows geographic coordinates of the user's location.
+![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
+
+To enable Coordinates widget. 
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.coordinates %} 
+
+Click on the widget to copy coordinates to the clipboard and then paste them anywhere. Or share the coordinates via clicking on the button 'Share' in the pop-up at the bottom. 
+
+> **Note**: To change coordinates format follow:
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.coordinates_format %}.
+
+
 ## Battery level (Android)
 ![Battery level Android widget](/assets/images/docs/widgets/battery_level_widget.png) <br>
 
@@ -97,6 +110,7 @@ To find FPS debug info widget follow: <br>
 > **_Note:_** To debug the map speed drawing needed to choose <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → tap ≡ → {% data variables.android-values.open_settings %} → enable {% data variables.android-values.trace_rendering %}. <br>
 In a second it will update. <br>
+
 
 ## Read more
 {% link_with_intro /radius-ruler %}
