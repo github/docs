@@ -116,6 +116,7 @@ The widget shows warnings about your maneuvers with a picture of maneuver and di
 ## Street name / POIs (Android)
 
 ![navigational widgets](/assets/images/docs/widgets/nw-10.png)
+![navigational widgets](/assets/images/docs/widgets/nw-11.png)
 
 The widget shows 
 
