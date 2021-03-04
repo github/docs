@@ -24,10 +24,6 @@ Altitude widget shows the height above sea level.
 | Note   | **Android:** make Altitude correction to accurately display the altitude on the terrain. |
 |        | {% data variables.product.android_button_seq %}{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %}  |
 
-> **_Note:_** User could make Altitude correction (for Android only) to make sure the up-to-date data is used.
-
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} 
-
 ## Current time
 
 ![Current time widget](/assets/images/docs/widgets/iw-3.png)
