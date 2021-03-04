@@ -51,19 +51,19 @@ If your instance has subdomain isolation enabled:
   <profiles>
     <profile>
       <id>github</id>
-        <repositories>
-          <repository>
-            <id>central</id>
-            <url>https://repo1.maven.org/maven2</url>
-          </repository>
-          <repository>
-            <id>github</id>
-            <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
-            <snapshots>
-              <enabled>true</enabled>
-            </snapshots>
-          </repository>
-        </repositories>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
     </profile>
   </profiles>
 
