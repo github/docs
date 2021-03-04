@@ -11315,6 +11315,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   includesCreatedEdit: Boolean!
 
   """
+  Indicates whether or not this issue is currently pinned to the repository issues list
+  """
+  isPinned: Boolean
+
+  """
   Is this issue read by the viewer
   """
   isReadByViewer: Boolean
@@ -14842,7 +14847,7 @@ type Mutation {
     Parameters for PinIssue
     """
     input: PinIssueInput!
-  ): PinIssuePayload @preview(toggledBy: "elektra-preview")
+  ): PinIssuePayload
 
   """
   Removes assignees from an assignable object.
@@ -15052,7 +15057,7 @@ type Mutation {
     Parameters for UnpinIssue
     """
     input: UnpinIssueInput!
-  ): UnpinIssuePayload @preview(toggledBy: "elektra-preview")
+  ): UnpinIssuePayload
 
   """
   Marks a review thread as unresolved.
@@ -19993,7 +19998,7 @@ type PinnedEvent implements Node {
 """
 A Pinned Issue is a issue pinned to a repository's index page.
 """
-type PinnedIssue implements Node @preview(toggledBy: "elektra-preview") {
+type PinnedIssue implements Node {
   """
   Identifies the primary key from the database.
   """
@@ -20019,7 +20024,7 @@ type PinnedIssue implements Node @preview(toggledBy: "elektra-preview") {
 """
 The connection type for PinnedIssue.
 """
-type PinnedIssueConnection @preview(toggledBy: "elektra-preview") {
+type PinnedIssueConnection {
   """
   A list of edges.
   """
@@ -20044,7 +20049,7 @@ type PinnedIssueConnection @preview(toggledBy: "elektra-preview") {
 """
 An edge in a connection.
 """
-type PinnedIssueEdge @preview(toggledBy: "elektra-preview") {
+type PinnedIssueEdge {
   """
   A cursor for use in pagination.
   """
@@ -28439,7 +28444,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): PinnedIssueConnection @preview(toggledBy: "elektra-preview")
+  ): PinnedIssueConnection
 
   """
   The primary language of the repository's code.
@@ -37726,6 +37731,11 @@ A domain that can be verified for an organization or an enterprise.
 """
 type VerifiableDomain implements Node {
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
@@ -37775,6 +37785,11 @@ type VerifiableDomain implements Node {
   The time that the current verification token will expire.
   """
   tokenExpirationTime: DateTime
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 
   """
   The current verification token for the domain.
