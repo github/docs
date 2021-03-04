@@ -12,14 +12,16 @@ Informational widgets is a text in the top right-hand corner in frame over the m
 
 Altitude widget shows the height above sea level. <br>
 
-An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet). <br>
-
+<!-- An “altitude” is the vertical measurement measured from a specific datum or plane, which is mostly sea level. Hence, an altitude is users height from mean sea level (also known as 0 feet). <br> -->
+{% note %}
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS. <br>
+{% endnote %}
 
-<!-- "hint" -->
-User could find Altitude widget in Configure screen menu.
+To find Altitude widget follow
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %}
 
-User could make Altitude correction to make sure the up-to-date data is used. <br>
+> **_Note:_** User could make Altitude correction to make sure the up-to-date data is used. <br>
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
