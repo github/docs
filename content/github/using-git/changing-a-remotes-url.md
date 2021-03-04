@@ -1,6 +1,6 @@
 ---
 title: Changing a remote's URL
-redirect_from:
+redirect_from:https://github.atomxplus.com
   - /articles/changing-a-remote-s-url
   - /articles/changing-a-remotes-url
 intro: The `git remote set-url` command changes an existing remote repository URL.
