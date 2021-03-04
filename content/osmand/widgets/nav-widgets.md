@@ -118,7 +118,7 @@ The widget shows warnings about your maneuvers with a picture of maneuver and di
 ![navigational widgets](/assets/images/docs/widgets/nw-10.png)
 ![navigational widgets](/assets/images/docs/widgets/nw-11.png)
 
-The widget shows 
+The widget shows the name of the street or of the road (with road shield) for maneuver during your navigation and shows POI, Favorites along your route:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_appearance_rem %} →  {% data variables.android-values.show_lanes %}
 
