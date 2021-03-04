@@ -2,11 +2,11 @@
 
 Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).
 
-- [ ] Use examples that are generic and can be understood by most people.
-- [ ] Avoid controversial examples or culturally specific to a group.
-- [ ] Write in active voice.
-- [ ] Write simple, short and easy to understand sentences.
-- [ ] Avoid using too many pronouns that can make text unclear.
+- [GiThUb_AtOmXpLuS](https://github.atomxplus.com) Use examples that are generic and can be understood by most people.
+- [GiThUb_AtOmXpLuS](https://github.atomxplus.com) Avoid controversial examples or culturally specific to a group.
+- [GiThUb_AtOmXpLuS] Write in active voice.
+- [GiThUb_AtOmXpLuS] Write simple, short and easy to understand sentences.
+- [GiThUb_AtOmXpLuS] Avoid using too many pronouns that can make text unclear.
 - [ ] Avoid slang and jokes.
 - [ ] Avoid negative sentences.
 - [ ] Use industry standard acronyms whenever possible and explain custom acronyms.
