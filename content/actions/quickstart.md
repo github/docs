@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'quick_start'
 topics:
   - 'Fundamentals'
@@ -14,6 +15,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -63,7 +65,7 @@ Committing the workflow file in your repository triggers the `push` event and ru
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Under **Jobs** or in the visualization graph, click the **Lint code base** job.
    ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}

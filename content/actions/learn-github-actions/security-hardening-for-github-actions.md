@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'overview'
 topics:
   - 'Security'
@@ -15,6 +16,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Overview
 
@@ -22,7 +24,7 @@ This guide explains how to configure security hardening for certain {% data vari
 
 ### Using secrets
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or environment{% else %} or repository{% endif %} level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repository, or environment{% else %} or repository{% endif %} level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps the minimize risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 
@@ -41,7 +43,7 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 - **Audit and rotate registered secrets**
     - Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
     - Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 - **Consider requiring review for access to secrets**
     - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Environments](/actions/reference/environments)."
 {% endif %}
@@ -75,7 +77,7 @@ This means that a compromise of a single action within a workflow can be very si
 
 ### Considering cross-repository access
 
-{% data variables.product.product_name %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying workflow files. Users have specific permissions for each repository, so having the `GITHUB_TOKEN` for one repository grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to a workflow, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
+{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying workflow files. Users have specific permissions for each repository, so having the `GITHUB_TOKEN` for one repository grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to a workflow, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
 
 We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {% data variables.product.product_name %}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
 
@@ -131,7 +133,6 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `repo.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
 | `repo.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 #### Events for self-hosted runners
 | Action | Description
 |------------------|-------------------
@@ -143,9 +144,7 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `repo.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
 | `repo.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
 | `repo.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 #### Events for self-hosted runner groups
 | Action | Description
 |------------------|-------------------
@@ -158,11 +157,7 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `org.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
 | `org.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
 | `org.runner_group_runner_removed` | Triggered when a self-hosted runner is removed from a group.
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 #### Events for workflow activities
 
 {% data reusables.actions.actions-audit-events-workflow %}
-
-{% endif %}

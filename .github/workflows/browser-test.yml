@@ -2,10 +2,10 @@ name: Browser Tests
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
 
 jobs:
   see_if_should_skip:
@@ -40,11 +40,13 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install
         uses: ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17
+        timeout-minutes: 5
         with:
           args: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Test
+        timeout-minutes: 10
         uses: ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17
         with:
           args: npm run browser-test
