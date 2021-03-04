@@ -27,7 +27,7 @@ Name des Workflows. {% data variables.product.prodname_dotcom %} zeigt die Namen
 
 ### `on`
 
-**Erforderlich** Name des Ereignisses auf {% data variables.product.prodname_dotcom %}, das den Workflow auslöst. Sie können einen `string` für ein einzelnes Ereignis, ein `array` mit Ereignissen, ein `array` mit Ereignis-`types` oder eine Ereigniskonfigurations-`map` festlegen, mit der ein Workflow geplant oder die Ausführung eines Workflows auf bestimmte Dateien, Tags oder Branch-Änderungen beschränkt wird. Eine Liste der verfügbaren Ereignisse finden Sie unter „[Ereignisse, die Workflows auslösen](/articles/events-that-trigger-workflows)“.
+**Required**. The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. Sie können einen `string` für ein einzelnes Ereignis, ein `array` mit Ereignissen, ein `array` mit Ereignis-`types` oder eine Ereigniskonfigurations-`map` festlegen, mit der ein Workflow geplant oder die Ausführung eines Workflows auf bestimmte Dateien, Tags oder Branch-Änderungen beschränkt wird. Eine Liste der verfügbaren Ereignisse finden Sie unter „[Ereignisse, die Workflows auslösen](/articles/events-that-trigger-workflows)“.
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -286,7 +286,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 ### `jobs.<job_id>.runs-on`
 
-**Erforderlich** Typ der Maschine, auf der der Job ausgeführt wird. Die Maschine kann entweder ein {% data variables.product.prodname_dotcom %}-gehosteter oder ein selbst-gehosteter Runner sein.
+**Required**. The type of machine to run the job on. Die Maschine kann entweder ein {% data variables.product.prodname_dotcom %}-gehosteter oder ein selbst-gehosteter Runner sein.
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -299,6 +299,7 @@ Verfügbare Arten von {% data variables.product.prodname_dotcom %}-gehostete Run
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### Beispiel
 
@@ -518,7 +519,7 @@ Aktionen sind entweder JavaScript-Dateien oder Docker-Container. Bei Docker-Cont
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -700,12 +701,24 @@ steps:
 
 Mit `command […options] {0} [..more_options]` können Sie einen Vorlagen-String für den `shell`-Wert festlegen. {% data variables.product.prodname_dotcom %} interpretiert das erste Wort im String, nach dem ein „Whitespace“ (Zwischenraum-Zeichen) steht, als Befehl, und der Dateiname für das temporäre Skript wird in `{0}` eingefügt.
 
+Ein Beispiel:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### Exit-Codes und Voreinstellung für Fehleraktionen
 
 Für integrierte Shell-Schlüsselwörter gelten die folgenden Standards, die durch auf {% data variables.product.prodname_dotcom %} gehostete Runner ausgeführt werden. Beachte diese Richtlinien beim Ausführen von Shell-Skripts.
 
 - `bash`/`sh`:
-  - Fail-Fast-Verhalten mit `set -e o pipefail`: Standard für `bash` und integrierte `shell`. Dies ist außerdem der Standard, wenn Du eine Option für eine Plattform außer Windows angibst.
+  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. Dies ist außerdem der Standard, wenn Du eine Option für eine Plattform außer Windows angibst.
   - Wenn Du auf Fail-Fast verzichtest und stattdessen die volle Kontrolle übernehmen möchtest, stelle einen Vorlagen-String für die Shell-Optionen bereit. Beispiel: `bash {0}`.
   - sh-ähnliche Shells liefern beim Beenden als ihren eigenen Exit-Code den Exit-Code des letzten Befehls, der im Skript ausgeführt wurde. Dies ist auch das Standardverhalten für Aktionen. Der Runner meldet den Status des Schritts gemäß diesem Exit-Code als Fehler/Erfolg.
 
@@ -1186,7 +1199,7 @@ Weitere Informationen zur Syntax für Branch-, Tag- und Pfadfilter finden Sie un
 | `'**'`                                                 | Abgleich mit allen Branch- und Tag-Namen. Dies ist das Standardverhalten, wenn Sie keinen `branches`- oder `tags`-Filter angeben.                                                                             | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                           | Das Zeichen `*` ist ein Sonderzeichen in YAML. Wenn ein Muster mit `*` beginnen soll, sind Anführungszeichen erforderlich.                                                                                    | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                  | Abgleich mit Branch- und Tag-Namen, die mit `v2` beginnen.                                                                                                                                                    | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                  | Abgleich mit allen semantischen Versions-Tags mit der Hauptversion 1 oder 2.                                                                                                                                  | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                  | Matches all semantic versioning branches and tags with major version 1 or 2                                                                                                                                   | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### Muster für den Abgleich von Dateinamen
 

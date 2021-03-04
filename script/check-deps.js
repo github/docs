@@ -42,13 +42,12 @@ const main = async () => {
       'style-loader',
       'webpack-cli',
       'browser-date-formatter',
-      'html-truncate',
-      'platform-utils',
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',
       'js-cookie',
-      'clipboard'
+      'mdast-util-from-markdown',
+      'unist-util-visit'
     ]
   })
 

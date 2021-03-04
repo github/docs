@@ -7,11 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'tutorial'
+topics:
+  - 'Packaging'
+  - 'Publishing'
+  - 'Java'
+  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -148,7 +155,7 @@ jobs:
 
 {% data reusables.github-actions.gradle-workflow-steps %}
 1. Runs the `gradle publish` command to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret.
-   
+
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ### Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}

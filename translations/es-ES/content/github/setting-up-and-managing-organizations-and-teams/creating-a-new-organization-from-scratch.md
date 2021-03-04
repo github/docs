@@ -17,7 +17,7 @@ Cuando creas una organización nueva desde cero, esta no tiene ningún repositor
 {% data reusables.organizations.new-organization %}
 4. Sigue las propuestas para crear tu organización. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información acerca de los planes disponibles para tu equipo, consulta la sección "[productos de {% data variables.product.prodname_dotcom %}](/articles/githubs-products)".{% endif %}
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Establecer tu correo electrónico de facturación](/articles/setting-your-billing-email)"{% endif %}

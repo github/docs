@@ -10,7 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -124,7 +127,7 @@ steps:
 
 #### コミットの SHA を使用したリリース管理
 
-各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 省略された値の代わりにコミットの完全な SHA 値を使用すると、同じ省略形を使用する悪意のあるコミットの使用を防ぐことができます。
+各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}コミットのSHA値は、短縮値ではなく完全な値を使わなければなりません。{% else %}コミットのSHA値として短縮値でなく完全な値を使うことで、同じ短縮値を使う悪意あるコミットを使ってしまうことを回避しやすくなります、{% endif %}
 
 ```yaml
 steps:

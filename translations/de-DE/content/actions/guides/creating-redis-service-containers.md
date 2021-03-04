@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Containers'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ Es kannst Dir helfen, wenn Du ein grundlegendes Verständnis von YAML, der Synta
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -91,7 +94,7 @@ jobs:
 
 {% data reusables.github-actions.redis-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label des Container-Jobs
   container-job:
@@ -118,7 +121,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI tests gestartet werden
   - name: Check out repository code
@@ -152,7 +155,7 @@ Wenn Du einen Job direkt auf der Runner-Maschine ausführst, musst Du die Ports 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis runner example
 on: push
 
@@ -210,7 +213,7 @@ jobs:
 
 Der Workflow ordnet Port 6379 des Redis-Service-Containers dem Docker-Host zu. Weitere Informationen über das Schlüsselwort `ports` findest Du unter "[Informationen über Service-Container](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label des Runner-Jobs
   runner-job:
@@ -238,7 +241,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI tests gestartet werden
   - name: Check out repository code
@@ -274,7 +277,7 @@ Du kannst *client.js* anpassen, um alle Redis-Operationen abzudecken, die Dein W
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const redis = require("redis");
 
 // Erzeugt einen neuen Redis-Client

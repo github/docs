@@ -62,7 +62,7 @@ El presente acuerdo es un acuerdo legal entre tú ("tú", "tu") y GitHub, Inc. (
 
   Ninguna parte del presente acuerdo perjudicará nuestro derecho a desarrollar, adquirir, licenciar, comercializar, promocionar o distribuir productos, software o tecnologías que puedan competir con tus productos.
 
-### 11. Privacy
+### 11. Privacidad
 
   Como parte del desarrollo y la evaluación de nuestros programas de evaluación, GitHub necesita recopilar información sobre cómo tu uso de los servicios y los programas y cómo GitHub puede mejorarlos. Al aceptar participar en los programas de prelanzamiento de GitHub, aceptas que has leído y has dado tu consentimiento a nuestra [Política de privacidad completa](/articles/github-privacy-statement/).
 

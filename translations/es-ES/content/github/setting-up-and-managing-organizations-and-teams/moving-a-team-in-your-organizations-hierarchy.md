@@ -33,6 +33,6 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm new parent team (Confirmar nuevo equipo padre)**. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"

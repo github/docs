@@ -105,6 +105,6 @@ Ambos calificadores toman la fecha como parámetro. {% data reusables.time_date.
 | <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) coincide con debates que se crearon después del 15 de noviembre de 2020.                                                                                |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) coincide con debates que tengan la palabra "weird" en el cuerpo y que se hayan actualizado después de diciembre de 2020. |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

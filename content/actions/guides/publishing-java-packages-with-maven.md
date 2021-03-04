@@ -7,11 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'tutorial'
+topics:
+  - 'Packaging'
+  - 'Publishing'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -155,7 +162,7 @@ This workflow performs the following steps:
 1. Checks out a copy of project's repository.
 1. Sets up the Java JDK, and also automatically configures the Maven _settings.xml_ file to add authentication for the `github` Maven repository to use the `GITHUB_TOKEN` environment variable.
 1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
- 
+
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ### Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
