@@ -17,9 +17,9 @@ Altitude widget shows the height above sea level. <br>
 OsmAnd takes attitude data from a device. And the device takes them from the chip which is responsible for GPS. <br>
 {% endnote %}
 
-To find Altitude widget follow
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %}
+To find Altitude widget follow <br>
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} <br>
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} <br>
 
 > **_Note:_** User could make Altitude correction (for Android only) to make sure the up-to-date data is used. <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
