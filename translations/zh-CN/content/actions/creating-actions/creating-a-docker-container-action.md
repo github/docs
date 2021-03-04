@@ -112,7 +112,7 @@ runs:
   ```
   如果 `entrypoint.sh` 执行没有任何错误，则操作的状态设置为 `success`。 您还可以在操作的代码中显式设置退出代码以提供操作的状态。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
-1. Make your `entrypoint.sh` file executable by running the following command on your system.
+1. 通过在您的系统上运行以下命令使您的 `entrypoint.sh` 文件可执行。
 
   ```shell{:copy}
   $ chmod +x entrypoint.sh
@@ -177,7 +177,7 @@ git push --follow-tags
 
 #### 使用公共操作的示例
 
-The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
+以下工作流程代码使用公共 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 仓库中完整的 _hello world_ 操作。 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}公共操作即使未发布到 {% data variables.product.prodname_marketplace %} 也可使用。 更多信息请参阅“[发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”。 {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -202,7 +202,7 @@ jobs:
 
 #### 使用私有操作的示例
 
-将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**

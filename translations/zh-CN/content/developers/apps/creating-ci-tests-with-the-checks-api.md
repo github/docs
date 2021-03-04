@@ -12,7 +12,7 @@ versions:
 
 ### 简介
 
-本指南将介绍 [Github 应用程序](/apps/)和[检查 API](/rest/reference/checks)，您将使用它们来构建运行测试的持续集成 (CI) 服务器。
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI 是一种需要频繁提交代码到共享仓库的软件实践。 频繁提交代码能较早检测到错误，减少在查找错误来源时开发者需要调试的代码量。 频繁的代码更新也更便于从软件开发团队的不同成员合并更改。 这对开发者非常有益，他们可以将更多时间用于编写代码，而减少在调试错误或解决合并冲突上所花的时间。 🙌
 
@@ -49,7 +49,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 ### 基本要求
 
-在开始之前，如果您尚未熟悉 [Github 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
 
 您将使用 [Ruby 编程语言](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) web 挂钩有效负载交付服务、用于 GitHub REST API 的 [Octokit.rb Ruby 库](http://octokit.github.io/octokit.rb/)以及 [Sinatra web 框架](http://sinatrarb.com/)来创建检查 API CI 服务器应用程序。
 
@@ -203,7 +203,7 @@ $ ruby template_server.rb
 
 ### 步骤 1.4. 更新检查运行
 
-当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 当 Github 完成创建检查运行时，您将收到带有 `created` 操作的 `check_run` web 挂钩事件。 该事件是您开始运行检查的信号。
+当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. 该事件是您开始运行检查的信号。
 
 您需要更新事件处理程序以查找 `created` 操作。 在更新事件处理程序时，可以为 `rerequested` 操作添加条件。 当某人通过单击“Re-run（重新运行）”按钮在 GitHub 上重新运行单个测试时，GitHub 将 `rerequested` 检查运行事件发送到您的应用程序。 当检查运行为 `rerequested` 时，您需要启动整个进程并创建新的检查运行。
 

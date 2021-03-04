@@ -76,7 +76,7 @@ type: 'how_to'
 
 ![工作流程模板文件](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template from your organization
+### 使用组织的工作流程模板
 
 此程序展示组织成员如何查找并使用工作流程模板来创建新的工作流程。 只要是组织成员，都可以使用组织的工作流程模板。
 
