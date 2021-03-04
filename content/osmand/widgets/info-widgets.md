@@ -25,7 +25,7 @@ To find Altitude widget follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.index_item_world_altitude_correction %} <br>
 
 ## Current time
-![Current time widget](/assets/images/docs/widgets/current_time_android_widget.png | width=320px) <br>
+![Current time widget](/assets/images/docs/widgets/current_time_android_widget.png) <br>
 
 This widget shows current time from a device.
 
@@ -52,7 +52,7 @@ To find Speed widget follow: <br>
 ## Coordinates widget (Android)
 The Coordinates widget is shown at the top of the screen. It shows geographic coordinates of the user's location.
 
-![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png | width=320px)
+![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
 
 | | |
 |------------|------------|
