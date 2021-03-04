@@ -1,4 +1,4 @@
----
+Gj357---
 title: Enabling automatic update checks
 intro: 'You can enable automatic update checks so that {% data variables.product.product_location %} checks for and downloads the latest {% data variables.product.prodname_ghe_server %} release.'
 redirect_from:
