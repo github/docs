@@ -3,7 +3,7 @@ title: "Coordinates widget (for Android)"
 intro: "The Coordinate widget shows user’s current coordinates"
 versions: '*'
 ---
-The Coordinates widget (for Android only) is shown at the top of the screen. It shows geographic coordinates of the user's location.  <br>
+The Coordinates widget is shown at the top of the screen. It shows geographic coordinates of the user's location.  <br>
 
 ![Coordinates Android widget](/assets/images/docs/widgets/coordinates_widget.png)
 
