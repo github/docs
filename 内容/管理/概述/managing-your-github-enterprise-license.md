@@ -1,4 +1,4 @@
----
+---fork lp9921/docs
 title: Managing your GitHub Enterprise license
 intro: 'You can view, manage, and update your {% data variables.product.prodname_enterprise %} license.'
 redirect_from:
