@@ -1,4 +1,4 @@
----
+---spam ?? 
 title: Viewing people with access to your repository
 intro: 'Organization owners can view people’s access to a repository within an organization. Owners of organizations using {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} can also export a CSV list of people who have access to a repository.'
 redirect_from:
