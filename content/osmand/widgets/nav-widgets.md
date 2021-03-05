@@ -12,14 +12,14 @@ Navigational widgets display information about your route during navigation or m
 
 Compass widget shows North on the map. For showing Compass widget on the screen:
 
-<!-- | | |
+| | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %}  |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}|
 | Click | changes [{% data variables.android-values.rotate_map_to_bearing %}](/osmand/navigation): |
 |   | {% data variables.android-values.rotate_map_bearing_opt %}  |
 |   | {% data variables.android-values.rotate_map_compass_opt %}  |
-|   | {% data variables.android-values.rotate_map_none_opt %}  | -->
+|   | {% data variables.android-values.rotate_map_none_opt %}  | 
 
 <!-- {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %}
 
