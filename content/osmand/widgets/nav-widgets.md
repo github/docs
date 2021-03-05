@@ -119,7 +119,7 @@ The widget shows which lanes you need to drive during navigation. Yellow is the 
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_appearance_rem %} →  {% data variables.android-values.show_lanes  %} |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_appearance_rem %} → {% data variables.ios-values.show_lanes %} | 
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_appearance_rem %} → {% data variables.ios-values.show_lanes %} |
 
 ## Alert information
 - Purpose
@@ -143,12 +143,9 @@ The widget shows warnings about your maneuvers with a picture of maneuver and di
 ![navigational widgets](/assets/images/docs/widgets/nw-11.png)
 
 The widget shows street names or road names (highway shield) for maneuver during navigation. Also shows POI and Favorites along the route:
-<!--
+
 | |
 |------------|------------|
-| Enable |{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_appearance_rem %} →  {% data variables.android-values.map_widget_top_text %} | -->
-
-
-
+| Enable |{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_appearance_rem %} →  {% data variables.android-values.map_widget_top_text %} |
 
 ## Link to markers
