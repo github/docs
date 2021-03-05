@@ -9,7 +9,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *' # every 15 minutes
+    - cron: 'uplink' # every 15 minutes
 
 jobs:
   repo-sync:
