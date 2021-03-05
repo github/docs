@@ -61,4 +61,4 @@ jobs:
               deleteProjectCard(input:{cardId:${{ env.FR_CARDS }}}) {deletedCardId}
             }
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
