@@ -49,7 +49,7 @@ jobs:
         env:
           QUERY_DATA: ${{ steps.find_project_cards.outputs.data }}
         run: |
-          echo 'FR_CARDS='$(jq '.node.projectCards.nodes | .[] | select(.project.id == "MDc6UHJvamVjdDQ1NzI0ODI") | .id' <<< "$QUERY_DATA") >> $GITHUB_ENV
+          echo 'FR_CARDS='$(jq '.node.projectCards.nodes | .[] | select(.project.id == "MDc6UHJvamVjdDQ1NzI0ODI=") | .id' <<< "$QUERY_DATA") >> $GITHUB_ENV
 
       - name: Delete card
         id: delete_project_card
