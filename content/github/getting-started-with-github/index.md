@@ -29,7 +29,8 @@ versions:
 {% topic_link_in_list /learning-about-github %}
     {% link_in_list /githubs-products %}
     {% link_in_list /about-github-advanced-security %}
-    {% link_in_list /exploring-early-access-releases-with-feature-preview %}
+    {% link_in_list /exploring-early-access-releases-with-feature-preview %}![QSRemote_free-file](https://user-images.githubusercontent.com/67565661/110069121-57bad200-7da1-11eb-9434-2bc631b3d015.png)
+
     {% link_in_list /types-of-github-accounts %}
     {% link_in_list /faq-about-changes-to-githubs-plans %}
     {% link_in_list /github-cli %}
