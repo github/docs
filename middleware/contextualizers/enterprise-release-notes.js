@@ -18,6 +18,8 @@ function sortPatchKeys (release, version) {
         ...release[key]
       }
     })
+    // Filter out any deprecated patches
+    .filter(key => !key.deprecated)
   return keys
     .sort((a, b) => {
       let aTemp = a.version
