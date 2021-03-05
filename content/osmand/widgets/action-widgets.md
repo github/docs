@@ -165,7 +165,7 @@ The widget is used to get the quick access to Mapillary app to add missed images
 | | |
 |------------|------------|
 | Enable | IMPORTANT: enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Mapillary widget. |
-|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_item %}  |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %}  |
 | Click | redirected to the OsmAnd Mapillary application.  |
 | Note  |  The Mapillary application should be installed separately, for example, from Google Play. |
 
