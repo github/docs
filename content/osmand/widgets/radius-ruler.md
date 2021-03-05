@@ -13,10 +13,11 @@ Radius-ruler widget shows distance between users location and inner point of the
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.radius_ruler_item %}   |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_radius_ruler %} |
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %}   → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_radius_ruler %} |
 | Click | Сhanges widget state between the black scale, the grey one and no scale (only ruler) modes. |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
-| Note   | To check the distance between two random points on the map**: |
+|   | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %}   |
+| Note   | To check the distance between two random points on the map: |
 |   |  {% data variables.product.android_button_seq %} enable 'Distance by tap' tool. |
 |   |  {% data variables.product.ios_button_seq %} touch simultaneously two spots on the map. It will allow to see the measurement and the line connecting the two points. The line will stay on screen as long as the user is touching it. |
 |   |  The line will fade by itself after 2 seconds. |
@@ -54,6 +55,6 @@ The Ruler tool displays map scale and shows the number of meters/kilometers (oth
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.radius_ruler_item %}   |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_radius_ruler %} |
-| Click | Сhanges widget state between the black scale, the grey one and no scale (only ruler) modes. |
+| Click | Nothing |
 | Format | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. |
 | Note   | The Ruler gives a visual estimate of the objects on the map and distance between them. The Ruler will change the display value during map  zooming. |
