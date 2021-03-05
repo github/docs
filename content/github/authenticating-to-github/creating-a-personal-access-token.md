@@ -29,7 +29,11 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 5. Give your token a descriptive name.
    ![Token description field](/assets/images/help/settings/token_description.png)
 6. Select the scopes, or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
+   {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
    ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
+   {% elsif currentVersion == "github-ae@latest" %}
+   ![Selecting token scopes](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
+   {% endif %}
 7. Click **Generate token**.
    ![Generate token button](/assets/images/help/settings/generate_token.png)
 8. Click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.{% if currentVersion == "free-pro-team@latest" %}
