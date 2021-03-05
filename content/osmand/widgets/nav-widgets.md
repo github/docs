@@ -20,7 +20,6 @@ Compass widget shows North on the map. For showing Compass widget on the screen:
 |   | {% data variables.android-values.rotate_map_bearing_opt %}  |
 |   | {% data variables.android-values.rotate_map_compass_opt %}  |
 |   | {% data variables.android-values.rotate_map_none_opt %}  |
-
 <!-- {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %}
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}
@@ -35,8 +34,6 @@ Clicking to Compass widget changes [{% data variables.android-values.rotate_map_
 
 ![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
-
-
 ## Relative / magnetic bearing
 
 In navigation, bearing is the horizontal angle between the direction of an object and another object, or between it and that of true north.
@@ -48,8 +45,6 @@ In navigation, bearing is the horizontal angle between the direction of an objec
 | Click | Changes between  Relative bearing (degree) or Magnetic bearing (degree with "M"). |      
 | Note| [Relative bearing](https://en.wikipedia.org/wiki/Bearing_(angle)#Relative) refers to the angle between the craft's forward direction and the location of another object. For example, an object relative bearing of 0 degrees would be dead ahead; an object relative bearing 180 degrees would be behind. Bearings can be measured in mils or degrees. |
  |   |  [Magnetic bearing](https://en.wikipedia.org/wiki/Bearing_(angle)#Absolute) is measured in relation to magnetic north, using the direction toward the magnetic north pole (in northeastern Canada) as a reference point. |
-
-
 <!-- {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_bearing %} or {% data variables.android-values.map_widget_magnetic_bearing %}  
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_magnetic_bearing %} or {% data variables.ios-values.map_widget_bearing %}
@@ -72,11 +67,11 @@ Cliking to this widget in the screen you choose between {% data variables.androi
 
 The widget shows current distance to the finish line.
 
-<!-- | | |
+| | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.route_descr_destination %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_distance%}|
-| Click | Move to finish point. |      -->
+| Click | Move to finish point. |      
 
 <!-- {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.route_descr_destination %}
 
