@@ -10,5 +10,4 @@ versions: '*'
 {% link_with_intro /action-widgets %}
 {% link_with_intro /radius-ruler %}
 {% link_with_intro /markers %}
-{% link_with_intro /coordinates-widget %}
 {% link_with_intro /quick-action %}
