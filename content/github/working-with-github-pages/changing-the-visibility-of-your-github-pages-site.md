@@ -34,3 +34,4 @@ To use a shorter and more memorable domain for your private {% data variables.pr
   {% data reusables.pages.twenty-minutes-to-publish %}
 
   {% endnote %}
+ 
