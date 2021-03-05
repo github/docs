@@ -4,6 +4,51 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `isPinned` was added to object type `Issue`",
+          "Enum value 'CREATED_AT` was added to enum `VerifiableDomainOrderField'",
+          "Field `createdAt` was added to object type `VerifiableDomain`",
+          "Field `updatedAt` was added to object type `VerifiableDomain`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `isGitHubStar` was added to object type `User`",
+          "Field `tagCommit` was added to object type `Release`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ApproveVerifiableDomainInput` was added",
+          "Type `ApproveVerifiableDomainPayload` was added",
+          "Field `approveVerifiableDomain` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-02-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `CVSS` was added",
           "Type `CWEConnection` was added",
           "Type `CWEEdge` was added",

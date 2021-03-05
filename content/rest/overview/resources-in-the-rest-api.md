@@ -178,7 +178,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Root endpoint

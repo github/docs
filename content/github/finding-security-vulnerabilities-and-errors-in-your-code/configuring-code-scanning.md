@@ -7,6 +7,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -14,9 +15,9 @@ versions:
 
 ### About {% data variables.product.prodname_code_scanning %} configuration
 
-You can run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_location %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system, using the {% data variables.product.prodname_codeql_runner %}. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system, using the {% data variables.product.prodname_codeql_runner %}. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
-This article is about running {% data variables.product.prodname_code_scanning %} within {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_dotcom %}{% endif %}.
+This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}.
 
 Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must set up {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
@@ -203,13 +204,17 @@ jobs:
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow.
+To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to the private repository.
 
+{% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
+    # Optional. Provide a token to access private repositories.
+    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
+{% endraw %}
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
@@ -219,12 +224,15 @@ If you are also using a configuration file for custom settings, any additional q
 
 In the following example, the `+` symbol ensures that the specified additional queries are used together with any queries specified in the referenced configuration file.
 
+{% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
+    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
+{% endraw %}
 
 ### Using a custom configuration file
 
@@ -238,9 +246,19 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
     config-file: ./.github/codeql/codeql-config.yml
 ```
 
-The configuration file can be located within the local repository, or in a remote, public repository. Using a remote, public repository allows you to specify configuration options for multiple repositories in a single place. When you reference a configuration file located in a remote repository, you can use the _OWNER/REPOSITORY/FILENAME@BRANCH_ syntax. For example, _monacorp/shared/codeql-config.yml@main_. 
+{% data reusables.code-scanning.custom-configuration-file %}
 
-The settings in the file are written in YAML format.
+If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
+
+{% raw %}
+```yaml
+uses: github/codeql-action/init@v1
+with:
+  external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+```
+{% endraw %}
+
+The settings in the configuration file are written in YAML format.
 
 #### Specifying additional queries
 
@@ -295,25 +313,6 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages)."
-
-### Accessing private repositories
-
-If your workflow for {% data variables.product.prodname_code_scanning %} accesses a private repository, other than the repository that contains the workflow, you'll need to configure Git to authenticate with a personal access token. Define the secret in the runner environment by using `jobs.<job_id>.steps[*].env` in your workflow before any {% data variables.product.prodname_codeql %} actions. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)" and "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
-
-For example, the following configuration has Git replace the full URLs to the `ghost/foo`, `ghost/bar`, and `ghost/baz` repositories on {% data variables.product.prodname_dotcom_the_website %} with URLs that include the personal access token that you store in the `ACCESS_TOKEN` environment variable.
-
-{% raw %}
-```yaml
-steps:
-- name: Configure access to private repositories
-  env:
-    TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  run: |
-    git config --global url."https://${TOKEN}@github.com/ghost/foo".insteadOf "https://github.com/ghost/foo"
-    git config --global url."https://${TOKEN}@github.com/ghost/bar".insteadOf "https://github.com/ghost/bar"
-    git config --global url."https://${TOKEN}@github.com/ghost/baz".insteadOf "https://github.com/ghost/baz"
-```
-{% endraw %}
 
 ### Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 
