@@ -1,0 +1,64 @@
+name: Remove card from FR board
+
+on:
+  repository_dispatch:
+    types: remove_from_FR_board
+
+jobs:
+  remove_from_FR_board:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - id: find_project_cards
+        uses: octokit/graphql-action@5b3e01d42dee4509b0ac6b1cb2cf7778cdce85c2
+        with:
+          query: |
+            query($issue_node_id:ID!) {
+              node(id:$issue_node_id) {
+                ... on Issue {
+                  projectCards(first: 10) {
+                    nodes {
+                      id
+                      project {
+                        name
+                        id
+                      }
+                    }
+                  }
+                }
+                ... on PullRequest {
+                  projectCards(first: 10) {
+                    nodes {
+                      id
+                      project {
+                        name
+                        id
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          issue_node_id: ${{ github.event.client_payload.command.resource.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+
+      - run: "echo 'Project cards found: ${{ steps.find_project_cards.outputs.data }}'"
+
+      - name: Get FR card
+        env:
+          QUERY_DATA: ${{ steps.find_project_cards.outputs.data }}
+        run: |
+          echo 'FR_CARDS='$(jq '.node.projectCards.nodes | .[] | select(.project.id == "MDc6UHJvamVjdDQ1NzI0ODI=") | .id' <<< "$QUERY_DATA") >> $GITHUB_ENV
+
+      - name: Delete card
+        id: delete_project_card
+        if: ${{ env.FR_CARDS }}
+        uses: octokit/graphql-action@5b3e01d42dee4509b0ac6b1cb2cf7778cdce85c2
+        with:
+          query: |
+            mutation DeleteCard {
+              deleteProjectCard(input:{cardId:${{ env.FR_CARDS }}}) {deletedCardId}
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
