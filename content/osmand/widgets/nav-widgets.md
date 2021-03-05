@@ -105,10 +105,10 @@ Clicking to this widget to change "Arrival time" to "Time to go" and vice versa.
 
 Widgets shows your current speed (speedometer icon) and speed limit (red speedometer icon) for the current road.
 
-<!-- | |
+| |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_right %} →  {% data variables.android-values.map_widget_speed %} or {% data variables.android-values.map_widget_max_speed %}  |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.gpx_speed %} or {% data variables.ios-values.map_widget_max_speed %}| -->
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.gpx_speed %} or {% data variables.ios-values.map_widget_max_speed %}| 
 
 ## Lanes
 
