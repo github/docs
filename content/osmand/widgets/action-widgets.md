@@ -14,9 +14,8 @@ Shows the distance from users location to the parking place in default distance 
 | Enable | IMPORTANT: enable ‘Parking position’ plugin to use Parking widget. |
 |   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_parking %}  |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.parking %} |
-| Click | Nothing |
+| Click | Moves map view to the parking area |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
-|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
 <!-- To mark parking place on the map user has to: <br>
 Step 1: Zoom in the map <br>
 Step 2: Make the long tap on the map  <br>
@@ -47,7 +46,7 @@ Is used to get the quick access to recording button. <br>
 | Enable | IMPORTANT: enable ‘Trip recording’ plugin before attempting to use Trip recording widget |
 |   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_monitoring %}  |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.product_title_track_recording %} |
-| Click | Define Trip recording settings.  |
+| Click | Defines Trip recording settings.  |
 
 <!-- Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
 
@@ -110,7 +109,7 @@ Is used to get quick access to audio, video, photo notes button.
 |------------|------------|
 | Enable | IMPORTANT: enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget. |
 |   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
-| Click |  Define Audio-video notes settings. |
+| Click |  Defines Audio-video notes settings. |
 
 <!-- There is an exception for Audio-video notes widget:
 For this widget user can additionally choose the option: <br>
@@ -149,7 +148,7 @@ The widget is used to get quick access to the OsmAnd Tracker app that is used to
 |------------|------------|
 | Enable | IMPORTANT: enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin) before attempting to use Tracker widget. |
 |   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %}  |
-| Click | redirected to the Mapillary application.  |
+| Click | redirected to the OsmAnd Tracker application.  |
 
 
 <!-- IMPORTANT: Enable   <br>
@@ -167,7 +166,7 @@ The widget is used to get the quick access to Mapillary app to add missed images
 |------------|------------|
 | Enable | IMPORTANT: enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Mapillary widget. |
 |   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_item %}  |
-| Click | Display OsmAnd Tracker settings.  |
+| Click | redirected to the OsmAnd Mapillary application.  |
 | Note  |  The Mapillary application should be installed separately, for example, from Google Play. |
 
 <!-- To add images, the user have to press the widget. He will be redirected to the Mapillary application. The Mapillary application should be installed separately, for example, from Google Play. -->
