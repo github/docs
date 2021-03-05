@@ -116,10 +116,10 @@ Widgets shows your current speed (speedometer icon) and speed limit (red speedom
 
 The widget shows which lanes you need to drive during navigation. Yellow is the default position, green is the preparation to maneuvering (100 meters before the maneuver). The numbers on the widget are the distance to the nearest maneuver.
 
-| |
+<!-- | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_appearance_rem %} →  {% data variables.android-values.show_lanes  % |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_appearance_rem %} → {% data variables.ios-values.show_lanes %} |
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_appearance_rem %} → {% data variables.ios-values.show_lanes %} | -->
 
 ## Alert information
 - Purpose
