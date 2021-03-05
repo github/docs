@@ -41,7 +41,7 @@ jobs:
             }
           issue_node_id: ${{ github.event.client_payload.command.resource.id }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
 
       - run: "echo 'Project cards found: ${{ steps.find_project_cards.outputs.data }}'"
 
@@ -61,4 +61,4 @@ jobs:
               deleteProjectCard(input:{cardId:${{ env.FR_CARDS }}}) {deletedCardId}
             }
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
