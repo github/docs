@@ -4,13 +4,13 @@ intro: "Navigational widgets are used to display information related to the navi
 versions: '*'
 ---
 
-Navigational widgets is blocks on the device screen which show next information about your navigation.
+Navigational widgets is blocks on the device screen which show next information about a trip.
 
 ![navigational widgets](/assets/images/docs/widgets/nw-1.png)
 
 ## Compass
 
-Compass widget shows North on the map. For showing Compass widget on the screen:
+Compass widget shows North on the map.
 
 ![navigational widgets](/assets/images/docs/widgets/nw-2.png)
 
@@ -25,7 +25,7 @@ Compass widget shows North on the map. For showing Compass widget on the screen:
 
 ## Relative / magnetic bearing
 
-In navigation, bearing is the horizontal angle between the direction of an object and another object, or between it and that of true north.
+The widget shows relative or magnetic bearing.
 
 ![navigational widgets](/assets/images/docs/widgets/nw-3.png)
 
@@ -52,7 +52,7 @@ The widget shows current distance to the finish line.
 
 ## Arrival time or Time to go
 
-The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} of your trip.
+The widget shows {% data variables.android-values.access_arrival_time %} or {% data variables.android-values.map_widget_time %} of a trip.
 
 ![navigational widgets](/assets/images/docs/widgets/nw-6.png)
 
@@ -95,7 +95,7 @@ The widget shows alerts on the screen during a trip.
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.routing_settings_2 %} →  {% data variables.android-values.screen_alerts  %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.routing_settings_2 %} → {% data variables.ios-values.screen_alerts %} |
 | Note | {% data variables.android-values.screen_alerts_descr %} |
-|      | Allerts for {% data variables.android-values.show_traffic_warnings %}, {% data variables.android-values.show_pedestrian_warnings %}, {% data variables.android-values.show_cameras %}, {% data variables.android-values.show_tunnels %} |
+|      | Allerts for {% data variables.android-values.show_traffic_warnings %}, {% data variables.android-values.show_pedestrian_warnings %}, {% data variables.android-values.show_cameras %}, {% data variables.android-values.show_tunnels %}. |
 |      | {% data variables.android-values.speed_cameras_alert %} |
 
 ## Next turns
