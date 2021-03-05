@@ -7,6 +7,7 @@ versions: '*'
 
 Shows the distance from users location to the parking place in default distance units. <br>
 <!-- можно добавить что Unit s можно изменить в -->
+
 To change default distance units follow: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. <br>
 
