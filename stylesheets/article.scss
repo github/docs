@@ -146,6 +146,14 @@
   height: 0;
 }
 
+.markdown-body img {
+  max-width: 400px;
+  @media (max-width: $width-md) {
+    max-width: 100%;
+  }
+}
+
+
 .procedural-image-wrapper {
   display: block;
   padding: 10px 0;
