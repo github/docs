@@ -3,21 +3,21 @@ title: "Action widgets"
 intro: "Display information that is provided by additional plugins."
 versions: '*'
 ---
-## Parking widget <!--for Android-->
+## Parking widget (Android)
 
 Shows the distance from users location to the parking place in default distance units. <br>
-<!-- можно добавить что Unit s можно изменить в -->
-
-To change default distance units follow: <br>
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.unit_of_length %}. <br>
 
 ![Parking widget](/assets/images/docs/widgets/parking_widget.png)
 
-IMPORTANT: Enable ‘Parking position’ plugin to use Parking widget. <br> <!--сделать на него сслыку-->
-
-User can enable Parking widget in Configure screen menu. <br>
-
-To mark parking place on the map user has to: <br>
+| | |
+|------------|------------|
+| Enable | IMPORTANT: enable ‘Parking position’ plugin to use Parking widget. |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_parking %}  |
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.parking %} |
+| Click | Nothing |
+| Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
+|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
+<!-- To mark parking place on the map user has to: <br>
 Step 1: Zoom in the map <br>
 Step 2: Make the long tap on the map  <br>
 Step 3: Click ‘Actions’ button <br>
@@ -34,7 +34,7 @@ If 'Time-limited parking' has been selected at Step 5 a user can set the parking
 There are three ways to configure the parking time limit. The first one is by using the electronic watch control and the second one is by using analogue watch control. The third way is to tap the small keyboard image under numeric clock and set the time manually. <br>
 
 The user can optionally add a notification to the Calendar by selecting appropriate option with the checkbox below. Click Ok when done.<br>
-User may also add some extra information on the calendar screen appeared and press the ‘Save’ button in the upper-right corner to save an event to the default device calendar. <br>
+User may also add some extra information on the calendar screen appeared and press the ‘Save’ button in the upper-right corner to save an event to the default device calendar. <br> -->
 
 ## Trip recording (REC) widget
 
@@ -42,20 +42,23 @@ Is used to get the quick access to recording button. <br>
 
 ![Trip recording (REC) widget](/assets/images/docs/widgets/trip_recording_widget.png)
 
-IMPORTANT: Enable ‘Trip recording’ plugin before attempting to use Trip recording widget <br>
+| | |
+|------------|------------|
+| Enable | IMPORTANT: enable ‘Trip recording’ plugin before attempting to use Trip recording widget |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_monitoring %}  |
+|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.product_title_track_recording %} |
+| Click | Define Trip recording settings.  |
 
-User can enable Trip recording widget in Configure screen menu. <br>
+<!-- Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
 
-Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
-
-![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png) <!-- добавить картинки Android IOS Каждое описать отдельно--->
+![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png)
 
 In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line (for Android only). <br>
 
 The 'Line configuration button' (for Android only) next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
-<!-- На данный момент изменить цвет записываемого трека во время симуляции из этого меню не удалось. Переписка в саппорт чате от 16.02 17:36 -->
+
 Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
-<!-- не получила ответа на вопрос в каких единицах измеряются цифры на ползунке и чем эти цифры лучше/хуже   или толще /худее относительно других категорий width Переписка в саппорт чате от 16.02 17:49. проведенный мною эксперимент  привел к мысли что это настройка вообще не работает-->
+
 
 ![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png)
 
@@ -66,22 +69,21 @@ The Logging interval controls the frequency of queries to the GPS sensor along w
 
 If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
 When all settings are defined, user can push the ‘Start recording’ button.
-<!-- Не нашла способа как сбросить настройки установленные. ВКЛ/выкл виджета и плагина не помогает. В плагине сбросить в настройках плагина тоже не помогает-->
+
 
 The Logging interval can be additionally checked/ changed in: <br>
 {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.shared_string_trip_recording %} → {% data variables.android-values.save_track_interval %}. <br>
-<!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br> -->
+<!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br>
 
 When all settings are configured, press ‘Start recording’ button.
-***For Android devices*** the REC widget will change to the red circle.  The distance passed will be displayed in the widget.
-
+***For Android devices*** the REC widget will change to the red circle.  The distance passed will be displayed in the widget.  
 ![REC widget](/assets/images/docs/widgets/rec_widget.png)
 
 To tap REC widget again will give an opportunity  to:
 * See all general information about the track: distance, ascent, descent, average speed, maximum speed, time span. This panel can  be scrolled by the user right and back.
 * Enable 'Show track' on the map feature and configure the style of the track line.
 * Clear recorded data
-* Start new segment <!--когда починят проверить и записать можно ли делать с разными профилями-->
+* Start new segment
 * Save (save the recorded track and change GPX file name)
 * Pause and stop recording
 
@@ -96,19 +98,21 @@ To tap REC widget again will give an opportunity  to:
 
 User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → tab {% data variables.ios-values.shared_string_tracks %}.
 
-[Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) <!-- дать ссылку на трабл шутинг https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues -->
+[Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues)  -->
 
-## Audio-video notes widget
+## Audio-video notes widget (Android)
 
-Is used to get quick access to audio, video, photo notes button. <br>
+Is used to get quick access to audio, video, photo notes button.
 
-![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png) <br>
+![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
 
-IMPORTANT: Enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget <br>
+| | |
+|------------|------------|
+| Enable | IMPORTANT: enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget. |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
+| Click |  Define Audio-video notes settings. |
 
-User can enable Audio-video notes widget in Configure screen menu. <br>
-
-There is an exception for Audio-video notes widget:
+<!-- There is an exception for Audio-video notes widget:
 For this widget user can additionally choose the option: <br>
 * On request – allows the user to choose an action he wants to do. (default state).  <br>
 * Record audio – allows the user to take an audio note <br>
@@ -124,7 +128,6 @@ If 'On request' option is selected  user will see three options to choose. <br>
 * Take a video note <br>
 * Take a photo <br>
 
-<!-- ![Audio video notes on request](/assets/images/docs/widgets/audio_video_notes_widget_on_request.png) <br> -->
 When the 'Take an audio note' option is selected, the user  can start doing audio recording.  To stop audio recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. <br>
 
 ![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br>
@@ -135,28 +138,36 @@ When the 'Take a video note' option is selected, the user  can start doing vide
 When the 'Take a photo' option is selected, the user can take a picture. <br>
 
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
-User can sort files by type/data, share and delete them. <br>
+User can sort files by type/data, share and delete them. <br> -->
+## Tracker widget (Android)
 
-## Tracker widget
+The widget is used to get quick access to the OsmAnd Tracker app that is used to share user location with other people. 
 
-The widget is used to get quick access to the OsmAnd Tracker app that is used to share user location with other people. <br>
+![Tracker widget](/assets/images/docs/widgets/tracker_widget.png)
 
-![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) <br>
+| | |
+|------------|------------|
+| Enable | IMPORTANT: enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin) before attempting to use Tracker widget. |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %}  |
+| Click | redirected to the Mapillary application.  |
 
-IMPORTANT: Enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin) before attempting to use Tracker widget.  <br>
+
+<!-- IMPORTANT: Enable   <br>
 
 User can enable 'OsmAnd Tracker status' in Configure screen menu. <br>
 
-IMPORTANT: Tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position. 
-
-## Mapillary widget
+IMPORTANT: Tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position.  -->
+## Mapillary widget (Android)
 
 The widget is used to get the quick access to Mapillary app to add missed images. <br>
 
 ![Mapillary widget](/assets/images/docs/widgets/mapillary_widget.png) <br>
 
-IMPORTANT: Enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Mapillary widget.  <br>
+| | |
+|------------|------------|
+| Enable | IMPORTANT: enable [Mapillary plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#mapillary-plugin) before attempting to use Mapillary widget. |
+|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_item %}  |
+| Click | Display OsmAnd Tracker settings.  |
+| Note  |  The Mapillary application should be installed separately, for example, from Google Play. |
 
-User can enable Trip recording widget in Configure screen menu. <br>
-
-To add images, the user have to press the widget. He will be redirected to the Mapillary application. The Mapillary application should be installed separately, for example, from Google Play.
+<!-- To add images, the user have to press the widget. He will be redirected to the Mapillary application. The Mapillary application should be installed separately, for example, from Google Play. -->
