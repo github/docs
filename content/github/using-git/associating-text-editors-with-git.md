@@ -50,6 +50,17 @@ versions:
   ```shell
   $ git config --global core.editor "mate -w"
   ```
+  
+### Using CotEditor as your editor
+
+1. Install [CotEditor](https://coteditor.com/).
+2. Install CotEditor's [`cot` shell utility](https://coteditor.com/cot).
+{% data reusables.command_line.open_the_multi_os_terminal %}
+4. Type this command:
+  ```shell
+  $ git config --global core.editor "cot --wait"
+  ```
+  
 {% endmac %}
 
 {% windows %}
