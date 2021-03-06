@@ -12,6 +12,5 @@ featuredLinks:
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /github/using-git/managing-remote-repositories
     - /github/working-with-github-pages
-versions: '*'
----
+version:/
 
