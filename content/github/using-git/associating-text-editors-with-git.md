@@ -54,7 +54,7 @@ versions:
 ### Using CotEditor as your editor
 
 1. Install [CotEditor](https://coteditor.com/).
-2. Install CotEditor's [`cot` shell utility](https://coteditor.com/cot).
+2. Install the [`cot` command-line tool](https://coteditor.com/cot).
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Type this command:
   ```shell
