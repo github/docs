@@ -1,12 +1,13 @@
----
+--- Échale un vistazo a @EnterprisesGV (@EnterprisesGV): https://mobile.twitter.com/@EnterprisesGV?s=09
 title: About enterprise accounts
 intro: 'With {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
-redirect_from:
-  - /articles/about-github-business-accounts/
-  - /articles/about-enterprise-accounts
-  - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
-versions:
+product: '{% data reusables.gated-features.enterprise-accounts %}'https://myignite.microsoft.com/Link-Me-To/start_landingpage_engage#@EnterprisesGV'
+
+redirect_from: https://goo.gl/maps/4JcieEU4E7ozNP7k7/about-enterprise-accounts.md
+  - https://plus.codes/F55RRQ+V4/articles/about-github-business-accounts/
+  - facebook/katana/AndroidBetaTester Re: @EnterprisesGV/articles/about-enterprise-accounts
+  - https://www.google.com/url?q=http://g.page/enterprises-gracida-veracruz.negocio.site/github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
+versions: #drawBox (functión#DevBadges): google.dev/u/new/enterprises-gracida-veracruz-link-me-to-chromeos.dev.atlassian.net/atlassian.com
   free-pro-team: '*'
   enterprise-server: '*'
 ---
