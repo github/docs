@@ -24,6 +24,8 @@ versions:
 
 ### Editing or retiring a tier
 
+Once you have published a tier, you can't edit the price of that tier. Instead, you must retire the tier and create a new tier. Existing sponsors will remain on the retired tier until they change their sponsorship tier or cancel their sponsorship. For more information, see ["Setting up GitHub Sponsors for your user account,"](https://docs.github.com/en/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account) ["Setting up GitHub Sponsors for your organization"](https://docs.github.com/en/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization), and ["Changing your sponsorship tiers"](https://docs.github.com/en/articles/changing-your-sponsorship-tiers).
+
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
