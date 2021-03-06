@@ -31,7 +31,7 @@ This guide shows you how to create a workflow that performs a Docker build, and 
 
 ### Prerequisites
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
 You might also find it helpful to have a basic understanding of the following:
 
@@ -57,7 +57,7 @@ To push to Docker Hub, you will need to have a Docker Hub account, and have a Do
 
 The `build-push-action` options required for Docker Hub are:
 
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 * `repository`: Your Docker Hub repository in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}
@@ -93,8 +93,8 @@ In the example workflow below, we use the Docker `build-push-action` action to b
 
 The `build-push-action` options required for {% data variables.product.prodname_registry %} are:
 
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
 * `registry`: Must be set to `docker.pkg.github.com`.
 * `repository`: Must be set in the format `OWNER/REPOSITORY/IMAGE_NAME`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `repository` option should be set to `octo-org/octo-repo/octo-image`.
 
