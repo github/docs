@@ -41,6 +41,19 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
 To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
+<distributionManagement>
+
+   <repository>
+
+     <id>github</id>
+
+     <name>GitHub OWNER Apache Maven Packages</name>
+
+     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+
+   </repository>
+
+</distributionManagement>[th.pdf-Copy-Cropped.pdf](https://github.com/github/docs/files/6097266/th.pdf-Copy-Cropped.pdf)
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% raw %}
