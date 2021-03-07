@@ -1,4 +1,4 @@
----
+---fork lp9921/docs
 title: Setting up a GitHub Enterprise Server instance
 intro: 'You can install {% data variables.product.prodname_ghe_server %} on the supported virtualization platform of your choice.'
 redirect_from:
