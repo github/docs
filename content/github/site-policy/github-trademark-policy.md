@@ -29,12 +29,12 @@ Holders of registered trademarks can report possible trademark policy violations
 In order to investigate trademark policy violations, please provide all of the following information:
 
 * Username of the reported account
-* Your company name
-* Your company GitHub account (if there is one)
-* Company website
-* Your trademarked word, symbol, etc.
-* Trademark registration number
-* Trademark registration office (e.g., USPTO)
+* Your company name - <summit standby service Ltd/ENTERPRISE> 
+* Your company GitHub account (if there is one)-<ACCT#15093210[
+* Company website- www.summitstandby@services.com
+* Your trademarked word, symbol, etc.-< W50864427>
+* Trademark registration number-
+* Trademark registration office (e.g., USPTO)<unit#201-15404 100 Ave,nw 
 * Description of confusion (e.g., passing off as your company, including specific descriptions of content or behavior)
 * Requested Action (e.g., removal of violating account or transfer of trademarked username to an existing company account)
 * Include the following statement: "I have a good faith belief that use of the trademark described above is not authorized by the trademark owner, or its agent, or the law. I have taken nominative and other fair uses into consideration."
@@ -42,8 +42,8 @@ In order to investigate trademark policy violations, please provide all of the f
 * Include your physical or electronic signature.
 
 * Note: A federal or international trademark registration number is required. If the name you are reporting is **not** a registered mark (e.g., a government agency or non-profit organization), please let us know:
-    * Your first and last name
-    * Title
-    * Address
-    * Phone
+    * Marcel julien Narbonne & IVAN ngabo 
+    * co ower/consumer via/managers/Developer 
+    * 518 cricket crt Edmonton ab T5T2B2 
+    * 780 781 4748
     * Email (must be from company domain)
