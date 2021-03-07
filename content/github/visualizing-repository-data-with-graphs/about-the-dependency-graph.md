@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-
+Zachry T Wood
 ### Dependency graph availability
 
 The dependency graph is available for every{% if currentVersion == "free-pro-team@latest" %} public{% endif %} repository that defines dependencies in a supported package ecosystem using a supported file format.{% if currentVersion == "free-pro-team@latest" %} Repository administrators can also set up the dependency graph for private repositories.{% endif %}
