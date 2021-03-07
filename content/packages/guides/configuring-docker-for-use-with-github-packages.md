@@ -9,7 +9,7 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server @v-0
   github-ae: '*'
 ---
 
