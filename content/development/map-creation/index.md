@@ -4,6 +4,6 @@ intro: "How OsmAnd offline map data is created and how you can produce customize
 versions: '*'
 ---
 
-{% link_in_list /create-offline-maps-yourself %}
-{% link_in_list /creating-a-country-polygon %}
-{% link_in_list /how-to-inspect-an-obf %}
+{% link_with_intro /create-offline-maps-yourself %}
+{% link_with_intro /creating-a-country-polygon %}
+{% link_with_intro /how-to-inspect-an-obf %}

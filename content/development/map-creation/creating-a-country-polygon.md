@@ -2,6 +2,7 @@
 title: Creating a Country Polygon
 versions: '*'
 ---
+**_This article needs to be reviewed_**
 
 This article describes how to create a poly(gon) for a missing country in geofabrik.de and how to add this poly to the map generation server of OsmAnd
 
