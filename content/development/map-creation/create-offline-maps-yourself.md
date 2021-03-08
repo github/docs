@@ -6,17 +6,24 @@ intro: There are many ways how to create and customize Raster & Vector maps for 
 **_This article is incomplete & needs to be reviewed_**
 
 ## OsmAndMapCreator
-[*OsmAndMapCreator*](https://wiki.openstreetmap.org/wiki/OsmAndMapCreator) can be used to create any maps supported by OsmAnd yourself. You can download latest version from [website](https://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip). OsmAndMapCreator has UI capabilities to create raster & vector maps. To create vector map you will need OSM file (`*.pbf, *.osm.gz, *.osm.bz2`) and to create online sqlite map file you will need a `base tile url`.
+[**OsmAndMapCreator**](https://wiki.openstreetmap.org/wiki/OsmAndMapCreator) can be used to create any maps supported by OsmAnd yourself. You can download latest version from [website](https://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip). OsmAndMapCreator has UI capabilities to create raster & vector maps. To create vector map you will need OSM file (`*.pbf, *.osm.gz, *.osm.bz2`) and to create online sqlite map file you will need a `base tile url`.
 
 ### Raster maps (simple)
-Once you selected the tiles you want to create a map from in the menu **Source of tiles** and they are loaded successfully in OsmAndMapCreator. You can select with right click the area you would like to preload and once you have it loaded, you can create `.sqlitedb` file in **Source of tiles** → **Create sqlite database**.
+Once you selected the tiles you want to create a map from in the menu **Source of tiles** and they are loaded successfully in OsmAndMapCreator. You can select with right click the area you would like to preload. After that you can create `.sqlitedb` file in **Source of tiles** → **Create sqlite database**.
 
 ![Download raster maps](/assets/images/osmandmapcreator/OsmAndMapCreator-download-raster-maps.png)
 
 ![Create sqlitedb maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-raster-maps.png)
 
 ### Vector maps (simple)
-Once you have an OSM file, you can either download it from [Geofabrik](https://www.geofabrik.de/data/download.html) or convert [Shapefile to OSM](https://wiki.openstreetmap.org/wiki/OGR) or even generate [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) it yourself using any programming utilities, you can proceed by converting it to [OBF Format](/development/osmand-file-formats/osmand-obf) which OsmAnd can undertand. You need to select checkboxes whether you want to produce Maps including Address / Routing / Transport / Map data and Select in **File** → **Create .obf from file**. Once process is completed you will have .obf file in the working directory. 
+Steps to create vector map via OsmAndMapCreator UI
+1. OSM File
+  - Download it from [Geofabrik](https://www.geofabrik.de/data/download.html) or small export from [OpenStreetMap](https://www.openstreetmap.org/export#map=19/48.80672/2.13187)
+  - Convert [Shapefile to OSM](https://wiki.openstreetmap.org/wiki/OGR) 
+  - Generate [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) it yourself using any programming utilities, you can proceed by converting it to [OBF Format](/development/osmand-file-formats/osmand-obf) which OsmAnd can undertand
+2. Select checkboxes whether you want to produce Maps including Address / Routing / Transport / Map data
+3. Select in **File** → **Create .obf from file**.
+4. Once process is completed you will have `.obf` file in the working directory. 
 
 ![Create vector maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-vector-maps.png)
 
@@ -34,7 +41,7 @@ unzip OsmAndMapCreator-main.zip -d OsmAndMapCreator
 OsmAndMapCreator/utilities.sh generate-poi albania_europe.pbf --chars-build-poi-nameindex=3
 ```
 
-Generates script takes only 1 file OSM file to process (.pbf, .osm.gz, osm.bz2, .osm) and many parameters specified as `--xxxxxx`.
+Generation script takes only 1 file OSM file to process at a time (.pbf, .osm.gz, osm.bz2, .osm) and many optional parameters specified as `--xxxxxx`.
 
 | Main command | Description   |
 |--------------|---------------|
@@ -81,7 +88,7 @@ In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm
 
 With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. You will need "the size of the nodes.tmp.odb" + 20-25%. Please note that that you don't need to increase `-Xmx` parameter cause SQLite in memory won't occupy JVM memory and use only native operating memory.
 
-Exampl: for a 250MB *.osm.pbf* a \~4.5GB *nodes.tmp.odb* file will be generated.
+Example: for a 250MB *.osm.pbf* a \~4.5GB *nodes.tmp.odb* file will be generated.
 
 ### Custom vector map (tags)
 
@@ -99,7 +106,7 @@ Currently OsmAndMapCreator doesn't support relation tagging. So you need to manu
 
 
 
-## Advanced Raster maps creation
+## Raster maps (advanced)
 
 **_This article is incomplete & needs to be reviewed_**
 - Using MOBAC to create OsmAnd online tiles
