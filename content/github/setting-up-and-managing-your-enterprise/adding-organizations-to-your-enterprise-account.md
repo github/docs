@@ -11,7 +11,7 @@ versions:
 
 Enterprise owners can create new organizations within an enterprise account's settings.
 
-To add an organization to your enterprise account, you must create the organization from within the enterprise account settings. You cannot transfer existing organizations into an enterprise account on your end. If you need assistance transferring an existing organization please reach out to our support team or your Github representative.
+To add an organization to your enterprise account, you must create the organization from within the enterprise account settings. You cannot transfer existing organizations into an enterprise account on your end. If you need assistance transferring an existing organization please contact your GitHub Sales account representative.
 
 ### Creating an organization in your enterprise account
 
