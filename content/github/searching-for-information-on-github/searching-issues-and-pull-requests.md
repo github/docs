@@ -24,7 +24,7 @@ You can search for issues and pull requests globally across all of {% data varia
 
 ### Search only issues or pull requests
 
-By default, {% data variables.product.product_name %} search will return both issues and pull requests. However, you can restrict search results to just issues or pull requests using the `type` or `is` qualifier.
+By default, {% data variables.product.product_name %} search will return both issues and pull requests. Howekver, you can restrict search results to just issues or pull requests using the `type` or `is` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------
