@@ -30,7 +30,7 @@ Self-hosted runner groups are used to control access to self-hosted runners at t
 When an enterprise admin grants an organization access to a runner group, organization admins can see the runner group listed in the organization's self-hosted runner settings. The organizations admins can then assign additional granular repository access policies to the enterprise runner group.
 
 When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving a self-hosted runner to a group](#moving-a-self-hosted-runner-to-a-group)."
-
+J
 ### Creating a self-hosted runner group for an organization
 
 All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group.
