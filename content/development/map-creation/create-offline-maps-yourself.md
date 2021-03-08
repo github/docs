@@ -13,7 +13,9 @@ OsmAndMapCreator has UI capabilities to create raster & vector maps. To create v
 
 #### Raster maps (simple)
 Once you selected the tiles you want to create a map from in the menu **Source of tiles** and they are loaded successfully in OsmAndMapCreator. You can select with right click the area you would like to preload and once you have it loaded, you can create `.sqlitedb` file in **Source of tiles** → **Create sqlite database**.
+
 ![Download raster maps](/assets/images/osmandmapcreator/OsmAndMapCreator-download-raster-maps.png)
+
 ![Create sqlitedb maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-raster-maps.png)
 
 #### Vector maps (simple)
@@ -39,25 +41,25 @@ Generates script takes only 1 file OSM file to process (.pbf, .osm.gz, osm.bz2, 
 
 | Main command | Description   |
 |--------------|---------------|
-| generate-obf | Generates full obf with map, address, poi, transport, routing information | 
-| generate-obf-no-address | Generates full obf but without address information | 
-| generate-address | Generates map with only address information | 
-| generate-poi | Generates map with only poi information |
-| generate-map | Generates map with only map rendering information | 
-| generate-roads | Generates map with only routing information |
+| `generate-obf` | Generates full obf with map, address, poi, transport, routing information | 
+| `generate-obf-no-address` | Generates full obf but without address information | 
+| `generate-address` | Generates map with only address information | 
+| `generate-poi` | Generates map with only poi information |
+| `generate-map` | Generates map with only map rendering information | 
+| `generate-roads` | Generates map with only routing information |
 
 
 All extra parameters could be found in the code in case they are not documented properly [Main Utilities](https://github.com/osmandapp/OsmAnd-tools/blob/master/java-tools/OsmAndMapCreatorUtilities/src/main/java/net/osmand/MainUtilities.java#L219). All parameters are optional!
 
 | Parameters | Description |
 |--------------|---------------|
-| --add-region-tags | Slows down map creation process by adding to each way a region name tag where it processed. It's needed only for worldwide basemap or when you process multinational regions, in all other cases it's easier to have proper name for your file i.e. germany_... , us_.... If you don't have this parameter and you don't specify add this parameter, it's likely you will see non-localized road / public transport route badges in OsmAnd. | 
-| --keep-only-sea-objects | Removes object that are not part of ocean / see, it's used to produce nautical map |
-| --ram-process | Specifies that creation will be using RAM SQlite DB instead of disk - [more information](#ram-to-process-maps). |
-| --srtm=FOLDER | Specifies folder with TIF-DEM images, so information about height & slope will be encoded into roads |
-| --rendering-types=FILE | rendering_types.xml location with rules & OSM tags needs to be encoded in OBF - [more information](#customize-osm-tags). |
-| --poi-types=FILE | poi_types.xml location with rules & OSM tags needs to be encoded in OBF for POI - [more information](#customize-osm-tags). |
-| --extra-relations=FILE | OSM file with polygons like Low Emission Zones which tags should be propagated to the ways. |
+| `--add-region-tags` | Slows down map creation process by adding to each way a region name tag where it processed. It's needed only for worldwide basemap or when you process multinational regions, in all other cases it's easier to have proper name for your file i.e. germany_... , us_.... If you don't have this parameter and you don't specify add this parameter, it's likely you will see non-localized road / public transport route badges in OsmAnd. | 
+| `--keep-only-sea-objects` | Removes object that are not part of ocean / see, it's used to produce nautical map |
+| `--ram-process` | Specifies that creation will be using RAM SQlite DB instead of disk - [more information](#ram-to-process-maps). |
+| `--srtm=<FOLDER>` | Specifies folder with TIF-DEM images, so information about height & slope will be encoded into roads |
+| `--rendering-types=<FILE>` | rendering_types.xml location with rules & OSM tags needs to be encoded in OBF - [more information](#customize-osm-tags). |
+| `--poi-types=<FILE>` | poi_types.xml location with rules & OSM tags needs to be encoded in OBF for POI - [more information](#customize-osm-tags). |
+| `--extra-relations=<FILE>` | OSM file with polygons like Low Emission Zones which tags should be propagated to the ways. |
 
 
 **Note**: Creating maps with batch.xml is deprecated, please use shell methods mentionned above and combine with downloads / for cycles using standard shell script capabilities.
