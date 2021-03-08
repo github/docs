@@ -25,7 +25,7 @@ versions:
 
 ### Clojure
 
-ライブラリ名 | リポジトリ |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
+Library name | Repository |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
 ### Dart
 
@@ -57,7 +57,7 @@ versions:
 
 ### Julia
 
-ライブラリ名 | リポジトリ | |---|---| **Github.jl**|[WestleyArgentum/Github.jl](https://github.com/WestleyArgentum/GitHub.jl)
+Library name | Repository | |---|---| **GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
 
 ### OCaml
 
@@ -65,19 +65,23 @@ versions:
 
 ### Perl
 
-ライブラリ名 | リポジトリ | ライブラリの metacpan ウェブサイト |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::Github**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:Github CPAN](https://metacpan.org/pod/Net::GitHub)
+Library name | Repository | metacpan Website for the Library |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
-ライブラリ名 | リポジトリ |---|---| **GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github) **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+ライブラリ名 | リポジトリ |---|---| **GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github) **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
 
 ### Python
 
-ライブラリ名 | リポジトリ |---|---| **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
+Library name | Repository |---|---| **gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub) **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
 
 ライブラリ名 | リポジトリ |---|---| **GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github) **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
+
+### Rust
+
+Library name | Repository |---|---| **Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
 
 ### Scala
 

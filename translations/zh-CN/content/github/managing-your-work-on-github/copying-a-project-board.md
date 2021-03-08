@@ -22,5 +22,5 @@ versions:
 5. （可选）在“Project board name（项目板名称）”下，键入所复制项目板的名称。 ![用于键入所复制项目板名称的字段](/assets/images/help/projects/copied-project-board-name.png)
 6. （可选）在“Description（说明）”下，键入其他人将看到的有关所复制项目板的说明。 ![用于键入所复制项目板说明的字段](/assets/images/help/projects/copied-project-board-description.png)
 7. （可选）在“Automation settings（自动化设置）”下，选择是否要复制已配置的自动工作流程。 默认情况下会启用此选项。 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards/)”。 ![为所复制的项目板选择自动化设置](/assets/images/help/projects/copied-project-board-automation-settings.png)
-8. 如果复制组织拥有的项目板，请在“Visibility（可见性）”下，选择是否要将所复制的项目板设为私密或公开。 ![为所复制的项目板选择可见性设置](/assets/images/help/projects/copied-project-board-visibility-settings.png)
+{% data reusables.project-management.choose-visibility %}
 9. 单击 **Copy project（复制项目）**。 ![确认复制按钮](/assets/images/help/projects/confirm-copy-project-board.png)

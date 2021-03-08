@@ -81,7 +81,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
   ```
 
 12. Return to the new instance's restore status screen to see that the restore completed.
-![Restore complete screen](/assets/images/enterprise/migration/restore-complete-screen.png)
+![Restore complete screen](/assets/images/enterprise/migration/migration-status-complete.png)
 13. Click **Continue to settings** to review and adjust the configuration information and settings that were imported from the previous instance.
 ![Review imported settings](/assets/images/enterprise/migration/migration-status-complete.png)
 14. Click **Save settings**.

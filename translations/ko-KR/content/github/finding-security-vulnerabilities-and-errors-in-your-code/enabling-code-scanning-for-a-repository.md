@@ -40,13 +40,16 @@ You decide how you generate {% data variables.product.prodname_code_scanning %} 
 
 In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
+### Bulk enabling {% data variables.product.prodname_code_scanning %}
+You can enable {% data variables.product.prodname_code_scanning %} in many repositories in bulk using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
+
 ### Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
 After enabling {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow.
+  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
   ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
 

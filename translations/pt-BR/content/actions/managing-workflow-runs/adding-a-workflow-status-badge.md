@@ -34,7 +34,7 @@ https://github.com/<OWNER>/<REPOSITORY>/fluxos de trabalho/<WORKFLOW_FILE_PATH>/
 
 Este exemplo de Markdown adiciona um crachá de status para um fluxo de trabalho com o nome "Cumprimente a Todos". O</code> proprietário `do repositório é a <code>ações` organização e o nome</code> repositório `é <code>`hello-world .
 
-```
+```markdown
 ! [nome do fluxo de trabalho de exemplo] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
@@ -42,7 +42,7 @@ Este exemplo de Markdown adiciona um crachá de status para um fluxo de trabalho
 
 Este exemplo de Markdown adiciona um crachá de status para um fluxo de trabalho com o caminho do arquivo `.github/workflows/main.yml`. O</code> proprietário `do repositório é a <code>ações` organização e o nome</code> repositório `é <code>`hello-world .
 
-```
+```markdown
 ! [exemplo caminho do arquivo de fluxo de trabalho] (https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
@@ -50,7 +50,7 @@ Este exemplo de Markdown adiciona um crachá de status para um fluxo de trabalho
 
 Este exemplo de Markdown adiciona um crachá de status para uma filial com o nome `recurso-1`.
 
-```
+```markdown
 ! [parâmetro de ramo de exemplo] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
@@ -58,6 +58,6 @@ Este exemplo de Markdown adiciona um crachá de status para uma filial com o nom
 
 Este exemplo de Markdown adiciona um crachá que exibe o status das corridas de fluxo de trabalho desencadeadas pelo `pull_request` evento.
 
-```
+```markdown
 ! [parâmetro de evento de exemplo] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?event=pull_request)
 ```

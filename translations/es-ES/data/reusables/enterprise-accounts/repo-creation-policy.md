@@ -1,0 +1,1 @@
+1. Debajo de "Repository creation" (Creación de repositorios), selecciona una política. ![Menú desplegable con opciones de políticas de creación de repositorios](/assets/images/help/business-accounts/repository-creation-policy-drop-down.png)

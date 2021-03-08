@@ -131,7 +131,8 @@ Du kannst Deine Ergebnisse auf Issues einschränken, die mit einem Pull-Request 
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                                |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) findet geschlossene Pull Requests im `desktop/desktop`-Repository, die zu einem Issue verknüpft waren, den der Pull Request möglicherweise geschlossen hat.          |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die nicht mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. 
+{% endif %}
 
 ### Suche nach Kennzeichnung
 

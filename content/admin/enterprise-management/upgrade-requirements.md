@@ -25,7 +25,7 @@ versions:
 - If you’re several versions behind, upgrade {% data variables.product.product_location %} as far forward as possible with each step of your upgrade process. Using the latest version possible on each upgrade allows you to take advantage of performance improvements and bug fixes. For example, you could upgrade from {% data variables.product.prodname_enterprise %} 2.7 to 2.8 to 2.10, but upgrading from {% data variables.product.prodname_enterprise %} 2.7 to 2.9 to 2.10 uses a later version in the second step.
 - Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Use a staging instance to test the upgrade steps. For more information, see "[Setting up a staging instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
-- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and backgrounded upgrade tasks to fully complete.
+- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
 
 ### Requirements
 

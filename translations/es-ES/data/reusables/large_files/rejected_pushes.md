@@ -1,0 +1,1 @@
+Los usuarios no pueden subir activos {% data variables.large_files.product_name_short %} a {% data variables.product.product_name %} si {% data variables.large_files.product_name_short %} está inhabilitado en la empresa o repositorio.

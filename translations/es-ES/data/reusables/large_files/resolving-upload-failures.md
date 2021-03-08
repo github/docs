@@ -1,0 +1,1 @@
+Si existen archivos de {% data variables.large_files.product_name_short %} referenciados que no se cargaron con éxito, recibiras un mensaje de error. Para obtener más información, consulta la sección "[Resolver fallas de carga de {% data variables.large_files.product_name_long %}](/articles/resolving-git-large-file-storage-upload-failures)".

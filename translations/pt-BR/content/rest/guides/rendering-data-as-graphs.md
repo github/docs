@@ -232,7 +232,7 @@ Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representaç�
 ]
 ```
 
-Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
+Como já temos uma lista de repositórios acima, vamos inspecionar cada um e chamar o [método da API para listar a linguagem][language API]:
 
 ``` ruby
 repos.each do |repo|
@@ -264,7 +264,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+(Para obter mais informações sobre um mapa de árvore do D3, confira [este tutorial simples][language API].)
 
 Para concluir, passamos esta informação JSON para o mesmo modelo de ERB:
 

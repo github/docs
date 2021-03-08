@@ -24,6 +24,8 @@ Learn more about [services required for clustering](/enterprise/{{ currentVersio
 
 Clustering bietet Redundanz, ist jedoch nicht dazu vorgesehen, eine Hochverfügbarkeitskonfiguration zu ersetzen. Weitere Informationen finden Sie unter „[Hochverfügbarkeitskonfiguration](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)“. Eine Konfiguration mit einer primären/sekundären Failover-Instanz ist viel einfacher als Clustering und erfüllt die Anforderungen vieler Organisationen. Weitere Informationen finden Sie unter „[Unterschiede zwischen Clustering und Hochverfügbarkeit](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)“.
 
+{% data reusables.package_registry.packages-cluster-support %}
+
 ### Wie kann ich auf Clustering zugreifen?
 
 Clustering ist für bestimmte Skalierungssituationen vorgesehen, nicht aber für jede Organisation. Wenn Du Clustering in Betracht ziehen möchtest, wende Dich bitte an Deinen {% data variables.contact.contact_enterprise_sales %}.

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -40,6 +41,7 @@ Para obter mais informações, consulte "[Criar uma ação JavaScript](/articles
 
 Se estiver criando uma ação de contêiner do Docker, você poderá definir um código de saída de falha no seu script `entrypoint.sh`. Por exemplo:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
@@ -48,5 +50,6 @@ fi
   exit 1
 fi
 ```
+{% endraw %}
 
 Para obter mais informações, consulte "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)".

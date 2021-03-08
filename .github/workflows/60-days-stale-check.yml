@@ -8,7 +8,7 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
+      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: 'This issue is stale because it has been open 60 days with no activity.'

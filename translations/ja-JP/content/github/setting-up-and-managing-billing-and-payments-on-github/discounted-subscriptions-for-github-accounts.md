@@ -18,11 +18,11 @@ versions:
 
 ### 個人アカウントへの割引
 
-{% data variables.product.prodname_free_user %} で学生と教員が無制限のパブリックリポジトリとプライベートリポジトリを使用できることに加えて、検証済みの学生は {% data variables.product.prodname_student_pack %} に申請し、{% data variables.product.prodname_dotcom %} パートナーからのさらなるメリットを受けていただけます。 For more information, see "[Apply for a student developer pack](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)."
+{% data variables.product.prodname_free_user %} で学生と教員が無制限のパブリックリポジトリとプライベートリポジトリを使用できることに加えて、検証済みの学生は {% data variables.product.prodname_student_pack %} に申請し、{% data variables.product.prodname_dotcom %} パートナーからのさらなるメリットを受けていただけます。 For more information, see "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)."
 
 ### 学校・大学向け割引
 
-検証済みの教職員は教育や学術研究の目的で {% data variables.product.prodname_team %} に申し込むことができます。 For more information, see "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)." また、学生のために教材をお求めいただくこともできます。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
+検証済みの教職員は教育や学術研究の目的で {% data variables.product.prodname_team %} に申し込むことができます。 For more information, see "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)." また、学生のために教材をお求めいただくこともできます。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
 
 ### 非営利目的や図書館への割引
 

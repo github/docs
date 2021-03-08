@@ -1,0 +1,1 @@
+1. Debajo de tu nombre de organización, da clic en {% octicon "gear" aria-label="The Settings gear" %}**Configuración**. ![Botón de configuración de organización](/assets/images/help/organizations/organization-settings-tab.png)

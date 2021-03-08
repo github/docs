@@ -14,7 +14,7 @@ versions:
 {% data reusables.pull_requests.default_merge_option %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem Du einen linearen Commit-Verlauf erzwingst. Weitere Informationen findest Du unter „[Einen linearen Commit-Verlauf verlangen](/github/administering-a-repository/requiring-a-linear-commit-history)."{% endif %}
+Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem Du einen linearen Commit-Verlauf erzwingst. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
 
 ### Deine Merge-Commits squashen
 

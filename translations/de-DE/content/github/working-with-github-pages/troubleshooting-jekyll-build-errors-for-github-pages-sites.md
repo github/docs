@@ -78,7 +78,7 @@ Dieser Fehler bedeutet, dass der Code auf eine per Symlink verknüpfte Datei ver
 Dieser Fehler bedeutet, dass Du nicht lateinische Buchstaben wie `日本語` verwendet hast, ohne dem Computer mitzuteilen, dass er diese Symbole erwarten soll.
 
 Zur Fehlerbehebung erzwinge die UTF-8-Codierung. Trage hierzu die folgende Zeile in die Datei *_config.yml* ein:
-```
+```yaml
 encoding: UTF-8
 ```
 

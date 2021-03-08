@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+topics:
+  - 'Action development'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -64,12 +67,12 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -93,7 +96,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. From your terminal, add a tag. This example uses a tag called `v1`. Weitere Informationen finden Sie unter „[Informationen zu Aktionen](/actions/creating-actions/about-actions#using-release-management-for-actions)“.
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -121,7 +124,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

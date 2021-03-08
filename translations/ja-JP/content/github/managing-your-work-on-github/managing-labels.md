@@ -27,7 +27,7 @@ versions:
 
 作業を管理するとき、{% data variables.product.product_name %} ラベルを作成して Issue とプルリクエストを分類することができます。 You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any issue or pull request within that repository.
 
-リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
+リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 Anyone with triage access to a repository can apply/dismiss existing labels. ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
 
 ### About default labels
 
@@ -91,7 +91,6 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ### 参考リンク
-- [ラベルについて](/articles/about-labels)
 - "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - "[Encouraging helpful contributions to your project with labels](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

@@ -79,9 +79,34 @@ versions:
 
 ### パッケージを公開する
 
-*nuget.config*で認証を受けることによって、パッケージを{% data variables.product.prodname_registry %}に公開できます。 公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### Publishing a package using a GitHub PAT as your API key
+
+If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+1. 新しいプロジェクトを作成してください。
+  ```shell
+  dotnet new console --name OctocatApp
+  ```
+2. プロジェクトをパッケージ化してください。
+  ```shell
+  dotnet pack --configuration Release
+  ```
+
+3. Publish the package using your PAT as the API key.
+  ```shell
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  ```
 
 {% data reusables.package_registry.viewing-packages %}
+
+{% endif %}
+
+#### Publishing a package using a *nuget.config* file
+
+公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 2. 新しいプロジェクトを作成してください。
@@ -118,6 +143,8 @@ versions:
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
+
+{% data reusables.package_registry.viewing-packages %}
 
 ### 同じリポジトリへの複数パッケージの公開
 

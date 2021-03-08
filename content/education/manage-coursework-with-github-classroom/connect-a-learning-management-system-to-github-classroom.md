@@ -36,7 +36,7 @@ Using LTI helps keep your information safe and secure. LTI is an industry-standa
 - Moodle
 - Sakai
 
-Currently, {% data variables.product.prodname_classroom %} doesn't support import of roster data from Blackboard or Brightspace
+Currently, {% data variables.product.prodname_classroom %} doesn't support import of roster data from Blackboard or Brightspace.
 
 ### Generating configuration credentials for your classroom
 
@@ -45,7 +45,7 @@ Currently, {% data variables.product.prodname_classroom %} doesn't support impor
 {% data reusables.classroom.click-students %}
 1. If your classroom already has a roster, you can either update the roster or delete the roster and create a new roster.
     - For more information about deleting and creating a roster, see "[Deleting a roster for a classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[Creating a roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
-    - For more information about updating a roster, see "[Adding students to the roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)." 
+    - For more information about updating a roster, see "[Adding students to the roster for your classroom](/education/manage-coursework-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
 1. In the list of LMSes, click your LMS. If your LMS is not supported, click **Other LMS**.
   ![List of LMSes](/assets/images/help/classroom/classroom-settings-click-lms.png)
 1. Read about connecting your LMS, then click **Connect to _LMS_**.
@@ -82,13 +82,13 @@ You can configure {% data variables.product.prodname_classroom %} as an external
     | **Shared Secret** | Shared secret from {% data variables.product.prodname_classroom %} |
     | **Allow this tool to access the IMS Names and Role Provisioning Service** | Enabled |
     | **Configuration URL** | Launch URL from {% data variables.product.prodname_classroom %} |
-    
+
     {% note %}
-    
+
     **Note**: If you don't see a checkbox in Canvas labeled "Allow this tool to access the IMS Names and Role Provisioning Service", then your Canvas administrator must contact Canvas support to enable membership service configuration for your Canvas account. Without enabling this feature, you won't be able to sync the roster from Canvas. For more information, see [How do I contact Canvas Support?](https://community.canvaslms.com/t5/Canvas-Basics-Guide/How-do-I-contact-Canvas-Support/ta-p/389767) on the Canvas website.
-    
+
     {% endnote %}
-    
+
 1. Click **Submit**.
 1. In the left sidebar, click **Home**.
 1. To prompt Canvas to send a confirmation email, in the left sidebar, click **GitHub Classroom**. Follow the instructions in the email to finish linking {% data variables.product.prodname_classroom %}.

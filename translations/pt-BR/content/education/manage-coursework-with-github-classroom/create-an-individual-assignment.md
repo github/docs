@@ -120,5 +120,5 @@ Você pode ver se um aluno juntou-se à sala de aula e aceitou ou enviou uma ati
 
 ### Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquise](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

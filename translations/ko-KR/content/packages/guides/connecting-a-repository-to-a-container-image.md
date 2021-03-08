@@ -33,11 +33,11 @@ https://github.com/monalisa/hello_docker
 1. In your Dockerfile, add this line, replacing `OWNER` and `REPO` with your details:
 
  ```shell
- LABEL org.opencontainers.image.source https://github.com/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://github.com/<em>OWNER</em>/<em>REPO</em>
  ```
  For example, if you're the user `monalisa` and own `my-repo`, you would add this line to your Dockerfile:
  ```shell
- LABEL org.opencontainers.image.source https://github.com/monalisa/my-repo
+ LABEL org.opencontainers.image.source=https://github.com/monalisa/my-repo
  ```
  For more information, see "[LABEL](https://docs.docker.com/engine/reference/builder/#label)" in the official Docker documentation and "[Pre-defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)" in the `opencontainers/image-spec` repository.
 

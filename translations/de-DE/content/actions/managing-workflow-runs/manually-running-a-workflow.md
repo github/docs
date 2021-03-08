@@ -18,7 +18,7 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 
 To trigger the `workflow_dispatch` event on {% data variables.product.prodname_dotcom %}, your workflow must be in the default branch. Führen Sie die folgenden Schritte aus, um eine Workflowausführung manuell auszulösen.
 
-{% data reusables.repositories.permissions-statement-read %}
+{% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

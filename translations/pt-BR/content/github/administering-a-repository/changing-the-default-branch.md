@@ -23,7 +23,13 @@ Você pode escolher o branch-padrão para um repositório. O branch-padrão é o
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+Você também pode renomear o branch padrão. Para obter mais informações, consulte "[Renomear um branch](/github/administering-a-repository/renaming-a-branch).
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
 {% data reusables.branches.set-default-branch %}
 

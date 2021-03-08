@@ -1,6 +1,6 @@
 ---
-title: Managing GitHub packages
-shortTitle: Managing GitHub packages
+title: Gerenciar pacotes do GitHub
+shortTitle: Gerenciar pacotes do GitHub
 intro: 'Você pode publicar novos pacotes no {% data variables.product.prodname_registry %}, visualizar e instalar pacotes existentes e, em circunstâncias especiais, excluir pacotes existentes.'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages

@@ -25,6 +25,7 @@ versions:
     {% link_in_list /creating-a-github-pages-site %}
     {% link_in_list /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser %}
     {% link_in_list /configuring-a-publishing-source-for-your-github-pages-site %}
+    {% link_in_list /changing-the-visibility-of-your-github-pages-site %}
     {% link_in_list /creating-a-custom-404-page-for-your-github-pages-site %}
     {% link_in_list /securing-your-github-pages-site-with-https %}
     {% link_in_list /using-submodules-with-github-pages %}

@@ -80,9 +80,25 @@ GraphQL 是一种[内省](https://graphql.github.io/learn/introspection/)语言�
 * 查询 `__schema`，列出架构中定义的所有类型并获取关于每个类型的详细信息：
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* 查询 `__type`，获取关于任何类型的详细信息：
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -91,22 +107,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* 查询 `__type`，获取关于任何类型的详细信息：
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * 您也可以通过 `GET` 请求对架构运行_内省查询_ ：

@@ -18,6 +18,8 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 
 {% data reusables.saml.about-linked-identities %}
 
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.saml.click-person-revoke-identity %}

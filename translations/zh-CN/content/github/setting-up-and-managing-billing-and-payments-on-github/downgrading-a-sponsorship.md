@@ -9,9 +9,9 @@ versions:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorship downgrades
+### 关于赞助降级
 
-When you downgrade or cancel a sponsorship, the change will become effective on your next billing date. {% data reusables.sponsors.no-refunds %}
+降级或取消赞助后，更改将在下一个结算日期生效。 {% data reusables.sponsors.no-refunds %}
 
 ### 降级赞助
 

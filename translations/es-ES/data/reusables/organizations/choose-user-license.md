@@ -1,0 +1,1 @@
+1. Si tu organización pertenece a una cuenta empresarial con más de una licencia, escoge la licencia para el usuario. ![Opciones de licencia](/assets/images/help/organizations/choose-user-license.png)

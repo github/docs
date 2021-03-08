@@ -19,13 +19,13 @@ versions:
 ### 最近のスポンサーシップアクティビティを表示する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-1. 左のサイドバーで**Activity（アクティビティ）**をクリックしてください。 ![アクティビティタブ](/assets/images/help/sponsors/activity-tab.png)
+{% data reusables.sponsors.activity-tab %}
 
 ### スポンサーシップデータをエクスポートする
 
-If you have sponsors, you can export your sponsorship data. {% data variables.product.prodname_dotcom %} will send you an email with export data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsors-tab %}
-1. [**Export all**] をクリックします。 ![[Export all] ボタン](/assets/images/help/sponsors/export-all.png)
+{% data reusables.sponsors.activity-tab %}
+1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
 1. エクスポートしたいデータの時間枠と形式を選択し、[**Start export**] をクリックします。 ![データエクスポートのオプション](/assets/images/help/sponsors/export-your-sponsors.png)

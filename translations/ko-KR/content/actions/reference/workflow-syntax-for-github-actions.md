@@ -27,7 +27,7 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 
 ### `on`
 
-**Required** The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
+**Required**. The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -187,7 +187,7 @@ For more information about cron syntax, see "[Events that trigger workflows](/ac
 
 ### `env`
 
-A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -286,7 +286,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 ### `jobs.<job_id>.runs-on`
 
-**Required** The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
+**Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -299,6 +299,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### 예시
 
@@ -518,7 +519,7 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -639,14 +640,15 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
 
-| Supported platform | `shell` parameter | 설명                                                                                                                                                                 | Command run internally                          |
-| ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
-| All                | `bash`            | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}`      |
-| All                | `pwsh`            | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                | `pwsh -command ". '{0}'"`                       |
-| All                | `python`          | Executes the python command.                                                                                                                                       | `python {0}`                                    |
-| Linux / macOS      | `sh`              | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path.                                                       | `sh -e {0}`                                     |
-| Windows            | `cmd`             | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`.                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows            | `powershell`      | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.  | `powershell -command ". '{0}'"`.                |
+| Supported platform | `shell` parameter | 설명                                                                                                                                                                                                                                                                                      | Command run internally                          |
+| ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| All                | `bash`            | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used.                                                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
+| All                | `pwsh`            | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                                                                                                                                     | `pwsh -command ". '{0}'"`                       |
+| All                | `python`          | Executes the python command.                                                                                                                                                                                                                                                            | `python {0}`                                    |
+| Linux / macOS      | `sh`              | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path.                                                                                                                                                                            | `sh -e {0}`                                     |
+| Windows            | `cmd`             | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`.                                                                                                                                                                | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows            | `pwsh`            | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
+| Windows            | `powershell`      | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                                                                                                                                  | `powershell -command ". '{0}'"`.                |
 
 #### Example running a script using bash
 
@@ -675,6 +677,15 @@ steps:
     shell: pwsh
 ```
 
+#### Example: Using PowerShell Desktop to run a script
+
+```yaml
+steps:
+  - name: Display the path
+    run: echo ${env:PATH}
+    shell: powershell
+```
+
 #### Example running a python script
 
 ```yaml
@@ -690,12 +701,24 @@ steps:
 
 You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
+예시:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### Exit codes and error action preference
 
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
-  - Fail-fast behavior using `set -e o pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
+  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
   - You can opt out of fail-fast and take full control by providing a template string to the shell options. For example, `bash {0}`.
   - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
@@ -1149,7 +1172,7 @@ You can use special characters in path, branch, and tag filters.
 - `**`: Matches zero or more of any character.
 - `?`: Matches zero or one single character. For example, `Octoc?t` matches `Octocat`.
 - `+`: Matches one or more of the preceding character.
-- `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-f]` matches any digits or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
+- `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
 - `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
 
 The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes.
@@ -1167,35 +1190,35 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 
 #### Patterns to match branches and tags
 
-| Pattern                                       | 설명                                                                                                                                                                           | Example matches                                                                                    |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                   | The `*` wildcard matches any character, but does not match slash (`/`).                                                                                                      | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                  | The `**` wildcard matches any character including slash (`/`) in branch and tag names.                                                                                       | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name.                                                                                                                              | -`main`<br/>-`releases/mona-the-octocat`                                                     |
-| `'*'`                                         | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases`                                                                      |
-| `'**'`                                        | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter.                                                             | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                  | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.                                                                    | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                         | Matches branch and tag names that start with `v2`.                                                                                                                           | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                         | Matches all semantic versioning tags with major version 1 or 2                                                                                                               | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| Pattern                                                | 설명                                                                                                                                                                           | Example matches                                                                                                       |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `feature/*`                                            | The `*` wildcard matches any character, but does not match slash (`/`).                                                                                                      | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `feature/**`                                           | The `**` wildcard matches any character including slash (`/`) in branch and tag names.                                                                                       | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octcat` | Matches the exact name of a branch or tag name.                                                                                                                              | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                  | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                 | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter.                                                             | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*feature'`                                           | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.                                                                    | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                  | Matches branch and tag names that start with `v2`.                                                                                                                           | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                  | Matches all semantic versioning branches and tags with major version 1 or 2                                                                                                  | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### Patterns to match file paths
 
 Path patterns must match the whole path, and start from the repository's root.
 
-| Pattern                                              | Description of matches                                                                                                                                                                        | Example matches                                                                              |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `'*'`                                                | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.             | -`README.md`<br/>-`server.rb`                                                          |
-| `'*.jsx?'`                                           | The `?` character matches zero or one of the preceding character.                                                                                                                             | -`page.js`<br/>-`page.jsx`                                                             |
-| `'**'`                                               | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter.                                                               | -`all/the/files.md`                                                                          |
-| `'*.js'`                                             | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository.                                                                | -`app.js`<br/>-`index.js`                                                              |
-| `'**.js'`                                            | Matches all `.js` files in the repository.                                                                                                                                                    | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js`                              |
-| `docs/*`                                             | All files within the root of the `docs` directory, at the root of the repository.                                                                                                             | -`docs/README.md`<br/>-`docs/file.txt`                                                 |
-| `docs/**`                                            | Any files in the `/docs` directory at the root of the repository.                                                                                                                             | -`docs/README.md`<br/>-`docs/mona/octocat.txt`                                         |
-| `docs/**/*.md`                                       | A file with a `.md` suffix anywhere in the `docs` directory.                                                                                                                                  | -`docs/README.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md` |
-| `'**/docs/**'`                                       | Any files in a `docs` directory anywhere in the repository.                                                                                                                                   | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`   |
-| `'**/README.md'`                                     | A README.md file anywhere in the repository.                                                                                                                                                  | -`README.md`<br/>-`js/README.md`                                                       |
-| `'**/*src/**'`                                       | Any file in a folder with a `src` suffix anywhere in the repository.                                                                                                                          | -`a/src/app.js`<br/>-`my-src/code/js/app.js`                                           |
-| `'**/*-post.md'`                                     | A file with the suffix `-post.md` anywhere in the repository.                                                                                                                                 | -`my-post.md`<br/>-`path/their-post.md`                                                |
-| `'**/migrate-*.sql'`                                 | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository.                                                                                                               | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql`    |
-| -`*.md`<br/>-`!README.md`                      | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | -`hello.md`<br/>_Does not match_<br/>-`README.md`<br/>-`docs/hello.md`   |
-| -`*.md`<br/>-`!README.md`<br/>-`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.                                                                                      | -`hello.md`<br/>-`README.md`<br/>-`README.doc`                                   |
+| Pattern                                                                 | Description of matches                                                                                                                                                                        | Example matches                                                                                                          |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `'*'`                                                                   | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.             | `README.md`<br/><br/>`server.rb`                                                                             |
+| `'*.jsx?'`                                                              | The `?` character matches zero or one of the preceding character.                                                                                                                             | `page.js`<br/><br/>`page.jsx`                                                                                |
+| `'**'`                                                                  | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter.                                                               | `all/the/files.md`                                                                                                       |
+| `'*.js'`                                                                | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository.                                                                | `app.js`<br/><br/>`index.js`                                                                                 |
+| `'**.js'`                                                               | Matches all `.js` files in the repository.                                                                                                                                                    | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
+| `docs/*`                                                                | All files within the root of the `docs` directory, at the root of the repository.                                                                                                             | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `docs/**`                                                               | Any files in the `/docs` directory at the root of the repository.                                                                                                                             | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/**/*.md`                                                          | A file with a `.md` suffix anywhere in the `docs` directory.                                                                                                                                  | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
+| `'**/docs/**'`                                                          | Any files in a `docs` directory anywhere in the repository.                                                                                                                                   | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/README.md'`                                                        | A README.md file anywhere in the repository.                                                                                                                                                  | `README.md`<br/><br/>`js/README.md`                                                                          |
+| `'**/*src/**'`                                                          | Any file in a folder with a `src` suffix anywhere in the repository.                                                                                                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
+| `'**/*-post.md'`                                                        | A file with the suffix `-post.md` anywhere in the repository.                                                                                                                                 | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
+| `'**/migrate-*.sql'`                                                    | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository.                                                                                                               | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
+| `*.md`<br/><br/>`!README.md`                                | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.                                                                                      | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |

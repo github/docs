@@ -1,0 +1,1 @@
+For {% data variables.product.prodname_ghe_server %}, push notifications for direct mentions are currently supported on iOS and coming soon to Android. {% data variables.product.prodname_ghe_server %} uses background fetch to support push notifications without sending your information to a third-party service, so you may experience a delay in receiving push notifications.

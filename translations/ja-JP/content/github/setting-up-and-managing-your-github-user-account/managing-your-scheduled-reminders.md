@@ -24,7 +24,7 @@ versions:
 {% data reusables.reminders.days-dropdown %}
 {% data reusables.reminders.times-dropdowns %}
 8. オプションで、自分が割り当てられているレビュー担当者のスケジュールされたリマインダーを受け取るには、[**Review requests assigned to you**] を選択します。 ![[Review requests assigned to you] チェックボックス](/assets/images/help/profile/scheduled-reminders-your-requests.png)
-9. オプションで、自分がメンバー担っている Team に割り当てられているレビュー担当者のスケジュールされたリマインダーを受け取るには、[**Review requests assigned to your team**] を選択します。 ![[Review requests assigned to your team] チェックボックス](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
+9. オプションで、自分がメンバーになっている Team に割り当てられているレビュー担当者のスケジュールされたリマインダーを受け取るには、[**Review requests assigned to your team**] を選択します。 ![[Review requests assigned to your team] チェックボックス](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
 {% data reusables.reminders.real-time-alerts %}
 ![[Enable real-time alerts] チェックボックス](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}

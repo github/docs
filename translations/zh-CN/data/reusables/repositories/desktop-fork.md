@@ -1,1 +1,1 @@
-您可以使用 {% data variables.product.prodname_desktop %} 复刻仓库。 For more information, see "[Cloning and forking repositories from {% data variables.product.prodname_desktop %}](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)."
+您可以使用 {% data variables.product.prodname_desktop %} 复刻仓库。 更多信息请参阅“[从 {% data variables.product.prodname_desktop %} 克隆和复刻仓库](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)”。

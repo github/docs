@@ -124,6 +124,10 @@ Git zeigt erneut die zu bearbeitende Commit-Mitteilung an. Du kannst den Text (`
 Der gewöhnliche Befehl `git push origin` funktioniert **nicht**, da Du den Git-Verlauf geändert hast. Du musst den Befehl ändern, indem Du Deine neuesten Änderungen per erzwungenem Push-Vorgang überträgst:
 
 ```shell
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
 $ git push origin main --force
 ```
 

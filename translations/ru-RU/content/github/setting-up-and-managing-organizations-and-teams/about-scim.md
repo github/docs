@@ -17,7 +17,7 @@ These identity providers are compatible with the {% data variables.product.produ
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)."
+{% data reusables.scim.enterprise-account-scim %} For more information, see "[About user provisioning for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)."
 
 ### Дополнительная литература
 

@@ -78,7 +78,7 @@ This error means that your code references a symlinked file that does not exist 
 This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
 
 To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
-```
+```yaml
 encoding: UTF-8
 ```
 

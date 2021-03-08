@@ -165,7 +165,7 @@ To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-[check a token for validity][/rest/reference/apps#check-a-token]{% else %}[check a token for validity][/rest/reference/apps#check-an-authorization]{% endif %}.
+[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 

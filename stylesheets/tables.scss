@@ -16,6 +16,13 @@
     border-radius: $border-radius;
   }
 
+  pre {
+    > code {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
   thead tr {
     border: none;
   }

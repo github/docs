@@ -33,11 +33,11 @@ https://github.com/monalisa/hello_docker
 1. 在 Dockerfile 中添加此行，将 `OWNER` 和 `REPO` 替换为您的详细信息：
 
  ```shell
- LABEL org.opencontainers.image.source https://github.com/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://github.com/<em>OWNER</em>/<em>REPO</em>
  ```
  例如，如果您是用户 `monalisa` 并且拥有 `my-repo`，您会将此行添加到 Dockerfile：
  ```shell
- LABEL org.opencontainers.image.source https://github.com/monalisa/my-repo
+ LABEL org.opencontainers.image.source=https://github.com/monalisa/my-repo
  ```
  更多信息请参阅官方 Docker 文档中的“[LABEL](https://docs.docker.com/engine/reference/builder/#label)”，以及 `opencontainers/image-spec` 仓库中的“[预定义的标注键](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)”。
 

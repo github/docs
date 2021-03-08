@@ -14,9 +14,11 @@ versions:
 
 リポジトリ中の Issue で、ユーザフィードバックの収集、ソフトウェアバグの報告、完了したいタスクの編成ができます。 Issueは、単なるソフトウェアのバグを報告する場所以上の働きをします。
 
+{% if currentVersion == "free-pro-team@latest" %}
 Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
 
 {% data reusables.discussions.you-cannot-convert-a-discussion %}
+{% endif %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 

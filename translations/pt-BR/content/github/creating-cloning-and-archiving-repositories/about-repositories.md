@@ -23,8 +23,8 @@ Cada pessoa e organização podem ter repositórios ilimitados e convidar um nú
 {% endif %}
 
 Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras pessoas.
-- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues)".
-- {% data reusables.discussions.you-can-use-discussions %}
+- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - É possível usar pull requests para propor alterações em um repositório. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 - Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
 

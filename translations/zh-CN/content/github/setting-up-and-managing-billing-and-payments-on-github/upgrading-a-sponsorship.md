@@ -9,7 +9,7 @@ versions:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorship upgrades
+### 关于赞助升级
 
 当您升级赞助等级后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 

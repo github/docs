@@ -42,7 +42,18 @@ console.log({
 purgeRenderedPageCache()
 
 function purgeRenderedPageCache () {
-  const redisClient = new Redis(REDIS_URL, { db: pageCacheDatabaseNumber })
+  const redisClient = new Redis(REDIS_URL, {
+    db: pageCacheDatabaseNumber,
+
+    // Only add this configuration for TLS-enabled REDIS_URL values.
+    // Otherwise, it breaks for local Redis instances without TLS enabled.
+    ...REDIS_URL.startsWith('rediss://') && {
+      tls: {
+        // Required for production Heroku Redis
+        rejectUnauthorized: false
+      }
+    }
+  })
   let totalKeyCount = 0
   let iteration = 0
 

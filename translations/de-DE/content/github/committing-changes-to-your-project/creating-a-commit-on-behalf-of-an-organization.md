@@ -26,9 +26,19 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
 
 ### Commits mit einem `on-behalf-of`-Badge in der Befehlszeile erstellen
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
 
-2. Gib in der nächsten Zeile der Commit-Mitteilung `on-behalf-of: @org <name@organization.com>` ein, gefolgt von einem abschließenden Anführungszeichen.
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+
+  {% endtip %}
+
+2. Geben Sie in der nächsten Zeile der Commit-Mitteilung `on-behalf-of: @org <name@organization.com>` ein, gefolgt von einem abschließenden Anführungszeichen.
 
   ```shell
   $ git commit -m "Refactor usability tests.

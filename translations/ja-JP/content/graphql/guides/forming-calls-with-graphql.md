@@ -103,6 +103,7 @@ GraphQLのクエリは、指定したデータのみを返します。 クエリ
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 この例の入力オブジェクトは`MuitationNameInput`であり、ペイロードオブジェクトは `MuitationNamePayload` です。

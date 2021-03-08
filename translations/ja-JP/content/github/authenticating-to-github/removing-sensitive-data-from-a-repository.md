@@ -28,7 +28,7 @@ versions:
 
 #### BFG を使用する
 
-[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) は、オープンソースコミュニティによって構築およびメンテナンスされているツールです。 これは、不要なデータを削除する手段として、`git filter-branch` より高速でシンプルです。 たとえば、機密データを含むファイルを削除して、最新のコミットをそのままにしておくには、次を実行します:
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) は、オープンソースコミュニティによって構築およびメンテナンスされているツールです。 これは、不要なデータを削除する手段として、`git filter-branch` より高速でシンプルです。 たとえば、機密データを含むファイルを削除して、最新のコミットをそのままにしておくには、次を実行します:
 
 ```shell
 $ bfg --delete-files <em>機密データを含むファイル</em>
@@ -46,7 +46,7 @@ $ bfg --replace-text passwords.txt
 $ git push --force
 ```
 
-完全な使用方法とダウンロード手順については、[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) のドキュメントを参照してください。
+完全な使用方法とダウンロード手順については、[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) のドキュメントを参照してください。
 
 #### filter-branch を使用する
 
