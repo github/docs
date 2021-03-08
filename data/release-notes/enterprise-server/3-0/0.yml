@@ -121,6 +121,7 @@ sections:
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact {% data variables.contact.contact_ent_support %}.
     - When GitHub Actions is enabled, use '`ghe-maintenance -u`' to unset maintenance mode.
+    - Users can dismiss a mandatory message without checking all checkboxes.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19
