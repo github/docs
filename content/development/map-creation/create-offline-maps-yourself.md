@@ -1,7 +1,7 @@
 ---
 title: Create Offline Raster & Vector Maps
 versions: '*'
-intro: There are many ways how to create and customize Raster & Vector maps for your needs.
+intro: With OsmAndMapCreator there are many ways how to create and customize Raster & Vector maps for your needs. 
 ---
 **_This article is incomplete & needs to be reviewed_**
 
