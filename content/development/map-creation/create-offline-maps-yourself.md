@@ -3,22 +3,19 @@ title: Create Offline Raster & Vector Maps
 versions: '*'
 intro: There are many ways how to create and customize Raster & Vector maps for your needs.
 ---
-**_This article needs to be reviewed_**
+**_This article is incomplete & needs to be reviewed_**
 
 ## OsmAndMapCreator
-[*OsmAndMapCreator*](https://wiki.openstreetmap.org/wiki/OsmAndMapCreator) can be used to create maps yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd. You can always download [latest version](https://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip).
+[*OsmAndMapCreator*](https://wiki.openstreetmap.org/wiki/OsmAndMapCreator) can be used to create any maps supported by OsmAnd yourself. You can download latest version from [website](https://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip). OsmAndMapCreator has UI capabilities to create raster & vector maps. To create vector map you will need OSM file (`*.pbf, *.osm.gz, *.osm.bz2`) and to create online sqlite map file you will need a `base tile url`.
 
-
-OsmAndMapCreator has UI capabilities to create raster & vector maps. To create vector map you will need OSM file (`*.pbf, *.osm.gz, *.osm.bz2`) and to create online sqlite map file you will need a tile url.
-
-#### Raster maps (simple)
+### Raster maps (simple)
 Once you selected the tiles you want to create a map from in the menu **Source of tiles** and they are loaded successfully in OsmAndMapCreator. You can select with right click the area you would like to preload and once you have it loaded, you can create `.sqlitedb` file in **Source of tiles** → **Create sqlite database**.
 
 ![Download raster maps](/assets/images/osmandmapcreator/OsmAndMapCreator-download-raster-maps.png)
 
 ![Create sqlitedb maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-raster-maps.png)
 
-#### Vector maps (simple)
+### Vector maps (simple)
 Once you have an OSM file, you can either download it from [Geofabrik](https://www.geofabrik.de/data/download.html) or convert [Shapefile to OSM](https://wiki.openstreetmap.org/wiki/OGR) or even generate [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) it yourself using any programming utilities, you can proceed by converting it to [OBF Format](/development/osmand-file-formats/osmand-obf) which OsmAnd can undertand. You need to select checkboxes whether you want to produce Maps including Address / Routing / Transport / Map data and Select in **File** → **Create .obf from file**. Once process is completed you will have .obf file in the working directory. 
 
 ![Create vector maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-vector-maps.png)
@@ -65,7 +62,7 @@ All extra parameters could be found in the code in case they are not documented 
 **Note**: Creating maps with batch.xml is deprecated, please use shell methods mentionned above and combine with downloads / for cycles using standard shell script capabilities.
 
 
-#### RAM to process maps
+### RAM to process maps
 Creating maps is memory hungry and I/O intensive. In other words: it takes very long and could run out of memory! Please check generation on small maps first.
 In order to give more memory to JVM, you can declare env JAVA_OPTS variable.
 ```
@@ -86,27 +83,36 @@ With "in memory" processing this *nodes.tmp.odb* file will be created in your wo
 
 Exampl: for a 250MB *.osm.pbf* a \~4.5GB *nodes.tmp.odb* file will be generated.
 
-#### Customize OSM tags 
+### Custom vector map (tags)
 
-**_This part needs to be created_**
+**_This article is incomplete & needs to be reviewed_**
 - Rendering types xml
 - POI types xml
 
 
+It is possible to create a customized OBF file with specific (own) vector data (hiking paths, speed cams, transport routes debug way info), and adjust the renderer to display it.
+OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change [this](https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml) file. OsmAndMapCreator has an option to use custom rendering\_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with `-vmap` argument. This utility is packaged with OsmAndMapCreator.
+
+Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a [default rendering style](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml) which contains all information about rendering. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style. A good example of custom rendering style you can find [here](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.).
+
+Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
+
+
+
 ## Advanced Raster maps creation
 
-**_This part needs to be created_**
+**_This article is incomplete & needs to be reviewed_**
 - Using MOBAC to create OsmAnd online tiles
 - Converting image & pdf maps to OsmAnd online map - [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
 
 
 ## Common Issues
-### OsmAndMapCreator fails with message: OutOfMemoryError
-
+### OutOfMemoryError issue
+**Issue**: OsmAndMapCreator fails with message:
 The file you try to process with OsmAndMapCreator is too large. Either try to process a smaller file, or increase the memory for OsmAndMapCreator in the .sh or .bat file. The `-Xmx` parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
 
-### After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong?
-
+### Empty file issue
+**Issue**: After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong?
 It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
 ```
   <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
@@ -123,15 +129,4 @@ change it to contain an additional 'amenity' tag, like:
   </node>
 ```
  
-Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use, or you can just use this amenity.
-
-## How to Produce Custom Vector Data for a Map
-
-It is possible to create a customized OBF file with specific (own) vector data (hiking paths, speed cams, transport routes debug way info), and adjust the renderer to display it.
-
-OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change [this](https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml) file. OsmAndMapCreator has an option to use custom rendering\_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with `-vmap` argument. This utility is packaged with OsmAndMapCreator.
-
-Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a [default rendering style](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml) which contains all information about rendering. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style. A good example of custom rendering style you can find [here](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.).
-
-Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
-
+Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use and you can also verify which tags are supported by [OsmAnd](https://github.com/osmandapp/OsmAnd-resources/blob/master/poi/poi_types.xml).
