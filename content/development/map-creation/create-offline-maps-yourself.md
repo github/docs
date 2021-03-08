@@ -16,11 +16,12 @@ Once you selected the tiles you want to create a map from in the menu **Source o
 ![Create sqlitedb maps](/assets/images/osmandmapcreator/OsmAndMapCreator-create-raster-maps.png)
 
 ### Vector maps (simple)
-Steps to create vector map via OsmAndMapCreator UI
+Steps to create vector map via OsmAndMapCreator UI:
+
 1. OSM File
-  - Download it from [Geofabrik](https://www.geofabrik.de/data/download.html) or small export from [OpenStreetMap](https://www.openstreetmap.org/export#map=19/48.80672/2.13187)
-  - Convert [Shapefile to OSM](https://wiki.openstreetmap.org/wiki/OGR) 
-  - Generate [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) it yourself using any programming utilities, you can proceed by converting it to [OBF Format](/development/osmand-file-formats/osmand-obf) which OsmAnd can undertand
+    - Download it from [Geofabrik](https://www.geofabrik.de/data/download.html) or small export from [OpenStreetMap](https://www.openstreetmap.org/export#map=19/48.80672/2.13187)
+    - Convert [Shapefile to OSM](https://wiki.openstreetmap.org/wiki/OGR) 
+    - Generate [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) it yourself using any programming utilities, you can proceed by converting it to [OBF Format](/development/osmand-file-formats/osmand-obf) which OsmAnd can undertand
 2. Select checkboxes whether you want to produce Maps including Address / Routing / Transport / Map data
 3. Select in **File** → **Create .obf from file**.
 4. Once process is completed you will have `.obf` file in the working directory. 
