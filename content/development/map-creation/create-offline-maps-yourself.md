@@ -25,43 +25,71 @@ More parameters how to generate vector maps could be specified in the shell `uti
 
 
 ## Vector maps (shell script) 
-In order to create 
+The most typical & the most powerful way to create maps used by developers is via shell script `utilities.sh` packaged within OsmAndMapCreator. It also has many other utilities methods to create some custom maps such as basemap or map with region names & boundaries (regions.ocbf).
 
-Examples: 
+Example script: 
 ```
-OsmAndMapCreator/utilities.sh generate-poi "$LOC/wikivoyage.osm.gz" --chars-build-poi-nameindex=3
+wget -N http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip
+wget  https://builder.osmand.net/osm-extract/albania_europe/albania_europe.pbf
+unzip OsmAndMapCreator-main.zip -d OsmAndMapCreator
+OsmAndMapCreator/utilities.sh generate-poi albania_europe.pbf --chars-build-poi-nameindex=3
 ```
+
+Generates script takes only 1 file OSM file to process (.pbf, .osm.gz, osm.bz2, .osm) and many parameters specified as `--xxxxxx`.
 
 | Main command | Description   |
 |--------------|---------------|
-| generate-obf | | 
-| generate-obf-no-address | | 
-| generate-address | | 
-| generate-poi | |
-| generate-map | | 
-| generate-roads | |
+| generate-obf | Generates full obf with map, address, poi, transport, routing information | 
+| generate-obf-no-address | Generates full obf but without address information | 
+| generate-address | Generates map with only address information | 
+| generate-poi | Generates map with only poi information |
+| generate-map | Generates map with only map rendering information | 
+| generate-roads | Generates map with only routing information |
 
+
+All extra parameters could be found in the code in case they are not documented properly [Main Utilities](https://github.com/osmandapp/OsmAnd-tools/blob/master/java-tools/OsmAndMapCreatorUtilities/src/main/java/net/osmand/MainUtilities.java#L219). All parameters are optional!
 
 | Parameters | Description |
 |--------------|---------------|
+| --add-region-tags | Slows down map creation process by adding to each way a region name tag where it processed. It's needed only for worldwide basemap or when you process multinational regions, in all other cases it's easier to have proper name for your file i.e. germany_... , us_.... If you don't have this parameter and you don't specify add this parameter, it's likely you will see non-localized road / public transport route badges in OsmAnd. | 
+| --keep-only-sea-objects | Removes object that are not part of ocean / see, it's used to produce nautical map |
+| --ram-process | Specifies that creation will be using RAM SQlite DB instead of disk - [more information](#ram-to-process-maps). |
+| --srtm=FOLDER | Specifies folder with TIF-DEM images, so information about height & slope will be encoded into roads |
+| --rendering-types=FILE | rendering_types.xml location with rules & OSM tags needs to be encoded in OBF - [more information](#customize-osm-tags). |
+| --poi-types=FILE | poi_types.xml location with rules & OSM tags needs to be encoded in OBF for POI - [more information](#customize-osm-tags). |
+| --extra-relations=FILE | OSM file with polygons like Low Emission Zones which tags should be propagated to the ways. |
+
 
 **Note**: Creating maps with batch.xml is deprecated, please use shell methods mentionned above and combine with downloads / for cycles using standard shell script capabilities.
 
 
 #### RAM to process maps
 Creating maps is memory hungry and I/O intensive. In other words: it takes very long and could run out of memory! Please check generation on small maps first.
+In order to give more memory to JVM, you can declare env JAVA_OPTS variable.
+```
+export JAVA_OPTS="-Xms256M -Xmx6400M"
+OsmAndMapCreator/utilities.sh generate-obf ....
+```
+
+
 What can you do to improve performance:
 - Use SSD disks.
 - Use multiple disks.
 - Use "in memory" processing.
-
-You can process a great deal of the map creation in memory instead of on disk. This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
+If you want to avoid using disk space and use only RAM to speed up process - specify `--ram-process` parameter. This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
 
 In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/). So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
 
 With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. You will need "the size of the nodes.tmp.odb" + 20-25%. Please note that that you don't need to increase `-Xmx` parameter cause SQLite in memory won't occupy JVM memory and use only native operating memory.
 
 Exampl: for a 250MB *.osm.pbf* a \~4.5GB *nodes.tmp.odb* file will be generated.
+
+#### Customize OSM tags 
+
+**_This part needs to be created_**
+- Rendering types xml
+- POI types xml
+
 
 ## Advanced Raster maps creation
 
