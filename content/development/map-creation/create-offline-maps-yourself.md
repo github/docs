@@ -106,7 +106,6 @@ Once the .obf file is ready you can create custom rendering file to display miss
 Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
 
 
-
 ## Raster maps (advanced)
 
 **_This article is incomplete & needs to be reviewed_**
@@ -116,11 +115,13 @@ Currently OsmAndMapCreator doesn't support relation tagging. So you need to manu
 
 ## Common Issues
 ### OutOfMemoryError issue
-**Issue**: OsmAndMapCreator fails with message:
+**Issue**: OsmAndMapCreator fails with message -  OutOfMemoryError.
+
 The file you try to process with OsmAndMapCreator is too large. Either try to process a smaller file, or increase the memory for OsmAndMapCreator in the .sh or .bat file. The `-Xmx` parameter specifies how much memory the program can consume. Settings can be different for 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
 
 ### Empty file issue
-**Issue**: After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong?
+**Issue**: After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. 
+
 It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
 ```
   <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
