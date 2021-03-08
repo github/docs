@@ -32,11 +32,24 @@ Examples:
 OsmAndMapCreator/utilities.sh generate-poi "$LOC/wikivoyage.osm.gz" --chars-build-poi-nameindex=3
 ```
 
-Note: Creating maps with batch.xml is deprecated, please use shell methods mentionned above and combine with downloads / for cycles using standard shell script capabilities.
+| Main command | Description   |
+|--------------|---------------|
+| generate-obf | | 
+| generate-obf-no-address | | 
+| generate-address | | 
+| generate-poi | |
+| generate-map | | 
+| generate-roads | |
 
 
-#### Using RAM to process maps
-Creating maps is memory hungry and I/O intensive. In other words: It takes long to very long!
+| Parameters | Description |
+|--------------|---------------|
+
+**Note**: Creating maps with batch.xml is deprecated, please use shell methods mentionned above and combine with downloads / for cycles using standard shell script capabilities.
+
+
+#### RAM to process maps
+Creating maps is memory hungry and I/O intensive. In other words: it takes very long and could run out of memory! Please check generation on small maps first.
 What can you do to improve performance:
 - Use SSD disks.
 - Use multiple disks.
