@@ -64,6 +64,9 @@ When the dependency graph is first enabled, any manifest and lock files for supp
 
 The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% if currentVersion == "free-pro-team@latest" %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for vulnerable dependencies.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}The ecosystems listed below are supported for the dependency graph, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_dependabot_security_updates %}.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}The ecosystems listed below are supported for the dependency graph and {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
+
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
