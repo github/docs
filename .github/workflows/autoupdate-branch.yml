@@ -17,6 +17,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '*/30 * * * *' # every 30 minutes
 
 jobs:
   autoupdate:
