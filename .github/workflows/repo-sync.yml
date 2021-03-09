@@ -106,7 +106,9 @@ jobs:
               enablePullRequestAutoMerge(input: {
                 pullRequestId: $id,
                 mergeMethod: MERGE
-              })
+              }) {
+                clientMutationId
+              }
             }`
             const variables = {
               id: pullNodeId
