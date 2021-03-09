@@ -116,6 +116,7 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Sweden</li>
 <li>Switzerland</li>
 <li>Taiwan</li>
+<li>Tajikistan</li>
 <li>Tanzania</li>
 <li>Togo</li>
 <li>Trinidad and Tobago</li>
