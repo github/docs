@@ -102,12 +102,12 @@ jobs:
             const pullNodeId = pull.data.node_id
             console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
 
-            const mutation = `mutation (id: String!) {
-              enablePullRequestAutoMerge (input: {
+            const mutation = `mutation ($id: ID!) {
+              enablePullRequestAutoMerge(input: {
                 pullRequestId: $id,
                 mergeMethod: MERGE
               })
-            }`;
+            }`
             const variables = {
               id: pullNodeId
             }
