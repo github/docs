@@ -1,4 +1,4 @@
----
+---fork lp9921/docs
 title: Creating a GitHub App from a manifest
 intro: 'A GitHub App Manifest is a preconfigured GitHub App you can share with anyone who wants to use your app in their personal repositories. The manifest flow allows someone to quickly create, install, and start extending a GitHub App without needing to register the app or connect the registration to the hosted app code.'
 redirect_from:
