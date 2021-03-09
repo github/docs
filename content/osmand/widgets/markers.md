@@ -14,7 +14,7 @@ Shows direction and distance from users current position to the marker and the l
 | Click | {% data variables.product.android_button_seq %} Redirects to 'Map markers' menu where the and user can sort markers from the list, group them, view the history and configure markers settings.|
 |   | {% data variables.product.ios_button_seq %} Opens description menu where user can configure markers settings.   |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_markers_item %} → ≡ → {% data variables.android-values.coordinate_input %}  |
-|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} →  |
+|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %}  |
 
 ## Map markers on the Top bar widget  
 
@@ -27,4 +27,4 @@ Shows the distance from users current position to the marker.
 | Click | {% data variables.product.android_button_seq %} Nothing |
 |   |  {% data variables.product.ios_button_seq %} Opens description menu where user can configure markers settings.  |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_markers_item %} → ≡ → {% data variables.android-values.coordinate_input %}  |
-|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} →  |
+|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %}  |
