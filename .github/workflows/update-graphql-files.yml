@@ -56,7 +56,7 @@ jobs:
             If CI does not pass or other problems arise, contact #docs-engineering on slack."
           labels: automerge,autoupdate
           branch: graphql-schema-update
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:

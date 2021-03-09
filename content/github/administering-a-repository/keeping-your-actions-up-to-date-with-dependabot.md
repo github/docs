@@ -13,6 +13,8 @@ versions:
 
 Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's *workflow.yml* file are kept up to date. For each action in the file, {% data variables.product.prodname_dependabot %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. If a more recent version of the action is available, {% data variables.product.prodname_dependabot %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
   
+{% data reusables.actions.workflow-runs-dependabot-note %}
+
 ### Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions
 
 {% data reusables.dependabot.create-dependabot-yml %} If you have already enabled {% data variables.product.prodname_dependabot_version_updates %} for other ecosystems or package managers, simply open the existing *dependabot.yml* file.
