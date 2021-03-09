@@ -24,7 +24,7 @@ Shows the distance from users current position to the marker.
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_markers_item %} → ≡ → {% data variables.android-values.appearance_on_the_map %} → {% data variables.android-values.shared_string_widgets %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_markers %} → {% data variables.ios-values.appearance_on_map %} → {% data variables.ios-values.shared_string_widgets%} |
-| Click | {% data variables.product.android_button_seq %} Nothing |
+| Click | {% data variables.product.android_button_seq %} Moves focus to the marker  |
 |   |  {% data variables.product.ios_button_seq %} Opens description menu where user can configure markers settings.  |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_markers_item %} → ≡ → {% data variables.android-values.coordinate_input %}  |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %}  |
