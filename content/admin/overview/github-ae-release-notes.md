@@ -23,8 +23,6 @@ During this beta, {% data variables.product.prodname_registry %} is free of char
 
 #### {% data variables.product.prodname_GH_advanced_security %} beta
 
-{% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
-
 {% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. Repository administrators and organization owners can opt into {% data variables.product.prodname_advanced_security %} features in the settings for a repository or organization, within the **Security and analysis** tab. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
 During this beta, {% data variables.product.prodname_advanced_security %} features are free of charge to {% data variables.product.product_name %} customers.
@@ -40,6 +38,10 @@ Enterprise and organization owners can now use IP allow lists to restrict traffi
 This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the {% data variables.product.product_name %} tenant.
 
 For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)."
+
+#### Pull request auto-merge
+
+With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements (like missing approvals or pending or failing required status checks). For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
 
 ### Changes
 
