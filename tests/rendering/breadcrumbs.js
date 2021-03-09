@@ -49,13 +49,13 @@ describe('breadcrumbs', () => {
     })
 
     test('English breadcrumbs link to English pages', async () => {
-      const $ = await getDOM('/en/github/getting-started-with-github')
+      const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account')
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs.eq(0).attr('href')).toBe('/en/github')
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/github/getting-started-with-github')
+      const $ = await getDOM('/ja/github/setting-up-and-managing-your-github-user-account')
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs.eq(0).attr('href')).toBe('/ja/github')
     })
