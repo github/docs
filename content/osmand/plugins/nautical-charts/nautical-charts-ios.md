@@ -18,18 +18,7 @@ Next turn the Nautical map style on using the Map menu in the left upper corner 
 
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/np_ios_2.jpg)
 
-val markdown = """  
-	# Sample  
-	* Markdown  
-	* [Link](https://example.com)  
-	![Image](https://example.com/img.png)  
-	<a href="https://www.google.com/">Google</a>  
-"""
-
-@Composable  
-fun ExampleContent() {  
-    MarkdownText(markdown = markdownContent)  
-}  
+ 
 
 ### Map legend
 **Map legend**  of Nautical map you can find  [_here_](https://osmand.net/help-online/map-legend#nautical).
