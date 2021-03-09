@@ -9,6 +9,8 @@ versions:
 
 {% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
+{% data reusables.security.displayed-information %}
+
 You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
