@@ -16,7 +16,7 @@ Shows direction and distance from users current position to the marker and the l
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_markers_item %} → ≡ → {% data variables.android-values.coordinate_input %}  |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %}  |
 
-## Map markers on the Top bar widget  
+## Map markers widget  
 
 Shows the distance from users current position to the marker.
 
