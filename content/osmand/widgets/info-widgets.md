@@ -84,7 +84,7 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 **Note**: you can reset current GPS-cache via {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ {% data variables.android-values.agps_info %}.
 
 
-## Parking widget (Plugin)
+## * Parking widget
 {% tip %}
 
 Enable **[{% data variables.android-values.osmand_parking_plugin_name %} plugin](/osmand/plugins/parking)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} (Android) / {% data variables.android-values.res_mapsres %} (iOS) → {% data variables.android-values.osmand_parking_plugin_name %}.
@@ -103,7 +103,7 @@ This is a [{% data variables.android-values.osmand_parking_plugin_name %} plugin
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
 
-## Mapillary widget (Plugin)
+## * Mapillary widget
 {% tip %}
 
 Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} (Android) / {% data variables.android-values.res_mapsres %} (iOS) →  Mapillary %}.
@@ -122,7 +122,7 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 **Note**: Mapillary application should be installed separately.
 
 
-## Trip recording widget (Plugin)
+## * Trip recording widget
 
 {% tip %}
 
@@ -139,7 +139,7 @@ This is a [{% data variables.android-values.record_plugin_name %} plugin](/osman
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_monitoring %}  |
 | On Click | Starts / Stop track recording |
 
-## Audio-video notes widget (Plugin) - Android 
+## * Audio-video notes widget (Android) 
 {% tip %}
 
 Enable **[{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.audionotes_plugin_name %}.
@@ -164,7 +164,7 @@ Configure what default action should be taken ({% data variables.android-values.
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
 | On Click | Start / stops taking a note  |
 
-## Tracker widget (Plugin) - Android
+## * Tracker widget (Android)
 
 {% tip %}
 
@@ -183,7 +183,7 @@ This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used t
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %} |
 | On Click | Opens OsmAnd Tracker app |
 
-## FPS-info (Plugin) - Android
+## * FPS-info (Android)
 {% tip %}
 
 Enable **[Developer plugin](/osmand/plugins/development)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %}.
