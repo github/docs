@@ -1,5 +1,5 @@
 ---
-title: Reinstalling or Resetting OsmAnd without Losing Your Data
+title: Permissions
 versions: '*'
 ---
 Sign out icon {% octicon("sign-out") %} in text.
