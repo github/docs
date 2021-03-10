@@ -194,7 +194,7 @@ Enable **[{% data variables.android-values.audionotes_plugin_name %} plugin](/os
 {% endtip %}
 
 This is a [{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes) widget that provides quick access to start / stop taking a recording (audio / video or photo). For this widget you can configure what default action should be taken:
-- On request – every time dialog to choose aciton is displayed. (default state). 
+- On request – every time dialog to choose aciton is displayed. (default state)
 - Record audio – takes an audio note by default
 - Record video – records a video by default
 - Take a photo – takes a photo by default
