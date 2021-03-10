@@ -1,5 +1,5 @@
 ---
-title: "Travel Guides"
-intro: "Travel Guides"
+title: "Boat navigation"
+intro: "Boat navigation"
 versions: '*'
 ---
