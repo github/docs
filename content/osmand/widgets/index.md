@@ -4,6 +4,8 @@ intro: "Widgets are User Interface elements that are displayed over the map scre
 versions: '*'
 ---
 
+<!-- ![Widgets](/assets/images/docs/widgets/general_widgets.png) -->
+
 {% link_with_intro /configure-screen %}
 {% link_with_intro /map-buttons %}
 {% link_with_intro /info-widgets %}

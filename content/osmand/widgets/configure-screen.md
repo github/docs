@@ -6,8 +6,6 @@ versions: '*'
 
 All widgets are [profile dependent](/osmand/start-with/profiles), so in case you change the order, visibility or state for 1 profile, it won't be applied to other profiles. Each profile has own predefined list of widgets based on the design of the navigation screen. It can be customized by user that's why could be used with and without navigation.
 
-![General widget](/assets/images/docs/widgets/general_widgets.png) 
-
 ![Configure screen menu](/assets/images/docs/widgets/configure_screen_menu.png)
 
 To configure widgets visibility you have to open Configure screen menu.
