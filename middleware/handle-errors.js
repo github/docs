@@ -6,7 +6,9 @@ const loadSiteData = require('../lib/site-data')
 function shouldLogException (error) {
   const IGNORED_ERRORS = [
     // avoid sending CSRF token errors (from bad-actor POST requests)
-    'EBADCSRFTOKEN'
+    'EBADCSRFTOKEN',
+    // Client connected aborted
+    'ECONNRESET'
   ]
 
   if (IGNORED_ERRORS.includes(error.code)) {
@@ -26,8 +28,8 @@ async function logException (error, req) {
 }
 
 module.exports = async function handleError (error, req, res, next) {
-  // If the headers have already been sent...
-  if (res.headersSent) {
+  // If the headers have already been sent or the request was aborted...
+  if (res.headersSent || req.aborted) {
     // Report to Failbot
     await logException(error, req)
 
