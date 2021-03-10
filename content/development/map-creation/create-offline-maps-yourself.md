@@ -132,15 +132,15 @@ After that, you can create your SQLite file: 'Atlas' -> 'Create Atlas'.
 
 For example, you can convert and calibrate any image format & pdf maps to OsmAnd online map.
 
-Video tutorial [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
+[Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc) of using the program.
 
 ### SASPlanet
 
 SASPlanet is a freeware, opensource navigation software with the capability of viewing and downloading maps and satellite images of Earth from various on-line services to OsmAnd online map.
 
-To [download](http://www.sasgis.org/download/) the program, [English guideline](https://www.evernote.com/shard/s100/client/snv?noteGuid=e659886a-096c-46b4-8280-b57b77373847&noteKey=dac8148d9a74ed77&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs100%2Fsh%2Fe659886a-096c-46b4-8280-b57b77373847%2Fdac8148d9a74ed77&title=How%2Bto%2Buse%2BSAS.Planet.%2BEnglish%2Bguideline)
+[Download](http://www.sasgis.org/download/) the program, [English guideline](https://www.evernote.com/shard/s100/client/snv?noteGuid=e659886a-096c-46b4-8280-b57b77373847&noteKey=dac8148d9a74ed77&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs100%2Fsh%2Fe659886a-096c-46b4-8280-b57b77373847%2Fdac8148d9a74ed77&title=How%2Bto%2Buse%2BSAS.Planet.%2BEnglish%2Bguideline).
 
-Video tutorial [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
+[Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc) of using the program.
 
 ## Common Issues
 ### OutOfMemoryError issue
