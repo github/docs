@@ -39,6 +39,7 @@ UniRS style: {% data variables.android-values.unirs_render_descr %}
 ![Map styles](/assets/images/map/ms-3.png)
 
 LightRS style: {% data variables.android-values.light_rs_render_descr %}
+
 ![Map styles](/assets/images/map/ms-4.png)
 
 ### Nautical 
