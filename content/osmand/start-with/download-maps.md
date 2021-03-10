@@ -1,5 +1,5 @@
 ---
-title: "Application profiles"
-intro: "Application profiles"
+title: "Download maps"
+intro: "Download maps"
 versions: '*'
 ---
