@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you are welcomed to join the {% data variables.product.prodname_dotcom %} Developer Program.'
 redirect_from:
   - /program
 versions:
@@ -31,7 +31,7 @@ Awesome! We'd love to have you be part of the program. Here’s how you can spre
 
 ## Ready to join the GitHub Developer Program?</h3>
 
-Membership is open to individual developers and companies who have:
+Membership is open to all the individual developers and companies who have:
 
 * An integration in production or development using the GitHub API.
 * An email address where GitHub users can contact you for support.
