@@ -1,6 +1,6 @@
 ---
 title: "Navigational widgets"
-intro: "Navigational widgets are used to display information related to the navigation such as distance, arrival or left time, next turns, bearing, current street name, lanes information, max speed, approaching alerts, POIs, waypoints."
+intro: "Navigational widgets are enabled during navigation to display information such as distance, arrival or left time, next turns, bearing, current street name, lanes information, max speed, approaching alerts, POIs, waypoints."
 versions: '*'
 ---
 
@@ -8,20 +8,7 @@ Navigational widgets is blocks on the device screen which show next information 
 
 ![navigational widgets](/assets/images/docs/widgets/nw-1.png)
 
-## Compass
 
-Compass widget shows North on the map.
-
-![navigational widgets](/assets/images/docs/widgets/nw-2.png)
-
-| | |
-|------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.map_widget_config %} → {% data variables.android-values.map_widget_left %} → {% data variables.android-values.map_widget_compass %}  |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_left %} → {% data variables.ios-values.map_widget_compass %}|
-| Click | changes [{% data variables.android-values.rotate_map_to_bearing %}](/osmand/navigation) between: |
-|   | {% data variables.android-values.rotate_map_bearing_opt %}  |
-|   | {% data variables.android-values.rotate_map_compass_opt %}  |
-|   | {% data variables.android-values.rotate_map_none_opt %}  |
 
 ## Relative / magnetic bearing
 

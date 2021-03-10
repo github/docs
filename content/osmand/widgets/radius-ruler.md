@@ -1,5 +1,5 @@
 ---
-title: "Radius-ruler widget and Ruler"
+title: "Radius-ruler and Ruler"
 intro: "Radius-ruler tool helps to determine the radius around the selected point on the map via displaying distance-circles on the map. The Ruler tool displays scale. "
 versions: '*'
 ---

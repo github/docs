@@ -1,6 +1,6 @@
 ---
 title: "Configure Screen"
-intro: "How to change widgets visibility & layout via Configure Screen"
+intro: "How to change widgets visibility & layout via Configure Screen?"
 versions: '*'
 ---
 

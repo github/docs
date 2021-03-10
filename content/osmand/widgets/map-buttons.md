@@ -8,11 +8,13 @@ versions: '*'
 
 **_TODO: add 3 small screenshots in 1 row of my location button / zoom buttons_**
 
-**My location** is a top down button that represents whether center of the map is synchronized with "my location" (geo location of the device), it is also known as "Where am I?". It is often used in navigation where it is hidden in case "location is synchronized with map". It has following indicative states:
+**My location** is a circle button that represents whether center of the map is synchronized with "my location" (geo location of the device), it is also known as "Where am I?". Usually in navigation map is synced with device location, so it's not needed to constanly move the map, in this case button is hidden and will be activated once map & my location will go out of sync by user gesture. On click app will try to find device location & display it on the map in center of the screen (iOS on 2nd click, it will switch to 3D mode).
+
+**My location** button has following indicative states:
 - Full blue icon - location is found but it is not synchronized with map
 - White icon - location is found and it is synchronized with map
 - Grey icon - location is not found yet
-- Arrow icon (iOS) - 3D mode is switched on (click on my location)
+- Arrow icon (iOS) - 3D mode is switched on
 
 **Long tap** on **My location** opens Context menu, so user can share own location. 
 
