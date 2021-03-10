@@ -11,9 +11,9 @@ Gives an opportunity to add action that will be  frequently used. It can be:
 
 | | |
 |------------|------------|
-| Item actions| Add Favorites, Add track way points, Add map markers, Add parking place |
-| 'Configure map' actions  | Show/hide Favorites, Show/hide tracks, Show/hide POI, Change map style, Show/Hide public transport, Show/hide Mapillary, Show/hide contour lines, Show/hide terrain.  |
-|  Navigation actions |  Switch day/night mode, Voice on/off, Directions from, Set destination, Aff first intermediate point, Replace destination, Auto zoom map on/off, Start/Stop navigation, Pause/resume navigation, Change app profile, Delete nearest destination point |
+| Item actions| Add Favorite, Add track way points, Add map markers, Add parking place (for Android) |
+| 'Configure map' actions  | Show/hide Favorites, Show/hide tracks, Show/hide POI, Change map style, Show/Hide public transport, Show/hide Mapillary, Show/hide contour lines, Show/hide terrain, Switch day/night mode (for IOS), Change map source (for IOS), Change map overlay (for IOS),Change map underlay (for IOS),|
+|  Navigation actions |  Switch day/night mode (for Android), Voice on/off, Directions from, Set destination, Add first intermediate, Replace destination, Auto zoom map on/off, Start/Stop navigation, Pause/resume navigation, Change app profile, Delete nearest destination point, Add destination (for IOS), |
 
 
 | | |
@@ -22,3 +22,4 @@ Gives an opportunity to add action that will be  frequently used. It can be:
 |   | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.configure_screen_quick_action %} |
 | Click |  Gives an opportunity to add new action|
 | Format | No|
+| Note   | The Quick action widget can be moved to the other part of the screen. By default, it is on the left bottom corner.  |
