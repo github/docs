@@ -4,7 +4,7 @@ intro: "Search information"
 versions: '*'
 ---
 
-- Search POI
-- Search Address
-- Search Postcode
-- Configure custom search for specific categories
+{% link_with_intro /search-address %}
+{% link_with_intro /search-poi %}
+{% link_with_intro /search-history %}
+{% link_with_intro /custom-poi-search %}
