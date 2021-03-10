@@ -108,10 +108,39 @@ Currently OsmAndMapCreator doesn't support relation tagging. So you need to manu
 
 ## Raster maps (advanced)
 
-**_This article is incomplete & needs to be reviewed_**
-- Using MOBAC to create OsmAnd online tiles
-- Converting image & pdf maps to OsmAnd online map - [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
+OSM is a large database for maps, however, the necessary information is not always available there (eg deserts). Sometimes the information you need is available from other sources, such as paper maps or satellite images.
 
+There are special programs for preparing, converting, calibrating any source maps (image format maps, pdf format, raster online maps) to OsmAnd online maps.
+
+About some of them below.
+
+### MOBAC
+
+Mobile Atlas Creator (MOBAC) is an open source (GPL) program which creates offline atlases. As source for an offline atlas Mobile Atlas Creator can use a large number of different online maps such as OpenStreetMap and other online map providers.
+
+Just [download](https://mobac.sourceforge.io/) the program, then run it.
+
+In the format choosing dialogue pick *OsmAnd SQLite* or *OsmAnd tile storage*. SQLite is a single file with the selected area while tiles are separate pieces of the map gathered on your device. SQLite often happens to be more convenient as it is stored in one place and occupies less storage space. 
+
+Pick the map source, zoom levels, and other features. Select an area, then choose the menu 'Selection' -> 'Add selection'.
+
+After that, you can create your SQLite file: 'Atlas' -> 'Create Atlas'.
+
+### MAPC2MAPC
+
+[MAPC2MAPC](https://www.the-thorns.org.uk/mapping/) is a Windows program to manipulate digital maps and convert them between different platforms and software. 
+
+For example, you can convert and calibrate any image format & pdf maps to OsmAnd online map.
+
+Video tutorial [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
+
+### SASPlanet
+
+SASPlanet is a freeware, opensource navigation software with the capability of viewing and downloading maps and satellite images of Earth from various on-line services to OsmAnd online map.
+
+To [download](http://www.sasgis.org/download/) the program, [English guideline](https://www.evernote.com/shard/s100/client/snv?noteGuid=e659886a-096c-46b4-8280-b57b77373847&noteKey=dac8148d9a74ed77&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs100%2Fsh%2Fe659886a-096c-46b4-8280-b57b77373847%2Fdac8148d9a74ed77&title=How%2Bto%2Buse%2BSAS.Planet.%2BEnglish%2Bguideline)
+
+Video tutorial [Video tutorial](https://www.youtube.com/watch?v=Y_fekLfcUOc).
 
 ## Common Issues
 ### OutOfMemoryError issue
