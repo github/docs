@@ -23,4 +23,4 @@ Gives an opportunity to add action that will be  frequently used. It can be:
 | Click |  Gives an opportunity to add new action. |
 | Format | No|
 | Note   | The Quick action widget can be moved to the other part of the screen. By default, it is on the left bottom corner. |
-|   |  The actions can be removed from the list from {% data variables.android-values.layer_map_appearance %} menu.  |
+|   |  The actions can be removed from the list from the {% data variables.android-values.layer_map_appearance %} menu.  |
