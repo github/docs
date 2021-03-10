@@ -256,8 +256,11 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 
 ## FPS-info (plugin) - Android
 {% tip %}
-Enable [Developer plugin](/osmand/plugins/development): {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %} 
+
+Enable **[Developer plugin](/osmand/plugins/development)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %}ю
+
 {% endtip %}
+
 This is a [Developer plugin](/osmand/plugins/development) widget to investigate how fast map is rendered & refreshed. It displays what's current FPS for screen interaction - panning & dragging map (higher number) and FPS-map-update  - rendering routes and other overlays (smaller number).
 
 ![FPS info Android widget](/assets/images/docs/widgets/iw-8.png)
