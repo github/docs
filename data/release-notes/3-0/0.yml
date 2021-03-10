@@ -124,7 +124,9 @@ sections:
     - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
     - Users can dismiss a mandatory message without checking all checkboxes.
     - Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.
-    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Juypter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.
+    - A race condition can cause dependency graph database migrations to appear to fail.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19
