@@ -1,3 +1,4 @@
+
 ---
 title: Authorizing an SSH key for use with SAML single sign-on
 intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
