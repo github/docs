@@ -124,7 +124,7 @@ sections:
     - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
     - Users can dismiss a mandatory message without checking all checkboxes.
     - Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.
-    - Juypter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19
