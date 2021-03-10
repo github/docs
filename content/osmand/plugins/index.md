@@ -5,11 +5,14 @@ versions: '*'
 ---
 
 
-{% link_in_list /online-maps %}
-{% link_in_list /contour-lines %}
-{% link_in_list /trip-recording %}
-{% link_in_list /audio-video-notes %}
-{% link_in_list /ski-maps %}
-{% link_in_list /nautical-charts %}
-{% link_in_list /osm-editing %}
-{% link_in_list /development %}
+{% link_with_intro /online-maps %}
+{% link_with_intro /contour-lines %}
+{% link_with_intro /trip-recording %}
+{% link_with_intro /parking %}
+{% link_with_intro /audio-video-notes %}
+{% link_with_intro /ski-maps %}
+{% link_with_intro /nautical-charts %}
+{% link_with_intro /osm-editing %}
+{% link_with_intro /mapillary %}
+{% link_with_intro /openplacereviews %}
+{% link_with_intro /development %}

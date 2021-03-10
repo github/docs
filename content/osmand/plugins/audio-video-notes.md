@@ -1,9 +1,27 @@
 ---
-title: How to use it
+title: "{% data variables.android-values.audionotes_plugin_name %}"
 intro: "Making memorable notes is one of the main pleasures of traveling"
 versions: '*'
 ---
 
+Making memorable notes is one of the main pleasures of traveling. With OsmAnd Audio/video notes plugin, you can add media right to the map to watch it later. Want your pictures to be added to the locations they were made at? Easy. Need a comfortable video recorder? No problem. Want to make an audio note and link it to the location? Problem solved.
+
+
+![Audio_video_notes](/assets/images/plugins/audio-video-notes/audio-video-intro.png)
+
+# Add notes to your GPX track
+
+You can use this plugin while  [recording the GPX track](https://osmand.net/features/trip-recording-plugin). This way, all your notes will be added to the track as waypoints automatically. When viewing the track, you'll see exactly what was recorded where.
+
+![Audio_video_notes](/assets/images/plugins/audio-video-notes/av-5.png)
+To view everything later, you can export the track together with all the media and see them in the  [JOSM editor](https://josm.openstreetmap.de/). Please note that you'll need to put the media in the corresponding folder (you'll know which one if you click on a video note and see the message about a missing file. Just put it in the indicated folder).
+
+![Audio_video_notes](/assets/images/plugins/audio-video-notes/av-6.png)
+
+
+So there you have it: your personal notes linked to the map and stored in one place. Document your adventures!
+
+# How to use it
 You have to install  {% data variables.android-values.audionotes_plugin_name %}. It is free of charge and all you have to do is go to the plugins menu, then choose {% data variables.android-values.audionotes_plugin_name %} and tap Enable. That's it. Now you can make audio, video or photo notes and link them to the exact location of your choice.
 
 You can choose settings for your photo, video, audio files. You can click ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) to Settings of  {% data variables.android-values.audionotes_plugin_name %} plugin.

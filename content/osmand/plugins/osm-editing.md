@@ -1,8 +1,23 @@
 ---
-title: How to use it for Android
-intro: "Detailed graphical representation of oceans, seas, coastal areas and rivers."
+title: "{% data variables.android-values.osm_settings %}"
+intro: "Make contributions to OpenStreetMap."
 versions: '*'
 ---
+
+![OpenStretMap editing](/assets/images/plugins/placeholder-intro.png)
+
+{% data variables.android-values.osm_editing %} plugin allows you to make contributions to OpenStreetMap, a global community aimed at creating a comprehensive map of the world and providing up-to date open-source data to every user.
+
+Just launch OsmAnd Maps & Navigation app and update the information about different locations.
+
+
+##### How to use
+{% link_in_list /osm-editing-android %}
+{% link_in_list /osm-editing-ios %}
+
+{% data reusables.plugins.osm-editing-android-enable %}
+
+
 
 The plugin lets you create new objects, so-called  [points of interest or POI](https://osmand.net/features/find-something-on-map#Find_Points_of_Interest_A)  on the map. New shop opened next to you? Add it to the map! Your favorite monument is missing on the map? Put it there in seconds. Also, if you're the owner of a newly-opened business, adding it to the map is a great way to let people find you.
 
