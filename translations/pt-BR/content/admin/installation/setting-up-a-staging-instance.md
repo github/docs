@@ -24,3 +24,9 @@ Para fazer um teste completo em todo o appliance do {% data variables.product.pr
 1. Faça backup da sua instância de produção usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte a seção "Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}" em "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#about-github-enterprise-server-backup-utilities)".
 2. Configure uma nova instância para funcionar como ambiente de preparo. Você pode usar os mesmos guias para provisionar e instalar sua instância de preparo, assim como fez na instância de produção. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)".
 3. Restaure o backup na sua instância de preparo. Para obter mais informações, consulte a seção "Restaurar backup" em "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)".
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Leia mais
+
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

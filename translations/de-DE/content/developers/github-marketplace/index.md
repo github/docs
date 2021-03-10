@@ -9,9 +9,12 @@ versions:
   free-pro-team: '*'
 ---
 
-{% topic_link_in_list /creating-apps-for-github-marketplace %}
+{% topic_link_in_list /github-marketplace-overview %}
     {% link_in_list /about-github-marketplace %}
-    {% link_in_list /about-verified-creators %}
+    {% link_in_list /about-marketplace-badges %}
+    {% link_in_list /applying-for-publisher-verification-for-your-organization %}
+
+{% topic_link_in_list /creating-apps-for-github-marketplace %}
     {% link_in_list /requirements-for-listing-an-app %}
     {% link_in_list /security-best-practices-for-apps %}
     {% link_in_list /customer-experience-best-practices-for-apps %}

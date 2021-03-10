@@ -62,6 +62,8 @@ Dein Design umfasst standardmäßige Layouts, Includes und Stylesheets, die auto
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
+Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+
 ### Nächste Schritte:
 
 {% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“

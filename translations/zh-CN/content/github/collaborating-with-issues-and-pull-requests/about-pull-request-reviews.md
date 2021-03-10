@@ -44,9 +44,7 @@ versions:
 
 ### 必要的审查
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
-
-更多信息请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”。
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
 {% tip %}
 
@@ -57,6 +55,5 @@ versions:
 ### 延伸阅读
 
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[启用拉取请求的必需审查](/articles/enabling-required-reviews-for-pull-requests)"
 - "[查看拉取请求审查](/articles/viewing-a-pull-request-review)"
 - "[设置仓库贡献者的指导方针](/articles/setting-guidelines-for-repository-contributors)"

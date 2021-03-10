@@ -11,6 +11,10 @@ versions:
   github-ae: '*'
 ---
 
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
+
 ### 通知和订阅
 
 您可以选择通过订阅接收有关 {% data variables.product.product_name %} 上特定活动的持续更新。 通知是您收到的已订阅特定活动的更新。
@@ -50,7 +54,7 @@ versions:
 
 ### 自定义通知和订阅
 
-您可以选择通过 [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" %} 上和 {% data variables.product.prodname_mobile %} 应用程序{% endif %}中的通知收件箱、电子邮件或这些选项的某些组合来查看通知。
+您可以选择通过 [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 上和 {% data variables.product.prodname_mobile %} 应用程序{% endif %}中的通知收件箱、电子邮件或这些选项的某些组合来查看通知。
 
 要自定义您希望接收的更新类型以及将这些更新发送至何处，请配置通知设置。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”。
 
@@ -58,7 +62,7 @@ versions:
 
 要自定义如何接收特定拉取请求或议题的更新，可以在议题或拉取请求中配置首选项。 更多信息请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)”。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
 您可以在
 {% data variables.product.prodname_mobile %} 应用中启用推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)”。
 {% endif %}
@@ -89,7 +93,7 @@ versions:
 
 ### 自定义通知收件箱
 
-要在 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} 或 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱中关注一组通知，您可以创建自定义过滤器。 例如，您可以为您参与的开源项目创建自定义过滤器，只查看您被提及的仓库的通知。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)”。 有关如何自定义分类工作流程的更多示例，请参阅“[自定义对通知分类的工作流程](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)”。
+要在 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 或 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱中关注一组通知，您可以创建自定义过滤器。 例如，您可以为您参与的开源项目创建自定义过滤器，只查看您被提及的仓库的通知。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)”。 有关如何自定义分类工作流程的更多示例，请参阅“[自定义对通知分类的工作流程](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)”。
 
 ### 通知保留策略
 

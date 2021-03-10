@@ -70,14 +70,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 **自定义媒体类型：** `cloak-preview` **公布日期：** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 用户阻止
-
-用户可以[阻止其他用户](/rest/reference/users#blocking)。 组织也可以[阻止用户](/rest/reference/orgs#blocking)。
-
-**自定义媒体类型：** `giant-sentry-fist-preview` **公布日期：** [2011-05-31](https://github.com/blog/862-block-the-bullies) **更新日期 1：** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **更新日期 2：** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page)
-{% endif %}
-
 ### 仓库主题
 
 在返回仓库结果的[调用](/rest/reference/repos)中查看[仓库主题](/articles/about-topics/)列表。

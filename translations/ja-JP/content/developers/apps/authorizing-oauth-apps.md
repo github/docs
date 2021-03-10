@@ -72,13 +72,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ##### パラメータ
 
-| 名前              | 種類       | 説明                                                                                                                          |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
-| `client_secret` | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
-| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                             |
-| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                 |
-| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                   |
+| 名前              | 種類       | 説明                                                                                                                         |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
+| `client_secret` | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
+| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                            |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                  |
 
 ##### レスポンス
 
@@ -213,7 +213,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### デバイスフローのレート制限
 
-ユーザがブラウザ上で検証コードをサブミットする場合、アプリケーションごとに1時間に50回のサブミットというレート制限があります。
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 リクエスト間で要求される最小の時間間隔（あるいは`interval`）内で複数のアクセストークンリクエスト（`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`）を発行すると、レート制限に達し、`slow_down`のエラーレスポンスが返されます。 `slow_down`エラーレスポンスは、最後の`interval`に5秒を追加します。 詳しい情報については[デバイスフローのエラー](#errors-for-the-device-flow)を参照してください。
 

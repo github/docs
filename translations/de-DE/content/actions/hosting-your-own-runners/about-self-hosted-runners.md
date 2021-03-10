@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -62,7 +63,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.github-actions.usage-api-requests %}
 - **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Unterstützte Betriebssysteme für selbst-gehostete Runner
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
@@ -91,6 +92,14 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) oder höher
 
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.prodname_dotcom %}
@@ -111,6 +120,7 @@ Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugrif
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

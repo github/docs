@@ -1,5 +1,5 @@
 ---
-title: 自己ホストランナーについて
+title: セルフホストランナーについて
 intro: '独自のランナーをホストして、{% data variables.product.prodname_actions %}ワークフロー中でジョブの実行に使われる環境をカスタマイズできます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
@@ -7,12 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 自己ホストランナーについて
+### セルフホストランナーについて
 
 {% data reusables.github-actions.self-hosted-runner-description %} セルフホストランナーは、物理、仮想、コンテナ内、オンプレミス、クラウド内のいずれでも可能です。
 
@@ -62,7 +63,7 @@ versions:
 {% data reusables.github-actions.usage-api-requests %}
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### セルフホストランナーをサポートするオペレーティングシステム
+### Supported architectures and operating systems for self-hosted runners
 
 セルフホストランナーアプリケーション用には、以下のオペレーティングシステムがサポートされています。
 
@@ -91,11 +92,19 @@ versions:
 
 - macOS 10.13 (High Sierra)以降
 
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 
-そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[セルフホストランナーと{% data variables.product.prodname_dotcom %}の通信](#communication-between-self-hosted-runners-and-github)」を参照してください。
+そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
 
 {% endif %}
 
@@ -111,6 +120,7 @@ The self-hosted runner polls {% data variables.product.prodname_dotcom %} to ret
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

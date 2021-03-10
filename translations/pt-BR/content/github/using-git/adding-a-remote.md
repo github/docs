@@ -37,7 +37,7 @@ Você pode se deparar com estes erros ao tentar adicionar um remote.
 Esse erro significa que você tentou adicionar um remote com um nome que já existe no repositório local:
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 

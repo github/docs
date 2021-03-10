@@ -110,7 +110,7 @@
   description: CPU.
 - 
   term: Credential-Helper
-  description: Ein Programm, das Git-Anmeldeinformation speichert und abruft.
+  description: A program that stores and fetches Git credentials.
 - 
   term: Creole
   description: >-
@@ -739,7 +739,7 @@
 - 
   term: WYSIWYG
   description: >-
-    What You See Is What You Get (WYSIWYG, Vorschau). Ein Akronym, das bedeutet, dass der Bildschirmtext genauso aussieht, wenn er dargestellt wird.
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: Eine Virtualisierungsplattform.

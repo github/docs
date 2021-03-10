@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -62,7 +63,7 @@ versions:
 {% data reusables.github-actions.usage-api-requests %}
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### 自托管运行器支持的操作系统
+### Supported architectures and operating systems for self-hosted runners
 
 自托管运行器应用程序支持以下操作系统。
 
@@ -91,6 +92,14 @@ versions:
 
 - macOS 10.13 (High Sierra) 或更高版本
 
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
+
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
@@ -111,6 +120,7 @@ versions:
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

@@ -18,7 +18,7 @@ Você pode adicionar o YAML frontmatter a cada modelo de problema para preencher
 
 Aqui está um exemplo de YAML front matter.
 
-```
+```yaml
 ---
 name: Rastreando problema
 about: Use este modelo para rastrear novos recursos.

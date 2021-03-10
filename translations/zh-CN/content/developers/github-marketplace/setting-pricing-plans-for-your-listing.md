@@ -19,11 +19,13 @@ versions:
 
 ### 关于设置定价计划
 
-如果要在 {% data variables.product.prodname_marketplace %} 上出售应用程序，则需要在发布应用程序上架信息时请求验证。 在验证过程中，上架专家会检查组织的身份和安全设置。 上架专家还将引导组织完成财务手续。 更多信息请参阅“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
-
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何进行验证，请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)”。
-
 {% data variables.product.prodname_marketplace %} 提供几种不同类型的定价计划。 更多信息请参阅“[{% data variables.product.prodname_marketplace %} 的定价计划](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)”。
+
+要为应用程序提供付费计划，该应用程序必须由已完成发布者验证流程并满足特定条件的组织所拥有。 更多信息请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”和“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
+
+如果含有付费计划的应用程序已发布，并且您是经验证的发布者，则您可以在 Marketplace 应用程序上架设置中的“Edit a pricing plan（编辑定价计划）”页面发布新的付费计划。
+
+![发布此计划按钮](/assets/images/marketplace/publish-this-plan-button.png)
 
 ### 关于保存定价计划
 

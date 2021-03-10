@@ -38,7 +38,7 @@ versions:
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -80,7 +80,7 @@ versions:
 {% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -138,7 +138,7 @@ versions:
   {% if enterpriseServerVersions contains currentVersion %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -149,7 +149,7 @@ versions:
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -174,7 +174,7 @@ versions:
 {% data reusables.package_registry.authenticate-step %}
 2. 将包依赖项添加到项目 *pom.xml* 文件的 `dependencies` 元素，将 `com.example:test` 替换为您的包。
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>

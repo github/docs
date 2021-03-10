@@ -1,0 +1,1 @@
+Los debates de equipo solo se encuentran disponibles en las páginas de los equipos en las organizaciones. Para obtener más información, consulta [Acerca de los debates del equipo](/articles/about-team-discussions)".

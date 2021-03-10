@@ -22,7 +22,7 @@ Existem três níveis de permissões para colaboradores de quadro de projeto:
 O proprietário do quadro de projeto e colaboradores com acesso de administrador têm controle total do quadro de projeto. Além de todas as permissões de colaboradores de quadro de projeto, um proprietário de quadro de projeto e um colaborador com acesso de administrador podem:
 
 - [Gerenciar, visualizar e adicionar colaboradores](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Configurar um quadro de projeto como público ou privado](/articles/changing-project-board-visibility)
+- [Configurar um quadro de projeto como {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} ou privado](/articles/changing-project-board-visibility)
 - [Excluir um quadro de projeto](/articles/deleting-a-project-board/)
 - [Fechar um quadro de projeto](/articles/closing-a-project-board/)
 - [Reabrir um quadro de projeto fechado](/articles/reopening-a-closed-project-board)
@@ -51,7 +51,7 @@ Colaboradores com acesso de gravação em um quadro de projeto pertencente a um 
 
 ### Visibilidade do quadro de projeto
 
-Você pode alterar a visibilidade do quadro de projeto de privada para pública e vice-versa. Por padrão, os quadros de projeto pertencentes a um usuário são privados. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
+Você pode alterar a visibilidade do painel do projeto de privado para {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} e de volta. Por padrão, os quadros de projeto pertencentes a um usuário são privados. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
 
 ### Leia mais
 

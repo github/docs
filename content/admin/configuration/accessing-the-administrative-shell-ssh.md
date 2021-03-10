@@ -55,7 +55,7 @@ To specify a private SSH key using the command line, run `ssh` with the `-i` arg
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-You can also specify a private SSH key using the SSH config file (`~/.ssh/config`).
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>

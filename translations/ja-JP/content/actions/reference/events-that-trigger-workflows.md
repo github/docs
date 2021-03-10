@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフローイベントを設定する
 
@@ -80,6 +80,8 @@ versions:
 
 [crontab guru](https://crontab.guru/) を使うと、クーロン構文の生成および実行時間の確認に役立ちます。 また、クーロン構文の生成を支援するため、[crontab guru のサンプル](https://crontab.guru/examples.html)リストもあります。
 
+ワークフロー内のクーロン構文を最後に修正したユーザには、スケジュールされたワークフローの通知が送られます。 詳しい情報については「[ワークフローの実行の通知](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)」を参照してください。
+
 ### 手動イベント
 
 ワークフローの実行を手動でトリガーできます。 リポジトリ内の特定のワークフローをトリガーするには、`workflow_dispatch` イベントを使用します。 リポジトリで複数のワークフローをトリガーし、カスタムイベントとイベントタイプを作成するには、`repository_dispatch` イベントを使用します。
@@ -92,7 +94,7 @@ versions:
 
 カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-You can manually trigger a workflow run using the {% data variables.product.prodname_dotcom %} API and from {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[ワークフローを手動で実行する](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
+{% data variables.product.product_name %} APIを使って、あるいは{% data variables.product.product_name %}から、手動でワークフローの実行をトリガーすることができます。 詳しい情報については、「[ワークフローを手動で実行する](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
 
  {% data variables.product.prodname_dotcom %} でイベントをトリガーすると、{% data variables.product.prodname_dotcom %} で `ref` と `inputs` を直接入力できます。 詳しい情報については、「[アクションで入力と出力を使用する](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)」を参照してください。
 
@@ -100,7 +102,7 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
 ##### サンプル
 
-To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+`workflow_dispatch`イベントを使うには、GitHub Actionsのワークフローファイル中にトリガーとして含めなければなりません。 以下の例では、手動でトリガーされた場合にのみワークフローが実行されます。
 
 ```yaml
 on: workflow_dispatch
@@ -108,7 +110,7 @@ on: workflow_dispatch
 
 ##### ワークフロー設定の例
 
-この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 If a <code>home` isn't provided, the default value 'The Octoverse' is printed.
+この例では、 `code`と`home`を入力として定義し、`github.event.inputs.name`及び`github.event.inputs.home`コンテキストを使用してそれらを出力します。 `home`が提供されなければ、デフォルト値の'The Octoverse'が出力されます。
 
 {% raw %}
 ```yaml
@@ -143,7 +145,7 @@ jobs:
 
 {% data reusables.github-actions.branch-requirement %}
 
-{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳しい情報については、「[リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
+{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
 
 カスタム `repository_dispatch` webhook イベントをトリガーするには、{% data variables.product.product_name %} API エンドポイントに `POST` リクエストを送信して、アクティビティのタイプを説明する `event_type` 名を提供する必要があります。 ワークフローの実行をトリガーするには、`repository_dispatch` イベントを使用するようワークフローを設定する必要もあります。
 
@@ -224,7 +226,7 @@ on:
 
 #### `delete`
 
-誰かがブランチまたはタグを作成し、それによって `delete` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
+誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -323,9 +325,9 @@ on:
     types: [created, deleted]
 ```
 
-The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+`issue_comment`イベントは、IssueやPull Requestにコメントされたときに生じます。 `issue_comment`イベントがIssueで生じたのかPull Requestで生じたのかを判断するには、イベントのペイロードの`issue.pull_request`属性をチェックして、それをジョブをスキップする条件として利用できます。
 
-For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
+たとえば、コメントイベントがPull Requestで生じたときに`pr_commented`を実行し、コメントイベントがIssueで生じたときに`issue_commented`ジョブを実行するようにできます。
 
 {% raw %}
 ```yaml
@@ -414,7 +416,7 @@ on:
 
 #### `page_build`
 
-誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -512,7 +514,7 @@ on:
 
 {% note %}
 
-**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
+**注:** デフォルトでは、ワークフローが実行されるのは`pull_request` のアクティビティタイプが `opened`、`synchronize`、または `reopened` の場合だけです。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
 
 {% endnote %}
 
@@ -576,11 +578,11 @@ on:
 
 #### `pull_request_target`
 
-This event runs in the context of the base of the pull request, rather than in the merge commit as the `pull_request` event does.  This prevents executing unsafe workflow code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows you to do things like create workflows that label and comment on pull requests based on the contents of the event payload.
+このイベントは`pull_request`のようにマージコミット内ではなく、Pull Requestのベースのコンテキストで実行されます。  これにより、リポジトリを変更したり、ワークフローで使うシークレットを盗んだりするような、Pull Requestのヘッドからの安全ではないワークフローのコードが実行されるのを避けられます。 このイベントでは、イベントペイロードの内容に基づいて、プルリクエストにラベルを付けてコメントを付けるワークフローを作成するようなことができます。
 
 {% warning %}
 
-**Warning:** The `pull_request_target` event is granted a read/write repository token and can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch, and to help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered.
+**警告:** `pull_request_target`イベントは、フォークからトリガーされた場合であっても、リポジトリトークンの読み書きが許可されており、シークレットにアクセスできます。 ワークフローはPull Requestのベースのコンテキストで実行されますが、このイベントでPull Requestから信頼できないコードをチェックアウトしたり、ビルドしたり、実行したりしないようにしなければなりません。 加えて、ベースブランチと同じスコープを共有するキャッシュがあり、キャッシュが汚染されることを避けるために、キャッシュの内容が変更されている可能性があるなら、キャッシュを保存するべきではありません。
 
 {% endwarning %}
 
@@ -593,7 +595,8 @@ This event runs in the context of the base of the pull request, rather than in t
 たとえば、プルリクエストが `assigned`、`opened`、`synchronize`、または `reopened` だったときにワークフローを実行できます。
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 
@@ -731,4 +734,4 @@ on:
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 For more information on storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+ワークフローの実行からワークフローをトリガーしたい場合には、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 個人アクセストークンのシークレットとしての保存に関する詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。

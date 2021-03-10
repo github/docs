@@ -7,6 +7,10 @@ versions:
   enterprise-server: '>=2.22'
 authors:
   - potatoqualitee
+type: tutorial
+topics:
+  - CI
+  - Powershell
 ---
 
 {% data reusables.actions.enterprise-beta %}

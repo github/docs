@@ -16,7 +16,7 @@ versions:
 {% data reusables.files.add-file %}
 3. Gib im Feld für den Dateinamen `404.html` oder `404.md` ein. ![Feld für den Dateinamen](/assets/images/help/pages/404-file-name.png)
 4. Wenn Du die Datei `404.md` genannt hast, füge den folgenden YAML-Frontmatter am Anfang der Datei hinzu:
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---

@@ -21,8 +21,8 @@ versions:
 5. 要从帐户中删除旧电子邮件地址，请在旧电子邮件地址旁边单击
 {% octicon "trashcan" aria-label="The trashcan symbol" %}.
 {% if currentVersion == "free-pro-team@latest" %}
-6. 验证新的主电子邮件地址。 Without a verified email address, you won't be able to use all of
-{% data variables.product.product_name %}'s features. 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
+6. 验证新的主电子邮件地址。 如果没有经验证的电子邮件地址，您将无法使用所有
+{% data variables.product.product_name %} 的功能。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 {% endif %}
 
 ### 延伸阅读

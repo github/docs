@@ -13,6 +13,8 @@ For certain events, you can also enable real-time alerts for scheduled reminders
 
 You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
 
+{% data reusables.reminders.scheduled-reminders-limitations %}
+
 ### Creating scheduled reminders for your user account
 
 {% data reusables.user_settings.access_settings %}

@@ -48,10 +48,10 @@ Mit den Qualifizierern `author-date` und `committer-date` kannst Du Commits such
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifizierer             | Beispiel                                                                                                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) sucht Commits, die vor dem 1. Januar 2016 verfasst wurden.               |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A<2016-01-01&type=Commits) sucht Commits, die nach dem 1. Januar 2016 festgeschrieben wurden. |
+| Qualifizierer             | Beispiel                                                                                                                                                              |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) sucht Commits, die vor dem 1. Januar 2016 verfasst wurden. |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) matches commits committed after 2016-01-01.          |
 
 ### Merge-Commits filtern
 

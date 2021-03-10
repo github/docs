@@ -16,6 +16,7 @@ versions:
 - Você precisa instalar dependências no servidor do aplicativo.
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), disponível via apt para [Debian](https://packages.debian.org/search?keywords=netcat) e [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 

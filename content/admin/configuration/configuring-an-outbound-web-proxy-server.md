@@ -21,6 +21,8 @@ When a proxy server is enabled for {% data variables.product.product_location %}
 {% data reusables.enterprise_management_console.privacy %}
 4. Under **HTTP Proxy Server**, type the URL of your proxy server.
   ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
-5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas.
+  
+5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle`
   ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+
 {% data reusables.enterprise_management_console.save-settings %}

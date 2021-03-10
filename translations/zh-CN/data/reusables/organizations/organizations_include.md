@@ -6,3 +6,4 @@
 - [反映公司或组结构的嵌套团队](/articles/about-teams)，级联了访问权限和提及{% if currentVersion != "github-ae@latest" %}
 - 组织所有者能够查看成员的[双重身份验证 (2FA) 状态](/articles/about-two-factor-authentication)
 - 用于[要求所有组织成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)的选项{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- The option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}{% endif %}

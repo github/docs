@@ -59,7 +59,9 @@ Nachdem Du Deine Supportanfrage eingereicht hast, können wir Dich bitten, unser
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %}-Konfigurationsprotokolle,
 - `collectd/logs/collectd.log`: Collectd-Protokolle,
 - `mail-logs/mail.log`: SMTP-E-Mail-Zustellprotokolle,
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`: Webhook-Auslieferungsfehler.
+{% endif %}
 
 Weitere Informationen finden Sie unter „[Auditprotokollierung](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)“.
 

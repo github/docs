@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -47,27 +48,28 @@ The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Dock
 
 If you configure your container to use the _exec_ form of the `ENTRYPOINT` instruction, the `args` configured in the action's metadata file won't run in a command shell. If the action's `args` contain an environment variable, the variable will not be substituted. For example, using the following _exec_ format will not print the value stored in `$GITHUB_SHA`, but will instead print `"$GITHUB_SHA"`.
 
-```
+```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
  If you want variable substitution, then either use the _shell_ form or execute a shell directly. For example, using the following _exec_ format, you can execute a shell to print the value stored in the `GITHUB_SHA` environment variable.
 
-```
+```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
  To supply `args` defined in the action's metadata file to a Docker container that uses the _exec_ form in the `ENTRYPOINT`, we recommend creating a shell script called `entrypoint.sh` that you call from the `ENTRYPOINT` instruction:
 
 ##### Example *Dockerfile*
-``` 
+
+```dockerfile
 # Container image that runs your code
 FROM debian:9.5-slim
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-# Executes `entrypoint.sh` when the Docker container starts up 
+# Executes `entrypoint.sh` when the Docker container starts up
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -78,14 +80,14 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually 
+# `$*` expands the `args` supplied in an `array` individually
 # or splits `args` in a string separated by whitespace.
 sh -c "echo $*"
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:

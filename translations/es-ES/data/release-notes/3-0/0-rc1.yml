@@ -1,0 +1,145 @@
+---
+date: '2021-01-12'
+release_candidate: true
+intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)".
+sections:
+  features:
+    - 
+      heading: GitHub Actions
+      notes:
+        - |
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) ahora se encuentra comunmente disponible en {% data variables.product.prodname_ghe_server %} 3.0+. Crea, prueba y despliega tu código desde {% data variables.product.prodname_dotcom %}. Emite revisiones de código, administración de ramas y el trabajo de clasificación de propuestas como quieras.
+
+          Este lanzamiento incluye varias mejoras del beta para {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}:
+
+          - Los administradores de las empresas, organizaciones y repositorios pueden crear políticas de seguridad para acceder a {% data variables.product.prodname_actions %} en {% data variables.product.prodname_dotcom_the_website %}.
+          - Los administradores de las empresas, organizaciones y repositorios pueden permitir que los repositorios públicos utilicen ejecutores auto-hospedados.
+          - Los administradores de las empresas, organizaciones y repositorios ahora pueden permitir que los flujos de trabajo [se ejecuten en las solicitudes de cambio que se levantan desde las bifurcaciones o desde los repositorios privados](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks).
+          - El evento de `workflow_run` [ahora es compatible](/enterprise-server@3.0/actions/reference/events-that-trigger-workflows#workflow_run)
+          - Los usuarios ahora tienen la capacidad de [inhabilitar los flujos de trabajo y habilitarlos en una fecha posterior](/enterprise-server@3.0/actions/managing-workflow-runs/disabling-and-enabling-a-workflow).
+          - Las bitácoras de flujo de trabajo se mejoraron para que tengas una [experiencia de usuario mejor](/enterprise-server@3.0/actions/managing-workflow-runs/using-workflow-run-logs).
+          - Los usuarios ahora pueden utilizar imágenes privadas en los servicios y contenedores de los jobs.
+          - El máximo de días de retención para [los artefactos y las bitácoras ahora puede personalizarse](/enterprise-server@3.0/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account).
+          - La API del grupo de ejecutores ahora incluye [labels](/enterprise-server@3.0/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners).
+          - Ahora puedes crear acciones reutilizables que utilicen scripts de shell con pasos de ejecución compuestos.
+          - Los [Secretos cifrados para las organizaciones](/enterprise-server@3.0/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization) te permiten consolidar los secretos a través de los repositorios.
+          - Las [Plantillas de flujo de trabajo para las organizaciones](/enterprise-server@3.0/actions/learn-github-actions/sharing-workflows-with-your-organization) simplifican y promueven las mejores prácticas y la consistencia a lo largo de tu organización.
+
+          Las {% data variables.product.prodname_actions %} no son actualmente compatibles para las empresas que utilizan configuraciones de agrupamiento.
+    - 
+      heading: Registro del paquete de GitHub
+      notes:
+        - |
+          El [{% data variables.product.prodname_registry %}](https://github.com/features/packages) es un servicio de hospedaje de paquetes que se integra nativamente con las API, acciones y webhooks de GitHub. Crea un [flujo de trabajo de DevOps de extremo a extremo](/enterprise/3.0/admin/packages/configuring-packages-support-for-your-enterprise) que incluye soluciones para tu código, la integración contínua y el despliegue.
+
+          Las soluciones administrativas para almacenamiento que son compatibles incluyen a AWS S3 y a MinIO con compatibilidad para Azure blob en un lanzamiento subsecuente. Por favor, toma en cuenta que la compatibilidad actual con Docker se reemplazará con un beta del nuevo Registro de Contenedores de GitHub en el siguiente lanzamiento. Por favor, revisa los [requisitos mínimos actualizados para tu plataforma](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance) antes de que habilites el {% data variables.product.prodname_registry %}.
+
+          Cuando publicas paquetes en NuGet, los usuarios ahora pueden utilizar la opción `--api-key` para pasar su token de autenticación en vez de escribirlo en un archivo. Para obtener más información, consulta la sección [Configurar el CLI de dotnet para utilizarlo con GitHub Packages](/enterprise-server@3.0/packages/guides/configuring-dotnet-cli-for-use-with-github-packages#publishing-a-package)
+
+          Actualmente, el {% data variables.product.prodname_registry %} no es compatible para las empresas que utilizan configuraciones de agrupamiento.
+    - 
+      heading: GitHub Mobile beta
+      notes:
+        - |
+          El beta de [{% data variables.product.prodname_mobile %}](https://github.com/features/) te permite clasificar las notificaciones y administrar las propuestas y solicitudes de cambio desde tu dispositivo. Puedes firmarte simultáneamente en la aplicación móvil con una cuenta de usuario de {% data variables.product.prodname_dotcom_the_website %} y con una de {% data variables.product.prodname_ghe_server %}.
+
+          El beta de {% data variables.product.prodname_mobile %} ahora se encuentra disponible para {% data variables.product.prodname_ghe_server %}. Ingresa con nuestras apps de [Android](https://play.google.com/store/apps/details?id=com.github.android) y de [iOS](https://apps.apple.com/app/github/id1477376905) para clasificar las notificaciones y adminsitrar las propuestas y solicitudes de cambio al vuelo. Los administradores pueden inhabilitar la compatibilidad con la versión móvil para su empresa si utilizan la consola de administración o si ejecutan `ghe-config app.mobile.enabled false`.
+    - 
+      heading: Escaneo de Secretos de Advanced Security beta
+      notes:
+        - |
+          El [Escaneo de Secretos beta](https://github.com/features/security) escanea los repositorios públicos y privados para las credenciales confirmadas, encuentra secretos, y notifica al proveedor de secretos o al administrador en el momento en el que éstos se confirman en un repositorio.
+
+          Los administradores que utilizan la {% data variables.product.prodname_GH_advanced_security %} pueden [habilitar y configurar](/enterprise-server@3.0/admin/configuration/configuring-secret-scanning-for-your-appliance) el escaneo de secretos de {% data variables.product.prodname_GH_advanced_security %}. Puedes revisar los [requisitos mínimos actualizados para tu plataforma](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance) antes de habilitar el escaneo de secretos de {% data variables.product.prodname_GH_advanced_security %}.
+    - 
+      heading: Escaneo de Código de Advanced Security
+      notes:
+        - |
+          [El escaneo de código de GitHub Advanced Security](https://github.com/features/security) ahora está comunmente disponible en GitHub Enterprise Server. Las organizaciones que hayan comprado Advanced Security pueden utilizar esta característica para realizar pruebas de seguridad de análisis estático contra su código y pueden prevenir que las vulnerabilidades lleguen a su código productivo utilizando CodeQL, nuestro motor de análisis semántico. Para obtener más información, consulta la sección "[Configurar el escaneo de código en tu aplicativo](/en/enterprise-server@3.0/admin/configuration/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)"
+  changes:
+    - 
+      heading: Cambios en la administración
+      notes:
+        - El sistema de entrega de eventos de webhook se ha renovado en su arquitectura para tener un rendimiento mayor y menos retraso en los mensajes. También utiliza menos memoria y CPU en {% data variables.product.prodname_ghe_server %} 3.0+.
+        - Los propietarios de empresas y organizaciones ahora pueden ver a qué miembros del equipo se ha promovido o degradado hacia o desde su puesto como mantenedor de equipo en la bitácora de auditoría a través de los nuevos eventos de bitácora de auditoría `team.promote_maintainer` y `team.demote_maintainer`. Para obtener más información, consulta la sección "[Acciones auditadas](/enterprise-server@3.0/admin/user-management/audited-actions)".
+        - 'Los mantenedores de repositorio con sitios de {% data variables.product.prodname_pages %} existentes pueden [actualizar fácilmente el nombre de rama predeterminado anterior](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).'
+        - Se requiere de recursos adicionales de hardware para ejecutar {% data variables.product.prodname_ghe_server %} que tenga habilitadas acciones, paquetes o seguridad avanzada. Para obtener más información sobre los recursos mínimos requeridos para cada plataforma de soporte, consulta la sección "[Configurar una instancia de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)".
+        - Los administradores ahora pueden [publicar un mensaje](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise), que todos los usuarios deben aceptar. Esto te puede ayudar a incorporar usuarios nuevos y hacer notar otras políticas e información específica de la organización.
+    - 
+      heading: Cambios de seguridad
+      notes:
+        - Los propietarios de las organizaciones ahora pueden inhabilitar la publicación de sitios de {% data variables.product.prodname_pages %} de los repositorios de la organización. El inhabilitar a {% data variables.product.prodname_pages %} para la organización impedirá que los miembros creen páginas nuevas pero no dejará de publicar los sitios existentes. Para obtener más información, consulta la sección "[Inhabilitar la publicación de los sitios de {% data variables.product.prodname_pages %} para tu organización](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)".
+        - Se debe definir explícitamente un centro de datos en todos los nodos antes de habilitar una réplica activa.
+        - Todo uso de huellas dactilares de SSH se ha cambiado para utilizar huellas dactilares SHA256 como también se utilizan con OpenSSH desde la versión 6.8. Esto aplica a la interface web y también a la API en donde las huellas dactilares se devuelven, tal como en GraphQL. Las huellas dactilares siguen el formato de OpenSSH.
+        - Los encabezados de firma SHA-1 y SHA-256 (dos encabezados) se envían en webhooks.
+    - 
+      heading: Cambios de desarrollador
+      notes:
+        - La mayoría de los servicios que se ejecutan en {% data variables.product.prodname_ghe_server %} 3.0+ ahora se encuentran en contenedores que habilitan internamente a GitHub para iterar rapido y para enviar lanzamientos de alta calidad
+        - El sistema de entrega de eventos de webhook renovó su arquitectura para tener un rendimiento mayor, entregas más rápidas y menos retrasos en los mensajes.
+    - 
+      heading: Cambios a la API
+      notes:
+        - 'Los administradores ahora pueden configurar y administrar el letrero de anuncio de todo el sitio a través de la API de REST. Para obtener más información, consulta las terminales de "[administración de GitHub Enterprise](/enterprise-server@3.0/rest/reference/enterprise-admin#annoucements)".'
+    - 
+      heading: Renombrar la rama predeterminada
+      notes:
+        - |
+          Los administradores de organizaciones y empresas ahora pueden configurar el nombre de la rama predeterminada para los repositorios nuevos. Los administradores de empresas también pueden hacer cumplir su elección de nombre de rama predeterminada a través de todas las organizaciones para permitir que cada una de ellas elija su propio nombre.
+
+          Los repositorios existentes no se verán afectados por esta configuración y el nombre de sus ramas predeterminadas no cambiará.
+
+          {% note %}
+
+          La rama predeterminada para los repositorios recién creados se configurará como `main` en GHES 3.1, a menos de que decidas configurar los ajustes de rama predeterminada a nivel empresarial.
+
+          {% endnote %}
+
+          Este cambio es uno de los muchos que GitHub está realizando para apoyar a los proyectos y mantenedores que quieren renombrar su rama predeterminada. Para aprender más sobre los cambios que estamos haciendo, consulta la sección [github/renaming](https://github.com/github/renaming).
+  bugs:
+    - El formato de varios archivos de bitácora ha cambiado, incluyendo la adición de un PID para los tipos de bitácora diferentes. Esto no afecta cómo GitHub Enterprise Support utiliza paquetes de soporte para la solución de problemas.
+    - El hacer una solicitud de PATCH a la API de configuración de webhooks ya no borra el secreto del webhook.
+  deprecations:
+    - 
+      heading: Obsoletización de GitHub Enterprise Server 2.19
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.19 se encontrará obsoletizado desde el 12 de noviembre de 2020**. Eso significa que no se harán lanzamientos de parches, ni siquiera para los problemas críticos de seguridad, después de esta fecha. Para obtener un rendimiento mejor, mejorar la seguridad y tener nuevas características, [actualiza a la versión más nueva de {% data variables.product.prodname_ghe_server %}](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/) tan pronto como te sea posible.'
+    - 
+      heading: Obsoletización de los Eventos de Webhook tradicionales de las GitHub Apps
+      notes:
+        - Comenzando con {% data variables.product.prodname_ghe_server %} 2.21.0, dos eventos de webhook relacionados con GitHub Apps se obsoletizaron y eliminaron en la versión 3.2.0 de {% data variables.product.prodname_ghe_server %}. Los eventos obsoletizados de `integration_installation` and `integration_installation_repositories` tienen eventos equivalentes que serán compatibles. Puedes encontrar más información en la [publicación del blog acerca de los anuncios de obsoletización](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/).
+    - 
+      heading: Obsoletización de la terminal tradicional para las GitHub Apps
+      notes:
+        - Comenzando con {% data variables.product.prodname_ghe_server %} 2.21.0, la terminal tradicional de GitHub Apps para crear tokens de acceso a las instalaciones se obsoletizó y se eliminará en la versión 3.2.0 de {% data variables.product.prodname_ghe_server %}. Puedes encontrar más información disponible en la [publicación del blog sobre los anuncios de obsoletización](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/).
+    - 
+      heading: Obsoletización de la API de aplicaciones OAuth
+      notes:
+        - GitHub ya no es compatible con las terminales de la aplicación de OAuth que contengan `access_token` como parámetro de ruta. Hemos incluído terminales nuevas que te permiten administrar los tokens para las apps de OAuth de forma segura al mover a `access_token` al cuerpo de solicitud. Aunque se hayan obsoletizado, aún se puede acceder a las terminales en esta versión. Intentamos eliminar estas terminales en la versión 3.4 de {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la [publicación del blog sobre los anuncios de obsoletización](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
+    - 
+      heading: Obsoletización de compatibilidad con Semiotic
+      notes:
+        - El servicio era compatible con una experiencia de "Encontrar por símbolo" en la vista de solicitud de cambios que no se utilizaba ampliamente.
+    - 
+      heading: Obsoletización de los comandos de flujo de trabajo
+      notes:
+        - 'Los comandos de flujo de trabajo de `set-env` y `add-path` de {% data variables.product.prodname_actions %} se obsoletizaron. Para obtener más información, consulta el [changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/).'
+  known_issues:
+    - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
+    - El candidato de lanzamiento 1 no es compatible con el modo de agrupamiento.
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.blog/2016-02-18-upload-files-to-your-repositories/) se agregaron incorrecta y directamente al repositorio.
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - Tras un intento no exitoso de configurar las acciones, si las inhabilitas después, no podrás crear el primer usuario ni utilizar el aplicativo
+    - El evento de bitácora de auditoría de "Mensaje obligatorio visto" no se está guardando
+    - 'Se debe ejecutar a `ghe-config-apply` en una réplica durante la primera configuración antes de que se pueda ejecutar `ghe-repl-setup` para iniciar la replicación.'
+    - Las utilidades de seguridad pueden activar correos electrónicos innecesarios para los administradores
+    - La configuración incorrecta de los paquetes se muestra en la página de vista de miembros de la organización
+    - Después de eliminarte a ti mismo como propietario de la empresa, se te redireccionará a una página 404. La operación será exitosa.
+    - '`ghe-config-apply` falla ocasionalmente con un mensaje de `ERROR: Failure waiting for nomad jobs to apply` hasta que la cola de jobs nómadas se vacíe. Actualmente, esto requiere que una administrador borre el `/etc/nomad-jobs/queue`.'
+    - Cuando configuras un nodo de rélica múltiple, el estado de la réplica puede sincronizarse incorrectamente.
+    - Los clientes que intentan restablecer un respaldo de 3.0 en una instancia nueva no deberán preconfigurarla, ya que esto podría conllevar a un estado malo para los inicios de sesión de usuario. Te recomendamos restablecerte a una instancia inconfigurada y nueva.
+    - Los candidatos de lanzamiento para el lanzamiento de GitHub Enterprise Server 3.0 aún no están disponibles en el mercado de Azure. Para probar los candidatos de lanzamiento en ambientes de montaje, inicia una instancia 2.21 o 2.22 y luego actualízala con el paquete de mejoras de Azure en la página de descargas.
+    - El tamaño de descarga de la imagen y del paquete de mejoras aumentó. Los clientes con conexiones de internet lentas podrían encontrar que los paquetes tardan más en descargarse.
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.0 requiere por lo menos de una versión [3.0.0 de las Utilidades de Respaldo de GitHub Enterprise](https://github.com/github/backup-utils) para los [Respaldos y la Recuperación de Desastres](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance).'

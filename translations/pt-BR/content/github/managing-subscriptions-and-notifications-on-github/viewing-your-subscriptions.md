@@ -36,7 +36,7 @@ Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisa
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Definir as suas configurações de inspeção para um repositório individual](#configuring-your-watch-settings-for-an-individual-repository) abaixo.
+**Dica:** Você pode selecionar os tipos de evento a serem notificados utilizando a opção **Personalizar** na lista suspensa **Inspecionar/Cancelar inspeção** na sua [página](https://github.com/watching) ou em qualquer página de repositório em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Definir as suas configurações de inspeção para um repositório individual](#configuring-your-watch-settings-for-an-individual-repository) abaixo.
 
 {% endtip %}
 {% endif %}

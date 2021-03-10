@@ -11,6 +11,10 @@ versions:
   github-ae: '*'
 ---
 
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
+
 ### Benachrichtigungen und Abonnements
 
 Über ein Abonnement kannst Du festlegen, dass Du Aktualisierungen zu bestimmten Aktivitäten auf {% data variables.product.product_name %} erhalten willst. Benachrichtigungen sind Aktualisierungen, die Du für bestimmte Aktivitäten erhältst, die Du abonniert hast.
@@ -50,7 +54,7 @@ Um für Unterhaltungen, die Du automatisch abonniert hast, keine Benachrichtigun
 
 ### Benachrichtigungen und Abonnements anpassen
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
 
 Konfiguriere Deine Benachrichtigungseinstellungen, um die Art von Aktualisierungen anzupassen, die Du erhalten möchtest, und wohin sie gesendet werden sollen. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications).”
 
@@ -58,7 +62,7 @@ Um Deine Abonnements übersichtlich zu halten, überprüfe Deine Abonnements und
 
 Um anzupassen, wie Du Aktualisierungen für bestimmte Pull Requests oder Issues erhalten möchtest, kannst Du Deine Einstellungen innerhalb des Issues oder Pull Requests konfigurieren. Weitere Informationen findest Du unter „[Eine einzelne Benachrichtigung selektieren](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
 You can enable push notifications in the
 {% data variables.product.prodname_mobile %} app. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 {% endif %}
@@ -89,7 +93,7 @@ Aus Deinem Posteingang heraus kannst Du auch mehrere Benachrichtigungen auf einm
 
 ### Deinen Posteingang für Benachrichtigungen anpassen
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Zum Beispiel kannst Du einen benutzerdefinierten Filter für ein Open-Source-Projekt erstellen, zu dem Du beiträgst, und nur Benachrichtigungen für das Repository sehen, in dem Du erwähnt bist. Weitere Informationen findest du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." Weitere Beispiele für die Anpassung Deines Selektions-Workflows findest Du unter „[Einen Workflow für das Selektieren Deiner Benachrichtigungen anpassen](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Zum Beispiel kannst Du einen benutzerdefinierten Filter für ein Open-Source-Projekt erstellen, zu dem Du beiträgst, und nur Benachrichtigungen für das Repository sehen, in dem Du erwähnt bist. Weitere Informationen findest du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." Weitere Beispiele für die Anpassung Deines Selektions-Workflows findest Du unter „[Einen Workflow für das Selektieren Deiner Benachrichtigungen anpassen](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ### Richtlinie zur Aufbewahrung von Benachrichtigungen
 

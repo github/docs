@@ -34,7 +34,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 此 Markdown 示例为名为 "Greet Everyone" 的工作流程添加状态徽章。 仓库的 `OWNER` 为 `actions` 组织，`REPOSITORY` 名称为 `hello-world`。
 
-```
+```markdown
 ![example workflow name](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
@@ -42,7 +42,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 此 Markdown 示例为文件路径为 `.github/workflows/main.yml` 的工作流程添加状态徽章。 仓库的 `OWNER` 为 `actions` 组织，`REPOSITORY` 名称为 `hello-world`。
 
-```
+```markdown
 ![example workflow file path](https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
@@ -50,7 +50,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 此 Markdown 示例为名为 `feature-1` 的分支添加状态徽章。
 
-```
+```markdown
 ![example branch parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
@@ -58,6 +58,6 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 此 Markdown 示例添加显示通过 `pull_request` 事件触发运行的工作流程状态的徽章。
 
-```
+```markdown
 ![example event parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?event=pull_request)
 ```

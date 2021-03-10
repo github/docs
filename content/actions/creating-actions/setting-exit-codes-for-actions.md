@@ -8,10 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About exit codes
 
@@ -40,11 +43,13 @@ For more information, see "[Creating a JavaScript action](/articles/creating-a-j
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. For example:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
