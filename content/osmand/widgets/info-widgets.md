@@ -256,7 +256,7 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 
 ## FPS-info (plugin) - Android
 {% tip %}
-Enable Plugin: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %} 
+Enable [Developer plugin](/osmand/plugins/development): {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %} 
 {% endtip %}
 This is a [Developer plugin](/osmand/plugins/development) widget to investigate how fast map is rendered & refreshed. It displays what's current FPS for screen interaction - panning & dragging map (higher number) and FPS-map-update  - rendering routes and other overlays (smaller number).
 
@@ -267,7 +267,7 @@ This is a [Developer plugin](/osmand/plugins/development) widget to investigate 
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_fps_info %}    |
 | Click | - |
 
-**Note**: offline map rendering is slower than FPS and it could be displayed with another **Developer plugin** setting - {% data variables.android-values.trace_rendering %}.
+**Note**: FPS doesn't reflect how quickly map is rendered, there is another **Developer plugin** setting for it - ***{% data variables.android-values.trace_rendering %}***.
 
 ## Read next
 {% link_with_intro /nav-widgets %}
