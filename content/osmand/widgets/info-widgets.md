@@ -193,19 +193,21 @@ Enable **[{% data variables.android-values.audionotes_plugin_name %} plugin](/os
 
 {% endtip %}
 
-This is a [{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes) widget that provides quick access to start / stop taking a recording (audio / video or photo). For this widget you can configure what default action should be taken:
-- On request – every time dialog to choose aciton is displayed. (default state)
-- Record audio – takes an audio note by default
-- Record video – records a video by default
-- Take a photo – takes a photo by default
+This is a [{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes) widget that provides quick access to start / stop taking a recording (audio / video or photo). 
+
+Configure what default action should be taken ({% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}):
+- On request – every time dialog to choose aciton is displayed. (default state).
+- Record audio – takes an audio note by default.
+- Record video – records a video by default.
+- Take a photo – takes a photo by default.
 
 ![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
-![Audio-video widget configure](/assets/images/docs/widgets/av-widget-configure.png)
+<!-- ![Audio-video widget configure](/assets/images/docs/widgets/av-widget-configure.png) -->
 
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
 | On Click | Start / stops taking a note.  |
 
 ## Tracker widget (Plugin) - Android
