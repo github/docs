@@ -67,7 +67,7 @@ The widget is shown at the top of the screen. It shows the geographic coordinate
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_appearance_rem %} → {% data variables.android-values.coordinates %}  |
-| On Click | Copying the coordinates to the clipboard |
+| On Click | Copies the coordinates to the clipboard |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.coordinates_format %} |
 
 ## GPS Info (Android)
@@ -79,7 +79,7 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.gps_provider %}    |
-| On Click | to see a GPS status menu. GPS status menu provides additional tools for tuning onboard GPS device. |
+| On Click | Opens GPS status menu with 3rd party tools for tuning onboard GPS device. |
 
 **Note**: you can reset current GPS-cache via {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ {% data variables.android-values.agps_info %}.
 
@@ -87,7 +87,7 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 ## Parking widget (Plugin)
 {% tip %}
 
-Enable **[{% data variables.android-values.osmand_parking_plugin_name %} plugin](/osmand/plugins/parking)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} / {% data variables.android-values.res_mapsres %}  → {% data variables.android-values.osmand_parking_plugin_name %}.
+Enable **[{% data variables.android-values.osmand_parking_plugin_name %} plugin](/osmand/plugins/parking)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} (Android) / {% data variables.android-values.res_mapsres %} (iOS) → {% data variables.android-values.osmand_parking_plugin_name %}.
 
 {% endtip %}
 
@@ -106,7 +106,7 @@ This is a [{% data variables.android-values.osmand_parking_plugin_name %} plugin
 ## Mapillary widget (Plugin)
 {% tip %}
 
-Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  Mapillary %}.
+Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} (Android) / {% data variables.android-values.res_mapsres %} (iOS) →  Mapillary %}.
 
 {% endtip %}
 
@@ -117,74 +117,27 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 | | |
 |------------|------------|
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %} |
-| On Click | Opens Mapillary application. |
+| On Click | Opens Mapillary application |
 
 **Note**: Mapillary application should be installed separately.
 
 
-## Trip recording widget (Plugin) - TODO 
+## Trip recording widget (Plugin)
 
-Is used to get the quick access to recording button. <br>
+{% tip %}
+
+Enable **[{% data variables.android-values.record_plugin_name %} plugin](/osmand/plugins/trip-recording)**:  {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} (Android) / {% data variables.android-values.res_mapsres %} (iOS) → {% data variables.android-values.record_plugin_name %}.
+
+{% endtip %}
+
+This is a [{% data variables.android-values.record_plugin_name %} plugin](/osmand/plugins/trip-recording) widget that provides quick access to start / stop track recording. During recording it displays recorded track distance.
 
 ![Trip recording (REC) widget](/assets/images/docs/widgets/trip_recording_widget.png)
 
 | | |
 |------------|------------|
-| Enable | IMPORTANT: enable ‘Trip recording’ plugin before attempting to use Trip recording widget |
-|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_monitoring %}  |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.product_title_track_recording %} |
-| On Click | Defines Trip recording settings.  |
-
-<!-- Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
-
-![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png)
-
-In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line (for Android only). <br>
-
-The 'Line configuration button' (for Android only) next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
-
-Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
-
-
-![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png)
-
-In the REC Settings menu user can configure the logging interval from 0 seconds to 5 minutes. <br>
-The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
-
-![Logging interval in Trip recording Appearence](/assets/images/docs/widgets/logging_interval_in_tr_widget.png)
-
-If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
-When all settings are defined, user can push the ‘Start recording’ button.
-
-
-The Logging interval can be additionally checked/ changed in: <br>
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.shared_string_trip_recording %} → {% data variables.android-values.save_track_interval %}. <br>
-<!-- Menu – Configure profile – Trip recording – Logging interval during navigation <br>
-
-When all settings are configured, press ‘Start recording’ button.
-***For Android devices*** the REC widget will change to the red circle.  The distance passed will be displayed in the widget.  
-![REC widget](/assets/images/docs/widgets/rec_widget.png)
-
-To tap REC widget again will give an opportunity  to:
-* See all general information about the track: distance, ascent, descent, average speed, maximum speed, time span. This panel can  be scrolled by the user right and back.
-* Enable 'Show track' on the map feature and configure the style of the track line.
-* Clear recorded data
-* Start new segment
-* Save (save the recorded track and change GPX file name)
-* Pause and stop recording
-
-User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} →  tab {% data variables.android-values.shared_string_gpx_files %} <br>
-
-***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
-To tap REC widget again will give an opportunity  to:
-* Stop recording - will pause The trip recording. Then pressing the widget again will give and options to 'Continue recording'
-* Show Info - will display statistics data such as speed, route time, uphills/downhills
-* Start new segment
-* Save current trip - the track will be automatically saved.
-
-User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → tab {% data variables.ios-values.shared_string_tracks %}.
-
-[Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues)  -->
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_monitoring %}  |
+| On Click | Starts / Stop track recording |
 
 ## Audio-video notes widget (Plugin) - Android 
 {% tip %}
@@ -195,20 +148,21 @@ Enable **[{% data variables.android-values.audionotes_plugin_name %} plugin](/os
 
 This is a [{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes) widget that provides quick access to start / stop taking a recording (audio / video or photo). 
 
+![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
+
 Configure what default action should be taken ({% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}):
 - On request – every time dialog to choose aciton is displayed. (default state).
 - Record audio – takes an audio note by default.
 - Record video – records a video by default.
 - Take a photo – takes a photo by default.
 
-![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
 <!-- ![Audio-video widget configure](/assets/images/docs/widgets/av-widget-configure.png) -->
 
 
 | | |
 |------------|------------|
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
-| On Click | Start / stops taking a note.  |
+| On Click | Start / stops taking a note  |
 
 ## Tracker widget (Plugin) - Android
 
@@ -227,7 +181,7 @@ This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used t
 | | |
 |------------|------------|
 | Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %} |
-| On Click | Opens OsmAnd Tracker app. |
+| On Click | Opens OsmAnd Tracker app |
 
 ## FPS-info (Plugin) - Android
 {% tip %}

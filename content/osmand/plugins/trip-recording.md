@@ -105,7 +105,7 @@ Displays system notification allowing to start trip recording.
 
 Allows sharing current location using trip recording.
 
-- Web address <!-- не понятно зачем-->
+- Web address 
 - Tracking interval - Allows user to specify online tracking interval from 0 seconds to 5 minutes.
 - Time buffer - Allows user to specify a time buffer that will keep locations for certain period of time when Internet connection lost.
 
@@ -116,3 +116,56 @@ Allows sharing current location using trip recording.
 - The track folder will redirect user to {% data variables.android-values.shared_string_gpx_files %} tab in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places  %}
 - 'Reset plugin settings to default'  - resets all plugin settings to default values. All user settings for this plugin will be lost!
 - 'Copy from another profile' - copies plugin settings from another profile.
+
+
+# From widget
+ Before recording the trip a Trip recording settings to be defined. Trip recording settings menu is displayed when user clicks on the REC widget. <br>
+
+![Trip recording (REC) Settings](/assets/images/docs/widgets/rec_settings.png)
+
+In the REC settings menu user can enable 'Show track' on the map feature and configure the style of the track line (for Android only). <br>
+
+The 'Line configuration button' (for Android only) next to the toggle button 'Show track on the map' switcher gives the user an opportunity to change track appearance. User may change the color, width and enable/disable direction arrows, enable show start and finish icons. <br>
+
+Optionally, user can configure Custom width by moving slider from 1 to 24. <br>
+
+
+![Trip recording Appearence](/assets/images/docs/widgets/appearance_trip_recording.png)
+
+In the REC Settings menu user can configure the logging interval from 0 seconds to 5 minutes. <br>
+The Logging interval controls the frequency of queries to the GPS sensor along with frequency of new dots appearing in the track line. <br>
+
+![Logging interval in Trip recording Appearence](/assets/images/docs/widgets/logging_interval_in_tr_widget.png)
+
+If a user wants to apply all configurations to all others tracks recorded in future, the toggle button (switcher) ‘Always ask’ should be off. Please leave this switcher in 'on' position to be able to configure tracks individually. <br>
+When all settings are defined, user can push the ‘Start recording’ button.
+
+
+The Logging interval can be additionally checked/ changed in: <br>
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.shared_string_trip_recording %} → {% data variables.android-values.save_track_interval %}. <br>
+ Menu – Configure profile – Trip recording – Logging interval during navigation <br>
+
+When all settings are configured, press ‘Start recording’ button.
+***For Android devices*** the REC widget will change to the red circle.  The distance passed will be displayed in the widget.  
+![REC widget](/assets/images/docs/widgets/rec_widget.png)
+
+To tap REC widget again will give an opportunity  to:
+* See all general information about the track: distance, ascent, descent, average speed, maximum speed, time span. This panel can  be scrolled by the user right and back.
+* Enable 'Show track' on the map feature and configure the style of the track line.
+* Clear recorded data
+* Start new segment
+* Save (save the recorded track and change GPX file name)
+* Pause and stop recording
+
+User can find his track in {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places   %} →  tab {% data variables.android-values.shared_string_gpx_files %} <br>
+
+***For IOS devices*** when the REC widget will change to the red circle, the  distance passed will be displayed in the widget.
+To tap REC widget again will give an opportunity  to:
+* Stop recording - will pause The trip recording. Then pressing the widget again will give and options to 'Continue recording'
+* Show Info - will display statistics data such as speed, route time, uphills/downhills
+* Start new segment
+* Save current trip - the track will be automatically saved.
+
+User can find his track in {% data variables.ios-values.menu %} → {% data variables.ios-values.menu_my_places %} → tab {% data variables.ios-values.shared_string_tracks %}.
+
+[Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues) 
