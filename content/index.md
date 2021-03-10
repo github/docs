@@ -14,4 +14,17 @@ featuredLinks:
     - /github/working-with-github-pages
 versions: '*'
 ---
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
 
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+  # Install Az version 3.6.1
+
+Install-Module -Name Az -RequiredVersion 3.6.1
+
+# Load Az version 3.6.1
+
+Import-Module -Name Az -RequiredVersion 3.6.1$webClient = New-Object System.Net.WebClient
+
+$webClient.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials# Connect to Azure with a browser sign in token
+
+Connect-AzAccount
