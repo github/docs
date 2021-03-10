@@ -1,5 +1,6 @@
 const express = require('express')
 const instrument = require('../lib/instrument-middleware')
+const haltOnDroppedConnection = require('./halt-on-dropped-connection')
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -11,6 +12,10 @@ const asyncMiddleware = fn =>
   }
 
 module.exports = function (app) {
+  // *** Request connection management ***
+  app.use(require('./timeout'))
+  app.use(require('./abort'))
+
   // *** Development tools ***
   app.use(require('morgan')('dev', { skip: (req, res) => !isDevelopment }))
   if (isDevelopment) app.use(require('./webpack'))
@@ -60,6 +65,9 @@ module.exports = function (app) {
   app.use(instrument('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(instrument('./block-robots'))
 
+  // Check for a dropped connection before proceeding
+  app.use(haltOnDroppedConnection)
+
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
   app.use(instrument('./archived-enterprise-versions-assets')) // Must come before static/assets
@@ -91,6 +99,9 @@ module.exports = function (app) {
   app.use(instrument('./loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
 
+  // Check for a dropped connection before proceeding (again)
+  app.use(haltOnDroppedConnection)
+
   // *** Preparation for render-page ***
   app.use(asyncMiddleware(instrument('./contextualizers/enterprise-release-notes')))
   app.use(instrument('./contextualizers/graphql'))
@@ -106,7 +117,12 @@ module.exports = function (app) {
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))
 
-  // *** Rendering, must go last ***
+  // Check for a dropped connection before proceeding (again)
+  app.use(haltOnDroppedConnection)
+
+  // *** Rendering, must go almost last ***
   app.get('/*', asyncMiddleware(instrument('./render-page')))
+
+  // *** Error handling, must go last ***
   app.use(require('./handle-errors'))
 }
