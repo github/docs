@@ -224,11 +224,12 @@ User can sort files by type/data, share and delete them. <br> -->
 {% tip %}
 
 Install **[OsmAnd Online GPS Tracker](https://play.google.com/store/apps/details?id=net.osmand.telegram)** from Google Play or other source.
-Enable **[OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  OsmAnd Online GPS Tracker %}.
+
+Enable **[OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  OsmAnd Online GPS Tracker.
 
 {% endtip %}
 
-This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used to get quick access to OsmAnd Tracker app and share your location with other people. It shows whether connection is online or offline. If sharing location is enabled, then time since last successful sending is dispalyed.
+This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used to get quick access to OsmAnd Tracker app and share your location with other people. It shows whether connection is online or offline and if sharing location is enabled, then the time since last successful sending is dispalyed.
 
 ![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) 
 
