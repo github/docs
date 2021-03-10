@@ -1,6 +1,6 @@
 ---
 title: "Map Widgets"
-intro: "There are multiple widgets and static instruments that could be overlaid & interacted with the map"
+intro: "Widgets are User Interface elements that are displayed over the map screen (not attached to the map position). They provide additional information about current route, speed, altitude, recorded track & also allow to interact with application on the map screen."
 versions: '*'
 ---
 

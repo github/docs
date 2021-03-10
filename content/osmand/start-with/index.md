@@ -14,6 +14,6 @@ versions: '*'
 {% link_with_intro /reinstall %}
 
 {% link_with_intro /import-export %}
+{% link_with_intro /profiles %}
 
-<!-- {% link_in_list /i-cant-install-update-uninstall-the-app %}-->
 
