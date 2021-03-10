@@ -15,5 +15,6 @@ versions: '*'
 
 {% link_with_intro /import-export %}
 {% link_with_intro /profiles %}
+{% link_with_intro /main-menu %}
 
 
