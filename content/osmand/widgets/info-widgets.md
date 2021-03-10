@@ -84,37 +84,25 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 **Note**: you can reset current GPS-cache via {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.open_settings %} → {% data variables.android-values.rendering_value_browse_map_name %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.debugging_and_development %}→ {% data variables.android-values.agps_info %}.
 
 
-## Parking widget (Plugin) - TODO 
+## Parking widget (Plugin)
+{% tip %}
 
-Shows the distance from users location to the parking place in default distance units. 
+Enable **[{% data variables.android-values.osmand_parking_plugin_name %} plugin](/osmand/plugins/parking)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} / {% data variables.android-values.res_mapsres %}  → {% data variables.android-values.osmand_parking_plugin_name %}.
+
+{% endtip %}
+
+This is a [{% data variables.android-values.osmand_parking_plugin_name %} plugin](/osmand/plugins/parking) widget that shows distance from you to the parking place.
+ 
 
 ![Parking widget](/assets/images/docs/widgets/parking_widget.png)
 
 | | |
 |------------|------------|
-| Enable | IMPORTANT: enable ‘Parking position’ plugin to use Parking widget. |
-|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_parking %}  |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.parking %} |
-| On Click | Moves map view to the parking area |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_parking %}  |
+| On Click | Moves map view to the parking position |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
-<!-- To mark parking place on the map user has to: <br>
-Step 1: Zoom in the map <br>
-Step 2: Make the long tap on the map  <br>
-Step 3: Click ‘Actions’ button <br>
-Step 4: Choose ‘Mark as parking location’ <br>
-Step 5: Choose one of the parking options Time-unlimited or Time-limited parking <br>
+|        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
 
-The following menu will show the configurations of the parking spot such as parking time and date, information about parking limitation, distance from the current location to the parking spot. <br>
-User can delete the parking location marker anytime with ‘Delete’ button. <br>
-It will be removed from the map and from the calendar if such option has been chosen earlier. <br>
-
-![Time limited unlimited](/assets/images/docs/widgets/time_limited_unlimited.png)
-
-If 'Time-limited parking' has been selected at Step 5 a user can set the parking time interval. <br>
-There are three ways to configure the parking time limit. The first one is by using the electronic watch control and the second one is by using analogue watch control. The third way is to tap the small keyboard image under numeric clock and set the time manually. <br>
-
-The user can optionally add a notification to the Calendar by selecting appropriate option with the checkbox below. Click Ok when done.<br>
-User may also add some extra information on the calendar screen appeared and press the ‘Save’ button in the upper-right corner to save an event to the default device calendar. <br> -->
 
 ## Trip recording widget (Plugin) - TODO 
 
@@ -219,24 +207,6 @@ When the 'Take a photo' option is selected, the user can take a picture. <br>
 
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
 User can sort files by type/data, share and delete them. <br> -->
-## Tracker widget (Plugin) - Android
-
-{% tip %}
-
-Install **[OsmAnd Online GPS Tracker](https://play.google.com/store/apps/details?id=net.osmand.telegram)** from Google Play or other source.
-
-Enable **[OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  OsmAnd Online GPS Tracker.
-
-{% endtip %}
-
-This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used to get quick access to OsmAnd Tracker app and share your location with other people. It shows whether connection is online or offline and if sharing location is enabled, then the time since last successful sending is dispalyed.
-
-![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) 
-
-| | |
-|------------|------------|
-| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %} |
-| On Click | Opens OsmAnd Tracker app. |
 
 ## Mapillary widget (Plugin)
 {% tip %}
@@ -255,6 +225,25 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 | On Click | Opens Mapillary application. |
 
 **Note**: Mapillary application should be installed separately.
+
+## Tracker widget (Plugin) - Android
+
+{% tip %}
+
+Install **[OsmAnd Online GPS Tracker](https://play.google.com/store/apps/details?id=net.osmand.telegram)** from Google Play or other source.
+
+Enable **[OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  OsmAnd Online GPS Tracker.
+
+{% endtip %}
+
+This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used to get quick access to OsmAnd Tracker app and share your location with other people. It shows whether connection is online or offline and if sharing location is enabled, then the time since last successful sending is dispalyed.
+
+![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) 
+
+| | |
+|------------|------------|
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %} |
+| On Click | Opens OsmAnd Tracker app. |
 
 ## FPS-info (Plugin) - Android
 {% tip %}
