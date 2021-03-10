@@ -60,11 +60,11 @@ You can set the base map transparency for your layer and whether display the tra
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
 
-![Configure underlay / overlay Android]("/assets/images/plugins/online-maps/om-1.png")
+![Configure underlay / overlay Android](/assets/images/plugins/online-maps/config-underlay-overlay-android.png)
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
 
-![Configure underlay / overlay iOS]("/assets/images/plugins/online-maps/om-2.png")
+![Configure underlay / overlay iOS](/assets/images/plugins/online-maps/config-underlay-overlay-ios.png)
 
 ### Change layer parameters (transparency)
 In order to mix raster map layers better, you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
