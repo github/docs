@@ -29,6 +29,12 @@ versions: '*'
 - Default blue icon - the route is built but navigation is not started yet. A dialog with route information will appear on click.
 - Blue arrow icon - the route is built and  navigation is started yet. A dialog with route information will appear on click.
 
+## Configure Map
+
+**_TODO: add small screenshot_**
+
+**Configure Map** button allows to access to [Configure Map menu](/osmand/map/configure-map-menu). Icon on it indicates [Current app profile](/osmand/start-with/profiles).
+
 ## Main menu
 
 **_TODO: add small screenshot_**

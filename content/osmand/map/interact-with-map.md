@@ -7,6 +7,10 @@ Introduction about the map and what it includes. Explanation about coordinates, 
 Special words about my location / radius of my location. Shortly about map interaction pan, zoom, click.
 
 
+## Gestures
+
+**_TODO: This section is incomplete_**
+
 
 ## Map orientation
 **_TODO: Same picture as in Compass widget_**

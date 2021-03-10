@@ -250,7 +250,7 @@ This setting helps to change the text size for names on the map:
 
 ### Map magnifier
 
-This setting helps to change magnifier of the map. You can choose this setting by long-click to "+" or "-" button on the screen or:
+This setting helps to change magnifier of the map. It is applicable for raster & vector maps. For raster maps it applies a magnifying effect, so text labels look bigger or smaller. For vector maps it provides a more or less detailed map, if you put it to a low value it will produce a noisy / slow map. You can choose this setting by long-click to "+" or "-" button on the screen or:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.map_magnifier %} 
 

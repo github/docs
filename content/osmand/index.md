@@ -4,7 +4,6 @@ intro: "OsmAnd provides global offline map browsing and offline navigation for A
 versions: '*'
 ---
 
-
 ## User Documentation
 {% link_with_intro /start-with %}
 {% link_with_intro /map %}
@@ -24,9 +23,5 @@ OsmAnd is available via
  - {% data reusables.links.osmand-plus-amazon %}
  - {% data reusables.links.osmand-maps-app-store %}
  - {% data reusables.links.osmand-huawei %}
-
-
-## Links with images
-![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
 
 

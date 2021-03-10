@@ -1,5 +1,5 @@
 ---
-title: "Display routes and tracks on map"
-intro: ""
+title: "Routes and tracks"
+intro: "Routes and tracks"
 versions: '*'
 ---
