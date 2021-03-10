@@ -1,5 +1,5 @@
 ---
 title: "Main menu"
-intro: "Main menu"
+intro: "Introduction of Main menus like Drawer and Concepts"
 versions: '*'
 ---
