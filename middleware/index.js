@@ -2,7 +2,9 @@ const express = require('express')
 const instrument = require('../lib/instrument-middleware')
 const haltOnDroppedConnection = require('./halt-on-dropped-connection')
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+const { NODE_ENV } = process.env
+const isDevelopment = NODE_ENV === 'development'
+const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
@@ -13,7 +15,7 @@ const asyncMiddleware = fn =>
 
 module.exports = function (app) {
   // *** Request connection management ***
-  app.use(require('./timeout'))
+  if (!isTest) app.use(require('./timeout'))
   app.use(require('./abort'))
 
   // *** Development tools ***
