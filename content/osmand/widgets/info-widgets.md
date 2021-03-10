@@ -16,9 +16,8 @@ Altitude widget shows the height above sea level of current gelocation. **Androi
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_altitude %} |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_altitude %} |
-| On click | - |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_altitude %} |
+| On Click | - |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
 
@@ -32,7 +31,7 @@ This widget shows current time from a device.
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_plain_time %} |
 |  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_plain_time %} |
-| On click | - |
+| On Click | - |
 | Format | Time & Format is configured by device settings |
 
 ## Speed
@@ -43,8 +42,7 @@ Speed widget shows your current speed detected by GPS-sensor.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_speed %} |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.gpx_speed %} |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_speed %} |
 | On Click  | - |
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.default_speed_system %} |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.default_speed_system %} |
@@ -57,8 +55,7 @@ This widget shows battery level of your device.
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_battery %}  |
-|  | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.layer_map_appearance %} → {% data variables.ios-values.map_widget_right %} → {% data variables.ios-values.map_widget_battery %} |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_battery %}  |
 | On Click | - |
 
 ## Coordinates widget (Android)
@@ -78,6 +75,7 @@ The widget is shown at the top of the screen. It shows the geographic coordinate
 GPS (Global Positioning System) info widget shows a number of satellites that a device detects and uses at that moment. It could be used to check GPS-status in case of a bad GPS-signal. 
 
 ![GPS Info Android widget](/assets/images/docs/widgets/iw-7.png)
+
 | | |
 |------------|------------|
 | Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %}  → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.gps_provider %}    |
@@ -88,7 +86,7 @@ GPS (Global Positioning System) info widget shows a number of satellites that a 
 
 ## Parking widget (Plugin) - TODO 
 
-Shows the distance from users location to the parking place in default distance units. <br>
+Shows the distance from users location to the parking place in default distance units. 
 
 ![Parking widget](/assets/images/docs/widgets/parking_widget.png)
 
@@ -221,26 +219,30 @@ When the 'Take a photo' option is selected, the user can take a picture. <br>
 
 All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
 User can sort files by type/data, share and delete them. <br> -->
-## Tracker widget (Plugin) - TODO Android
+## Tracker widget (Plugin) - Android
 
-The widget is used to get quick access to the OsmAnd Tracker app that is used to share user location with other people. 
+{% tip %}
 
-![Tracker widget](/assets/images/docs/widgets/tracker_widget.png)
+Install **[OsmAnd Online GPS Tracker](https://play.google.com/store/apps/details?id=net.osmand.telegram)** from Google Play or other source.
+Enable **[OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  OsmAnd Online GPS Tracker %}.
+
+{% endtip %}
+
+This is [OsmAnd Tracker plugin](/osmand/plugins/osmand-tracker) widget is used to get quick access to OsmAnd Tracker app and share your location with other people. It shows whether connection is online or offline. If sharing location is enabled, then time since last successful sending is dispalyed.
+
+![Tracker widget](/assets/images/docs/widgets/tracker_widget.png) 
 
 | | |
 |------------|------------|
-| Enable | IMPORTANT: enable [OsmAnd Tracker plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#tracker-widget-plugin) before attempting to use Tracker widget. |
-|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %}  |
-| On Click | redirected to the OsmAnd Tracker application.  |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.tracker_item %} |
+| On Click | Opens OsmAnd Tracker app. |
 
-
-<!-- IMPORTANT: Enable   <br>
-
-User can enable 'OsmAnd Tracker status' in Configure screen menu. <br>
-
-IMPORTANT: Tap the OsmAnd Tracker widget and chose the tab 'Live now'. In the upper-right corner click three vertical dotes. Check settings. Choose the OsmAnd Tracker version that OsmAnd Tracker will use to display position.  -->
 ## Mapillary widget (Plugin)
+{% tip %}
 
+Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  Mapillary %}.
+
+{% endtip %}
 
 This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides quick access to Mapillary app to add Street-Level-Imagery.
 
@@ -248,13 +250,12 @@ This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides qui
 
 | | |
 |------------|------------|
-| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %} |
-| On Click | Opens Mapillary application.  |
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %} |
+| On Click | Opens Mapillary application. |
 
 **Note**: Mapillary application should be installed separately.
 
-
-## FPS-info (plugin) - Android
+## FPS-info (Plugin) - Android
 {% tip %}
 
 Enable **[Developer plugin](/osmand/plugins/development)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.debugging_and_development %}.
@@ -262,7 +263,7 @@ Enable **[Developer plugin](/osmand/plugins/development)**: {% data variables.an
 {% endtip %}
 
 This is a [Developer plugin](/osmand/plugins/development) widget to investigate how fast map & map elements are showed & refreshed. It displays:
-- UI interaction FPS - panning & dragging map (higher number)
+- UI interaction FPS - panning & dragging map (higher number).
 - Map refresh FPS - refreshing points, routes on the map (smaller number).
 
 ![FPS info Android widget](/assets/images/docs/widgets/iw-8.png)

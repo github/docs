@@ -15,4 +15,5 @@ versions: '*'
 {% link_with_intro /osm-editing %}
 {% link_with_intro /mapillary %}
 {% link_with_intro /openplacereviews %}
+{% link_with_intro /osmand-tracker %}
 {% link_with_intro /development %}
