@@ -43,3 +43,26 @@ You can click to three points ![Overflow menu](/assets/images/icons/android/ic_o
 ![Audio_video_notes](/assets/images/plugins/audio-video-notes/av-4.png)
 {% data variables.android-values.audionotes_plugin_name %} Plugin stores media files in a format:
 {SHORTLINK_LOCATION}_Description.{avi,mp3,jpg} where SHORTLINK_LOCATION is encoded latitude/longitude according to specification https://wiki.openstreetmap.org/wiki/Shortlink.
+
+# Widget
+Link to widget?
+The Audio-video notes widget is a clickable widget. It changes its state according to settings chosen in the Configure screen menu. <br>
+
+To make  audio, video, photo notes  user have to choose the needed option by clicking on the widget. <br>
+
+If 'On request' option is selected  user will see three options to choose. <br>
+* Take an audio note <br>
+* Take a video note <br>
+* Take a photo <br>
+
+When the 'Take an audio note' option is selected, the user  can start doing audio recording.  To stop audio recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. <br>
+
+![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br>
+When the 'Take a video note' option is selected, the user  can start doing video recording.  To stop video recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. User can optionally show or hide the  video screen view by clicking the relevant button in the bottom-left corner. <br>
+
+![Take a video note](/assets/images/docs/widgets/take_a_video_note_widget.png) <br>
+
+When the 'Take a photo' option is selected, the user can take a picture. <br>
+
+All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
+User can sort files by type/data, share and delete them. <br>

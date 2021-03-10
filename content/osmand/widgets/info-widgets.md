@@ -103,6 +103,24 @@ This is a [{% data variables.android-values.osmand_parking_plugin_name %} plugin
 | Format | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.general_settings_2 %} → {% data variables.android-values.units_and_formats %} → {% data variables.android-values.unit_of_length %} |
 |        | {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.general_settings_2 %} → {% data variables.ios-values.units_and_formats %} → {% data variables.ios-values.unit_of_length %} |
 
+## Mapillary widget (Plugin)
+{% tip %}
+
+Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  Mapillary %}.
+
+{% endtip %}
+
+This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides quick access to Mapillary app to add Street-Level-Imagery.
+
+![Mapillary widget](/assets/images/docs/widgets/mapillary_widget.png) 
+
+| | |
+|------------|------------|
+| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %} |
+| On Click | Opens Mapillary application. |
+
+**Note**: Mapillary application should be installed separately.
+
 
 ## Trip recording widget (Plugin) - TODO 
 
@@ -168,63 +186,27 @@ User can find his track in {% data variables.ios-values.menu %} → {% data vari
 
 [Track recording issues](https://docs.osmand.net/en/main@latest/osmand/troubleshooting/track-recording-issues)  -->
 
-## Audio-video notes widget (Plugin) - TODO Android 
-
-Is used to get quick access to audio, video, photo notes button.
-
-![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
-
-| | |
-|------------|------------|
-| Enable | IMPORTANT: enable [Audio-video notes plugin](https://docs.osmand.net/en/main@latest/osmand/widgets/action-widgets#audio-video-notes-plugin) before attempting to use Audio-video notes widget. |
-|   | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
-| On Click |  Defines Audio-video notes settings. |
-
-<!-- There is an exception for Audio-video notes widget:
-For this widget user can additionally choose the option: <br>
-* On request – allows the user to choose an action he wants to do. (default state).  <br>
-* Record audio – allows the user to take an audio note <br>
-* Record video – allows the user to take an video note <br>
-* Take a photo – allows the user to take a photo <br>
-
-The Audio-video notes widget is a clickable widget. It changes its state according to settings chosen in the Configure screen menu. <br>
-
-To make  audio, video, photo notes  user have to choose the needed option by clicking on the widget. <br>
-
-If 'On request' option is selected  user will see three options to choose. <br>
-* Take an audio note <br>
-* Take a video note <br>
-* Take a photo <br>
-
-When the 'Take an audio note' option is selected, the user  can start doing audio recording.  To stop audio recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. <br>
-
-![Take an Audio video notes](/assets/images/docs/widgets/take_an_audio_note_widget.png) <br>
-When the 'Take a video note' option is selected, the user  can start doing video recording.  To stop video recording the user has to click on the widget or the button 'Stop' at the bottom of the screen. User can optionally show or hide the  video screen view by clicking the relevant button in the bottom-left corner. <br>
-
-![Take a video note](/assets/images/docs/widgets/take_a_video_note_widget.png) <br>
-
-When the 'Take a photo' option is selected, the user can take a picture. <br>
-
-All audio, video files and photos will be in the {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_my_places %} → tab {% data variables.android-values.notes %} . <br>
-User can sort files by type/data, share and delete them. <br> -->
-
-## Mapillary widget (Plugin)
+## Audio-video notes widget (Plugin) - Android 
 {% tip %}
 
-Enable **[Mapillary plugin](/osmand/plugins/mapillary)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} →  Mapillary %}.
+Enable **[{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes)**: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugins_screen %} → {% data variables.android-values.audionotes_plugin_name %}.
 
 {% endtip %}
 
-This is a [Mapillary plugin](/osmand/plugins/mapillary) widget that provides quick access to Mapillary app to add Street-Level-Imagery.
+This is a [{% data variables.android-values.audionotes_plugin_name %} plugin](/osmand/plugins/audio-video-notes) widget that provides quick access to start / stop taking a recording (audio / video or photo). For this widget you can configure what default action should be taken:
+- On request – every time dialog to choose aciton is displayed. (default state). 
+- Record audio – takes an audio note by default
+- Record video – records a video by default
+- Take a photo – takes a photo by default
 
-![Mapillary widget](/assets/images/docs/widgets/mapillary_widget.png) 
+![Audio-video notes widget](/assets/images/docs/widgets/audio_video_notes_widget.png)
+![Audio-video widget configure](/assets/images/docs/widgets/av-widget-configure.png)
+
 
 | | |
 |------------|------------|
-| Enable | {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.mapillary_widget %} |
-| On Click | Opens Mapillary application. |
-
-**Note**: Mapillary application should be installed separately.
+| Enable | {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.layer_map_appearance %} → {% data variables.android-values.map_widget_right %} → {% data variables.android-values.map_widget_av_notes %}  |
+| On Click | Start / stops taking a note.  |
 
 ## Tracker widget (Plugin) - Android
 
