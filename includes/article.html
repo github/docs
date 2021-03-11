@@ -22,7 +22,7 @@
 
       {% if page.contributor %}
         <div class="contributor-callout border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
-          <p>This page is kindly contributed and maintained by <a href="{{ page.contributor.URL }}" rel="nofollow">{{ page.contributor.name }}</a>.</p>
+          <p>{% data ui.contributor_callout %} <a href="{{ page.contributor.URL }}" rel="nofollow">{{ page.contributor.name }}</a>.</p>
         </div>
       {% endif %}
 
