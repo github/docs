@@ -41,6 +41,26 @@ URL and pasting this server into that field. It should look something like `http
 By doing this, we've set ourselves up to expose our localhost at path `/payload`
 to the Internet.
 
+### Using localhost.run
+
+You can expose your localhost by running `ssh -R 80:localhost:4567 nokey@localhost.run`.
+Because ssh is already installed on all major operating systems you do not need to download
+a client.
+
+You will see a line that looks similar to this:
+
+``` shell
+bf5021bacbc63e.localhost.run tunneled with tls termination, https://bf5021bacbc63e.localhost.run
+```
+
+Copy the https url and paste it into the webhook's URL field, appending `/payload`. It
+will look similar to `https://bf5021bacbc63e.localhost.run/payload`.
+
+GitHub can now send webhooks to that address and localhost.run will tunnel them to your
+local development environment.
+
+For more information on localhost.run see [the localhost.run website][localhost.run].
+
 ### Writing the server
 
 Now comes the fun part! We want our server to listen to `POST` requests, at `/payload`,
@@ -88,3 +108,4 @@ over to the [Testing Webhooks](/webhooks/testing) guide.
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/
+[localhost.run]: https://localhost.run/
