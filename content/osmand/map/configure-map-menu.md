@@ -14,7 +14,7 @@ versions: '*'
 **Note:** In order to change screen information (widgets, icons) you can set parametres in [{% data variables.android-values.layer_map_appearance %}](/osmand/widgets/general).
 
 
-   ## Menu content
+## Menu content
 
 - **"{% data variables.android-values.shared_string_show %}"**:
    - [Favorites, POI overlay, POI overlay labels](/osmand/map/point-layers-on-map)
