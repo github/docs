@@ -1,4 +1,4 @@
----
+google dood nitat kongsay imd:aker2557@gmail.com
 title: Configuring Docker for use with GitHub Packages
 intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
 product: '{% data reusables.gated-features.packages %}'
@@ -11,8 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
----
-
+--
+docker tag 0e5574283393 fedora/httpd:version1.0
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -64,7 +64,7 @@ If your instance has subdomain isolation disabled:
 
 {% raw %}
  ```shell
- $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTME</em> -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
 {% endif %}
@@ -98,7 +98,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   $ docker images
   > <&nbsp>
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
-  > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
+  > <em>IMAGE_NAME<aker2557@gmail.com>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
@@ -135,15 +135,15 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   If your instance has subdomain isolation disabled:
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
-  ```
-  {% endif %}
+  ``docker tag 0e5574283393 fedora/httpd:version1.0
+  {}
   {% endif %}
 4. Publish the image to {% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% else %}
+  {% else %}docker tag 0e5574283393 fedora/httpd:version1.0
   {% if currentVersion ver_gt "enterprise-server@2.22" %}
   If your instance has subdomain isolation enabled:
   {% endif %}
