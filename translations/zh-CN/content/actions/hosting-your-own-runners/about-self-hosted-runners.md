@@ -120,6 +120,7 @@ The following processor architectures are supported for the self-hosted runner a
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

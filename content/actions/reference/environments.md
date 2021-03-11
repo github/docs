@@ -5,9 +5,11 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### About environments
 
@@ -56,6 +58,8 @@ Secrets stored in an environment are only available to workflow jobs that refere
 1. Enter a name for the environment, then click **Configure environment**. Environment names are not case sensitive. An environment name may not exceed 255 characters and must be unique within the repository.
 1. Configure any environment protection rules or environment secrets.
 
+You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."
+
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
 ### Referencing an environment
@@ -77,3 +81,5 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.github-actions.sidebar-environment %}
 1. Next the the environment that you want to delete, click {% octicon "trashcan" aria-label="The trashcan icon" %}.
 2. Click **I understand, delete this environment**.
+
+You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."

@@ -19,5 +19,5 @@ jobs:
         id: notify
         with:
           slack-channel: 'C01EEKVR0Q7'
-          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_TOKEN }}
           slack-text: \n><${{ github.event.comment.html_url}}|*${{github.event.issue.title}}*>\nstatus update posted by ${{github.event.comment.user.login}}\n\n${{ steps.trimmed.outputs.value }}
