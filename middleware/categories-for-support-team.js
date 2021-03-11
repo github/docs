@@ -8,7 +8,7 @@ const dotcomDir = path.join(__dirname, '../content/github')
 const dotcomIndex = path.join(dotcomDir, 'index.md')
 const linkRegex = /{% (?:topic_)?link_in_list ?\/(.*?) ?%}/g
 
-module.exports = async (req, res, next) => {
+module.exports = async function categoriesForSupportTeam (req, res, next) {
   if (req.path !== '/categories.json') return next()
   const categories = await generateCategories()
   return res.json(categories)
