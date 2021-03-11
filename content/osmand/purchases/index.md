@@ -11,7 +11,7 @@ versions: '*'
 | Live (month, 3 months, yearly subscription)     |Unlimited map downloads. <br> HOURLY map updates. <br> Wikipedia and WikiVoyage articles available offline. <br> Contour lines plugin. <br> Nautical Chars plugin.     | -->
 
 
-### Free version limitation
+## Free version limitation
 
 | Android   | iOS  |
 | :------------- | :------------- |
@@ -20,9 +20,7 @@ versions: '*'
 | No contour lines and  Nautical Chars plugins   |No contour lines and  Nautical Chars plugins     |
 
 <!-- - Map updates are provided monthly i.e. At ~15 December maps dated of 1 December will be available to download. It takes 2-3 weeks to prepare regular maps whether Live Maps (hourly) are provided by subscription. -->
-### In Apps
-
-## Android
+## In Apps (Android)
 
 User can buy {% data reusables.links.osmand-maps-google-store %}.
 
@@ -40,7 +38,7 @@ User can control all purchases and subscription from Google account.
 OsmAnd+ is a separate paid application that can be shared with other accounts using the Google Play Family Share service.
 OsmAnd Unlimited can only be activated in the free version of the application and this version cannot be shared.
 
-## IOS
+## In Apps (iOS)
 
 User can buy {% data reusables.links.osmand-maps-app-store %}.
 
@@ -79,7 +77,7 @@ To find them please use: {% data variables.ios-values.menu %} → {% data variab
 > **_Note:_** Wikipedia map should be charged by 0 dollar/euro price! <br>
 
 
-### Subscription
+## Subscription
 The OsmAnd Live subscription for (Android/iOS) has three periods: monthly, three months, yearly. This feature allows you to get unlimited download of all maps and get all the plug-ins for the subscription period. You also get the opportunity to frequently updated maps (hourly instead of monthly updates).
 
 - iOS
@@ -91,16 +89,16 @@ To get this feature, go to the {% data reusables.purchases.get-osmand-live-ios %
 Also, everyone who gets OsmAnd Live automatically supports the volunteers who edit the map as the money supporters provide get distributed between those who edit the map. Read more about OsmAnd Live [here](https://www.osmand.net/osm_live) or learn how it works in detail [here](http://osmand.net/blog?id=osm-live).
 
 
-### Giveaway
+## Giveaway
 
-### Giftcards
+## Giftcards
 User can purchase OsmAnd using Google Play and App store gift cards. Using this method does not imply sharing a credit card information to the service. Just purchase a gift card from a retailer on the list and redeem the code one Google Play and App store.
 - [Detailed guide on buying Google Play gift cards.](https://support.google.com/googleplay/answer/3422734?hl=en)
 - [Detailed guide on buying App store gift cards.](https://www.apple.com/shop/gift-cards)
 - You can also use [Amazon gift cards](https://www.amazon.com/gift-cards/b?ie=UTF8&node=2238192011). [Here's how to redeem them.](https://www.amazon.com/gp/help/customer/display.html?nodeId=201357470)
 
 
-
+## Common questions
 ### New device / new account
 ```
 - I uninstalled the app/I'm using a new device. Do I have to buy OsmAnd again?
