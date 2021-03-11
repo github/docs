@@ -1,6 +1,6 @@
 const patterns = require('../lib/patterns')
 
-module.exports = (req, res, next) => {
+module.exports = function handleInvalidPaths (req, res, next) {
   // prevent open redirect vulnerability
   if (req.path.match(patterns.multipleSlashes)) {
     return next(404)
@@ -10,7 +10,6 @@ module.exports = (req, res, next) => {
   // for paths like /%7B%
   try {
     decodeURIComponent(req.path)
-    return next()
   } catch (err) {
     if (process.env.NODE_ENV !== 'test') {
       console.log('unable to decode path', req.path, err)
@@ -18,4 +17,6 @@ module.exports = (req, res, next) => {
 
     return res.sendStatus(400)
   }
+
+  return next()
 }

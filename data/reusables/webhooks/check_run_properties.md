@@ -7,6 +7,6 @@ Key | Type | Description
 `check_run[name]`|`string` | The name of the check run.
 `check_run[check_suite][id]`|`integer` | The id of the check suite that this check run is part of.
 `check_run[check_suite][pull_requests]`|`array`| An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-`deployment`|`object`| A deployment to a repository environment. This will only be populated if the check run was created by a {% data variables.product.prodname_actions %} workflow job that references an environment.{% endif %}
+`check_run[check_suite][deployment]`|`object`| A deployment to a repository environment. This will only be populated if the check run was created by a {% data variables.product.prodname_actions %} workflow job that references an environment.{% endif %}
 `requested_action`|`object` | The action requested by the user.
 `requested_action[identifier]`|`string` | The integrator reference of the action requested by the user.
