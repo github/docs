@@ -1,4 +1,4 @@
-name: 'Link Checker: Dotcom'
+name: 'Link Checker: iPad'
 
 on:
   workflow_dispatch:
