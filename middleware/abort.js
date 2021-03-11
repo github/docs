@@ -1,4 +1,4 @@
-module.exports = function (req, res, next) {
+module.exports = function abort (req, res, next) {
   // If the client aborts the connection, send an error
   req.once('aborted', () => {
     // NOTE: Node.js will also automatically set `req.aborted = true`
