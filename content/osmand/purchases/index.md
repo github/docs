@@ -1,7 +1,7 @@
 ---
 title: Purchases
-intro: There are a great variety of features that OsmAnd offers. Most of them are available in a free version of the application. The paid OsmAnd services provide extended functionality."
-versions: '*'
+intro: "There are a great variety of features that OsmAnd offers. Most of them are available in a free version of the application. The paid OsmAnd services provide extended functionality."
+versions: "*"
 ---
 <!-- ставить вместо этой таблицы картинку со сравнительной таблицей Где указать и амазон и хуавей (без ценообразования)->
 <!--| Purchase   | Android  |
@@ -90,6 +90,7 @@ Also, everyone who gets OsmAnd Live automatically supports the volunteers who ed
 
 
 ## Giveaway
+Information about giveaway.
 
 ## Giftcards
 User can purchase OsmAnd using Google Play and App store gift cards. Using this method does not imply sharing a credit card information to the service. Just purchase a gift card from a retailer on the list and redeem the code one Google Play and App store.
