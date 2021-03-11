@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
+  github-ae: 'https://docs.github.com/en/github/searching-for-information-on-github/about-searching-on-github'
 ---
 
 {% data reusables.search.you-can-search-globally %}
