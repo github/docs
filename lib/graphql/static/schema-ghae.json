@@ -1023,6 +1023,74 @@
       ]
     },
     {
+      "name": "addVerifiableDomain",
+      "kind": "mutations",
+      "id": "addverifiabledomain",
+      "href": "/graphql/reference/mutations#addverifiabledomain",
+      "description": "<p>Adds a verifiable domain to an owning account.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddVerifiableDomainInput!",
+          "id": "addverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was added.</p>"
+        }
+      ]
+    },
+    {
+      "name": "approveVerifiableDomain",
+      "kind": "mutations",
+      "id": "approveverifiabledomain",
+      "href": "/graphql/reference/mutations#approveverifiabledomain",
+      "description": "<p>Approve a verifiable domain for notification delivery.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ApproveVerifiableDomainInput!",
+          "id": "approveverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#approveverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was approved.</p>"
+        }
+      ]
+    },
+    {
       "name": "archiveRepository",
       "kind": "mutations",
       "id": "archiverepository",
@@ -2377,6 +2445,40 @@
       ]
     },
     {
+      "name": "deleteVerifiableDomain",
+      "kind": "mutations",
+      "id": "deleteverifiabledomain",
+      "href": "/graphql/reference/mutations#deleteverifiabledomain",
+      "description": "<p>Deletes a verifiable domain.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteVerifiableDomainInput!",
+          "id": "deleteverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "VerifiableDomainOwner",
+          "id": "verifiabledomainowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#verifiabledomainowner",
+          "description": "<p>The owning account from which the domain was deleted.</p>"
+        }
+      ]
+    },
+    {
       "name": "disablePullRequestAutoMerge",
       "kind": "mutations",
       "id": "disablepullrequestautomerge",
@@ -2937,6 +3039,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#issue",
           "description": "<p>The issue that was pinned.</p>"
+        }
+      ]
+    },
+    {
+      "name": "regenerateVerifiableDomainToken",
+      "kind": "mutations",
+      "id": "regenerateverifiabledomaintoken",
+      "href": "/graphql/reference/mutations#regenerateverifiabledomaintoken",
+      "description": "<p>Regenerates a verifiable domain's verification token.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RegenerateVerifiableDomainTokenInput!",
+          "id": "regenerateverifiabledomaintokeninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#regenerateverifiabledomaintokeninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "verificationToken",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The verification token that was generated.</p>"
         }
       ]
     },
@@ -4671,6 +4807,40 @@
       ]
     },
     {
+      "name": "updateNotificationRestrictionSetting",
+      "kind": "mutations",
+      "id": "updatenotificationrestrictionsetting",
+      "href": "/graphql/reference/mutations#updatenotificationrestrictionsetting",
+      "description": "<p>Update the setting to restrict notifications to only verified domains available to an owner.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateNotificationRestrictionSettingInput!",
+          "id": "updatenotificationrestrictionsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatenotificationrestrictionsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "VerifiableDomainOwner",
+          "id": "verifiabledomainowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#verifiabledomainowner",
+          "description": "<p>The owner on which the setting was updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProject",
       "kind": "mutations",
       "id": "updateproject",
@@ -5186,6 +5356,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The updated repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "verifyVerifiableDomain",
+      "kind": "mutations",
+      "id": "verifyverifiabledomain",
+      "href": "/graphql/reference/mutations#verifyverifiabledomain",
+      "description": "<p>Verify that a verifiable domain has the expected DNS record.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "VerifyVerifiableDomainInput!",
+          "id": "verifyverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#verifyverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was verified.</p>"
         }
       ]
     }
@@ -13741,6 +13945,76 @@
                 "id": "defaultrepositorypermissionfield",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#defaultrepositorypermissionfield"
+              }
+            }
+          ]
+        },
+        {
+          "name": "domains",
+          "description": "<p>A list of domains owned by the enterprise.</p>",
+          "type": "VerifiableDomainConnection!",
+          "id": "verifiabledomainconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isVerified",
+              "description": "<p>Filter whether or not the domain is verified.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for verifiable domains returned.</p>",
+              "type": {
+                "name": "VerifiableDomainOrder",
+                "id": "verifiabledomainorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#verifiabledomainorder"
               }
             }
           ]
@@ -27209,6 +27483,76 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "domains",
+          "description": "<p>A list of domains owned by the organization.</p>",
+          "type": "VerifiableDomainConnection",
+          "id": "verifiabledomainconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isVerified",
+              "description": "<p>Filter by if the domain is verified.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for verifiable domains returned.</p>",
+              "type": {
+                "name": "VerifiableDomainOrder",
+                "id": "verifiabledomainorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#verifiabledomainorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "email",
           "description": "<p>The organization's public email.</p>",
           "type": "String",
@@ -27286,7 +27630,7 @@
         },
         {
           "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
+          "description": "<p>Whether the organization has verified its profile email and website.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -27449,6 +27793,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "notificationDeliveryRestrictionEnabledSetting",
+          "description": "<p>Indicates if email notification delivery for this organization is restricted to verified domains.</p>",
+          "type": "NotificationRestrictionSettingValue!",
+          "id": "notificationrestrictionsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#notificationrestrictionsettingvalue"
         },
         {
           "name": "organizationBillingEmail",
@@ -51834,6 +52186,72 @@
       ]
     },
     {
+      "name": "VerifiableDomainConnection",
+      "kind": "objects",
+      "id": "verifiabledomainconnection",
+      "href": "/graphql/reference/objects#verifiabledomainconnection",
+      "description": "<p>The connection type for VerifiableDomain.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[VerifiableDomainEdge]",
+          "id": "verifiabledomainedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomainedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[VerifiableDomain]",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainEdge",
+      "kind": "objects",
+      "id": "verifiabledomainedge",
+      "href": "/graphql/reference/objects#verifiabledomainedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain"
+        }
+      ]
+    },
+    {
       "name": "ViewerHovercardContext",
       "kind": "objects",
       "id": "viewerhovercardcontext",
@@ -55342,6 +55760,23 @@
       ]
     },
     {
+      "name": "NotificationRestrictionSettingValue",
+      "kind": "enums",
+      "id": "notificationrestrictionsettingvalue",
+      "href": "/graphql/reference/enums#notificationrestrictionsettingvalue",
+      "description": "<p>The possible values for the notification restriction setting.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The setting is disabled for the owner.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ]
+    },
+    {
       "name": "OauthApplicationCreateAuditEntryState",
       "kind": "enums",
       "id": "oauthapplicationcreateauditentrystate",
@@ -57250,6 +57685,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainOrderField",
+      "kind": "enums",
+      "id": "verifiabledomainorderfield",
+      "href": "/graphql/reference/enums#verifiabledomainorderfield",
+      "description": "<p>Properties by which verifiable domain connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order verifiable domains by their creation date.</p>"
+        },
+        {
+          "name": "DOMAIN",
+          "description": "<p>Order verifiable domains by the domain name.</p>"
         }
       ]
     }
@@ -59261,6 +59713,66 @@
         {
           "name": "starrableId",
           "description": "<p>The Starrable ID to star.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "addverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#addverifiabledomaininput",
+      "description": "<p>Autogenerated input type of AddVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "domain",
+          "description": "<p>The URL of the domain.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner to add the domain to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "ApproveVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "approveverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#approveverifiabledomaininput",
+      "description": "<p>Autogenerated input type of ApproveVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to approve.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -61536,6 +62048,32 @@
       ]
     },
     {
+      "name": "DeleteVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "deleteverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#deleteverifiabledomaininput",
+      "description": "<p>Autogenerated input type of DeleteVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeploymentOrder",
       "kind": "inputObjects",
       "id": "deploymentorder",
@@ -62845,6 +63383,32 @@
           "id": "gitrefname",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#gitrefname"
+        }
+      ]
+    },
+    {
+      "name": "RegenerateVerifiableDomainTokenInput",
+      "kind": "inputObjects",
+      "id": "regenerateverifiabledomaintokeninput",
+      "href": "/graphql/reference/input-objects#regenerateverifiabledomaintokeninput",
+      "description": "<p>Autogenerated input type of RegenerateVerifiableDomainToken.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to regenerate the verification token of.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -64964,6 +65528,40 @@
       ]
     },
     {
+      "name": "UpdateNotificationRestrictionSettingInput",
+      "kind": "inputObjects",
+      "id": "updatenotificationrestrictionsettinginput",
+      "href": "/graphql/reference/input-objects#updatenotificationrestrictionsettinginput",
+      "description": "<p>Autogenerated input type of UpdateNotificationRestrictionSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner on which to set the restrict notifications setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the restrict notifications setting.</p>",
+          "type": "NotificationRestrictionSettingValue!",
+          "id": "notificationrestrictionsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#notificationrestrictionsettingvalue"
+        }
+      ]
+    },
+    {
       "name": "UpdateProjectCardInput",
       "kind": "inputObjects",
       "id": "updateprojectcardinput",
@@ -65716,6 +66314,57 @@
           "id": "userstatusorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#userstatusorderfield"
+        }
+      ]
+    },
+    {
+      "name": "VerifiableDomainOrder",
+      "kind": "inputObjects",
+      "id": "verifiabledomainorder",
+      "href": "/graphql/reference/input-objects#verifiabledomainorder",
+      "description": "<p>Ordering options for verifiable domain connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order verifiable domains by.</p>",
+          "type": "VerifiableDomainOrderField!",
+          "id": "verifiabledomainorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#verifiabledomainorderfield"
+        }
+      ]
+    },
+    {
+      "name": "VerifyVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "verifyverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#verifyverifiabledomaininput",
+      "description": "<p>Autogenerated input type of VerifyVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to verify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     }
