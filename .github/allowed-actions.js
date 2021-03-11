@@ -11,6 +11,8 @@ module.exports = [
   "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", //actions/setup-node@v2.1.4
   "ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262", //ruby/setup-ruby@vv1.64.1
   "actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da", //actions/stale@v3.0.16
+  "alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9",
+  "andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84",
   "archive/github-actions-slack@d368c5a4ad757515a9344918f84c490b05777d94",
   "ashley-taylor/regex-property-action@93a24f845cd20790924208225cc72da8b4c6d46d",
   "crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688",
