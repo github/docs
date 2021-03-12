@@ -1,6 +1,6 @@
 ---
 title: グループ課題の作成
-intro: 'コースに参加している学生のチームのために、共同課題を作成できます。'
+intro: 'コースに参加している学生のTeamのために、共同課題を作成できます。'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -90,29 +90,29 @@ redirect_from:
 
 #### オンライン統合開発環境 (IDE) を選択する
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Providing feedback
+### フィードバックを提供する
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
+必要に応じて、課題を自動的に再生し、各提出物をTeamで議論するための場を作成できます。
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Preventing changes to important files](#preventing-changes-to-important-files)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [課題を自動的にテストする](#testing-assignments-automatically)
+- [重要なファイルへの変更を防ぐ](#preventing-changes-to-important-files)
+- [フィードバックのためにプルリクエストを作成する](#creating-a-pull-request-for-feedback)
 
-#### Testing assignments automatically
+#### 課題を自動的にテストする
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-#### Preventing changes to important files
+#### 重要なファイルへの変更を防ぐ
 
 {% data reusables.classroom.assignments-guide-prevent-changes %}
 
-#### Creating a pull request for feedback
+#### フィードバックのためにプルリクエストを作成する
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -120,11 +120,11 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-### Inviting students to an assignment
+### 学生を課題に招待する
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+課題の [**Teams**] タブで、課題に取り組んでいるTeamや課題を提出したTeamを表示できます。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
@@ -132,7 +132,7 @@ You can see the teams that are working on or have submitted an assignment in the
 
 ### 次のステップ
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
 - When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
 

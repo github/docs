@@ -36,9 +36,9 @@ jobs:
           Last_Name: Octocat
 ```
 
-To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
+要在工作流程文件中使用环境变量的值，您应该使用 [`env` 上下文](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)。 如果要在运行器中使用环境变量的值，您可以使用运行器操作系统的正常方法来读取环境变量。
 
-If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
+如果使用工作流程文件的 `run` 键从运行器操作系统中读取环境变量（如上例所示），则在作业发送到运行器后，该变量将在运行器操作系统中被替换。 对于工作流程文件的其他部分，必须使用 `env` 上下文来读取环境变量；这是因为工作流程键（例如 `if`）需要在发送到运行器之前，在工作流程处理过程中替换变量。
 
 您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
 
@@ -69,11 +69,11 @@ If you use the workflow file's `run` key to read environment variables from with
 
 {% tip %}
 
-**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+**注：**如果需要在作业中使用工作流程运行的 URL，您可以组合这些环境变量：`$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
 
 {% endtip %}
 
-#### Determining when to use default environment variables or contexts
+#### 确定何时使用默认环境变量或上下文
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 

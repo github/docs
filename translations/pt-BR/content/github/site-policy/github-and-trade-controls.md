@@ -63,15 +63,15 @@ O GitHub tem o compromisso de continuar oferecendo serviços públicos grátis d
 
 Para contas organizacionais pagas nessas regiões sancionadas, os usuários podem ter acesso limitado aos seus repositórios públicos, que foram rebaixados para repositórios arquivados somente leitura. Para contas organizacionais gratuitas nessas regiões sancionadas, no entanto, os usuários continuarão a ter acesso total a repositórios públicos gratuitos para projetos de código aberto (e Páginas públicas associadas), gists públicos e minutos de Ação alocados grátis.
 
-O GitHub continuará defendendo junto com os EUA. regulators for the greatest possible access to code collaboration services to developers in Syria and Crimea, including private repositories. We believe that offering those services advances human progress, international communication, and the enduring U.S. de promoção da liberdade de expressão e da livre circulação da informação.
+O GitHub continuará defendendo junto com os EUA. reguladores para o maior acesso possível aos serviços de colaboração de código para desenvolvedores da Síria e da Crimeia, incluindo repositórios privados. Acreditamos que oferecer a esses serviços é um avanço para o progresso humano, comunicação internacional, assim como para o fortalecimento para as restrições permanentes da política externa dos EUA. de promoção da liberdade de expressão e da livre circulação da informação.
 
-Nacionais Designados Especialmente (SDNs) e outras partes negadas ou bloqueadas nos termos dos EUA and other applicable law, and certain government officials may be restricted from accessing or using GitHub, wherever located. Users may not use GitHub.com for or on behalf of such parties, generally including the Governments of sanctioned countries.
+Nacionais Designados Especialmente (SDNs) e outras partes negadas ou bloqueadas nos termos dos EUA e outras leis aplicáveis, e certos funcionários do governo podem receber restrições para acessar ou usar o GitHub, onde quer que se encontrem. Os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados.
 
-GitHub services are not available to developers located or otherwise resident in North Korea.
+Os serviços do GitHub não estão disponíveis para desenvolvedores localizados ou residentes na Coreia do Norte.
 
 #### Como você define esses usuários específicos?
 
-Se o GitHub determinar que um usuário ou cliente está localizado em uma região sujeita às restrições de controle de negociação dos EUA, ou que um usuário está restrito pelas sanções econômicas dos EUA, então a conta afiliada será limitada para cumprir esses requisitos legais. trade control restrictions for which GitHub does not yet have a license from the U.S. government, or a user is otherwise restricted under U.S. economic sanctions, then the affiliated account will be restricted to comply with those legal requirements. A determinação da localização do usuário e cliente para implementar essas restrições legais deriva de várias fontes, incluindo endereços IP e histórico de pagamentos. A nacionalidade e a etnia não são utilizadas para sinalizar usuários para restrições de sanções.
+Se o GitHub determinar que um usuário ou cliente está localizado em uma região sujeita às restrições de controle de negociação dos EUA, ou que um usuário está restrito pelas sanções econômicas dos EUA, então a conta afiliada será limitada para cumprir esses requisitos legais. restrições de controle de comércio para as quais o GitHub ainda não possui uma licença dos EUA. governo, ou um usuário está restrito de outra forma nos EUA. economic sanctions, then the affiliated account will be restricted to comply with those legal requirements. A determinação da localização do usuário e cliente para implementar essas restrições legais deriva de várias fontes, incluindo endereços IP e histórico de pagamentos. A nacionalidade e a etnia não são utilizadas para sinalizar usuários para restrições de sanções.
 
 #### Como as contas da organização são impactadas?
 
@@ -104,4 +104,4 @@ Pursuant to the license we have received from OFAC, we are restoring all cloud s
 #### Can you clarify availability of GitHub to Cuban developers?
 
 GitHub cloud services, both free and paid, are generally available to developers located in Cuba.  
-Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub, wherever located. Além disso, os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados.
+Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. e outras leis aplicáveis, e certos funcionários do governo podem receber restrições para acessar ou usar o GitHub, onde quer que se encontrem. Além disso, os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados.

@@ -1,6 +1,5 @@
-- [Minimum requirements](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
-- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- [Optional features](#optional-features){% endif %}
+- [Requisitos mínimos](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [Funcionalidades de beta em {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
 - [Armazenamento](#storage)
 - [CPU e memória](#cpu-and-memory)
 
@@ -8,20 +7,7 @@
 
 Recomendamos diferentes configurações de hardware, dependendo do número de licenças de usuário para {% data variables.product.product_location %}. Se você fornecer mais recursos do que os requisitos mínimos, sua instância terá um desempenho e uma escala melhores.
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion ver_gt "enterprise-server@2.21" %} If you enable {% if currentVersion == "enterprise-server@2.22" %}the beta for {% endif %}{% data variables.product.prodname_actions %}, review the following requirements and recommendations.
-
-- Você deve configurar pelo menos um executor para fluxos de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-- Você deve configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
-- You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
-
-    | Máximo de trabalhos por minuto | Additional vCPUs | Additional memory |
-    |:------------------------------ | ----------------:| -----------------:|
-    | Testes rápidos                 |                4 |           30.5 GB |
-    | 25                             |                8 |             61 GB |
-    | 35                             |               16 |            122 GB |
-    | 100                            |               32 |            244 GB |
-
-{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 #### Armazenamento
 
@@ -31,7 +17,7 @@ A sua instância exige um disco de dados persistente separado do disco raiz. Par
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-If you enable{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you'll need to configure external blob storage. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+Para configurar{% if currentVersion == "enterprise-server@2.22" %} beta de{% endif %} {% data variables.product.prodname_actions %}, você deve fornecer armazenamento externo de blob. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 
 {% endif %}
 
@@ -39,7 +25,7 @@ Você pode redimensionar o disco raiz da sua instância criando uma nova instân
 
 #### CPU e memória
 
-O {% data variables.product.prodname_ghe_server %} exige mais recursos de CPU e memória, dependendo dos níveis de atividade para usuários, automações e integrações.
+Os recursos de CPU e memória que {% data variables.product.prodname_ghe_server %} exige dependem dos níveis de atividade para usuários, automações e integrações. {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data reusables.actions.enterprise-hardware-considerations %}{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

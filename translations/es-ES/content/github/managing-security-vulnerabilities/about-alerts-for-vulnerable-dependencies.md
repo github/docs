@@ -75,7 +75,7 @@ Cuando
 
 ### Acceso a las alertas de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% else %}seguridad{% endif %} del {% data variables.product.prodname_dependabot %}
 
-Puedes ver todas las alertas que afectaron un proyecto en particular{% if currentVersion == "free-pro-team@latest" %} en la pestaña de seguridad del repositorio o{% endif %} en la gráfica de dependencias del mismo.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta la sección "[Visualizar y actualizar las dependencias vulnerables en tu repositorio](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)".{% endif %}
+You can see all of the alerts that affect a particular project{% if currentVersion == "free-pro-team@latest" %} on the repository's Security tab or{% endif %} in the repository's dependency graph.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 Predeterminadamente, notificamos a las personas con permisos adminsitrativos en los repositorios afectados sobre las
@@ -88,6 +88,11 @@ Enviamos alertas de seguridad para las personas con permisos de administrador en
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %} Para obtener más información, consulta la sección "[Elegir el método de entrega para tus notificaciones](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)".{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Para obtener más información, consulta la sección "[Configurar las notificaciones para las dependencias vulnerables](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+You can also see all the
+{% data variables.product.prodname_dependabot_alerts %} that correspond to a particular vulnerability in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#viewing-your-vulnerable-repositories)."
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Leer más

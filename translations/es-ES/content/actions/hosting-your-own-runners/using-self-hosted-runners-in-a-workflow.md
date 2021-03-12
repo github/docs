@@ -29,7 +29,7 @@ Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se a
 
 * `autoalojado`: Etiqueta por defecto aplicada a todos los ejecutores autoalojados.
 * `linux`, `windows`, o `macOS`: Se aplican dependiendo del sistema operativo.
-* `x86`, `x64`, `ARM`, o `ARM64`: Se aplican dependiendo de la arquitectura del hardware.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 Puedes utilizar el YAML de tu flujo de trabajo para mandar jobs a las diferentes combinaciones de estas etiquetas. En este ejemplo, un ejecutor auto-hospedado que empate con las tres etiquetas será elegible para ejecutar el job:
 

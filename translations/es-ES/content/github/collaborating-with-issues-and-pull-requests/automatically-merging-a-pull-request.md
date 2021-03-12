@@ -4,9 +4,8 @@ intro: 'Puedes incrementar la velocidad de desarrollo si habilitas la fusión au
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### Acerca de la fusión automática
 

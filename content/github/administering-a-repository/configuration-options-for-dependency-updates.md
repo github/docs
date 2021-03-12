@@ -122,7 +122,7 @@ updates:
 
 ### `schedule.interval`
 
-**Required** You must define how often to check for new versions and raise pull requests for version updates to each package manager. By default, this is at 5am UTC. To modify this, use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Required** You must define how often to check for new versions for each package manager. By default, this is at 5am UTC. To modify this, use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
 - `daily`—runs on every weekday, Monday to Friday.
 - `weekly`—runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).
@@ -146,6 +146,12 @@ updates:
       # Check for updates managed by Composer once a week
       interval: "weekly"
 ```
+
+{% note %}
+
+**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, changes to your manifest file(s) after a failed update, or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/github/administering-a-repository/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+
+{% endnote %}
 
 ### `allow`
 
@@ -358,7 +364,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests, after which new pull requests can be opened on subsequent updates. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 

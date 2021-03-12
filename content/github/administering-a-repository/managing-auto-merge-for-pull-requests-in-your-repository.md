@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 ---
 

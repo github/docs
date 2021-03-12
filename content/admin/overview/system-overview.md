@@ -108,7 +108,7 @@ For more information about {% data variables.product.prodname_ghe_server %}'s us
 
 #### Audit and access logging
 
-{% data variables.product.prodname_ghe_server %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.prodname_ghe_server %} stores permanently. You can forward both types of logs in realtime to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.prodname_ghe_server %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
 
 Access and audit logs include information like the following.
 

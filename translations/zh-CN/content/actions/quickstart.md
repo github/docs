@@ -69,7 +69,7 @@ topics:
 {% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### More workflow templates
+### 更多工作流程模板
 
 {% data reusables.actions.workflow-template-overview %}
 
@@ -123,7 +123,7 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to run.
+1. 在左侧边栏中，单击您想要运行的工作流程。
    ![选择 say hello 作业](/assets/images/help/repository/say-hello-job.png)
 1. 在右侧，单击 **Run workflow（运行工作流程）**下拉菜单，然后单击 **Run workflow（运行工作流程）**。 （可选）您可以在运行工作流程之前在“问候的人（Person to greet）”输入中输入自定义消息。
    ![触发手动工作流程](/assets/images/help/repository/manual-workflow-trigger.png)

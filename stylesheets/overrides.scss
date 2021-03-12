@@ -172,3 +172,12 @@ pre .bluebox {
     fill: $white;
   }
 }
+
+.markdown-body li img {
+  max-width: calc(100% - 32px);
+}
+
+.markdown-body img {
+  max-height: 600px;
+}
+

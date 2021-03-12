@@ -2,6 +2,6 @@
 
 要变基并合并拉取请求，必须在仓库中拥有[写入权限](/articles/repository-permission-levels-for-an-organization/)，并且仓库必须[允许变基合并](/articles/configuring-commit-rebasing-for-pull-requests/)。
 
-{% data variables.product.product_name %} 上的变基和合并行为与 `git rebase` 略有偏差。 {% data variables.product.prodname_dotcom %} 上的变基和合并始终会更新提交者信息并创建新的提交 SHA，而 {% data variables.product.prodname_dotcom %} 外部的 `git rebase` 在提交原型上发生变基时不改变提交者信息。 For more information about `git rebase`, see [the official Git documentation](https://git-scm.com/docs/git-rebase).
+{% data variables.product.product_name %} 上的变基和合并行为与 `git rebase` 略有偏差。 {% data variables.product.prodname_dotcom %} 上的变基和合并始终会更新提交者信息并创建新的提交 SHA，而 {% data variables.product.prodname_dotcom %} 外部的 `git rebase` 在提交原型上发生变基时不改变提交者信息。 有关 `git rebase` 的更多信息，请参阅[官方 Git 文档](https://git-scm.com/docs/git-rebase)。
 
 有关 `git rebase` 的可视表示，请参阅 _Pro Git_ 一书中的[“Git 分支 - 变基”一章](https://git-scm.com/book/en/Git-Branching-Rebasing)。

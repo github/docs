@@ -24,20 +24,20 @@
     - etiquetas
 - 
   title: Add releases to GitHub
-  description: Publish Github releases in an action
+  description: Publish GitHub releases in an action
   languages: 'Dockerfile, Shell'
   href: elgohr/Github-Release-Action
   tags:
     - releases
-    - publishing
+    - publicar
 - 
   title: Publish a docker image to Dockerhub
-  description: A Github Action used to build and publish Docker images
+  description: A GitHub Action used to build and publish Docker images
   languages: 'Dockerfile, Shell'
   href: elgohr/Publish-Docker-Github-Action
   tags:
     - docker
-    - publishing
+    - publicar
     - build
 - 
   title: Create an issue using content from a file
@@ -53,7 +53,7 @@
   href: softprops/action-gh-release
   tags:
     - releases
-    - publishing
+    - publicar
 - 
   title: GitHub Project Automation+
   description: Automate GitHub Project cards with any webhook event
@@ -104,7 +104,7 @@
   languages: 'JavaScript, Shell'
   href: ad-m/github-push-action
   tags:
-    - publishing
+    - publicar
 - 
   title: Generate release notes based on your events
   description: Action to auto generate a release note based on your events
@@ -112,7 +112,7 @@
   href: Decathlon/release-notes-generator-action
   tags:
     - releases
-    - publishing
+    - publicar
 - 
   title: Create a GitHub wiki page based on the provided markdown file
   description: Create a GitHub wiki page based on the provided markdown file
@@ -120,10 +120,10 @@
   href: Decathlon/wiki-page-creator-action
   tags:
     - wiki
-    - publishing
+    - publicar
 - 
   title: Label your Pull Requests auto-magically (using committed files)
-  description: Github action to label your pull requests auto-magically (using committed files)
+  description: GitHub action to label your pull requests auto-magically (using committed files)
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:
@@ -132,7 +132,7 @@
     - etiquetas
 - 
   title: Add Label to your Pull Requests based on the author team name
-  description: Github action to label your pull requests based on the author name
+  description: GitHub action to label your pull requests based on the author name
   languages: 'TypeScript, JavaScript'
   href: JulienKode/team-labeler-action
   tags:
@@ -332,4 +332,4 @@
   languages: 'TypeScript, JavaScript'
   href: peaceiris/actions-gh-pages
   tags:
-    - publishing
+    - publicar

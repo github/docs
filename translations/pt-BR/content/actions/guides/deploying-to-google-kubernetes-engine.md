@@ -8,7 +8,7 @@ versions:
 type: 'tutorial'
 topics:
   - 'CD'
-  - 'Containers'
+  - 'Contêineres'
   - 'Google Kubernetes Engine'
 ---
 
