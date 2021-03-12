@@ -1,12 +1,12 @@
 const path = require('path')
 const slash = require('slash')
-const fs = require('fs')
 const walk = require('walk-sync')
 const { zip, groupBy } = require('lodash')
 const yaml = require('js-yaml')
 const revalidator = require('revalidator')
 const generateMarkdownAST = require('mdast-util-from-markdown')
 const visit = require('unist-util-visit')
+const readFileAsync = require('../../lib/readfile-async')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
@@ -250,7 +250,7 @@ describe('lint markdown content', () => {
       let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData
 
       beforeAll(async () => {
-        const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
+        const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
         const { data, content: bodyContent, errors } = frontmatter(fileContents)
 
         content = bodyContent
@@ -417,7 +417,7 @@ describe('lint yaml content', () => {
       let dictionary, isEarlyAccess
 
       beforeAll(async () => {
-        const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
+        const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
         dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
@@ -606,7 +606,7 @@ describe('lint release notes', () => {
         let dictionary
 
         beforeAll(async () => {
-          const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
+          const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
           dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
         })
 

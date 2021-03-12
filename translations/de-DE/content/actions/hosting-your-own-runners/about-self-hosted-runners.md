@@ -120,6 +120,7 @@ Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugrif
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 
