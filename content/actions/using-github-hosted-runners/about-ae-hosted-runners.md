@@ -25,6 +25,9 @@ Each workflow job is executed in a fresh instance of the {% data variables.actio
 
 To add {% data variables.actions.hosted_runner %}s to your organization or enterprise, see ["Adding {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/adding-ae-hosted-runners)."
 
+### Pool assignments for {% data variables.actions.hosted_runner %}s
+
+Your {% data variables.actions.hosted_runner %}s are allocated to the same pool as your {% data variables.product.prodname_ghe_managed %} instance. No other customers have access to this pool, and as a result, {% data variables.actions.hosted_runner %}s are not shared with any other customers.
 
 ### Billing
 
