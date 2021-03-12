@@ -1,4 +1,4 @@
----
+Install-Package System.IdentityModel.Tokens.Jwt -Version 6.8.0---
 title: Set up Git
 redirect_from:
   - /git-installation-redirect/
