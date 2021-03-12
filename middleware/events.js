@@ -10,7 +10,7 @@ const ajv = new Ajv()
 
 const router = express.Router()
 
-router.post('/', async (req, res, next) => {
+router.post('/', async function postEvents (req, res, next) {
   const isDev = process.env.NODE_ENV === 'development'
   const fields = omit(req.body, '_csrf')
 
