@@ -1,3 +1,4 @@
-When {% data variables.product.prodname_dependabot %} raises a pull requests, the location in {% data variables.product.prodname_dotcom %} you see the results in depends on whether the pull request was raised for version updates or security updates:
-- For version updates, nagivate to your _dependabot.yml_ file (in the `.github` directory of your repository), and look at the results in the Insights tab of your repository (under Dependency Graph, then Dependencies). 
-- For security updates, navigate to the Security tab for your repository, and click **Dependabot alerts** on the left sidebar.
+When {% data variables.product.prodname_dependabot %} raises pull requests, these pull requests could be for _version_ or _security_ updates:
+
+- {% data variables.product.prodname_dependabot_version_updates %} are automated pull requests that help you update dependencies with known vulnerabilities. To check the status of version updates, navigate to the Insights tab of your repository, then Dependency Graph, and {% data variables.product.prodname_dependabot %}.
+- {% data variables.product.prodname_dependabot_security_updates %} are automated pull requests that keep your dependencies updated, even when they don’t have any vulnerabilities.

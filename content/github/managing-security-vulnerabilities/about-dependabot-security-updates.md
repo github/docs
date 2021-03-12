@@ -22,7 +22,7 @@ The {% data variables.product.prodname_dependabot_security_updates %} feature is
 
 {% endnote %}
 
-If you enable version updates, {% data variables.product.prodname_dependabot %} will raise pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
