@@ -1,5 +1,5 @@
 ---
-title: Generating a new SSH key and adding it to the ssh-agent
+title: Generating a new SSH key and adding it to the ssh-agent 
 intro: 'After you''ve checked for existing SSH keys, you can generate a new SSH key to use for authentication, then add it to the ssh-agent.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
