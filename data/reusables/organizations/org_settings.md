@@ -1,2 +1,3 @@
 1. Under your organization name, click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
 ![Organization settings button](/assets/images/help/organizations/organization-settings-tab.png)
+2.Click Settings next to the organization.
