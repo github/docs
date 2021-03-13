@@ -551,7 +551,7 @@ updates:
 
 ### `vendor`
 
-Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them.
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them. Don't use this option if you're using `gomod` as {% data variables.product.prodname_dependabot %} automatically detects vendoring for this tool.
 
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
