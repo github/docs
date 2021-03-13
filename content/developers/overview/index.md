@@ -16,3 +16,4 @@ versions:
 {% link_in_list /secret-scanning %}
 {% link_in_list /replacing-github-services %}
 {% link_in_list /github-developer-program %}
+/run
