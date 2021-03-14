@@ -1,3 +1,4 @@
+![5A3CF4E4-6A2F-47BE-8F11-8B1B3A0898B7](https://user-images.githubusercontent.com/78877740/111060297-a91c3d00-84d6-11eb-851f-2327b9999f0e.jpeg)
 ---
 title: GitHub for mobile
 intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
