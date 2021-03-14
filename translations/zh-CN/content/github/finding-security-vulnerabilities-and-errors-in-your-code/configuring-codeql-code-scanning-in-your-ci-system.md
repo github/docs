@@ -135,19 +135,22 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 分析 {% data variables.product.prodname_codeql %} 数据库中的代码并将结果上传到 {% data variables.product.product_location %}。
 
-| 标志                               | 必选 | 输入值                                                                                                                               |
-| -------------------------------- |:--:| --------------------------------------------------------------------------------------------------------------------------------- |
-| `--repository`                   | ✓  | 要分析的仓库名称。                                                                                                                         |
-| `--commit`                       | ✓  | 要分析的提交的 SHA。 在 Git 和 Azure DevOps 中，这对应于 `git rev-parse HEAD` 的值。 在 Jenkins 中，这对应于 `$GIT_COMMIT`。                                 |
-| `--ref`                          | ✓  | 要分析的引用的名称，例如 `refs/heads/main`。 在 Git 和 Jenkins 中，这对应于 `git symbolic-ref HEAD` 的值。 在 Azure DevOps 中，这对应于 `$(Build.SourceBranch)`。 |
-| `--github-url`                   | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。                                                                       |
-| `--github-auth`                  | ✓  | {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。                                                                    |
-| <nobr>`--checkout-path`</nobr> |    | 检出仓库的路径。 默认值为当前工作目录。                                                                                                              |
-| `--no-upload`                    |    | 无. 阻止 {% data variables.product.prodname_codeql_runner %} 将结果上传到 {% data variables.product.product_location %}。                 |
-| `--output-dir`                   |    | 存储输出 SARIF 文件的目录。 默认在临时文件目录中。                                                                                                     |
-| `--temp-dir`                     |    | 存储临时文件的目录。 默认值为 _./codeql-runner_。                                                                                                |
-| `--debug`                        |    | 无. 打印更详细的输出。                                                                                                                      |
-| `-h`, `--help`                   |    | 无. 显示命令的帮助。                                                                                                                       |
+| 标志                                 | 必选 | 输入值                                                                                                                               |
+| ---------------------------------- |:--:| --------------------------------------------------------------------------------------------------------------------------------- |
+| `--repository`                     | ✓  | 要分析的仓库名称。                                                                                                                         |
+| `--commit`                         | ✓  | 要分析的提交的 SHA。 在 Git 和 Azure DevOps 中，这对应于 `git rev-parse HEAD` 的值。 在 Jenkins 中，这对应于 `$GIT_COMMIT`。                                 |
+| `--ref`                            | ✓  | 要分析的引用的名称，例如 `refs/heads/main`。 在 Git 和 Jenkins 中，这对应于 `git symbolic-ref HEAD` 的值。 在 Azure DevOps 中，这对应于 `$(Build.SourceBranch)`。 |
+| `--github-url`                     | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。                                                                       |
+| `--github-auth`                    | ✓  | {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。                                                                    |
+| <nobr>`--checkout-path`</nobr>   |    | 检出仓库的路径。 默认值为当前工作目录。                                                                                                              |
+| `--no-upload`                      |    | 无. 阻止 {% data variables.product.prodname_codeql_runner %} 将结果上传到 {% data variables.product.product_location %}。                 |
+| `--output-dir`                     |    | 存储输出 SARIF 文件的目录。 默认在临时文件目录中。                                                                                                     |
+| `--ram`                            |    | Amount of memory to use when running queries. The default is to use all available memory.                                         |
+| <nobr>`--no-add-snippets`</nobr> |    | 无. Excludes code snippets from the SARIF output.                                                                                  |
+| `--threads`                        |    | Number of threads to use when running queries. The default is to use all available cores.                                         |
+| `--temp-dir`                       |    | 存储临时文件的目录。 默认值为 _./codeql-runner_。                                                                                                |
+| `--debug`                          |    | 无. 打印更详细的输出。                                                                                                                      |
+| `-h`, `--help`                     |    | 无. 显示命令的帮助。                                                                                                                       |
 
 #### `上传`
 

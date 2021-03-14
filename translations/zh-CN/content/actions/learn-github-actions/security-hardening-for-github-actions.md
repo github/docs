@@ -117,7 +117,7 @@ topics:
 
 例如，您可以使用审核日志跟踪 `action:org.update_actions_secret` 事件，以跟踪组织机密的更改： ![审核日志条目](/assets/images/help/repository/audit-log-entries.png)
 
-以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 有关使用审核日志的更多信息，请参阅“[查看组织的审核日志](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)”。
 
 #### 机密管理的事件
 | 操作                                  | 描述                                                                                                                                                  |

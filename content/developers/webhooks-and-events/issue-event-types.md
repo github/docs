@@ -163,7 +163,7 @@ Name | Type | Description
 `tree` | `object` | The Git tree of the commit.
 `message` | `string` | The commit message.
 `parents` | `array of objects` | A list of parent commits.
-`verfication` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#signature-verification-object)."
+`verfication` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
 `event` | `string` | The event value is `"committed"`.
 
 ### connected

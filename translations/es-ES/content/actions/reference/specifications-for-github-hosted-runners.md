@@ -41,10 +41,15 @@ Las máquinas virtuales de Windows están configuradas para ejecutarse como admi
 
 ### Ejecutores y recursos de hardware compatibles
 
-Cada máquina virtual tiene los mismos recursos de hardware disponibles.
 
+Hardware specification for Windows and Linux virtual machines:
 - CPU de 2 núcleos
 - 7 GB de memoria RAM
+- 14 GB de espacio en el disco SSD
+
+Hardware specification for macOS virtual machines:
+- CPU de 3 núcleos
+- 14 GB de memoria RAM
 - 14 GB de espacio en el disco SSD
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -71,9 +76,13 @@ Las herramientas de software que se incluyen en los ejecutores hospedados en {% 
 
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} incluyen las herramientas integradas predeterminadas del sistema operativo, además de los paquetes enumerados en las referencias anteriores. Por ejemplo, los ejecutores de Ubuntu y macOS incluyen `grep`, `find` y `which`, entre otras herramientas predeterminadas.
 
-Las bitácoras de flujo de trabajo incluyen un enlace a las herramientas preinstaladas en el ejecutor. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-Si hay alguna herramienta que quieras solicitar, abre una propuesta en [actions/virtual-environments](https://github.com/actions/virtual-environments).
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+Si hay alguna herramienta que quieras solicitar, abre una propuesta en [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
 ### Direcciones IP
 

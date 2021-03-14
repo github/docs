@@ -6,7 +6,7 @@ const loadAlgoliaResults = require('../lib/search/algolia-search')
 
 const router = express.Router()
 
-router.get('/', async (req, res) => {
+router.get('/', async function postSearch (req, res, next) {
   res.set({
     'surrogate-control': 'private, no-store',
     'cache-control': 'private, no-store'
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    const results = process.env.USE_LUNR
+    const results = process.env.AIRGAP
       ? await loadLunrResults({ version, language, query, limit })
       : await loadAlgoliaResults({ version, language, query, limit })
     return res.status(200).json(results)

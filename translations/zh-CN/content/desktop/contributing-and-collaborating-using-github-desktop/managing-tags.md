@@ -9,7 +9,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_desktop %} 中的标记
 
-{% data variables.product.prodname_desktop %} 可用于创建带注释的标记。 您可以使用标记在仓库的历史记录中标记单独的点，包括发行版的版本号。 有关发行版标记的更多信息，请参阅“[关于发行版](/github/administering-a-repository/about-releases)。”
+{% data variables.product.prodname_desktop %} 可用于创建带注释的标记。 Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. 有关发行版标记的更多信息，请参阅“[关于发行版](/github/administering-a-repository/about-releases)。”
 
 {% data reusables.desktop.tags-push-with-commits %}
 
@@ -44,3 +44,7 @@ versions:
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}
+
+### 延伸阅读
+
+- "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation

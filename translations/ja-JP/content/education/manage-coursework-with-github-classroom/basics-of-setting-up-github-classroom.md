@@ -30,4 +30,4 @@ versions:
 
 ### 参考リンク
 
-- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- 「[{% data variables.product.prodname_education %} で教える・学ぶメリットの探求](/education/teach-and-learn-with-github-education)」

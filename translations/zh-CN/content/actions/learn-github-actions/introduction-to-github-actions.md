@@ -149,7 +149,7 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
   ```
 </td>
 <td>
-  将 <code>check-bats-version</code> 作业中运行的所有步骤组合在一起。 Each item nested under this section is a separate action or shell command.
+  将 <code>check-bats-version</code> 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 命令。
 </td>
 </tr>
 <tr>

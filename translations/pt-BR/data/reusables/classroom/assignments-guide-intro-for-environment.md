@@ -1,1 +1,1 @@
-Optionally, decide whether to provide empty repositories or starter code, and preconfigure a development environment for your students.
+Opcionalmente, decida se deseja fornecer repositórios vazios ou código inicial e pré-configure um ambiente de desenvolvimento para seus alunos.

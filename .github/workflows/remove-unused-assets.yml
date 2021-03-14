@@ -1,11 +1,11 @@
 name: Remove unused assets
 
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 on:
   schedule:
     - cron: '20 15 * * 0' # run every Sunday at 20:15 UTC / 12:15 PST
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
   remove_unused_assets:

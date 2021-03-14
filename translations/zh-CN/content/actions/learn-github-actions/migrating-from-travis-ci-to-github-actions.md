@@ -9,7 +9,7 @@ versions:
 type: tutorial
 topics:
   - Travis CI
-  - Migration
+  - 迁移
   - CI
   - CD
 ---

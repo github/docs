@@ -52,7 +52,7 @@ Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/build
 
 #### Registrar una GitHub App nueva
 
-Una vez que hayas decidido hacer el cambio hacia GitHub Apps, necesitarás [crear una GitHub App nueva](/apps/building-github-apps/).
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### Determinar los permisos que necesitará tu app
 
@@ -62,7 +62,7 @@ En la configuración de tu GitHub App, puedes especificar si tu app necesita acc
 
 #### Suscribirte a los webhooks
 
-Después de que creaste una GitHub App nueva y seleccionaste sus permisos, puedes seleccionar los eventos de webhook a los cuales deseas suscribirte. Consulta la sección "[Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para aprender sobre cómo suscribirte a los webhooks.
+Después de que creaste una GitHub App nueva y seleccionaste sus permisos, puedes seleccionar los eventos de webhook a los cuales deseas suscribirte. See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### Entender los diferentes métodos de autenticación
 

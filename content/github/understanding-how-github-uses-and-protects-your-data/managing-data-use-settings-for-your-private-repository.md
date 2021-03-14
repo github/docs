@@ -14,8 +14,6 @@ When you enable data use for your private repository, you'll be able to access t
 
 ### Enabling or disabling data use features
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
-
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}

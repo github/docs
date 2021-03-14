@@ -1,6 +1,6 @@
 ---
 title: プッシュログの表示
-intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
+intro: 'サイト管理者は、Enterprise 上の任意のリポジトリに対する Git プッシュ操作の一覧を確認することができます。'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -22,9 +22,9 @@ versions:
 
 ### リポジトリのプッシュログを表示する
 
-1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
+1. サイト管理者として {% data variables.product.prodname_ghe_server %} にサインインします。
 1. リポジトリにアクセスします。
-1. In the upper-right corner of the repository's page, click
+1. リポジトリのページの右上隅にある {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
 {% octicon "rocket" aria-label="The rocket ship" %}.
     ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}

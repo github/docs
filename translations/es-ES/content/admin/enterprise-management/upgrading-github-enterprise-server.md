@@ -29,6 +29,26 @@ versions:
 
   {% endnote %}
 
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
+
+Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
+
+Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
+
+| Licencias de usuario                     |                            vCPU |                                 Memoria |                Almacenamiento conectado | Almacenamiento raíz |
+|:---------------------------------------- | -------------------------------:| ---------------------------------------:| ---------------------------------------:| -------------------:|
+| Prueba, Demo o 10 usuarios no frecuentes |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ |              200 GB |
+| 10-3000                                  |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ |              200 GB |
+| 3000-5000                                |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB |              200 GB |
+| 5000-8000                                | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB |              200 GB |
+| 8000-10000+                              | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB |              200 GB |
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
+
 ### Tomar una instantánea
 
 Una instantánea es un punto de verificación de una máquina virtual (VM) en un momento en el tiempo. Recomendamos firmemente tomar una instantánea antes de actualizar tu máquina virtual para que si falla una actualización, puedas revertir tu VM nuevamente a la instantánea. Si no estás actualizando a un nuevo lanzamiento de característica, debes tomar una instantánea de VM. Si estás actualizando a un nuevo lanzamiento de patch, puedes adjuntar el disco de datos existente.
