@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Apps
-intro: 'When your app is public, anyone can install your app on their repository through {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL. When your app is private, you can only install the app on repositories that you own.'
+intro: 'When your app is public, anyone can use {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL to install the app on their repository. When your app is private, only you can install the app on repositories that you own.'
 redirect_from:
   - /apps/installing-github-apps
 versions:

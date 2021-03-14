@@ -1,0 +1,26 @@
+---
+name: Status Update
+about: A brief status update.
+body:
+  - type: dropdown
+    attributes:
+      name: Status
+      options:
+        - name: "GREEN \U0001F34F (All good, smooth sailing)"
+          value: 'Status: GREEN'
+        - name: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
+          value: 'Status: YELLOW'
+        - name: "RED \U0001F534 (BLOCKED)"
+          value: 'Status: RED'
+  - type: input
+    attributes:
+      name: Update Summary
+      placeholder:
+        Brief summary of the status and next steps. Any blockers should be
+        called out specifically.
+      inputType: longText
+  - type: input
+    attributes:
+      name: 'Attribution'
+      value: '_created with :heart: by typing_ `/status`'
+      inputType: text
