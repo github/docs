@@ -75,11 +75,11 @@
 /* Code style overrides
 ------------------------------------------------------------------------------*/
 
-.markdown-body .highlight pre, .markdown-body pre {
+.markdown-body > .highlight pre, .markdown-body pre {
   margin-top: 10px;
 }
 
-.height-constrained-code-block pre {
+.height-constrained-code-block > pre {
   max-height: 500px;
   overflow: auto;
 }
@@ -93,7 +93,7 @@
   }
 }
 
-.breadcrumbs a:not(:last-child)::after, .breadcrumbs span:not(:last-child)::after {
+.breadcrumbs > a:not(:last-child)::after, .breadcrumbs > span:not(:last-child)::after {
   content: '/';
   color: $gray-400;
   padding-right: $spacer-1;
@@ -104,7 +104,7 @@
 /* Numbered procedures (step 1, step 2, ...)
 ------------------------------------------------------------------------------*/
 
-.markdown-body ol {
+.markdown-body > ol {
   counter-reset: li;
   list-style: none;
   position: relative;
@@ -112,14 +112,14 @@
   padding-left: 0;
 }
 
-.markdown-body ol > li {
+.markdown-body > ol > li {
   padding: 15px 0 15px 55px;
   position: relative;
   margin-bottom: 5px;
   border-top: 3px solid #EEE;
 }
 
-.markdown-body ol > li:before {
+.markdown-body > ol > li:before {
   content: counter(li);
   counter-increment: li;
   position: absolute;
@@ -135,15 +135,15 @@
   text-align: right;
 }
 
-.markdown-body ol > li > p {
+.markdown-body > ol > li > p {
   margin: 0;
 }
 
-.markdown-body ol > li > p:first-child {
+.markdown-body > ol > li > p:first-child {
   margin-top: 0;
 }
 
-.markdown-body ol > li:after {
+.markdown-body > ol > li:after {
   content: ".";
   display: block;
   clear: both;
@@ -158,7 +158,7 @@
   margin: 20px auto 0 auto;
 }
 
-.procedural-image-wrapper img {
+.procedural-image-wrapper > img {
   border-radius: 5px;
   border: 2px solid #EEE;
   width: auto;
