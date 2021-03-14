@@ -1,6 +1,6 @@
 ---
 title: Deleting your user account
-intro: 'You can delete your {% data variables.product.product_name %} user account at any time.'
+intro: 'You can delete your {% data variables.product.product_name %} user account at any time. Make sure you think it through, though. Once you delete your account, there's no going back.'
 redirect_from:
   - /articles/deleting-a-user-account/
   - /articles/deleting-your-user-account
