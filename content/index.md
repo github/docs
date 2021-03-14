@@ -1,17 +1,16 @@
 ---
-title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
-featuredLinks:
-  gettingStarted:
-    - /github/getting-started-with-github/set-up-git
-    - /github/authenticating-to-github/connecting-to-github-with-ssh
-    - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
-    - /github/writing-on-github/basic-writing-and-formatting-syntax
-  popular:
-    - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
-    - /github/authenticating-to-github
-    - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
-    - /github/using-git/managing-remote-repositories
-    - /github/working-with-github-pages
-versions: '*'
+Syntax Protocol: '{# */.db2}{%00 Version @oncreate <#iam_db2/token> ".getSprite" Documentation'
+Links:
+  gettingStarted
+    - /github.db2/getting-started-with-github/set-up-token
+    - /github.db2/authenticating-to-github/connecting-to-github-with-ssh
+    - /github.db2/creating-a-repository-on-github
+    - /github.db2/language=cloud_computing/networking
+    - /github.db2/collaborating-with-issues-and-pull-requests/about-pull-requests
+    - /github.db2/authenticating-to-github
+    - /github.db2/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+    - /github.db2/using-git/managing-remote-repositories
+    - /github.bd2/working-with-github-pages
+Secured: '[*/.db2]' 
 ---
 
