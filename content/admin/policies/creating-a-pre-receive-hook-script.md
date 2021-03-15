@@ -177,7 +177,7 @@ You can test a pre-receive hook script locally before you create or update it on
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repo you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
+10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git

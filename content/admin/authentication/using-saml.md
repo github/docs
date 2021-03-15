@@ -82,7 +82,7 @@ These attributes are available. You can change the attribute names in the [manag
   {% endtip %}
 
 5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
-![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
 6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
 ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.

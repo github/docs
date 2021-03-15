@@ -29,7 +29,7 @@ Ein selbst-gehosteter Runner erhält automatisch bestimmte Labels, wenn er zu {%
 
 * `self-hosted`: Standard-Label, welches allen selbst-gehosteten Runnern zugeteilt wird.
 * `Linux`, `windows`, oder `macOS`: Je nach Betriebssystem zugeteilt.
-* `x86`, `x64`, `ARM`oder `ARM64`: Je nach Hardware-Architektur zugeteilt.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 Du kannst die YAML Deines Workflows verwenden, um Jobs an eine Kombination dieser Labels zu senden. In diesem Beispiel ist ein selbst-gehosteter Runner, der allen drei Labels entspricht, berechtigt, den Job auszuführen:
 

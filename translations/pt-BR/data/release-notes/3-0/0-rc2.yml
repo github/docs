@@ -1,25 +1,25 @@
 ---
 date: '2021-01-29'
 release_candidate: true
-intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+intro: As versões de candidatos devem ser testadas em ambientes que não são de produção. Para obter mais informações sobre o Programa Candidato de Versão, consulte o [Blogue do GitHub](https://github. log/2020-12-03-improving-the-ghes-release-process-release-candidates/) ou "[Sobre atualizações de novas versões](/admin/overview/about-upgrades-to-new-releases)."
 sections:
   bugs:
     - 
-      heading: Fixes for known issues from Release Candidate 1
+      heading: Correções para problemas conhecidos do Candidato de Versão 1
       notes:
-        - If you disabled GitHub Actions following an unsuccessful attempt to set up GitHub Actions, then you will not be able to create the first user and use the appliance.
-        - The "Mandatory message viewed" audit log event was not being saved.
-        - '`ghe-config-apply` needed to run on a replica during an initial setup before `ghe-repl-setup` could run to start replication.'
-        - Removing yourself as an enterprise owner returned a 404.
+        - Se você desabilitou o GitHub Actions após uma tentativa mal sucedida de configurar o GitHub Actions, você não conseguirá criar o primeiro usuário e usar o dispositivo.
+        - O evento de log de auditoria "Mensagem obrigatória visualizada" não foi salvo.
+        - 'O `ghe-config-apply` necessário para ser executado em uma réplica durante uma configuração inicial antes que `ghe-repl-setup` pudesse executar para iniciar a replicação.'
+        - Remover você mesmo como proprietário corporativo retornou 404.
     - 
-      heading: Fixes for other issues
+      heading: Correções para outros problemas
       notes:
-        - Issues with migrations and upgrades to 3.0.0 have been fixed.
-        - Backup Utilities versioning now works for release candidate versions.
-        - Generating a support bundle resulted in an error in the orchestrator logs.
-        - A large restore could result in Redis running out of memory.
-        - The checkbox to enable GitHub Actions in the Management Console is now visible with any authentication method.
-        - GitHub Actions can only be enabled if the required storage is also configured.
-        - '`ghe-repl-status` could silently fail if MSSQL replication is not configured.'
+        - Foram corrigidos os problemas com migrações e melhorias para a versão 3.0.0.
+        - O versionamento do Backup de Utilitários agora funciona para versões de candidato de versões.
+        - Gerar um pacote de suporte resultou em um erro nos registros de orquestradores.
+        - Uma grande restauração pode resultar no esgotamento da memória do Redis.
+        - A caixa de seleção para habilitar o GitHub Actions no Console de Gerenciamento agora é visível com qualquer método de autenticação.
+        - O GitHub Actions só pode ser habilitado se o armazenamento necessário também estiver configurado.
+        - 'O ''ghe-repl-status'' pode falhar silenciosamente se a replicação do MSSQL não estiver configurada.'
   known_issues:
-    - The known issues for Release Candidate 1 still apply, excluding the bug fixes listed.
+    - Os problemas conhecidos para o Candidato da Versão 1 ainda se aplicam, excluindo as correções de erros listadas.

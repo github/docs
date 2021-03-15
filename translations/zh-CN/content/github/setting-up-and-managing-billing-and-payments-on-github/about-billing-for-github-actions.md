@@ -12,6 +12,8 @@ versions:
 
 {% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
 
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+
 分钟数每月都会重置，而存储使用量不重置。
 
 | 产品                                                    | 存储器    | 分钟数（每月） |

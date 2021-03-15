@@ -116,6 +116,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |{% endif %}
+{% if currentVersion == "github-ae@latest" %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
 

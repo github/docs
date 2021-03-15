@@ -4,9 +4,8 @@ intro: '您可以通过启用拉取请求自动合并（使拉取请求在满足
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### 关于自动合并
 

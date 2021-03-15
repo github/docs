@@ -70,7 +70,7 @@ steps:
 
 #### 使用 SHA
 
-如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
 
 ```yaml
 steps:
@@ -79,7 +79,7 @@ steps:
 
 #### 使用分支
 
-Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. 此示例针对名为 `@main`的分支：
+为操作指定目标分支意味着它将始终在该分支上运行当前的版本。 如果对分支的更新包含重大更改，此方法可能会造成问题。 此示例针对名为 `@main`的分支：
 
 ```yaml
 steps:

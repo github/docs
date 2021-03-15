@@ -29,7 +29,7 @@ A self-hosted runner automatically receives certain labels when it is added to {
 
 * `self-hosted`: Default label applied to all self-hosted runners.
 * `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x86`, `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
 

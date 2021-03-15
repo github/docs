@@ -39,12 +39,12 @@ After you connect your {% data variables.product.product_name %} account to the 
 ### Opening a codespace in {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Under Codespaces, click the codespace you want to develop in.
+2. Under "Codespaces", click the codespace you want to develop in.
 3. Click the Connect to Codespace icon.
  ![The Connect to Codespace icon in {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ### Deleting a codespace in {% data variables.product.prodname_vscode %}
 
-1. Under Codespaces, right-click the codespace you want to delete.
+1. Under "Codespaces", right-click the codespace you want to delete.
 2. In the drop-down menu, click **Delete Codespace**.
 ![Deleting a codespace in {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)

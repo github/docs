@@ -29,6 +29,26 @@ versions:
 
   {% endnote %}
 
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
+
+Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
+
+Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
+
+| 用户许可              |                            vCPU |                                      内存 |                                 附加的存储容量 |  根存储容量 |
+|:----------------- | -------------------------------:| ---------------------------------------:| ---------------------------------------:| ------:|
+| 试用版、演示版或 10 个轻度用户 |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ | 200 GB |
+| 10-3000           |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ | 200 GB |
+| 3000-5000         |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB | 200 GB |
+| 5000-8000         | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB | 200 GB |
+| 8000-10000+       | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB | 200 GB |
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
+
 ### 生成快照
 
 快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。

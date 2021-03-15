@@ -197,7 +197,7 @@ For more information, see "[Autolinked references and URLs](/articles/autolinked
 
 Some {% data variables.product.prodname_github_app %}s provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 
-![Content attachment](/assets/images/help/writing/content-attachment.png)
+![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
 
 To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 

@@ -136,7 +136,7 @@ jobs:
 
 #### 使用特定的 Python 版本
 
-您可以配置 python 的特定版本。 例如，3.8。 Alternatively, you can use semantic version syntax to get the latest minor release. 此示例使用 Python 3 最新的次要版本。
+您可以配置 python 的特定版本。 例如，3.8。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
 
 {% raw %}
 

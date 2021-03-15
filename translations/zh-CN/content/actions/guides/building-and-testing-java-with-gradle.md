@@ -126,7 +126,7 @@ steps:
 ```
 {% endraw %}
 
-This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` and `.gradle/wrapper` directories of the runner's home directory. The cache key will be the hashed contents of the gradle build files (including the Gradle wrapper properties file), so any changes to them will invalidate the cache.
+此工作流程将保存本地 Gradle 包缓存的内容，位于运行器主目录的 `.gradle/caches` 和 `.gradle/wrapper` 目录中。 缓存键将是 gradle 构建文件（包括 Gradle wrapper 属性文件）的哈希内容，因此对它们的任何更改都将使缓存无效。
 
 ### 将工作流数据打包为构件
 

@@ -6,6 +6,7 @@ const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
 const RedisAccessor = require('../lib/redis-accessor')
+const { isConnectionDropped } = require('./halt-on-dropped-connection')
 
 const { HEROKU_RELEASE_VERSION } = process.env
 const pageCacheDatabaseNumber = 1
@@ -21,8 +22,29 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
+function addCsrf (req, text) {
+  return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
+
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
+
+  // render a 404 page
+  if (!page) {
+    if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
+      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
+    }
+    return res.status(404).send(
+      addCsrf(
+        req,
+        await liquid.parseAndRender(layouts['error-404'], req.context)
+      )
+    )
+  }
+
+  if (req.method === 'HEAD') {
+    return res.status(200).end()
+  }
 
   // Remove any query string (?...) and/or fragment identifier (#...)
   const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
@@ -41,24 +63,18 @@ module.exports = async function renderPage (req, res, next) {
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
   if (isCacheable && !isRequestingJsonForDebugging) {
+    // Stop processing if the connection was already dropped
+    if (isConnectionDropped(req, res)) return
+
     const cachedHtml = await pageCache.get(originalUrl)
     if (cachedHtml) {
+      // Stop processing if the connection was already dropped
+      if (isConnectionDropped(req, res)) return
+
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(cachedHtml)
+      return res.send(addCsrf(req, cachedHtml))
     }
-  }
-
-  // render a 404 page
-  if (!page) {
-    if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
-    }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
-  }
-
-  if (req.method === 'HEAD') {
-    return res.status(200).end()
   }
 
   // add page context
@@ -67,8 +83,14 @@ module.exports = async function renderPage (req, res, next) {
   // collect URLs for variants of this page in all languages
   context.page.languageVariants = Page.getLanguageVariants(req.path)
 
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
+
   // render page
   context.renderedPage = await page.render(context)
+
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
 
   // get mini TOC items on articles
   if (page.showMiniToc) {
@@ -116,7 +138,7 @@ module.exports = async function renderPage (req, res, next) {
 
   // First, send the response so the user isn't waiting
   // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(output)
+  res.send(addCsrf(req, output))
 
   // Finally, save output to cache for the next time around
   if (isCacheable) {
