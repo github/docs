@@ -29790,7 +29790,7 @@
         },
         {
           "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
+          "description": "<p>Whether the organization has verified its profile email and website.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

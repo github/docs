@@ -115,7 +115,8 @@ You'll see a form where you can enter details about your app. See "[Creating a G
 
     ![Form with webhook secret filled in](/assets/images/webhook-secret.png)
 
-* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Leave this page with its default values. If you decide to extend this template app, you can update these permissions later.
+* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions"
+ section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
 
 * At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
