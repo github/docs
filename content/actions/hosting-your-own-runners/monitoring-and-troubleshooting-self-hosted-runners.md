@@ -194,7 +194,7 @@ Check that the self-hosted runner's service account has permission to use the Do
 
 ```shell
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service
-User=runner-user
+User=runner-user.
 ```
 
 {% endlinux %}
