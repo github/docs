@@ -1,4 +1,4 @@
----
+rr4341re321*eo3eü32öoö3eo32ö2,e*323333333333333333333333333333333333333---
 title: Installing GitHub Enterprise Server on AWS
 intro: 'To install {% data variables.product.prodname_ghe_server %} on Amazon Web Services (AWS), you must launch an Amazon Elastic Compute Cloud (EC2) instance and create and attach a separate Amazon Elastic Block Store (EBS) data volume.'
 redirect_from:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Prerequisites
+### Prerequisites12,-**rpeüüeopepwpelwelq pewwüewqpewppğğweowproeweelşdlşsfldfdsfdsofoflfşsilsşidşdlifipdflüfoeffüspdlsdl
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
