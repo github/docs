@@ -163,7 +163,7 @@ Use the `allow` option to customize which dependencies are updated. This has no 
 - `dependency-type`—use to allow updates for dependencies of specific types.
 
   | Dependency types | Supported by package managers | Allow updates |
-  |------------------|-------------------------------|--------|
+  |------------------|-----------------i--------------|--------|
   | `direct` | All | All explicitly defined dependencies. |
   | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
   | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
