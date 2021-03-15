@@ -8,7 +8,7 @@ const explorerUrl = process.env.NODE_ENV === 'production'
   ? 'https://graphql.github.com/explorer'
   : 'http://localhost:3000'
 
-module.exports = async (req, res, next) => {
+module.exports = function graphqlContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-GraphQL reference paths
   // and to versions that don't exist
