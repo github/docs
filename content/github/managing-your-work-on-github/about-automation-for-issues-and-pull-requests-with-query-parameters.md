@@ -23,7 +23,7 @@ You must have the proper permissions for any action to use the equivalent query 
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page.  
 
-If you create an URL longer than 8192 bytes, the URL will return a `414 URI Too Long` error page.  
+If you create an URL longer than 8191 bytes, the URL will return a `414 URI Too Long` error page.  
 
 ### Supported query parameters
 
