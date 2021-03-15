@@ -29,6 +29,10 @@ To add {% data variables.actions.hosted_runner %}s to your organization or enter
 
 Your {% data variables.actions.hosted_runner %}s are allocated to the same pool as your {% data variables.product.prodname_ghe_managed %} instance. No other customers have access to this pool, and as a result, {% data variables.actions.hosted_runner %}s are not shared with any other customers.
 
+### Managing your {% data variables.actions.hosted_runner %}s
+
+During the {% data variables.actions.hosted_runner %} beta, you can manage your {% data variables.actions.hosted_runner %}s by contacting {% data variables.product.prodname_dotcom %} support. For example, {% data variables.product.prodname_dotcom %} support can assist you with adding a new {% data variables.actions.hosted_runner %}, assigning labels, or moving a {% data variables.actions.hosted_runner %} to a different group.
+
 ### Billing
 
 {% data variables.product.prodname_actions %} is currently in beta for {% data variables.product.prodname_ghe_managed %}. During this beta period, {% data variables.actions.hosted_runner %}s are not billed, and can be used for free.
