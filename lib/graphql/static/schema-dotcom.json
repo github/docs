@@ -55978,7 +55978,7 @@
         },
         {
           "name": "isRequiredForPolicyEnforcement",
-          "description": "<p>Whether this domain is required to exist for an organization policy to be enforced.</p>",
+          "description": "<p>Whether this domain is required to exist for an organization or enterprise policy to be enforced.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

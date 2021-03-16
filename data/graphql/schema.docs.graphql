@@ -40380,7 +40380,7 @@ type VerifiableDomain implements Node {
   id: ID!
 
   """
-  Whether this domain is required to exist for an organization policy to be enforced.
+  Whether this domain is required to exist for an organization or enterprise policy to be enforced.
   """
   isRequiredForPolicyEnforcement: Boolean!
 

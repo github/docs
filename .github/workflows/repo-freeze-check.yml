@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fail if repo merges are paused
-        if: ${{ env.FREEZE == 'true' }}
+        if: ${{ env.FREEZE == 'true' && github.ref != 'refs/heads/repo-sync' }}
         run: |
           echo 'Merges into the "main" branch on this repo are currently paused!'
           exit 1
