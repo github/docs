@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-{% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

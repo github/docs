@@ -3,6 +3,7 @@ title: Pinning a team discussion
 intro: 'You can pin important discussions to your organization''s team pages for easy reference, and unpin discussions that are no longer relevant.'
 redirect_from:
   - /articles/pinning-a-team-discussion
+  - /github/building-a-strong-community/pinning-a-team-discussion
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -18,6 +19,6 @@ versions:
 
 ### Further reading
 
-  - "[About team discussions](/articles/about-team-discussions)"
-  - "[Creating a team discussion](/articles/creating-a-team-discussion)"
-  - "[Editing or deleting a team discussion](/articles/editing-or-deleting-a-team-discussion)"
+  - "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)"
+  - "[Creating a team discussion](/github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion)"
+  - "[Editing or deleting a team discussion](/github/setting-up-and-managing-organizations-and-teams/editing-or-deleting-a-team-discussion)"

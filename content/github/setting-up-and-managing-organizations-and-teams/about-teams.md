@@ -36,7 +36,7 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/articles/about-team-discussions)."
+Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 ![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
 
