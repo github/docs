@@ -16,7 +16,7 @@ versions:
 ### 1. Choosing a branch and making changes
 
 1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
-  ![Drop down menu to switch your current branch](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![Drop down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. Selecting changes to include in a commit
