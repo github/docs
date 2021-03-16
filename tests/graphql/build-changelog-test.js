@@ -2,6 +2,7 @@ const yaml = require('js-yaml')
 const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
 const fs = require('fs').promises
 const MockDate = require('mockdate')
+const readFileAsync = require('../../lib/readfile-async')
 const expectedChangelogEntry = require('../fixtures/changelog-entry')
 const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
 
@@ -113,14 +114,14 @@ describe('updating the changelog file', () => {
 
   it('modifies the entry object and the file on disk', async () => {
     const testTargetPath = 'tests/graphql/example_changelog.json'
-    const previousContents = await fs.readFile(testTargetPath)
+    const previousContents = await readFileAsync(testTargetPath)
 
     const exampleEntry = { someStuff: true }
     const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
     prependDatedEntry(exampleEntry, testTargetPath)
-    const newContents = await fs.readFile(testTargetPath, 'utf8')
+    const newContents = await readFileAsync(testTargetPath, 'utf8')
     // reset the file:
     await fs.writeFile(testTargetPath, previousContents)
 

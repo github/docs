@@ -22,6 +22,8 @@ When {% data variables.product.prodname_dependabot %} identifies an outdated dep
 
 If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
+{% data reusables.dependabot.pull-request-security-vs-version-updates %}
+
 {% data reusables.dependabot.dependabot-tos %}
 
 ### Frequency of {% data variables.product.prodname_dependabot %} pull requests
@@ -38,7 +40,9 @@ You can configure version updates for repositories that contain a dependency man
 
 {% note %}
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+{% data reusables.dependabot.private-dependencies-note %} 
+
+{% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
 

@@ -18,9 +18,12 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 ### Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %}
-1. Use `package-ecosystem` to specify the package managers to monitor.
+{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+1. Add a `version`. 
+1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. 
+1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor.
 1. For each package manager, use:
+    - `package-ecosystem` to specify the package manager.
     - `directory` to specify the location of the manifest or other definition files.
     - `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %}

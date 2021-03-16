@@ -80,7 +80,7 @@ Library name | Repository |
 
 Library name | Repository |
 |---|---|
-**GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
+**GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
