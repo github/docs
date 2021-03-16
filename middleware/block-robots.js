@@ -30,7 +30,7 @@ function blockIndex (path) {
   return pathRegExps.some(pathRe => pathRe.test(path))
 }
 
-const middleware = (req, res, next) => {
+const middleware = function blockRobots (req, res, next) {
   if (blockIndex(req.path)) res.set('x-robots-tag', 'noindex')
   return next()
 }

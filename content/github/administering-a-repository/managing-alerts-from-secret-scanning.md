@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+  github-ae: '*'
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -13,20 +14,28 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Detected secrets**. 
-!["Detected secrets" tab](/assets/images/help/repository/sidebar-secrets.png)
+3. In the left sidebar, click **Secret scanning alerts**. 
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+   !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
+   {% endif %}
+   {% if currentVersion == "github-ae@latest" %}
+   !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
+   {% endif %}
 4. Under "Secret scanning" click the alert you want to view.
    {% if currentVersion == "free-pro-team@latest" %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% if currentVersion ver_gt "enterprise-server@2.22" %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
-1. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
+   {% if currentVersion == "github-ae@latest" %}
+   ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
+   {% endif %}
+5. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 

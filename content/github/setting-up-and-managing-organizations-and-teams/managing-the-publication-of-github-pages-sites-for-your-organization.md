@@ -6,9 +6,10 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+  github-ae: '*'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization
-  
+
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
