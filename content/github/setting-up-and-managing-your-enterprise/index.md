@@ -29,7 +29,6 @@ versions:
     {% link_in_list /managing-unowned-organizations-in-your-enterprise-account %}
     {% link_in_list /viewing-the-audit-logs-for-organizations-in-your-enterprise-account %}
     {% link_in_list /configuring-webhooks-for-organization-events-in-your-enterprise-account %}
-    {% link_in_list /managing-use-of-advanced-security-for-organizations-in-your-enterprise-account %}
 {% topic_link_in_list /configuring-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /about-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account %}

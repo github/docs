@@ -10,8 +10,6 @@ redirect_from:
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 ---
 
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
-
 ### About domain verification
 
 You can confirm that the websites and email addresses listed on the profiles of any organization owned by your enterprise account are controlled by your enterprise by verifying the domains. Verified domains for an enterprise account apply to every organization owned by the enterprise account, and organization owners can verify additional domains for their organizations. For more information, see "[Verifying your organization's domain](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
