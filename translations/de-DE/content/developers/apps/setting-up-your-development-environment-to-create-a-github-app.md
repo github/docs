@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -36,7 +37,7 @@ You may find it helpful to have a basic understanding of the following:
 * [GitHub Apps](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
@@ -219,7 +220,7 @@ end
 
 #### Define a route handler
 
-An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You'll won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do
@@ -261,7 +262,7 @@ Before you can use the Octokit.rb library to make API calls, you'll need to init
 # Instantiate an Octokit client authenticated as a GitHub App.
 # GitHub App authentication requires that you construct a
 # JWT (https://jwt.io/introduction/) signed with the app's private key,
-# so GitHub can be sure that it came from the app an not altererd by
+# so GitHub can be sure that it came from the app an not altered by
 # a malicious third party.
 def authenticate_app
   payload = {
@@ -421,7 +422,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     **A:** You may not be running the Smee client, or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your [app settings page](https://github.com/settings/apps) and check the fields shown in "[Step 2. Register a new GitHub App](#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)."
 
-* **Q:** I'm getting seeing an `Octokit::NotFound` 404 error in my debug output:
+* **Q:** I'm getting an `Octokit::NotFound` 404 error in my debug output:
     ```
     2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```

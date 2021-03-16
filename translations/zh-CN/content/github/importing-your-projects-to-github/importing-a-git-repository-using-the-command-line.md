@@ -1,11 +1,12 @@
 ---
 title: 使用命令行导入 Git 仓库
-intro: '{% if currentVersion == "free-pro-team@latest" %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %}如果 [GitHub Importer](/articles/importing-a-repository-with-github-importer) 不适用于您的目的，例如，如果您现有的代码托管在私有网络上，则我们建议使用命令行导入。{% else %}当您现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在开始之前，请确保您知道：

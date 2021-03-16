@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 具有管理员权限的人员可以管理组织成员和外部协作者对组织仓库的访问。
@@ -30,5 +31,5 @@ versions:
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[限制与仓库的交互](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"

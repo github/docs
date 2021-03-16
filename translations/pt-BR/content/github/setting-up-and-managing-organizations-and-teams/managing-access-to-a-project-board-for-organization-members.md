@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Por padrão, os integrantes de uma organização têm acesso de gravação nos quadros de projetos da organização, exceto se os proprietários da organização ou os administradores de quadro de projeto configurarem permissões diferentes para quadros de projetos específicos.

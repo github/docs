@@ -15,7 +15,7 @@
     </td>
     
     <td>
-      使用 {% data variables.product.prodname_actions %}（请参阅“<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">使用操作启用 {% data variables.product.prodname_code_scanning %}</a>”）或在第三方持续集成 (CI) 系统中使用 {% data variables.product.prodname_codeql_runner %}（请参阅“<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">在 CI 系统中运行代码扫描</a>”）。
+      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>").
     </td>
   </tr>
   
@@ -25,7 +25,7 @@
     </td>
     
     <td>
-      使用 {% data variables.product.prodname_actions %}（请参阅“<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">使用操作启用 {% data variables.product.prodname_code_scanning %}</a>”）或者外部生成并上传到 {% data variables.product.product_name %}（请参阅“<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">上传 SARIF 文件到 {% data variables.product.prodname_dotcom %}</a>”）。
+      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
     </td>
   </tr>
 </table>

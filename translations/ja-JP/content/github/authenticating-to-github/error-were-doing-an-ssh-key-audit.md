@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 未検証のキーを使用して Git 操作を実行すると、SSH キーの監査を行うように求めるメッセージが表示されます。

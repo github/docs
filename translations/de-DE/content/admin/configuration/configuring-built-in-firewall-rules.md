@@ -1,6 +1,6 @@
 ---
 title: Integrierte Firewallregeln konfigurieren
-intro: 'Sie können standardmäßige Firewallregeln anzeigen und Regeln für {% data variables.product.product_location_enterprise %} anpassen.'
+intro: 'Sie können standardmäßige Firewallregeln anzeigen und Regeln für {% data variables.product.product_location %} anpassen.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Informationen zur Firewall der {% data variables.product.product_location_enterprise %}
+### Informationen zur Firewall der {% data variables.product.product_location %}
 
 {% data variables.product.prodname_ghe_server %} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
@@ -66,7 +66,7 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-Nach dem Upgrade von {% data variables.product.product_location_enterprise %} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
+Nach dem Upgrade von {% data variables.product.product_location %} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
 
 ### Standardmäßige Firewallregeln wiederherstellen
 

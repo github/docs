@@ -4,6 +4,7 @@ intro: 'Wenn du eine einzelne Benachrichtigung überprüfen und untersuchen will
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Sichern einer einzelnen Benachrichtigung

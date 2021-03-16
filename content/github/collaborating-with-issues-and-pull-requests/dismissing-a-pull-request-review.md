@@ -1,11 +1,12 @@
 ---
 title: Dismissing a pull request review
-intro: 'If your repository [requires reviews](/articles/about-required-reviews-for-pull-requests), you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
+intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -25,4 +26,4 @@ This changes the status of the review to a review comment. When you dismiss a re
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
+- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 向 {% data variables.product.prodname_pages %} 站点添加内容。
@@ -50,7 +51,7 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 4. 创建一个名为 _YYYY-MM-DD-NAME-OF-POST.md_ 的新文件，将 _YYYY-MM-DD_ 替换为帖子的日期，并将 _NAME-OF-POST_ 替换为帖子的名称。
 4. 在文件顶部添加以下 YAML 前页，将 _POST TITLE_ 替换为帖子标题，将 _YYYY-MM-DD hh:mm:ss -0000_ 替换为帖子的日期和时间，将 _CATEGORY-1_ 和 _CATEGORY-2_ 替换为您要为帖子选择的多个类别。
   ```shell
-  layout: page
+  layout: post
   title: "<em>POST TITLE</em>"
   date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
   categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>
@@ -60,6 +61,8 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+您的帖子现在应该显示在您的站点上！ 如果站点的基础 URL 是 `https://octocat.github.io`，则您的新帖子将位于 `https://octocat.github.io/YYYY/MM/DD/TITLE.html`。
 
 ### 后续步骤
 

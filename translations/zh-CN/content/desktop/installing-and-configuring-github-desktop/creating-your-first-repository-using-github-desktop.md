@@ -80,12 +80,8 @@ versions:
 2. 对以前创建的 _README.md_ 文件做一些更改。 您可以添加描述项目的信息，比如它做什么，以及为什么有用。 当您对更改满意时，请将它们保存在文本编辑器中。
 3. 在 {% data variables.product.prodname_desktop %} 中，导航到 **Changes（更改）**视图。 在文件列表中，您应该会看到 _README.md_。 _README.md_ 文件左边的勾选标记表示您对文件的更改将成为提交的一部分。 以后您可能会更改多个文件，但只想提交对其中部分文件所做的更改。 如果单击文件旁边的复选标记，则该文件不会包含在提交中。 ![查看更改](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
 
-4. 在 **Changes（更改）**列表底部，输入提交消息。 在头像右侧，键入提交的简短描述。 由于我们在更改 _README.md_ 文件，因此“添加关于项目目的的信息”将是比较好的提交摘要。 在摘要下方，您会看到“Description（说明）”文本字段，在其中可以键入较长的提交更改描述，这有助于回顾项目的历史记录和了解更改的原因。 由于您是对 _README.md_ 文件做基本的更新，因此可跳过描述。 ![Commit message](/assets/images/help/desktop/getting-started-guide/commit-message.png) <<<<<<< HEAD
-5. 单击 **Commit to BRANCH NAME（提交到 [分支名称]）**。 提交按钮显示当前分支，因此您可以确保提交到所需的分支。
-![提交到分支](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-=======
-5. 单击 **Commit to master（提交至 master）**。 提交按钮显示您当前的分支，在本例中是 `master`，这样您就知道要提交到哪个分支。 ![提交到 master](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-> > > > > > > master
+4. 在 **Changes（更改）**列表底部，输入提交消息。 在头像右侧，键入提交的简短描述。 由于我们在更改 _README.md_ 文件，因此“添加关于项目目的的信息”将是比较好的提交摘要。 在摘要下方，您会看到“Description（说明）”文本字段，在其中可以键入较长的提交更改描述，这有助于回顾项目的历史记录和了解更改的原因。 由于您是对 _README.md_ 文件做基本的更新，因此可跳过描述。 ![提交消息](/assets/images/help/desktop/getting-started-guide/commit-message.png)
+5. 单击 **Commit to BRANCH NAME（提交到 [分支名称]）**。 提交按钮显示当前分支，因此您可以确保提交到所需的分支。 ![提交到分支](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
 6. 要将更改推送到 {% data variables.product.product_name %} 上的远程仓库，请单击 **Push origin（推送源）**。 ![推送源](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
   - **Push origin（推送源）**按钮就是您单击以发布仓库到 {% data variables.product.product_name %} 的按钮。 此按钮根据 Git 工作流程中的上下文而变。 现在改为 `Push origin（推送源）`了，其旁边的 `1` 表示有一个提交尚未推送到 {% data variables.product.product_name %}。
   - **Push origin（推送源）**中的“源”表示我们将更改推送到名为 `origin` 的远程，在本例中是 {% data variables.product.prodname_dotcom_the_website %} 上的项目仓库。 在推送任何新提交到 {% data variables.product.product_name %} 之前，您的计算机上的项目仓库与 {% data variables.product.prodname_dotcom_the_website %} 上的项目仓库之间存在差异。 这可让您在本地工作，并且仅在准备好后才将更改推送到 {% data variables.product.prodname_dotcom_the_website %}。

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 特定のコミットを表示するため、コマンドラインで `git show` を使うと、致命的エラーが発生することがあります。

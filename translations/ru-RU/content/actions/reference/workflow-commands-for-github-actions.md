@@ -164,6 +164,25 @@ Creates an error message and prints the message to the log. You can optionally p
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### Пример
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+
 ### Masking a value in log
 
 `::add-mask::{value}`
@@ -238,7 +257,7 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 **Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -253,13 +272,22 @@ Creates or updates an environment variable for any actions running next in a job
 
 #### Пример
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
-Running `$action_state` in a future step will now return `yellow`
+#### Multiline strings
 
-#### Multline strings
 For multiline strings, you may use a delimiter with the following syntax.
 
 ```
@@ -268,9 +296,10 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-#### Пример
+##### Пример
+
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one
@@ -284,11 +313,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### Пример
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

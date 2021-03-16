@@ -7,6 +7,7 @@ permissions: リポジトリへの書き込みアクセスを持つユーザは�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -18,7 +19,7 @@ versions:
 ### アクティブなプルリクエストをローカルで修正する
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to modify.{% if currentVersion == "free-pro-team@latest" %}
+2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% if currentVersion == "free-pro-team@latest" %}
 3. プルリクエストをオープンする場所を選択するには、[**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**] ドロップダウンを選択して、いずれかのタブをクリックします。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. マージボックスで、[**command line instructions**] をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。 ![コマンドラインのプルリクエスト手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. オプションで、提案された変更を {% data variables.product.prodname_desktop %} で表示するには、[**open this in {% data variables.product.prodname_desktop %}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
@@ -44,7 +45,7 @@ versions:
   [main] $ git checkout <em>BRANCHNAME</em>
   > Switched to a new branch '<em>BRANCHNAME</em>'
   ```
-7. これで、このブランチに対して任意の操作を実行できます。 You can run some local tests, or merge other branches into the branch.
+7. これで、このブランチに対して任意の操作を実行できます。 ローカルテストを実行するか、他のブランチをブランチにマージすることができます。
 8. 準備ができたら、新しいブランチをプッシュできます。
   ```shell
   [pull-inactive-pull-request] $ git push origin <em>BRANCHNAME</em>

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
@@ -47,10 +48,10 @@ versions:
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                       | サンプル                                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) は、2016 年 1 月 1 日より前に作成されたコミットにマッチします。       |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A<2016-01-01&type=Commits)は、2016 年 1 月 1 日以降にコミットされたコミットにマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) は、2016 年 1 月 1 日より前に作成されたコミットにマッチします。             |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) matches commits committed after 2016-01-01. |
 
 ### マージコミットのフィルタリング
 
@@ -95,14 +96,11 @@ versions:
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) は、@github が保有するリポジトリの「test」という単語があるコミットメッセージにマッチします。                                                 |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) は、@defunkt の「gibberish」リポジトリにある「language」という単語があるコミットメッセージにマッチします。 |
 
-### パブリックリポジトリまたはプライベートリポジトリをフィルタリング
+### リポジトリの可視性によるフィルタ
 
-`is` 修飾子は、パブリックまたはプライベートのコミットにマッチします。
+`is` 修飾子は、指定した可視性を持つリポジトリからのコミットにマッチします。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-| 修飾子          | サンプル                                                                                          |
-| ------------ | --------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) は、パブリックのコミットにマッチします。    |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) は、プライベートのコミットにマッチします。 |
+| 修飾子  | 例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) はパブリックリポジトリへのコミットにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) は内部リポジトリへのコミットにマッチします。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
 
 ### 参考リンク
 

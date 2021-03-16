@@ -1,4 +1,4 @@
-const { head } = require('../helpers')
+const { head } = require('../helpers/supertest')
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)

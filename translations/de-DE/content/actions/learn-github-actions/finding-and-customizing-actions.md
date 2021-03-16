@@ -10,6 +10,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -67,7 +70,7 @@ Schritte:
 
 #### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
 
 ```yaml
 Schritte:
@@ -76,7 +79,7 @@ Schritte:
 
 #### Using branches
 
-Referring to a specific branch means that the action will always use include the latest updates on the target branch, but can create problems if those updates include breaking changes. This example targets a branch named `@main`:
+Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. This example targets a branch named `@main`:
 
 ```yaml
 steps:
@@ -87,7 +90,7 @@ For more information, see "[Using release management for actions](/actions/creat
 
 ### Using inputs and outputs with an action
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will uses as part of the action processing.
+An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
 To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
 
@@ -149,7 +152,7 @@ jobs:
         verwendet: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+Einige Beispiele für Docker-Aktionen findest Du im [Docker-image.yml-Workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) oder unter „[Eine Docker-Container-Aktion erstellen](/articles/creating-a-docker-container-action)“.
 
 ### Nächste Schritte:
 

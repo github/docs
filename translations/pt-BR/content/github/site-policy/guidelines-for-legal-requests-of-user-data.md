@@ -141,11 +141,19 @@ Por favor, note que a informação disponível varia de caso a caso. Algumas das
   - Comunicações ou documentação (como problemas ou Wikis) em repositórios privados
   - Qualquer chave de segurança usada para autenticação ou criptografia
 
-- <a name="in-exigent-circumstances"></a>**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
+- <a name="in-exigent-circumstances"></a>
+**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
 
 ### Reembolso de custos
 
-Reservamo-nos o direito de solicitar o reembolso dos custos administrativos associados à resposta aos pedidos de informação, tal como permitido pela lei.
+Nos termos das leis estadual e federal, o GitHub pode pedir reembolso por custos associados à conformidade com uma demanda legal válida, como uma intimação, ordem de tribunal ou mandado de busca. Só cobramos a recuperação de alguns custos, e estes reembolsos cobrem apenas uma parte dos custos que efetivamente incorremos para cumprir as disposições legais.
+
+Embora não cobremos em situações de emergência ou em outras circunstâncias exigentes, buscamos o reembolso para todas as outras solicitações legais, de acordo com o cronograma a seguir, a menos que exigido de outra forma por lei:
+
+- Pesquisa inicial de até 25 identificadores: livre
+- Produção de informação/dados de assinantes para até 5 contas: grátis
+- Produção de informação/dados de assinante para mais de 5 contas: US$ 20 por conta
+- Pesquisas secundárias: US$ 10 por pesquisa
 
 ### Conservação de dados
 
@@ -160,8 +168,6 @@ GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505
 ```
-
-Você também pode enviar uma cópia de cortesia para legal@support.github.com.
 
 Por favor, faça suas solicitações da forma mais específica e breve quanto for possível, incluindo as seguintes informações:
 

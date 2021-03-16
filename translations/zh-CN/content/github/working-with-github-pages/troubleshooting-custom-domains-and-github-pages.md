@@ -39,11 +39,7 @@ versions:
 - 使用多个 `www` 子域。 例如，同时使用 `www.example.com` 和 `www.anotherexample.com`。
 - 同时使用 apex 域和自定义子域。 例如，同时使用 `example.com` 和 `docs.example.com`。
 
-{% warning %}
-
-**警告：**我们强烈建议不要使用通配符 DNS 记录，例如 `*.example.com`。 通配符 DNS 记录将允许任何人在您的其中一个子域上托管 {% data variables.product.prodname_pages %} 站点。
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 有关支持的自定义域列表，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)”。
 

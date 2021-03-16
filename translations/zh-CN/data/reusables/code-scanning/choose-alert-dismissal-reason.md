@@ -1,1 +1,1 @@
-It's important to choose the appropriate reason from the drop-down menu as this may affect whether a query continues to be included in future analysis.
+从下拉菜单中选择合适的原因很重要，因为这可能会影响到是否继续将查询纳入未来的分析。

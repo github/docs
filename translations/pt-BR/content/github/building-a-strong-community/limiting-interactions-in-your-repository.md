@@ -1,28 +1,32 @@
 ---
 title: Restringir interações no repositório
-intro: 'Pessoas com acesso de proprietário ou administradors podem restringir temporariamente determinados usuários de comentar, abrir problemas ou criar pull requests em seu repositório público para impor um período de atividade limitada.'
+intro: 'É possível aplicar temporariamente um período de atividades limitadas para certos usuários em um repositório público.'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
+permissions: As pessoas com permissões de administrador em um repositório podem limitar temporariamente as interações nesse repositório.
 ---
 
-Depois de 24 horas, os usuários podem retomar à atividade normal no repositórios.
+### Sobre limites temporários de interação
 
-{% tip %}
+{% data reusables.community.interaction-limits-restrictions %}
 
-**Dica:** proprietários da organização podem habilitar restrições de atividades em toda a organização. Se restrições de atividades são habilitadas em toda a organização, você não pode restringir atividades em repositórios individuais. Para obter mais informações, consulte "[Restringir interações na organização](/articles/limiting-interactions-in-your-organization)".
+{% data reusables.community.interaction-limits-duration %} Após a duração do seu limite, os usuários podem retomar à atividade normal no seu repositório.
 
-{% endtip %}
+{% data reusables.community.types-of-interaction-limits %}
+
+Você também pode habilitar limitações de atividade em todos os repositórios pertencentes à sua conta de usuário ou organização. Se o limite de um usuário ou organização estiver habilitado, não será possível limitar a atividade para repositórios individuais pertencentes à conta. Para obter mais informações, consulte "[Limitar interações para a sua conta de usuário](/github/building-a-strong-community/limiting-interactions-for-your-user-account)" e "[Limitar interações na sua organização](/github/building-a-strong-community/limiting-interactions-in-your-organization)".
+
+### Restringir interações no repositório
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Na barra lateral do repositório, em Settings (Configurações), clique em **Interaction limits** (Restrições de interação). ![Interaction limits (Restrições de interação) em Settings (Configurações) do repositório ](/assets/images/help/repository/repo-settings-interaction-limits.png)
-4. Em "Temporary interaction limits" (Restrições de interação temporárias), clique em uma ou mais opções.![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
-    - **Limit to existing users** (Restringir a usuários existentes): restringe a atividade para usuários com contas que tenham sido criadas há menos de 24 horas, que não tenham contribuições prévias e que não sejam colaboradores.
-    - **Limit to prior contributors** (Restringir a usuários prévios): restringe a atividade para usuários que não tenham contribuído anteriormente e que não sejam colaboradores.
-    - "[Níveis de permissão do repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)"
+1. Na barra lateral esquerda, clique em **Configurações de moderação**. !["Configurações de moderação" na barra lateral de configurações do repositório](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. Em "Configurações de moderação", clique em **Limites de interação**. ![Interaction limits (Restrições de interação) em Settings (Configurações) do repositório ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+{% data reusables.community.set-interaction-limit %}
+  ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
 ### Leia mais
 - "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"

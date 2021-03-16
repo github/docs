@@ -36,13 +36,14 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file. ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
 5. Log into your
 {% data variables.product.prodname_ghe_server %} instance as a site administrator.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Under "Quick links", click **Update license**. ![Update license link](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. To select your license, click **License file**, or drag your license file onto **License file**. ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
-14. Click **Upload**. ![Begin upgrade](/assets/images/enterprise/management-console/begin-upload.png)
+14. Click **Upload**. ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### Viewing license usage
 
@@ -59,8 +60,7 @@ You can use {% data variables.product.prodname_github_connect %} to automaticall
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Under "Quick links", to download a file containing your current license usage on
@@ -72,3 +72,23 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise-accounts.license-tab %}
 10. Under "Enterprise Server Instances", click **Add server usage**. ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}. ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### Устранение проблем
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}

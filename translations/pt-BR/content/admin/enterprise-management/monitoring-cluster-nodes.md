@@ -34,26 +34,34 @@ admin@ghe-data-node-0:~$ <em>status-ghe-cluster | grep erro</em>
 #### Configurar o host do Nagios
 1. Gere uma chave SSH com a frase secreta em branco. O Nagios usa essa informação para fazer a autenticação ao cluster do {% data variables.product.prodname_ghe_server %}.
   ```shell
-  nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
-  > Gerando par de chaves rsa pública/privada.
-  > Digite o arquivo no qual salvar a chave (/home/nagiosuser/.ssh/id_rsa):
-  > Digite a frase secreta (vazia para nenhuma frase secreta): <em>deixe em branco pressionando enter</em>
-  > Digite a mesma frase secreta novamente: <em>pressione enter novamente</em>
-  > Sua identificação foi salva em /home/nagiosuser/.ssh/id_rsa.
-  > Sua chave pública foi salva no /home/nagiosuser/.ssh/id_rsa.pub.
+  nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
+  > Generating public/private ed25519 key pair.
+  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
+  > Enter passphrase (empty for no passphrase): <em>leave blank by pressing enter</em>
+  > Enter same passphrase again: <em>press enter again</em>
+  > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
+  > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
   ```
   {% danger %}
 
   **Aviso de segurança:** chaves SSH sem senha podem representar um risco de segurança se tiverem permissão de acesso total a um host. Limite o acesso desse tipo de chave a comandos de somente leitura.
 
   {% enddanger %}
-2. Copie a chave privada (`id_rsa`) para a pasta inicial `nagios` e defina a propriedade adequada.
+  {% note %}
+
+  **Observação:** Se você estiver usando uma distribuição do Linux que não seja compatível com o algoritmo Ed25519, use o comando:
   ```shell
-  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_rsa /var/lib/nagios/.ssh/</em>
-  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_rsa</em>
+  nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
-3. Para autorizar a chave pública a executar *somente* o comando `ghe-cluster-status-n`, use o prefixo `command=` no arquivo `/data/user/common/authorized_keys`. No shell administrativo de qualquer nó, modifique esse arquivo para incluir a chave pública gerada na etapa 1. Por exemplo: `command="/usr/local/bin/ghe-cluster-status -n" ssh-rsa AAAA....`
+  {% endnote %}
+2. Copie a chave privada (`id_ed25519`) para a pasta inicial `nagios` e defina a propriedade adequada.
+  ```shell
+  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
+  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
+  ```
+
+3. Para autorizar a chave pública a executar *somente* o comando `ghe-cluster-status-n`, use o prefixo `command=` no arquivo `/data/user/common/authorized_keys`. No shell administrativo de qualquer nó, modifique esse arquivo para incluir a chave pública gerada na etapa 1. Por exemplo: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
 4. Valide e copie a configuração para cada nó do cluster executando `ghe-cluster-config-apply` no nó em que você modificou o arquivo `/data/user/common/authorized_keys`.
 

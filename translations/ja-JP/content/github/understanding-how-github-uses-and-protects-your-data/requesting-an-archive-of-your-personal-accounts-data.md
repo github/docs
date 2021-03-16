@@ -10,7 +10,7 @@ versions:
 
 {% data variables.product.product_name %} は、個人アカウントの活動からリポジトリとプロファイルのメタデータを保存します。 個人アカウントのデータは、{% data variables.product.prodname_dotcom_the_website %} での設定または User Migration API によりエクスポートできます。
 
-{% data variables.product.product_name %} が保存するエクスポート用に使用できるデータの詳細については、「[ユーザー移行アーカイブをダウンロードする](/v3/migrations/users/#download-a-user-migration-archive)」と「[{% data variables.product.product_name %} のデータの使用について](/articles/about-github-s-use-of-your-data)」を参照してください。
+{% data variables.product.product_name %} が保存するエクスポート用に使用できるデータの詳細については、「[ユーザー移行アーカイブをダウンロードする](/rest/reference/migrations#download-a-user-migration-archive)」と「[{% data variables.product.product_name %} のデータの使用について](/articles/about-github-s-use-of-your-data)」を参照してください。
 
 {% data variables.product.prodname_dotcom_the_website %} での設定により個人データのエクスポートをリクエストする場合、{% data variables.product.product_name %} は個人データを `tar.gz` ファイルにパッケージ化し、ダウンロードリンクを記載したメールをお使いのプライマリ メール アドレスに送信します。
 

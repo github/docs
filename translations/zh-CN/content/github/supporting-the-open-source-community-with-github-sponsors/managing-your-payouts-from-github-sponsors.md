@@ -13,14 +13,8 @@ versions:
 
 {% data reusables.sponsors.payout-info %}
 
-### 查看和编辑赞助用户帐户的付款信息
+### 查看和编辑付款信息
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-payouts-tab %}
-{% data reusables.sponsors.edit-bank-information %}
-
-### 查看和编辑赞助组织的付款信息
-
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}
 {% data reusables.sponsors.edit-bank-information %}

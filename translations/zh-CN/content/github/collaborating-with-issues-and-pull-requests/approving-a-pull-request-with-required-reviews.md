@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-有关必需审查的更多信息，请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”。
+有关必需审查的更多信息，请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
-您可以评论拉取请求、批准更改或在批准前申请改进。 更多信息请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”和“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。
+您可以评论拉取请求、批准更改或在批准前申请改进。 更多信息请参阅“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。
 
 {% data reusables.search.requested_reviews_search %}
 
@@ -33,6 +34,5 @@ versions:
 
 ### 延伸阅读
 
-- "[关于拉取请求的必要审查](/articles/about-required-reviews-for-pull-requests)"
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[评论拉取请求](/articles/commenting-on-a-pull-request)"

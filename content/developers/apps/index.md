@@ -12,11 +12,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}
     {% link_in_list /about-apps %}
-    {% link_in_list /activating-beta-features-for-apps %}
+    {% link_in_list /activating-optional-features-for-apps %}
     {% link_in_list /differences-between-github-apps-and-oauth-apps %}
     {% link_in_list /migrating-oauth-apps-to-github-apps %}
     {% link_in_list /setting-up-your-development-environment-to-create-a-github-app %}

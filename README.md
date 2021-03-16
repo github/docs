@@ -5,6 +5,7 @@ This repository contains the documentation website code and Markdown source file
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
+
 - [Contributing](#contributing)
 - [READMEs](#readmes)
 - [License](#license)
@@ -17,7 +18,7 @@ We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contribut
 
 #### Click **make a contribution** from docs
 
-As you're using the GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
@@ -27,13 +28,14 @@ If you've found a problem, you can open an issue using a [template](https://gith
 
 #### Solve an issue
 
-If you have a solution to one of the open issues, you will need to fork the repository and submit a PR using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md). 
+If you have a solution to one of the open issues, you will need to fork the repository and submit a pull request using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md).
 
 #### Join us in discussions
 
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
 #### And that's it!
+
 That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
 
 If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
@@ -48,6 +50,8 @@ There are a few more things to know when you're getting started with this repo:
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
 - [content/README.md](content/README.md)
+- [content/graphql/README.md](content/graphql/README.md)
+- [content/rest/README.md](content/rest/README.md)
 - [contributing/README.md](contributing/README.md)
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)

@@ -5,16 +5,17 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: Ein Benutzerkonto wird als inaktiv angesehen, wenn es mindestens einen Monat lang nicht aktiv war. You may choose to suspend dormant users to free up user licenses.
+intro: A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Zu den „Aktivitäten“ zählen u. a.
-- die Anmeldung bei {% data variables.product.prodname_ghe_server %},
+- die Anmeldung bei {% data variables.product.product_name %},
 - das Kommentieren von Issues und Pull Requests,
 - das Erstellen, Löschen, Beobachten und Darstellen von Repositorys,
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
+- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
 ### Inaktive Benutzer anzeigen
@@ -22,8 +23,8 @@ Zu den „Aktivitäten“ zählen u. a.
 Sie können eine Liste sämtlicher inaktiver Benutzer anzeigen, die nicht gesperrt wurden und keine Websiteadministratoren sind.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. Klicken Sie auf der linken Seitenleiste auf **Dormant users** (Inaktive Benutzer). ![Registerkarte „Dormant users“ (Inaktive Benutzer)](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
-4. Um alle inaktiven Benutzer in dieser Liste zu sperren, klicken Sie im oberen Bereich der Seite auf **Suspend all** (Alle sperren). ![Schaltfläche „Suspend all“ (Alle sperren)](/assets/images/enterprise/site-admin-settings/suspend-all.png)
+3. Klicken Sie auf der linken Seitenleiste auf **Dormant users** (Inaktive Benutzer). ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+4. Um alle inaktiven Benutzer in dieser Liste zu sperren, klicken Sie im oberen Bereich der Seite auf **Suspend all** (Alle sperren). ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
 ### Bestimmen, ob ein Benutzerkonto inaktiv ist
 
@@ -36,9 +37,8 @@ Sie können eine Liste sämtlicher inaktiver Benutzer anzeigen, die nicht gesper
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

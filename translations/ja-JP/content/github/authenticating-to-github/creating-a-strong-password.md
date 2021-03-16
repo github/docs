@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data variables.product.product_name %}アカウントのパスワードは、以下の条件に従い選択または生成する必要があります:
+{% data variables.product.product_name %} アカウントのパスワードを選択または生成する必要があります。パスワードの条件は次のとおりです。
 - 数字と小文字アルファベットを含む場合は長さ 8 文字、または
 - 文字の組み合わせを考慮しない場合は長さ 16 文字
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 {% data reusables.repositories.migrating-from-codeplex %}
 
@@ -42,7 +43,7 @@ versions:
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -79,7 +80,7 @@ versions:
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In the Command prompt, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -116,7 +117,7 @@ versions:
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL

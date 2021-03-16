@@ -28,6 +28,6 @@ Quando um cliente cancela um plano grátis ou pago, seu aplicativo deve realizar
 
 {% note %}
 
-**Obsevação:** Recomendamos usar a `effective_date` do webhook [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) para determinar quando ocorrerá a mudança do plano e sincronizar periodicamente [Listar as contas para um plano](/v3/apps/marketplace/#list-accounts-for-a-plan). Para obter mais informações sobre webhooks, consulte "[eventos de webhook do {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)".
+**Obsevação:** Recomendamos usar a `effective_date` do webhook [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) para determinar quando ocorrerá a mudança do plano e sincronizar periodicamente [Listar as contas para um plano](/rest/reference/apps#list-accounts-for-a-plan). Para obter mais informações sobre webhooks, consulte "[eventos de webhook do {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)".
 
 {% endnote %}

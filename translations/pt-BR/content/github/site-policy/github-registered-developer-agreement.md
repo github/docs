@@ -86,7 +86,7 @@ Este Contrato é um acordo legal entre você ("você") e o GitHub, Inc. ("GitHub
 
 13. **Direitos Proprietários**
 
-  Você concorda que o GitHub e seus licenciadores possuem todos os direitos, o título e o interesse na API, nos Materiais de Pré-Lançamento e em todos os outros produtos e serviços do GitHub; todas as informações e dados relacionados às suas configurações e combinações; e todas as modificações e trabalhos derivados de qualquer um dos itens mencionados acima. Você concorda em não remover, alterar, cobrir ou ofuscar quaisquer avisos de direitos autorais ou outros direitos proprietários que colocamos ou incorporamos na API, nos Materiais de Pré-lançamento ou em quaisquer outros produtos e serviços do GitHub.
+  Você concorda que o GitHub e seus licenciadores possuem todos os direitos, o título e o interesse na API, nos Materiais de Pré-Lançamento e em todos os outros produtos e serviços do GitHub; todas as informações e dados relacionados às suas configurações e combinações; e todas as modificações e trabalhos derivados de qualquer um dos itens mencionados acima. You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
 
 14. **Usuários do Governo**
 

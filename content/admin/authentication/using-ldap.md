@@ -35,7 +35,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Configuring LDAP with {% data variables.product.product_location_enterprise %}
+### Configuring LDAP with {% data variables.product.product_location %}
 
 After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
 
@@ -43,7 +43,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 
 {% warning %}
 
-**Warning:** Before configuring LDAP on {% data variables.product.product_location_enterprise %}, make sure that your LDAP service supports paged results.
+**Warning:** Before configuring LDAP on {% data variables.product.product_location %}, make sure that your LDAP service supports paged results.
 
 {% endwarning %}
 
@@ -56,14 +56,14 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 5. Add your configuration settings.
 
 ### LDAP attributes
-Use these attributes to finish configuring LDAP for {% data variables.product.product_location_enterprise %}.
+Use these attributes to finish configuring LDAP for {% data variables.product.product_location %}.
 
 | Attribute name           | Type     | Description |
 |--------------------------|----------|-------------|
-| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.product.product_location_enterprise %}'s DNS first so it can resolve the hostname using your internal nameservers. |
+| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.product.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
 | `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
 | `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
-| `Domain search user`     | Optional | The LDAP user that performs user lookups to authenticate other users when they sign in. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
+| `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
 | `Domain search password` | Optional | The password for the domain search user. |
 | `Administrators group`   | Optional | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
 | `Domain base`            | Required | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
@@ -194,7 +194,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 
 You can also [use the API to trigger a manual sync](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
 
-### Revoking access to {% data variables.product.product_location_enterprise %}
+### Revoking access to {% data variables.product.product_location %}
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 

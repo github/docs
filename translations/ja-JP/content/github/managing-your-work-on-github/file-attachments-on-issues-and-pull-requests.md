@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -21,7 +22,7 @@ Issue やプルリクエストの会話にファイルを添付するには、�
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**ヒント:** 多くのブラウザでは、画像をコピーして直接ボックスに貼り付けることができます。
 
 {% endtip %}
 

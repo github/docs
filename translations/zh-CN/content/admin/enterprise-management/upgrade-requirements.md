@@ -22,7 +22,7 @@ versions:
 ### 建议
 
 - 尽量减少升级过程中的升级次数。 例如，不要从 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} 升级到 {{ enterpriseServerReleases.supported[1] }} 再升级到 {{ enterpriseServerReleases.latest }}，而应从 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} 升级到 {{ enterpriseServerReleases.latest }}。
-- 如果您的版本比最新版本低几个版本，请通过升级过程的每一步骤尽量将 {% data variables.product.product_location_enterprise %} 升级为更高版本。 在每次升级时尽可能使用最新版本，这样一来您可以充分利用性能改进和错误修复。 例如，您可以从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.8 再升级到 2.10，但从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.9 再升级到 2.10 会在第二步中使用更高版本。
+- 如果您的版本比最新版本低几个版本，请通过升级过程的每一步骤尽量将 {% data variables.product.product_location %} 升级为更高版本。 在每次升级时尽可能使用最新版本，这样一来您可以充分利用性能改进和错误修复。 例如，您可以从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.8 再升级到 2.10，但从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.9 再升级到 2.10 会在第二步中使用更高版本。
 - 升级时使用最新补丁版本。 {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - 使用暂存实例测试升级步骤。 更多信息请参阅“[设置暂存实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)”。
 - 如果运行多次升级，两次功能升级之间至少应间隔 24 小时，以便使数据迁移和后台升级任务能够彻底完成。

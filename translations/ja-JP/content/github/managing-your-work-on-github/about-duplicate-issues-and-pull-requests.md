@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 "marked as duplicate (重複としてマークされた)" タイムラインイベントが表示されるには、重複した参照コメントを作成したユーザが、コメントを作成したリポジトリに書き込みアクセス権を持っていなければなりません。

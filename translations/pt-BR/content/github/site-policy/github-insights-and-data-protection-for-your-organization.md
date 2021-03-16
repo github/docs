@@ -4,9 +4,11 @@ intro: '{% data variables.product.prodname_insights %} analisa seus dados {% dat
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
 ---
 
 Para obter mais informações sobre os termos que regem {% data variables.product.prodname_insights %}, consulte o seu contrato de assinatura do {% data variables.product.prodname_ghe_one %}.

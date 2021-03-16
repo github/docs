@@ -1,11 +1,12 @@
 ---
 title: Enterprise のポリシーを設定する
-intro: '{% data variables.product.prodname_enterprise %} でポリシーを設定することで、リスクを軽減し、品質を向上させることができます。'
+intro: '{% data variables.product.product_name %} でポリシーを設定することで、リスクを軽減し、品質を向上させることができます。'
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

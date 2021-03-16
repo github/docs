@@ -141,11 +141,19 @@ Organization アカウントの場合、当社はアカウントオーナーの�
   - プライベートリポジトリのコミュニケーションまたはドキュメント（Issue や Wiki など）
   - 認証または暗号化に使用されるセキュリティキー
 
-- <a name="in-exigent-circumstances"></a>**緊急事態** — 特定の緊急事態において情報の要求を受け取った場合（人の死亡または重傷の危険を伴う緊急事態を防ぐために開示が必要であると考える場合）、当社は、法執行機関が緊急事態に対処するために必要だと当社が判断する限られた情報を開示する場合があります。 その範囲を超える情報については、上記のとおり、当社は召喚状、捜査令状、または裁判所命令を求めます。 たとえば、私たちは、捜査令状なしにプライベートリポジトリのコンテンツを開示しません。 当社は、情報を開示する前に、要求が法執行機関からのものであること、当局が緊急事態を要約した公式通知を送付したこと、および要求された情報が緊急事態の対応にどのように役立つかを確認します。
+- <a name="in-exigent-circumstances"></a>
+**緊急事態** — 特定の緊急事態において情報の要求を受け取った場合（人の死亡または重傷の危険を伴う緊急事態を防ぐために開示が必要であると考える場合）、当社は、法執行機関が緊急事態に対処するために必要だと当社が判断する限られた情報を開示する場合があります。 その範囲を超える情報については、上記のとおり、当社は召喚状、捜査令状、または裁判所命令を求めます。 たとえば、私たちは、捜査令状なしにプライベートリポジトリのコンテンツを開示しません。 当社は、情報を開示する前に、要求が法執行機関からのものであること、当局が緊急事態を要約した公式通知を送付したこと、および要求された情報が緊急事態の対応にどのように役立つかを確認します。
 
 ### 費用の払い戻し
 
-当社は、法律で許可されているとおり、情報の要求への対応に伴う管理費の払い戻しを求める権利を留保します。
+Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+
+While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+
+- Initial search of up to 25 identifiers: Free
+- Production of subscriber information/data for up to 5 accounts: Free
+- Production of subscriber information/data for more than 5 accounts: $20 per account
+- Secondary searches: $10 per search
 
 ### データ保存
 
@@ -160,8 +168,6 @@ GitHub, Inc. c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505
 ```
-
-また、legal@support.github.com に写しを送信することもできます。
 
 要求を送る際は、次の情報を含めて、できるだけ具体的かつ範囲を絞った内容にしてください。
 

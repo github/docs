@@ -1,0 +1,122 @@
+name: Check unallowed file changes
+
+on:
+  pull_request_target:
+    paths:
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'translations/**'
+      - 'assets/fonts/**'
+      - 'data/graphql/**'
+      - 'lib/graphql/**'
+      - 'lib/redirects/**'
+      - 'lib/rest/**'
+      - 'lib/webhooks/**'
+
+jobs:
+  triage:
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Check for existing requested changes
+        id: requested-change
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          result-encoding: json
+          script: |
+            const pullReviews = await github.pulls.listReviews({
+              ...context.repo,
+              pull_number: context.payload.number
+            })
+
+            const botReviews = pullReviews.data
+              .filter(review => review.user.login === 'github-actions[bot]')
+              .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
+              .shift()
+
+            if (botReviews) {
+              console.log(`Pull request reviews authored by the github-action bot: ${botReviews}`)
+            }
+            return botReviews
+
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            translation:
+              - 'translations/**'
+            openapi:
+              - 'lib/rest/static/**'
+            notAllowed:
+              - '.github/workflows/**'
+              - '.github/CODEOWNERS'
+              - 'translations/**'
+              - 'assets/fonts/**'
+              - 'data/graphql/**'
+              - 'lib/graphql/**'
+              - 'lib/redirects/**'
+              - 'lib/rest/**'
+              - 'lib/webhooks/**'
+
+      # When there are changes to files we can't accept
+      # and no review exists,leave a REQUEST_CHANGES review
+      - name: Request pull request changes
+        # Check for no reviews or reviews that aren't CHANGES_REQUESTED
+        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const badFilesArr = [
+              'translations/**',
+              'lib/rest/static/**',
+              '.github/workflows/**',
+              '.github/CODEOWNERS',
+              'translations/**',
+              'assets/fonts/**',
+              'data/graphql/**',
+              'lib/graphql/**',
+              'lib/redirects/**',
+              'lib/rest/**',
+              'lib/webhooks/**'
+            ]
+
+            const badFiles = badFilesArr.join('\n')
+
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number: context.payload.number,
+              body: reviewMessage,
+              event: 'REQUEST_CHANGES'
+            })
+
+            core.setFailed("It looks like you've modified some files we don't accept contributions for. Please see the review with requested changes for details.")
+      # When the most recent review was CHANGES_REQUESTED and the existing
+      # PR no longer contains unallowed changes, dismiss the previous review
+      - name: Dismiss pull request review
+        # Check that unallowed files aren't modified and that a
+        # CHANGES_REQUESTED review already exists
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.pulls.dismissReview({
+              ...context.repo,
+              pull_number: context.payload.number,
+              review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
+              message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
+            })

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ある値より大きいまたは小さい値のクエリ
@@ -80,7 +81,7 @@ versions:
 
 スペースなど、いくつかの英数字以外の記号は、引用符で囲ったコード検索クエリから省かれるので、結果が予想外のものになる場合があります。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### ユーザ名によるクエリ
 
 検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {% data variables.product.product_name %} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。

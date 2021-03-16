@@ -6,15 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## Node limit
 
-To pass [schema](/v4/guides/intro-to-graphql#schema) validation, all GraphQL API v4 [calls](/v4/guides/forming-calls) must meet these standards:
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
-* Clients must supply a `first` or `last` argument on any [connection](/v4/guides/intro-to-graphql#connection).
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
 * Values of `first` and `last` must be within 1-100.
-* Individual calls cannot request more than 500,000 total [nodes](/v4/guides/intro-to-graphql#node).
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
 #### Calculating nodes in a call
 
@@ -124,24 +125,18 @@ These two examples show how to calculate the total nodes in a call.
 
                    = 22,060 total nodes</pre>
 
-### Rate limit
+## Rate limit
 
 The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-Why are the API rate limits different? With [GraphQL](/v4/), one GraphQL call can replace [multiple REST calls](/v4/guides/migrating-from-rest/). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
+Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
 
 To accurately represent the server cost of a query, the GraphQL API v4 calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
 
 * The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
 * Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
 
-The GraphQL API v4 rate limit is **5,000 points per hour**.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-For {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 points per hour.
-
-{% endif %}
+The GraphQL API v4 rate limit is **5,000 points per hour**. 
 
 Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
 

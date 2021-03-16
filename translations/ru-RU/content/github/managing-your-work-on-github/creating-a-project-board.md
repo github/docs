@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -30,6 +31,7 @@ You can also configure workflow automations to keep your project board in sync w
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -49,6 +51,7 @@ You can also configure workflow automations to keep your project board in sync w
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}

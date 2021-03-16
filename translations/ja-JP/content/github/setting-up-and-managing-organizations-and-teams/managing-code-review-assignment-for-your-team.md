@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 チームメンテナと Organization のオーナーは、コードレビューの割り当てを設定できます。
@@ -17,7 +18,7 @@ versions:
 
 ### ルーティングアルゴリズム
 
-コードレビューの割り当ては、2 つのアルゴリズム候補のいずれかに基づいて自動的にレビュー担当者を選択して割り当てます。
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 ラウンドロビンアルゴリズムは、現在未処理のレビューの数とは関係なく、Team のすべてのメンバー間で交互に、最も新しいレビューリクエストを誰が受け取ったかに基づいてレビュー担当者を選択します。
 

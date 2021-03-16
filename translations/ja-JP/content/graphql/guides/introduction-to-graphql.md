@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### GraphQLの用語
 
-GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概念的な移行を表すものです。 GraphQL APIの[リファレンスドキュメント](/v4/)では、いくつかの新しい用語が登場することになるでしょう。
+GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概念的な移行を表すものです。 GraphQL APIの[リファレンスドキュメント](/graphql)では、いくつかの新しい用語が登場することになるでしょう。
 
 ### スキーマ
 
@@ -29,11 +30,11 @@ GitHub GraphQL APIは、GitHub REST APIからのアーキテクチャ及び概�
 
 ### 引数
 
-引数は、特定のフィールドに添付されるキー/値ペアの集合です。 フィールドの中には、引数を必要とするものがあります。 [ミューテーション](/v4/guides/forming-calls#about-mutations)は引数として入力オブジェクトを必要とします。
+引数は、特定のフィールドに添付されるキー/値ペアの集合です。 フィールドの中には、引数を必要とするものがあります。 [ミューテーション](/graphql/guides/forming-calls-with-graphql#about-mutations)は引数として入力オブジェクトを必要とします。
 
 ### Implementation
 
-GraphQLのスキーマは、_implements_という語を使ってオブジェクトが[インターフェース](/v4/interface)からどのように継承するかを定義することがあります。
+GraphQLのスキーマは、_implements_という語を使ってオブジェクトが[インターフェース](/graphql/reference/interfaces)からどのように継承するかを定義することがあります。
 
 以下は、インターフェース`X`とオブジェクト`Y`の仮想的な例です。
 
@@ -54,13 +55,13 @@ type Y implements X {
 
 リファレンスドキュメントには、以下のような記述があります。
 
-* 各[オブジェクト](/v4/object)は、**Implements**の下に_継承元の_インターフェースを並べます。
+* 各[オブジェクト](/graphql/reference/objects)は、**Implements**の下に_継承元の_インターフェースを並べます。
 
-* 各[インターフェース](/v4/interface)は、** Implementations**の下に_継承先_のオブジェクトを並べます。
+* 各[インターフェース](/graphql/reference/interfaces)は、** Implementations**の下に_継承先_のオブジェクトを並べます。
 
 ### コネクション
 
-コネクションを使うと、同じ呼び出しの一部として関連するオブジェクトに対するクエリを実行できます。 コネクションを使うと、REST APIでは複数の呼び出しを使うような場合に、単一のGraphQL呼び出しを使うことができます。 詳しい情報については「[RESTからGraphQLへの移行](/v4/guides/migrating-from-rest)」を参照してください。
+コネクションを使うと、同じ呼び出しの一部として関連するオブジェクトに対するクエリを実行できます。 コネクションを使うと、REST APIでは複数の呼び出しを使うような場合に、単一のGraphQL呼び出しを使うことができます。 詳しい情報については「[RESTからGraphQLへの移行](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 点を線でつなぎ、グラフを図示すると役立ちます。 点はノードで、線はエッジです。 コネクションは、ノード間の関係を定義します。
 
@@ -70,7 +71,7 @@ type Y implements X {
 
 ### ノード
 
-_ノード_ はオブジェクトの総称です。 ノードは直接ルックアップすることもできますが、コネクションを通じて関連するノードにアクセスすることもできます。 [スカラー](/v4/scalar)を返さない`node`を指定する場合は、すべてのフィールドがスカラーを返すまでサブフィールドを含めなければなりません。 REST APIを通じてノードIDにアクセスし、それらをGraphQLクエリで利用することに関する情報については、「[グローバルノードIDの利用](/v4/guides/using-global-node-ids)」を参照してください。
+_ノード_ はオブジェクトの総称です。 ノードは直接ルックアップすることもできますが、コネクションを通じて関連するノードにアクセスすることもできます。 [スカラー](/graphql/reference/scalars)を返さない`node`を指定する場合は、すべてのフィールドがスカラーを返すまでサブフィールドを含めなければなりません。 REST APIを通じてノードIDにアクセスし、それらをGraphQLクエリで利用することに関する情報については、「[グローバルノードIDの利用](/graphql/guides/using-global-node-ids)」を参照してください。
 
 ## GraphQL APIの発見
 
@@ -79,9 +80,25 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
 * `__schema`に対してクエリを行い、スキーマ中で定義されているすべての型と、それぞれについての詳細を取得してください。
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* 任意の型について、`__type`にクエリを行って詳細を得てください。
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -90,22 +107,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* 任意の型について、`__type`にクエリを行って詳細を得てください。
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * `GET`リクエストを通じてスキーマの_イントロスペクションクエリ_を実行することもできます。
@@ -129,4 +130,4 @@ query {
 
   {% endnote %}
 
-  クエリの実行に関する詳しい情報については「[GraphQLでの呼び出しの作成](/v4/guides/forming-calls)」を参照してください。
+  クエリの実行に関する詳しい情報については「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。

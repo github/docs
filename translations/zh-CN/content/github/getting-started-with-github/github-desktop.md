@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_desktop %} 使用可视界面扩展�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_desktop %}

@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_location %} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 フォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/articles/searching-in-forks)」を参照してください。
 
@@ -23,18 +24,18 @@ versions:
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) は、リポジトリ名に「jquery」が含まれるリポジトリにマッチします。                                |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) は、リポジトリ名または説明に「jquery」が含まれるリポジトリにマッチします。 |
-| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) は、README ファイルで「jquery」をメンションしているリポジトリにマッチします。                  |
+| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) は、リポジトリの README ファイルで「jquery」をメンションしているリポジトリにマッチします。           |
 | `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) は、特定のリポジトリ名にマッチします。                                            |
 
 ### リポジトリの内容で検索
 
-`in:readme` 修飾子を使って、リポジトリの README ファイルの内容に基づいてリポジトリを検索できます。
+`in:readme` 修飾子を使用すると、リポジトリの README ファイルの内容に基づいてリポジトリを検索できます。 詳細は「[README について](/github/creating-cloning-and-archiving-repositories/about-readmes)」を参照してください。
 
 `in:readme` は、特定の内容に基づいてリポジトリを検索する唯一の方法です。 リポジトリ内の特定のファイルや内容を検索するには、ファイルファインダー、またはコード固有の検索修飾子を使います。 詳細は「[ {% data variables.product.prodname_dotcom %}でファイルを検索する](/articles/finding-files-on-github)」および「[コードの検索](/articles/searching-code)」を参照してください。
 
-| 修飾子         | サンプル                                                                                                                                      |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) は、README ファイルで「octocat」をメンションしているリポジトリにマッチします。 |
+| 修飾子         | サンプル                                                                                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) は、リポジトリの README ファイルで「octocat」をメンションしているリポジトリにマッチします。 |
 
 ### ユーザまたは Organization のリポジトリ内の検索
 
@@ -47,7 +48,7 @@ versions:
 
 ### リポジトリのサイズで検索
 
-`size` 修飾子は、[不等号や範囲の修飾子](/articles/understanding-the-search-syntax)を使うことで、特定のサイズ (キロバイト) に合致するリポジトリを表示します。
+The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                   |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -58,7 +59,7 @@ versions:
 
 ### フォロワーの数の検索
 
-`followers` 修飾子を [不等号や範囲の修飾子](/articles/understanding-the-search-syntax)とともに使うことで、ユーザのフォロワーの数でリポジトリをフィルタリングできます。
+`followers` 修飾子と、不等号や範囲の修飾子を使用すると、リポジトリをフォローしているユーザーの数に基づいてリポジトリをフィルタリングできます。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                                                                                              |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -67,7 +68,7 @@ versions:
 
 ### フォークの数で検索
 
-`forks` 修飾子は、[不等号や範囲の修飾子](/articles/understanding-the-search-syntax)を使って、リポジトリが持つべきフォークの数を指定します。
+`forks` 修飾子は、不等号や範囲の修飾子を使って、リポジトリが持つべきフォークの数を指定します。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                      |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -78,7 +79,7 @@ versions:
 
 ### Star の数で検索
 
-[不等号や範囲の修飾子](/articles/understanding-the-search-syntax)を使って、リポジトリの [Star](/articles/saving-repositories-with-stars) の数でリポジトリを検索できます。
+不等号や範囲の修飾子を使って、リポジトリの Star の数でリポジトリを検索できます。 詳しい情報については「[Star を付けてリポジトリを保存する](/github/getting-started-with-github/saving-repositories-with-stars)」および「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                                                                                               |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -102,7 +103,7 @@ versions:
 
 ### 言語で検索
 
-リポジトリを記述した主要言語でリポジトリを検索することができます。
+リポジトリのコードの言語に基づいてリポジトリを検索できます。
 
 | 修飾子                       | サンプル                                                                                                                                                         |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -110,7 +111,7 @@ versions:
 
 ### Topics で検索
 
-特定の [Topics](/articles/classifying-your-repository-with-topics) で分類されたすべてのリポジトリを見つけることができます。
+特定の Topics で分類されたすべてのリポジトリを見つけることができます。 詳細は「[トピックでリポジトリを分類する](/github/administering-a-repository/classifying-your-repository-with-topics)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                                                  |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -118,35 +119,36 @@ versions:
 
 ### Topics の数で検索
 
-`topics` 修飾子を [不等号や範囲の修飾子](/articles/understanding-the-search-syntax)とともに使うことで、リポジトリに適用された [Topics ](/articles/classifying-your-repository-with-topics) の数でリポジトリを検索できます。
+`topics` 修飾子と、不等号や範囲の修飾子を使うと、リポジトリに適用された Topics の数でリポジトリを検索できます。 詳しい情報については「[Topics によるリポジトリの分類](/github/administering-a-repository/classifying-your-repository-with-topics)」および「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                        | サンプル                                                                                                                                       |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) は、5 つのトピックがあるリポジトリにマッチします。       |
 |                            | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) は、4 つ以上のトピックがあるリポジトリにマッチします。 |
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 ### ライセンスで検索
 
-[ライセンス](/articles/licensing-a-repository)でリポジトリを検索できます。 特定のライセンスまたはライセンスファミリーによってリポジトリをフィルタリングするには、[ライセンスキーワード](/articles/licensing-a-repository/#searching-github-by-license-type)を使う必要があります。
+リポジトリのライセンスの種類に基づいてリポジトリを検索できます。 特定のライセンスまたはライセンスファミリーによってリポジトリをフィルタリングするには、ライセンスキーワードを使う必要があります。 詳細は「[リポジトリのライセンス](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)」を参照してください。
 
 | 修飾子                        | サンプル                                                                                                                                                                      |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults) は、Apache ライセンス 2.0 によりライセンスされたリポジトリにマッチします。 |
 
-### リポジトリがパブリックかプライベートかで検索
+{% endif %}
 
-リポジトリがパブリックかプライベートかどうかで検索をフィルタリングできます。
+### リポジトリの可視性で検索
 
-| 修飾子          | サンプル                                                                                                                                                           |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories&utf8=%E2%9C%93) は、パブリックな Github が保有するリポジトリにマッチします。           |
-| `is:private` | [**is:public org:github**](https://github.com/search?utf8=%E2%9C%93&q=pages+is%3Aprivate&type=Repositories) は、あなたがアクセスでき、かつ、「pages」という単語を含むプライベートリポジトリにマッチします。 |
+リポジトリの可視性に基づいて検索を絞り込むことができます。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+
+| 修飾子  | 例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) は、{% data variables.product.company_short %} が所有しているパブリックリポジトリにマッチします。{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) は、自分がアクセスできて「test」という単語を含む内部リポジトリにマッチします。 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) は、自分がアクセスできて「pages」という単語を含むプライベートリポジトリにマッチします。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### リポジトリがミラーかどうかで検索
 
-リポジトリがミラーかどうか、そして別の場所にホストされているかどうかでリポジトリを検索できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+リポジトリがミラーか、それ以外にホストされているかに基づいてリポジトリを検索できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 | 修飾子            | サンプル                                                                                                                                    |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -157,7 +159,7 @@ versions:
 
 ### リポジトリがアーカイブされているかどうかで検索
 
-[アーカイブされている](/articles/about-archiving-repositories)かどうかでリポジトリを検索できます。
+アーカイブされているかどうかでリポジトリを検索できます。 詳しい情報については、「[リポジトリのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)」を参照してください。
 
 | 修飾子              | サンプル                                                                                                                                           |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -165,6 +167,7 @@ versions:
 | `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) は、「GNOME」という単語を含む、アーカイブされていないリポジトリにマッチします。 |
 
 {% if currentVersion == "free-pro-team@latest" %}
+
 ### `good first issue` ラベルや `help wanted` ラベルの付いた Issue の数で検索
 
 `help-wanted` ラベルや `good-first-issue` ラベルの付いた Issue の最低数があるリポジトリを、`help-wanted-issues:>n` 修飾子や `good-first-issues:>n` 修飾子によって検索できます。 詳細は、「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)」を参照してください。
@@ -173,6 +176,7 @@ versions:
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) は、「javascript」という単語を含む、`good-first-issue` ラベルが付いた３つ以上の Issue のあるリポジトリにマッチします。 |
 | `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) は、「React」という単語を含む、`help-wanted` ラベルが付いた 5 つ以上の Issue のあるリポジトリにマッチします。                 |
+
 {% endif %}
 
 ### 参考リンク

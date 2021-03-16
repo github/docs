@@ -37,6 +37,8 @@ Während Sie den Dienst nutzen, dürfen Sie unter keinen Umständen
 
 - eine Einzelperson oder Gruppe, einschließlich Ihrer Mitarbeiter, Führungskräfte, Vertreter und anderer Benutzer, belästigen, beleidigen, bedrohen oder zur Gewalt gegen sie aufrufen,
 
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
+
 - unsere Server für irgendeine Art von übermäßigen automatisierten Massenaktivitäten (beispielsweise Spam oder Kryptowährungs-Mining) verwenden, die unsere Server durch automatisierte Mittel übermäßig belasten, oder irgendeine andere Form von unerwünschter Werbung oder Aufforderungen, z. B. Systeme, die schnellen Reichtum versprechen, über unsere Server verbreiten,
 
 - unsere Server nutzen, um Dienste, Geräte, Daten, Konten oder Netzwerke zu stören oder zu versuchen, diese zu stören, oder um unbefugten Zugang zu erlangen oder dies zu versuchen (es sei denn, dies wurde im Rahmen des [GitHub Bug Bounty-Programms](https://bounty.github.com) genehmigt),
@@ -48,15 +50,17 @@ Während Sie den Dienst nutzen, dürfen Sie unter keinen Umständen
 ### 4. Einschränkungen hinsichtlich der Dienstnutzung
 Sie dürfen keinen Teil des Dienstes, der Nutzung des Dienstes oder des Zugriffs auf den Dienst reproduzieren, duplizieren, kopieren, verkaufen, wiederverkaufen oder ausnutzen.
 
-### 5. Beschränkungen hinsichtlich Scrapings und der API-Nutzung
-Der Begriff „Scraping“ bezieht sich auf die Extrahierung von Daten aus unserem Dienst mithilfe automatischer Prozesse wie z. B. Bots oder Webcrawlern. Er umfasst nicht die Erfassung von Informationen über unser API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. Scraping ist Ihnen auf unserer Website für die folgenden Zwecke gestattet:
+### 5. Information Usage Restrictions
+You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
-- Forscher können öffentliche, nicht personenbezogene Daten aus dem Dienst zu Forschungszwecken extrahieren, vorausgesetzt, die sich aus dieser Forschung ergebenden Veröffentlichungen werden öffentlich zugänglich gemacht.
-- Archivare können öffentliche Daten zu Archivierungszwecken aus dem Dienst extrahieren.
+-  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+-  Archivists may use public information from the Service for archival purposes.
 
-Sie dürfen keine Daten aus dem Dienst für Spamzwecke extrahieren. Dies gilt auch für den Verkauf von personenbezogenen Daten von Benutzern (gemäß Definition in der [GitHub-Datenschutzerklärung](/articles/github-privacy-statement)) beispielsweise an Personalvermittler, Headhunter und Stellenbörsen.
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms.
 
-Alle Daten, die mittels Scraping gesammelt werden, müssen den Vorgaben der [GitHub-Datenschutzerklärung](/articles/github-privacy-statement) entsprechen.
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ### 6. Datenschutz
 Der Missbrauch personenbezogener Daten von Benutzern ist untersagt.

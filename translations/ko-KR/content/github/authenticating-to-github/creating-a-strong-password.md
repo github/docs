@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-You must choose or generate a password for your {% data variables.product.product_name %} account that is:
+You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
 - Eight characters long, if it includes a number and a lowercase letter, or
 - 16 characters long with any combination of characters
 

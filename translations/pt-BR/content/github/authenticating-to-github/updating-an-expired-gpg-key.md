@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se sua chave está expirada, é preciso [atualizar a expiração](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), exportar a nova chave, excluir a chave expirada na sua conta do GitHub e [carregar a nova chave para o GitHub](/articles/adding-a-new-gpg-key-to-your-github-account/). As tags e os commits anteriores serão exibidos como verificados, desde que a chave atenda a todos os outros requisitos de verificação.

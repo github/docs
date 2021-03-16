@@ -12,14 +12,14 @@ redirect_from:
   - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
-intro: '作为灾难恢复计划的一部分，您可以通过配置自动备份的方式保护 {% data variables.product.product_location_enterprise %} 中的生产数据。'
+intro: '作为灾难恢复计划的一部分，您可以通过配置自动备份的方式保护 {% data variables.product.product_location %} 中的生产数据。'
 versions:
   enterprise-server: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} 是在单独主机上安装的备份系统，会通过安全的 SSH 网络连接定期生成 {% data variables.product.product_location_enterprise %} 的备份快照。 您可以使用快照将现有的 {% data variables.product.prodname_ghe_server %} 实例从备份主机还原为上一个状态。
+{% data variables.product.prodname_enterprise_backup_utilities %} 是在单独主机上安装的备份系统，会通过安全的 SSH 网络连接定期生成 {% data variables.product.product_location %} 的备份快照。 您可以使用快照将现有的 {% data variables.product.prodname_ghe_server %} 实例从备份主机还原为上一个状态。
 
 只有自上一个快照之后添加的数据将通过网络传输并占用额外的物理存储空间。 要最大限度地减小对性能的影响，会以最低 CPU/IO 优先级在线执行备份。 您不需要排定维护窗口来执行备份。
 
@@ -27,11 +27,11 @@ versions:
 
 ### 基本要求
 
-要使用 {% data variables.product.prodname_enterprise_backup_utilities %}，您必须将 Linux 或 Unix 主机系统与 {% data variables.product.product_location_enterprise %} 分开。
+要使用 {% data variables.product.prodname_enterprise_backup_utilities %}，您必须将 Linux 或 Unix 主机系统与 {% data variables.product.product_location %} 分开。
 
 您还可以将 {% data variables.product.prodname_enterprise_backup_utilities %} 集成到现有环境中，以便长期、永久地存储重要数据。
 
-建议将备份主机和 {% data variables.product.product_location_enterprise %} 放置在相距较远的位置。 这样可以确保在主要站点发生重大事故或网络故障的情况下通过备份进行还原。
+建议将备份主机和 {% data variables.product.product_location %} 放置在相距较远的位置。 这样可以确保在主要站点发生重大事故或网络故障的情况下通过备份进行还原。
 
 物理存储要求将因 Git 仓库磁盘使用情况以及预计的增长情况而异：
 
@@ -59,7 +59,7 @@ versions:
 3. 将 `GHE_HOSTNAME` 值设为主要 {% data variables.product.prodname_ghe_server %} 实例的主机名或 IP 地址。
 4. 将 `GHE_DATA_DIR` 值设为您希望存储备份快照的文件系统位置。
 5. 打开主要实例的设置页面（网址为 `https://HOSTNAME/setup/settings`），并将备份主机的 SSH 密钥添加到已授权 SSH 密钥列表中。 更多信息请参阅[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
-5. 使用 `ghe-host-chec` 命令确认与 {% data variables.product.product_location_enterprise %} 的 SSH 连接。
+5. 使用 `ghe-host-chec` 命令确认与 {% data variables.product.product_location %} 的 SSH 连接。
   ```shell
   $ bin/ghe-host-check        
   ```
@@ -78,9 +78,17 @@ versions:
 
 ### 还原备份
 
-如果主要站点发生的故障或灾难性事件的时间较长，要还原 {% data variables.product.product_location_enterprise %}，请提供另一个 {% data variables.product.prodname_enterprise %} 设备并从备份主机执行还原。 在还原设备之前，您必须将备份主机的 SSH 密钥作为已授权 SSH 密钥添加到目标 {% data variables.product.prodname_enterprise %} 设备。
+如果主要站点发生的故障或灾难性事件的时间较长，要还原 {% data variables.product.product_location %}，请提供另一个 {% data variables.product.prodname_enterprise %} 设备并从备份主机执行还原。 在还原设备之前，您必须将备份主机的 SSH 密钥作为已授权 SSH 密钥添加到目标 {% data variables.product.prodname_enterprise %} 设备。
 
-要通过上一个成功快照还原 {% data variables.product.product_location_enterprise %}，请使用 `ghe-restore` 命令。 您看到的输出应类似于：
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
+要通过上一个成功快照还原 {% data variables.product.product_location %}，请使用 `ghe-restore` 命令。 您看到的输出应类似于：
 
 ```shell
 $ ghe-restore -c 169.154.1.1

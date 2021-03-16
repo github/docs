@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-您可以选择成员是否可以在组织中创建仓库。 If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+您可以选择成员是否可以在组织中创建仓库。 如果允许成员创建仓库，您可以选择允许创建哪些类型的仓库。{% if currentVersion == "free-pro-team@latest" %}若只允许成员创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。{% endif %}更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
 
 组织所有者始终可以创建任何类型的仓库。
 
-{% if currentVersion == "free-pro-team@latest" %}Enterprise owners{% else %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}"[Restricting repository creation in your instance](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}企业所有者{% else %}站点管理员{% endif %}可以限制用于组织仓库创建策略的选项。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %}“[在企业帐户中实施仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)”。{% else %}“[限制企业中的仓库创建](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% endif %}
 
 {% warning %}
 
@@ -26,5 +27,5 @@ versions:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository creation", select one or more options. ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. 在“Repository creation（仓库创建）”下，选择一个或多个选项。 ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. 单击 **Save（保存）**。

@@ -44,7 +44,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays. </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
 
-| 美国 美国节假日    | 2018 年的庆祝日  |
+| 美国 美国节假日    | 观察日期        |
 | ----------- | ----------- |
 | 元旦          | 1 月 1 日     |
 | 马丁·路德·金纪念 日 | 1 月的第三个星期一  |
@@ -57,7 +57,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | 感恩节后的第一天    | 11 月的第四个星期五 |
 | 平安夜         | 12 月 24 日   |
 | 圣诞节         | 12 月 25 日   |
-| 圣诞节后的第一天    | 12 月 26 日   |
+| 圣诞节后的第一天    | 12 月 28 日   |
 | 新年除夕        | 12 月 31 日   |
 
 ### 安装 {% data variables.product.prodname_advanced_security %} 更新

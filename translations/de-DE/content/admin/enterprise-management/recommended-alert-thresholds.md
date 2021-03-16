@@ -34,7 +34,7 @@ Darüber hinaus wird empfohlen, dass Sie die „Diebstahlzeit“ der Virtualisie
 
 ### Arbeitsspeicherauslastung überwachen
 
-Die {% data variables.product.product_location_enterprise %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
+Die {% data variables.product.product_location %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
 
 | Schweregrad  | Schwellenwert                                                                         |
 | ------------ | ------------------------------------------------------------------------------------- |

@@ -8,6 +8,7 @@ intro: '{% data variables.product.product_name %} wird ständig weiterentwickelt
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox Extended Support Release

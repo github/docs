@@ -36,31 +36,31 @@ Wenn Du Benutzerlizenzen erneuern oder zu {% data variables.product.prodname_ent
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file. ![GitHub Enterprise Server-Lizenz herunterladen](/assets/images/help/business-accounts/download-ghes-license.png)
 5. Log into your
 {% data variables.product.prodname_ghe_server %} instance as a site administrator.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Klicken Sie unter „Quick links“ (Schnellzugriff) auf **Update license** (Lizenz aktualisieren). ![Lizenz-Link aktualisieren](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. Klicke zum Auswählen Deiner Lizenz auf **Lizenzdatei** oder ziehe Deine Lizenzdatei auf **Lizenzdatei**. ![Lizenzdatei hochladen](/assets/images/enterprise/management-console/upload-license.png)
-14. Klicke **Upload**. ![Upgrade-Start](/assets/images/enterprise/management-console/begin-upload.png)
+14. Klicke **Upload**. ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### Lizenznutzung anzeigen
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
+4. Überprüfe Deine aktuelle {% data variables.product.prodname_enterprise %}-Lizenz sowie verbrauchte und verfügbare Benutzerlizenzen.
 
 ### Nutzung der Benutzerlizenzen mit {% data variables.product.prodname_ghe_cloud %} automatisch synchronisieren
 
-You can use {% data variables.product.prodname_github_connect %} to automatically sync user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Enabling automatic user license sync between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise/{{currentVersion}}/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)."
+Mithilfe von {% data variables.product.prodname_github_connect %} können Sie die Anzahl und Nutzung der Benutzerlizenzen automatisch zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} synchronisieren. Weitere Informationen finden Sie unter „[Automatische Synchronisierung von Benutzerlizenzen zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} aktivieren](/enterprise/{{currentVersion}}/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)“.
 
 ### Manuelle Synchronisierung der Benutzerlizenz-Nutzung zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %}
 
-You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
+Auf {% data variables.product.prodname_ghe_server %} können Sie eine JSON-Datei herunterladen und die Datei auf {% data variables.product.prodname_ghe_cloud %} hochladen, um die Nutzung der Benutzerlizenzen zwischen den zwei Bereitstellungen manuell zu synchronisieren.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Under "Quick links", to download a file containing your current license usage on
@@ -72,3 +72,23 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise-accounts.license-tab %}
 10. Klicke unter "Enterprise Server-Instanzen" auf **Servernutzung hinzufügen**. ![Link zum Hochladen der GitHub Enterprise Server-Nutzung](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Laden Sie die JSON-Datei hoch, die Sie von {% data variables.product.prodname_ghe_server %} heruntergeladen haben.![„Drag and drop or select a file to upload“ (Hochzuladende Datei per Drag-and-Drop auswählen oder suchen)](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### Problemlösungen
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}

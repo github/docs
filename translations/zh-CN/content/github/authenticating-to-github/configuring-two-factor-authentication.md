@@ -11,14 +11,14 @@ versions:
   enterprise-server: '*'
 ---
 
-You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. 您也可以添加安全密钥。
+您可以使用移动应用程序{% if currentVersion == "free-pro-team@latest" %} 或通过短信{% endif %} 配置双重身份验证。 您也可以添加安全密钥。
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% if currentVersion == "free-pro-team@latest" %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+我们强力建议使用基于时间的一次性密码 (TOTP) 应用程序来配置 2FA。{% if currentVersion == "free-pro-team@latest" %} TOTP 应用程序比 SMS 更可靠，特别是对于美国以外的地区。{% endif %} TOTP 应用程序支持在云中安全备份您的验证码，在无法访问设备的情况下也可以进行恢复。
 
 {% warning %}
 
 **警告：**
-- If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
+- 如果您是要求双重身份验证的组织中的成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %}或其私有仓库的外部协作者，则必须离开该组织后才能在 {% data variables.product.product_location %} 上禁用 2FA。
 - 如果禁用 2FA，您将自动失去对该组织以及您在该组织私有仓库中所拥有的任何私有复刻的访问权限。 要恢复对该组织和复刻的访问权限，请重新启用双重身份验证并联系组织所有者。
 
 {% endwarning %}
@@ -45,8 +45,8 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 8. 在双重身份验证页面上，执行以下操作之一：
     - 使用移动设备的应用程序扫描 QR 码。 扫描完成后，应用程序会显示六位数代码，您可以在 {% data variables.product.product_name %} 输入该代码。
     - 如果无法扫描 QR 码，请单击 **enter this text code（输入此文本代码）**以查看可复制的代码，然后在 {% data variables.product.product_name %} 上手动输入。 ![单击输入此代码](/assets/images/help/2fa/totp-click-enter-code.png)
-9. The TOTP mobile application saves your
-{% data variables.product.product_name %} account and generates a new authentication code every few seconds. 在 {% data variables.product.product_name %} 中的 2FA 页面上，键入代码并单击 **Enable（启用）**。
+9. TOTP 移动应用程序将保存您的
+{% data variables.product.product_name %} 帐户并每隔几秒生成新的验证码。 在 {% data variables.product.product_name %} 中的 2FA 页面上，键入代码并单击 **Enable（启用）**。
     ![TOTP 启用字段](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
@@ -81,10 +81,10 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 在大多数设备和浏览器上，您可以通过 USB 或 NFC 使用物理安全密钥。 某些浏览器可以使用设备上的指纹读取器、面部识别或密码/PIN 作为安全密钥。
 
-Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. 如果您丢失了安全密钥，仍可以使用手机的代码进行登录。
+安全密钥验证是 TOTP 应用程序{% if currentVersion == "free-pro-team@latest" %} 或短信{% endif %} 验证的*备用*选择。 如果您丢失了安全密钥，仍可以使用手机的代码进行登录。
 
-1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
-2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
+1. 必须已通过 TOTP 移动应用程序{% if currentVersion == "free-pro-team@latest" %} 或通过 SMS{% endif %} 配置了 2FA。
+2. 确保您的计算机中已插入 WebAuthn 兼容安全密钥。
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. 在“Security keys（安全密钥）”旁边，单击 **添加**。 ![添加安全密钥选项](/assets/images/help/2fa/add-security-keys-option.png)

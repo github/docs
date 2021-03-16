@@ -34,26 +34,34 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 #### 配置 Nagios 主机
 1. 使用空白密码生成 SSH 密钥。 Nagios 使用此密钥来对 {% data variables.product.prodname_ghe_server %} 集群进行身份验证。
   ```shell
-  nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
-  > Generating public/private rsa key pair.
-  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_rsa):
+  nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
+  > Generating public/private ed25519 key pair.
+  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
   > Enter passphrase (empty for no passphrase): <em>leave blank by pressing enter</em>
   > Enter same passphrase again: <em>press enter again</em>
-  > Your identification has been saved in /home/nagiosuser/.ssh/id_rsa.
-  > Your public key has been saved in /home/nagiosuser/.ssh/id_rsa.pub.
+  > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
+  > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
   ```
   {% danger %}
 
   **安全警告：**如果授权完全访问主机，则没有密码的 SSH 密钥可能会构成安全风险。 将此密钥的授权限制为单个只读命令。
 
   {% enddanger %}
-2. 将私钥 (`id_rsa`) 复制到 `nagios` 主文件夹并设置适当的所有权。
+  {% note %}
+
+  **注：**如果您使用的是不支持 Ed25519 算法的 Linux 发行版，请使用以下命令：
   ```shell
-  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_rsa /var/lib/nagios/.ssh/</em>
-  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_rsa</em>
+  nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
-3. 要授权公钥*仅*运行 `ghe-cluster-status -n` 命令，请在 `/data/user/common/authorized_keys` 文件中使用 `command=` 前缀。 从任何节点上的管理 shell，修改此文件以添加在步骤 1 中生成的公钥。 例如：`command="/usr/local/bin/ghe-cluster-status -n" ssh-rsa AAAA....`
+  {% endnote %}
+2. 将私钥 (`id_ed25519`) 复制到 `nagios` 主文件夹并设置适当的所有权。
+  ```shell
+  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
+  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
+  ```
+
+3. 要授权公钥*仅*运行 `ghe-cluster-status -n` 命令，请在 `/data/user/common/authorized_keys` 文件中使用 `command=` 前缀。 从任何节点上的管理 shell，修改此文件以添加在步骤 1 中生成的公钥。 例如：`command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
 4. 通过在修改了 `/data/user/common/authorized_keys` 文件的节点上运行 `ghe-cluster-config-apply`，验证配置并将其复制到集群中的每个节点。
 

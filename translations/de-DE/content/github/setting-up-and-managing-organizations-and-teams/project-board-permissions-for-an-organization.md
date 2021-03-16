@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Überblick über die Berechtigungen
@@ -29,7 +30,7 @@ Wenn ein Organisationsinhaber beispielsweise allen Organisationsmitgliedern Lese
 
 ### Sichtbarkeit des Projektboards
 
-{% data reusables.project-management.project-board-visibility %} Du kannst die Sichtbarkeit des Projektboards von privat auf öffentlich und wieder zurück ändern. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
+{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
 
 ### Weiterführende Informationen
 

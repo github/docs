@@ -7,18 +7,19 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Diferenças na lógica da API
 
 Fazer a migração da REST para o GraphQL representa uma mudança significativa na lógica da API. As diferenças entre a REST como um estilo e o GraphQL como uma especificação tornam difícil &mdash;e, muitas vezes indesejável&mdash;substituir as chamadas da API REST por consultas da API do GraphQL individualmente. Incluímos abaixo exemplos específicos de migração.
 
-Para fazer a migração do seu código da [API REST](/v3) para a API do GraphQL:
+Para fazer a migração do seu código da [API REST](/rest) para a API do GraphQL:
 
 - Revise a [especificação do GraphQL](https://graphql.github.io/graphql-spec/June2018/)
-- Revise o [esquema do GraphQL](/v4/reference/) do GitHub
+- Revise o [esquema do GraphQL](/graphql/reference) do GitHub
 - Considere como qualquer código existente que você tem atualmente interage com a API REST do GitHub
-- Use [IDs dos nó global](/v4/guides/using-global-node-ids) para fazer referência a objetos entre as versões da API
+- Use [IDs dos nó global](/graphql/guides/using-global-node-ids) para fazer referência a objetos entre as versões da API
 
 As vantagens significativas do GraphQL incluem:
 
@@ -52,12 +53,12 @@ query {
 }
 ```
 
-Considere outro exemplo: recuperar uma lista de pull requests e verificar se cada um é mesclável. Uma chamada para a API REST recupera uma lista de pull requests e suas [representações resumidas](/v3/#summary-representations):
+Considere outro exemplo: recuperar uma lista de pull requests e verificar se cada um é mesclável. Uma chamada para a API REST recupera uma lista de pull requests e suas [representações resumidas](/rest#summary-representations):
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-Determinar se um pull request pode ser mesclado demanda recuperar cada pull request individualmente para sua [representação detalhada](/v3/#detailed-representations) (uma grande carga), bem como verificar seu atributo `mesclável` é verdadeiro ou falso:
+Determinar se um pull request pode ser mesclado demanda recuperar cada pull request individualmente para sua [representação detalhada](/rest#detailed-representations) (uma grande carga), bem como verificar seu atributo `mesclável` é verdadeiro ou falso:
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
@@ -127,13 +128,13 @@ Ao usar a **API do GraphQL**, você pode recuperar os dados com uma única consu
 }
 ```
 
-Você também pode estender o poder dessa consulta se [substitui uma variável](/v4/guides/forming-calls/#working-with-variables) para o número do pull request.
+Você também pode estender o poder dessa consulta se [substitui uma variável](/graphql/guides/forming-calls-with-graphql#working-with-variables) para o número do pull request.
 
 ## Exemplo: Digitação não flexível
 
 Os esquemas do GraphQL são digitados de modo rígido, o que torna o gerenciamento dos dados mais seguro.
 
-Considere um exemplo de adição de um comentário a um problema ou pull request usando uma [mutação ](/v4/mutation) do GraphQL e especificando por engano um número inteiro em vez de uma string para o valor de [`clientMutationId`](/v4/mutation/addcomment/):
+Considere um exemplo de adição de um comentário a um problema ou pull request usando uma [mutação ](/graphql/reference/mutations) do GraphQL e especificando por engano um número inteiro em vez de uma string para o valor de [`clientMutationId`](/graphql/reference/mutations#addcomment):
 
 ```graphql
 mutation {

@@ -27,7 +27,7 @@ versions:
 
 {% data variables.product.prodname_dotcom_the_website %} からリポジトリデータをエクスポートするには、<a href="/rest/reference/migrations" class="dotcom-only">移行 API</a> を使います。
 
-移行APIは現在プレビュー期間です。すなわち、エンドポイントとパラメータは将来変更されることがあります。 移行APIにアクセスするには、カスタムの[メディアタイプ](/v3/media)として`application/vnd.github.wyandotte-preview+json`を`Accept`ヘッダで渡さなければなりません。 以下の例にはカスタムのメディアタイプが含まれています。
+移行APIは現在プレビュー期間です。すなわち、エンドポイントとパラメータは将来変更されることがあります。 移行APIにアクセスするには、カスタムの[メディアタイプ](/rest/overview/media-types)として`application/vnd.github.wyandotte-preview+json`を`Accept`ヘッダで渡さなければなりません。 以下の例にはカスタムのメディアタイプが含まれています。
 
 ### 移行アーカイブの生成
 
@@ -37,7 +37,7 @@ versions:
 
 2. <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">移行エンドポイント</a>に `POST` することで移行を開始します。 以下が必要です:
     * 認証のためのアクセストークン。
-    * 移行する[リポジトリのリスト](/v3/repos/#list-organization-repositories)。
+    * 移行する[リポジトリのリスト](/rest/reference/repos#list-organization-repositories)。
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
       -H "Accept: application/vnd.github.wyandotte-preview+json" \

@@ -13,19 +13,19 @@ versions:
 
 ### Understanding the billing cycle
 
-Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)."
+Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[Webhook events for the {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)."
 
 ### Providing billing services in your app's UI
 
-Customers must be able to perform the following actions from your app's website:
-- Customers must be able to modify or cancel their {% data variables.product.prodname_marketplace %} plans for personal and organizational accounts separately.
+Customers should be able to perform the following actions from your app's website:
+- Customers should be able to modify or cancel their {% data variables.product.prodname_marketplace %} plans for personal and organizational accounts separately.
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}
 
 ### Billing services for upgrades, downgrades, and cancellations
 
-Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)."
+Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan).
+You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan).
 
 #### Улучшения
 
@@ -33,7 +33,7 @@ When a customer upgrades their pricing plan or changes their billing cycle from 
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-For information about building upgrade and downgrade workflows into your app, see "[Upgrading and downgrading plans](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)."
+For information about building upgrade and downgrade workflows into your app, see "[Handling plan changes](/developers/github-marketplace/handling-plan-changes)."
 
 #### Downgrades and cancellations
 
@@ -45,4 +45,4 @@ When a customer cancels a plan, you must:
   {% data reusables.marketplace.cancellation-clarification %}
 - Enable them to upgrade the plan through GitHub if they would like to continue the plan at a later time.
 
-For information about building cancellation workflows into your app, see "[Cancelling plans](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)."
+For information about building cancellation workflows into your app, see "[Handling plan cancellations](/developers/github-marketplace/handling-plan-cancellations)."

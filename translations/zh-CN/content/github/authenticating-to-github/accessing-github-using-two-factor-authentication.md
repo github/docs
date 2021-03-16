@@ -15,7 +15,7 @@ versions:
 
 ### 登录网站时提供 2FA 码
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
+在使用密码登录 {% data variables.product.product_name %} 后，系统会提示您提供{% if currentVersion == "free-pro-team@latest" %}短信或{% endif %} TOTP 应用程序中的验证码。
 
 {% data variables.product.product_name %} 仅在您注销后、使用新设备或会话过期时才会要求您再次提供 2FA 验证码。
 

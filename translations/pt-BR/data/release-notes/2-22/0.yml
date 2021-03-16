@@ -1,0 +1,125 @@
+intro: O GitHub está animado para apresentar o GitHub Enterprise Server 2.2.0.
+date: '2020-09-23'
+sections:
+  features:
+    - heading: GitHub Actions Beta
+      notes:
+        - |
+          [GitHub Actions](https://github.com/features/actions) é uma solução poderosa e flexível para CI/CD e automação de fluxo de trabalho. O GitHub Actions no Enterprise Server inclui ferramentas que ajudam você a gerenciar o serviço incluindo métricas chave no Console de Gerenciamento, logs de auditoria e controles de acesso para ajudar você a controlar a implementação.
+
+          Você precisará fornecer seu próprio [storage](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage) e executores para o GitHub Actions. AWS S3, Azure Blob Storage e MinIO são compatíveis. Revise os [requisitos mínimos atualizados para sua plataforma](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) antes de ativar o GitHub Actions. Para saber mais, entre em contato com a equipe do GitHub Sales ou [inscreva-se para o beta](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
+    - heading: GitHub Packages Beta
+      notes:
+        - |
+          [GitHub Packages](https://github.com/features/packages) é um serviço de hospedagem de pacotes, integrado nativamente com as APIs, ações e webhooks do GitHub. Crie um [fluxo de trabalho de ponta a ponta para o DevOps](https://docs.github.com/en/enterprise/2. 2/admin/pacotes/configuring-packages-support-for-your-enterpris) que inclui seu código, integração contínua e soluções de implantação.
+
+          Os backends de armazenamento compatíveis incluem AWS S3 e MinIO com suporte para o Azure blob em uma versão futura. Observe que o suporte atual ao Docker será substituído por uma versão beta do novo Registro de Contêiner do GitHub na próxima versão. Revise os [requisitos mínimos atualizados para sua plataforma](https://docs.github.com/en/enterprise/2. 2/admin/installation/setting-up-a-github-enterprise-server-instance) antes de ativar o GitHub Packages. Para saber mais, entre em contato com a equipe do GitHub Sales ou [inscreva-se no beta](https://resources. ithub.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/773 {% endcomment %}
+    - heading: Varredura avançada de segurança de código beta
+      notes:
+        - |
+          [Varredura avançada de código de segurança do GitHub](https://github.com/features/security) é um ambiente de teste de segurança para aplicativos estáticos nativos do GitHub nativo (SAST). Encontre facilmente vulnerabilidades de segurança antes que atinjam a produção, tudo desenvolvido pelo mais poderoso motor de análise de código do mundo: CodeQL.
+
+          Os administradores que usam a Segurança Avançada do GitHub podem [inscrever-se em](https://resources.github.com/beta-signup/) e [enable](https://docs.github. om/pt/enterprise/2.22/admin/configuration/configuring-code-scanning-for-your-appliance) o Beta de varredura avançada de código de segurança GitHub. Revise os [requisitos mínimos atualizados para sua plataforma](https://docs.github. om/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) antes de ativar a varredura avançada de código código de segurança GitHub. {% comment %} https://github.com/github/releases/issues/768 {% endcomment %}
+    - heading: Redirecionamento de pull request
+      notes:
+        - |
+          Quando um [branch do cabeçalho do pull request](https://docs.github.com/en/enterprise/2. 2/usuário/github/colaboração-with-issues-and-pull-requests/about-branches#working-with-branches) é mesclado e excluído, todos os outros pull requests no mesmo repositório que apontam para este branch agora são redirecionados para o branch de base do pull request mesclado. Anteriormente, esses pull requests eram fechados. {% comment %} https://github.com/github/releases/issues/801 {% endcomment %}
+    - heading: Suspender e cancelar a suspensão da instalação de aplicativos
+      notes:
+        - |
+          Os administradores e usuários podem [suspender o acesso de qualquer aplicativo do GitHub](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#suspend-an-app-installation) durante o tempo necessário e [cancelar a suspensão do aplicativo](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#unsuspend-an-app-installation) no comando por meio das das Configurações e da API. Os aplicativos suspensos não podem acessar a API do GitHub ou eventos de webhook. Você pode fazer isso em vez de desinstalar um aplicativo, que cancela a autorização de todos os usuários. {% comment %} https://github.com/github/github/pull/138316 https://github.com/github/github/pull/150869 {% endcomment %}''
+    - heading: Desempenho aprimorado em grande escala
+      notes:
+        - |
+          Nós revisamos a abordagem que adotamos para agendar a manutenção da rede para repositórios, garantindo que os grandes monorrepositórios sejam capazes de evitar os estados de falha. {% comment %} https://github.com/github/github/pull/146789, https://github.com/github/github/pull/147931, https://github.com/github/github/pull/146724, https://github. om/github/git-protocols/issues/94 {% endcomment %}''
+
+          As réplicas passivas agora são [compatíveis e configuráveis nas implantações de cluster do GitHub Enterprise Server](https://docs.github.com/en/enterprise/2. 2/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster). Essas alterações permitirão falhas mais rápidas, reduzindo RTO e RPO. {% comment %} https://github.com/github/releases/issues/905 {% endcomment %}
+    - heading: Visualizar todos os seus usuários
+      notes:
+        - |
+          Para equipes excepcionalmente grandes, os administradores podem [ajustar o padrão máximo de 1.500 para as listas de usuários](https://docs.github.com/en/enterprise/2.22/admin/configuration/command-line-utilities#ghe-config). {% comment %} https://github.com/github/github/pull/146508 {% endcomment %}''
+  changes:
+    - heading: Alterações na administração
+      notes:
+        - 'Os trabalhadores compartilhados foram habilitados para tornar as atualizações ao vivo mais resilientes, compartilhando conexões entre as abas. {% comment %} https://github.com/github/releases/issues/914 {% endcomment %}'
+        - 'O link "Suporte ao Contato" na página de erro `50x` agora vincula ao e-mail de suporte ou link configurado no Console de Gerenciamento. {% comment %} https://github.com/github/github/pull/142123 {% endcomment %}'
+        - 'Agora é possível [gerenciar anúncios e datas de expiração globais pelas configurações da conta corporativa](https://docs.github.com/en/enterprise/2.22/admin/installation/command-line-utilities#ghe-announce). {% comment %} https://github.com/github/releases/issues/945, https://github.com/github/pull/148475, https://github.com/github/github/pull/148494 {% endcomment %}'
+        - 'Agora você pode [isentar certos usuários do limite de taxa da API padrão configurado no console de gerenciamento](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-rate-limits), se necessário. {% comment %} https://github.com/github/github/pull/148673 {% endcomment %}'
+        - 'Agora os administradores do repositório podem [definir seus repositórios como qualquer opção de visibilidade disponível](https://docs.github.com/en/enterprise/2.22/user/administering-a-repository/setting-repository-visibility) a partir de um único diálogo nas configurações do repositório. Anteriormente, você tinha de navegar por seções, botões e caixas de diálogo separadas para alternar entre público e privado e entre privado e interno. {% comment %} https://github.com/github/releases/issues/882 {% endcomment %}'
+        - 'Um novo link de configurações corporativasno menu suspenso do usuário facilita a navegação nas Configurações da Conta Corporativa. {% comment %} https://github.com/github/releases/issues/946, https://github.com/github/github/pull/150595, https://github.com/github/github/pull/150520, https://github.com/github/github/pull/151121, https://github.com/github/hydro-schemas/pull/1244 {% endcomment %}'
+        - 'O antigo link "Central de Adminstraão" na página de /stafftools foi removido. O link "Empresa" agora é a melhor maneira de acessar a Conta Corporativa a partir da página /stafftools page. {% comment %} https://github.com/github/github/pull/147633 {% endcomment %}'
+        - 'O item do submenu de Opções nas configurações da Conta Corporativa foi transferido da seção de Configurações para a seção de Políticas. {% comment %} https://github.com/github/releases/issues/944, https://github.com/github/github/pull/148477 {% endcomment %}'
+        - '[Acessar recursos usando um token de acesso pessoal ou chave SSH agora conta como atividade de usuário](https://docs.github.com/en/enterprise/2.22/admin/user-management/management/managing-dormant-users). Isso alivia os administradores do trabalho de filtrar determinados usuários dos relatórios de dormência do usuário e torna mais seguro usar o botão "Suspender todos" sem suspender, acidentalmente, usuários que acessaram o GitHub de forma apenas leitura através das APIs com um Token de Acesso Pessoal (PAT) ou chave SSH. {% comment %} https://github.com/github/github/pull/140433, https://github.com/github/help-docs/pull/14853, https://github.com/github/customer-feedback/issues/174, https://github.com/github/supportability/issues/14 {% endcomment %}'
+    - heading: Alterações de segurança
+      notes:
+        - 'Os códigos de recuperação de dois fatores não podem mais ser usados durante o processo de autenticação de dois fatores. As senhas de uso único são os únicos valores aceitáveis. {% comment %} https://github.com/github/github/pull/145016, https://github.com/github/github/pull/140208 {% endcomment %}'
+        - 'Quando um usuário é conectado ao GitHub Enterprise Server através de um único logon, a [seleção de visibilidade padrão do repositório é privada](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility). {% comment %} https://github.com/github/releases/issues/872 {% endcomment %}'
+        - 'Agora os proprietários dos aplicativos GitHub podem escolher que os seus [tokens de acesso do usuário para servidor expirem após 8 horas](https://developer.github. om/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/), para ajudar a aplicar rotação regular do token e reduzir o impacto de um token comprometido. {% comment %} https://github.com/github/releases/issues/966 {% endcomment %}'
+    - heading: Alterações de desenvolvedor
+      notes:
+        - '[A interface de usuário do GitHub passou por uma atualização de design](https://github.blog/changelog/2020-06-23-design-updates-to-repositories-and-github-ui/), e a página inicial dos repositórios foi reprojetada, incluindo um layout responsivo e uma melhor experiência de web móvel. {% comment %} https://github.com/github/releases/issues/886 {% endcomment %}'
+        - 'No menu suspenso do repositório "Clonar com SSH", os usuários agora serão notificados se não tiverem nenhuma configuração de chaves. {% comment %} https://github.com/github/github/pull/149098 {% endcomment %}'
+        - 'Agora, os commits são ordenados cronologicamente na linha do tempo do pull request e na aba commits. Esta nova ordem também é refletida na API REST de ["Lista de commits em um pull request"](https://docs.github.com/en/enterprise/2. 2/user/rest/reference/pulls#list-commits-on-a-pull-request) e no [Objeto "PullRequest"] de GraphQL (https://docs.github.com/en/enterprise/2.22/user/graphql/reference/objects#pullrequest) timeline connection. {% comment %} https://github.com/github/releases/issues/867 {% endcomment %}'
+        - 'Agora os usuários podem [definir o padrão do tom de tema padrão para resultados de preenchimento automático de emojis](https://github.blog/changelog/2020-07-17-customizable-skin-tones-in-emoji-autocomplete/) nas áreas de texto de comentário. {% comment %} https://github.com/github/releases/issues/916 {% endcomment %}'
+        - '[Tree-sitter](https://github.com/tree-sitter/tree-sitter) improves syntax highlighting and is now the default library used for language parsing. {% comment %} https://github.com/github/releases/issues/918, https://github.com/github/windrose/issues/44 {% endcomment %}'
+    - heading: Os usuários e as organizações podem adicionar nomes de usuários do Twitter aos seus perfis do GitHub
+      notes:
+        - '[Developers and organizations can now add their Twitter username to their profile](https://github.blog/changelog/2020-07-22-users-and-organizations-can-now-add-twitter-usernames-to-their-github-profiles/) {% comment %}  https://github.com/github/github/pull/145127 {% endcomment %}'
+    - heading: Alterações de API
+      notes:
+        - |
+          #### Graduated Previews
+
+          The following previews are now an official part of the API:
+          * The GitHub Apps API and endpoints that returned the `performed_via_github_app` property no longer require the [`machine-man`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) preview header. {% comment %} https://github.com/github/releases/issues/965 {% endcomment %}
+          * To add and view a lock reason to an issue, you no longer need to use the [`sailor-v`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) preview header. {% comment %} https://github.com/github/github/pull/143676 {% endcomment %}
+        - |
+          #### GraphQL Schema Changes
+
+          * [The GraphQL schema changes](https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog) include backwards-compatible changes, schema previews, and upcoming breaking changes.
+    - heading: VMware Network Driver Changes
+      notes:
+        - |
+          The GitHub Enterprise Server default network adapter type for VMware customers has been changed from E1000 to VMXNET3, starting with release 2.22.0. When upgrading from an earlier release to 2.22.0 or newer, if an E1000 network adapter is detected during the pre-upgrade check, the following message will be displayed at the command line:
+
+          ```
+          WARNING: Your virtual appliance is currently using an emulated Intel E1000 network adapter.
+          For optimal performance, please update the virtual machine configuration on your VMware host to use the VMXNET3 driver.
+          Proceed with installation? [y/N]
+          ```
+
+          The administrator can choose to update the network adapter type to VMXNET3 either before or after the GitHub Enterprise Server upgrade. The virtual appliance will need to be shutdown for this change. Customers should follow the VMware recommended steps for [changing the virtual machine network adapter configuration](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html) to VMXNET3. Please note that `VMXNET3` will not be an option if the OS version for the virtual appliance is set to `Other Linux (64-bit)`. In that case, the OS version would first need to be changed from `Other Linux (64-bit)` to `Other 2.6.x Linux (64-bit)` or if available, `Debian GNU/Linux 9` . We recommend testing these changes on a [staging instance](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance) before it is performed on a production GitHub Enterprise Server. {% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
+  bugs:
+    - 'The stafftools page for viewing pending collaborator showed a `500 Internal Server Error` when there was a pending email invite. {% comment %} https://github.com/github/github/pull/150836 {% endcomment %}'
+    - 'The Repository Health Check in stafftools could give incorrect results on busy repositories. {% comment %} https://github.com/github/github/pull/151160 {% endcomment %}'
+    - 'A logged in user trying to accept an email invitation could get a `404 Not Found` error. {% comment %} https://github.com/github/github/pull/150848 {% endcomment %}'
+    - 'Se um usuário acessar um repositório cujo nome foi iniciado com "repositórios", ele será direcionado a aba "Repositórios" do proprietário em vez de chegar à página de visão geral do repositório. {% comment %} https://github.com/github/github/pull/149704 {% endcomment %}'
+    - 'As etiquetas na linha do tempo do painel não têm contraste suficiente. {% comment %} https://github.com/github/github/pull/146749 {% endcomment %}'
+  deprecations:
+    - heading: Upcoming Deprecation of GitHub Enterprise Server 2.19
+      notes:
+        - '**GitHub Enterprise Server 2.19 will be deprecated as of November 12, 2020** That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of GitHub Enterprise Server](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/) as soon as possible.'
+    - heading: Deprecation of Legacy GitHub App Webhook Events
+      notes:
+        - 'Starting with GitHub Enterprise Server 2.21.0 two legacy GitHub Apps-related webhook events have been deprecated and will be removed in GitHub Enterprise Server 2.25.0. The deprecated events `integration_installation` and `integration_installation_repositories` have equivalent events which will be supported. More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/). {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}'
+    - heading: Deprecation of Legacy GitHub Apps Endpoint
+      notes:
+        - 'Starting with GitHub Enterprise Server 2.21.0 the legacy GitHub Apps endpoint for creating installation access tokens was deprecated and will be removed in GitHub Enterprise Server 2.25.0.  More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/). {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}'
+    - heading: Deprecation of OAuth Application API
+      notes:
+        - 'GitHub no longer supports the OAuth application endpoints that contain `access_token` as a path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. While deprecated, the endpoints are still accessible in this version. We intend to remove these endpoints on GitHub Enterprise Server 3.4. For more information, see the [deprecation announcement blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).'
+  backups:
+    - 'GitHub Enterprise Server 2.22 requires at least [GitHub Enterprise Backup Utilities](https://github.com/github/backup-utils) 2.22.0 for [Backups and Disaster Recovery](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/).'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'The Name ID Format dropdown in the Management Console resets to "unspecified" after setting instance to "persistent". {% comment %} https://github.com/github/enterprise2/issues/13446 {% endcomment %}'
+    - 'The repository Settings page of a repository for a user or organization GitHub Pages sites will fail with a "500 Internal Server Error". {% comment %} https://github.com/github/github/issues/156183 {% endcomment %}'
+    - 'Users may experience slower Git clone and fetch performance on an instance with high availability replicas due to reads being forwarded to a different node. {% comment %} https://github.com/github/spokesd/issues/746 {% endcomment %}'
+    - '[Creating a GitHub App from a manifest](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) fails. To work around this issue, users can follow the manual instructions for [creating a GitHub App](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app). {% comment %} https://github.com/github/enterprise2/issues/22849 {% endcomment %}'
+    - 'GitHub usernames may change unintentionally when using SAML authentication, if the GitHub username does not match the value of the attribute mapped to the `username` field in the Management Console. (updated 2020-10-08) {% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}'
+    - 'On a freshly set up 2.22.0 instance or after upgrading to 2.22.0, the activity feed on an organization''s dashboard will no longer update. (updated 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}'
+    - 'Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'

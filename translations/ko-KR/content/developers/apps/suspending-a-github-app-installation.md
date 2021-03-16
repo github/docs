@@ -5,15 +5,15 @@ redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
 **Note:** {% data reusables.pre-release-program.suspend-installation-beta %}
 
 {% endnote %}
-{% endif %}
 
 ### Suspending a GitHub App
 

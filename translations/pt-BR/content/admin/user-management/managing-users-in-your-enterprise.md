@@ -1,6 +1,6 @@
 ---
 title: Gerenciar usuários na sua empresa
-intro: 'Depois que conseguirem se autenticar na {% data variables.product.product_location_enterprise %}, os usuários vão querer definir algumas configurações básicas de perfil, como avatar e notificações de e-mail.'
+intro: 'Você pode controlar atividades do usuário e gerenciar configurações de usuário.'
 redirect_from:
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons/
   - /enterprise/admin/user-management/basic-account-settings
@@ -9,5 +9,6 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

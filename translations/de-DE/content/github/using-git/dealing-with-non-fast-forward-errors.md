@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn ein anderer Benutzer einen Push zum selben Branch durchgeführt hat wie Du, kann Git Deine Änderungen nicht überführen:

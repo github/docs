@@ -32,7 +32,7 @@ Se nenhum desses arquivos for encontrado, quaisquer arquivos ou pastas nos `dotf
 
 Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
 
-Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
+Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
 
 {% note %}
 
@@ -40,6 +40,7 @@ Para obter mais informações, consulte [Personalizar](https://docs.microsoft.co
 
 {% endnote %}
 
+Você também pode definir as configurações para que a sua conta de usuário adicione segredos criptografados, habilitar a verificação de GPG e permitir que os seus codespaces acessem outros repositórios. Para obter mais informações, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Gerenciar verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)" e "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
 
 ### Leia mais
 

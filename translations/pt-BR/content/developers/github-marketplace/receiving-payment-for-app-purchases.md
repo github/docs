@@ -13,8 +13,14 @@ versions:
 
 
 
-Após a sua listagem de {% data variables.product.prodname_marketplace %} for criada e aprovada, você fornecerá as informações de pagamento para {% data variables.product.product_name %} como parte do processo de integração.
+Depois que o seu anúncio de {% data variables.product.prodname_marketplace %} para um aplicativo com um plano pago for criado e aprovado, você fornecerá detalhes de pagamento para {% data variables.product.product_name %} como parte do processo de integração financeira.
 
-Uma vez que sua receita atinja, no mínimo, US$ 500. Dólares do mês, você receberá um pagamento eletrônico de {% data variables.product.product_name %} referente a 75% do preço de venda.
+Quando sua receita atingir o mínimo de US$ 500 dólares no mês, você receberá um pagamento eletrônico de {% data variables.product.company_short %}. Este será o rendimento das transações no mercado menos o valor cobrado por {% data variables.product.company_short %} para cobrir seus custos administrativos.
 
-{% data reusables.apps.marketplace_revenue_share %}
+Para transações feitas antes de 1 de janeiro de 2021, {% data variables.product.company_short %} irá reter 25% da renda da transação. Para transações feitas após essa data, apenas 5% é será retido por {% data variables.product.company_short %}. Esta alteração irá refletir-se nos pagamentos recebidos a partir do final de Janeiro de 2021.
+
+{% note %}
+
+**Observação:** Para obter os detalhes dos preços atuais e dos termos de pagamento, consulte o "[ acordo do desenvolvedor de {% data variables.product.prodname_marketplace %}](/github/site-policy/github-marketplace-developer-agreement)".
+
+{% endnote %}

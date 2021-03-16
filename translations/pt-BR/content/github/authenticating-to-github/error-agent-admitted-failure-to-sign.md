@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ao tentar se conectar via SSH ao {% data variables.product.product_location %} em um computador Linux, você poderá receber a seguinte mensagem:

@@ -14,6 +14,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -22,15 +23,12 @@ versions:
 {% topic_link_in_list /getting-started-with-github-pages %}
     {% link_in_list /about-github-pages %}
     {% link_in_list /creating-a-github-pages-site %}
-<!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser %}
-<!-- endif -->
     {% link_in_list /configuring-a-publishing-source-for-your-github-pages-site %}
+    {% link_in_list /changing-the-visibility-of-your-github-pages-site %}
     {% link_in_list /creating-a-custom-404-page-for-your-github-pages-site %}
-<!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /securing-your-github-pages-site-with-https %}
     {% link_in_list /using-submodules-with-github-pages %}
-<!-- endif -->
     {% link_in_list /unpublishing-a-github-pages-site %}
 {% topic_link_in_list /setting-up-a-github-pages-site-with-jekyll %}
     {% link_in_list /about-github-pages-and-jekyll %}
@@ -41,9 +39,7 @@ versions:
     {% link_in_list /adding-a-theme-to-your-github-pages-site-using-jekyll %}
     {% link_in_list /about-jekyll-build-errors-for-github-pages-sites %}
     {% link_in_list /troubleshooting-jekyll-build-errors-for-github-pages-sites %}
-<!-- if currentVersion == "free-pro-team@latest" -->
 {% topic_link_in_list /configuring-a-custom-domain-for-your-github-pages-site %}
     {% link_in_list /about-custom-domains-and-github-pages %}
     {% link_in_list /managing-a-custom-domain-for-your-github-pages-site %}
     {% link_in_list /troubleshooting-custom-domains-and-github-pages %}
-<!-- endif -->

@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst die Pull-Request-Liste eines Repositorys filtern, um folgende Pull Requests zu finden:
 - Pull Requests, deren [Review](/articles/about-pull-request-reviews) noch aussteht
-- Pull Requests, für die vor dem Merge [ein Review erforderlich ist](/articles/about-required-reviews-for-pull-requests)
+- Pull Requests, für die vor dem Merge [ein Review erforderlich ist](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
 - Pull Requests, die ein Reviewer genehmigt hat
 - Pull Requests, bei denen ein Reviewer um Änderungen gebeten hat
 - Pull Requests, die Du überprüft hast

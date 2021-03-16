@@ -12,12 +12,12 @@ versions:
 
 如果您使用 SAML SSO 而不实施 SCIM，将不能自动撤销配置。 当组织成员的会话在其访问权限从 IdP 删除后到期时，他们就会自动从组织中删除。 即使会话已到期，通过授权的令牌也可授予对组织的访问。 要删除访问权限，组织管理员可以手动从组织删除授权的令牌，或者通过 SCIM 自动执行删除。
 
-这些身份提供程序兼容组织的 {% data variables.product.product_name %} SCIM API。 更多信息请参阅 {% data variables.product.product_name %} API 文档中的 [SCIM](/v3/scim/)。
+这些身份提供程序兼容组织的 {% data variables.product.product_name %} SCIM API。 更多信息请参阅 {% data variables.product.product_name %} API 文档中的 [SCIM](/rest/reference/scim)。
 - Azure AD
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)”。
+{% data reusables.scim.enterprise-account-scim %}更多信息请参阅“[关于企业帐户中组织的用户配置](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)”。
 
 ### 延伸阅读
 

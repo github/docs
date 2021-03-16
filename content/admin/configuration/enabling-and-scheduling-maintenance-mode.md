@@ -1,6 +1,6 @@
 ---
 title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location_enterprise %} or restoring backups, require the instance to be taken offline for normal use.'
+intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,7 +16,7 @@ versions:
 
 ### About maintenance mode
 
-Some types of operations require that you take {% data variables.product.product_location_enterprise %} offline and put it into maintenance mode:
+Some types of operations require that you take {% data variables.product.product_location %} offline and put it into maintenance mode:
 - Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
 - Increasing CPU, memory, or storage resources allocated to the virtual machine
 - Migrating data from one virtual machine to another

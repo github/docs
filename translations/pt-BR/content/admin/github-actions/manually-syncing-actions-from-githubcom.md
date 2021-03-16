@@ -12,7 +12,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-Para tornar as ações específicas de {% data variables.product.prodname_dotcom_the_website %} disponíveis para uso em fluxos de trabalho, você pode usar a ferramenta de código aberto [`actions-sync`](https://github.com/actions/actions-sync) do {% data variables.product.company_short %} para sincronizar repositórios de ações de {% data variables.product.prodname_dotcom_the_website %} para a instância corporativa. Para outras formas de acessar as ações de {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre o uso de ações de {% data variables.product.prodname_dotcom_the_website %} no {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)".
+A abordagem recomendada de habilitar o acesso a ações a partir de {% data variables.product.prodname_dotcom_the_website %} é permitir o acesso automático para todas as ações. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.prodname_ghe_server %} a {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+No entanto, se você quer ter um controle mais rigoroso sobre quais as ações permitidas na sua empresa, você pode seguir esse guia para usar a ferramenta de código aberto de {% data variables.product.company_short %}de [`actions-sync`](https://github.com/actions/actions-sync) para sincronizar repositórios de ações individuais de {% data variables.product.prodname_dotcom_the_website %} com sua instância corporativa.
 
 ### Sobre a ferramenta `actions-sync`
 
@@ -24,7 +26,7 @@ A ferramenta `actions-sync` só pode fazer download de ações de {% data variab
 
 ### Pré-requisitos
 
-* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. Para obter mais informações, consulte "[Criar organizações](/enterprise/admin/user-management/creating-organizations)".
+* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino já existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. Para obter mais informações, consulte "[Criar uma nova organização do zero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)".
 * Você deve criar um token de acesso pessoal (PAT) na instância corporativa que pode criar e gravar em repositórios nas organizações de destino. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ### Exemplo: Usando a ferramenta de `actions-sync`
@@ -61,7 +63,7 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
      * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
 1. Depois que o repositório de ação é criada na instância corporativa, as pessoas da sua empresa podem usar o repositório de destino para fazer referência à ação nos fluxos de trabalho. Para o exemplo da ação mostrado acima:
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

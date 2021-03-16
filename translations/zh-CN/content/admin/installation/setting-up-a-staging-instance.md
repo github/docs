@@ -1,6 +1,6 @@
 ---
 title: 设置暂存实例
-intro: '您可以先使用*暂存实例*测试修改，然后再将修改应用到 {% data variables.product.product_location_enterprise %}。 例如，您可以使用暂存实例测试新的 {% data variables.product.prodname_ghe_server %} 更新或练习导入迁移数据。'
+intro: '您可以先使用*暂存实例*测试修改，然后再将修改应用到 {% data variables.product.product_location %}。 例如，您可以使用暂存实例测试新的 {% data variables.product.prodname_ghe_server %} 更新或练习导入迁移数据。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:
@@ -24,3 +24,9 @@ versions:
 1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 执行生产实例备份。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#about-github-enterprise-server-backup-utilities)”的“关于 {% data variables.product.prodname_enterprise_backup_utilities %} ”部分。
 2. 设置新实例作为暂存环境。 配置和安装暂存实例的方法与生产实例所用方法相同。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)”。
 3. 在暂存实例上还原备份。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)”的“还原备份”部分。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 延伸阅读
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

@@ -20,6 +20,8 @@ You can view and revoke each member's linked identity, active sessions, and auth
 
 {% data reusables.saml.about-linked-identities %}
 
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
+
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.people %}
@@ -55,4 +57,4 @@ You can view and revoke each member's linked identity, active sessions, and auth
 ### 더 읽을거리
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Viewing and managing a user's SAML access to your enterprise account](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+- "[Viewing and managing a user's SAML access to your enterprise account](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"

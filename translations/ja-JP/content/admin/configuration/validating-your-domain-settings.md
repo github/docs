@@ -1,6 +1,6 @@
 ---
 title: ドメイン設定の検証
-intro: '{% data variables.product.product_location_enterprise %}を最初に起動する前に、ドメイン設定が適切に行われていることを確認してください。'
+intro: '{% data variables.product.product_location %}を最初に起動する前に、ドメイン設定が適切に行われていることを確認してください。'
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings

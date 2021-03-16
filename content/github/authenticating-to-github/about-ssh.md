@@ -1,11 +1,12 @@
 ---
 title: About SSH
-intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username or password at each visit.'
+intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
 redirect_from:
   - /articles/about-ssh
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you set up SSH, you'll [generate an SSH key and add it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and then [add the key to your {% data variables.product.product_name %} account](/articles/adding-a-new-ssh-key-to-your-github-account). Adding the SSH key to the ssh-agent ensures that your SSH key has an extra layer of security through the use of a passphrase. For more information, see "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."

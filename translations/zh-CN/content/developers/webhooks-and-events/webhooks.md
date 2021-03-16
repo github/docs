@@ -1,9 +1,10 @@
 ---
 title: Web 挂钩
-intro: 'Learn to set up, test, and secure webhooks to integrate with {% data variables.product.prodname_dotcom %}.'
+intro: '了解如何设置、测试和保护与 {% data variables.product.prodname_dotcom %} 集成的 web 挂钩。'
 mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

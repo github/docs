@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コラボレーターは、あなたが所有しているプロジェクトボードにアクセスを許可されているユーザです。 コラボレーターの権限は、デフォルトでは読み取りアクセスになります。 詳細は「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards)」を参照してください。

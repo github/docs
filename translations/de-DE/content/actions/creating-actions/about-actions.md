@@ -10,6 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,8 +37,8 @@ Sie können Docker-Container- und JavaScript-Aktionen erstellen. Für Aktionen w
 | Typ                                  | Betriebssystem        |
 | ------------------------------------ | --------------------- |
 | Docker-Container                     | Linux                 |
-| JavaScript                           | Linux, MacOS, Windows |
-| Zusammengesetzte Ausführungsschritte | Linux, MacOS, Windows |
+| JavaScript                           | Linux, macOS, Windows |
+| Zusammengesetzte Ausführungsschritte | Linux, macOS, Windows |
 
 #### Docker-Containeraktionen
 
@@ -123,7 +127,7 @@ Schritte:
 
 #### Verwenden des SHA eines Commits für die Releaseverwaltung
 
-Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.
+Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}You must use a commit's full SHA value, and not an abbreviated value.{% else %}Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.{% endif %}
 
 ```yaml
 Schritte:

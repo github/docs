@@ -31,4 +31,4 @@ That said, if legal action is initiated by a third party, including law enforcem
 
 ### 3. Limited Waiver of Other Site Polices
 
-To the extent your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but are consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. Just like above, if in doubt, ask us first!
+To the extent that your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. Just like above, if in doubt, ask us first!

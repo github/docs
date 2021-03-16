@@ -28,6 +28,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 排查构建错误
@@ -35,7 +36,7 @@ versions:
 如果在本地或 {% data variables.product.product_name %} 上构建 {% data variables.product.prodname_pages %} 站点时发生 Jekyll 错误，您可以使用错误消息排查故障。 有关构建错误以及如何查看它们的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
 
 如果您收到一般错误消息，请检查常见问题。
-- 您使用的插件不受支持。 For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
+- 您使用的插件不受支持。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll#plugins)”。{% if currentVersion == "free-pro-team@latest" %}
 - 您的仓库已超过我们的仓库大小限制。 更多信息请参阅“[我的磁盘配额是多少？](/articles/what-is-my-disk-quota)”{% endif %}
 - 您更改了 *_config.yml* 文件中的 `source` 设置。 {% data variables.product.prodname_pages %} 在构建过程中会覆盖此设置。
 - 发布源中的文件名包含不受支持的冒号 (`:`)。
@@ -77,7 +78,7 @@ versions:
 此错误意味着您使用了非拉丁字符（如 `日本語`）但没有告诉计算机预期这些符号。
 
 要排除故障，请将以下行添加到 *_config.yml* 文件以实施 UTF-8 编码：
-```
+```yaml
 encoding: UTF-8
 ```
 
@@ -158,7 +159,7 @@ encoding: UTF-8
 
 此错误意味着您的站点包含站点发布源中不存在的符号链接。 有关符号链接的更多信息，请参阅维基百科上的“[符号链接](https://en.wikipedia.org/wiki/Symbolic_link)”。
 
-要排除故障，请确定错误消息中的文件是否用于构建站点。 如果否，或者您不希望文件成为符号链接，请删除该文件。 如果符号链接文件是构建站点的必需项，请确保符号链接引用的文件或目录存在于站点的发布源中。 To include external assets, consider using {% if currentVersion == "free-pro-team@latest" %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+要排除故障，请确定错误消息中的文件是否用于构建站点。 如果否，或者您不希望文件成为符号链接，请删除该文件。 如果符号链接文件是构建站点的必需项，请确保符号链接引用的文件或目录存在于站点的发布源中。 要包括外部资产，请考虑使用 {% if currentVersion == "free-pro-team@latest" %}`git submodule` 或{% endif %}第三方包管理器，例如 [Bower](https://bower.io/)。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[将子模块用于 {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)。”{% endif %}
 
 ### 'for' 循环中的语法错误
 

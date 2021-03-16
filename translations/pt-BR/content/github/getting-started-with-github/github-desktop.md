@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_desktop %} estende e simplifica seu G
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre o {% data variables.product.prodname_desktop %}

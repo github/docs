@@ -4,4 +4,4 @@
 | `changes`             | `对象`  | 对项目的更改，如果操作为 `edited`。                                                  |
 | `changes[name][from]` | `字符串` | 名称的先前版本（如果操作为 `edited`）。                                                |
 | `changes[body][from]` | `字符串` | 正文的先前版本，如果操作为 `edited`。                                                 |
-| `project`             | `对象`  | [项目](/v3/projects/)本身。                                                  |
+| `project`             | `对象`  | [项目](/rest/reference/projects)本身。                                       |

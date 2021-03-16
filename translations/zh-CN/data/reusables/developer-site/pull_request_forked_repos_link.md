@@ -10,4 +10,4 @@
 
 默认情况下，工作流程不在复刻仓库上运行。 您必须在复刻仓库的 **Actions（操作）**选项卡中启用 GitHub 操作。
 
-对复刻的仓库中 `GITHUB_TOKEN` 的权限为只读。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+{% data reusables.actions.forked-secrets %} 对复刻仓库中 `GITHUB_TOKEN` 的权限是只读的。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。

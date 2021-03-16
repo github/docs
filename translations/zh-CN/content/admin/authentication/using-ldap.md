@@ -35,7 +35,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 在 {% data variables.product.product_location_enterprise %} 上配置 LDAP
+### 在 {% data variables.product.product_location %} 上配置 LDAP
 
 在您配置 LDAP 后，用户将能够使用他们的 LDAP 凭据登录您的实例。 在用户首次登录时，他们个人资料中的姓名、电子邮件地址和 SSH 密钥将使用您的目录中的 LDAP 属性进行设置。
 
@@ -43,7 +43,7 @@ versions:
 
 {% warning %}
 
-**警告**：在 {% data variables.product.product_location_enterprise %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
+**警告**：在 {% data variables.product.product_location %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
 
 {% endwarning %}
 
@@ -55,11 +55,11 @@ versions:
 5. 添加您的配置设置。
 
 ### LDAP 属性
-使用以下属性完成 {% data variables.product.product_location_enterprise %} 的 LDAP 配置。
+使用以下属性完成 {% data variables.product.product_location %} 的 LDAP 配置。
 
 | 属性名称                                             | 类型 | 描述                                                                                                                                                                                                          |
 | ------------------------------------------------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location_enterprise %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                               |
+| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                                            |
 | `端口`                                             | 必选 | 主机的 LDAP 服务侦听的端口。 示例包括：389 和 636（适用于 LDAPS）。                                                                                                                                                                |
 | `Encryption`                                     | 必选 | 用于确保与 LDAP 服务器之间的通信安全的加密方法。 示例包括明文（无加密）、SSL/LDAPS（从一开始就加密）和 StartTLS（在连接后升级为加密通信）。                                                                                                                          |
 | `Domain search user`                             | 可选 | 执行用户查询，在其他用户登录时对其进行身份验证的 LDAP 用户。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，您还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。  |
@@ -190,7 +190,7 @@ versions:
 
 您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
 
-### 撤销 {% data variables.product.product_location_enterprise %} 的权限
+### 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 

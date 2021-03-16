@@ -7,6 +7,7 @@ permissions: 如对用户帐户拥有的复刻的上游仓库具有推送权限�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 只有拉取请求作者才可授权上游仓库维护员或对上游仓库具有推送权限的人员，允许他们提交到用户拥有的复刻中其拉取请求的比较分支。 要详细了解上游仓库，请参阅“[关于复刻](/articles/about-forks)”。

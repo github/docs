@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltest Du löschen, um möglichen Angreifern den Zugriff auf Deine Repositorys zu verwehren. Vorhandene SSH-Schlüssel, die gültig sind, kannst Du genehmigen.
@@ -28,7 +29,7 @@ Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltes
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -68,7 +69,7 @@ Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltes
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -106,7 +107,7 @@ Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltes
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

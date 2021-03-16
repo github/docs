@@ -12,14 +12,14 @@ redirect_from:
   - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
-intro: 'Im Rahmen eines Disaster Recovery-Plans können Sie die Produktionsdaten auf {% data variables.product.product_location_enterprise %} schützen, indem Sie automatisierte Backups konfigurieren.'
+intro: 'Im Rahmen eines Disaster Recovery-Plans können Sie die Produktionsdaten auf {% data variables.product.product_location %} schützen, indem Sie automatisierte Backups konfigurieren.'
 versions:
   enterprise-server: '*'
 ---
 
 ### Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}
 
-{% data variables.product.prodname_enterprise_backup_utilities %} ist ein Backup-System, das Sie auf einem separaten Host installieren, der in regelmäßigen Intervallen über eine sichere SSH-Netzwerkverbindung Backup-Snapshots von {% data variables.product.product_location_enterprise %} erstellt. Mit einem Snapshot können Sie eine vorhandene {% data variables.product.prodname_ghe_server %}-Instanz in einem vorherigen Zustand auf dem Backup-Host wiederherstellen.
+{% data variables.product.prodname_enterprise_backup_utilities %} ist ein Backup-System, das Sie auf einem separaten Host installieren, der in regelmäßigen Intervallen über eine sichere SSH-Netzwerkverbindung Backup-Snapshots von {% data variables.product.product_location %} erstellt. Mit einem Snapshot können Sie eine vorhandene {% data variables.product.prodname_ghe_server %}-Instanz in einem vorherigen Zustand auf dem Backup-Host wiederherstellen.
 
 Nur die seit dem letzten Snapshot hinzugefügten Daten werden über das Netzwerk übertragen und belegen zusätzlichen physischen Speicherplatz. Zum Minimieren der Auswirkung auf die Leistung werden Backups online unter der niedrigsten CPU-/E/A-Priorität durchgeführt. Zum Durchführen eines Backups muss kein Wartungsfenster geplant werden.
 
@@ -27,11 +27,11 @@ Ausführlichere Informationen zu Features, Anforderungen und zur erweiterten Nut
 
 ### Vorrausetzungen
 
-Sie müssen über ein von {% data variables.product.product_location_enterprise %} getrenntes Linux- oder Unix-Hostsystem verfügen, um {% data variables.product.prodname_enterprise_backup_utilities %} verwenden zu können.
+Sie müssen über ein von {% data variables.product.product_location %} getrenntes Linux- oder Unix-Hostsystem verfügen, um {% data variables.product.prodname_enterprise_backup_utilities %} verwenden zu können.
 
 Sie können {% data variables.product.prodname_enterprise_backup_utilities %} auch zur langfristigen dauerhaften Speicherung von kritischen Daten in eine vorhandene Umgebung integrieren.
 
-Es wird empfohlen, dass der Backup-Host und {% data variables.product.product_location_enterprise %} geografisch voneinander getrennt sind. Dadurch wird gewährleistet, dass Backups wiederhergestellt werden können, falls am Hauptstandort eine schwere Katastrophe oder ein Netzwerkausfall auftritt.
+Es wird empfohlen, dass der Backup-Host und {% data variables.product.product_location %} geografisch voneinander getrennt sind. Dadurch wird gewährleistet, dass Backups wiederhergestellt werden können, falls am Hauptstandort eine schwere Katastrophe oder ein Netzwerkausfall auftritt.
 
 Die Anforderungen an den physischen Speicher variieren basierend auf der Git-Repository-Festplattennutzung und den erwarteten Wachstumsmustern:
 
@@ -59,7 +59,7 @@ Entsprechend Ihrer Nutzung, beispielsweise in Bezug auf die Benutzeraktivität u
 3. Legen Sie den Wert `GHE_HOSTNAME` auf den Hostnamen oder die IP-Adresse Ihrer primären {% data variables.product.prodname_ghe_server %}-Instanz fest.
 4. Legen Sie den Wert `GHE_DATA_DIR` auf den Dateisystempfad fest, unter dem Sie Backup-Snapshots speichern möchten.
 5. Öffnen Sie unter `https://HOSTNAME/setup/settings` die Seite mit den Einstellungen Ihrer primären Instanz, und fügen Sie der Liste der autorisierten SSH-Schlüssel den SSH-Schlüssel des Backup-Hosts hinzu. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
-5. Führen Sie den Befehl `ghe-host-check` aus, um die SSH-Konnektivität mit {% data variables.product.product_location_enterprise %} zu verifizieren.
+5. Führen Sie den Befehl `ghe-host-check` aus, um die SSH-Konnektivität mit {% data variables.product.product_location %} zu verifizieren.
   ```shell
   $ bin/ghe-host-check        
   ```
@@ -78,9 +78,17 @@ Wenn sich Backup-Versuche überschneiden, wird der Befehl `ghe-backup` mit einer
 
 ### Backup wiederherstellen
 
-Im Falle eines längeren Ausfalls oder einer Katastrophe am Hauptstandort können Sie {% data variables.product.product_location_enterprise %} wiederherstellen. Stellen Sie dazu eine andere {% data variables.product.prodname_enterprise %}-Appliance bereit, und führen Sie auf dem Backup-Host eine Wiederherstellung aus. Sie müssen der Ziel-{% data variables.product.prodname_enterprise %}-Appliance den SSH-Schlüssel des Backup-Hosts als einen autorisierten SSH-Schlüssel hinzufügen, bevor Sie eine Appliance wiederherstellen.
+Im Falle eines längeren Ausfalls oder einer Katastrophe am Hauptstandort können Sie {% data variables.product.product_location %} wiederherstellen. Stellen Sie dazu eine andere {% data variables.product.prodname_enterprise %}-Appliance bereit, und führen Sie auf dem Backup-Host eine Wiederherstellung aus. Sie müssen der Ziel-{% data variables.product.prodname_enterprise %}-Appliance den SSH-Schlüssel des Backup-Hosts als einen autorisierten SSH-Schlüssel hinzufügen, bevor Sie eine Appliance wiederherstellen.
 
-Führen Sie den Befehl `ghe-restore` aus, um den letzten erfolgreichen {% data variables.product.product_location_enterprise %}-Snapshot wiederherzustellen. Es sollte in etwa folgende Ausgabe angezeigt werden:
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
+Führen Sie den Befehl `ghe-restore` aus, um den letzten erfolgreichen {% data variables.product.product_location %}-Snapshot wiederherzustellen. Es sollte in etwa folgende Ausgabe angezeigt werden:
 
 ```shell
 $ ghe-restore -c 169.154.1.1

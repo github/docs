@@ -35,7 +35,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### {% data variables.product.product_location_enterprise %}とのLDAPの設定
+### {% data variables.product.product_location %}とのLDAPの設定
 
 LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでインスタンスにサインインできるようになります。 ユーザが初めてサインインするときに、ディレクトリ内のLDAP属性を使ってプロフィール名、メールアドレス、SSHキーが設定されます。
 
@@ -43,7 +43,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 
 {% warning %}
 
-**警告：**{% data variables.product.product_location_enterprise %}でLDAPを設定する前に、利用するLDAPサービスがページ化された結果をサポートしていることを確認してください。
+**警告：**{% data variables.product.product_location %}でLDAPを設定する前に、利用するLDAPサービスがページ化された結果をサポートしていることを確認してください。
 
 {% endwarning %}
 
@@ -55,11 +55,11 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 5. 設定を追加してください。
 
 ### LDAPの属性
-{% data variables.product.product_location_enterprise %}のlDAPの設定を完了させるために、以下の属性を使ってください。
+{% data variables.product.product_location %}のlDAPの設定を完了させるために、以下の属性を使ってください。
 
 | 属性名                                              | 種類 | 説明                                                                                                                                                                                                                                                           |
 | ------------------------------------------------ | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Host`                                           | 必須 | LDAP のホスト。例: `ldap.example.com` あるいは `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できないなら、まず{% data variables.product.product_location_enterprise %}のDNSを設定してホスト名を内部のネームサーバを使って解決できるようにする必要があるかもしれません。                                                                   |
+| `Host`                                           | 必須 | LDAP のホスト。例: `ldap.example.com` あるいは `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できないなら、まず{% data variables.product.product_location %}のDNSを設定してホスト名を内部のネームサーバを使って解決できるようにする必要があるかもしれません。                                                                                |
 | `ポート`                                            | 必須 | ホストの LDAP サービスが待ち受けるポート。 例：389及び636（LDAPS用）。                                                                                                                                                                                                                 |
 | `Encryption`                                     | 必須 | LDAP サーバーとの通信をセキュアにするために使われる暗号化の方法。 例：plain（暗号化なし）、SSL/LDAPS（最初からの暗号化）、StartTLS（接続後に暗号化通信にアップグレード）。                                                                                                                                                          |
 | `Domain search user`                             | 任意 | ユーザのサインインの際に認証のためにユーザのルックアップを行う LDAP ユーザ。 これは通常、サードパーティとのインテグレーションのために特に作成されるサービスアカウントです。 `cn=Administrator,cn=Users,dc=Example,dc=com`のような完全修飾名を使ってください。 Active Directoryでは、ドメイン検索ユーザとして `[DOMAIN]\[USERNAME]`という構文（例：`WINDOWS\Administrator`）を使うこともできます。 |
@@ -190,7 +190,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 
 [API を使用して手動同期をトリガー](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)することもできます。
 
-### {% data variables.product.product_location_enterprise %}へのアクセスの削除
+### {% data variables.product.product_location %}へのアクセスの削除
 
 [LDAP Sync が有効化](#enabling-ldap-sync)されているなら、ユーザの LDAP のクレデンシャルを削除すれば、次の同期が行われた後にそのユーザのアカウントはサスペンドされます。
 

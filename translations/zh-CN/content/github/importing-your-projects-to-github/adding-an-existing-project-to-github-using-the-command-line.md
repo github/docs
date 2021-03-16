@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -21,7 +22,7 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -44,7 +45,7 @@ versions:
 7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在终端上，[添加远程仓库的 URL](/articles/adding-a-remote)（将在该 URL 推送本地仓库）。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -59,7 +60,7 @@ versions:
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -82,7 +83,7 @@ versions:
 7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在命令提示中，[添加远程仓库的 URL](/articles/adding-a-remote)（将在该 URL 推送本地仓库）。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -97,7 +98,7 @@ versions:
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. [创建新仓库](/articles/creating-a-new-repository)
 
 {% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
     ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
@@ -120,7 +121,7 @@ versions:
 7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在终端上，[添加远程仓库的 URL](/articles/adding-a-remote)（将在该 URL 推送本地仓库）。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL

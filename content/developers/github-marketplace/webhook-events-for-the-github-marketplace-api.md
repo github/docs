@@ -1,6 +1,6 @@
 ---
 title: Webhook events for the GitHub Marketplace API
-intro: 'A {% data variables.product.prodname_marketplace %} app receives information about changes to a user''s plan from the Marketplace purchase event webhook. A Marketplace purchase event is triggered when a user purchases, cancels, or changes their payment plan. For details on how to respond to each of these types of events, see "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)."'
+intro: 'A {% data variables.product.prodname_marketplace %} app receives information about changes to a user''s plan from the Marketplace purchase event webhook. A Marketplace purchase event is triggered when a user purchases, cancels, or changes their payment plan.'
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
@@ -33,7 +33,7 @@ The `marketplace_purchase` object has the following keys:
 
 Key | Type | Description
 ----|------|-------------
-`account` | `object` | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/v3/users/#get-the-authenticated-user) endpoint.
+`account` | `object` | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/rest/reference/users#get-the-authenticated-user) endpoint.
 `billing_cycle` | `string` | Can be `yearly` or `monthly`. When the `account` owner has a free GitHub plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `billing_cycle` will be `nil`.
 `unit_count`  | `integer` | Number of units purchased.
 `on_free_trial` | `boolean` | `true` when the `account` is on a free trial.

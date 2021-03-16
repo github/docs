@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git filter-branch` 命令和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
@@ -27,7 +28,7 @@ versions:
 
 #### 使用 BFG
 
-[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -39,7 +40,13 @@ $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 $ bfg --replace-text passwords.txt
 ```
 
-有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 的文档。
+删除敏感数据后，必须强制将更改推送到 {% data variables.product.product_name %}。
+
+```shell
+$ git push --force
+```
+
+有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 的文档。
 
 #### 使用 filter-branch
 
@@ -145,5 +152,5 @@ $ bfg --replace-text passwords.txt
 
 ### 延伸阅读
 
-- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` 手册页](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git 工具 - 重写历史记录](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

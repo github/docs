@@ -10,9 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if enterpriseServerVersions contains currentVersion %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% data reusables.notifications.outbound_email_tip %}
 
 Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. Na notificação de e-mail, você verá:
 
@@ -24,7 +25,7 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 - Os arquivos que foram alterados como parte do commit
 - A mensagem do commit;
 
-É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)". Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
+É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)". Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
 [Escolher o método de entrega das suas notificações](/enterprise/{{ page.version }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}".</p> 
 
 
@@ -43,15 +44,15 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 
 5. Digite até dois endereços de e-mail, separados por um espaço, para os quais deseja enviar as notificações. Se desejar enviar e-mails a mais de duas contas, defina um dos endereços para um endereço de e-mail de grupo. ![Caixa de texto de endereço de e-mail](/assets/images/help/settings/email_services_addresses.png)
 
-6. Se você é quem opera o seu próprio servidor, será possível verificar a integridade dos e-mails por meio do token **Secret**. Esse token é enviado com o e-mail como o header `Approved`. Se o header `Approved` corresponder ao token enviado, você poderá confiar que esse e-mail é do {% data variables.product.product_name %}. ![Caixa de texto do segredo do e-mail](/assets/images/help/settings/email_services_token.png)
+1. Se você operar o seu próprio servidor, você poderá verificar a integridade dos e-mails através do **Cabeçalho aprovado**. O **Cabeçalho aprovado** é um token ou segredo que você digita nesse campo e enviado com o e-mail. Se o cabeçalho `Aprovado` de um e-mail corresponder ao token, você poderá confiar que o e-mail é de {% data variables.product.product_name %}. ![Caixa de texto do cabeçalho do e-mail aprovado](/assets/images/help/settings/email_services_approved_header.png)
 
-7. Clique em **Save settings** (Salvar configurações). ![Botão Save settings (Salvar configurações)](/assets/images/help/settings/save_notification_settings.png)
+7. Clique em **Configurar notificações**. ![Botão para configurar notificações](/assets/images/help/settings/setup_notifications_settings.png)
 
 
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" 
   

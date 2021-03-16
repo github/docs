@@ -3,7 +3,7 @@ title: Configurar o fluxo de trabalho do CodeQL para linguagens compiladas
 shortTitle: Configurar para linguagens compiladas
 intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.product.prodname_codeql_workflow %} para varrer o código escrito em linguagens compiladas para obter vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_code_scanning %} para o repositório.'
+permissions: 'Caso tenha permissões de gravação em um repositório, você poderá configurar {% data variables.product.prodname_code_scanning %} para esse repositório.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -17,7 +17,7 @@ versions:
 
 ### Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
 
-Para habilitar o {% data variables.product.prodname_code_scanning %} para seu repositório, você deve adicionar ao repositório um fluxo de trabalho do {% data variables.product.prodname_actions %} que inclui análise do {% data variables.product.prodname_codeql %}. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning).
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %}
 Para informações gerais sobre configuração

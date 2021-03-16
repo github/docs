@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中嵌入项目
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: '您可以将 Gist 和仓库置顶在个人资料中，使其他人可以很快看到您的得意之作。'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

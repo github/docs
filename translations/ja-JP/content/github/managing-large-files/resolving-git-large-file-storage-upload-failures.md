@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} の整合性チェックでは、プッシュで参照されたすべての {% data variables.large_files.product_name_short %} ファイルが正しくアップロードされていることを確認します。 そのチェックによりアップロードされていない参照ファイルが検出されると、エラー メッセージが表示されてプッシュはブロックされます。

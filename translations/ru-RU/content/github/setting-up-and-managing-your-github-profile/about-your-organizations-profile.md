@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories to the top of the page.

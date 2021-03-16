@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Die hierbei generierte URL kannst Du anderen Benutzern senden, damit diese die gleiche Filteransicht aufrufen können.

@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
+ 
 
 
 在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 为了与 {% data variables.product.product_name %} API 进行交互，我们将使用卓越的 Ruby 库 [Octokit][Octokit]。
@@ -332,7 +333,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

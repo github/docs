@@ -6,5 +6,6 @@ redirect_from:
   - /enterprise/admin/user-management/monitoring-activity-in-your-enterprise
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

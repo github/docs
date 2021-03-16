@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization の説明、場所、Web サイト、メールアドレスをオプションで追加することや、重要なリポジトリをページの上部にピン止めすることもできます。

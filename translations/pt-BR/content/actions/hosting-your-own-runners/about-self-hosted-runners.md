@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -62,7 +63,7 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 {% data reusables.github-actions.usage-api-requests %}
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Sistemas operacionais compatíveis com executores auto-hospedados
+### Supported architectures and operating systems for self-hosted runners
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
 
@@ -87,9 +88,17 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
+
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -111,9 +120,11 @@ Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
+codeload.github.com
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

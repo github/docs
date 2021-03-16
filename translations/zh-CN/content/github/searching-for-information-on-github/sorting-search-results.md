@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 使用 Sort（排序）菜单可按相关性、星号数量、复刻数量以及项目最近更新时间来排序结果。

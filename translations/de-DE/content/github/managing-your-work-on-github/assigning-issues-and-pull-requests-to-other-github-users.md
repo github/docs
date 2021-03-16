@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jeder, der über Schreibberechtigungen für ein Repository verfügt, kann Issues und Pull Requests zuweisen.

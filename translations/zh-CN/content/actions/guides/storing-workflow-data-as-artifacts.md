@@ -11,6 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - 工作流程
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -78,7 +81,7 @@ versions:
 
 工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 它还会上传 `code-coverage.html` 报告作为另一个构件。
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -108,14 +111,12 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-![工作流程上传构件工作流程运行的图像](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### 配置自定义构件保留期
 
 您可以为工作流程创建的单个构件自定义保留期。 使用工作流程创建新构件时，可以同时使用 `retention-days` with the `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的构件设置 5 天的自定义保留期：
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -131,7 +132,7 @@ jobs:
 
 在工作流程运行期间，您可以使用 [`download-artifact`](https://github.com/actions/download-artifact) 操作下载以前在同一工作流程运行中上传的构件。
 
-工作流程运行完成后，您可以在 {% data variables.product.prodname_dotcom %} 上或使用 REST API 下载或删除构件。 更多信息请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”、“[删除工作流程构件](/actions/managing-workflow-runs/removing-workflow-artifacts)”和“[构件 REST API](/v3/actions/artifacts/)”。
+工作流程运行完成后，您可以在 {% data variables.product.prodname_dotcom %} 上或使用 REST API 下载或删除构件。 更多信息请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”、“[删除工作流程构件](/actions/managing-workflow-runs/removing-workflow-artifacts)”和“[构件 REST API](/rest/reference/actions#artifacts)”。
 
 #### 在工作流程运行期间下载构件
 
@@ -171,12 +172,12 @@ jobs:
 
 作业1执行以下步骤：
 - 执行数学计算并将结果保存到名为 `math-home-work.txt` 的文本文件。
-- 使用 `upload-artifact` 操作上传名为 `homework` 的 `math-homework.txt` 文件。 该操作将文件置于一个名为 `homework` 的目录中。
+- 使用 `upload-artifact` 操作上传构件名称为 `homework` 的 `math-homework.txt` 文件。
 
 作业 2 使用上一个作业的结果：
 - 下载上一个作业中上传的 `homework` 构件。 默认情况下， `download-artifact` 操作会将构件下载到该步骤执行的工作区目录中。 您可以使用 `path` 输入参数指定不同的下载目录。
-- 读取 `homework/math-homework.txt` 文件中的值，进行数学计算，并将结果保存到 `math-homework.txt`。
-- 更新 `math-homework.txt` 文件。 此上传会覆盖之前的上传，因为两次上传共用同一名称。
+- 读取 `math-homework.txt` 文件中的值，进行数学计算，并将结果再次保存到 `math-homework.txt`，覆盖其内容。
+- 更新 `math-homework.txt` 文件。 此上传会覆盖之前上传的构件，因为它们共用同一名称。
 
 作业 3 显示上一个作业中上传的结果：
 - 下载 `homework` 构件。
@@ -184,7 +185,7 @@ jobs:
 
 此工作流程示例中执行的完整数学运算为 `(3 + 7) x 9 = 90`。
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
@@ -238,7 +239,12 @@ jobs:
           echo The result is $value
 ```
 
+工作流程运行运行将会存档它生成的任何构件。 有关下载存档的构件的更多信息，请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

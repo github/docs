@@ -21,7 +21,7 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Habilitar o suporte de protocolo PROXY na {% data variables.product.product_location_enterprise %}
+#### Habilitar o suporte de protocolo PROXY na {% data variables.product.product_location %}
 
 É altamente recomendável ativar o suporte de protocolo PROXY para o appliance e o balanceador de carga. Use as instruções do fornecedor para habilitar o protocolo PROXY no balanceador de carga. Para obter mais informações, consulte a [documentação do protocolo PROXY](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt).
 
@@ -33,7 +33,7 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Habilitar o suporte X-Forwarded-For na {% data variables.product.product_location_enterprise %}
+#### Habilitar o suporte X-Forwarded-For na {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 

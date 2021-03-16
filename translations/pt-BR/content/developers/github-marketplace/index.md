@@ -9,10 +9,15 @@ versions:
   free-pro-team: '*'
 ---
 
-{% topic_link_in_list /creating-apps-for-github-marketplace %}
+{% topic_link_in_list /github-marketplace-overview %}
     {% link_in_list /about-github-marketplace %}
+    {% link_in_list /about-marketplace-badges %}
+    {% link_in_list /applying-for-publisher-verification-for-your-organization %}
+
+{% topic_link_in_list /creating-apps-for-github-marketplace %}
     {% link_in_list /requirements-for-listing-an-app %}
-    {% link_in_list /security-review-process-for-submitted-apps %}
+    {% link_in_list /security-best-practices-for-apps %}
+    {% link_in_list /customer-experience-best-practices-for-apps %}
     {% link_in_list /viewing-metrics-for-your-listing %}
     {% link_in_list /viewing-transactions-for-your-listing %}
 {% topic_link_in_list /using-the-github-marketplace-api-in-your-app %}
@@ -27,7 +32,7 @@ versions:
     {% link_in_list /writing-a-listing-description-for-your-app %}
     {% link_in_list /setting-pricing-plans-for-your-listing %}
     {% link_in_list /configuring-a-webhook-to-notify-you-of-plan-changes %}
-    {% link_in_list /submitting-your-listing-for-review %}
+    {% link_in_list /submitting-your-listing-for-publication %}
 {% topic_link_in_list /selling-your-app-on-github-marketplace %}
     {% link_in_list /pricing-plans-for-github-marketplace-apps %}
     {% link_in_list /billing-customers %}

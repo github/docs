@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### 注释正文属性
 
-注释正文可采用 [GitHub Flavored Markdown][gfm] 编写，[议题](/v3/issues/)、[议题注释](/v3/issues/comments/)、[拉取请求注释](/v3/pulls/comments/)和 [gist 注释](/v3/gists/comments/) API 都接受以下媒体类型：
+注释正文可采用 [GitHub Flavored Markdown][gfm] 编写，[议题](/rest/reference/issues)、[议题注释](/rest/reference/issues#comments)、[拉取请求注释](/rest/reference/pulls#comments)和 [gist 注释](/rest/reference/gists#comments) API 都接受以下媒体类型：
 
 #### Raw
 
@@ -84,7 +85,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Git blob 属性
 
-[获取 Blob](/v3/git/blobs/#get-a-blob) 时允许使用以下媒体类型：
+[获取 Blob](/rest/reference/git#get-a-blob) 时允许使用以下媒体类型：
 
 #### JSON
 
@@ -101,7 +102,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### 提交、提交比较和拉取请求
 
-[提交 API](/v3/repos/commits/) 和[拉取请求 API](/v3/pulls/) 支持 [diff][git-diff] 和 [patch][git-patch] 格式：
+[提交 API](/rest/reference/repos#commits) 和[拉取请求 API](/rest/reference/pulls) 支持 [diff][git-diff] 和 [patch][git-patch] 格式：
 
 #### 差异
 
@@ -146,4 +147,4 @@ Gist 内容在发送前经过 base64 编码。 这在 gist 包含任何无效的
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis

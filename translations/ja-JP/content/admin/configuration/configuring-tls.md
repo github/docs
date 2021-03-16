@@ -1,6 +1,6 @@
 ---
 title: TLSの設定
-intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location_enterprise %} で Transport Layer Security (TLS) を設定できます。'
+intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location %} で Transport Layer Security (TLS) を設定できます。'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -51,9 +51,9 @@ Let's Encryptは公開の証明書認証者で、ACMEプロトコルを使って
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{% data variables.product.product_location_enterprise %}はLet's Encryptのサーバに接続して証明書を取得します。 証明書を更新するには、Let's EncryptのサーバはインバウンドのHTTPリクエストで設定されたドメイン名の制御を検証しなければなりません。
+Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{% data variables.product.product_location %}はLet's Encryptのサーバに接続して証明書を取得します。 証明書を更新するには、Let's EncryptのサーバはインバウンドのHTTPリクエストで設定されたドメイン名の制御を検証しなければなりません。
 
-また、{% data variables.product.product_location_enterprise %}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
+また、{% data variables.product.product_location %}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
 
 ### Let's Encryptを使ったTLSの設定
 

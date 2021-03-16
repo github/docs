@@ -24,7 +24,7 @@ Du kannst die Teamsynchronisierung zwischen Deinem IdP und {% data variables.pro
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Du kannst die Teamsynchronisierung auch für Organisationen im Besitz eines Enterprise-Kontos aktivieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto durchsetzen](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)."
+Du kannst die Teamsynchronisierung auch für Organisationen im Besitz eines Enterprise-Kontos aktivieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
 
 ### Teamsynchronisierung aktivieren
 

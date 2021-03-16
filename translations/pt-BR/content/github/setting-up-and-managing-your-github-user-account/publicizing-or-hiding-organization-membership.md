@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Caixa perfil da organização](/assets/images/help/profile/profile_orgs_box.png)

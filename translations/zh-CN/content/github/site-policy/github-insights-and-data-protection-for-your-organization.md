@@ -4,9 +4,11 @@ intro: '{% data variables.product.prodname_insights %} 会分析您的 {% data v
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
 ---
 
 有关 {% data variables.product.prodname_insights %} 管制条款的更多信息，请参阅您的 {% data variables.product.prodname_ghe_one %} 订阅协议。

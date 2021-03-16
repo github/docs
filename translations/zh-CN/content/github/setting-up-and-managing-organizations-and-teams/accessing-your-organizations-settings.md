@@ -12,6 +12,7 @@ intro: '组织帐户设置页面提供几种管理帐户的方式，如帐单、
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -20,10 +20,11 @@ Anyone with admin permissions to a repository can create a security advisory.
 4. Click **New draft security advisory**.
   ![Open draft advisory button](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. Type a title for your security advisory.
-  ![Title field](/assets/images/help/security/security-advisory-title.png)
 {% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-severity %}
+{% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
-8. Click **Create security advisory**.
+11. Click **Create draft security advisory**.
   ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### Next steps

@@ -86,7 +86,7 @@ Diese Vereinbarung ist eine rechtliche Vereinbarung zwischen Ihnen ("Sie") und G
 
 13. **Eigentumsrechte**
 
-  Sie erklären sich damit einverstanden, dass GitHub und seine Lizenzgeber alle Rechte, Titel und Anteile an des API, den Pre-Release-Materialien und allen anderen GitHub-Produkten und Diensten, alle Informationen und Daten in Bezug auf ihre Konfigurationen und Kombinationen sowie alle Änderungen an und Bearbeitungen von den vorgenannten Produkten und Diensten besitzen. Sie dürfen keine Urheberrechts- oder andere Eigentumsrechtshinweise, die wir auf dem API, Pre-Release-Materialien oder anderen Produkten und Diensten von GitHub setzen oder integrieren, entfernen, verändern, verdecken oder verschleiern.
+  Sie erklären sich damit einverstanden, dass GitHub und seine Lizenzgeber alle Rechte, Titel und Anteile an des API, den Pre-Release-Materialien und allen anderen GitHub-Produkten und Diensten, alle Informationen und Daten in Bezug auf ihre Konfigurationen und Kombinationen sowie alle Änderungen an und Bearbeitungen von den vorgenannten Produkten und Diensten besitzen. You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
 
 14. **Benutzer von Regierungsbehörden**
 

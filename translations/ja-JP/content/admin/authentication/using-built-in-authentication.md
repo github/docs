@@ -1,6 +1,6 @@
 ---
 title: ビルトイン認証の利用
-intro: 'デフォルトの認証方式を使用する場合、すべての認証の詳細は {% data variables.product.product_location_enterprise %} に保存されます。 LDAP、SAML、CASのような確立された認証プロバイダをすでに持っているのでなければ、ビルトイン認証がデフォルトの方式になります。'
+intro: 'デフォルトの認証方式を使用する場合、すべての認証の詳細は {% data variables.product.product_location %} に保存されます。 LDAP、SAML、CASのような確立された認証プロバイダをすでに持っているのでなければ、ビルトイン認証がデフォルトの方式になります。'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication

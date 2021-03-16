@@ -1,6 +1,6 @@
 ---
 title: 应用
-intro: You can automate and streamline your workflow by building your own apps.
+intro: 您可以通过构建自己的应用程序来自动化和简化工作流程。
 redirect_from:
   - /early-access/integrations/
   - /early-access/integrations/authentication/
@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}

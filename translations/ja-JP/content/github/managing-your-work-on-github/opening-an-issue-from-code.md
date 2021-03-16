@@ -1,18 +1,20 @@
 ---
 title: コードから Issue を開く
 intro: コードの特定の行または複数の行から、ファイルまたはプルリクエストで Issue を開くことができます。
+permissions: '読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コードから Issue を開くと、Issue には選択した行またはコードの範囲を示すスニペットが含まれています。 Issue を開くことができるのは、コードを保存したのと同じリポジトリでだけです。
 
 ![コードから開いた Issue で表示されるコードスニペット](/assets/images/help/repository/issue-opened-from-code.png)
 
-{% data reusables.repositories.create-issue-in-public-repository %}
+{% data reusables.repositories.administrators-can-disable-issues %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Issue で参照したいコードを探します。

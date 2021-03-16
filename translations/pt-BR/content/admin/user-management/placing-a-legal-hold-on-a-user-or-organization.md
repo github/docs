@@ -1,10 +1,11 @@
 ---
 title: Impor retenção legal a usuários ou organizações
-intro: 'É possível impor uma retenção legal a um usuário ou organização para garantir que seus respectivos repositórios não sejam removidos permanentemente da {% data variables.product.product_location_enterprise %}.'
+intro: 'Você pode colocar uma retenção legal em um usuário ou organização para garantir que os repositórios que ele possui não possam ser removidos permanentemente da sua empresa.'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Geralmente, quando alguém exclui um repositório, ele continua disponível em disco por 90 dias e pode ser restaurado pelo painel de administração do site. Após esse período, o repositório é removido e excluído permanentemente. Ao impor uma retenção legal a um usuário ou organização, os repositórios desse usuário ou organização ficarão disponíveis para restauração por tempo indefinido.

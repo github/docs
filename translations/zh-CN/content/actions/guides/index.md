@@ -17,44 +17,72 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+learningTracks:
+  - getting_started
+  - continuous_integration
+  - continuous_deployment
+  - deploy_to_the_cloud
+  - hosting_your_own_runners
+  - create_actions
+layout: product-sublanding
+includeGuides:
+  - /actions/quickstart
+  - /actions/learn-github-actions/introduction-to-github-actions
+  - /actions/creating-actions/creating-a-docker-container-action
+  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+  - /actions/guides/building-and-testing-python
+  - /actions/guides/building-and-testing-nodejs
+  - /actions/guides/about-packaging-with-github-actions
+  - /actions/guides/publishing-docker-images
+  - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/guides/about-continuous-integration
+  - /actions/guides/building-and-testing-powershell
+  - /actions/guides/building-and-testing-ruby
+  - /actions/guides/building-and-testing-java-with-maven
+  - /actions/guides/building-and-testing-java-with-gradle
+  - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guides/publishing-nodejs-packages
+  - /actions/guides/publishing-java-packages-with-maven
+  - /actions/guides/publishing-java-packages-with-gradle
+  - /actions/guides/storing-workflow-data-as-artifacts
+  - /actions/guides/about-service-containers
+  - /actions/guides/creating-redis-service-containers
+  - /actions/guides/creating-postgresql-service-containers
+  - /actions/guides/deploying-to-amazon-elastic-container-service
+  - /actions/guides/deploying-to-azure-app-service
+  - /actions/guides/deploying-to-google-kubernetes-engine
+  - /actions/learn-github-actions/essential-features-of-github-actions
+  - /actions/learn-github-actions/security-hardening-for-github-actions
+  - /actions/creating-actions/about-actions
+  - /actions/creating-actions/creating-a-javascript-action
+  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/learn-github-actions/migrating-from-jenkins-to-github-actions
+  - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 ---
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-### 创建自定义持续集成工作流程
-
-您可以使用 {% data variables.product.prodname_actions %} 来创建自定义的持续集成 (CI) 工作流程，以构建并测试以不同编程语言编写的项目。
-
-{% link_in_list /about-continuous-integration %}
-{% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
-{% link_in_list /building-and-testing-nodejs %}
-{% link_in_list /building-and-testing-python %}
-{% link_in_list /building-and-testing-java-with-maven %}
-{% link_in_list /building-and-testing-java-with-gradle %}
-{% link_in_list /building-and-testing-java-with-ant %}
-
-### 发布软件包
-
-您可以自动发布软件包，作为持续交付 (CD) 工作流程的一部分。 软件包可以发布到任何软件包主机以及 {% data reusables.gated-features.packages %}。
-
-{% link_in_list /about-packaging-with-github-actions %}
-{% link_in_list /publishing-nodejs-packages %}
-{% link_in_list /publishing-java-packages-with-maven %}
-{% link_in_list /publishing-java-packages-with-gradle %}
-{% link_in_list /publishing-docker-images %}
-
-### 缓存和存储工作流程数据
-
-缓存依赖项和存储构件以提高工作流程运行效率。
-
-{% link_in_list /storing-workflow-data-as-artifacts %}
-{% link_in_list /caching-dependencies-to-speed-up-workflows %}
-
-### 在工作流程中使用服务容器
-
-使用服务容器将服务连接到您的工作流程。
-
-{% link_in_list /about-service-containers %}
-{% link_in_list /creating-redis-service-containers %}
-{% link_in_list /creating-postgresql-service-containers %}
+<!-- {% link_in_list /about-continuous-integration %} -->
+<!-- {% link_in_list /setting-up-continuous-integration-using-workflow-templates %} -->
+<!-- {% link_in_list /building-and-testing-nodejs %} -->
+<!-- {% link_in_list /building-and-testing-net %} -->
+<!-- {% link_in_list /building-and-testing-powershell %} -->
+<!-- {% link_in_list /building-and-testing-python %} -->
+<!-- {% link_in_list /building-and-testing-ruby %} -->
+<!-- {% link_in_list /building-and-testing-java-with-maven %} -->
+<!-- {% link_in_list /building-and-testing-java-with-gradle %} -->
+<!-- {% link_in_list /building-and-testing-java-with-ant %} -->
+<!-- {% link_in_list /about-packaging-with-github-actions %} -->
+<!-- {% link_in_list /publishing-nodejs-packages %} -->
+<!-- {% link_in_list /publishing-java-packages-with-maven %} -->
+<!-- {% link_in_list /publishing-java-packages-with-gradle %} -->
+<!-- {% link_in_list /publishing-docker-images %} -->
+<!-- {% link_in_list /storing-workflow-data-as-artifacts %} -->
+<!-- {% link_in_list /caching-dependencies-to-speed-up-workflows %} -->
+<!-- {% link_in_list /about-service-containers %} -->
+<!-- {% link_in_list /creating-redis-service-containers %} -->
+<!-- {% link_in_list /creating-postgresql-service-containers %} -->
+<!-- {% link_in_list /deploying-to-amazon-elastic-container-service %} -->
+<!-- {% link_in_list /deploying-to-azure-app-service %} -->
+<!-- {% link_in_list /deploying-to-google-kubernetes-engine %} -->

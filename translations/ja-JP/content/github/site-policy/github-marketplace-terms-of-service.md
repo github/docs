@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
 ---
 
-GitHub Marketplace (「Marketplace」) へようこそ！ また、こちらのページをご覧いただきありがとうございます。 GitHub Marketplaceにアクセスしたり、利用したりする前に、この利用規約 (「Marketplace利用規約」) をよくお読みください。 GitHub Marketplaceは、GitHub.comアカウントで利用できる「開発者製品」を無料で入手または有料で購入できるプラットフォームです。 Although sold by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers, and may require you to agree to a separate terms of service. 「開発者製品」の購入や利用には、本「Marketplace利用規約」が適用され、該当する料金が課されます。また、「開発者製品」のサードパーティーライセンサー（「製品提供者」）による利用規約が追加で適用される場合もあります。
+GitHub Marketplace (「Marketplace」) へようこそ！ また、こちらのページをご覧いただきありがとうございます。 GitHub Marketplaceにアクセスしたり、利用したりする前に、この利用規約 (「Marketplace利用規約」) をよくお読みください。 GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").
 
 「Marketplace」を利用することにより、お客様は本「Marketplace利用規約」に従うことに同意するものとします。
 
-発効日: 2017年10月11日
+Effective Date: November 20, 2020
 
 ### A. GitHub.com利用規約
 
@@ -40,11 +40,11 @@ GitHub Marketplace (「Marketplace」) へようこそ！ また、こちらの�
 
 ### E. お客様のデータとGitHubのプライバシーポリシー
 
-**プライバシー。**「開発者製品」を購入またはサブスクライブする際、「開発者製品」をお客様に提供するため、お客様のプライバシー設定に関わらず、GitHubは(「[GitHub のプライバシーについての声明](/articles/github-privacy-statement/)」の定義による) お客様の特定の「個人情報」を「製品提供者」に対して共有する必要があります。 GitHub は、お客様が選択した「開発者製品」の要件に応じて、ユーザアカウント名、ID、プライマリメールアドレスといった最低限の情報から、プライベートデータの読み取りや変更を含む、リポジトリ内のコンテンツに対するアクセスなどに至るまで共有することができます。 お客様は OAuth を通じて権限を付与する際に、「開発者製品」が要求する権限のスコープを確認し、承認または拒否できます。 [GitHub のプライバシーについての声明](/articles/github-privacy-statement/)に従い、「製品提供者」には取引のために必要な最小限の情報のみを提供します。
+**Privacy.** When you select or use a Developer Product, GitHub may share certain Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement/)) with the Product Provider (if any such Personal Information is received from you) in order to provide you with the Developer Product, regardless of your privacy settings. GitHub は、お客様が選択した「開発者製品」の要件に応じて、ユーザアカウント名、ID、プライマリメールアドレスといった最低限の情報から、プライベートデータの読み取りや変更を含む、リポジトリ内のコンテンツに対するアクセスなどに至るまで共有することができます。 お客様は OAuth を通じて権限を付与する際に、「開発者製品」が要求する権限のスコープを確認し、承認または拒否できます。
 
-「開発者製品」のサービスをキャンセルし、アカウント設定を通じてアクセスを取り消すと、「製品提供者」はお客様のアカウントにアクセスできなくなります。 「製品提供者」は、定められた期間内にシステムからお客様の「個人情報」を削除する責任を負います。 お客様のアカウントが正しく解約されたことを確認するため、「製品提供者」にご連絡ください。
+If you cease using the Developer Product and revoke access through your account settings, the Product Provider will no longer be able to access your account. 「製品提供者」は、定められた期間内にシステムからお客様の「個人情報」を削除する責任を負います。 お客様のアカウントが正しく解約されたことを確認するため、「製品提供者」にご連絡ください。
 
-**データ セキュリティの免責事項。**「開発者製品」を購入またはサブスクライブする際、該当「開発者製品」のセキュリティおよびお客様のデータに関する管理については、その責任を「製品提供者」が負います。 お客様のセキュリティ、リスク、および法令遵守のため、「開発者製品」の購入および利用に際して、お客様はセキュリティの留意事項を理解する責任を負います。
+**Data Security and Privacy Disclaimer.** When you select or use a Developer Product, the security of the Developer Product and the custodianship of your data, including your Personal Information (if any), is the responsibility of the Product Provider. You are responsible for understanding the security and privacy considerations of the selection or use of the Developer Product for your own security and privacy risk and compliance considerations.
 
 ### F. 開発者製品に対する権利
 

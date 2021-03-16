@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Abfrage nach Werten mit einem Vergleichsoperator
@@ -80,7 +81,7 @@ Wenn Deine Suchabfrage Leerzeichen enthält, musst du die gesuchte Zeichenfolge 
 
 Bei Suchabfragen innerhalb von Code werden einige nicht alphanumerische Zeichen, so auch Leerzeichen, ignoriert, selbst wenn der Suchstring in Anführungszeichen steht. Dies führt oft nicht zum erwünschten Ergebnis.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Abfragen mit Benutzernamen
 
 Wenn Deine Abfrage einen Qualifizierer verwendet, der einen Benutzernamen verlangt, beispielsweise `user`, `actor`, oder `assignee`, kannst du jeden {% data variables.product.product_name %}-Benutzernamen verwenden, um eine spezifische Person anzugeben oder `@me` benutzen, um den aktuellen Benutzer anzugeben.

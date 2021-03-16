@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 `https://camo.githubusercontent.com/` で始まる各画像に対して、Camo は匿名 URL プロキシを生成し、ブラウザの詳細や関連情報が他のユーザから見えないようにします。
+画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 Camo は、画像ごとに匿名の URL プロキシを生成し、ブラウザの詳細と関連情報を他のユーザから見えないようにします。 URL は `https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて異なるサブドメインがあります。
 
 匿名化した画像URLを受け取った人は、直接であれ間接であれ、その画像を見ることができます。 機密の画像をプライベートにしておきたい場合は、Camoを使う代わりにそれらを認証が必要なプライベートなネットワークあるいはサーバーから提供するようにしてください。
 

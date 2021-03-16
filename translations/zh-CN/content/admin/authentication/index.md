@@ -1,10 +1,11 @@
 ---
 title: 身份验证
-intro: '您可以使用 {% data variables.product.prodname_ghe_server %} 的内置身份验证，或者在 CAS、LDAP 或 SAML 中选择来集成您的现有帐户并集中管理 {% data variables.product.product_location_enterprise %} 的用户访问权限。'
+intro: 您可以配置用户如何登录到 {% data variables.product.product_name %}。
 redirect_from:
   - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,5 +19,9 @@ versions:
     {% link_in_list /using-ldap %}
     {% link_in_list /allowing-built-in-authentication-for-users-outside-your-identity-provider %}
     {% link_in_list /changing-authentication-methods %}
-
-
+{% topic_link_in_list /managing-identity-and-access-for-your-enterprise %}
+    {% link_in_list /about-identity-and-access-management-for-your-enterprise %}
+    {% link_in_list /configuring-saml-single-sign-on-for-your-enterprise %}
+    {% link_in_list /configuring-user-provisioning-for-your-enterprise %}
+{% topic_link_in_list /configuring-authentication-and-provisioning-with-your-identity-provider %}
+    {% link_in_list /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad %}

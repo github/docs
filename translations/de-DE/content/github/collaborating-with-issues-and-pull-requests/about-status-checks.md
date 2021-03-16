@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Statuschecks basieren auf externen Prozessen, beispielsweise Builds mit fortlaufender Integration, die bei jedem Push an ein Repository ausgeführt werden. Du kannst den Zustand *Ausstehend*, *Bestanden* oder *Nicht bestanden* des Statuschecks neben den einzelnen Commits in Deinem Pull Request sehen.
@@ -28,7 +29,7 @@ Es gibt zwei Arten von Statuschecks auf {% data variables.product.product_name %
 
 _Prüfungen_ unterscheiden sich von _Status_ dadurch, dass sie Zeilenanmerkungen und detailliertere Meldungen enthalten und nur für die Verwendung mit {% data variables.product.prodname_github_app %}s verfügbar sind.
 
-Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
+Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
 ### Prüfungen
 
@@ -46,7 +47,7 @@ Du kannst zwischen den Prüfungszusammenfassungen für verschiedene Commits in e
 
 #### Prüfungen für einzelne Commits überspringen und anfordern
 
-Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du die Prüfungen für einen einzelnen Commit überspringen, den Du überträgst. Wenn ein Repository _nicht_ so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du Prüfungen für einen einzelnen Commit anfordern, den Du überträgst. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
+Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du die Prüfungen für einen einzelnen Commit überspringen, den Du überträgst. Wenn ein Repository _nicht_ so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du Prüfungen für einen einzelnen Commit anfordern, den Du überträgst. For more information on these settings, see "[Check Suites](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)."
 
 Um Prüfungen für Deinen Commit zu überspringen oder anzufordern, füge eine der folgenden Trailerzeilen an das Ende Deiner Commit-Mitteilung an:
 

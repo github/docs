@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Criar um branch
@@ -21,7 +22,11 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-Se o branch que você deseja excluir for o branch-padrão do repositório, você deverá escolher um novo branch-padrão antes de excluir o branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+{% note %}
+
+**Observação:** Se o branch que você deseja excluir for o branch padrão do repositório, você deverá escolher um novo branch padrão antes de excluir o branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+
+{% endnote %}
 
 Se o branch que você deseja excluir estiver associado a um pull request aberto, você deverá fazer o merge ou fechar o pull request antes de excluir o branch. Para obter mais informações, consulte "[Fazer merge de um pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" ou "[Fechar um pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)".
 
@@ -29,7 +34,7 @@ Se o branch que você deseja excluir estiver associado a um pull request aberto,
 {% data reusables.repositories.navigate-to-branches %}
 1. Role até o branch que deseja excluir e clique em {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}. ![excluir o branch](/assets/images/help/branches/branches-delete.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".

@@ -30,8 +30,7 @@ export function getUserEventsId () {
 export function sendEvent ({
   type,
   version = '1.0.0',
-  page_render_duration,
-  exit_page_id,
+  exit_render_duration,
   exit_first_paint,
   exit_dom_interactive,
   exit_dom_complete,
@@ -60,9 +59,11 @@ export function sendEvent ({
       user: getUserEventsId(),
       version,
       created: new Date().toISOString(),
+      page_event_id: pageEventId,
 
       // Content information
       path: location.pathname,
+      hostname: location.hostname,
       referrer: document.referrer,
       search: location.search,
       href: location.href,
@@ -80,10 +81,10 @@ export function sendEvent ({
     },
 
     // Page event
-    page_render_duration,
+    // No extra fields
 
     // Exit event
-    exit_page_id,
+    exit_render_duration,
     exit_first_paint,
     exit_dom_interactive,
     exit_dom_complete,
@@ -124,7 +125,7 @@ function getPerformance () {
   )
   const nav = performance?.getEntriesByType('navigation')?.[0]
   return {
-    firstContentfulPaint: paint ? paint / 1000 : undefined,
+    firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
     domInteractive: nav ? nav.domInteractive / 1000 : undefined,
     domComplete: nav ? nav.domComplete / 1000 : undefined,
     render: nav ? (nav.responseEnd - nav.requestStart) / 1000 : undefined
@@ -148,16 +149,16 @@ function trackScroll () {
 function sendExit () {
   if (sentExit) return
   if (document.visibilityState !== 'hidden') return
-  if (!pageEventId) return
   sentExit = true
   const {
+    render,
     firstContentfulPaint,
     domInteractive,
     domComplete
   } = getPerformance()
   return sendEvent({
     type: 'exit',
-    exit_page_id: pageEventId,
+    exit_render_duration: render,
     exit_first_paint: firstContentfulPaint,
     exit_dom_interactive: domInteractive,
     exit_dom_complete: domComplete,
@@ -166,22 +167,20 @@ function sendExit () {
   })
 }
 
-export default function initializeEvents () {
-  // Page event
-  const { render } = getPerformance()
-  const pageEvent = sendEvent({
-    type: 'page',
-    page_render_duration: render
-  })
+function initPageEvent () {
+  const pageEvent = sendEvent({ type: 'page' })
+  pageEventId = pageEvent?.context?.event_id
+}
 
-  // Clipboard event
-  ;['copy', 'cut', 'paste'].forEach(verb => {
+function initClipboardEvent () {
+  ['copy', 'cut', 'paste'].forEach(verb => {
     document.documentElement.addEventListener(verb, () => {
       sendEvent({ type: 'clipboard', clipboard_operation: verb })
     })
   })
+}
 
-  // Link event
+function initLinkEvent () {
   document.documentElement.addEventListener('click', evt => {
     const link = evt.target.closest('a[href^="http"]')
     if (!link) return
@@ -190,8 +189,16 @@ export default function initializeEvents () {
       link_url: link.href
     })
   })
+}
 
-  // Navigate event
+function initExitEvent () {
+  window.addEventListener('scroll', trackScroll)
+  document.addEventListener('visibilitychange', sendExit)
+}
+
+function initNavigateEvent () {
+  if (!document.querySelector('.sidebar-products')) return
+
   Array.from(
     document.querySelectorAll('.sidebar-products details')
   ).forEach(details => details.addEventListener(
@@ -210,9 +217,17 @@ export default function initializeEvents () {
       navigate_label: `link: ${link.href}`
     })
   })
+}
 
-  // Exit event
-  pageEventId = pageEvent?.context?.event_id
-  window.addEventListener('scroll', trackScroll)
-  document.addEventListener('visibilitychange', sendExit)
+export default function initializeEvents () {
+  initPageEvent() // must come first
+  initExitEvent()
+  initLinkEvent()
+  initClipboardEvent()
+  initNavigateEvent()
+  // print event in ./print.js
+  // survey event in ./helpfulness.js
+  // experiment event in ./experiment.js
+  // search event in ./search.js
+  // redirect event in middleware/record-redirect.js
 }

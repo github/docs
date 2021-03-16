@@ -1,11 +1,12 @@
 ---
 title: 删除组织帐户
-intro: '删除组织时，所有仓库、私有仓库复刻、wiki、议题、拉取请求和项目或组织页面也被删除。 {% if currentVersion == "free-pro-team@latest" %}The organization name becomes available for use on a new user or organization account, and your billing will end.{% endif %}'
+intro: '删除组织时，所有仓库、私有仓库复刻、wiki、议题、拉取请求和项目或组织页面也被删除。 {% if currentVersion == "free-pro-team@latest" %}组织名称可用于新用户或组织帐户，并且计费将结束。{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -19,7 +20,7 @@ versions:
 
 ### 1. 备份组织内容
 
-删除组织后，GitHub **无法恢复内容**。 因此，在删除组织之前，请确保您拥有该帐户中所有仓库、wiki 和议题的副本。
+删除组织后，GitHub **无法恢复内容**。 因此，在删除组织之前，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
 
 ### 2. 删除组织
 

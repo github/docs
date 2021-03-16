@@ -7,9 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
 
 This section of the documentation is intended to get you up-and-running with real-world {% data variables.product.product_name %} API applications. We'll cover everything you need to know, from authentication, to manipulating results, to combining results with other apps.
 

@@ -1,0 +1,1 @@
+Quando um aluno aceita uma atividade com um IDE on-line, o repositório de atividade incluirá um arquivo _README.md_ com um botão especial na parte superior do arquivo. O botão vincula o aluno diretamente à área de trabalho no IDE on-line.

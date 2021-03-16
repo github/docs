@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-指定するネームサーバは、{% data variables.product.product_location_enterprise %}のホスト名を解決できなければなりません。
+指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -28,7 +28,7 @@ versions:
   ```
 3. `nameserver` エントリを追加し、続いてファイルを保存します。
 4. 変更を確認したら、ファイルを保存します。
-5. 新しいネームサーバーエントリを {% data variables.product.product_location_enterprise %} に追加するには、次を入力します:
+5. 新しいネームサーバーエントリを {% data variables.product.product_location %} に追加するには、次を入力します:
   ```shell
   $ sudo service resolvconf restart
   ```

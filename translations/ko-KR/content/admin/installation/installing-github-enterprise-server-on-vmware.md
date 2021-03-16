@@ -14,7 +14,7 @@ versions:
 ### 빌드전 요구 사양
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.product.product_location_enterprise %}s. We support versions 5.5 through 6.7. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
+- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.product.product_location %}s. We support versions 5.5 through 6.7. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
 - You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
 
 ### Hardware considerations
@@ -48,4 +48,5 @@ versions:
 
 ### 더 읽을거리
 
- - "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

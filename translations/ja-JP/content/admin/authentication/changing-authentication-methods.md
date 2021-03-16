@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data variables.product.product_location_enterprise %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
+{% data variables.product.product_location %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
 
-新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイト管理者設定または[ユーザ管理 API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user) を使用してユーザ名を変更できます。
+新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイトアドミン設定または[ユーザ管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user) を使用してユーザ名を変更できます。
 
 他に考慮しなければならない問題には以下があります。
 
@@ -30,4 +30,4 @@ versions:
 
 * **2 要素認証:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証：**使用中のアイデンティティプロバイダに追加することなく、ユーザを{% data variables.product.product_location_enterprise %}で認証するよう招待できます。 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。
+* **使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証：**使用中のアイデンティティプロバイダに追加することなく、ユーザを{% data variables.product.product_location %}で認証するよう招待できます。 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。

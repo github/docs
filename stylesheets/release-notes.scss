@@ -1,0 +1,49 @@
+ul.release-notes-list li.release-notes-list-item {
+  font-size: 15px !important;
+
+  &::marker  {
+    // `•    `
+    content: '\2022\00a0\00a0\00a0\00a0';
+    font-size: 1.6em;
+    color: $gray-400;
+  }
+
+  &.list-style-none::marker {
+    content: '';
+  }
+}
+
+.release-notes-section-heading {
+  font-size: 15px !important;
+}
+
+details[open].release-notes-version-picker summary .octicon.octicon-chevron-down {
+  transform: rotate(180deg);
+}
+
+.js-release-notes-patch-link {
+  &.selected {
+    background-color: $blue-100;
+  }
+}
+
+$colors-list:(
+  features: #05a88b,
+  bugs: #ec8c1c,
+  known_issues: #4f6db3,
+  security_fixes: #e53e72,
+  changes: #69b378,
+  deprecations: #9a62a3,
+  backups: #e9694c
+);
+
+@each $key,$val in $colors-list{
+  .release-notes-section-#{$key} {
+    .release-notes-section-label {
+      background-color: #{$val};
+    }
+    .release-notes-section-heading {
+      color: #{$val};
+    }
+  }
+}

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プロジェクトボードをクローズすると、設定されたワークフローの自動化はデフォルトですべて停止します。

@@ -1,20 +1,20 @@
 ---
 title: Creating an issue
 intro: 'Issues can be used to keep track of bugs, enhancements, or other requests.'
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-{% data reusables.repositories.create-issue-in-public-repository %}
 
 You can open a new issue based on code from an existing pull request. For more information, see "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)."
 
 You can open a new issue directly from a comment in an issue or a pull request review. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.

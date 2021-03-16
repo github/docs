@@ -1,6 +1,6 @@
 ---
 title: Managing users in your enterprise
-intro: 'ユーザが {% data variables.product.product_location_enterprise %} で認証できるようになったなら、アバターやメール通知など、いくつかの基本的なカスタムプロフィール設定をセットアップしたくなるでしょう。'
+intro: 'ユーザアクティビティを監査し、ユーザ設定を管理できます。'
 redirect_from:
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons/
   - /enterprise/admin/user-management/basic-account-settings
@@ -9,5 +9,6 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

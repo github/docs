@@ -16,7 +16,7 @@ Você pode restringir o acesso a ativos da organização configurando uma lista 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)".
+Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)".
 
 ### Adicionar endereços IP permitidos
 

@@ -1,6 +1,6 @@
 ---
-title: Requirements for listing an app
-intro: 'Apps on {% data variables.product.prodname_marketplace %} must meet the requirements outlined on this page before our {% data variables.product.prodname_marketplace %} onboarding specialists will approve the listing.'
+title: アプリケーションのリストのための要件
+intro: '{% data variables.product.prodname_marketplace %}上のアプリケーションは、リストを公開する前にこのページに概要がある要件を満たさなければなりません。'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
   - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
@@ -12,49 +12,65 @@ versions:
   free-pro-team: '*'
 ---
 
+<!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
+{% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件は、提供するのが無料なのか有料アプリケーションなのかによって変わります。
 
-Before you submit your app for review, you must read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)." You'll accept the terms within your [draft listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) on {% data variables.product.product_name %}. Once you've submitted your app, one of the {% data variables.product.prodname_marketplace %} onboarding specialists will reach out to you with more information about the onboarding process, and review your app to ensure it meets these requirements:
+### すべての{% data variables.product.prodname_marketplace %}リストの要件
 
-### User experience
+{% data variables.product.prodname_marketplace %}上のすべてのリストは、{% data variables.product.product_name %}コミュニティに価値を提供するツールのためのものでなければなりません。 公開のためにリストをサブミットする際には、[{% data variables.product.prodname_marketplace %}開発者契約](/articles/github-marketplace-developer-agreement/)の条項を読んで同意しなければなりません。
 
-- {% data variables.product.prodname_github_app %}s should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_app %}s should have a minimum of 200 users.
-- Apps must provide value to customers and integrate with the platform in some way beyond authentication.
-- Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in beta or available by invite only.
-- Apps cannot actively persuade users away from {% data variables.product.product_name %}.
-- Marketing materials for the app must accurately represent the app's behavior.
-- Apps must include links to user-facing documentation that describe how to set up and use the app.
-- When a customer purchases an app and GitHub redirects them to the app's installation URL, the app must begin the OAuth flow immediately. For details, see "[Handling new purchases and free trials](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/#step-3-authorization)."
+#### すべてのアプリケーションに対するユーザ体験の要件
 
-- Customers must be able to install your app and select repositories on both a personal and organization account. They should be able to view and manage those accounts separately.
+すべてのリストは、無料のアプリケーションのためのものか、有料アプリケーションのためのものであるかにかかわらず、以下の要件を満たさなければなりません。
 
-### Brand and listing
+- リストはユーザを積極的に{% data variables.product.product_name %}から離れさせようとしてはなりません。
+- リストは、パブリッシャーの有効な連絡先の情報を含んでいなければなりません。
+- リストには、アプリケーションの適切な説明がなければなりません。
+- リストは価格プランを指定しなければなりません。
+- アプリケーションは顧客に価値を提供し、認証以外の方法でプラットフォームと統合されていなければなりません
+- アプリケーションケーションは{% data variables.product.prodname_marketplace %}で公開されなければならず、ベータや招待のみでの利用であってはなりません。
+- アプリケーションは、{% data variables.product.prodname_marketplace %} APIを使ってプランの変更やキャンセルがあったことをパブリッシャーに知らせるために、webhookイベントがセットアップされていなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
-- Apps that use GitHub logos must follow the "[{% data variables.product.product_name %} Logos and Usage](https://github.com/logos)" guidelines.
-- Apps must have a logo, feature card, and screenshots images that meet the recommendations provided in "[Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)."
-- Listings must include descriptions that are well written and free of grammatical errors. For guidance in writing your listing, see "[Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)."
+優れた顧客体験を提供することに関する詳細な情報については、「[アプリケーションの顧客体験のベストプラクティス](/developers/github-marketplace/customer-experience-best-practices-for-apps)」を参照してください。
 
-### セキュリティ
+#### すべてのアプリケーションに対するブランドとリストの要件
 
-Apps will go through a security review before being listed on {% data variables.product.prodname_marketplace %}. A successful review will meet the requirements and follow the security best practices listed in "[Security review process](/marketplace/getting-started/security-review-process/)." For information on the review process, contact [marketplace@github.com](mailto:marketplace@github.com).
+- GitHubのログを使用するアプリケーションは、{% data variables.product.company_short %}ガイドラインに従わなければなりません。 詳しい情報については「[{% data variables.product.company_short %}ロゴと利用](https://github.com/logos)」を参照してください。
+- アプリケーションは、「[{% data variables.product.prodname_marketplace %}リストの説明の作成](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)」にある推奨事項を満たすロゴ、機能カード、スクリーンショット画像を持っていなければなりません。
+- リストには、十分に書かれた文法上の誤りがない説明が含まれていなければなりません。 リストの作成のガイダンスとしては、「[{% data variables.product.prodname_marketplace %}リストの説明の作成](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)」を参照してください。
 
-### Billing flows
+顧客を保護するために、セキュリティのベストプラクティスにも従うことをおすすめします。 詳しい情報については「[アプリケーションのセキュリティのベストプラクティス](/developers/github-marketplace/security-best-practices-for-apps)」を参照してください。
 
-Your app must integrate [billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows) using the [{% data variables.product.prodname_marketplace %} webhook event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
+### 無料アプリケーションに関する留意点
 
-#### Free apps
+{% data reusables.marketplace.free-apps-encouraged %}
 
-{% data reusables.marketplace.free-apps-encouraged %} If you are listing a free app, you'll need to meet these requirements:
+### 有料アプリケーションの要件
 
-- Customers must be able to see that they have a free plan in the billing, profile, or account settings section of the app.
-- When a customer cancels your app, you must follow the flow for [cancelling plans](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/).
+To publish a paid plan for your app on {% data variables.product.prodname_marketplace %}, your app must be owned by an organization that is a verified publisher. For more information about the verification process or transfering ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
-#### Paid apps
+If your app is already published and you're a verified publisher, then you can publish a new paid plan from the pricing plan editor. 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-To offer your app as a paid service, you'll need to meet these requirements to list your app on {% data variables.product.prodname_marketplace %}:
+To publish a paid app (or an app that offers a paid plan), you must also meet the following requirements:
 
-- To sell your app in {% data variables.product.prodname_marketplace %}, it must use GitHub's billing system. Your app does not need to handle payments but does need to use "[{% data variables.product.prodname_marketplace %} purchase events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" to manage new purchases, upgrades, downgrades, cancellations, and free trials. See "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)" to learn about how to integrate these events into your app. Using GitHub's billing system allows customers to purchase an app without leaving GitHub and pay for the service with the payment method already attached to their {% data variables.product.product_name %} account.
-- Apps must support both monthly and annual billing for paid subscriptions purchases.
-- Listings may offer any combination of free and paid plans. Free plans are optional but encouraged. For more information, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
-{% data reusables.marketplace.marketplace-billing-ui-requirements %}
+- {% data variables.product.prodname_github_app %}は、最低でも100個のインストールが必要です。
+- {% data variables.product.prodname_oauth_app %}は最低200ユーザが必要です。
+- すべての有料アプリケーションは、新規購入、アップグレード、ダウングレード、キャンセル、無料トライアルの{% data variables.product.prodname_marketplace %}購入イベントを処理できなければなりません。 詳しい情報については、以下の「[有料アプリケーションの支払い要件](#billing-requirements-for-paid-apps)」を参照してください。
+
+When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.
+
+{% note %}
+
+**Note:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
+
+{% endnote %}
+
+### 有料アプリケーションの支払い要件
+
+アプリケーションは支払いを処理する必要はありませんが、{% data variables.product.prodname_marketplace %}購入イベントを使って新規の購入、アップグレード、ダウングレード、キャンセル、無料トライアルを管理できなければなりません。 これらのイベントをアプリケーションに統合する方法については、「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+
+GitHubの支払いAPIを使えば、顧客はGitHubを離れることなくアプリケーションを購入し、自分の{% data variables.product.product_name %}アカウントにすでに結合されている支払い方法でサービスに対する支払いを行えます。
+
+- アプリケーションは、有料のサブスクリプションの購入について、月次及び年次の支払いをサポートしなければなりません。
+- リストは、無料及び有料プランの任意の組み合わせを提供できます。 無料プランはオプションですが、推奨されます。 詳しい情報については「[{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)」を参照してください。

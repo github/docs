@@ -1,11 +1,12 @@
 ---
 title: Acompanhar o andamento do quadro de projeto
-intro: 'Você pode ver o progresso geral do seu projeto na barra de progresso.'
+intro: Você pode ver o progresso geral do seu projeto na barra de progresso.
 redirect_from:
   - /articles/tracking-progress-on-your-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.project-progress-locations %}

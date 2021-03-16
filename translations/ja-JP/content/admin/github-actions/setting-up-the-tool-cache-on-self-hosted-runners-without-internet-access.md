@@ -1,14 +1,14 @@
 ---
 title: Setting up the tool cache on self-hosted runners without internet access
-intro: 'To use the the included `actions/setup` actions on self-hosted runners without internet access, you must first populate the runner''s tool cache for your workflows.'
+intro: 'インターネットにアクセスできないセルフホストランナー上の `actions/setup` アクションを使用するには、最初にワークフローのランナーのツールキャッシュにデータを入力する必要があります。'
 redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About the included setup actions and the runner tool cache
 
@@ -34,7 +34,7 @@ The `actions/setup-LANGUAGE` actions normally need internet access to download t
 
 ### Populating the tool cache for a self-hosted runner
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository that you can use to run a {% data variables.product.prodname_actions %} workflow.
+1. {% data variables.product.prodname_dotcom_the_website %} で、{% data variables.product.prodname_actions %} ワークフローの実行に使用できるリポジトリに移動します。
 1. {% data variables.product.prodname_dotcom %} ホストランナーのツールキャッシュを含むアーティファクトをアップロードする、リポジトリの `.github/workflows` フォルダに新しいワークフローファイルを作成します。
 
    The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 18.04 environment, using the `setup-node` action with Node.js versions 10 and 12.

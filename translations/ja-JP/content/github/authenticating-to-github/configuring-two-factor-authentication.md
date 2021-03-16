@@ -11,14 +11,14 @@ versions:
   enterprise-server: '*'
 ---
 
-You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. また、セキュリティキーを追加することも可能です。
+モバイルアプリまたは {% if currentVersion == "free-pro-team@latest" %} テキストメッセージ{% endif %}を使って、2 要素認証を設定できます。 また、セキュリティキーを追加することも可能です。
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% if currentVersion == "free-pro-team@latest" %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+2 要素認証の設定には、時間ベースのワンタイムパスワード (TOTP) アプリケーションを使うことを強くおすすめします。{% if currentVersion == "free-pro-team@latest" %}TOTP アプリケーションは、特に米国外において、SMS より信頼性があります。{% endif %}TOTP アプリは、クラウド内にある認証コードのセキュアなバックアップをサポートしており、デバイスにアクセスできなくなった場合に回復できます。
 
 {% warning %}
 
 **警告:**
-- If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
+- 2 要素認証が必要なメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー、{% endif %}または Organization のプライベートリポジトリへの外部コラボレーターは、2 要素認証を無効化する前に {% data variables.product.product_location %} で Organization から離脱する必要があります。
 - 2 要素認証を無効化すると、Organization や Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization およびフォークへのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
@@ -45,8 +45,8 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 8. [Two-factor authentication] ページで、次のいずれかを実行します:
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。
     - QR コードをスキャンできない場合は、[**enter this text code**] をクリックしてコードを表示し、それをコピーして {% data variables.product.product_name %} に手入力してください。 ![[enter this code] をクリック](/assets/images/help/2fa/totp-click-enter-code.png)
-9. The TOTP mobile application saves your
-{% data variables.product.product_name %} account and generates a new authentication code every few seconds. {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。
+9. TOTP モバイルアプリケーションは、
+{% data variables.product.product_name %} アカウントを保存し、数秒ごとに新しい認証コードを生成します。 {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。
     ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
@@ -81,10 +81,10 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 ほとんどのデバイスとブラウザでは、USB または NFC を介して物理セキュリティキーを使用できます。 一部のブラウザでは、デバイス上の指紋リーダー、顔認識、またはパスワード/ PIN をセキュリティキーとして使用できます。
 
-Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
+セキュリティキーによる認証は、TOTP アプリケーション{% if currentVersion == "free-pro-team@latest" %}またはテキストメッセージ{% endif %}による認証の*二次的な*方法です。 セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
 
-1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
-2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
+1. TOTP モバイルアプリ{% if currentVersion == "free-pro-team@latest" %}または SMS{% endif %} 経由で、あらかじめ 2 要素認証を設定しておく必要があります。
+2. コンピュータに WebAuthn 準拠のセキュリティキーが挿入されていることを確認してください。
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. [Security keys] の隣にある [**Add**] をクリックします。 ![セキュリティキーの追加オプション](/assets/images/help/2fa/add-security-keys-option.png)

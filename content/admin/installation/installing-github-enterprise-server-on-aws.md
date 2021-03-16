@@ -12,7 +12,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
-- Most actions needed to launch {% data variables.product.product_location_enterprise %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides "[Working with the AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" and "[What is the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)."
+- Most actions needed to launch {% data variables.product.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides "[Working with the AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" and "[What is the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)."
 
 This guide assumes you are familiar with the following AWS concepts:
 
@@ -21,6 +21,9 @@ This guide assumes you are familiar with the following AWS concepts:
  - [Using Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
  - [Elastic IP Addresses (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
  - [EC2 and Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
+ - [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
+
+ This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
 ### Hardware considerations
 
@@ -28,7 +31,7 @@ This guide assumes you are familiar with the following AWS concepts:
 
 ### Determining the instance type
 
-Before launching {% data variables.product.product_location_enterprise %} on AWS, you'll need to determine the type of virtual machine that best fits the needs of your organization.
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the type of virtual machine that best fits the needs of your organization.
 
 #### Supported instance types
 
@@ -131,4 +134,5 @@ Both primary and replica instances should be assigned separate EIPs in productio
 
 ### Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

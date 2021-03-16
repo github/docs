@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn eine {% data variables.product.prodname_oauth_app %} Sie anhand Ihres {% data variables.product.product_name %}-Kontos identifizieren möchte, wird eine Seite mit den Kontaktdaten des Anwendungsentwicklers und einer Liste der Daten angezeigt, die angefordert werden.
@@ -37,7 +38,7 @@ Wenn eine {% data variables.product.prodname_oauth_app %} Sie anhand Ihres {% da
 
 *Scopes* sind benannte Gruppen von Berechtigungen, die eine {% data variables.product.prodname_oauth_app %} anfordern kann, um auf öffentliche wie nicht öffentliche Daten zuzugreifen.
 
-Wenn Sie eine {% data variables.product.prodname_oauth_app %} verwenden möchten, die in {% data variables.product.product_name %} integriert ist, teilt die App Ihnen mit, welche Art von Zugriff auf Ihre Daten benötigt wird. Wenn Du der App Zugriff erteilen, kann sie Aktionen für Dich durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Wenn Sie eine {% data variables.product.prodname_oauth_app %} verwenden möchten, die in {% data variables.product.product_name %} integriert ist, teilt die App Ihnen mit, welche Art von Zugriff auf Ihre Daten benötigt wird. Wenn Du der App Zugriff erteilen, kann sie Aktionen für Dich durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 

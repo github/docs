@@ -20,7 +20,7 @@ versions:
 
 #### Grundlegendes zur Größenanpassung
 
-Bevor Sie die CPU- oder Arbeitsspeicherressourcen für {% data variables.product.product_location_enterprise %} erhöhen:
+Bevor Sie die CPU- oder Arbeitsspeicherressourcen für {% data variables.product.product_location %} erhöhen:
 
 - **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **Assign an Elastic IP address to the instance**. Falls keine Elastic IP zugewiesen ist, müssen Sie die DNS A-Einträge für Ihren {% data variables.product.prodname_ghe_server %}-Host nach dem Neustart anpassen, damit die an der öffentlichen IP-Adresse vorgenommenen Änderungen berücksichtigt werden. Sobald Ihre Instanz neu gestartet wird, wird die Elastic IP (EIP) automatisch gespeichert, wenn die Instanz in einer VPC gestartet wird. Wenn die Instanz in EC2-Classic gestartet wird, muss die Elastic IP erneut manuell zugeordnet werden.
@@ -64,7 +64,7 @@ Es ist nicht möglich, einer vorhandenen OpenStack KVM-Instanz CPU- oder Arbeits
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 1. Verwenden Sie vSphere Client, um eine Verbindung zum VMware ESXi-Host herzustellen.
-2. Fahren Sie {% data variables.product.product_location_enterprise %} herunter.
+2. Fahren Sie {% data variables.product.product_location %} herunter.
 3. Wählen Sie die virtuelle Maschine aus, und klicken Sie auf **Edit Settings** (Einstellungen bearbeiten).
 4. Passen Sie unter „Hardware“ die der virtuellen Maschine zugeordneten CPU- bzw. Arbeitsspeicherressourcen nach Bedarf an:![VMware-Einrichtungsressourcen](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
 5. Klicken Sie zum Starten der virtuellen Maschine auf **OK**.

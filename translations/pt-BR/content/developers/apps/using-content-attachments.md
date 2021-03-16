@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -54,7 +55,7 @@ O fluxo de anexo de conteúdo mostra a relação entre a URL no problema ou pull
 }
 ```
 
-**Etapa 4.** O aplicativo usa o `content_reference` `id` </code> para [Criar um anexo de conteúdo](/v3/apps/installations/#create-a-content-attachment) usando a API REST. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Etapa 4.** O aplicativo usa o `content_reference` `id` </code> para [Criar um anexo de conteúdo](/rest/reference/apps#create-a-content-attachment) usando a API REST. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -115,7 +116,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-Para obter mais informações sobre `node_id`, consulte "[Usando IDs de nó globais](/v4/guides/using-global-node-ids/)".
+Para obter mais informações sobre `node_id`, consulte "[Usando IDs de nós globais](/graphql/guides/using-global-node-ids)".
 
 ### Exemplo de uso de manifestos do Probot e do aplicativo GitHub
 
@@ -165,7 +166,7 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
     }
     ```
 
-4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Navegue até [localhost:3000](http://localhost:3000)e clique no botão **Registrar aplicativo GitHub**:
+4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Acesse `http://localhost:3000` e clique no botão **Registrar aplicativo GitHub**:
 
    ![Registrar um aplicativo GitHub do Probot](/assets/images/github-apps/github_apps_probot-registration.png)
 

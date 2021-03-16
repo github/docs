@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About breaking changes
@@ -15,7 +16,7 @@ Breaking changes are any changes that might require action from our integrators.
   - **Breaking:** Changes that will break existing queries to the GraphQL API. For example, removing a field would be a breaking change.
   - **Dangerous:** Changes that won't break existing queries but could affect the runtime behavior of clients. Adding an enum value is an example of a dangerous change.
 
-We strive to provide stable APIs for our integrators. When a new feature is still evolving, we release it behind a [schema preview](/v4/previews/).
+We strive to provide stable APIs for our integrators. When a new feature is still evolving, we release it behind a [schema preview](/graphql/overview/schema-previews).
 
 We'll announce upcoming breaking changes at least three months before making changes to the GraphQL schema, to give integrators time to make the necessary adjustments. Changes go into effect on the first day of a quarter (January 1st, April 1st, July 1st, or October 1st). For example, if we announce a change on January 15th, it will be made on July 1st.
 

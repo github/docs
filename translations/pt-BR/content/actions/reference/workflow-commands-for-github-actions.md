@@ -164,6 +164,25 @@ Cria uma mensagem de erro e a imprime no log. Cria uma mensagem de erro e a impr
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Agrupar linhas dos registros
+
+```
+::group::{title}
+::endgroup::
+```
+
+Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
+
+#### Exemplo
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
+
 ### Mascarar um valor no registro
 
 `::add-mask::{value}`
@@ -238,7 +257,7 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 **Aviso:** O Powershell não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -253,13 +272,22 @@ Cria ou atualiza uma variável de ambiente para quaisquer ações a serem execut
 
 #### Exemplo
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
-
-Executar `$action_state` em uma etapa futura agora retornará `amarelo`
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
 #### Strings de linha múltipla
+
 Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
 
 ```
@@ -268,9 +296,10 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 {delimiter}
 ```
 
-#### Exemplo
+##### Exemplo
+
 Neste exemplo, usamos `EOF` como um delimitador e definimos a variável de ambiente `JSON_RESPONSE` como o valor da resposta de curl.
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one
@@ -284,11 +313,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Agrega um diretório à variável de sistema `PATH` para todas as ações subsequentes no trabalho atual. A ação que está em execução não pode acessar a nova variável de caminho.
+Prepara um diretório para a variável `PATH` do sistema e o torna disponível para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
 
 #### Exemplo
 
+Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

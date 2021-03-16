@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A automação no quadro de projeto não se aplica a cartões do quadro de projeto arquivados. Por exemplo, se você fechar um problema no arquivamento de um quadro de projeto, o cartão arquivado não será movido automaticamente para a coluna "Done" (Concluído). Quando você restaura um cartão do arquivamento do quadro de projeto, o cartão retorna à coluna em que foi arquivada.

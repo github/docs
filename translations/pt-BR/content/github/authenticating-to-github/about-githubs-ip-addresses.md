@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Você pode recuperar uma lista de endereços IP do {% data variables.product.prodname_dotcom %} no ponto de extremidade da API [meta](https://api.github.com/meta). Para obter mais informações, consulte "[Meta](/v3/meta/)".
+Você pode recuperar uma lista de endereços IP do {% data variables.product.prodname_dotcom %} no ponto de extremidade da API [meta](https://api.github.com/meta). Para obter mais informações, consulte "[Meta](/rest/reference/meta)".
 
 Esses intervalos estão na [notação CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). É possível usar uma ferramenta de conversão online, como essa [Calculadora Supernet CIDR/VLSM](http://www.subnet-calculator.com/cidr.php), para fazer a conversão de notação CIDR em intervalos de endereços IP.
 

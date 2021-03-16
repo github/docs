@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Um colaborador é uma pessoa com permissões em um quadro de projeto pertencente a você. A permissão padrão de um colaborador é acesso de leitura. Para obter mais informações, consulte "[Níveis de permissão para quadros de projetos de propriedade de um usuário](/articles/permission-levels-for-user-owned-project-boards)".

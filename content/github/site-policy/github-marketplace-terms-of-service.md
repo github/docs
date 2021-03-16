@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
 ---
 
-Welcome to GitHub Marketplace ("Marketplace")! We're happy you're here. Please read these Terms of Service ("Marketplace Terms") carefully before accessing or using GitHub Marketplace. GitHub Marketplace is a platform that allows you to purchase developer products (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although sold by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers, and may require you to agree to a separate terms of service. Your use and/or purchase of Developer Products is subject to these Marketplace Terms and to the applicable fees and may also be subject to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").
+Welcome to GitHub Marketplace ("Marketplace")! We're happy you're here. Please read these Terms of Service ("Marketplace Terms") carefully before accessing or using GitHub Marketplace. GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").
 
 By using Marketplace, you are agreeing to be bound by these Marketplace Terms.
 
-Effective Date: October 11, 2017
+Effective Date: November 20, 2020
 
 ### A. GitHub.com's Terms of Service
 
@@ -40,11 +40,11 @@ If you would have a question, concern, or dispute regarding your billing, please
 
 ### E. Your Data and GitHub's Privacy Policy
 
-**Privacy.** When you purchase or subscribe to a Developer Product, GitHub must share certain Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement/)) with the Product Provider in order to provide you with the Developer Product, regardless of your privacy settings. Depending on the requirements of the Developer Product you choose, GitHub may share as little as your user account name, ID, and primary email address or as much as access to the content in your repositories, including the ability to read and modify your private data. You will be able to view the scope of the permissions the Developer Product is requesting, and accept or deny them, when you grant it authorization via OAuth. In line with [GitHub's Privacy Statement](/articles/github-privacy-statement/), we will only provide the Product Provider with the minimum amount of information necessary for the purpose of the transaction.
+**Privacy.** When you select or use a Developer Product, GitHub may share certain Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement/)) with the Product Provider (if any such Personal Information is received from you) in order to provide you with the Developer Product, regardless of your privacy settings. Depending on the requirements of the Developer Product you choose, GitHub may share as little as your user account name, ID, and primary email address or as much as access to the content in your repositories, including the ability to read and modify your private data. You will be able to view the scope of the permissions the Developer Product is requesting, and accept or deny them, when you grant it authorization via OAuth. 
 
-If you cancel your Developer Product services and revoke access through your account settings, the Product Provider will no longer be able to access your account. The Product Provider is responsible for deleting your Personal Information from its systems within its defined window. Please contact the Product Provider to ensure that your account has been properly terminated.
+If you cease using the Developer Product and revoke access through your account settings, the Product Provider will no longer be able to access your account. The Product Provider is responsible for deleting your Personal Information from its systems within its defined window. Please contact the Product Provider to ensure that your account has been properly terminated.
 
-**Data Security Disclaimer.** When you purchase or subscribe to a Developer Product, the Developer Product security and their custodianship of your data is the responsibility of the Product Provider. You are responsible for understanding the security considerations of the purchase and use of the Developer Product for your own security, risk and compliance considerations.
+**Data Security and Privacy Disclaimer.** When you select or use a Developer Product, the security of the Developer Product and the custodianship of your data, including your Personal Information (if any), is the responsibility of the Product Provider. You are responsible for understanding the security and privacy considerations of the selection or use of the Developer Product for your own security and privacy risk and compliance considerations.
 
 ### F. Rights to Developer Products
 

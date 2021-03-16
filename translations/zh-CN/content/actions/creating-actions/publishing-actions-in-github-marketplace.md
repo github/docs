@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   free-pro-team: '*'
+type: 'how_to'
 ---
 
 您必须接受服务条款才能在 {% data variables.product.prodname_marketplace %} 中发布操作。

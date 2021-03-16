@@ -31,6 +31,8 @@ The domain for the {% data variables.product.prodname_container_registry %} is `
 
 ### Authenticating with the container registry
 
+{% data reusables.package_registry.feature-preview-for-container-registry %}
+
 You will need to authenticate to the {% data variables.product.prodname_container_registry %} with the base URL `ghcr.io`. We recommend creating a new access token for using the {% data variables.product.prodname_container_registry %}.
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -71,6 +73,8 @@ To move Docker images that you host on {% data variables.product.prodname_regist
   ```
 
 ### Updating your {% data variables.product.prodname_actions %} workflow
+
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
 If you have a {% data variables.product.prodname_actions %} workflow that uses a Docker image from the {% data variables.product.prodname_registry %} Docker registry, you may want to update your workflow to the {% data variables.product.prodname_container_registry %} to allow for anonymous access for public container images, finer-grain access permissions, and better storage and bandwidth compatibility for containers.
 

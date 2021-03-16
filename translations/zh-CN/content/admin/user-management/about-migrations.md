@@ -14,7 +14,7 @@ versions:
 
 - 从 {% data variables.product.prodname_ghe_server %} 实例迁移到另一个 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移实例上由任何用户或组织拥有的任意数量的仓库。 在执行迁移之前，您必须具有两个实例的站点管理员访问权限。
 - 从 {% data variables.product.prodname_dotcom_the_website %} 组织迁移到 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移由组织拥有的任意数量的仓库。 在执行迁移前，您必须拥有 {% data variables.product.prodname_dotcom_the_website %} 组织的[管理访问权限](/enterprise/user/articles/permission-levels-for-an-organization/)和目标实例的站点管理员访问权限。
-- *试运行*是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {% data variables.product.product_location_enterprise %} 应用迁移后*将要*发生的变化。 **我们强烈建议您先在暂存实例上执行试运行，然后再将数据导入生产实例。**
+- *试运行*是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {% data variables.product.product_location %} 应用迁移后*将要*发生的变化。 **我们强烈建议您先在暂存实例上执行试运行，然后再将数据导入生产实例。**
 
 ### 迁移的数据
 

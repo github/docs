@@ -5,6 +5,7 @@ intro: 'Learn about resources, libraries, previews and troubleshooting for {% da
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Table of Contents

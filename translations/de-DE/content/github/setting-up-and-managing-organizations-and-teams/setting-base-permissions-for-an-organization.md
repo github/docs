@@ -5,6 +5,7 @@ permissions: Organisationsinhaber können Basisberechtigungen für eine Organisa
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Über Basisberechtigungen für eine Organisation

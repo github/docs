@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}

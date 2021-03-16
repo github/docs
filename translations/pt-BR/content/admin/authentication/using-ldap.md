@@ -35,7 +35,7 @@ O {% data variables.product.prodname_ghe_server %} se integra aos seguintes serv
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Configurar o LDAP na {% data variables.product.product_location_enterprise %}
+### Configurar o LDAP na {% data variables.product.product_location %}
 
 Depois que você configurar o LDAP, os usuários poderão acessar a instância com as credenciais LDAP. Quando os usuários acessarem pela primeira vez, seus nomes de perfil, endereços de e-mail e chaves SSH serão definidos com os atributos LDAP do diretório.
 
@@ -43,7 +43,7 @@ Quando você configurar o acesso LDAP dos usuários pelo {% data variables.enter
 
 {% warning %}
 
-**Aviso:** antes de configurar o LDAP na {% data variables.product.product_location_enterprise %}, verifique se o serviço LDAP oferece suporte a resultados paginados.
+**Aviso:** antes de configurar o LDAP na {% data variables.product.product_location %}, verifique se o serviço LDAP oferece suporte a resultados paginados.
 
 {% endwarning %}
 
@@ -55,11 +55,11 @@ Quando você configurar o acesso LDAP dos usuários pelo {% data variables.enter
 5. Defina as configurações.
 
 ### Atributos LDAP
-Use estes atributos para finalizar a configuração LDAP na {% data variables.product.product_location_enterprise %}.
+Use estes atributos para finalizar a configuração LDAP na {% data variables.product.product_location %}.
 
 | Nome do atributo                                    | Tipo        | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Host`                                              | Obrigatório | Host LDAP, por exemplo, `ldap.example.com` ou `10.0.0.30`. Se o nome do host só estiver disponível na rede interna, talvez seja necessário configurar antes o DNS da {% data variables.product.product_location_enterprise %} para que ele resolva o nome do host usando seus servidores de nomes internos.                                                                                                                                                                                                                                 |
+| `Host`                                              | Obrigatório | Host LDAP, por exemplo, `ldap.example.com` ou `10.0.0.30`. Se o nome do host só estiver disponível na rede interna, talvez seja necessário configurar antes o DNS da {% data variables.product.product_location %} para que ele resolva o nome do host usando seus servidores de nomes internos.                                                                                                                                                                                                                                              |
 | `Porta`                                             | Obrigatório | Porta em que os serviços de host LDAP estão escutando. Por exemplo: 389 e 636 (para LDAPS).                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `Criptografia`                                      | Obrigatório | Método de criptografia usado para proteger as comunicações com o servidor LDAP. Por exemplo, básico (sem criptografia), SSL/LDAPS (criptografia desde o início) e StartTLS (atualizar para comunicação com criptografia no momento da conexão).                                                                                                                                                                                                                                                                                               |
 | `Usuário de pesquisa de domínio`                    | Opcional    | Usuário LDAP que faz consultas de usuários para autenticar outros usuários quando eles fazem login. Em geral, é uma conta de serviço criada especificamente para integrações de terceiros. Use um nome totalmente qualificado, como `cn=Administrador,cn=Usuários,dc=Exemplo,dc=com`. Com o Active Directory, também é possível usar a sintaxe `[DOMAIN]\[USERNAME]` (por exemplo, `WINDOWS\Administrator`) para o usuário de pesquisa de domínio.                                                                                          |
@@ -190,7 +190,7 @@ Se a [Sincronização LDAP estiver desabilitada](#enabling-ldap-sync), as altera
 
 Você também pode [usar a API para acionar uma sincronização manual](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
 
-### Revogar o acesso à {% data variables.product.product_location_enterprise %}
+### Revogar o acesso à {% data variables.product.product_location %}
 
 Se a [Sincronização LDAP estiver habilitada](#enabling-ldap-sync), remover as credenciais LDAP do usuário suspenderá a conta do usuário após a execução de sincronização seguinte.
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Autenticar com o GraphQL
@@ -17,7 +18,7 @@ Siga as etapas em "[Criando um token de acesso pessoal](/github/authenticating-t
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Para corresponder ao comportamento do [Explorador do GraphQL](/v4/guides/using-the-explorer), solicite escopos a seguir:
+Para corresponder ao comportamento do [Explorador do GraphQL](/graphql/guides/using-the-explorer), solicite escopos a seguir:
 
 {% else %}
 
@@ -49,9 +50,9 @@ O ponto de final permanece constante, independentemente da operação que você 
 
 ### Comunicação com o GraphQL
 
-Como as operações do GraphQL consistem em várias linhas do JSON, o GitHub recomenda o uso do [Explorer](/v4/guides/using-the-explorer) para fazer chamadas do GraphQL. Você também pode usar a cURL ou qualquer outra biblioteca com linguagem HTTP.
+Como as operações do GraphQL consistem em várias linhas do JSON, o GitHub recomenda o uso do [Explorer](/graphql/guides/using-the-explorer) para fazer chamadas do GraphQL. Você também pode usar a cURL ou qualquer outra biblioteca com linguagem HTTP.
 
-Na REST, [verbos HTTP](/v3/#http-verbs) determinam a operação realizada. No GraphQL, você fornecerá um texto codificado pelo JSON, se você estiver realizando uma consulta ou uma mutação. Portanto, o verbo HTTP será `POST`. A exceção é uma [consulta de introspecção](/v4/guides/intro-to-graphql#discovering-the-graphql-api), que são um `GET` simples para o ponto final. Para obter mais informações sobre GraphQL em comparação com a REST, consulte "[Migrando da REST para o GraphQL](/v4/guides/migrating-from-rest)".
+Em REST, [vos erbos HTTP](/rest#http-verbs) determinam a operação realizada. No GraphQL, você fornecerá um texto codificado pelo JSON, se você estiver realizando uma consulta ou uma mutação. Portanto, o verbo HTTP será `POST`. A exceção é uma [consulta de introspecção](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), que são um `GET` simples para o ponto final. Para obter mais informações sobre GraphQL em comparação com a REST, consulte "[Migrando da REST para o GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".
 
 Para consultar o GraphQL usando a cURL, faça uma solicitação de `POST` com uma carga do JSON. A carga deve conter uma string denominada `consulta`:
 
@@ -71,15 +72,15 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 #### Sobre consultas e operações de mutação
 
-Os dois tipos de operações permitidas na API do GraphQL do GitHub são _consultas_ e _mutações_. Comparando o GraphQL com a REST, as consultas funcionam como solicitações do `GET`, enquanto as mutações funcionam como `POST`/`PATCH`/`EXCLUIR`. O [nome da mutação](/v4/mutation/) determina qual modificação é executada.
+Os dois tipos de operações permitidas na API do GraphQL do GitHub são _consultas_ e _mutações_. Comparando o GraphQL com a REST, as consultas funcionam como solicitações do `GET`, enquanto as mutações funcionam como `POST`/`PATCH`/`EXCLUIR`. O [nome da mutação](/graphql/reference/mutations) determina qual modificação é executada.
 
-Para obter informações sobre limite de taxas, consulte "[limitações de recursos do GraphQL](/v4/guides/resource-limitations/)".
+Para obter informações sobre limite de taxas, consulte "[limitações de recursos do GraphQL](/graphql/overview/resource-limitations)".
 
 As consultas e mutações compartilham formas semelhantes, com algumas diferenças importantes.
 
 #### Sobre as consultas
 
-As consultas do GraphQL retornam apenas os dados especificados. Para gerar uma consulta, você deve especificar os [campos dentro dos campos](/v4/guides/intro-to-graphql#field) (também conhecidos como _subcampos aninhados_) até que retorne apenas [escalares](/v4/scalar/).
+As consultas do GraphQL retornam apenas os dados especificados. Para gerar uma consulta, você deve especificar os [campos dentro dos campos](/graphql/guides/introduction-to-graphql#field) (também conhecidos como _subcampos aninhados_) até que retorne apenas [escalares](/graphql/reference/scalars).
 
 As consultas estão estruturadas da seguinte forma:
 
@@ -102,11 +103,12 @@ As mutações são estruturadas da seguinte forma:
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 Neste exemplo, o objeto de entrada é `MutationNameInput` e o objeto de carga é `MutationNamePayload`.
 
-Na referência [mutações](/v4/mutation/), os _campos de entrada_ listados são o que você passa como o objeto de entrada. Os _campos de retorno_ listados são o que você passa como objeto de carga.
+Na referência [mutações](/graphql/reference/mutations), os _campos de entrada_ listados são o que você passa como o objeto de entrada. Os _campos de retorno_ listados são o que você passa como objeto de carga.
 
 Para obter um exemplo real, consulte "[Exemplo de mutação](#example-mutation)."
 
@@ -116,7 +118,7 @@ As [Variáveis](https://graphql.github.io/learn/queries/#variables) podem tornar
 
 {% note %}
 
-**Observação**: se você estiver usando o Explorador, certifique-se de inserir as variáveis no painel separado das [Variáveis de consulta](/v4/guides/using-the-explorer/#using-the-variable-pane), e não inclua a palavra `variáveis` antes do objeto do JSON.
+**Observação**: se você estiver usando o Explorador, certifique-se de inserir as variáveis no painel separado das [Variáveis de consulta](/graphql/guides/using-the-explorer#using-the-variable-pane), e não inclua a palavra `variáveis` antes do objeto do JSON.
 
 {% endnote %}
 
@@ -206,7 +208,7 @@ Observando a composição linha por linha:
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  Para começar a consulta, queremos encontrar um objeto do [`repositório`](/v4/object/repository/). A validação do esquema indica que este objeto requer um `proprietário` e um argumento do `nome`.
+  Para começar a consulta, queremos encontrar um objeto do [`repositório`](/graphql/reference/objects#repository). A validação do esquema indica que este objeto requer um `proprietário` e um argumento do `nome`.
 
 * `issues(last:20, states:CLOSED) {`
 
@@ -214,9 +216,9 @@ Observando a composição linha por linha:
 
   Alguns detalhes sobre o objeto `problemas`:
 
-  - A [documentação](/v4/object/repository/) nos informa que esse objeto tem o tipo `IssueConnection`.
+  - A [documentação](/graphql/reference/objects#repository) nos informa que esse objeto tem o tipo `IssueConnection`.
   - A validação de esquema indica que este objeto exige o `último` ou `primeiro` número dos resultados como argumento. Portanto, fornecemos `20`.
-  - A [documentação](/v4/object/repository/) também nos informa que esse objeto aceita um argumento `estados`, que é um  enum [`IssueState`](/v4/enum/issuestate/), que aceita os valores `ABERTO` ou `FECHADO`. Para encontrar apenas problemas fechados, conferimos à chave `estados` um valor de `FECHADO`.
+  - A [documentação](/graphql/reference/objects#repository) também nos informa que esse objeto aceita um argumento `estados`, que é um  enum [`IssueState`](/graphql/reference/enums#issuestate), que aceita os valores `ABERTO` ou `FECHADO`. Para encontrar apenas problemas fechados, conferimos à chave `estados` um valor de `FECHADO`.
 
 * `edges {`
 
@@ -224,9 +226,9 @@ Observando a composição linha por linha:
 
 * `node {`
 
-  Aqui, recuperamos o nó no fim da borda. A [documentação da`IssueConnection`](/v4/object/issueconnection) indica se o nó no final do tipo `IssueConnection` é um objeto `problema`.
+  Aqui, recuperamos o nó no fim da borda. A [documentação da`IssueConnection`](/graphql/reference/objects#issueconnection) indica se o nó no final do tipo `IssueConnection` é um objeto `problema`.
 
-* Agora que sabemos que estamos recuperando um objeto `problema`, podemos ver a [documentação](/v4/object/issue) e especificar os campos que desejamos retornar:
+* Agora que sabemos que estamos recuperando um objeto `problema`, podemos ver a [documentação](/graphql/reference/objects#issue) e especificar os campos que desejamos retornar:
 
   ```graphql
   title
@@ -242,7 +244,7 @@ Observando a composição linha por linha:
 
   Aqui, especificamos os campos `título`, `url` e `etiquetas` do objeto `problema`.
 
-  O campo `etiquetas` tem o tipo [`LabelConnection`](/v4/object/labelconnection/). Assim como no objeto `problemas`, porque `etiquetas` é uma conexão, devemos percorrer suas bordas para um nó conectado: o objeto `etiqueta`. No nó, podemos especificar os campos de objeto `etiqueta` que desejamos retornar, neste caso, o `nome`.
+  O campo `etiquetas` tem o tipo [`LabelConnection`](/graphql/reference/objects#labelconnection). Assim como no objeto `problemas`, porque `etiquetas` é uma conexão, devemos percorrer suas bordas para um nó conectado: o objeto `etiqueta`. No nó, podemos especificar os campos de objeto `etiqueta` que desejamos retornar, neste caso, o `nome`.
 
 Você pode notar que executar essa consulta no repositório público do Octocat `Hello-World` não retornará muitas etiquetas. Tente executá-la em um dos seus próprios repositórios que usam etiquetas, e provavelmente você verá uma diferença.
 
@@ -284,7 +286,7 @@ Vamos analisar o exemplo. A tarefa parece simples: adicione uma reação emoji a
 
 Então, como é que sabemos começar com uma consulta? Ainda não sabemos.
 
-Uma vez que desejamos modificar os dados no servidor (anexar um emoji a um problema), começamos procurando uma mutação útil no esquema. A documentação de referência mostra a mutação [`addReaction`](/v4/mutation/addreaction) com esta descrição: `Adiciona uma reação a um assunto.` Perfeito!
+Uma vez que desejamos modificar os dados no servidor (anexar um emoji a um problema), começamos procurando uma mutação útil no esquema. A documentação de referência mostra a mutação [`addReaction`](/graphql/reference/mutations#addreaction) com esta descrição: `Adiciona uma reação a um assunto.` Perfeito!
 
 A documentação para a lista de mutação lista três campos de entrada:
 
@@ -334,15 +336,15 @@ Com a identificação conhecida, podemos prosseguir com a mutação:
 
   Vamos examinar essa linha:
 
-    - `addReaction` é o nome da mutação.
-    - `entrada` é a chave de argumento obrigatória. Isso sempre será `entrada` para uma mutação.
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` é o valor do argumento obrigatório. Este sempre será um [objeto de entrada](/v4/input_object/) (daí as chaves) compostas de campos de entrada (`subjectId` e `conteúdo`, neste caso) para uma mutação.
+  - `addReaction` é o nome da mutação.
+  - `entrada` é a chave de argumento obrigatória. Isso sempre será `entrada` para uma mutação.
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` é o valor do argumento obrigatório. Este sempre será um [objeto de entrada](/graphql/reference/input-objects) (daí as chaves) compostas de campos de entrada (`subjectId` e `conteúdo`, neste caso) para uma mutação.
 
-  Como sabemos qual o valor usar para o conteúdo? Os documentos [`addReaction`](/v4/mutation/addreaction/) nos dizem que o campo do `conteúdo` tem o tipo [`ReactionContent`](/v4/enum/reactioncontent/), que é um [enum](/v4/enum), porque apenas algumas reações de emojis são compatíveis com em problemas no GitHub. Estes são os valores permitidos para reações (observe que alguns valores diferem de seus nomes de emojis correspondentes):
+  Como sabemos qual o valor usar para o conteúdo? Os documentos [`addReaction`](/graphql/reference/mutations#addreaction) nos dizem que o campo do `conteúdo` tem o tipo [`ReactionContent`](/graphql/reference/enums#reactioncontent), que é um [enum](/graphql/reference/enums), porque apenas algumas reações de emojis são compatíveis com em problemas no GitHub. Estes são os valores permitidos para reações (observe que alguns valores diferem de seus nomes de emojis correspondentes):
 
   {% data reusables.repositories.reaction_list %}
 
-* O resto da chamada é composto pelo objeto da carga. Aqui é onde especificamos os dados que desejamos que o servidor retorne depois de termos efetuado a mutação. Estas linhas vêm dos documentos [`addReaction`](/v4/mutation/addreaction), que são três possíveis campos de retorno:
+* O resto da chamada é composto pelo objeto da carga. Aqui é onde especificamos os dados que desejamos que o servidor retorne depois de termos efetuado a mutação. Estas linhas vêm dos documentos [`addReaction`](/graphql/reference/mutations#addreaction), que são três possíveis campos de retorno:
 
     - `clientMutationId` (`String`)
     - `reação` (`Reação!`)
@@ -389,7 +391,7 @@ mutation($myVar:AddReactionInput!) {
 {% note %}
 
 Você pode notar que o valor do campo `conteúdo` no exemplo anterior (onde é usado diretamente na mutação) não tem aspas em torno de `HORAY`, mas tem aspas quando usado na variável. Há um motivo para isso:
-* Ao usar `conteúdo` diretamente na mutação, o esquema espera que o valor seja do tipo [`ReactionContent`](/v4/enum/reactioncontent/), que é um _enum_, não uma string. A validação de esquema causará um erro se você adicionar aspas no valor do enum, já que as aspas são reservadas para strings.
+* Ao usar `conteúdo` diretamente na mutação, o esquema espera que o valor seja do tipo [`ReactionContent`](/graphql/reference/enums#reactioncontent), que é um _enum_, não uma string. A validação de esquema causará um erro se você adicionar aspas no valor do enum, já que as aspas são reservadas para strings.
 * Ao usar `conteúdo` em uma variável, a seção de variáveis deve ser um JSON válido. Portanto, as aspas são necessárias. A validação de esquema interpreta corretamente o tipo `ReactionContent` quando a variável é passada para a mutação durante a execução.
 
 Para obter mais informações sobre a diferença entre enums e strings, consulte as [Especificações oficiais do GraphQL](https://graphql.github.io/graphql-spec/June2018/#sec-Enums).

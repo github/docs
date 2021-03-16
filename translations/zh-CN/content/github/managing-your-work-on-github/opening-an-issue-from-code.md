@@ -1,18 +1,20 @@
 ---
 title: 从代码打开议题
 intro: 您可以从文件或拉取请求的特定代码行打开新议题。
+permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 从代码打开议题时，议题包含小片段，其中显示所选代码的行或范围。 只能打开存储代码的仓库中的议题。
 
 ![在从代码打开的议题中渲染的代码片段](/assets/images/help/repository/issue-opened-from-code.png)
 
-{% data reusables.repositories.create-issue-in-public-repository %}
+{% data reusables.repositories.administrators-can-disable-issues %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 找到要在议题中引用的代码：

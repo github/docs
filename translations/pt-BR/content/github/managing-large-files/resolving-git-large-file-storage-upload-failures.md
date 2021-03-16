@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A verificação de integridade do {% data variables.large_files.product_name_short %} verifica se todos os arquivos referenciados do {% data variables.large_files.product_name_short %} em um push foram transferidos corretamente. Se a verificação identificar arquivos referenciados que não foram transferidos, você receberá uma mensagem de erro e o push será bloqueado.

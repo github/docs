@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você só pode excluir problemas em um repositório que pertença à sua conta de usuário. Não é possível excluir problemas em um repositório pertencente a outra conta de usuário, mesmo que você seja um colaborador nela.

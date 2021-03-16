@@ -23,7 +23,7 @@ Alle öffentlichen Repositories im Besitz von Benutzerkonten in Deiner Instanz w
 
 Der anonyme Git-Lesezugriff wird für jedes öffentliche Repository deaktiviert, das intern oder privat wird.
 
-Wenn Deine aktuelle Standardsichtbarkeit für Repositorys öffentlich ist, wird die Standardeinstellung intern. Wenn der aktuelle Standardwert privat ist, ändert er sich nicht. Du kannst den Standardwert jederzeit ändern. Weitere Informationen findest Du unter "[Die Standardsichtbarkeit neuer Repositorys auf Deinem Gerät konfigurieren](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)."
+Wenn Deine aktuelle Standardsichtbarkeit für Repositorys öffentlich ist, wird die Standardeinstellung intern. Wenn der aktuelle Standardwert privat ist, ändert er sich nicht. Du kannst den Standardwert jederzeit ändern. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)."
 
 Die Repository-Erstellungsrichtlinie für die Instanz wird dahingehend geändert, dass öffentliche Repositorys verhindert und private und interne Repositories ermöglicht werden. Du kannst die Richtlinie jederzeit aktualisieren. Weitere Informationen findest Du unter „[Repository-Erstellung in Deinen Instanzen beschränken](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance).“
 
@@ -33,11 +33,11 @@ Wenn Du den private Modus nicht aktiviert hast, hat das Migrationsskript keine A
 
 1. Stellen Sie eine Verbindung zur Verwaltungsshell her. Weitere Informationen findest Du unter "[Auf die administrative Shell (SSH) zugreifen](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
 2. Navigiere zum Verzeichnis `/data/github/current`.
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. Führe den Migrationsbefehl aus.
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

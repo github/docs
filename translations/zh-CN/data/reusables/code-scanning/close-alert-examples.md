@@ -1,1 +1,1 @@
-For example, an error in code that's used only for testing, or when the effort of fixing the error is greater than the potential benefit of improving the code.
+例如，仅用于测试的代码中有错误，或者修复错误的工作超过改进代码的潜在益处。

@@ -1,6 +1,6 @@
 ---
 title: Assinar commits
-intro: 'Você pode assinar os commits localmente usando GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} ou S/MIME{% endif %}.'
+intro: Você pode assinar commits localmente usando GPG ou S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

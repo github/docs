@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Verwende eine *.gitattributes*-Datei, um Dateien zu markieren, die einem bestimmten „Muster“ mit den festgelegten Attributen entsprechen. Eine *.gitattributes*-Datei nutzt dieselben Regeln zum Abgleichen wie _.gitignore_-Dateien. Weitere Informationen findest Du unter „[Muster-Format](https://www.git-scm.com/docs/gitignore#_pattern_format)" in der Git-Dokumentation.

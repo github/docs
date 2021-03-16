@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Vorgeschlagene Änderungen anwenden
@@ -23,6 +24,10 @@ Jede Person, die eine der Änderungen des Commits vorgeschlagen hat, wird Co-Aut
     - Um den Vorschlag zu einem Stapel an Änderungen hinzuzufügen, klicke auf **Add suggestion to batch** (Vorschlag zu Stapel hinzufügen). Füge alle anderen vorgeschlagenen Änderungen hinzu, die Du in einen einzelnen Commit einfügen möchtest. Wenn Du mit dem Hinzufügen der vorgeschlagenen Änderungen fertig bist, klicke auf **Commit suggestions** (Vorschläge freigeben). ![Schaltfläche „Add suggestion to batch“ (Vorschlag zu Stapel hinzufügen)](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. Gib im Feld für die Commit-Mitteilung eine kurze, aussagekräftige Commit-Mitteilung ein, die die Änderung beschreibt, die Du an der Datei oder den Dateien vorgenommen hast. ![Feld für Commit-Mitteilung](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Klicke auf **Commit changes** (Änderungen freigeben). ![Schaltfläche „Commit changes“ (Änderungen freigeben)](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Öffnen eines Issue für Vorschläge außerhalb des Geltungsbereichs
 

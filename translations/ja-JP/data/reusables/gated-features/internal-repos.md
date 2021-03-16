@@ -1,1 +1,1 @@
-インターナルリポジトリは、{% data variables.product.prodname_ghe_cloud %}及び{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 詳しい情報については「<a href="/articles/githubs-products" class="dotcom-only">GitHubの製品</a>」を参照してください。
+Internal repositories are available with {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %} 2.20+. 詳しい情報については「<a href="/articles/githubs-products" class="dotcom-only">GitHubの製品</a>」を参照してください。

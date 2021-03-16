@@ -29,6 +29,26 @@ versions:
 
   {% endnote %}
 
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
+
+Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
+
+Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
+
+| 用户许可              |                            vCPU |                                      内存 |                                 附加的存储容量 |  根存储容量 |
+|:----------------- | -------------------------------:| ---------------------------------------:| ---------------------------------------:| ------:|
+| 试用版、演示版或 10 个轻度用户 |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ | 200 GB |
+| 10-3000           |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ | 200 GB |
+| 3000-5000         |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB | 200 GB |
+| 5000-8000         | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB | 200 GB |
+| 8000-10000+       | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB | 200 GB |
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
+
 ### 生成快照
 
 快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。
@@ -49,7 +69,7 @@ versions:
 | 平台                    | 快照方法 | 快照文档 URL                                                                                                                                                                                               |
 | --------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | 磁盘   | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM   | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM   | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM   | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | 磁盘   | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -150,7 +170,7 @@ versions:
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
   {% note %}
 
@@ -203,7 +223,7 @@ versions:
    1. 在副本实例上，再次运行 `ghe-repl-setup <primary-instance-ip>`。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
 ### 从失败的升级中恢复
 
@@ -218,3 +238,9 @@ versions:
 #### 回滚功能版本
 
 要从功能版本回滚，请从 VM 快照恢复，以确保根分区和数据分区处于一致的状态。 更多信息请参阅“[生成快照](#taking-a-snapshot)”。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 延伸阅读
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

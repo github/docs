@@ -1,11 +1,12 @@
 ---
 title: リポジトリについて
-intro: リポジトリは、プロジェクトのフォルダーのようなものです。 プロジェクトのリポジトリにはプロジェクトのすべてのファイルが含まれ、各ファイルのリビジョン履歴が保存されます。 プロジェクトの作業をリポジトリ内で議論し、管理することもできます。
+intro: リポジトリには、プロジェクトのすべてのファイルと各ファイルの改訂履歴が含まれています。 リポジトリ内でプロジェクトの作業について話し合い、管理できます。
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリを個人として所有することも、リポジトリの所有権を Organization 内の他の人々と共有することもできます。
@@ -16,14 +17,16 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 With
-{% data variables.product.prodname_free_team %} for user accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
+ユーザアカウントと Organization の {% data variables.product.prodname_free_team %} を使用すると、完全な機能一式を備えた無制限のパブリックリポジトリ、または限定された機能一式を備えた無制限のプライベートリポジトリで無制限のコラボレータと連携できます。 プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
 {% else %}
 各個人および Organization は、無制限のリポジトリを所有でき、すべてのリポジトリにコラボレータを何人でも招待できます。
 {% endif %}
 
-リポジトリの Issue、プルリクエスト、プロジェクトボードを使ってプロジェクトで他者とコラボレーションできます。
-
-![octocat/Hello-World リポジトリのメインページ](/assets/images/help/repository/repo-main-page.png)
+リポジトリを使用して、作業を管理し、他のユーザと共同作業を行うことができます。
+- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- プルリクエストを使用して、リポジトリへの変更を提案できます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
+- プロジェクトボードを使用して、Issue とプルリクエストを整理して優先順位を付けることができます。 詳細は「[プロジェクトボードについて](/github/managing-your-work-on-github/about-project-boards)」を参照してください。
 
 {% data reusables.repositories.repo-size-limit %}
 

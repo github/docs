@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -21,7 +22,7 @@ You must run {% data variables.product.prodname_codeql %} in the same container 
 You may have difficulty running {% data variables.product.prodname_code_scanning %} if the container you're using is missing certain dependencies (for example, Git must be installed and added to the PATH variable). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s virtual environments. For more information, see the version-specific `readme` files in these locations:
 
 * Linux: https://github.com/actions/virtual-environments/tree/main/images/linux
-* MacOS: https://github.com/actions/virtual-environments/tree/main/images/macos
+* macOS: https://github.com/actions/virtual-environments/tree/main/images/macos
 * Windows: https://github.com/actions/virtual-environments/tree/main/images/win
 
 ### Example workflow

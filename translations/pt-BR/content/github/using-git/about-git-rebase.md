@@ -8,6 +8,7 @@ intro: 'O comando ''git rebase'' permite alterar com facilidade uma variedade de
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

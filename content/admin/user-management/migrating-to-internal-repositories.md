@@ -23,7 +23,7 @@ All public repositories owned by user accounts on your instance will become priv
 
 Anonymous Git read access will be disabled for each public repository that becomes internal or private.
 
-If your current default visibility for repositories is public, the default will become internal. If the current default is private, the default will not change. You can change the default at any time. For more information, see "[Configuring the default visibility of new repositories on your appliance](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)."
+If your current default visibility for repositories is public, the default will become internal. If the current default is private, the default will not change. You can change the default at any time. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)."
 
 The repository creation policy for the instance will change to disable public repositories and allow private and internal repositories. You can update the policy at any time. For more information, see "[Restricting repository creation in your instances](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)."
 
@@ -33,11 +33,11 @@ If you don't have private mode enabled, the migration script will have no effect
 
 1. Connect to the administrative shell. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
 2. Navigate to the `/data/github/current` directory.
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. Run the migration command.
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

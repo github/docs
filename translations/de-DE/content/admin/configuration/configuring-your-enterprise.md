@@ -1,6 +1,6 @@
 ---
 title: Configuring your enterprise
-intro: 'Sobald {% data variables.product.prodname_ghe_server %} betriebsbereit ist, können Sie die Appliance an die Anforderungen Ihrer Organisation anpassen.'
+intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -11,5 +11,6 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -6,25 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
-
-There are two stable versions of the GitHub API: the [REST API](/v3/) and the [GraphQL API](/v4/).
-
-{% else %}
-
-The latest stable version of the GitHub API is the [REST API](/v3/).
-
-{% endif %}
-
-When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version).
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
-
-For information on using the GraphQL API, see the [v4 docs](/v4/).
-
-{% endif %}
+There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API](/graphql). When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version). For information on using the GraphQL API, see the [v4 docs](/graphql).
 
 ## Deprecated versions
 

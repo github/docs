@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 应用建议的更改
@@ -23,6 +24,10 @@ versions:
     - 要将建议添加到一批更改，请单击 **Add suggestion to batch（添加建议到批次）**。 继续添加要包含在单一提交中的更改提议。 添加完提议的更改后，单击 **Commit suggestions（提交建议）**。 ![添加建议到批次按钮](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. 在提交消息字段中，输入简短、有意义的提交消息，以描述对文件的更改。 ![提交消息字段](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### 重新请求审核
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### 为范围外建议开一个议题
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Aplicar alterações sugeridas
@@ -23,6 +24,10 @@ Cada pessoa que sugeriu uma alteração incluída no commit será uma coautora d
     - Para adicionar a sugestão a um lote de alterações, clique em **Add suggestion to batch** (Adicionar sugestão em um lote). Continue a adicionar as alterações sugeridas que quer incluir em um único commit. Quando terminar, clique em **Commit suggestions** (Fazer commit das sugestões). ![Botão Add suggestion to batch (Adicionar sugestão em um lote)](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. No campo de mensagem do commit, digite uma mensagem curta e relevante que descreva a alteração que você fez no arquivo ou arquivos. ![Campo Commit message (Mensagem do commit)](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Clique em **Commit changes** (Fazer commit das alterações). ![Botão Commit changes (Fazer commit de alterações)](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Ressolicitar uma revisão
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Abrir um problema para uma sugestão fora do escopo
 

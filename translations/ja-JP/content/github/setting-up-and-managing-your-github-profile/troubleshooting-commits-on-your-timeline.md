@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### コミットの詳細の表示で想定される動き
@@ -38,20 +39,20 @@ Git では、オーサー日付とは、誰かが `git commit` でコミット�
 $ git show <em>Your commit SHA number</em> --pretty=fuller
 commit <em>Your commit SHA number</em>
 Author:     octocat <em>user email</em>
-AuthorDate: Wed Jul 13 02:02:30 2016 +0900
+AuthorDate: Tue Apr 03 02:02:30 2018 +0900
 Commit:     Sally Johnson <em>user email</em>
-CommitDate: Wed Jul 20 06:25:08 2016 +0900
+CommitDate: Tue Apr 10 06:25:08 2018 +0900
 ```
 
 作者日付とコミット日付が異なる場合は、URL のコミット日付を手動で変更して、コミットの詳細を表示できます。
 
 例:
-- この URL の作者日付は `2016-07-13`:
+- この URL の作者日付は `2018-04-03`:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-13T00:00:00Z&until=2016-07-13T23:59:59Z`
-- この URL は、コミット日付 `2016-07-19` を使っています:
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
+- この URL は、コミット日付 `2018-04-10` を使っています:
 
-  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2016-07-19T00:00:00Z&until=2016-07-19T23:59:59Z`
+  `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
 URL をコミット日付で修正して開くと、コミットの詳細を見ることができます。
 

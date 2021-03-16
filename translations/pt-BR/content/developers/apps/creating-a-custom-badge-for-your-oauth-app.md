@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Por padrão, um aplicativo OAuth novo terá um [identicon](https://github.com/blog/1586-identicons) gerado automaticamente. O selo do identicon assemelha-se a isso:

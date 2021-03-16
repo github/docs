@@ -1,6 +1,6 @@
 ---
 title: Unpublishing a GitHub Pages site
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available to {% if currentVersion == "free-pro-team@latest" %}the public{% else %}everyone using {% data variables.product.product_location %}{% endif %}.'
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/
@@ -12,6 +12,7 @@ permissions: 'People with admin or maintainer permissions for a repository can u
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Unpublishing a project site

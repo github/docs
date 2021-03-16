@@ -14,7 +14,7 @@ versions:
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
-- {% data variables.product.product_location_enterprise %}を動作させるベアメタルマシンに適用されたVMware vSphere ESXi Hypervisorが必要です。 バージョン 5.5 から 6.7 までをサポートしています。 ESXi Hypervisor は無料で、オプションの vCenter Server は含まれていません。 詳しい情報については、[VMware ESXiのドキュメンテーション](https://www.vmware.com/products/esxi-and-esx.html)を参照してください。
+- {% data variables.product.product_location %}を動作させるベアメタルマシンに適用されたVMware vSphere ESXi Hypervisorが必要です。 バージョン 5.5 から 6.7 までをサポートしています。 ESXi Hypervisor は無料で、オプションの vCenter Server は含まれていません。 詳しい情報については、[VMware ESXiのドキュメンテーション](https://www.vmware.com/products/esxi-and-esx.html)を参照してください。
 - vSphere Clientへのアクセスが必要です。 vCenter Serverがあるなら、vSphere Web Clientが利用できます。 詳しい情報については、VMWareのガイド "[vSphere Web Client を使用した、vCenter Server へのログイン](https://docs.vmware.com/jp/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)"を参照してください。
 
 ### ハードウェアについて
@@ -48,4 +48,5 @@ versions:
 
 ### 参考リンク
 
- - "[システムの概要](/enterprise/admin/guides/installation/system-overview)"
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

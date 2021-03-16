@@ -122,9 +122,7 @@
           <li><a href="{{ restGitHubAppsLink }}">Works with GitHub Apps</a></li>
         {% endif %}
         {% for note in operation.notes %}
-          {% unless note == '<a href="{{ restGitHubAppsLink }}">Works with GitHub Apps</a>' %}
-            <li>{{ note }}</li>
-          {% endunless %}
+          <li>{{ note }}</li>
         {% endfor %}
       </ul>
     {% endif %}

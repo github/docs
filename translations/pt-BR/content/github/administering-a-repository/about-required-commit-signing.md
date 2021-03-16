@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você aplicou proteções de branch no repositório, será possível configurar a assinatura de commit obrigatória. Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)".

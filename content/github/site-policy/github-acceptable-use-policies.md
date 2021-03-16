@@ -37,6 +37,8 @@ While using the Service, under no circumstances will you:
 
 - harass, abuse, threaten, or incite violence towards any individual or group, including our employees, officers, and agents, or other users;
 
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
+
 - use our servers for any form of excessive automated bulk activity (for example, spamming or cryptocurrency mining), to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes;
 
 - use our servers to disrupt or to attempt to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network (unless authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
@@ -48,15 +50,17 @@ While using the Service, under no circumstances will you:
 ### 4. Services Usage Limits
 You will not reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without our express written permission.
 
-### 5. Scraping and API Usage Restrictions
-Scraping refers to extracting data from our Service via an automated process, such as a bot or webcrawler. It does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. You may scrape the website for the following reasons:
+### 5. Information Usage Restrictions
+You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
-- Researchers may scrape public, non-personal information from the Service for research purposes, only if any publications resulting from that research are open access.
-- Archivists may scrape the Service for public data for archival purposes.
+-  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+-  Archivists may use public information from the Service for archival purposes.
 
-You may not scrape the Service for spamming purposes, including for the purposes of selling User Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. 
 
-All use of data gathered through scraping must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement).
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ### 6. Privacy
 Misuse of User Personal Information is prohibited.

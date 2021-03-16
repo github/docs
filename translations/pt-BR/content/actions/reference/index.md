@@ -27,10 +27,18 @@ Você pode configurar fluxos de trabalho para serem executados quando eventos es
 
 ### Autenticação e segredos
 
-{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}. Você também pode armazenar informações confidenciais como um segredo na sua organização ou repositório. {% data variables.product.prodname_dotcom %} criptografa todos os segredos.
+{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}. Você também pode armazenar informações sensíveis como um segredo na sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes{% else %} ou repositório{% endif %}. {% data variables.product.prodname_dotcom %} criptografa todos os segredos.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Ambientes
+
+Os trabalhos do fluxo de trabalho podem fazer referência a ambientes que possuem regras de proteção ou segredos específicos do ambiente.
+
+{% link_in_list /environments %}
+{% endif %}
 
 ### Runners hospedados no {% data variables.product.prodname_dotcom %}
 

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -22,17 +23,17 @@ versions:
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
+GitHub の `codeql` リポジトリを参照し、`main` ブランチの現在のバージョンの `README.md` ファイルを表示します。
 
 ブランチのヘッドにあるファイルのバージョンは、新たなコミットが行われるたびに変更される場合があるため、通常の URL をコピーすると、後で他のユーザが見るときはファイルのコンテンツが同一ではない場合があります。
 
 ### <kbd>y</kbd> を押して特定のコミット内のファイルへのパーマリンクを取得
 
-For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
+表示されるファイルの特定のバージョンへのパーマリンクについては、URL でブランチ名を使用する代わりに (つまり、上記の例の `main` 部分)、コミット ID を入力します。  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
 
 * [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-replaces `main` with a specific commit id and the file content will not change.
+`main` を特定のコミット ID に置き換え、ファイルの内容は変更されません。
 
 コミット SHA を手作業で探すのは不便ですが、ショートカットとして <kbd>y</kbd> を押すと、URL がパーマリンクのバージョンに自動で更新されます。  その後、URL をコピーし、共有すると、自分が表示したのとまったく同じものが表示されます。
 

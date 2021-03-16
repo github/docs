@@ -1,1 +1,1 @@
-Anyone can publish an action in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_dotcom %} verifies some partner organizations, but unlike verified apps, {% data variables.product.prodname_dotcom %} does not review or verify individual actions listed in {% data variables.product.prodname_marketplace %}.
+任何人都可以在 {% data variables.product.prodname_marketplace %} 中发布操作。 {% data variables.product.prodname_dotcom %} 验证一些合作伙伴组织，这些组织显示为已验证的创建者。  

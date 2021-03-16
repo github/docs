@@ -1,15 +1,16 @@
 ---
-title: Pulls
+title: Pull Request
 redirect_from:
   - /v3/pulls
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pull Request API を使用すると、プルリクエストを一覧表示、編集、作成、マージできます。 プルリクエストのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
 
-すべてのプルリクエストは Issue ですが、すべての Issue がプルリクエストというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/v3/issues) で提供されます。
+すべてのプルリクエストは Issue ですが、すべての Issue がプルリクエストというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/rest/reference/issues) で提供されます。
 
 ### プルリクエストのカスタムメディアタイプ
 
@@ -32,16 +33,16 @@ diff が破損している場合は、{% data variables.contact.contact_support 
 
 プルリクエストには以下のリンク関係が含まれる可能性があります。
 
-| 名前                | 説明                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------ |
-| `self`            | プルリクエストの API ロケーション。                                                                             |
-| `html`            | プルリクエストの HTML ロケーション。                                                                            |
-| `Issue`           | プルリクエストの [Issue](/v3/issues/) の API ロケーション。                                                      |
-| `コメント`            | プルリクエストの [Issue コメント](/v3/issues/comments/) の API ロケーション。                                        |
-| `review_comments` | プルリクエストの [レビューコメント](/v3/pulls/comments/) の API ロケーション。                                           |
-| `review_comment`  | プルリクエストのリポジトリで、[レビューコメント](/v3/pulls/comments/)の API ロケーションを構築するための[URL テンプレート](/v3/#hypermedia)。 |
-| `commits`         | プルリクエストの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                   |
-| `ステータス`           | プルリクエストの[コミットステータス](/v3/repos/statuses/)、すなわち`head` ブランチのステータスの API ロケーション。                      |
+| 名前                | 説明                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| `self`            | プルリクエストの API ロケーション。                                                                                         |
+| `html`            | プルリクエストの HTML ロケーション。                                                                                        |
+| `Issue`           | プルリクエストの [Issue](/rest/reference/issues) の API ロケーション。                                                       |
+| `コメント`            | プルリクエストの [Issue コメント](/rest/reference/issues#comments) の API ロケーション。                                         |
+| `review_comments` | プルリクエストの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
+| `review_comment`  | プルリクエストのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
+| `commits`         | プルリクエストの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
+| `statuses`        | プルリクエストの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

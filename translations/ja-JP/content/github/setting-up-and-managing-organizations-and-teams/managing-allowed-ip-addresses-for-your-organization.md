@@ -16,7 +16,7 @@ Organization のオーナーは、Organization に対する許可 IP アドレ�
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)」を参照してください。
+Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)」を参照してください。
 
 ### 許可 IP アドレスを追加する
 

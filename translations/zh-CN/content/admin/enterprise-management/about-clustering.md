@@ -24,6 +24,8 @@ versions:
 
 集群提供了冗余功能，但不适用于替换高可用性配置。 更多信息请参阅[高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)。 主设备/辅助设备故障切换配置远比集群简单，可以满足许多组织的需求。 更多信息请参阅[集群与高可用性之间的差异](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)。
 
+{% data reusables.package_registry.packages-cluster-support %}
+
 ### 如何获得集群？
 
 集群针对特定扩展情况而设计，并不一定适用于每个组织。 如果想要考虑集群，请联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}。

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### コメント本文のプロパティ
 
-コメントの本文は、[GitHub Flavored Markdown][gfm]、[Issue](/v3/issues/)、[Issue コメント](/v3/issues/comments/)、[プルリクエストコメント](/v3/pulls/comments/)、および [gist コメント](/v3/gists/comments/) API で記述できます。これらの API はすべて、次の同じメディアタイプを受け入れます。
+コメントの本文は、[GitHub Flavored Markdown][gfm]、[Issue](/rest/reference/issues)、[Issue コメント](/rest/reference/issues#comments)、[プルリクエストコメント](/rest/reference/pulls#comments)、および [gist コメント](/rest/reference/gists#comments) API で記述できます。これらの API はすべて、次の同じメディアタイプを受け入れます。
 
 #### Raw
 
@@ -84,7 +85,7 @@ Raw 形式のテキストおよび HTML 表現を返します。 レスポンス
 
 ### Git blob プロパティ
 
-[blob の取得](/v3/git/blobs/#get-a-blob)時に許可されるメディアタイプは次のとおりです。
+[blob の取得](/rest/reference/git#get-a-blob)時に許可されるメディアタイプは次のとおりです。
 
 #### JSON
 
@@ -101,7 +102,7 @@ Raw 形式の blob データを返します。
 
 ### コミット、コミット比較、プルリクエスト
 
-[コミット API](/v3/repos/commits/) と[プルリクエスト API](/v3/pulls/) は、[diff][git-diff] および [patch][git-patch] 形式をサポートしています。
+[コミット API](/rest/reference/repos#commits) と[プルリクエスト API](/rest/reference/pulls) は、[diff][git-diff] および [patch][git-patch] 形式をサポートしています。
 
 #### diff
 
@@ -146,4 +147,4 @@ Gist の内容は、送信前に base64 でエンコードされます。 これ
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis

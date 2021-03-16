@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {% data variables.product.product_name %}, você poderá usar a API do {% data variables.product.product_name %}.

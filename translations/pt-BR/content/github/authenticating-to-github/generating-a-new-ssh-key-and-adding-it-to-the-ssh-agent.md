@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você ainda não tem uma chave SSH, você deve [gerar uma nova chave SSH](#generating-a-new-ssh-key). Caso não tenha certeza de que já tem uma chave SSH, procure por [chaves existentes](/articles/checking-for-existing-ssh-keys).
@@ -19,18 +20,26 @@ Caso não queira reinserir sua frase secreta cada vez que usa a chave SSH, é po
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cole o texto abaixo, substituindo o endereço de e-mail pelo seu {% data variables.product.product_name %}.
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
+  {% note %}
+
+  **Observação:** Se você estiver usando um sistema legado que não é compatível com o algoritmo Ed25519, use:
+  ```shell
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+  {% endnote %}
   O comando criará uma nova chave SSH, usando o e-mail fornecido como uma etiqueta.
   ```shell
-  > Gerar par de chaves rsa pública/privada.
+  > Generating public/private ed25519 key pair.
   ```
 3. Quando aparecer a solicitação "Enter a file in which to save the key" (Insira um arquivo no qual salvar a chave), presssione Enter. O local padrão do arquivo será aceito.
 
   {% mac %}
 
   ```shell
-  > Insira um arquivo no qual salvar a chave (/Users/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -38,7 +47,7 @@ Caso não queira reinserir sua frase secreta cada vez que usa a chave SSH, é po
   {% windows %}
 
   ```shell
-  > Insira um arquivo no qual salvar a chave (/c/Users/<em>you</em>/.ssh/id_rsa):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -46,7 +55,7 @@ Caso não queira reinserir sua frase secreta cada vez que usa a chave SSH, é po
   {% linux %}
 
   ```shell
-  > Insira um arquivo no qual salvar a chave (/home/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -80,22 +89,28 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
       $ touch ~/.ssh/config
       ```
 
-    * Abra seu arquivo `~/.ssh/config` e, em seguida, modifique-o, substituindo `~/. sh/id_rsa`, caso você não esteja usando o local e o nome padrão para sua chave `id_rsa`.
+    * Abre o seu arquivo `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` se você não estiver usando o local e nome padrão para a sua chave `id_ed25519`.
 
       ```
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_ed25519
       ```
+
+     {% note %}
+
+     **Observação:** Se você optou por não adicionar uma frase secreta à sua chave, você deve omitir a linha `UseKeychain`.
+
+     {% endnote %}
 
 3. Adicione sua chave SSH privada ao ssh-agent e armazene sua frase secreta no keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_rsa
+   $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent.
+  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. Se você optou por não adicionar uma frase secreta à sua chave, execute o comando sem a opção `-K`.
 
   Caso não tenha a versão standard da Apple instalada, você poderá receber uma mensagem de erro. Para obter mais informações sobre como resolver esse erro, consulte "[Erro: ssh-add: opção ilícita -- K](/articles/error-ssh-add-illegal-option-k)".
 
@@ -111,8 +126,8 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
 
 1. Certifique-se de que o ssh-agent está em execução. Você pode usar as instruções "Lançamento automático do ssh-agent" em "[Trabalhando com palavras-chave SSH](/articles/working-with-ssh-key-passphrases)" ou iniciá-lo manualmente:
   ```shell
-  # inicie o ssh-agent em segundo plano
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

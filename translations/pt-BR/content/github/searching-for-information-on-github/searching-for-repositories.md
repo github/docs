@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode pesquisar repositórios globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
+Você pode pesquisar repositórios globalmente no {% data variables.product.product_location %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
 Para incluir bifurcações nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/articles/searching-in-forks)".
 
@@ -19,22 +20,22 @@ Para incluir bifurcações nos resultados da pesquisa, você precisará adiciona
 
 Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Quando você omite esse qualificador, somente o nome e a descrição do repositório são pesquisados.
 
-| Qualifier         | Exemplo                                                                                                                                                                      |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) identifica os repositórios com "jquery" no nome.                                        |
-| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) identifica repositórios com "jquery" no nome ou na descrição. |
-| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) identifica os repositórios que mencionam "jquery" no arquivo README.                |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                       |
+| Qualifier         | Exemplo                                                                                                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) corresponde aos repositórios com "jquery" no nome do respositório.                                       |
+| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) corresponde aos repositórios com "jquery" no nome ou descrição do repositório. |
+| `in:readme`       | [**jquery em:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "jquery" no arquivo LEIAME do repositório.                |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                        |
 
 ### Pesquisar com base no conteúdo do repositório
 
-Você pode enconar um repositório pesquisando o conteúdo em seu arquivo README usando o qualificador `in:readme`.
+Você pode encontrar um repositório pesquisando pelo conteúdo no arquivo LEIAME do repositório usando o qualificador `in:readme`. Para obter mais informações, consulte "[Sobre LEIAME](/github/creating-cloning-and-archiving-repositories/about-readmes)".
 
 Além de usar o `in:readme`, não é possível encontrar repositórios pesquisando um conteúdo específico no repositório. Para pesquisar um arquivo ou conteúdo específico em um repositório, você pode usar o localizador de arquivos os qualificadores de pesquisa específicos para código. Para obter mais informações, consulte "[Localizar arquivos no {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" e "[Pesquisar códigos](/articles/searching-code)".
 
-| Qualifier   | Exemplo                                                                                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) identifica repositórios que mencionam "octocat" no arquivo README. |
+| Qualifier   | Exemplo                                                                                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "octocat" no arquivo LEIAME do repositório. |
 
 ### Pesquisar nos repositórios de um usuário ou uma organização
 
@@ -47,7 +48,7 @@ Para pesquisar em todos os repositórios de um determinado usuário ou organiza�
 
 ### Pesquisar por tamanho do repositório
 
-O qualificador `size` procura repositórios que têm um tamanho específico (em kilobytes) usando os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
+O qualificador `size` procura repositórios que têm um tamanho específico (em kilobytes) usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,7 +59,7 @@ O qualificador `size` procura repositórios que têm um tamanho específico (em 
 
 ### Pesquisar por número de seguidores
 
-Você pode filtrar repositórios com base no número de seguidores usando o qualificador `followers` com os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
+É possível filtrar repositórios com base no número de usuários que seguem os repositórios, usando o qualificador `followers` com os qualificadores com maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                                  |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -67,7 +68,7 @@ Você pode filtrar repositórios com base no número de seguidores usando o qual
 
 ### Pesquisar por número de bifurcações
 
-O qualificador `forks` especifica o número de bifurcações que um repositório deve ter usando os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
+O qualificador `forks` especifica o número de bifurcações que um repositório deve ter usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                            |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,7 +79,7 @@ O qualificador `forks` especifica o número de bifurcações que um repositório
 
 ### Pesquisar por número de estrelas
 
-Você pode pesquisar repositórios com base no número de [estrelas](/articles/saving-repositories-with-stars) do repositório usando os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
+Você pode pesquisar repositórios com base no número de estrelas que os repositórios têm, usando os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/github/getting-started-with-github/saving-repositories-with-stars)" e "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -102,7 +103,7 @@ Os dois usam uma data como parâmetro. {% data reusables.time_date.date_format %
 
 ### Pesquisar por linguagem
 
-Você pode pesquisar repositórios com base na linguagem em que eles foram escritos.
+Você pode pesquisar repositórios com base na linguagem do código nos repositórios.
 
 | Qualifier                 | Exemplo                                                                                                                                                                                      |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,7 +111,7 @@ Você pode pesquisar repositórios com base na linguagem em que eles foram escri
 
 ### Pesquisar por tópico
 
-Você pode encontrar todos os repositórios que estão classificados com um determinado [tópico](/articles/classifying-your-repository-with-topics).
+Você pode encontrar todos os repositórios classificados com um determinado tópico. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)".
 
 | Qualifier                 | Exemplo                                                                                                                                                                                     |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -118,53 +119,55 @@ Você pode encontrar todos os repositórios que estão classificados com um dete
 
 ### Pesquisar por número de tópicos
 
-Você pode pesquisar repositórios pelo número de [tópicos](/articles/classifying-your-repository-with-topics) que foram aplicados usando o qualificador `topics` e os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
+Você pode pesquisar repositórios pelo número de tópicos que foram aplicados aos repositórios, usando o qualificador `topics` junto com os qualificadores maior que, menor que e intervalo. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)" e "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
 | Qualifier                  | Exemplo                                                                                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) identifica os repositórios com cinco tópicos.              |
 |                            | [**tópicos:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) correspondem a repositórios com mais de três tópicos. |
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 ### Pesquisar por licença
 
-Você pode pesquisar repositórios pela [licença](/articles/licensing-a-repository). Você deve usar uma [palavra-chave de licença](/articles/licensing-a-repository/#searching-github-by-license-type) para filtrar repositórios por uma licença específica ou por uma família de licenças.
+Você pode pesquisar repositórios pelo tipo de licença nos repositórios. É preciso usar uma palavra-chave de licença para filtrar repositórios por uma determinada licença ou família de licenças. Para obter mais informações, consulte "[Licenciar um repositório](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)".
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults) identifica os repositórios que são licenciados com a Licença Apache 2.0. |
 
-### Pesquisar por repositório público ou privado
+{% endif %}
 
-Você pode filtrar a pesquisa para identificar somente repositórios públicos ou privados.
+### Pesquisar por visibilidade do repositório
 
-| Qualifier    | Exemplo                                                                                                                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories&utf8=%E2%9C%93) identifica os repositórios do GitHub que são públicos.                          |
-| `is:private` | [**is:private pages**](https://github.com/search?utf8=%E2%9C%93&q=pages+is%3Aprivate&type=Repositories) identifica os repositórios privados aos quais você tem acesso e contêm a palavra "pages". |
+Você pode filtrar sua pesquisa com base na visibilidade dos repositórios. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+
+| Qualificador | Exemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) corresponde aos repositórios públicos que pertencem a {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) corresponde aos repositórios internos que você pode acessar e que contêm a palavra "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) corresponde a repositórios privados que você pode acessar e que contêm a palavra "pages".
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Pesquisar com base no fato de o repositório ser um espelho
 
-Você pode pesquisar os repositórios com base no critério de que são um espelho ou não e se estão hospedados em outro lugar. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+Você pode pesquisar repositórios com base no fato de os repositórios serem espelhos e hospedados em outro lugar. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
-| Qualifier      | Exemplo                                                                                                                                                                     |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) identifica os repositórios que são espelhos e contêm a palavra "GNOME".       |
-| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) identifica os repositórios que não são espelhos e contêm a palavra "GNOME". |
+| Qualifier      | Exemplo                                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) identifica os repositórios que são espelhos e contêm a palavra "GNOME".         |
+| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) corresponde aos repositórios que não são espelhos e contêm a palavra "GNOME". |
 
 {% endif %}
 
 ### Pesquisar com base no fato de o repositório estar arquivado
 
-Você pode pesquisar repositórios com base no fato dele estar ou não [arquivado](/articles/about-archiving-repositories).
+Você pode pesquisar repositórios com base no fato de os repositórios estarem ou não arquivados. Para obter mais informações, consulte "[Sobre o arquivamento de repositórios](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
 
-| Qualifier        | Exemplo                                                                                                                                                                             |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) identifica os repositórios que estão arquivados e contêm a palavra "GNOME".       |
-| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) identifica os repositórios que não estão arquivados e contêm a palavra "GNOME". |
+| Qualifier        | Exemplo                                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) identifica os repositórios que estão arquivados e contêm a palavra "GNOME".         |
+| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) corresponde aos repositórios que não estão arquivados e contêm a palavra "GNOME". |
 
 {% if currentVersion == "free-pro-team@latest" %}
+
 ### Pesquisar com base no número de problemas com as etiquetas `good first issue` (um bom primeiro problema) ou `help wanted` (procura-se ajuda)
 
 Você pode pesquisar repositórios que têm um número mínimo de problemas com as etiquetas `help-wanted` (procura-se ajuda) ou `good-first-issue` (um bom primeiro problema) com os qualificadores `help-wanted-issues:>n` e `good-first-issues:>n`. Para obter mais informações, consulte "[Incentivar contribuições úteis para o seu projeto com etiquetas](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)".
@@ -173,6 +176,7 @@ Você pode pesquisar repositórios que têm um número mínimo de problemas com 
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) identifica os repositórios com mais de dois problemas com a etiqueta `good-first-issue` e que contêm a palavra "javascript". |
 | `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) identifica os repositórios com mais de quatro problemas com a etiqueta `help-wanted` e que contêm a palavra "React".                 |
+
 {% endif %}
 
 ### Leia mais

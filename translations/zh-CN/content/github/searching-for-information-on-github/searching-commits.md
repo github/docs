@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
@@ -47,10 +48,10 @@ versions:
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                       | 示例                                                                                                                                      |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) 匹配 2016-01-01 之前创作的提交。       |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A<2016-01-01&type=Commits) 匹配 2016-01-01 之后提交的提交。 |
+| 限定符                       | 示例                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) 匹配 2016-01-01 之前创作的提交。     |
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) 匹配 2016-01-01 之后的提交。 |
 
 ### 过滤合并提交
 
@@ -95,14 +96,11 @@ versions:
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) 匹配 @github 拥有的仓库中含有 "test" 字样的提交消息。                                                   |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) 匹配 @defunkt 的 "gibberish" 仓库中含有 "language" 字样的提交消息。 |
 
-### 过滤公共或私有仓库
+### 按仓库可见性过滤
 
-`is` 限定符匹配公共或私有提交。
+`is` 限定符匹配具有指定可见性的仓库中的提交。 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
 
-| 限定符          | 示例                                                                              |
-| ------------ | ------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配公共提交。   |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配私有提交。 |
+| 限定符  | 示例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配对公共仓库的提交。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) 匹配对内部仓库的提交。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
 
 ### 延伸阅读
 

@@ -7,6 +7,7 @@ intro: Einzelne Ordner eines Git-Repositorys kannst Du in neue Repositorys ausla
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates Repository verschiebst, verlierst Du weder Deinen Git-Verlauf noch die bereits vorgenommenen Änderungen.
@@ -35,8 +36,8 @@ Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates 
     {% endwindows %}
     - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
     ```shell
-    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
-    # Filtere den spezifischen Branch in Deinem Verzeichnis und entferne leere Commits
+    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
+    # Filter the specified branch in your directory and remove empty commits
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
     ```

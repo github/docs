@@ -8,6 +8,9 @@ intro: 'ウェブ上には数多くの役に立つ Git と {% data variables.pro
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Git を使用する
@@ -22,15 +25,13 @@ versions:
 
 {% endif %}
 
-[bootcamp](/categories/bootcamp/) 記事で、{% data variables.product.product_name %} に精通しましょう。 [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### ブランチ、フォーク、プルリクエスト
 
-インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。
-
-[コマンドライン](https://hub.github.com)についてのクイックリファレンスや、{% data variables.product.prodname_dotcom %} の[チェックリスト、チートシートなど](https://services.github.com/on-demand/resources)にアクセスしてください。
+インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 #### 動画
 
@@ -38,9 +39,9 @@ versions:
 
 ### トレーニング
 
-#### 無料クラス
+#### Free courses
 
-{% data variables.product.product_name %} では、インタラクティブな [オンデマンドのトレーニングコース](https://services.github.com/on-demand/)のシリーズを提供しています。これには、{% data variables.product.prodname_dotcom %}101: [導入](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %}102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop)、および{% data variables.product.prodname_dotcom %}103: [コマンドライン](https://services.github.com/on-demand/github-cli)が含まれます。
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 #### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 
@@ -48,12 +49,12 @@ versions:
 
 #### 企業向けトレーニング
 
-{% data variables.product.prodname_dotcom %} では、経験豊富な教育者による[対面クラス](https://services.github.com/#offerings)を提供しています。 トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
+{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
 
 ### その他
 
 [Code School](http://codeschool.com) によるインタラクティブな[オンラインの Git コース](http://www.codeschool.com/courses/git-real)では、数十の楽しいゲーム形式のエクササイズを含む 7 段階のサービスを提供しています。 [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
 
-Extend your {% data variables.product.prodname_dotcom %} reach through {% if currentVersion == "free-pro-team@latest" %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
+{% data variables.product.prodname_dotcom %} のリーチを、{% if currentVersion == "free-pro-team@latest" %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
 
 [オープンソースのガイド](https://opensource.guide/)で、オープンソースのプロジェクトを立ち上げ成長させる方法をご確認ください。

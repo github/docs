@@ -39,11 +39,7 @@ versions:
 - 複数の `www` サブドメインを使用している。 たとえば、`www.example.com` と`www.anotherexample.com` の両方など。
 - Apex ドメインとカスタムサブドメインの両方を使用している。 たとえば、`example.com` と`docs.example.com` の両方など。
 
-{% warning %}
-
-**警告:** `*.example.com` など、ワイルドカード DNS レコードは使わないでください。 ワイルドカード DNS レコードにより、あなたのサブドメインの 1 つで {% data variables.product.prodname_pages %}サイトを誰でもホストできるようになります。
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 サポートされているカスタムサブドメインのリストは、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)」を参照してください。
 

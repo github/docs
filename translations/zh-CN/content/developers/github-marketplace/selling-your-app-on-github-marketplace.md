@@ -1,6 +1,6 @@
 ---
-title: Selling your app on GitHub Marketplace
-intro: 'Learn about requirements and best practices for selling your app on {% data variables.product.prodname_marketplace %}.'
+title: 在 GitHub Marketplace 上出售应用程序
+intro: '了解在 {% data variables.product.prodname_marketplace %} 上出售应用程序的要求和最佳实践。'
 mapTopic: true
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/

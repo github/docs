@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ウィキをオフにすると、コンテンツは非表示になりますが、削除されるわけではありません。 後からウィキを再有効化すると、以前のページが復元されます。

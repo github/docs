@@ -39,11 +39,7 @@ Deine Website darf nicht:
 - Mehrere `www`-Subdomänen umfassen. Beispiel: `www.example.com` und `www.anotherexample.com`.
 - Sowohl eine Apex-Domäne als auch eine benutzerdefinierte Subdomäne umfassen. Beispiel: `example.com` und `docs.example.com`.
 
-{% warning %}
-
-**Warnung:** Es wird dringend empfohlen, keine Platzhalter-DNS-Einträge wie `*.example.com` zu verwenden. Dadurch würdest Du jedem ermöglichen, eine {% data variables.product.prodname_pages %}-Website auf Deinen Subdomänen zu hosten.
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 Eine Liste der unterstützten benutzerdefinierten Domänen findest Du unter „[Informationen zu benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains).“
 
@@ -53,7 +49,7 @@ Zugriff über HTTPS ist auf {% data variables.product.prodname_pages %}-Websites
 
 Nach der Konfiguration Deiner benutzerdefinierten Domäne kann es bis zu einer Stunde dauern, bis die Website über HTTPS verfügbar ist. Nach einer Aktualisierung bestehender DNS-Einstellungen musst Du Deine benutzerdefinierte Domäne zudem eventuell aus dem Repository Deiner Website entfernen und erneut dort einfügen, um den Prozess der HTTPS-Aktivierung zu initiieren. Weitere Informationen findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site).“
 
-Wenn Du CAA-Einträge (Certification Authority Authorization) verwendest, muss mindestens ein CAA-Eintrag mit dem Wert `letsencrypt.org` vorhanden sein, wenn Deine Website über HTTPS zugänglich sein soll. Weitere Informationen findest Du in der 'Let's Encrypt'-Dokumentation unter „[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)“.
+Wenn Du CAA-Einträge (Certification Authority Authorization) verwendest, muss mindestens ein CAA-Eintrag mit dem Wert `letsencrypt.org` vorhanden sein, wenn Deine Website über HTTPS zugänglich sein soll. Weitere Informationen finden Sie in der Let's Encrypt-Dokumentation unter „[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)“.
 
 ### URL-Formatierung unter Linux
 

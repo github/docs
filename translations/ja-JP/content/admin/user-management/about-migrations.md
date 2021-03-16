@@ -14,7 +14,7 @@ versions:
 
 - {% data variables.product.prodname_ghe_server %} インスタンスから別の {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 インスタンス上の任意のユーザあるいはOrganizationが所有する任意の数のリポジトリを移行できます。 移行を行う前に、双方のインスタンスにサイト管理者としてアクセスできなければなりません。
 - {% data variables.product.prodname_dotcom_the_website %} Organization から {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 Organizationが所有する任意の数のリポジトリを移行できます。 移行を実行するためには、{% data variables.product.prodname_dotcom_the_website %} Organization への[管理アクセス](/enterprise/user/articles/permission-levels-for-an-organization/)と、ターゲットインスタンスへのサイト管理者としてのアクセスが必要です。
-- *トライアル実行*は、データを[ステージングインスタンス](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)にインポートする移行です。 これは、{% data variables.product.product_location_enterprise %} に対して移行を行ったときに何が起こる*ことになる*のかを確認するのに役立ちます。 **本番インスタンスへデータをインポートする前に、ステージングインスタンスで試行することを強くおすすめします。**
+- *トライアル実行*は、データを[ステージングインスタンス](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)にインポートする移行です。 これは、{% data variables.product.product_location %} に対して移行を行ったときに何が起こる*ことになる*のかを確認するのに役立ちます。 **本番インスタンスへデータをインポートする前に、ステージングインスタンスで試行することを強くおすすめします。**
 
 ### データの移行
 

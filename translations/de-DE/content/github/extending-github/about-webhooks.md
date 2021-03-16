@@ -9,6 +9,7 @@ intro: Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen We
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

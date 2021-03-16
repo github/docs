@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários de organizações podem mudar a principal de qualquer equipe. Mantenedores de equipes podem alterar a principal de uma equipe se forem mantenedores da equipe secundária e da equipe principal. Mantenedores de equipe sem permissões de mantenedor na equipe secundária podem solicitar para adicionar uma equipe principal ou secundária. Para obter mais informações, consulte "[Solicitar adição ou alteraração de uma equipe principal](/articles/requesting-to-add-or-change-a-parent-team)" e "[Solicitar adição de uma equipe secundária](/articles/requesting-to-add-a-child-team)".

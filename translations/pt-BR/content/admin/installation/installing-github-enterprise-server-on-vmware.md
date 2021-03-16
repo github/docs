@@ -14,7 +14,7 @@ versions:
 ### Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
-- Você deve ter um Hypervisor VMware vSphere ESXi aplicado a uma máquina bare metal que vai executar a {% data variables.product.product_location_enterprise %}. As versões 5.5 a 6.7 são compatíveis. O Hpervisor ESXi é grátis e não inclui o Servidor vCenter (opcional). Para obter mais informações, consulte a [documentação do VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html).
+- Você deve ter um Hypervisor VMware vSphere ESXi aplicado a uma máquina bare metal que vai executar a {% data variables.product.product_location %}. As versões 5.5 a 6.7 são compatíveis. O Hpervisor ESXi é grátis e não inclui o Servidor vCenter (opcional). Para obter mais informações, consulte a [documentação do VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html).
 - Você precisará de acesso a um cliente vSphere. Se tiver o servidor vCenter, você poderá usar o cliente vSphere Web. Para obter mais informações, consulte "[Fazer login no servidor vCenter pelo cliente web vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)" no guia da VMware.
 
 ### Considerações de hardware
@@ -48,4 +48,5 @@ versions:
 
 ### Leia mais
 
- - [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

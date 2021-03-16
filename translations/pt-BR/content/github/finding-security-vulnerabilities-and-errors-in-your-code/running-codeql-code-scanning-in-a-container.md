@@ -21,7 +21,7 @@ Você precisa executar {% data variables.product.prodname_codeql %} no mesmo con
 Você pode ter dificuldade para executar {% data variables.product.prodname_code_scanning %} se o contêiner que você está usando estiver com certas dependências ausentes (por exemplo, o Git deve ser instalado e adicionado à variável PATH). Se você encontrar problemas de dependência, revise a lista de software geralmente incluída nos ambientes virtuais de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte os arquivos de `readme` específicos da versão nesses locais:
 
 * Linux: https://github.com/actions/virtual-environments/tree/main/images/linux
-* MacOS: https://github.com/actions/virtual-environments/tree/main/images/macos
+* macOS: https://github.com/actions/virtual-environments/tree/main/images/macos
 * Windows: https://github.com/actions/virtual-environments/tree/main/images/win
 
 ### Exemplo de fluxo de trabalho

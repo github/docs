@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can filter a repository's list of pull requests to find:
 - Pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet
-- Pull requests that [require a review](/articles/about-required-reviews-for-pull-requests) before they can be merged
+- Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
 - Pull requests that you have reviewed

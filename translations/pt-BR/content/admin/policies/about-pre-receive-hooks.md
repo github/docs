@@ -23,4 +23,4 @@ Exemplos de uso dos hooks pre-receive:
 ### Fluxos de trabalho e impacto no desempenho
 O impacto para os desenvolvedores e seus fluxos de trabalho pode ser significativo e deve ser considerado atentamente. Hooks pre-receive baseados nas demandas corporativas e implementados com cuidado trarão mais benefícios para a organização como um todo.
 
-Os hooks pre-receive podem ter efeitos indesejados no desempenho do {% data variables.product.product_location_enterprise %}, devendo ser implementados e analisados com atenção.
+Os hooks pre-receive podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.

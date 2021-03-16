@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting OAuth App access token request errors
+title: OAuth Appアクセストークンのリクエストエラーのトラブルシューティング
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
@@ -7,17 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Note:** These examples only show JSON responses.
+**注釈:** この例ではJSONのレスポンスのみ示しています。
 
 {% endnote %}
 
-### Incorrect client credentials
+### 不正なクライアント認識情報
 
-If the client\_id and or client\_secret you pass are incorrect you will receive this error response.
+渡した client\_id や client\_secret が正しくない場合は、以下のエラーレスポンスを受け取ります。
 
 ```json
 {
@@ -27,11 +28,11 @@ If the client\_id and or client\_secret you pass are incorrect you will receive 
 }
 ```
 
-To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly to {% data variables.product.product_name %}.
+このエラーを解決するには、{% data variables.product.prodname_oauth_app %} の正しい認証情報を持っているかを確認します。 `client_id` と `client_secret` が間違っていないか、また {% data variables.product.product_name %} に正しく渡されているかを再確認してください。
 
-### Redirect URI mismatch
+### リダイレクトURIの不一致
 
-If you provide a `redirect_uri` that doesn't match what you've registered with your {% data variables.product.prodname_oauth_app %}, you'll receive this error message:
+指定した `redirect_uri` が {% data variables.product.prodname_oauth_app %} で登録したものと一致しない場合、次のエラーメッセージが表示されます。
 
 ```json
 {
@@ -41,9 +42,9 @@ If you provide a `redirect_uri` that doesn't match what you've registered with y
 }
 ```
 
-To correct this error, either provide a `redirect_uri` that matches what you registered or leave out this parameter to use the default one registered with your application.
+このエラーを修正するには、登録したものと一致する`redirect_uri`を指定するか、アプリケーションで登録されているデフォルトのURIを使用するためパラメータを省略します。
 
-### Bad verification code
+### 不正な検証コード
 
 ```json
 {
@@ -54,7 +55,7 @@ To correct this error, either provide a `redirect_uri` that matches what you reg
 }
 ```
 
-If the verification code you pass is incorrect, expired, or doesn't match what you received in the first request for authorization you will receive this error.
+渡した検証コードが間違っている、有効期限切れ、または最初の認可リクエストで受け取ったものと一致しない場合、このエラーを受信します。
 
 ```json
 {
@@ -64,4 +65,4 @@ If the verification code you pass is incorrect, expired, or doesn't match what y
 }
 ```
 
-To solve this error, start the [OAuth authorization process again](/apps/building-oauth-apps/authorizing-oauth-apps/) and get a new code.
+この問題を解決するには、[OAuth Appの認可](/apps/building-oauth-apps/authorizing-oauth-apps/)のプロセスを再び開始し、新しいコードを取得します。

@@ -44,7 +44,7 @@ Oferecemos suporte para {% data variables.product.prodname_advanced_security %},
 
 O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. feriados.
 
-| EUA Feriado             | Datas em 2018                 |
+| EUA Feriado             | Data de observação            |
 | ----------------------- | ----------------------------- |
 | Fraternidade Universal  | 1º de janeiro                 |
 | Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |
@@ -57,7 +57,7 @@ O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA
 | Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |
 | Natal (Dia 1)           | 24 de dezembro                |
 | Natal (Dia 2)           | 25 de dezembro                |
-| Natal (Dia 3)           | 26 de dezembro                |
+| Natal (Dia 3)           | 28 de dezembro                |
 | Ano-Novo                | 31 de dezembro                |
 
 ### Instalando as atualizações do {% data variables.product.prodname_advanced_security %}

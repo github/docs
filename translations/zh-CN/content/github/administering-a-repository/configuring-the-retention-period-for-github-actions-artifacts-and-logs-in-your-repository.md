@@ -1,6 +1,6 @@
 ---
-title: Configuring the retention period for GitHub Actions artifacts and logs in your repository
-intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.'
+title: 为仓库中的 GitHub Actions 构件和日志配置保留期
+intro: '您可以为仓库中的 {% data variables.product.prodname_actions %} 构件和日志配置保留期。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
@@ -8,9 +8,9 @@ versions:
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+您还可以为工作流程创建的特定构件自定义保留期。 更多信息请参阅“[设置构件的保留期](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)”。
 
-## Setting the retention period for a repository
+## 设置仓库的保留期
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

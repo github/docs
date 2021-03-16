@@ -37,6 +37,8 @@ Ao usar o Serviço, em nenhuma circunstância você irá:
 
 - assediar, abusar, ameaçar ou incitar a violência contra qualquer indivíduo ou grupo, incluindo nossos funcionários, dirigentes e agentes ou outros usuários;
 
+- postar conteúdo que fuja ao tópico ou interagir com os recursos da plataforma de forma que interrompe de forma significativa ou repetidamente a experiência de outros usuários;
+
 - usar nossos servidores para qualquer forma de atividade em massa automatizada excessiva (por exemplo, envio de spams ou mineração de criptomoeda), sobrecarregar indevidamente nossos servidores por meios automatizados, ou transmitir qualquer outra forma de publicidade ou demanda não solicitada por meio de nossos servidores, como esquemas do tipo enriqueça rápido;
 
 - usar nossos servidores para interromper ou tentar interromper, ou ganhar ou tentar ganhar acesso não autorizado a qualquer serviço, dispositivo, dados, conta ou rede (a menos que autorizado pelo [programa GitHub Bug Bounty](https://bounty.github.com));
@@ -48,15 +50,17 @@ Ao usar o Serviço, em nenhuma circunstância você irá:
 ### 4. Limites de uso dos serviços
 Você não reproduzirá, duplicará, copiará, venderá, revenderá ou explorará qualquer parte do Serviço, uso do Serviço ou acesso ao Serviço sem nossa permissão expressa por escrito.
 
-### 5. Restrições de scraping (raspagem) e uso da API
-Scraping refere-se à extração de dados de nosso Serviço por meio de um processo automatizado, como um bot ou rastreador web (webcrawler). Não se refere à coleta de informações por meio de nossa API. Por favor, consulte a Seção H de nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos da API. Você pode raspar o site pelos seguintes motivos:
+### 5. Restrições de uso de informações
+Você pode usar as informações do nosso Serviço pelos motivos a seguir, independentemente de as informações terem sido processadas, coletadas pela nossa API ou obtidas de outra forma:
 
-- Pesquisadores podem raspar informações públicas e não pessoais do Serviço para fins de pesquisa, somente se quaisquer publicações resultantes da pesquisa forem de acesso aberto.
-- Arquivistas podem raspar o Serviço para dados públicos com fins de arquivo.
+-  Os pesquisadores podem utilizar informações públicas e não pessoais do Serviço para fins de pesquisa, se todas as publicações resultantes dessa pesquisa forem de [acesso público](https://en.wikipedia.org/wiki/Open_access).
+-  Os Arquivadores podem utilizar informações públicas do Serviço para fins de arquivamento.
 
-Você não poderá raspar o Serviço para fins de envio de spams, inclusive com propósito de vender Informações Pessoais do Usuário (como definido na [Declaração de privacidade do GitHub](/articles/github-privacy-statement)) para, por exemplo, recrutadores, headhunters e anúncios de empregos.
+Scraping refere-se à extração de informações do nosso Serviço por meio de um processo automatizado, como um bot ou webcrawler. Scraping não se refere à coleta de informações por meio de nossa API. Por favor, consulte a Seção H de nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos da API.
 
-Todo uso de dados coletados por meio de scraping (raspagem) devem estar de acordo com a [Declaração de privacidade do GitHub](/articles/github-privacy-statement).
+Você não pode usar as informações do Serviço (quer seja por meio de raspagem, coletadas através da nossa API ou obtidas de outra forma) para spam, incluindo para fins de envio de e-mails não solicitados a usuários ou venda de Informações Pessoais do Usuário (conforme definido na [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement)), tais como recrutadores, headhunters e quadros de emprego.
+
+Seu uso de informações do Serviço deve estar em conformidade com a [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ### 6. Privacidade
 Uso indevido de Informações Pessoais é proibido.

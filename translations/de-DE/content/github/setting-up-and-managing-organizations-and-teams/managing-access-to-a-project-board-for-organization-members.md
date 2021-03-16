@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Standardmäßig haben Organisationsmitglieder Schreibzugriff auf die Projektboards ihrer Organisation, sofern die Organisationsinhaber oder Projektboard-Administratoren keine abweichenden Berechtigungen für bestimmte Projektboards festgelegt haben.

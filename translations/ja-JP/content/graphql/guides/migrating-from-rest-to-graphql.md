@@ -7,18 +7,19 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### APIのロジックに関する差異
 
 RESTからGraphQLへの移行は、APIロジックの大きな変化を示します。 スタイルとしてのRESTと仕様としてのGraphQLとの違いのために、REST APIの呼び出しをGraphQL APIのクエリに1対1で置き換えることは難しく、しばしば望ましくないことになります。 移行の具体的な例を以下に示しました。
 
-コードを [REST API](/v3) から GraphQL API に移行するには、以下を行います。
+コードを [REST API](/rest) から GraphQL API に移行するには、以下を行います。
 
 - [GraphQL仕様](https://graphql.github.io/graphql-spec/June2018/)のレビュー
-- GitHubの[GraphQLスキーマ](/v4/reference/)のレビュー
+- GitHubの[GraphQLスキーマ](/graphql/reference)のレビュー
 - 現在のコードによるGitHub REST APIとのやりとりの考慮
-- [グローバルノードID](/v4/guides/using-global-node-ids)を使ったAPIバージョン間でのオブジェクトの参照
+- [グローバルノードID](/graphql/guides/using-global-node-ids)を使ったAPIバージョン間でのオブジェクトの参照
 
 GraphQLによる重要な利点には以下があります。
 
@@ -52,12 +53,12 @@ query {
 }
 ```
 
-別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST APIの呼び出しは、プルリクエストとその[サマリ表現](/v3/#summary-representations)のリストを取得します。
+別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST APIの呼び出しは、プルリクエストとその[サマリ表現](/rest#summary-representations)のリストを取得します。
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/v3/#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalse下をチェックしなければなりません。
+プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/rest#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalse下をチェックしなければなりません。
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
@@ -127,13 +128,13 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-プルリクエストの番号で[変数を置き換える](/v4/guides/forming-calls/#working-with-variables)ことで、このクエリの力を拡張することもできます。
+プルリクエストの番号で[変数を置き換える](/graphql/guides/forming-calls-with-graphql#working-with-variables)ことで、このクエリの力を拡張することもできます。
 
 ## 例：強力な型付け
 
 GraphQLスキーマは強く型付けされており、データの扱いが安全になっています。
 
-IssueもしくはプルリクエストにGraphQLの[ミューテーション](/v4/mutation)を使ってコメントを追加する例で、間違って[`clientMutationId`](/v4/mutation/addcomment/)の値に文字列ではなく整数値を指定してしまったとしましょう。
+IssueもしくはプルリクエストにGraphQLの[ミューテーション](/graphql/reference/mutations)を使ってコメントを追加する例で、間違って[`clientMutationId`](/graphql/reference/mutations#addcomment)の値に文字列ではなく整数値を指定してしまったとしましょう。
 
 ```graphql
 mutation {

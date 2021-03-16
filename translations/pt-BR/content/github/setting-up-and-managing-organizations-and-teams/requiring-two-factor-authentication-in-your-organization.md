@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Você também pode exigir autenticação de dois fatores para as organizações de uma empresa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)".
+Você também pode exigir autenticação de dois fatores para as organizações de uma empresa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)".
 
 {% endif %}
 

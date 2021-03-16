@@ -6,6 +6,7 @@ permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -16,7 +17,7 @@ You can search for packages globally across all of {% data variables.product.pro
 
 {% if enterpriseServerVersions contains currentVersion %}
 You can only search for packages on
-{% data variables.product.product_location_enterprise %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
+{% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

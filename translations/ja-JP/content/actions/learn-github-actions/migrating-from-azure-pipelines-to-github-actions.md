@@ -6,10 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: tutorial
+topics:
+  - Azure Pipelines
+  - 移行
+  - CI
+  - CD
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -41,7 +47,7 @@ Azure Pipelinesのジョブとステップは、{% data variables.product.prodna
 
 ### スクリプトのステップの移行
 
-スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
+スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
 
 {% data variables.product.prodname_actions %}では、すべてのスクリプトは`run`キーを使って指定されます。 特定のシェルを選択するには、スクリプトを提供する際に`shell`キーを指定します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
@@ -61,16 +67,16 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: scripts
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in the default shell"
-  - bash: echo "This step runs in bash"
-  - pwsh: Write-Host "This step runs in PowerShell Core"
-  - task: PowerShell@2
-    inputs:
-      script: Write-Host "This step runs in PowerShell"
+  - job: scripts
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in the default shell"
+      - bash: echo "This step runs in bash"
+      - pwsh: Write-Host "This step runs in PowerShell Core"
+      - task: PowerShell@2
+        inputs:
+          script: Write-Host "This step runs in PowerShell"
 ```
 {% endraw %}
 </td>
@@ -81,13 +87,13 @@ jobs:
   scripts:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in the default shell"
-    - run: echo "This step runs in bash"
-      shell: bash
-    - run: Write-Host "This step runs in PowerShell Core"
-      shell: pwsh
-    - run: Write-Host "This step runs in PowerShell"
-      shell: powershell
+      - run: echo "This step runs in the default shell"
+      - run: echo "This step runs in bash"
+        shell: bash
+      - run: Write-Host "This step runs in PowerShell Core"
+        shell: pwsh
+      - run: Write-Host "This step runs in PowerShell"
+        shell: powershell
 ```
 {% endraw %}
 </td>
@@ -122,11 +128,11 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_command
-  pool:
-    vmImage: 'windows-latest'
-  steps:
-  - script: echo "This step runs in CMD on Windows by default"
+  - job: run_command
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in CMD on Windows by default"
 ```
 {% endraw %}
 </td>
@@ -137,9 +143,9 @@ jobs:
   run_command:
     runs-on: windows-latest
     steps:
-    - run: echo "This step runs in PowerShell on Windows by default"
-    - run: echo "This step runs in CMD on Windows explicitly"
-      shell: cmd
+      - run: echo "This step runs in PowerShell on Windows by default"
+      - run: echo "This step runs in CMD on Windows explicitly"
+        shell: cmd
 ```
 {% endraw %}
 </td>
@@ -170,12 +176,12 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: conditional
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This step runs with str equals 'ABC' and num equals 123"
-    condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
+  - job: conditional
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This step runs with str equals 'ABC' and num equals 123"
+        condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
 {% endraw %}
 </td>
@@ -186,8 +192,8 @@ jobs:
   conditional:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This step runs with str equals 'ABC' and num equals 123"
-      if: ${{ env.str == 'ABC' && env.num == 123 }}
+      - run: echo "This step runs with str equals 'ABC' and num equals 123"
+        if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
 {% endraw %}
 </td>
@@ -216,29 +222,29 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: initial
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This job will be run first."
-- job: fanout1
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout2."
-- job: fanout2
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout1."
-- job: fanin:
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: [fanout1, fanout2]
-  steps:
-  - script: echo "This job will run after fanout1 and fanout2 have finished."
+  - job: initial
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This job will be run first."
+  - job: fanout1
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout2."
+  - job: fanout2
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout1."
+  - job: fanin:
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: [fanout1, fanout2]
+    steps:
+      - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -246,29 +252,25 @@ jobs:
 {% raw %}
 ```yaml
 jobs:
-- job: initial
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo "This job will be run first."
-  - job: fanout1
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout2."
-  - job: fanout2
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: initial
-  steps:
-  - script: echo "This job will run after the initial job, in parallel with fanout1."
-  - job: fanin:
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: [fanout1, fanout2]
-  steps:
-  - script: echo "This job will run after fanout1 and fanout2 have finished."
+  initial:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job will be run first."
+  fanout1:
+    runs-on: ubuntu-latest
+    needs: initial
+    steps:
+      - run: echo "This job will run after the initial job, in parallel with fanout2."
+  fanout2:
+    runs-on: ubuntu-latest
+    needs: initial
+    steps:
+      - run: echo "This job will run after the initial job, in parallel with fanout1."
+  fanin:
+    runs-on: ubuntu-latest
+    needs: [fanout1, fanout2]
+    steps:
+      - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -297,15 +299,15 @@ Azure Pipelines
 {% raw %}
 ```yaml
 jobs:
-- job: run_python
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-      architecture: 'x64'
-  - script: python script.py
+  - job: run_python
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+      - script: python script.py
 ```
 {% endraw %}
 </td>
@@ -316,11 +318,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -328,4 +330,3 @@ jobs:
 </table>
 
 ワークフロー中で利用できるアクションは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)で見つけることも、独自のactionsを作成することもできます。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
-

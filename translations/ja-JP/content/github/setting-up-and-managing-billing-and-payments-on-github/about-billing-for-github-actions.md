@@ -8,7 +8,11 @@ versions:
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
 
@@ -69,8 +73,8 @@ versions:
 
 ### 利用上限について
 
-デフォルトでは、アカウントで{% data variables.product.prodname_actions %}を使用する際の利用上限は$0です。 アカウントに含まれる金額を超えたプライベートリポジトリの分とストレージの利用を有効にしたい場合は、利用上限を増やすか、利用を無制限にすることができます。 詳しい情報については「[{% data variables.product.prodname_actions %}の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)」を参照してください。
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

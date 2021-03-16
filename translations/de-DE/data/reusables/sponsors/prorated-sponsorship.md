@@ -1,1 +1,1 @@
-Du wirst für die Zeit bis zu Deinem nächsten regulären Abrechnungsdatum sofort mit einem anteiligen Betrag belastet.
+If you're sponsoring on behalf of your user account, you will immediately be charged a prorated amount for the time until your next regular billing date. If you're sponsoring on behalf of an organization, you can choose to pay the prorated amount or make the full monthly payment.

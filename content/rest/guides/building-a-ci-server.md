@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -149,7 +150,7 @@ def process_pull_request(pull_request)
   @client.create_status(pull_request['base']['repo']['full_name'], pull_request['head']['sha'], 'success')
   puts "Pull request processed!"
 end
-```
+``` 
 
 ### Conclusion
 
@@ -165,8 +166,8 @@ All of this communication is funneled back to our chat rooms. You don't need to
 build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /v3/repos/deployments/
-[status API]: /v3/repos/statuses/
+[deploy API]: /rest/reference/repos#deployments
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### {% data variables.product.product_name %} nach Themen durchsuchen
@@ -25,7 +26,7 @@ Wenn Sie in Repositorys bestimmte Themen suchen, um zu Projekten beizutragen, od
 
 Der Suchkennzeichner `is:featured` grenzt das Suchergebnis auf die Themen mit den meisten Repositorys auf {% data variables.product.product_name %} ein. Diese Themen werden auch auf „https://github.com/topics/“ vorgestellt.
 
-Der Qualifizierer `is:curated` grenzt das Suchergebnis auf Themen ein, zu denen Community-Mitglieder zusätzliche Informationen hinzugefügt haben. Weitere Informationen findest Du im Explore-Repository auf „https://github.com/github/explore“.
+Der Qualifizierer `is:curated` grenzt das Suchergebnis auf Themen ein, zu denen Community-Mitglieder zusätzliche Informationen hinzugefügt haben. For more information, see the [explore repository](https://github.com/github/explore).
 
 Mit dem Datumsparameter und dem Qualifizierer `created:` kannst Du Themen nach ihrem Erstellungsdatum filtern, und mit `repositories:n` kannst Du nach der Anzahl der einem Thema zugeordneten Repositorys filtern. Beide Qualifizierer arbeiten mit [„Größer als“-, „Kleiner als“- und Bereichsqualifizierern](/articles/understanding-the-search-syntax).
 

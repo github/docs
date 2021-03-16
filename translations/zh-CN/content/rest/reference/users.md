@@ -5,20 +5,25 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-用户 API 上的许多资源提供了快捷方式，可用于获取有关当前经过身份验证的用户的信息。 如果请求 URL 不含 `{username}` 参数，则响应将针对登录的用户（您必须随请求传送[身份验证信息](/rest/overview/resources-in-the-rest-api#authentication)）。 其他私密信息，如用户是否启用双重身份验证，在通过基本身份验证或通过`用户`范围进行验证时将包含在内。
+用户 API 上的许多资源提供了快捷方式，可用于获取有关当前经过身份验证的用户的信息。 如果请求 URL 不含 `{username}` 参数，则响应将是登录用户的响应（您必须随请求传递[身份验证信息](/rest/overview/resources-in-the-rest-api#authentication)）。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} 在通过基本身份验证或作用域为 `user` 的 OAuth 进行身份验证时，将包含其他私有信息，例如用户是否启用双重身份验证。{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 阻止用户
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ## Emails
 
 通过 API 管理电子邮件地址要求您通过基本身份验证进行验证，或者使用端点的正确范围通过 OAuth 进行身份验证。
@@ -26,6 +31,8 @@ versions:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'emails' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## 关注者
 

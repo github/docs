@@ -1,6 +1,6 @@
 ---
-title: Handling plan changes
-intro: 'Upgrading or downgrading a {% data variables.product.prodname_marketplace %} app triggers the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the `changed` action, which kicks off the upgrade or downgrade flow.'
+title: 处理计划更改
+intro: '升级或降级 {% data variables.product.prodname_marketplace %} 应用程序将触发 [`marketplace_purchase` 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) web 挂钩，挂钩中带有可启动升级或降级流程的 `changed` 操作。'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
@@ -11,54 +11,54 @@ versions:
 
 
 
-For more information about upgrading and downgrading as it relates to billing, see "[Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)."
+有关与计费相关之升级和降级的更多信息，请参阅“[与 {% data variables.product.prodname_marketplace %} API 集成](/marketplace/integrating-with-the-github-marketplace-api/)”。
 
-### 步骤 1. Pricing plan change event
+### 步骤 1. 定价计划更改事件
 
-GitHub send the `marketplace_purchase` webhook with the `changed` action to your app, when a customer makes any of these changes to their {% data variables.product.prodname_marketplace %} order:
-* Upgrades to a more expensive pricing plan or downgrades to a lower priced plan.
-* Adds or removes seats to their existing plan.
-* Changes the billing cycle.
+当客户对其 {% data variables.product.prodname_marketplace %} 订单进行以下任何更改时，GitHub 会将带有 `changed` 操作的 `marketplace_purchase` web 挂钩发送到您的应用程序：
+* 升级到更昂贵的定价计划或降级到价格较低的计划。
+* 在其现有计划中增加或删除席位。
+* 更改结算周期。
 
-GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[Billing customers in {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/billing-customers-in-github-marketplace/)" to learn more about what actions are considered an upgrade or downgrade.
+更改生效时，GitHub 将发送 web 挂钩。 例如，当客户降级计划时，GitHub 会在客户的结算周期结束时发送 web 挂钩。 当客户升级其计划以便立即访问新服务时，GitHub 会立即向您的应用程序发送 web 挂钩。 如果客户从月度结算周期切换到年度结算周期，则视为升级。 有关哪些操作被视为升级或降级，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/marketplace/selling-your-app/billing-customers-in-github-marketplace/)”。
 
-Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
+从 `marketplace_purchase` web 挂钩读取 `effective_date`、`marketplace_purchase` 和 `previous_marketplace_purchase`，以更新计划的开始日期，并更改客户的结算周期和定价计划。 有关 `marketplace_purchase` 事件有效负载的示例，请参阅“[{% data variables.product.prodname_marketplace %} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)”。
 
-If your app offers free trials, you'll receive the `marketplace_purchase` webhook with the `changed` action when the free trial expires. If the customer's free trial expires, upgrade the customer to the paid version of the free-trial plan.
+如果您的应用程序提供免费试用，则在免费试用到期时您将收到带有 `changed` 操作的 `marketplace_purchase` web 挂钩。 如果客户的免费试用到期，则将客户升级到免费试用计划的付费版本。
 
-### 步骤 2. Updating customer accounts
+### 步骤 2. 更新客户账户
 
-You'll need to update the customer's account information to reflect the billing cycle and pricing plan changes the customer made to their {% data variables.product.prodname_marketplace %} order. Display upgrades to the pricing plan, `seat_count` (for per-unit pricing plans), and billing cycle on your Marketplace app's website or your app's UI when you receive the `changed` action webhook.
+您需要更新客户的帐户信息，以反映客户对其 {% data variables.product.prodname_marketplace %} 订单所做的结算周期和定价计划更改。 当您收到 `changed` 操作 web 挂钩时，您的 Marketplace 应用程序的网站或应用程序的 UI 上会显示定价计划、`seat_count`（对于每单位定价计划）和结算周期的升级。
 
-When a customer downgrades a plan, it's recommended to review whether a customer has exceeded their plan limits and engage with them directly in your UI or by reaching out to them by phone or email.
+当客户降级计划时，建议查看客户是否超出了计划限制，然后直接在您的 UI 中与他们互动，或者通过电话或电子邮件与他们联系。
 
-To encourage people to upgrade you can display an upgrade URL in your app's UI. See "[About upgrade URLs](#about-upgrade-urls)" for more details.
+要鼓励用户升级，您可以在应用程序的 UI 中显示升级 URL。 更多信息请参阅“[关于升级 URL](#about-upgrade-urls)”。
 
 {% note %}
 
-**Note:** We recommend performing a periodic synchronization using `GET /marketplace_listing/plans/:id/accounts` to ensure your app has the correct plan, billing cycle information, and unit count (for per-unit pricing) for each account.
+**注：**建议您使用 `GET /marketplace_listing/plans/:id/accounts` 进行定期同步，以确保您的应用程序具有每个帐户的正确计划、结算周期信息和单位计数（对于每单位定价）。
 
 {% endnote %}
 
-### Failed upgrade payments
+### 升级付款失败
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### About upgrade URLs
+### 关于升级 URL
 
-You can redirect users from your app's UI to upgrade on GitHub using an upgrade URL:
+您可以使用升级 URL 将用户从应用程序的 UI 重定向到 GitHub 上的升级页面：
 
 ```
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 
-For example, if you notice that a customer is on a 5 person plan and needs to move to a 10 person plan, you could display a button in your app's UI that says "Here's how to upgrade" or show a banner with a link to the upgrade URL. The upgrade URL takes the customer to your listing plan's upgrade confirmation page.
+例如，如果您发现某个客户需要从 5 人计划转换到 10 人计划，您可以在应用程序 UI 中显示一个“升级指南”按钮，或者显示包含升级 URL 链接的横幅。 升级 URL 可将客户带到您的上架产品计划的升级确认页面。
 
-Use the `LISTING_PLAN_NUMBER` for the plan the customer would like to purchase. When you create new pricing plans they receive a `LISTING_PLAN_NUMBER`, which is unique to each plan across your listing, and a `LISTING_PLAN_ID`, which is unique to each plan in the {% data variables.product.prodname_marketplace %}. You can find these numbers when you [List plans](/v3/apps/marketplace/#list-plans), which identifies your listing's pricing plans. Use the `LISTING_PLAN_ID` and the "[List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan)" endpoint to get the `CUSTOMER_ACCOUNT_ID`.
+对客户想要购买的计划使用 `LISTING_PLAN_NUMBER`。 当您创建新的定价计划时，他们会收到 `LISTING_PLAN_NUMBER`（对于您的上架产品中每个计划而言是唯一的）和 `LISTING_PLAN_ID`（对于 {% data variables.product.prodname_marketplace %} 中每个计划而言是唯一的）。 当您[列出计划](/rest/reference/apps#list-plans)时，可以找到这些编号，它们用于标识上架产品的定价计划。 使用 `LISTING_PLAN_ID` 和“[列出计划的帐户](/rest/reference/apps#list-accounts-for-a-plan)”端点获取 `CUSTOMER_ACCOUNT_ID`。
 
 
 {% note %}
 
-**Note:** If your customer upgrades to additional units (such as seats), you can still send them to the appropriate plan for their purchase, but we are unable to support `unit_count` parameters at this time.
+**注：**如果您的客户升级到更多单位（例如席位），您仍然可以将他们送到适合其购买的计划中，但我们目前无法支持 `unit_count` 参数。
 
 {% endnote %}

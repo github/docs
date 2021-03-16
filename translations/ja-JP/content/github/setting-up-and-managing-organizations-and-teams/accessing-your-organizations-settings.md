@@ -12,6 +12,7 @@ intro: 'Organization アカウントの設定ページには、支払い、Team 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

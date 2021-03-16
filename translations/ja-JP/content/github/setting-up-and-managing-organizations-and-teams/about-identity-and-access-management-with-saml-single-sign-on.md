@@ -14,7 +14,7 @@ versions:
 
 SAML SSO を設定すると、{% data variables.product.prodname_dotcom %} Organization のメンバーは {% data variables.product.prodname_dotcom %} 上の各自のユーザアカウントに引き続きログインできるようになります。 SAML SSO を使用する Organization 内のリソースにメンバーがアクセスすると、{% data variables.product.prodname_dotcom %} は認証のためにメンバーを IdP にリダイレクトします。 認証に成功すると、IdP はメンバーを {% data variables.product.prodname_dotcom %} にリダイレクトして戻し、そこでメンバーは Organization のリソースにアクセスできます。
 
-Enterprise のオーナーは、Enterprise アカウントのすべての Organization について SAML SSO を施行できます。 詳細は「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」を参照してください。
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. 詳しい情報については、「[Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」参照してください。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -26,11 +26,13 @@ Organization で SAML SSO を有効化する前に、IdP を Organization に接
 
 コマンドラインで API と Git を使用して、Organization の保護されているリソースにアクセスするには、メンバーが個人アクセストークンまたは SSH キーで認可および認証を受ける必要があります。 詳しい情報については、「[SAMLシングルサインオンで利用するために個人アクセストークンを認可する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」と、「[SAML シングルサインオンで使用するために SSH キーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
 
-メンバーが初めて SAML SSO を使用して Organization にアクセスする場合は、Organization にリンクするレコード、メンバーの {% data variables.product.prodname_dotcom %} アカウント、およびメンバーの IdP 上のアカウントを {% data variables.product.prodname_dotcom %} が自動的に作成します。 Organization または Enterprise アカウントのメンバーについて、リンクされた SAML アイデンティティ、アクティブセッション、認可されたクレデンシャルの表示と取り消しが可能です。 詳細は、「[Organization へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)」と「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)」を参照してください。
+メンバーが初めて SAML SSO を使用して Organization にアクセスする場合は、Organization にリンクするレコード、メンバーの {% data variables.product.prodname_dotcom %} アカウント、およびメンバーの IdP 上のアカウントを {% data variables.product.prodname_dotcom %} が自動的に作成します。 Organization または Enterprise アカウントのメンバーについて、リンクされた SAML アイデンティティ、アクティブセッション、認可されたクレデンシャルの表示と取り消しが可能です。 詳細は、「[Organization へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)」と「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)」を参照してください。
 
 新しいリポジトリを作成するときにメンバーが SAML SSO セッションでサインインする場合、そのリポジトリのデフォルトの可視性はプライベートになります。 それ以外の場合、デフォルトの可視性はパブリックです。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
 {% data variables.product.prodname_oauth_app %}を認可するために、Organization メンバーにはアクティブな SAML セッションが必要です。 {% data variables.contact.contact_support %} に連絡すれば、この要件をオプトアウトできます。 ただし、この要件をオプトアウトすることを {% data variables.product.product_name %} はお勧めしません。Organization でアカウント乗っ取りやデータ漏えいのリスクが高くなるからです。
+
+{% data reusables.saml.saml-single-logout-not-supported %}
 
 ### サポートされているSAMLサービス
 
@@ -40,13 +42,13 @@ Organization で SAML SSO を有効化する前に、IdP を Organization に接
 
 ### SAML SSO で Organization にメンバーを追加する
 
-SAML SSO を有効化後、Organization に新しいメンバーを追加する方法はいくつかあります。 Organization のオーナーは、{% data variables.product.product_name %} で手作業または API を使って、新しいメンバーを招待できます。 詳細は {} の「[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)」および「[メンバー](/v3/orgs/members/#add-or-update-organization-membership)」を参照してください。
-
-{% data reusables.organizations.team-synchronization %}
+SAML SSO を有効化後、Organization に新しいメンバーを追加する方法はいくつかあります。 Organization のオーナーは、{% data variables.product.product_name %} で手作業または API を使って、新しいメンバーを招待できます。 詳細は {} の「[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)」および「[メンバー](/rest/reference/orgs#add-or-update-organization-membership)」を参照してください。
 
 新しいユーザを、Organization のオーナーから招待せずにプロビジョニングするには、`https://github.com/orgs/ORGANIZATION/sso/sign_up` の URL の _ORGANIZATION_ をあなたの Organization 名に置き換えてアクセスします。 たとえば、あなたの IdP にアクセスできる人なら誰でも、IdP のダッシュボードにあるリンクをクリックして、あなたの {% data variables.product.prodname_dotcom %} Organization に参加できるよう、IdP を設定できます。
 
 IdP が SCIM をサポートしている場合、{% data variables.product.prodname_dotcom %} は、IdP でアクセス権限が付与されたとき Organization に参加するよう自動的にメンバーを招待できます。 SAML IdP での メンバーの {% data variables.product.prodname_dotcom %} Organization へのアクセス権限を削除すると、そのメンバーは {% data variables.product.prodname_dotcom %} Organization から自動的に削除されます。 詳しい情報については「[SCIMについて](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

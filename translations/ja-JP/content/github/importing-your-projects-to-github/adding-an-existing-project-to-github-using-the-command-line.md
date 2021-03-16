@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -21,7 +22,7 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -44,22 +45,22 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/articles/adding-a-remote)してください。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push -u origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endmac %}
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -82,22 +83,22 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. コマンドプロンプトで、ローカルリポジトリのプッシュ先となる[リモートリポジトリの URL を追加](/articles/adding-a-remote)します。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endwindows %}
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -120,15 +121,15 @@ versions:
 7. {% data variables.product.product_name %} リポジトリの Quick Setup ページの上部で、{% octicon "clippy" aria-label="The copy to clipboard icon" %} をクリックしてリモートリポジトリの URL をコピーします。 ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. ターミナルで、ローカルリポジトリがプッシュされる[リモートリポジトリの URL を追加](/articles/adding-a-remote)してください。
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # 新しいリモートの設定
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # 新しいリモートリポジトリの検証
+  # Verifies the new remote URL
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endlinux %}

@@ -1,16 +1,17 @@
 ---
 title: Gerenciar webhooks globais
-intro: 'Os administradores do site podem exibir, adicionar, editar e excluir webhooks globais para rastrear eventos no nível da instância.'
+intro: 'Administradores do site podem visualizar, adicionar, editar e excluir webhooks globais para acompanhar os eventos da empresa.'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre webhooks globais
 
-Você pode usar webhooks globais para monitorar, responder ou impor regras automaticamente para o gerenciamento de usuários e de organizações na sua instância. Por exemplo, você pode configurar os webhooks para serem executados sempre que:
+Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para o gerenciamento de usuários e organizações do seu negócio. Por exemplo, você pode configurar os webhooks para serem executados sempre que:
 - Uma conta de usuário for criada ou excluída;
 - Uma organização foi criada ou excluída
 - Um colaborador for adicionado ou removido de um repositório;
@@ -20,11 +21,9 @@ Você pode usar webhooks globais para monitorar, responder ou impor regras autom
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-
 ### Adicionar um webhook global
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Clique em **Add webhook** (Adicionar webhook). ![Botão Add webhook (Adicionar webhook) na página Webhooks na central de administração](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
@@ -47,8 +46,7 @@ Você pode usar webhooks globais para monitorar, responder ou impor regras autom
 
 ### Editar um webhook global
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Ao lado do webhook que você pretende editar, clique em **Edit** (Editar). ![Botão Edit (Editar) ao lado de um webhook](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
@@ -57,8 +55,7 @@ Você pode usar webhooks globais para monitorar, responder ou impor regras autom
 
 ### Excluir um webhook global
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Ao lado do webhook que você pretende excluir, clique em **Delete** (Excluir). ![Botão Delete (Excluir) ao lado de um webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
@@ -66,8 +63,7 @@ Você pode usar webhooks globais para monitorar, responder ou impor regras autom
 
 ### Exibir respostas e entregas recentes
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Na lista de webhooks, clique no webhook em que você gostaria de ver entregas. ![Lista de webhooks com links para exibir cada webhook](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)

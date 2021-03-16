@@ -10,7 +10,7 @@ versions:
 
 {% data variables.product.product_name %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through settings on {% data variables.product.prodname_dotcom_the_website %} or with the User Migration API.
 
-For more information about the data {% data variables.product.product_name %} stores that is available for exporting, see "[Download a user migration archive](/v3/migrations/users/#download-a-user-migration-archive)" and "[About {% data variables.product.product_name %}'s use of your data](/articles/about-github-s-use-of-your-data).
+For more information about the data {% data variables.product.product_name %} stores that is available for exporting, see "[Download a user migration archive](/rest/reference/migrations#download-a-user-migration-archive)" and "[About {% data variables.product.product_name %}'s use of your data](/articles/about-github-s-use-of-your-data).
 
 When you request an export of your personal data through settings on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.product_name %} packages your personal data in a `tar.gz` file and sends you an email to your primary email address with a download link.
 

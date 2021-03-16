@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切り) 形式のファイルのレンダリングがサポートされています。
@@ -17,7 +18,7 @@ GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切
 
 ### データを検索する
 
-データセットから特定の値を見つけるには、ファイルの上にある検索バーで直接、入力を開始します。 行が自動的にフィルタリングされます。
+データセットから特定の値を見つけるには、ファイルの上にある検索バーで直接、入力を開始します。 The rows will filter automatically:
 
 ![値を検索する](/assets/images/help/repository/searching_csvs.gif)
 

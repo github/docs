@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server インスタンスでユーザを認証する
-intro: '{% data variables.product.prodname_ghe_server %} のビルトイン認証を使うか、CAS、LDAP、SAML のいずれかを選択して既存のアカウントを統合し、{% data variables.product.product_location_enterprise %} へのユーザアクセスを集中管理できます。'
+intro: '{% data variables.product.prodname_ghe_server %} のビルトイン認証を使うか、CAS、LDAP、SAML のいずれかを選択して既存のアカウントを統合し、{% data variables.product.product_location %} へのユーザアクセスを集中管理できます。'
 redirect_from:
   - /enterprise/admin/categories/authentication/
   - /enterprise/admin/guides/installation/user-authentication/

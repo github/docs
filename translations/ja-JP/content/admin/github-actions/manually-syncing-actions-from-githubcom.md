@@ -7,12 +7,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-{% data variables.product.prodname_dotcom_the_website %} の特定のアクションをワークフローで使用できるようにするには、{% data variables.product.company_short %} のオープンソースの [`actions-sync`](https://github.com/actions/actions-sync) ツールを使用して、アクションリポジトリを {% data variables.product.prodname_dotcom_the_website %} から Enterprise インスタンスに同期します。 {% data variables.product.prodname_dotcom_the_website %} からアクションにアクセスする他の方法については、「[{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_dotcom_the_website %} アクションの使用について](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)」を参照してください。
+{% data variables.product.prodname_dotcom_the_website %} からのアクションへのアクセスを有効化する際に推奨されるアプローチは、すべてのアクションへの自動アクセスを有効化することです。 これを行うには、{% data variables.product.prodname_github_connect %} を使用して {% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_ghe_cloud %} と統合します。 詳しい情報については、「[{% data variables.product.prodname_github_connect %} を使用した {% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスを有効化する](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
+
+ただし、Enterprise で許可されるアクションをより厳密に制御する場合は、このガイドに従って、{% data variables.product.company_short %} のオープンソース [`actions-sync`](https://github.com/actions/actions-sync) ツールを使用して、個々のアクションリポジトリを {% data variables.product.prodname_dotcom_the_website %} から Enterprise インスタンスに同期できます。
 
 ### About the `actions-sync` tool
 
@@ -24,7 +26,7 @@ If your machine has access to both systems at the same time, you can do the sync
 
 ### 必要な環境
 
-* Before using the the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating organizations](/enterprise/admin/user-management/creating-organizations)."
+* `actions-sync` ツールを使用する前に、すべての宛先 Organization が Enterprise インスタンスにすでに存在していることを確認する必要があります。 The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. 詳しい情報については、「[新しい Organization をゼロから作成する](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)」を参照してください。
 * You must create a personal access token (PAT) on your enterprise instance that can create and write to repositories in the destination organizations. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 ### Example: Using the `actions-sync` tool
@@ -61,7 +63,7 @@ If your machine has access to both systems at the same time, you can do the sync
      * You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).
 1. After the action repository is created on your enterprise instance, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

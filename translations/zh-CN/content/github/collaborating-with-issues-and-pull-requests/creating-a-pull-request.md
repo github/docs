@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。 如果要为拉取请求创建新分支，又没有仓库的写入权限，可以先对仓库复刻。 更多信息请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”和“[关于复刻](/articles/about-forks)”。
@@ -18,7 +19,7 @@ versions:
 
 ### 更改分支范围和目标仓库
 
-By default, pull requests are based on the parent repository's default branch. 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
+默认情况下，拉取请求基于父仓库的默认分支。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
 
 如果默认父仓库不正确，您可以使用下拉列表更改父仓库和分支， 还可以使用下拉列表交换头部分支和基本分支，以确定引用点之间的差异。 这里的引用必须是 GitHub 仓库中的分支名称。
 

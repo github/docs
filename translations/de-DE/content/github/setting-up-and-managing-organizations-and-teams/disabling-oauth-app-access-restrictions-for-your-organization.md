@@ -19,4 +19,4 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Klicke auf **Remove restrictions** (Einschränkungen entfernen). ![Schaltfläche „Remove restrictions“ (Beschränkungen entfernen)](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. Wenn Du die Informationen zum Deaktivieren der Beschränkungen von Drittanbieter-Anwendungen gelesen hast, klicke auf **Yes, remove application restrictions** (Ja, Anwendungsbeschränkungen entfernen). ![Schaltfläche „Remove confirmation" (Bestätigen der Entfernung)](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+6. Wenn Du die Informationen zum Deaktivieren der Beschränkungen von Drittanbieter-Anwendungen gelesen hast, klicke auf **Yes, remove application restrictions** (Ja, Anwendungsbeschränkungen entfernen). ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

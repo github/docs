@@ -13,6 +13,9 @@ versions:
 这些额外的日志将通过在包含工作流程的仓库中设置密码来启用，因此将应用相同的权限要求：
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- {% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 

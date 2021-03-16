@@ -13,7 +13,7 @@ versions:
 
 ### Entender o ciclo de cobrança
 
-Os clientes podem escolher um ciclo de cobrança mensal ou anual quando ao comprar seu aplicativo. Todas as alterações que os clientes fazem no ciclo de cobrança e seleção de plano acionará um evento de `marketplace_purchase`. Você pode fazer referência à carga do webhook `marketplace_purchase` para ver qual ciclo de cobrança um cliente seleciona e quando começa a próxima data de cobrança (`effective_date`). Para obter mais informações sobre cargas do webhook, "[eventos de webhook {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)".
+Os clientes podem escolher um ciclo de cobrança mensal ou anual quando ao comprar seu aplicativo. Todas as alterações que os clientes fazem no ciclo de cobrança e seleção de plano acionará um evento de `marketplace_purchase`. Você pode fazer referência à carga do webhook `marketplace_purchase` para ver qual ciclo de cobrança um cliente seleciona e quando começa a próxima data de cobrança (`effective_date`). Para obter mais informações sobre cargas de webhook, consulte "[eventos de Webhook para a API de {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)".
 
 ### Fornecer serviços de cobrança na interface de usuário do seu aplicativo
 
@@ -23,9 +23,9 @@ Os clientes devem ser capazes de executar as seguintes ações no site do seu ap
 
 ### Os serviços de cobrança para upgrade, downgrade e cancelamentos
 
-Siga estas diretrizes para upgrades, downgrade e cancelamentos para manter um processo de cobrança claro e consistente. Para obter instruções mais detalhadas sobre os eventos de compra do {% data variables.product.prodname_marketplace %}, consulte "[Fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)".
+Siga estas diretrizes para upgrades, downgrade e cancelamentos para manter um processo de cobrança claro e consistente. Para obter instruções mais detalhadas sobre os eventos de compra de {% data variables.product.prodname_marketplace %}, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` para determinar quando a mudança de um plano irá ocorrer e sincronizar periodicamente as [Lista de contas para um plano](/v3/apps/marketplace/#list-accounts-for-a-plan).
+Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` para determinar quando a mudança de um plano irá ocorrer e sincronizar periodicamente as [Lista de contas para um plano](/rest/reference/apps#list-accounts-for-a-plan).
 
 #### Atualizações
 
@@ -33,7 +33,7 @@ Quando um cliente atualiza seu plano de preços ou altera seu ciclo de cobrança
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-Para obter informações sobre a construção de fluxos de trabalho de atualização e downgrade para seu aplicativo, consulte "[Atualizar e fazer downgrade de planos](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)".
+Para obter informações sobre a criação fluxos de trabalho de atualização e downgrade no seu aplicativo, consulte "[Gerenciando alterações do plano](/developers/github-marketplace/handling-plan-changes)".
 
 #### Downgrades e cancelamentos
 
@@ -45,4 +45,4 @@ Quando um cliente cancela um plano, você deve:
   {% data reusables.marketplace.cancellation-clarification %}
 - Habilitá-los para atualizar o plano por meio do GitHub, caso desejem continuar o plano mais adiante.
 
-Para obter informações sobre a criação de fluxos de trabalho de construção no seu aplicativo, consulte "[Cancelar planos](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)".
+Para obter informações sobre a construção de fluxos de trabalho de cancelamento no seu aplicativo, consulte "[Manipulação de cancelamento de plano](/developers/github-marketplace/handling-plan-cancellations)".

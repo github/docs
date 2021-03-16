@@ -1,6 +1,6 @@
 ---
-title: Handling plan cancellations
-intro: 'Cancelling a {% data variables.product.prodname_marketplace %} app triggers the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `cancelled` action, which kicks off the cancellation flow.'
+title: 处理计划取消
+intro: '取消 {% data variables.product.prodname_marketplace %} 应用程序将触发 [`marketplace_purchase` 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) web 挂钩，挂钩中带有可启动取消流程的 `cancelled` 操作。'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
@@ -11,23 +11,23 @@ versions:
 
 
 
-For more information about cancelling as it relates to billing, see "[Billing customers in {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)."
+有关与计费相关之取消的更多信息，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)”。
 
-### 步骤 1. Cancellation event
+### 步骤 1. 取消事件
 
-If a customer chooses to cancel a {% data variables.product.prodname_marketplace %} order, GitHub sends a [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the action `cancelled` to your app when the cancellation takes effect. If the customer cancels during a free trial, your app will receive the event immediately. When a customer cancels a paid plan, the cancellation will occur at the end of the customer's billing cycle.
+如果客户选择取消 {% data variables.product.prodname_marketplace %}，则在取消生效时，GitHub 会向您的应用程序发送带有操作 `cancelled` 的 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) web 挂钩。 如果客户在免费试用期间取消，您的应用程序将立即收到此事件。 如果客户取消付费计划，则取消将在客户结算周期结束时生效。
 
-### 步骤 2. Deactivating customer accounts
+### 步骤 2. 停用客户帐户
 
-When a customer cancels a free or paid plan, your app must perform these steps to complete cancellation:
+当客户取消免费或付费计划时，您的应用程序必须执行以下步骤才能完成取消：
 
-1. Deactivate the account of the customer who cancelled their plan.
-1. Revoke the OAuth token your app received for the customer.
-1. If your app is an OAuth App, remove all webhooks your app created for repositories.
-1. Remove all customer data within 30 days of receiving the `cancelled` event.
+1. 停用取消计划的客户的帐户。
+1. 撤消您的应用程序为客户接收的 OAuth 令牌。
+1. 如果您的应用程序是 OAuth 应用程序，则删除应用程序为仓库创建的所有 web 挂钩。
+1. 在收到 `cancelled` 事件后的 30 天内删除所有客户数据。
 
 {% note %}
 
-**Note:** We recommend using the [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan). For more information on webhooks, see "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)."
+**注：**我们建议使用 [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) web 挂钩的 `effective_date` 来确定计划更改何时生效，并定期同步[列出计划的帐户](/rest/reference/apps#list-accounts-for-a-plan)。 有关 web 挂钩的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)”。
 
 {% endnote %}

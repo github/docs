@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Sie müssen ein Passwort für Ihr {% data variables.product.product_name %}-Konto auswählen oder erstellen, das
+You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
 - 8 Zeichen lang ist, wenn es eine Zahl und einen Kleinbuchstaben enthält, oder
 - 16 Zeichen lang ist, bei einer beliebigen Kombination an Zeichen.
 

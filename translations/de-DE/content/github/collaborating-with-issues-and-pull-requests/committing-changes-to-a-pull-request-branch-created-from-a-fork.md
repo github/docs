@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits sind nur an Pull-Request-Branches möglich, auf die Folgendes zutrifft:
 - sie sind in einem Repository geöffnet, auf das Du Push-Zugriff hast, und wurden von einem Fork dieses Repositorys erstellt
 - sie sind auf einer benutzereigenen Fork
 - sie haben die Berechtigung des Pull-Request-Erstellers erhalten
-- sie haben keine [Branch-Einschränkungen](/articles/about-branch-restrictions), die Dich am freigeben hindern
+- Für sie gelten keine [Branch-Einschränkungen](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches), die das Committen verhindern.
 
 Nur der Benutzer, der den Pull Request erstellt hat, kann Dir die Erlaubnis erteilen, Commits zu seinem Branch zu übertragen. Weitere Informationen findest Du unter „[Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork).“
 

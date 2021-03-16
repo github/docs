@@ -14,8 +14,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### ワークフローコマンドについて
 
@@ -71,7 +71,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}環境ファイル `GITHUB_PATH` を使用してアクセス可能{% else %} `add-path` {% endif %} |                                    |
 |                                                                                                                                                                      |                                    |
 | `core.debug`                                                                                                                                                         | `debug`                            |
-| `core.error`                                                                                                                                                         | `エラー`                              |
+| `core.error`                                                                                                                                                         | `error`                            |
 | `core.endGroup`                                                                                                                                                      | `endgroup`                         |
 | `core.exportVariable`                                                                                                                                                |                                    |
 | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}環境ファイル `GITHUB_ENV` を使用してアクセス可能{% else %} `set-env` {% endif %}   |                                    |
@@ -119,7 +119,7 @@ echo "::set-output name=action_fruit::strawberry"
 
 `::add-path::{path}`
 
-現在のジョブ内にある、続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
+現在のジョブ内にある、後に続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
 
 #### サンプル
 
@@ -163,6 +163,25 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### ログの行のグループ化
+
+```
+::group::{title}
+::endgroup::
+```
+
+展開可能なグループをログ中に作成します。 グループを作成するには、`group`コマンドを使って`title`を指定してください。 `group`と`endgroup`コマンド間でログに出力したすべての内容は、ログ中の展開可能なエントリ内にネストされます。
+
+#### サンプル
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![ワークフローの実行ログ中の折りたたみ可能なグループ](/assets/images/actions-log-group.png)
 
 ### ログ中での値のマスク
 
@@ -238,7 +257,7 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 **警告:** Powershell はデフォルト設定で UTF-8 を使用しません。 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -253,13 +272,22 @@ steps:
 
 #### サンプル
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
-
-将来のステップで `$action_state` を実行すると `yellow` が返されるようになりました
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
 #### 複数行の文字列
+
 複数行の文字列の場合、次の構文で区切り文字を使用できます。
 
 ```
@@ -268,9 +296,10 @@ echo "action_state=yellow" >> $GITHUB_ENV
 {delimiter}
 ```
 
-#### サンプル
+##### サンプル
+
 この例では、区切り文字として `EOF` を使用し、`JSON_RESPONSE` 環境変数を cURL レスポンスの値に設定します。
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one
@@ -284,11 +313,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-現在のジョブ内にある、続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
+システムの`PATH`変数の先頭にディレクトリを追加し、現在のジョブ中の以降のすべてのアクションで利用できるようにします。現在実行中のアクションは、更新されたPATH変数にアクセスできません。 ジョブに現在定義されているパスを見るには、ステップもしくはアクション中で`echo "$PATH"`を使うことができます。
 
 #### サンプル
 
+この例は、ユーザの`$HOME/.local/bin`ディレクトリを`PATH`に追加する方法を示しています。
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

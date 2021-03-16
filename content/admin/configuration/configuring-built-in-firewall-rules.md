@@ -1,6 +1,6 @@
 ---
 title: Configuring built-in firewall rules
-intro: 'You can view default firewall rules and customize rules for {% data variables.product.product_location_enterprise %}.'
+intro: 'You can view default firewall rules and customize rules for {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### About {% data variables.product.product_location_enterprise %}'s firewall
+### About {% data variables.product.product_location %}'s firewall
 
 {% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
 After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[Network ports](/enterprise/admin/guides/installation/network-ports)."
 
-The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW ruleset, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ### Viewing the default firewall rules
 
@@ -66,7 +66,7 @@ The UFW firewall also opens several other ports that are required for {% data va
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-After you upgrade {% data variables.product.product_location_enterprise %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
+After you upgrade {% data variables.product.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
 
 ### Restoring the default firewall rules
 

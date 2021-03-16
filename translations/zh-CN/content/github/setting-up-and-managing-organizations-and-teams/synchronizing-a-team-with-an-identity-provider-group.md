@@ -15,6 +15,8 @@ versions:
 
 您最多可以将五个 IdP 组连接到 {% data variables.product.prodname_dotcom %} 团队。 IdP 组可以不受限制地分配给多个 {% data variables.product.prodname_dotcom %} 团队。
 
+团队同步不支持成员数超过 5000 的 IdP 组。
+
 {% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 您无法在 {% data variables.product.product_name %} 上或使用 API 管理团队成员资格。
 
 通过 IdP 进行的所有团队成员资格更改都将在 {% data variables.product.product_name %} 审核日志中显示为团队同步自动程序所进行的更改。 您的 IdP 会将团队成员数据发送至 {% data variables.product.prodname_dotcom %}，每小时一次。 将团队连接到 IdP 组可能会删除一些团队成员。 更多信息请参阅“[已同步团队成员的要求](#requirements-for-members-of-synchronized-teams)”。
@@ -23,23 +25,26 @@ versions:
 
 要管理 {% data variables.product.prodname_dotcom %} 团队（包括连接到 IdP 组的团队）的仓库访问权限，您必须使用 {% data variables.product.product_name %} 进行更改。 更多信息请参阅“[关于团队](/articles/about-teams)”和“[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)”。
 
-您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/v3/teams/team_sync/)”。
+您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。
 
 ### 已同步团队成员的要求
 
-将团队连接到 IdP 组后，如果团队成员继续在 {% data variables.product.prodname_dotcom %} 上使用 SAML SSO 验证相同的 SSO 身份，并且仍然是所连接 IdP 组的成员，则每个团队成员的成员资格数据都会同步。
+将团队连接到 IdP 组后，团队同步将 IdP 组的每个成员添加到 {% data variables.product.prodname_dotcom %} 上的相应团队，但需满足以下条件：
+- 此人是 {% data variables.product.prodname_dotcom %} 上的组织的成员。
+- 此人已使用 {% data variables.product.prodname_dotcom %} 上的用户帐户登录，并且至少一次通过 SAML 单点登录向组织或企业帐户验证。
+- 此人的 SSO 身份是 IdP 组的成员。
 
-现有团队或组成员可能会自动从 {% data variables.product.prodname_dotcom %} 上的团队中删除。 未使用 SSO 向组织或企业帐户验证的任何现有团队或组成员都可能会失去对仓库的访问权限。 未在所连接 IdP 组中的任何现有团队或组成员都可能会失去对仓库的访问权限。
+不符合这些条件的现有团队或组成员将被从 {% data variables.product.prodname_dotcom %} 团队中自动删除，并失去对仓库的访问权限。 撤销用户关联的身份也会将用户从映射到 IdP 组的任何团队中删除。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)”和“[查看和管理用户对企业的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)”。
 
 删除后的团队成员在使用 SSO 向组织或企业帐户进行身份验证后可以自动添加回团队，并移动到已连接的 IdP 组。
 
-为避免无意中删除团队成员，建议在组织或企业帐户中强制实施 SAML SSO，创建新团队以同步成员资格数据，并在同步现有团队之前检查 IdP 组成员资格。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
+为避免无意中删除团队成员，建议在组织或企业帐户中强制实施 SAML SSO，创建新团队以同步成员资格数据，并在同步现有团队之前检查 IdP 组成员资格。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”和“[对企业帐户中的组织启用 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
 
-如果您的组织由企业帐户拥有，则对企业帐户启用团队同步将覆盖组织级的团队同步设置。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
+如果您的组织由企业帐户拥有，则对企业帐户启用团队同步将覆盖组织级的团队同步设置。 更多信息请参阅“[管理企业帐户中组织的团队同步](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 ### 基本要求
 
-在将团队连接到身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”和“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
+在将团队连接到身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”和“[管理企业帐户中组织的团队同步](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 为避免无意中删除团队成员，请访问 IdP 的管理门户，并确认每个当前团队成员也位于要连接到此团队的 IdP 组中。 如果您没有身份提供程序的这一访问权限，在可以联系 IdP 管理员。
 

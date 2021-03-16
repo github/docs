@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If your key is expired, you must [update the expiration](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), export the new key, delete the expired key in your GitHub account, and [upload the new key to GitHub](/articles/adding-a-new-gpg-key-to-your-github-account/). Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.

@@ -32,7 +32,7 @@ versions:
 
 `dotfiles` リポジトリへの変更は、新しい codespace ごとにのみ適用され、既存の codespace には影響しません。
 
-詳しい情報については、{% data variables.product.prodname_vscode %} ドキュメントの「[パーソナライズする](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing)」を参照してください。
+詳しい情報については、{% data variables.product.prodname_vscode %} ドキュメントの「[パーソナライズする](https://docs.microsoft.com/visualstudio/online/reference/personalizing)」を参照してください。
 
 {% note %}
 
@@ -40,6 +40,7 @@ versions:
 
 {% endnote %}
 
+You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
 
 ### 参考リンク
 

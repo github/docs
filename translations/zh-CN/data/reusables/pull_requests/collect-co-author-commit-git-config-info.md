@@ -1,1 +1,1 @@
-1. Collect the name and email address for each co-author.{% if currentVersion == "free-pro-team@latest" %} If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy.{% endif %}
+1. 收集每位合作作者的姓名和电子邮件地址。{% if currentVersion == "free-pro-team@latest" %} 如果有人选择保密其电子邮件地址，则应使用其 {% data variables.product.product_name %}-提供的 `no-reply` 电子邮件地址以保护其隐私。{% endif %}

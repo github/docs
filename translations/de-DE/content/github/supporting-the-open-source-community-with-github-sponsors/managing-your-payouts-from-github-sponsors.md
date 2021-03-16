@@ -13,14 +13,8 @@ Du kannst Deine Auszahlungen von {% data variables.product.prodname_sponsors %} 
 
 {% data reusables.sponsors.payout-info %}
 
-### Anzeigen und Bearbeiten von Auszahlungsinformationen für Dein unterstütztes Benutzerkonto
+### Viewing and editing payout information
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-payouts-tab %}
-{% data reusables.sponsors.edit-bank-information %}
-
-### Anzeigen und Bearbeiten von Auszahlungsinformationen für Dein unterstütztes Organisationskonto
-
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}
 {% data reusables.sponsors.edit-bank-information %}

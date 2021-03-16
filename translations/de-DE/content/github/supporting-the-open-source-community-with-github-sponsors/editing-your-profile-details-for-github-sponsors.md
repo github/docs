@@ -10,30 +10,17 @@ versions:
 
 ### Über Sponsoren-Profile
 
-Dein {% data variables.product.prodname_sponsors %}-Profil informiert potentielle Sponsoren, warum sie Dich unterstützten sollten. Personen sehen Dein Sponsorenprofil, wenn sie auf die **Sponsor**-Schaltfläche auf Deinem persönlichen Profil oder dem Organisationsprofil klicken. Wir empfehlen Dir, die folgenden Informationen einzuschließen.
+Dein {% data variables.product.prodname_sponsors %}-Profil informiert potentielle Sponsoren, warum sie Dich unterstützten sollten. People see your sponsor profile when they click the **Sponsor** button on your profile. Wir empfehlen Dir, die folgenden Informationen einzuschließen.
 
-- Open-Source-Arbeit, zu der Du beiträgst.
-- Warum Du Dich für Open-Source-Entwicklung einsetzt.
+- Open-Source-Arbeit, zu der Du beiträgst
+- Warum Du Dich für Open-Source-Entwicklung einsetzt
 
-Du kannst auch Ziele setzen, um zu erklären, was die unterschiedlichen Ebenen des Sponsorings Dir erlauben werden, für die Community zu tun.
+### Editing your profile details
 
-### Profil für unterstützten Entwickler bearbeiten
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
-{% data reusables.sponsors.edit-featured-work %}
-{% data reusables.sponsors.opt-in-to-being-featured %}
-{% data reusables.sponsors.save-profile %}
-
-### Profil für unterstützte Organisation bearbeiten
-
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-profile-tab %}
-{% data reusables.sponsors.short-bio %}
-{% data reusables.sponsors.add-introduction %}
-{% data reusables.sponsors.meet-the-team %}
 {% data reusables.sponsors.edit-featured-work %}
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}

@@ -1,0 +1,2 @@
+1. Optionally, if you're sponsoring as an organization, to pay a prorated amount instead of making the full monthly payment, under "Due today", click **Pay prorated $X.XX today**.
+    ![Link to pay prorated amount](/assets/images/help/sponsors/pay-prorated-amount-link.png)
