@@ -87,6 +87,6 @@ Para configurar un dominio apex, como `example.com`, debes configurar un archivo
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-### Further reading
+### Leer más
 
 - "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

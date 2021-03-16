@@ -5,14 +5,14 @@ sections:
     - '**MEDIUM**:  ImageMagick has been updated to address [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
     - 'Requests from a GitHub App integration to refresh an OAuth access token would be accepted if sent with a different, valid OAuth client ID and client secret than was used to create the refresh token. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
     - 'A user whose LDAP directory username standardizes to an existing GHES account login could authenticate into the existing account. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
-    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
   bugs:
     - |
       The NameID Format dropdown in the Management Console would be reset to "unspecified" after setting it to "persistent". {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
     - |
       Upgrading using a hotpatch could fail with an error: `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
     - |
-      Saving settings via the [management console](https://docs.github.com/en/enterprise-server@latest/admin/configuration/accessing-the-management-console) would append a newline to the [TLS/SSL certificate and key](https://docs.github.com/en/enterprise-server@latest/admin/configuration/configuring-tls) files which triggered unnecessary reloading of some services. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+      Saving settings via the [management console](/admin/configuration/accessing-the-management-console) would append a newline to the [TLS/SSL certificate and key](/admin/configuration/configuring-tls) files which triggered unnecessary reloading of some services. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
     - |
       System logs for Dependency Graph were not rotating, allowing unbounded storage growth. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
     - |

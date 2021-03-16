@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'how_to'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -68,7 +70,7 @@ Schritte:
 
 #### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
 
 ```yaml
 Schritte:

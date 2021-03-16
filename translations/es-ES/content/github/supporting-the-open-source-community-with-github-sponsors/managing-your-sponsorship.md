@@ -29,7 +29,7 @@ Puedes elegir si una cuenta que patrocinas puede enviarte actualizaciones por co
 {% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Further reading
+### Leer más
 
 - "[Mejorar un patrocinio](/articles/upgrading-a-sponsorship)"
 - "[Degradar un patrocinio](/articles/downgrading-a-sponsorship)"

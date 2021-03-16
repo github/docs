@@ -24,6 +24,6 @@ Puedes reordenar los elementos en la sección "Anclados". En el ángulo superior
 5. Selecciona una combinación de hasta seis repositorios o gists para mostrar. ![Seleccionar elementos](/assets/images/help/profile/select-items-to-pin.png)
 6. Haz clic en **Save pins (Guardar anclados)**. ![Botón guardar elementos anclados](/assets/images/help/profile/save-pinned-repositories.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de tu perfil](/articles/about-your-profile)"

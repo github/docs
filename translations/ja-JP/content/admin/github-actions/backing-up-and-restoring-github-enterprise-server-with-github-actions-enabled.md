@@ -1,22 +1,22 @@
 ---
-title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
-shortTitle: Backing up and restoring
-intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
+title: GitHub Actions を有効化して GitHub Enterprise Server をバックアップおよび復元する
+shortTitle: バックアップと復元
+intro: '外部ストレージプロバイダの {% data variables.product.prodname_actions %} データは、通常の {% data variables.product.prodname_ghe_server %} バックアップに含まれていないため、個別にバックアップする必要があります。'
 versions:
   enterprise-server: '>=3.0'
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-If you use {% data variables.product.prodname_enterprise_backup_utilities %} to back up {% data variables.product.product_location %}, it's important to note that {% data variables.product.prodname_actions %} data stored on your external storage provider is not included in the backup.
+{% data variables.product.prodname_enterprise_backup_utilities %} を使用して {% data variables.product.product_location %} をバックアップする場合、外部ストレージプロバイダに保存されている {% data variables.product.prodname_actions %} データはバックアップに含まれないことにご注意ください。
 
-This is an overview of the steps required to restore {% data variables.product.product_location %} with {% data variables.product.prodname_actions %} to a new appliance:
+以下は、{% data variables.product.product_location %} と {% data variables.product.prodname_actions %} を新しいアプライアンスに復元するために必要なステップの概要です。
 
-1. Confirm that the original appliance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} appliance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`.
-1. Configure the replacement appliance to use the same {% data variables.product.prodname_actions %} external storage configuration as the original appliance.
-1. Enable {% data variables.product.prodname_actions %} on the replacement appliance. This will connect the replacement appliance to the same  external storage for {% data variables.product.prodname_actions %}.
-1. After {% data variables.product.prodname_actions %} is configured with the external storage provider, use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the replacement appliance. For more information, see [Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners).
+1. 元のアプライアンスがオフラインであることを確認します。
+1. 交換用の {% data variables.product.prodname_ghe_server %} アプライアンスでネットワーク設定を手動設定します。 ネットワーク設定はバックアップスナップショットから除外され、`ghe-restore` で上書きされません。
+1. 元のアプライアンスと同じ {% data variables.product.prodname_actions %} 外部ストレージ設定を使用するように交換用アプライアンスを設定します。
+1. 交換用アプライアンスで {% data variables.product.prodname_actions %} を有効化します。 これにより、交換用アプライアンスが {% data variables.product.prodname_actions %} の同じ外部ストレージに接続されます。
+1. {% data variables.product.prodname_actions %} を外部ストレージプロバイダで設定したら、`ghe-restore` コマンドを使用して、バックアップから残りのデータを復元します。 詳しい情報については、「[バックアップを復元する](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
+1. セルフホストランナーを交換用アプライアンスに再登録します。 詳しい情報については、「[セルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
 
-For more information on backing up and restoring {% data variables.product.prodname_ghe_server %}, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+{% data variables.product.prodname_ghe_server %} のバックアップと復元の詳細については、「[アプライアンスでバックアップを設定する](/admin/configuration/configuring-backups-on-your-appliance)」を参照してください。

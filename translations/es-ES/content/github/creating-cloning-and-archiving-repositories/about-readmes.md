@@ -48,7 +48,7 @@ Muchos proyectos usan un índice al comienzo de un archivo README para dirigir a
 
 {% data reusables.repositories.relative-links %}
 
-### Further reading
+### Leer más
 
 - "[Agregar un archivo a un repositorio](/articles/adding-a-file-to-a-repository)"
 - 18F's "[Hacer que los archivos README sean de lectura](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"

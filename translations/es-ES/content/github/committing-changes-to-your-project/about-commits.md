@@ -21,5 +21,5 @@ También puedes crear una confirmación en nombre de una organización. Para obt
 
 El rebase te permite cambiar varias confirmaciones y puede modificar el órden de éstas en tu línea de tiempo. Para obtener más información, consulta la sección [Accerca del rebase de Git](/github/using-git/about-git-rebase)".
 
-### Further reading
+### Leer más
 - "[Confirmar y revisar los cambios a tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" en {% data variables.product.prodname_desktop %}

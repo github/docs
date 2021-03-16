@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Ant'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Um schnell loszulegen, kannst Du beim Erstellen eines neuen Workflows die vorkon
 Du kannst auch manuell diesen Workflow hinzufügen, indem Du eine neue Datei im Verzeichnis `.github/workflows` Deines Reporitorys erstellst.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ Der Starter-Workflow führt das in der Datei _build.xml_ angegebene „default t
 Wenn Du zum Bauen Deines Projekts andere Befehle verwenden oder ein anderes Ziel auszuführen möchtest, kannst Du dies angeben. Vielleicht möchtest Du beispielsweise das Ziel `jar` ausführen, das in Deiner Datei _build-ci.xml_ konfiguriert ist.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -97,7 +101,7 @@ Nachdem sowohl Build erfolgreich war und Deine Tests bestanden hat, wirst Du die
 Ant erstellt normalerweise Ausgabedateien wie JARs, EARs oder WARs im Verzeichnis `build/jar`. Du kannst den Inhalt dieses Verzeichnisses mit der Aktion `upload-artifact` hochladen.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

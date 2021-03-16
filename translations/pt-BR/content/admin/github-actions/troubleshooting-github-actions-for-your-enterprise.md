@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting GitHub Actions for your enterprise
-intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
+title: Solucionar problemas no GitHub Actions para a sua empresa
+intro: 'Solucionar problemas comuns que ocorrem ao usar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Os administradores do site podem resolver problemas de {% data variables.product.prodname_actions %} e modificar configurações de {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '>=3.0'
@@ -20,7 +20,7 @@ Para as etapas necessárias para instalar um certificado, consulte a documentaç
 
 A maioria das ações são escritas em JavaScript e são executadas usando Node.js, que não usa o armazenamento de certificados do sistema operacional. Para o aplicativo runner auto-hospedado usar o certificado, você deve definir a variável de ambiente `NODE_EXTRA_CA_CERTS` na máquina do executor.
 
-You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
+Você pode definir a variável de ambiente como uma variável de ambiente do sistema, ou declará-la em um arquivo denominado _.env_ no diretório do aplicativo do executor auto-hospedado.
 
 Por exemplo:
 
@@ -28,44 +28,44 @@ Por exemplo:
 NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 ```
 
-Environment variables are read when the self-hosted runner application starts, so you must set the environment variable before configuring or starting the self-hosted runner application. If your certificate configuration changes, you must restart the self-hosted runner application.
+As variáveis de ambiente são lidas quando o aplicativo do executor auto-hospedado é iniciado. Portanto, você deve definir a variável de ambiente antes de configurar ou iniciar o aplicativo do executor auto-hospedado. Se a sua configuração de certificado for alterada, você deverá reiniciar o aplicativo do executor auto-hospedado.
 
-#### Configuring Docker containers to use the certificate
+#### Configurar contêineres do Docker para usar o certificado
 
-If you use Docker container actions or service containers in your workflows, you might also need to install the certificate in your Docker image in addition to setting the above environment variable.
+Se você usa ações do contêiner do Docker ou contêineres de serviço nos seus fluxos de trabalho, você também deverá instalar o certificado na sua imagem do Docker, além de definir a variável de ambiente acima.
 
-### Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
+### Configurar as definições de proxy HTTP para {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-### Runners not connecting to {% data variables.product.prodname_ghe_server %} after changing the hostname
+### Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
 
-If you change the hostname of {% data variables.product.product_location %}, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
+Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
 
-You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.product.product_location %}. Each self-hosted runner will require one of the following procedures:
+Você precisará atualizar a configuração dos seus executores auto-hospedados para usar o novo nome de host para {% data variables.product.product_location %}. Cada executor auto-hospedado exigirá um dos seguintes procedimentos:
 
-* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/hosting-your-own-runners/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+* No diretório de do aplicativo do executor auto-hospedado, edite os arquivos de `.runner` e `.credentials` para substituir todas as menções do nome de host antigo pelo novo nome de host. Em seguida, reinicie o aplicativo do executor auto-hospedado.
+* Remova o executor de {% data variables.product.prodname_ghe_server %} usando a interface do usuário e adicione-o novamente. Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/hosting-your-own-runners/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-### Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
+### Trabalhos travados e limites de CPU e de memória das {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.product.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
+{% data variables.product.prodname_actions %} é composto de vários serviços em execução em {% data variables.product.product_location %}. Por padrão, esses serviços são configurados com limites padrão de CPU e memória que devem funcionar para a maioria das instâncias. No entanto, usuários assíduos de {% data variables.product.prodname_actions %} talvez precisem para ajustar essas configurações.
 
-You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
+É possível que você atinja o limite de CPU ou memória se você notar que os trabalhos não estão sendo iniciados (ainda que existam executores inativos), ou se o progresso do trabalho não estiver sendo atualizado ou alterando na interface do usuário.
 
-#### 1. Check the overall CPU and memory usage in the management console
+#### 1. Verifique o uso total da CPU e memória no console de gerenciamento
 
-Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
+Acesse o console de gerenciamento e use o painel do monitor para inspecionar os gráficos gerais de CPU e memória em "Saúde do Sistema". Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/accessing-the-monitor-dashboard)".
 
-If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.product.product_location %} is running at capacity and needs to be scaled up. Para obter mais informações, consulte "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
+Se o uso geral de "Saúde do Sistema" da CPU estiver próximo a 100% ou não houver mais memória livre, {% data variables.product.product_location %} será executado na capacidade e precisará ser dimensionado. Para obter mais informações, consulte "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
 
-#### 2. Check the Nomad Jobs CPU and memory usage in the management console
+#### 2. Verifique o uso de CPU e a memória dos trabalhos Nomad no console de gerenciamento
 
-If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
+Se a "Saúde do Sistema" para o uso total da CPU e da memória estiver OK, acesse a seção "Trabalhos Normad" na parte inferior do painel e observe os gráficos "Valor porcentual da CPU" e "Uso da memória".
 
-Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
+Cada seção nesses gráficos corresponde a um serviço. Para os serviços de {% data variables.product.prodname_actions %}, busque:
 
 * `mps_frontend`
 * `mps_backend`
@@ -74,18 +74,18 @@ Each plot in these graphs corresponds to one service. For {% data variables.prod
 * `actions_frontend`
 * `actions_backend`
 
-If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
+Se qualquer um destes serviços estiver em ou perto de 100% de utilização da CPU ou se a memória estiver próxima do seu limite (2 GB por padrão), talvez seja necessário aumentar a atribuição de recursos para estes serviços. Tome nota de quais dos serviços acima estão no ou próximo do seu limite.
 
-#### 3. Increase the resource allocation for services at their limit
+#### 3. Aumenta a alocação de recursos para serviços em seu limite
 
-1. Log in to the administrative shell using SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
-1. Run the following command to see what resources are available for allocation:
+1. Efetue o login no shell administrativo usando SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
+1. Execute o comando a seguir para ver quais recursos estão disponíveis para alocação:
 
    ```shell
    nomad node status -self
    ```
 
-   In the output, find the "Allocated Resources" section. It looks similar to the following example:
+   Na saída, encontre a seção "Recursos alocados". É algo parecido com o exemplo a seguir:
 
    ```
    Allocated Resources
@@ -93,25 +93,25 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
    ```
 
-   For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
+   Para a memória e a CPU, isso mostra quanto é alocado para o **total** de **todos** serviços (o valor à esquerda) e quanto está disponível (o valor correto). No exemplo acima, há 23 GiB de memória alocado para um total de 32 GiB. Isto significa que há 9 GiB de memória disponíveis para atribuição.
 
    {% warning %}
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
+   **Aviso:** Tenha cuidado para não alocar mais do que o total de recursos disponíveis, ou os serviços não poderão ser iniciados.
 
    {% endwarning %}
-1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
+1. Mude o diretório para `/etc/consul-templates/etc/nomad-jobs/ações`:
 
    ```shell
    cd /etc/consul-templates/etc/nomad-jobs/actions
    ```
 
-   In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
+   Neste diretório existem três arquivos que correspondem aos serviços de {% data variables.product.prodname_actions %} descritos anteriormente:
 
    * `mps.hcl.ctmpl`
    * `token.hcl.ctmpl`
    * `actions.hcl.ctmpl`
-1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
+1. Para os serviços que você identificou que precisam de ajuste, abra o arquivo correspondente e localize o grupo de `recursos` que se parece com o exemplo a seguir:
 
    ```
    resources {
@@ -123,9 +123,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    }
    ```
 
-   The values are in MHz for CPU resources, and MB for memory resources.
+   Os valores estão em MHz para recursos de CPU e em MB para recursos de memória.
 
-   For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
+   Por exemplo, para aumentar os limites de recursos no exemplo acima para 1 GHz para a CPU e 4 GB de memória, altere-os para:
 
    ```
    resources {
@@ -136,8 +136,8 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
-1. Save and exit the file.
-1. Run `ghe-config-apply` to apply the changes.
+1. Salve e saia do arquivo.
+1. Execute o `ghe-config-apply` para aplicar as alterações.
 
-    When running `ghe-config-apply`, if you see output like `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, then the change has likely over-allocated CPU or memory resources. If this happens, edit the configuration files again and lower the allocated CPU or memory, then re-run `ghe-config-apply`.
-1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
+    Ao executar `ghe-config-apply`, se você vir a saída como `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, a mudança provavelmente atribuiu muitos recursos de CPU ou memória. Se isso acontecer, edite os arquivos de configuração novamente e baixe a CPU ou memória alocados e execute `ghe-config-apply` novamente.
+1. Depois que a configuração for aplicada, execute `ghe-actions-check` para verificar se os serviços {% data variables.product.prodname_actions %} estão operando.

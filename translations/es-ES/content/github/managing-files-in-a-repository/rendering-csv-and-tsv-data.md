@@ -18,7 +18,7 @@ Puedes generar un enlace a una fila particular haciendo clic en el número de fi
 
 ### Buscar datos
 
-Si quieres encontrar un valor determinado en tu conjunto de datos, puedes comenzar escribiendo en la barra de búsqueda directamente arriba del archivo. The rows will filter automatically:
+Si quieres encontrar un valor determinado en tu conjunto de datos, puedes comenzar escribiendo en la barra de búsqueda directamente arriba del archivo. Las filas se filtrarán automáticamente:
 
 ![Buscar valores](/assets/images/help/repository/searching_csvs.gif)
 

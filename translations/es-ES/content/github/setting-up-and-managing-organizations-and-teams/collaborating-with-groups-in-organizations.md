@@ -4,7 +4,7 @@ intro: Los grupos de personas pueden colaborar en muchos proyectos a la vez en c
 redirect_from:
   - /articles/creating-a-new-organization-account/
   - /articles/collaborating-with-groups-in-organizations
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -31,12 +31,12 @@ Puedes usar el {% data variables.contact.enterprise_portal %} para ver tickets d
 Los clientes de {% data variables.contact.enterprise_support %} pueden abrir un ticket de soporte mediante {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} o {% data variables.contact.contact_enterprise_portal %}. Marca su prioridad como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o {% data variables.product.support_ticket_priority_low %}. Para obtener más información, consulta la sección "[Asignar una prioridad al ticket de soporte](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server#assigning-a-priority-to-a-support-ticket)" y "[Emitir un ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
 
 {% endif %}
-### Contacting sales
+### Contacto de ventas
 
 Para las preguntas relacionadas con precios, licenciamiento, renovaciones, cotizaciones, pagos y otras relacionadas, contacta a {% data variables.contact.contact_enterprise_sales %} o llama al [+1 (877) 448-4820](tel:+1-877-448-4820).
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Contacting training
+### Contacto de capacitación
 
 Para conocer más sobre las opciones de capacitación, incluida la capacitación personalizada, consulta el sitio de capacitación de [{% data variables.product.company_short %}](https://services.github.com/).
 
@@ -47,7 +47,7 @@ Para conocer más sobre las opciones de capacitación, incluida la capacitación
 {% endnote %}
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".

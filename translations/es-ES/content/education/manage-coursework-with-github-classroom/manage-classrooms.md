@@ -102,5 +102,5 @@ Puedes archuivar un aula que ya no utilices en {% data variables.product.prodnam
 {% data reusables.classroom.click-settings %}
 1. A la derecha de "Borrar esta aula", da clic en **Borrar aula**. ![Botón de "Borrar un repositorio"](/assets/images/help/classroom/click-delete-classroom-button.png)
 1. **Lee las advertencias**.
-1. Para verificar que estás borrando el aula correcta, teclea el nombre del aula que quieres borrar. ![Modal for deleting a classroom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. Para verificar que estás borrando el aula correcta, teclea el nombre del aula que quieres borrar. ![Modo para borrar un aula con advertencias y campo de texto para el nombre del aula](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
 1. Da clic en **Borrar aula**. ![Botón de "Borrar aula"](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

@@ -1,5 +1,5 @@
 ---
-title: GitHub Marketplace Developer Agreement
+title: Acuerdo de Desarrollador de GitHub Marketplace
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
@@ -8,7 +8,7 @@ versions:
 
 **ESTOS TÉRMINOS Y CONDICIONES (EL "ACUERDO") REGULAN TU PARTICIPACIÓN EN EL PROGRAMA DEL MERCADO DE GITUB. AL INSCRIBIRTE PARA PARTICIPAR EN EL PROGRAMA DE MERCADO O AL HACER CLIC EN "ACEPTO" A CONTINUACIÓN, CONFIRMAS QUE ENTIENDES EL PRESENTE ACUERDO Y QUE ACEPTAS TODOS SUS TÉRMINOS Y CONDICIONES.  SI ESTÁS INGRESANDO EN EL PRESENTE ACUERDO EN NOMBRE DE UNA EMPRESA U OTRA ENTIDAD LEGAL, DECLARAS QUE TIENES LA AUTORIDAD LEGAL PARA VINCULAR A LA ENTIDAD CON EL PRESENTE ACUERDO, EN CUYO CASO "TÚ" SIGNIFICARÁ LA ENTIDAD QUE REPRESENTAS.**
 
-Effective Date: January 1, 2021
+Fecha de entrada en vigor: 1 de enero de 2021
 
 ### 1.  DEFINICIONES
 
@@ -62,12 +62,12 @@ Independientemente de cualquiera de los requisitos establecidos en la sección 2
 - 2\. Contiene o instala cualquier malware o exploits activos, o utiliza nuestra plataforma para la entrega de exploits (como parte de un sistema de comando y control);
 - 3\. Interfiere, altera, interrumpe, daña o accede de manera no autorizada a las máquinas, los sistemas, el hardware, los servidores, las redes, los dispositivos, los datos u otras propiedades o servicios de cualquier tercero;
 - 4\. Incluye contenido falso o engañoso;
-- 5\. Infringes on any proprietary right of any party, including patent, trademark, trade secret, copyright, right of publicity, or other rights;
-- 6\. Is libelous, defamatory, or fraudulent;
+- 5\. Infrinja cualquier derecho de propiedad de cualquier parte, incluyendo patentes, marcas registradas, secretos comerciales, propiedad intelectual, derecho de publicidad u otros derechos;
+- 6\. Sea calumnioso, difamatorio o fraudulento;
 - 7\. Habilita la descarga no autorizada de contenido de streaming o medios;
 - 8\. Muestra o vincula a contenido ilegal;
 - 9\. Acosa, abusa, amenaza o incita a cualquier persona o grupo, incluyendo los empleados, los funcionarios y los agentes de GitHub, o cualquier usuario final;
-- 10\. Is or contains sexually obscene content;
+- 10\. Sea o incluya contenido obsceno o sexual;
 - 11\. Sea discriminatorio o abusivo hacia cualquier persona o grupo;
 - 12\. Desvía a los usuarios finales o proporciona enlaces a cualquier otro sitio que imita al mercado o se hace pasar a sí mismo como mercado.
 
@@ -193,7 +193,7 @@ Las partes son contratistas independientes. El presente acuerdo no crea una rela
 
 ### 15. AVISOS
 
-Todas las notificaciones que GitHub debe proporcionar al Programador conforme a lo dispuesto en el presente acuerdo pueden entregarse por escrito (i) por el servicio de entrega a domicilio ("Courier") reconocido a nivel nacional o por correo electrónico a la dirección de correo electrónico de contacto proporcionada por el programador a GitHub; o (ii) correo electrónico a la dirección de correo electrónico proporcionada por el Programador. mail to the contact mailing address provided by Developer to GitHub; or (ii) electronic mail to the electronic mail address provided by Developer. El programador debe dar aviso a GitHub por escrito por mensajería o EE. UU. GitHub, Inc., en atención al: Departamento Jurídico, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 EE. UU. Todas las notificaciones se considerarán entregadas inmediatamente después de la entrega por correo electrónico, o si se entregan de otra manera al recibirlo o, si son anteriores, dos (2) días hábiles después de haber sido depositadas por correo o con un mensajero como se permitió anteriormente.
+Todas las notificaciones que GitHub debe proporcionar al Programador conforme a lo dispuesto en el presente acuerdo pueden entregarse por escrito (i) por el servicio de entrega a domicilio de un solo día ("Courier") o por correo nacional de los EE.UU. a la dirección de correo de contacto que haya proporcionado el programador a GitHub; o (ii) correo electrónico a la dirección de correo electrónico que proporcionó el Programador. El programador debe dar aviso a GitHub por escrito por mensajería o EE. UU. GitHub, Inc., en atención al: Departamento Jurídico, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 EE. UU. Todas las notificaciones se considerarán entregadas inmediatamente después de la entrega por correo electrónico, o si se entregan de otra manera al recibirlo o, si son anteriores, dos (2) días hábiles después de haber sido depositadas por correo o con un mensajero como se permitió anteriormente.
 
 ### 16. LEGISLACIÓN APLICABLE
 
@@ -250,7 +250,7 @@ El presente anexo de protección de datos (este "Anexo") se adjunta y forma part
    - i. A petición, el Programador hará su declaración de privacidad, política de privacidad, aviso de privacidad o cualquier documentación similar disponible. El Programador también proporcionará un aviso de cualquier informe de cumplimiento relevante, incluyendo el cumplimiento del escudo de la privacidad.
    - ii. El Programador cumplirá con las obligaciones de seguridad de la información y auditoría en la sección 3.7 del acuerdo del Programador del mercado de GitHub.
 
-**A1-7. Termination**
+**A1-7. Terminación**
 
 - a. Suspensión. En el caso de que el Programador incumpla con sus obligaciones de mantener un nivel adecuado de protección de la privacidad, GitHub puede suspender de forma temporal la transferencia de datos protegidos o prohibir la recopilación y el procesamiento de datos protegidos en nombre de GitHub hasta que se repare el incumplimiento o se termine el acuerdo.
 - b. Terminación con causa. GitHub puede rescindir el Acuerdo sin perjuicio de cualquier otra reclamación en derecho o en equidad en el caso de que:

@@ -35,6 +35,6 @@ Cuando bajas de categoría una app, tu suscripción permanece activa hasta el fi
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Further reading
+### Leer más
 
 - "[Cancelar una app {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app/)"

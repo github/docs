@@ -1,11 +1,11 @@
-1. Under "Policies", select your options.
+1. Debajo de "Políticas", selecciona tus opciones.
 
-  You can choose which organizations in your enterprise can use {% data variables.product.prodname_actions %}, and you can restrict access to public actions.
+  Puedes elegir qué organizaciones en tu empresa podrán utilizar {% data variables.product.prodname_actions %} y puedes restringir el acceso a las acciones públicas.
 
   {% if currentVersion ver_gt "enterprise-server@2.21" %}
   {% note %}
 
-  **Note:** To enable access to public actions, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_marketplace %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+  **Nota:** Para habilitar el acceso a las acciones públicas, primero debes configurar {% data variables.product.product_location %} para conectarte a {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Habilitar el acceso automática para las acciones de GitHub.com utilizando GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
   {% endnote %}
   {% endif %}

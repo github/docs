@@ -22,6 +22,6 @@ Si tu organización le pertenece a una cuenta de empresa, al habilitar SAML para
 2. Luego de seleccionar **Requerir autenticación del inicio de sesión único de SAML para todos los miembros de la organización SAML SSO Org**, se mostrarán los miembros de la organización que no se hayan autenticado mediante tu IdP. Si haces cumplir el inicio de sesión único de SAML, estos miembros se eliminarán de la organización.
 3. Haz clic en **Hacer cumplir el inicio de sesión único de SAML** para hacer cumplir el inicio de sesión único de SAML y eliminar a los miembros de la organización que figuren en la lista.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

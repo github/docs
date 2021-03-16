@@ -5,7 +5,9 @@ intro: '{% data variables.product.prodname_actions %} は、堅牢で動的な�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -13,7 +15,7 @@ type: 'overview'
 
 ### 概要
 
-{% data variables.product.prodname_actions %} を使用すると、アプリケーションと Team の固有のニーズに合わせてワークフローをカスタマイズできます。 このガイドでは、変数の使用、スクリプトの実行、ジョブ間でのデータとアーティファクトの共有など、いくつかの重要なカスタマイズ手法について説明します。
+{% data variables.product.prodname_actions %} を使用すると、アプリケーションと Team の固有のニーズに合わせてワークフローをカスタマイズできます。 このガイドでは、変数の使用、スクリプトの実行、ジョブ間でのデータと成果物の共有など、いくつかの重要なカスタマイズ手法について説明します。
 
 ### ワークフローで変数を使用する
 
@@ -58,9 +60,9 @@ jobs:
 
 ### ジョブ間でデータを共有する
 
-ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_アーティファクト_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 アーティファクトは、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。
+ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_成果物_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 成果物は、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。
 
-たとえば、ファイルを作成し、それをアーティファクトとしてアップロードできます。
+たとえば、ファイルを作成し、それを成果物としてアップロードできます。
 
 ```yaml
 jobs:
@@ -77,7 +79,7 @@ jobs:
           path: output.log
 ```
 
-別のワークフロー実行からアーティファクトをダウンロードするには、`actions/download-artifact` アクションを使用できます。 たとえば、`output-log-file` という名前のアーティファクトをダウンロードできます。
+別のワークフロー実行から成果物をダウンロードするには、`actions/download-artifact` アクションを使用できます。 たとえば、`output-log-file` という名前の成果物をダウンロードできます。
 
 ```yaml
 jobs:
@@ -89,7 +91,7 @@ jobs:
           name: output-log-file
 ```
 
-アーティファクトに関する詳しい情報については「[アーティファクトを利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
+成果物に関する詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
 
 ### 次のステップ
 

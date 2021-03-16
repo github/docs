@@ -11,6 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Action development'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -39,7 +42,7 @@ Antes de comenzar, necesitarás crear un repositorio GitHub.
 
 1. Desde tu terminal, cambia los directorios en el repositorio nuevo.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
@@ -48,7 +51,7 @@ Antes de comenzar, necesitarás crear un repositorio GitHub.
 En tu nuevo directorio `hello-world-docker-action`, crea un nuevo archivo `Dockerfile`. Para obtener más información, consulta al "[Sporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
 
 **Dockerfile**
-```dockerfile
+```dockerfile{:copy}
 # Imagen del contenedor que ejecuta tu código
 FROM alpine:3.10
 
@@ -65,7 +68,7 @@ Crear un nuevo archivo `action.yml` en el directorio `hello-world-docker` que cr
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -97,24 +100,23 @@ A continuación, el script obtiene la hora actual y la establece como una variab
 
 1. Crea un archivo `entrypoint.sh` nuevo en el directorio `hello-world-docker-action`.
 
-1. Convierte tu archivo `entrypoint.sh` en ejecutable:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
-
 1. Agrega el siguiente código a tu archivo `entrypoint.sh`.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
 
   echo "Hello $1"
   time=$(date)
   echo "::set-output name=time::$time"
   ```
-
   Si `entrypoint.sh` se ejecuta sin errores, el estado de la acción se establece en `exitoso`. También puedes establecer explícitamente códigos de salida en el código de tu acción para proporcionar el estado de una acción. Para obtener más información, consulta la sección "[Configurar los códigos de salida para las acciones](/actions/creating-actions/setting-exit-codes-for-actions)".
+
+1. Haz ejecutable tu archivo `entrypoint.sh` ejecutando el siguiente comando en tu sistema.
+
+  ```shell{:copy}
+  $ chmod +x entrypoint.sh
+  ```
 
 ### Crear un README
 
@@ -130,7 +132,7 @@ En tu directorio <`hello-world-docker-action`, crea un archivo `README.md` que e
 - Un ejemplo de cómo usar tu acción en un flujo de trabajo.
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Acción de docker Hello world
 
 Esta acción imprime "Hello World" o "Hello" + el nombre de una persona a quien saludar en el registro.
@@ -160,7 +162,7 @@ Desde tu terminal, confirma tus archivos `action.yml`, `entrypoint.sh`, `Dockerf
 
 También se recomienda agregarles una etiqueta de versión a los lanzamientos de tu acción. Para obtener más información sobre el control de versiones de tu acción, consulta la sección "[Acerca de las acciones](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "Mi primera acción está lista"
 git tag -a -m "Mi primera versión de acción" v1
@@ -175,11 +177,11 @@ Ahora estás listo para probar tu acción en un flujo de trabajo. Cuando una acc
 
 #### Ejemplo usando una acción pública
 
-El siguiente código de flujo de trabajo usa la acción completa hello world en el repositorio público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copia el siguiente código de ejemplo de flujo de trabajo en un archivo `.github/workflows/main.yml`, pero reemplaza `actions/hello-world-docker-action` por tu nombre de repositorio y acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
+El siguiente código de flujo de trabajo utiliza la acción completa _hello world_ en el repositorio público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copia el siguiente código de ejemplo de flujo de trabajo en un archivo `.github/workflows/main.yml`, pero reemplaza `actions/hello-world-docker-action` por tu nombre de repositorio y acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% if currentVersion == "free-pro-team@latest" %}Las acciones públicas pueden utilizarse aún si no se han publicado en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Publicar una acción](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -200,11 +202,11 @@ jobs:
 
 #### Ejemplo usando una acción privada
 
-Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
+Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% if currentVersion == "free-pro-team@latest" %}Esta acción privada no puede publicarse en {% data variables.product.prodname_marketplace %} y solo puede utilizarse en este repositorio.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:

@@ -209,7 +209,7 @@ Puedes instalar un paquete agregando el paquete como una dependencia a tu proyec
   $ gradle install
   ```
 
-### Further reading
+### Leer más
 
 - "[Configurar Apache Maven para usar con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

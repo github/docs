@@ -1,9 +1,9 @@
 ---
-title: Configuring SAML single sign-on for your enterprise
-shortTitle: Configuring SAML SSO
-intro: You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).
+title: Enterprise 向けの SAML シングルサインオンを設定する
+shortTitle: SAML SSO の設定
+intro: Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.
+permissions: Enterprise オーナーは、{% data variables.product.product_name %} で Enterprise の SAML SSO を設定できます。
 versions:
   github-ae: '*'
 ---
@@ -12,51 +12,51 @@ versions:
 
 {% if currentVersion == "github-ae@latest" %}
 
-SAML SSO allows you to centrally control and secure access to {% data variables.product.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
+SAML SSO を使用すると、SAML IdP から {% data variables.product.product_location %} へのアクセスを一元的に制御しアクセスをセキュアにできます。 認証されていないユーザがブラウザで {% data variables.product.product_location %} にアクセスすると、{% data variables.product.product_name %} はユーザを認証するために SAML IdP にリダイレクトします。 ユーザが IdP のアカウントで正常に認証されると、IdP はユーザを {% data variables.product.product_location %} にリダイレクトします。 {% data variables.product.product_name %} は、IdP からのレスポンスを検証してから、ユーザにアクセスを許可します。
 
-After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.product.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
+ユーザーが IdP で正常に認証されると、{% data variables.product.product_location %} に対するユーザの SAML セッションはブラウザで 24 時間アクティブになります。 24 時間後、ユーザは IdP で再度認証を行う必要があります。
 
 {% data reusables.saml.assert-the-administrator-attribute %}
 
-{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+{% data reusables.scim.after-you-configure-saml %}詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
-### Supported identity providers
+### サポートされているアイデンティティプロバイダ
 
-{% data variables.product.product_name %} supports SAML SSO with IdPs that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
+{% data variables.product.product_name %} は、SAML2.0 標準を実装し IdP を使用した SAML SSO をサポートします。 詳しい情報については、OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security) を参照してください。
 
-{% data variables.product.company_short %} has tested SAML SSO for {% data variables.product.product_name %} with the following IdPs.
+{% data variables.product.company_short %} は、次の IdP を使用して {% data variables.product.product_name %} の SAML SSO をテストしました。
 
 {% if currentVersion == "github-ae@latest" %}
 - Azure AD
 {% endif %}
 
-### Enabling SAML SSO
+### SAML SSO を有効化する
 
 {% if currentVersion == "github-ae@latest" %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
+次の IdP は、{% data variables.product.product_name %} の SAML SSO の設定に関するドキュメントを提供しています。 IdP がリストにない場合は、IdP に問い合わせて、{% data variables.product.product_name %} のサポートをご依頼ください。
 
- | IdP      | 詳細情報                                                                                                                                                                                                                               |
- |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | Azure AD | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs |
+ | IdP      | 詳細情報                                                                                                                                                                                                          |
+ |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | Azure AD | Microsoft Docs の「[チュートリアル: Azure Active Directory シングルサインオン (SSO) と {% data variables.product.prodname_ghe_managed %} の統合](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)」 |
 
-During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML Service Provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP.
+{% data variables.product.product_name %} の初期化中に、IdP で {% data variables.product.product_name %} を SAML サービスプロバイダ (SP) として設定する必要があります。 {% data variables.product.product_name %} を有効な SP として設定するには、IdP にいくつかの一意の値を入力する必要があります。
 
-| 値                                       | Other names | 説明                                                                         | サンプル                      |
-|:--------------------------------------- |:----------- |:-------------------------------------------------------------------------- |:------------------------- |
-| SP Entity ID                            | SP URL      | Your top-level URL for {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
-| SP Assertion Consumer Service (ACS) URL | Reply URL   | URL where IdP sends SAML responses                                         | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
-| SP Single Sign-On (SSO) URL             |             | URL where IdP begins SSO                                                   | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
+| 値                              | 別名     | 説明                                                              | サンプル                      |
+|:------------------------------ |:------ |:--------------------------------------------------------------- |:------------------------- |
+| SP エンティティ ID                   | SP URL | {% data variables.product.prodname_ghe_managed %} の最上位にある URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
+| SP アサーションコンシューマーサービス (ACS) URL | 返信 URL | IdP が SAML レスポンスを送信する URL                                       | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
+| SP シングルサインオン (SSO) URL         |        | IdP が SSO を開始する URL                                             | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
 
 {% endif %}
 
-### Editing the SAML SSO configuration
+### SAML SSO 設定を編集する
 
-If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.product.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
+IdP の詳細が変更された場合は、{% data variables.product.product_location %} の SAML SSO 設定を編集する必要があります。 たとえば、IdP の証明書の有効期限が切れそうな場合、公開証明書の値を編集できます。
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -69,23 +69,23 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", type the new details for your IdP. ![Text entry fields with IdP details for SAML SSO configuration for an enterprise](/assets/images/help/saml/ae-edit-idp-details.png)
-1. Optionally, click {% octicon "pencil" aria-label="The edit icon" %} to configure a new signature or digest method. ![Edit icon for changing signature and digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
+1. [SAML single sign-on] で、IdP の新しい詳細を入力します。 ![Enterprise の SAML SSO 設定の IdP 詳細を含むテキスト入力フィールド](/assets/images/help/saml/ae-edit-idp-details.png)
+1. 必要に応じて、{% octicon "pencil" aria-label="The edit icon" %} をクリックして、新しい署名またはダイジェスト方式を設定します。 ![署名とダイジェスト方法を変更するための編集アイコン](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
 
-    - Use the drop-down menus and choose the new signature or digest method. ![Drop-down menus for choosing a new signature or digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
-1. To ensure that the information you've entered is correct, click **Test SAML configuration**. !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
-1. [**Save**] をクリックします。 !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-edit-idp-details-save.png)
-1. Optionally, to automatically provision and deprovision user accounts for {% data variables.product.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+    - ドロップダウンメニューを使用して、新しい署名またはダイジェスト方法を選択します。 ![新しい署名またはダイジェスト方法を選択するためのドロップダウンメニュー](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
+1. [**Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
+1. [**Save**] をクリックします。 ![SAML SSO 設定の [Save] ボタン](/assets/images/help/saml/ae-edit-idp-details-save.png)
+1. 必要に応じて、{% data variables.product.product_location %} のユーザアカウントを自動的にプロビジョニングおよびプロビジョニング解除するには、SCIM を使用してユーザプロビジョニングを再設定します。 詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
-### Disabling SAML SSO
+### SAML SSO を無効化する
 
 {% if currentVersion == "github-ae@latest" %}
 
 {% warning %}
 
-**Warning**: If you disable SAML SSO for {% data variables.product.product_location %}, users without existing SAML SSO sessions cannot sign into {% data variables.product.product_location %}. SAML SSO sessions on {% data variables.product.product_location %} end after 24 hours.
+**Warning**: {% data variables.product.product_location %} の SAML SSO を無効にすると、既存の SAML SSO セッションのないユーザは {% data variables.product.product_location %} にサインインできなくなります。 {% data variables.product.product_location %} での SAML SSO セッションは、24 時間後に終了します。
 
 {% endwarning %}
 
@@ -98,7 +98,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", unselect **Enable SAML authentication**. ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
-1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**. !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
+1. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択解除します。 ![[Enable SAML authentication] チェックボックス](/assets/images/help/saml/ae-saml-disabled.png)
+1. SAML SSO を無効にし、初期化中に作成した組み込みユーザアカウントでサインインする必要がある場合は、[**Save**] をクリックします。 ![SAML SSO 設定の [Save] ボタン](/assets/images/help/saml/ae-saml-disabled-save.png)
 
 {% endif %}

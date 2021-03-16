@@ -1,6 +1,6 @@
 ---
 title: Acerca de la autenticación con el inicio de sesión único de SAML
-intro: 'Puedes acceder a {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}una organización que utilice el inicio de sesión único (SSO) de SAML{% endif %} si te autenticas {% if currentVersion == "github-ae@latest" %}con el inicio de sesión único (SSO) de SAML {% endif %}a través de un proveedor de identidad (IdP).{% if currentVersion == "free-pro-team@latest" %}Para autenticarte con la API o con Git en la línea de comandos cuando una organización requiera el SSO de SAML, debes autorizar tu token de acceso personal o llave de SSH.{% endif %}'
+intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 ---
+
+### About authentication with SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -31,17 +33,21 @@ Si te has autenticado recientemente con tu SAML IdP de la organización en tu na
 
 {% data reusables.saml.you-must-periodically-authenticate %}
 
-Para usar la API o Git en la línea de comandos para acceder a contenido protegido en una organización que usa SAML SSO, necesitarás usar un token de acceso personal autorizado a través de HTTPS o una clave SSH autorizada. Los tokens de acceso {% data variables.product.prodname_oauth_app %} están autorizados por defecto.
+Para usar la API o Git en la línea de comandos para acceder a contenido protegido en una organización que usa SAML SSO, necesitarás usar un token de acceso personal autorizado a través de HTTPS o una clave SSH autorizada.
 
 Si no tienes un token de acceso personal ni una clave SSH, puedes crear un token de acceso personal para la línea de comandos o generar una clave SSH nueva. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" o "[Generar una nueva llave SSH y añadirla al agente de ssh](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
-Para usar un token de acceso personal o una clave SSH nuevos o existentes con una organización que implementa SAML SSO, necesitarás autorizar el token o autorizar la clave SSH para usar con una organización de SAML SSO. Para obtener más información, consulta "[Autorizar un token de acceso personal para utilizarlo con el inicio de sesión único de SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" o "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+To use a new or existing personal access token or SSH key with an organization that uses or enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. Para obtener más información, consulta "[Autorizar un token de acceso personal para utilizarlo con el inicio de sesión único de SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" o "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-Debes tener una sesión activa de SAML cada que autorices un {% data variables.product.prodname_oauth_app %}.
+### About {% data variables.product.prodname_oauth_apps %} and SAML SSO
+
+You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} to access an organization that uses or enforces SAML SSO.
+
+After an enterprise or organization owner enables or enforces SAML SSO for an organization, you must reauthorize any {% data variables.product.prodname_oauth_app %} that you previously authorized to access the organization. To see the {% data variables.product.prodname_oauth_apps %} you've authorized or reauthorize an {% data variables.product.prodname_oauth_app %}, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications).
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}- "[Acerca de la administración de identidad y de acceso con el inicio de sesión único de SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% if currentVersion == "github-ae@latest" %}- "[Acerca de la administración de identidad y de acceso para tu empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

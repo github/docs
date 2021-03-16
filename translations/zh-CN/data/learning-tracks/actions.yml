@@ -31,6 +31,13 @@ continuous_deployment:
     - /actions/guides/publishing-java-packages-with-maven
     - /actions/guides/publishing-java-packages-with-gradle
     - /actions/guides/publishing-docker-images
+deploy_to_the_cloud:
+  title: 'Deploy to the cloud'
+  description: 'Learn how to use {% data variables.product.prodname_actions %} to build an application and deploy it to various cloud-based platforms.'
+  guides:
+    - /actions/guides/deploying-to-amazon-elastic-container-service
+    - /actions/guides/deploying-to-azure-app-service
+    - /actions/guides/deploying-to-google-kubernetes-engine
 hosting_your_own_runners:
   title: 'Host your own runners'
   description: '您可以创建自托管的运行器，在一个可高度自定义的环境中运行工作流程。'

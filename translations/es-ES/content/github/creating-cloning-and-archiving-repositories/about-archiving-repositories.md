@@ -25,5 +25,5 @@ Cuando se archiva un repositorio, sus propuestas, solicitudes de cambios, còdig
 
 Puedes buscar repositorios archivados. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
 
-### Further reading
+### Leer más
 - "[Archivar repositorios](/articles/archiving-repositories)"

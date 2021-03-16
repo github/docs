@@ -20,6 +20,6 @@ Usa un archivo *.gitattributes* para marcar los archivos que coincidan con un "p
 search/index.json linguist-generated=true
   ```
 
-### Further reading
+### Leer más
 - "[Código generado](https://github.com/github/linguist/#generated-code)" en la documentación del lingüista
 - "[Crear archivos nuevos](/articles/creating-new-files/)"

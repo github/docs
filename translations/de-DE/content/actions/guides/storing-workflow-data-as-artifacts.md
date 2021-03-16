@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Workflows'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -79,7 +81,7 @@ In diesem Beispiel wird gezeigt, wie Sie einen Workflow für ein Node.js-Projekt
 
 Der Workflow lädt die Produktionsartefakte in das `dist` Verzeichnis, schließt jedoch alle Markdowndateien aus. Es lädt auch die `code-coverage.html` Bericht als ein weiteres Artefakt.
 
-```yaml
+```yaml{:copy}
 Name: Node CI
 
 on: [push]
@@ -114,7 +116,7 @@ jobs:
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -183,7 +185,7 @@ Auftrag 3 zeigt das im vorherigen Auftrag hochgeladene Ergebnis an:
 
 Die vollständige, in diesem Workflow-Beispiel durchgeführte mathematische Operation lautet `(3 + 7) x 9 = 90`.
 
-```yaml
+```yaml{:copy}
 name: Daten zwischen Jobs
 
 teilen: [push]

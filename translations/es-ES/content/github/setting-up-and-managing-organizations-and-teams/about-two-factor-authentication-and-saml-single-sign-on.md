@@ -17,6 +17,6 @@ Si tanto la 2FA como SAML SSO están activados, los miembros de la organización
 - Usar el inicio de sesión único para acceder a la organización.
 - Usar un token autorizado para el acceso a Git o a la API y usar el inicio de sesión único para autorizar el token.
 
-### Further reading
+### Leer más
 
 - "[Implementar el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)"

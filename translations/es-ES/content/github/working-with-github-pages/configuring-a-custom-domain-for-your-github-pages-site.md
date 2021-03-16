@@ -11,7 +11,7 @@ redirect_from:
   - /articles/setting-up-a-custom-domain-with-github-pages/
   - /articles/configuring-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
 ---

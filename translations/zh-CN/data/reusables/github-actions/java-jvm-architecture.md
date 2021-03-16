@@ -5,7 +5,7 @@
 例如，要使用 9.0.4 版本的 JDK，用于 x64 平台，您可以使用 `setup-java` 操作，将 `java-version` 和 `architecture` 参数配置为 `'9.0.4'` 和 `x64`。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 9.0.4 for x64

@@ -63,7 +63,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</e
 Tu nombre de usuario es lo que le sigue inmediatamente a `https://{% data variables.command_line.backticks %}/`.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+### Leer más
 
 - "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)"
 {% endif %}

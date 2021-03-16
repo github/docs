@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
 defaultPlatform: linux
 ---
 
@@ -81,7 +81,7 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
 
 {% linux %}
 ```shell
-./svc.sh install
+sudo ./svc.sh start
 ```
 {% endlinux %}
 {% windows %}
@@ -101,7 +101,7 @@ Start-Service "{{ service_win_name }}"
 
 {% linux %}
 ```shell
-./svc.sh start
+sudo ./svc.sh status
 ```
 {% endlinux %}
 {% windows %}

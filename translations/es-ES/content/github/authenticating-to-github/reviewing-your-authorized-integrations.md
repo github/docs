@@ -23,7 +23,7 @@ versions:
 3. Haz clic en la pestaña **Authorized {% data variables.product.prodname_github_app %}s** ({% data variables.product.prodname_github_app %}s autorizadas). ![Pestaña de {% data variables.product.prodname_github_app %}s autorizadas](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
 3. Revisa las {% data variables.product.prodname_github_app %}s que tienen acceso a tu cuenta. Para las que no reconozcas o las que estén desactualizadas, haz clic en **Revoke** (Revocar). Para revocar todas las {% data variables.product.prodname_github_app %}s, haz clic en **Revoke all** (Revocar todo). ![Lista de {% data variables.product.prodname_github_app %} autorizadas](/assets/images/help/settings/revoke-github-app.png)
 
-### Further reading
+### Leer más
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Acerca de las integraciones](/articles/about-integrations)"{% endif %}
 - "[Revisar tus aplicaciones autorizadas (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"

@@ -1,1 +1,1 @@
-Enabling an interaction limit for a repository restricts certain users from commenting, opening issues, creating pull requests, reacting with emojis, editing existing comments, and editing titles of issues and pull requests.
+启用仓库的交互限制会限制某些用户评论、打开议题、创建拉取请求、使用表情符号做出反应、编辑现有注释以及编辑议题和拉取请求的标题。

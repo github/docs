@@ -12,13 +12,18 @@ featuredLinks:
     - /packages/manage-packages/installing-a-package
   popular:
     - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/learn-github-packages
     - /packages/guides/configuring-apache-maven-for-use-with-github-packages
   guideCards:
     - /packages/guides/configuring-npm-for-use-with-github-packages
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
+  - 
+    title: 2021-01-09 的 ghcr.io 维护模式
+    date: '2021-01-08'
+    href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
   - 
     title: ghcr.io 容器名称重定向到容器页
     date: '2020-12-14'
@@ -27,10 +32,6 @@ changelog:
     title: 过滤已标记和未标记的容器
     date: '2020-12-14'
     href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
-  - 
-    title: 包容器支持是一个选择性测试版
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry

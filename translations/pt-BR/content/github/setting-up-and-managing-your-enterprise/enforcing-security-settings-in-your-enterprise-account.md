@@ -88,97 +88,6 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### Habilitar logon único de SAML para organizações na conta corporativa
-
-{% data reusables.saml.dotcom-saml-explanation %} Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)".
-
-Os proprietários empresariais podem ativar o SAML SSO e autenticação centralizada através de um IdP de SAML em todas as organizações que pertencem a uma conta corporativa. Depois que você habilita o SAML SSO para a conta corporativa, ele é habilitado por padrão para todas as organizações pertencentes a ela. Todos os integrantes deverão autenticar usando o SAML SSO para obter acesso às organizações de que fazem parte, e os proprietários corporativos precisarão autenticar usando o SAML SSO ao acessar uma conta corporativa.
-
-{% data reusables.saml.about-saml-access-enterprise-account %} Para obter mais informações, consulte "[Visualizar e gerenciar o acesso de SAML de um usuário à sua conta corporativa](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)".
-
-{% data reusables.saml.saml-supported-idps %}
-
-{% data reusables.scim.enterprise-account-scim %} Se você não estiver participando do beta privado, o SCIM não será compatível para as contas corporativas. Para obter mais informações, consulte "[Gerenciar o provisionamento de usuários para organizações na sua conta corporativa](#managing-user-provisioning-for-organizations-in-your-enterprise-account)".
-
-{% note %}
-
-**Observação**: se você habilitar a autenticação com logon único SAML para a conta corporativa, as configurações SAML existentes no nível da organização serão substituídas.
-
-{% endnote %}
-
-Para obter informações mais detalhadas sobre como ativar o SAML usando o Okta, consulte "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta).
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "SAML single sign-on" (Logon único de SAML), selecione **Enable SAML authentication** (Habilitar autenticação SAML). ![Caixa de seleção para habilitar SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
-6. No campo **Sign on URL** (URL de logon), digite o ponto de extremidade HTTPS do seu IdP para solicitações de logon único. Esse valor está disponível na configuração do IdP. ![Campo referente à URL para a qual os integrantes serão encaminhados ao entrarem](/assets/images/help/saml/saml_sign_on_url_business.png)
-7. Como alternativa, no campo **Issuer** (Emissor), digite o nome do emissor de SAML. Isso confirma a autenticidade das mensagens enviadas. ![Campo referente ao nome do emissor de SAML](/assets/images/help/saml/saml_issuer.png)
-8. Em **Public Certificate** (Certificado público), cole um certificado para verificar as respostas de SAML. ![Campo referente ao certificado público do seu provedor de identidade](/assets/images/help/saml/saml_public_certificate.png)
-9. Para verificar a integridade das solicitações do emissor de SAML, clique em {% octicon "pencil" aria-label="The edit icon" %}. Em seguida, nos menus suspensos Signature Method (Método de assinatura) e Digest Method (Método de compilação), escolha o algoritmo de hash usado pelo emissor de SAML. ![Menus suspensos Signature Method (Método de assinatura) e Digest Method (Método de compilação) para os algoritmos de hash usados pelo emissor de SAML](/assets/images/help/saml/saml_hashing_method.png)
-10. Antes de habilitar o SAML SSO para sua empresa, clique em **Test SAML configuration** (Testar configuração de SAML) para garantir que as informações que você digitou estão corretas. ![Botão para testar a configuração de SAML antes da aplicação](/assets/images/help/saml/saml_test.png)
-11. Clique em **Salvar**.
-
-### Gerenciar o provisionamento de usuários para organizações na conta corporativa
-
-Os proprietários das empresas podem gerenciar a participação na organização de uma conta corporativa diretamente de um provedor de identidade (IdP).
-
-{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
-
-{% data reusables.saml.about-user-provisioning-enterprise-account %}
-
-{% data reusables.scim.enterprise-account-scim %} Opcionalmente, você também pode habilitar o provisionamento de SAML e, separadamente, o desprovisionamento.
-
-Se você configurar o SCIM no seu IdP, toda vez que fizer alterações na associação do grupo no seu IdP, este fará uma chamada de SCIM para {% data variables.product.prodname_dotcom %} afim de atualizar a associação da organização correspondente. Se você ativar o provisionamento de SAML, toda vez que um integrante da empresa acessar um recurso protegido pela configuração de SAML da conta corporativa, essa declaração de SAML irá acionar o provisionamento.
-
-Para cada chamada de SCIM ou declaração de SAML, {% data variables.product.product_name %} irá verificar os grupos de IdP aos quais o usuário pertence e executar as operações a seguir:
-
-- Se o usuário for integrante de um grupo de IdP que corresponde a uma organização pertencente à conta corporativa e o usuário não for, atualmente, um membro dessa organização, adicione o usuário à organização (declaração de SAML) ou envie um convite por e-mail para participar da organização (chamada de SCIM).
-- Cancele quaisquer convites existentes para o usuário juntar-se a uma organização que pertencem à conta corporativa.
-
-Para cada chamada de SCIM e, no caso de habilitar o desprovisionamento de SAML, em cada declaração de SAML, o {% data variables.product.product_name %} também executará a operação a seguir:
-
-- Se o usuário não for membro de um grupo de IdP que corresponde a uma organização pertencente à sua conta corporativa, e o usuário for, atualmente, um integrante dessa organização, remova o usuário da organização.
-
-Se desprovisionamento remover o último proprietário de uma organização, a organização ficará sem proprietário. Os proprietários das empresas podem assumir a propriedade de organizações sem proprietários. Para obter mais informações, consulte "[Gerenciar organizações sem proprietários na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account)".
-
-Para habilitar o provisionamento de usuários para sua conta corporativa usando o Okta, consulte "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)".
-
-### Gerenciar a sincronização de equipes para organizações na conta corporativa
-
-Os proprietários das empresas podem habilitar a sincronização de equipes entre um IdP e {% data variables.product.product_name %} para permitir que os proprietários da organização e os mantenedores de equipe conectem equipes nas organizações pertencentes à sua conta corporativa com grupos de IdP.
-
-{% data reusables.identity-and-permissions.about-team-sync %}
-
-Você pode usar a sincronização de equipes com a sua conta corporativa com o Azure AD.
-
-{% data reusables.identity-and-permissions.sync-team-with-idp-group %}
-
-{% data reusables.identity-and-permissions.team-sync-disable %}
-
-Você também pode configurar e gerenciar a sincronização da equipe para uma organização individual. Para obter mais informações, consulte "[Gerenciar a sincronização de equipe para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)".
-
-#### Pré-requisitos
-
-Antes de poder habilitar a sincronização de equipes para a sua conta corporativa:
-  - Você ou o administrador do Azure AD deve ser um administrador global ou um administrador com função privilegiada no Azure AD.
-  - Você deve habilitar o logon único SAML para organizações na conta corporativa com o IdP compatível. Para obter mais informações, consulte "[Habilitar o logon único SAML para organizações na conta corporativa](#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
-  - Você deve efetuar a autenticação na sua conta corporativa usando o SAML SSO e o IdP compatível. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
-
-#### Gerenciar a sincronização de equipe para o Azure AD
-
-{% data reusables.identity-and-permissions.team-sync-azure-permissions %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Revise as informações do locatário do provedor de identidade que você deseja conectar à conta corporativa e clique em **Aprovar**. ![Solicitação pendente para habilitar a sincronização de equipes para um determinado encarregado do IdP com opção de aprovar ou cancelar a solicitação](/assets/images/help/teams/approve-team-synchronization.png)
-8. Para desativar a sincronização de equipe, clique **Desativar sincronização de equipe**. ![Desabilitar a sincronização de equipes](/assets/images/help/teams/disable-team-synchronization.png)
-
 ### Gerenciar autoridades certificadas de SSH da conta corporativa
 
 Os proprietários corporativos podem adicionar e excluir autoridades certificadas (CAs) de SSH de uma conta corporativa.
@@ -203,3 +112,7 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
+### Leia mais
+
+- "[Configurar identidade e gerenciamento de acesso para a sua conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

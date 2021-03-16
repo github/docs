@@ -43,7 +43,7 @@ Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y c
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-### Further reading
+### Leer más
 
 - "[Usar LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)"
 - "[Usar SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"

@@ -107,6 +107,6 @@ De lo contrario, puedes almacenar tu contraseña en la keychain cuando agregues 
 
 {% endmac %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de SSH](/articles/about-ssh)"

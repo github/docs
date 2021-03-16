@@ -79,7 +79,7 @@ Los tokens de usuario con caducidad son parte del beta de caducidad de tokens de
 | --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `client_secret` | `secuencia` | **Requerido.** El secreto de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `code`          | `secuencia` | **Requerido.** El código que recibiste como respuesta al Paso 1.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `código`        | `secuencia` | **Requerido.** El código que recibiste como respuesta al Paso 1.                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `redirect_uri`  | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esta debe ser una copia exacta de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} una de las URL que proporcionaste como **URL de rellamado** {% else %} la URL que proporcionaste en el campo **URL de rellamado de autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
 | `state`         | `secuencia` | La secuencia aleatoria indescifrable que proporcionaste en el Paso 1.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
@@ -89,7 +89,7 @@ Los tokens de usuario con caducidad son parte del beta de caducidad de tokens de
 
 Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in`  solo se devuelven cuando habilitas el beta para la caducidad de los tokens de acceso de usuario a servidor.
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
@@ -229,7 +229,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las ejecuciones de verificación en un conjunto de verificaciones](/rest/reference/checks#list-check-runs-in-a-check-suite)
 * [Listar las ejecuciones de verificación para una referencia de Git](/rest/reference/checks#list-check-runs-for-a-git-reference)
 
-##### Check Suites
+##### Conjuntos de Verificaciones
 
 * [Crear un conjunto de verificaciones](/rest/reference/checks#create-a-check-suite)
 * [Obtener un conjunto de verificaciones](/rest/reference/checks#get-a-check-suite)
@@ -809,7 +809,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Emojis](/rest/reference/emojis#emojis)
 * [Obtener un estado de límite de tasa para el usuario autenticado](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 
-##### Search
+##### Buscar
 
 * [Buscar código](/rest/reference/search#search-code)
 * [Buscar confirmaciones](/rest/reference/search#search-commits)

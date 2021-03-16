@@ -19,6 +19,6 @@ versions:
 2. [Actualiza las URL remotas](/articles/changing-a-remote-s-url) en cualquier clon local de los repositorios que se movieron.
 3. [Elimina la cuenta](/articles/deleting-your-user-account) que ya no deseas utilizar.
 
-### Further reading
+### Leer más
 
 - [Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

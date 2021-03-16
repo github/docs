@@ -26,7 +26,7 @@ Los códigos de recuperación no se deben compartir ni distribuir. Te recomendam
 
 7. Una vez que usas un código de recuperación para obtener acceso nuevamente a {% data variables.product.product_name %}, no puedes volver a usarlo. El acceso a {% data variables.product.product_name %} solo estará disponible durante 24 horas antes de que se te solicite que inicies sesión usando inicio de sesión único.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Acceder a tu organización cuando tu proveedor de identidad no está disponible](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"

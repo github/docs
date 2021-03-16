@@ -40,7 +40,7 @@ el uso de {% data variables.product.prodname_actions %} cuando se utilizan ejecu
 
   | Plan de GitHub | Jobs simultáneos totales | Jobs simultáneos de macOS máximos |
   | -------------- | ------------------------ | --------------------------------- |
-  | Free           | 20                       | 5                                 |
+  | Gratis         | 20                       | 5                                 |
   | Pro            | 40                       | 5                                 |
   | Team           | 60                       | 5                                 |
   | Empresa        | 180                      | 50                                |

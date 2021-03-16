@@ -85,6 +85,6 @@ Puedes filtrar usuarios en base a la cantidad de seguidores que tienen, utilizan
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) coincidirá con los usuarios con 1,000 o más seguidores.                                      |
 |                           | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) encuentra usuarios entre 1 y 10 seguidores, con la palabra "sparkle" en su nombre. |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

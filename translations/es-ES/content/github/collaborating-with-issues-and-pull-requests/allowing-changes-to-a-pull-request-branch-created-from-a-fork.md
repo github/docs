@@ -25,6 +25,6 @@ Puedes establecer permisos de confirmación al crear por primera vez una solicit
 
   ![allow-maintainers-to-make-edits-sidebar-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 
-### Further reading
+### Leer más
 
 - "[Confirmar cambios en una rama de la solicitud de extracción creada desde una bifurcación](/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

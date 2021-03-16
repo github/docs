@@ -47,7 +47,7 @@ Recomendamos estas herramientas para mover cambios entre Team Foundation Server 
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+### Leer más
 
 - "[Acerca del Importador GitHub](/articles/about-github-importer)"
 - "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"

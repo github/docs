@@ -39,6 +39,8 @@ versions:
 
 如果您的 SARIF 文件不含 `partialFingerprints`，则 `upload-sarif` 操作将为您计算 `partialFingerprints` 字段，并尝试防止重复警报。 {% data variables.product.prodname_dotcom %} 仅当仓库同时包含 SARIF 文件和静态分析中使用的源代码时才能创建 `partialFingerprints`。 有关防止重复警报的更多信息，请参阅“[关于代码扫描的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)”。
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 #### 在存储库外部生成的 SARIF 文件的工作流程示例
 
 您可以创建一个新的工作流程，以在将 SARIF 文件提交到仓库后上传它们。 这在 SARIF 文件生成为仓库外部的构件时很有用。

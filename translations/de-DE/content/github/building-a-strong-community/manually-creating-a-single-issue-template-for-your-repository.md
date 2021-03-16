@@ -18,7 +18,7 @@ Du kannst YAML-Titelei zu jeder Issuevorlage hinzufügen, um den Issuetitel vora
 
 Hier ist ein Beispiel für eine YAML-Titelei.
 
-```
+```yaml
 ---
 name: Issue verfolgen
 about: Benutzer diese Vorlage zum verfolgen neuer Funktionen.

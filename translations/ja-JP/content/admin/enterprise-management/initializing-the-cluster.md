@@ -45,7 +45,7 @@ versions:
 
 設定した最初のクラスタノードを、`mysql-server` および `mysql-master`で MySQL のプライマリとして指定してください。
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

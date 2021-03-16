@@ -47,5 +47,5 @@ Puedes filtrar temas en base a cuándo se crearon utilizando el parámetro de fe
 
 Puedes utilizar el calificador `topic:` (tema) para encontrar cada repositorio conectado a un tema particular. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)."
 
-### Further reading
+### Leer más
 - "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"

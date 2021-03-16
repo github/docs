@@ -22,7 +22,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"
 - [Clasificar propuestas y solicitudes de extracción](/articles/sorting-issues-and-pull-requests)"

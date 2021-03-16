@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-enterprise-for-high-availability/
   - /enterprise/admin/enterprise-management/configuring-high-availability
 intro: '{% data variables.product.prodname_ghe_server %} admite un modo de alta disponibilidad de funcionamiento diseñado para minimizar la interrupción del servicio en caso que ocurra una falla de hardware o una interrupción de red importante que afecte al aparato principal.'
-mapTopic: verdadero
+mapTopic: true
 versions:
   enterprise-server: '*'
 ---

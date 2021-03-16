@@ -11,7 +11,7 @@ versions:
 
 Para transferir una propuesta abierta a otro repositorio, debes tener permisos de escritura sobre el repositorio en el que está la propuesta y sobre el repositorio al que le estás transfiriendo la propuesta. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/articles/permission-levels-for-an-organization)".
 
-Solo puedes transferir propuestas entre repositorios que pertenezcan a la misma cuenta de usuario o de organización.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}No puedes transferir una propuesta desde un repositorio privado a un repositorio público.{% endif %}
+Solo puedes transferir propuestas entre repositorios que son propiedad del mismo usuario o de la misma cuenta de la organización. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. No se retendrán los hitos y etiquetas de la propuesta. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
@@ -26,7 +26,7 @@ Las personas o equipos que se mencionan en la propuesta recibirán una notificac
 5. Utiliza el menú desplegable **Choose a repository** (Elegir un repositorio) y selecciona el repositorio al que quieres transferir la propuesta. ![Elige una selección de repositorio](/assets/images/help/repository/choose-a-repository.png)
 6. Haz clic en **Transfer issue** (Transferir propuesta). ![Botón Transfer issue (Transferir propuesta)](/assets/images/help/repository/transfer-issue-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las propuestas](/articles/about-issues)"
 - "[Revisar tu registro de seguridad](/articles/reviewing-your-security-log)"

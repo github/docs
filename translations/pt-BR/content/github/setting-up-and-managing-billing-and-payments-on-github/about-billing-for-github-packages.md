@@ -14,6 +14,8 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
 | Produto                                                             | Armazenamento | Transferência de dados (por mês) |

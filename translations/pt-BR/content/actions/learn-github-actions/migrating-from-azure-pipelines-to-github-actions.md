@@ -7,6 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Azure Pipelines'
+  - 'Migração'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -61,34 +66,34 @@ Azure Pipelines
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-- trabalho: scripts
-  pool:
-    vmImage: 'windows-latest'
-  etapas:
-  - script: echo "Esta etapa é executada no shell-padrão"
-  - bash: echo "Esta etapa é executada em bash"
-  - pwsh: Write-Host "Esta etapa é executada no centro do PowerShell"
-  - tarefa: PowerShell@2
-    entrada:
-      script: Write-Host "Esta etapa é executada em PowerShell"
+jobs:
+  - job: scripts
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in the default shell"
+      - bash: echo "This step runs in bash"
+      - pwsh: Write-Host "This step runs in PowerShell Core"
+      - task: PowerShell@2
+        inputs:
+          script: Write-Host "This step runs in PowerShell"
 ```
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   scripts:
     runs-on: windows-latest
-    etapas:
-    - executar: echo "Esta etapa é executada no shell-padrão"
-    - run: echo "Esta etapa é executada em bash"
-      shell: bash
-    - executar : Write-Host "Esta etapa é executada no centro do PowerShell"
-      shell: pwsh
-    - run: Write-Host "Esta etapa é executada no PowerShell"
-      shell: powershell
+    steps:
+      - run: echo "This step runs in the default shell"
+      - run: echo "This step runs in bash"
+        shell: bash
+      - run: Write-Host "This step runs in PowerShell Core"
+        shell: pwsh
+      - run: Write-Host "This step runs in PowerShell"
+        shell: powershell
 ```
 {% endraw %}
 </td>
@@ -122,25 +127,25 @@ Azure Pipelines
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-- trabalho: run_command
-  pool:
-    vmImage: 'windows-latest'
-  trabalhos:
-  - script: echo "Esta etapa é executada em CMD no Windows por padrão"
+jobs:
+  - job: run_command
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo "This step runs in CMD on Windows by default"
 ```
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   run_command:
     runs-on: windows-latest
     steps:
-    - executar: echo "Esta etapa é executada no PowerShell no Windows por padrão"
-    - executar: echo "Esta etapa é executada em CMD no Windows explicitamente"
-      shell: cmd
+      - run: echo "This step runs in PowerShell on Windows by default"
+      - run: echo "This step runs in CMD on Windows explicitly"
+        shell: cmd
 ```
 {% endraw %}
 </td>
@@ -170,25 +175,25 @@ Azure Pipelines
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-- trabalho: condicional
-  pool:
-    vmImage: 'ubuntu-latest'
-  etapas:
-  - script: echo "Esta etapa é executada com str equals 'ABC' and num equals 123"
-    condição: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
+jobs:
+  - job: conditional
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This step runs with str equals 'ABC' and num equals 123"
+        condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-  condicional:
+jobs:
+  conditional:
     runs-on: ubuntu-latest
-    etapas:
-    - executar: echo "Esta etapa é executada com str equals 'ABC' and num equals 123"
-      if: ${{ env.str == 'ABC' && env.num == 123 }}
+    steps:
+      - run: echo "This step runs with str equals 'ABC' and num equals 123"
+        if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
 {% endraw %}
 </td>
@@ -216,56 +221,56 @@ Azure Pipelines
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-- trabalho: inicial
-  pool:
-    vmImage: 'ubuntu-latest'
-  etapas:
-  - script: echo "Este trabalho será executado primeiro."
-- trabalho: fanout1
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: inicial
-  etapas:
-  - script: echo "Este trabalho será executado após o trabalho inicial, em paralelo com o fanout2."
-- trabalho: fanout2
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: inicial
-  etapas:
-  - script: echo "Este trabalho será executado após o trabalho inicial, em paralelo com fanout1."
-- trabalho: fanin:
-  pool:
-    vmImage: 'ubuntu-latest'
-  dependsOn: [fanout1, fanout2]
-  etapas:
-  - script: echo "Este trabalho será executado após fanout1 e fanout2 serem concluídos."
+jobs:
+  - job: initial
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: echo "This job will be run first."
+  - job: fanout1
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout2."
+  - job: fanout2
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: initial
+    steps:
+      - script: echo "This job will run after the initial job, in parallel with fanout1."
+  - job: fanin:
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: [fanout1, fanout2]
+    steps:
+      - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-  inicial:
+jobs:
+  initial:
     runs-on: ubuntu-latest
-    etapas:
-    - executar: echo "Este trabalho será executado primeiro."
+    steps:
+      - run: echo "This job will be run first."
   fanout1:
     runs-on: ubuntu-latest
-    needs: inicial
-    etapas:
-    - run: echo "Este trabalho será executado após o trabalho inicial, em paralelo com fanout2."
+    needs: initial
+    steps:
+      - run: echo "This job will run after the initial job, in parallel with fanout2."
   fanout2:
     runs-on: ubuntu-latest
-    needs: inicial
-    etapas:
-    - run: echo "Este trabalho será executado após o trabalho inicial, em paralelo com fanout1."
+    needs: initial
+    steps:
+      - run: echo "This job will run after the initial job, in parallel with fanout1."
   fanin:
     runs-on: ubuntu-latest
     needs: [fanout1, fanout2]
-    etapas:
-    - executar: echo "Este trabalho será executado após fanout1 e fanout2 serem concluídos."
+    steps:
+      - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
 </td>
@@ -293,31 +298,31 @@ Azure Pipelines
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
-- trabalho: run_python
-  pool:
-    vmImage: 'ubuntu-latest'
-  etapas:
-  - tarefa: UsePythonVersion@0
-    entradas:
-      versionSpec: '3.7'
-      architecture: 'x64'
-  - script: python script.py
+jobs:
+  - job: run_python
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+      - script: python script.py
 ```
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   run_python:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/setup-python@v2
-      com:
-        python-version: '3.7'
-        arquitetura: 'x64'
-    - executar: python script.py
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>

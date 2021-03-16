@@ -49,6 +49,8 @@ GitHub will display your profile README on your profile page if all of the follo
 
   The generated README file is pre-populated with a template to give you some inspiration for your profile README. ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
 
+For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
+
 ### Removing a profile README
 
 The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:

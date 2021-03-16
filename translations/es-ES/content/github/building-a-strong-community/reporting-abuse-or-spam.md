@@ -54,7 +54,7 @@ Si se ha habilitado la capacidad para reportar contenido en un repositorio públ
 3. En la esquina inferior derecha del selector de plantillas, haz clic en **Report Abuse (Reportar abuso)**. ![Enlace para denunciar un abuso](/assets/images/help/repository/template-chooser-report-abuse.png)
 4. Completa el formato de contacto para informar a {% data variables.contact.contact_support %} acerca del comportamiento del enlace, posteriormente, da clic en **Enviar solicitud**.
 
-### Further reading
+### Leer más
 
 - "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"

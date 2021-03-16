@@ -1,6 +1,6 @@
 ---
-title: About user provisioning for organizations in your enterprise account
-intro: You can manage organization membership in an enterprise account directly from an identity provider (IdP).
+title: Sobre o provisionamento de usuários para organizações na sua conta corporativa
+intro: Você pode gerenciar a associação das organizações em uma conta corporativa diretamente de um provedor de identidade (IdP).
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.scim.enterprise-account-scim %} Opcionalmente, você também pode habilitar o provisionamento de SAML e, separadamente, o desprovisionamento.
 
-If you configure SCIM for the {% data variables.product.product_name %} application in your IdP, each time you make changes to group membership in your IdP, your IdP will make a SCIM call to {% data variables.product.prodname_dotcom %} to update the corresponding organization's membership. Se você ativar o provisionamento de SAML, toda vez que um integrante da empresa acessar um recurso protegido pela configuração de SAML da conta corporativa, essa declaração de SAML irá acionar o provisionamento.
+Se você configurar o SCIM para o aplicativo de {% data variables.product.product_name %} no seu IdP, cada vez que fizer alterações na associação do grupo no seu IdP, este fará uma chamada SCIM para {% data variables.product.prodname_dotcom %} para atualizar a associação da organização. Se você ativar o provisionamento de SAML, toda vez que um integrante da empresa acessar um recurso protegido pela configuração de SAML da conta corporativa, essa declaração de SAML irá acionar o provisionamento.
 
 Para cada chamada de SCIM ou declaração de SAML, {% data variables.product.product_name %} irá verificar os grupos de IdP aos quais o usuário pertence e executar as operações a seguir:
 

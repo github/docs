@@ -80,9 +80,25 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
 * `__schema`に対してクエリを行い、スキーマ中で定義されているすべての型と、それぞれについての詳細を取得してください。
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* 任意の型について、`__type`にクエリを行って詳細を得てください。
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -91,22 +107,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* 任意の型について、`__type`にクエリを行って詳細を得てください。
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * `GET`リクエストを通じてスキーマの_イントロスペクションクエリ_を実行することもできます。

@@ -186,27 +186,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -348,7 +348,7 @@ Der Wert für `array` kann ein Array oder ein String sein. Alle Werte im `array`
 
 `join(github.event.issue.labels.*.name, ', ')` kann „Bug, Hilfe gesucht“ zurückgeben
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -358,13 +358,13 @@ Gibt eine Pretty-Print-JSON-Darstellung von `value` zurück. Diese Funktion hilf
 
 `toJSON(job)` kann `{ "status": "Success" }` zurückgeben.
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Gibt ein JSON-Objekt für `value` zurück. Mit dieser Funktion kannst Du ein JSON-Objekt als ausgewerteten Ausdruck bereitstellen.
+Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
 
-##### Beispiel
+##### Example returning a JSON object
 
 Dieser Workflow legt eine JSON-Matrix in einem Job fest und übergibt sie mittels einer Ausgabe und `fromJSON` an den nächsten Job.
 
@@ -384,9 +384,30 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
     - run: build
+```
+{% endraw %}
+
+##### Example returning a JSON data type
+
+This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - continue-on-error: ${{ fromJSON(env.continue) }}
+      timeout-minutes: ${{ fromJSON(env.time) }}
+      run: echo ...
 ```
 {% endraw %}
 

@@ -22,16 +22,19 @@ Las entradas de registro de subida muestran:
 
 ### Ver registros de subida de un repositorio
 
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. Navegar a un repositorio.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the upper-right corner of the repository's page, click
+{% octicon "rocket" aria-label="The rocket ship" %}.
+    ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. En la barra lateral izquierda, haz clic en **Push Log (Registro de subida)**. ![Pestaña de registro de subida](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Ver registros de subida de un repositorio en la línea de comando
 
-1. SSH en tu aparato. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
-2. En el repositorio Git adecuado, abre el archivo de registro de auditoría:
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. En el repositorio Git adecuado, abre el archivo de registro de auditoría:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

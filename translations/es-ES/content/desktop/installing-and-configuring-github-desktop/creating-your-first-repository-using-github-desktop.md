@@ -91,7 +91,7 @@ Ahora que creaste y publicaste tu repositorio, estás listo para hacer cambios e
 ### Conclusión
 Ya creaste un repositorio, lo publicaste en {% data variables.product.product_name %}, hiciste una confirmación y subiste tus cambios a {% data variables.product.product_name %}. Puedes seguir este flujo de trabajo cuando colabores con otros proyectos que crees o en los cuales colabores.
 
-### Further reading
+### Leer más
 - "[Aprender más sobre Git](/github/using-git/learning-about-git)"
 - "[Aprender más sobre {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[Iniciar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

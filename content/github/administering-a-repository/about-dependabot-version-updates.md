@@ -3,6 +3,7 @@ title: About Dependabot version updates
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
+  - /github/administering-a-repository/about-github-dependabot
   - /github/administering-a-repository/about-github-dependabot-version-updates
 
 versions:
@@ -20,6 +21,8 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to replace the outdated dependency with the new version directly. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
 If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+
+{% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
 {% data reusables.dependabot.dependabot-tos %}
 

@@ -1,6 +1,6 @@
 ---
-title: Configuring authentication and provisioning with your identity provider
-intro: You can use an identity provider (IdP) that supports both SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) to configure authentication and user provisioning for {% data variables.product.product_location %}.
+title: アイデンティティプロバイダで認証とプロビジョニングを設定する
+intro: SAML シングルサインオン (SSO) と System for Cross-domain Identity Management (SCIM) の両方をサポートするアイデンティティプロバイダ (IdP) を使用して、{% data variables.product.product_location %} の認証とユーザプロビジョニングを設定できます。
 mapTopic: true
 versions:
   github-ae: '*'

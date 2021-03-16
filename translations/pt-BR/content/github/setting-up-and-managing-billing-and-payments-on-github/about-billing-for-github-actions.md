@@ -12,6 +12,8 @@ versions:
 
 {% data reusables.github-actions.actions-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
 
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o ID da sua assinatura do Azure à sua conta corporativa para habilitar e pagar pelo uso de {% data variables.product.prodname_actions %} além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+
 Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
 | Produto                                                             | Armazenamento | Minutos (por mês) |
@@ -22,7 +24,7 @@ Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 | {% data variables.product.prodname_team %}                          | 2 GB          | 3.000             |
 | {% data variables.product.prodname_ghe_cloud %}                   | 50 GB         | 50.000            |
 
-Os trabalhos que são executados em Windows e macOS runners que o {% data variables.product.prodname_dotcom %} hospeda consomem minutos na proporção de 2 a 10 vezes a taxa que os trabalhos em Linux consomem. Por exemplo, usar 1.000 minutos do Windows consumiria 2.000 minutos incluídos em sua conta. Usando 1.000 minutos macOS, consumiria 10.000 minutos incluídos em sua conta.
+Os trabalhos que são executados em Windows e macOS runners que o {% data variables.product.prodname_dotcom %} hospeda consomem minutos na proporção de 2 a 10 vezes a taxa que os trabalhos em Linux consomem. Por exemplo, usar 1.000 minutos do Windows consumiria 2.000 minutos incluídos em sua conta. O uso de 1.000 minutos no macOS consumiria 10.000 minutos incluídos em sua conta.
 
 | Sistema operacional | Multiplicador de minutos |
 | ------------------- | ------------------------ |
@@ -36,7 +38,7 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 
 {% note %}
 
-**Nota:** Multiplicadores de minutos não se aplicam às taxas por minuto mostradas abaixo.
+**Observação:** Os multiplicadores de minutos não se aplicam às taxas por minuto mostradas abaixo.
 
 {% endnote %}
 

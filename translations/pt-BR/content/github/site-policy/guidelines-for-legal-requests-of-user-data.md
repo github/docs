@@ -146,7 +146,14 @@ Por favor, note que a informação disponível varia de caso a caso. Algumas das
 
 ### Reembolso de custos
 
-Reservamo-nos o direito de solicitar o reembolso dos custos administrativos associados à resposta aos pedidos de informação, tal como permitido pela lei.
+Nos termos das leis estadual e federal, o GitHub pode pedir reembolso por custos associados à conformidade com uma demanda legal válida, como uma intimação, ordem de tribunal ou mandado de busca. Só cobramos a recuperação de alguns custos, e estes reembolsos cobrem apenas uma parte dos custos que efetivamente incorremos para cumprir as disposições legais.
+
+Embora não cobremos em situações de emergência ou em outras circunstâncias exigentes, buscamos o reembolso para todas as outras solicitações legais, de acordo com o cronograma a seguir, a menos que exigido de outra forma por lei:
+
+- Pesquisa inicial de até 25 identificadores: livre
+- Produção de informação/dados de assinantes para até 5 contas: grátis
+- Produção de informação/dados de assinante para mais de 5 contas: US$ 20 por conta
+- Pesquisas secundárias: US$ 10 por pesquisa
 
 ### Conservação de dados
 

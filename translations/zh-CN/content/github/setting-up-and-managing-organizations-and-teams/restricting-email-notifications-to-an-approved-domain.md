@@ -15,7 +15,7 @@ versions:
 
 外部协作者不受限于已验证域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)”。
 
-如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证域的通知之外，还能够接收来自企业帐户的任何已验证域的通知。 For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
+如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证域的通知之外，还能够接收来自企业帐户的任何已验证域的通知。 更多信息请参阅“[验证企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)”。
 
 ### 将电子邮件通知限于已批准的域
 

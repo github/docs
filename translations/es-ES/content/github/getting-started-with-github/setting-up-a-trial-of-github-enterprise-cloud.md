@@ -55,6 +55,6 @@ El bajar de categoría a {% data variables.product.prodname_free_team %} en orga
 5. Debajo de "{% data variables.product.prodname_ghe_cloud %} Free Trial" (Prueba gratis de {% data variables.product.prodname_ghe_cloud %}), haz clic en **Buy Enterprise** (Comprar empresa) o **Downgrade to Team** (Bajar de categoría a equipo). ![Botones Comprar Enterprise y Bajar de categoría a Team](/assets/images/help/organizations/finish-trial-buttons.png)
 6. Sigue las indicaciones para ingresar tu método de pago, a continuación haz clic en **Enviar**.
 
-### Further reading
+### Leer más
 
 - "[Configurar una prueba de {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)"

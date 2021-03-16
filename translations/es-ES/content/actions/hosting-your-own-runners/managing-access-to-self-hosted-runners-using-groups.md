@@ -48,7 +48,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 
    {% warning %}
 
-   **Warning**
+   **Advertencia**
 
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
@@ -80,7 +80,7 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
 
    {% warning %}
 
-   **Warning**
+   **Advertencia**
 
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
 

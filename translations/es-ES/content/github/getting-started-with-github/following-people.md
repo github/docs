@@ -16,7 +16,7 @@ Cuando sigues a las personas, verás su actividad pública en la vista de activi
 Para dejar de seguir a alguien, visita su página de perfil y haz clic en **Dejar de seguir** debajo de su imagen de perfil.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+### Leer más
 
 - "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)"
 - "[Encontrar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)"

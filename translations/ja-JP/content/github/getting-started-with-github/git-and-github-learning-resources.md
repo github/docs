@@ -25,15 +25,13 @@ authors:
 
 {% endif %}
 
-[bootcamp](/categories/bootcamp/) 記事で、{% data variables.product.product_name %} に精通しましょう。 [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### ブランチ、フォーク、プルリクエスト
 
-インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。
-
-[コマンドライン](https://hub.github.com)についてのクイックリファレンスや、{% data variables.product.prodname_dotcom %} の[チェックリスト、チートシートなど](https://services.github.com/on-demand/resources)にアクセスしてください。
+インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 #### 動画
 
@@ -41,9 +39,9 @@ authors:
 
 ### トレーニング
 
-#### 無料クラス
+#### Free courses
 
-{% data variables.product.product_name %} では、インタラクティブな [オンデマンドのトレーニングコース](https://services.github.com/on-demand/)のシリーズを提供しています。これには、{% data variables.product.prodname_dotcom %}101: [導入](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %}102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop)、および{% data variables.product.prodname_dotcom %}103: [コマンドライン](https://services.github.com/on-demand/github-cli)が含まれます。
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 #### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 
@@ -51,7 +49,7 @@ authors:
 
 #### 企業向けトレーニング
 
-{% data variables.product.prodname_dotcom %} では、経験豊富な教育者による[対面クラス](https://services.github.com/#offerings)を提供しています。 トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
+{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
 
 ### その他
 

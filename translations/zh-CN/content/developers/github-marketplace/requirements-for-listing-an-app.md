@@ -48,18 +48,21 @@ versions:
 
 ### 付费应用程序的要求
 
-除了上述对所有应用程序的要求之外，作为付费服务在 {% data variables.product.prodname_marketplace %} 上提供的每个应用程序还必须满足以下要求：
+要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 有关验证流程或转让应用程序所有权的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
+
+如果您的应用程序已发布，并且您是经验证的发布者，则您可以使用定价计划编辑器发布新的付费计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
+
+要发布付费应用程序（或提供付费计划的应用程序），您还必须满足以下要求：
 
 - {% data variables.product.prodname_github_app %} 应至少有 100 个安装设施。
 - {% data variables.product.prodname_oauth_app %} 应至少有 200 个用户。
 - 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 更多信息请参阅下面的“[付费应用程序的计费要求](#billing-requirements-for-paid-apps)”。
-- 发布组织必须具有经过验证的域，并且必须启用双重身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)”。
 
-当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证上架信息。
+当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证应用程序上架信息。
 
 {% note %}
 
-验证过程对组织开放。 {% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何进行验证，请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)”。
+**注：**{% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何将应用程序转让给组织，请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)”。
 
 {% endnote %}
 

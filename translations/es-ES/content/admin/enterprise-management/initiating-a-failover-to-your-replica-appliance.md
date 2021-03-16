@@ -40,6 +40,6 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### Further reading
+### Leer más
 
 - "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

@@ -24,7 +24,7 @@ Puedes filtrar archivos en una solicitud de cambios por tipo de extensión, tal 
 4. Usa el menú desplegable para Filtrar archivos y selecciona, elimina la marca de selección o haz clic en los filtros deseados. ![Opción Filtrar archivos sobre la diferencia de la solicitud de extracción](/assets/images/help/pull_requests/file-filter-option.png)
 5. Para borrar la selección de filtro en la pestaña **Archivos modificados** puedes hacer clic en **Borrar**. ![Borrar selección de filtro de archivo](/assets/images/help/pull_requests/clear-file-filter.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la comparación de las ramas en una solicitud de extracción](/articles/about-comparing-branches-in-pull-requests)"
 - "[Encontrar métodos y funciones modificados en una solicitud de extracción](/articles/finding-changed-methods-and-functions-in-a-pull-request)"

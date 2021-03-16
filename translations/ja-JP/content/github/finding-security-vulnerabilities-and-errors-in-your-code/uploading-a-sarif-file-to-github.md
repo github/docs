@@ -39,6 +39,8 @@ You can upload the results using {% data variables.product.prodname_actions %}{%
 
 SARIF ファイルに `partialFingerprints` が含まれていない場合、`upload-sarif` アクションは、`partialFingerprints` フィールドを計算し、アラートの重複を防止しようと試みます。 {% data variables.product.prodname_dotcom %} は、リポジトリに SARIF ファイルと静的分析で使用されるソースコードの両方が含まれている場合にのみ、`partialFingerprints` を作成できます。 重複アラートの防止に関する詳しい情報については、「[コードスキャンに対する SARIF サポートについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)」を参照してください。
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 #### リポジトリ外で生成された SARIF ファイルのワークフロー例
 
 SARIF ファイルをリポジトリにコミットした後でアップロードする新しいワークフローを作成できます。 これは、SARIF ファイルがリポジトリ外のアーティファクトとして生成される場合に役立ちます。

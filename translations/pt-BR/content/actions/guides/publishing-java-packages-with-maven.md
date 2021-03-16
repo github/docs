@@ -8,6 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Empacotando'
+  - 'Publicar'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -47,7 +52,7 @@ Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação inst
 Por exemplo, se você estava implantando no Repositório Central do Maven por meio do projeto de hospedagem OSSRH, seu _pom.xml_ poderia especificar um repositório de gerenciamento de distribuição com o `id` de `ossrh`.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -67,7 +72,7 @@ Na etapa de implementação, você deverá definir as variáveis de ambiente par
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -113,7 +118,7 @@ Para um projeto baseado no Maven, você pode usar essas configurações ao criar
 Por exemplo, se sua organização é denominada "octocat" e seu repositório é denominado "hello-world", a configuração do {% data variables.product.prodname_registry %} no _pom.xml_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -130,7 +135,7 @@ Por exemplo, se sua organização é denominada "octocat" e seu repositório é 
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {% data variables.product.prodname_registry %}, fazendo uso do _settings.xml_ gerado automaticamente.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -165,7 +170,7 @@ Você pode publicar seus pacotes no Repositório Central Maven e em {% data vari
 Certifique-se de que seu arquivo _pom.xml_ inclui um repositório de gerenciamento de distribuição tanto para seu repositório {% data variables.product.prodname_dotcom %} como para o seu provedor de Repositório Central do Maven. Por exemplo, se você fizer a implementação em um Repositório Central por meio do projeto de hospedagem OSSRH, é possível que você deseje especificá-la em um repositório de gerenciamento de distribuição com o `id` definido como `ossrh`. Além disso, você pode desejar especificar {% data variables.product.prodname_registry %} em um repositório de gerenciamento de distribuição com o `id` definido como `github`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:

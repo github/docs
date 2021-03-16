@@ -8,7 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - Seguridad
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +22,7 @@ Esta guía explica cómo configurar el fortalecimiento de seguridad para ciertas
 
 ### Utilizar secretos
 
-Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [Secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de la organización% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambiente{% else %} o repositorio{% endif %}, y permitirte almacenar información sensible en {% data variables.product.product_name %}.
+Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [Secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de la organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambiente{% else %} o repositorio{% endif %}, y permitirte almacenar información sensible en {% data variables.product.product_name %}.
 
 Los secretos utilizan [Cajas selladas de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) de manera que se cifran antes de llegar a {% data variables.product.product_name %}. Esto ocurre cuando el secreto se emite [utilizando la IU](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) o a través de la [API de REST](/rest/reference/actions#secrets). Este cifrado del lado del cliente ayuda a minimizar los riesgos relacionados con el registro accidental (por ejemplo, bitácoras de exepción y de solicitud, entre otras) dentro de la infraestructura de {% data variables.product.product_name %}. Una vez que se carga el secreto, {% data variables.product.product_name %} puede entonces descifrarlo para que se pueda inyectar en el tiempo de ejecución del flujo de trabajo.
 
@@ -54,11 +56,13 @@ Esto significa que el poner en riesgo una sola acción dentro de un flujo de tra
 
   Fijar una acción a un SHA de confirmación de longitud completa es actualmente la única forma de utilizar una acción como un lanzamiento inmutable. Fijar las acciones a un SHA en particular ayuda a mitigar el riesgo de que un actor malinencionado agregue una puerta trasera al repositorio de la acción, ya que necesitarían generar una colisión de SHA-1 para una carga útil vlálida de un objeto de Git.
 
+  {% if currentVersion ver_lt "enterprise-server@3.1" %}
   {% warning %}
 
   **Advertencia:** La versión corta del SHA de confirmación no es segura y jamás debería utilizarse para especificar la referencia de Git de una acción. Debido a cómo funcionan las redes de los repositorios, cualquier usuario puede bifurcar el repositorio y cargar una confirmación creada a éste, la cual colisione con el SHA corto. Esto causa que fallen los clones subsecuentes a ese SHA, debido a que se convierte en una confirmación ambigua. Como resultado, cualquier flujo de trabajo que utilice el SHA acortado fallará de inmediato.
 
   {% endwarning %}
+  {% endif %}
 
 
 * **Audita el código fuente de la acción**
@@ -113,7 +117,7 @@ Puedes utilizar la bitácora de auditoría para monitorear las tareas administra
 
 Por ejemplo, puedes utilizar la bitácora de auditoría para rastrear el evento `action:org.update_actions_secret`, el cual rastrea los cambios a los secretos de la organización: ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
-Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
 
 #### Eventos para la administración de secretos
 | Acción                              | Descripción                                                                                                                                                                                                   |
@@ -140,4 +144,4 @@ Las siguientes tablas describen los eventos de {% data variables.product.prodnam
 | `action:org.runner_group_removed`         | Se activa cuando un administrador de la organización elimina el grupo de ejecutores auto-hospedados.                                                                                                                                               |
 | `action:org.runner_group_renamed`         | Se activa cuando un administrador de la organización renombra un grupo de ejecutores auto-hospedados.                                                                                                                                              |
 | `action:org.runner_group_runners_added`   | Se activa cuando un administrador de la organización [agrega un ejecutor auto-hospedado a un grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                 |
-| `action:org.runner_group_runners_removed` | Se activa cuando un administrador de la organización elimina un ejecutor auto-hospedado de un grupo.                                                                                                                                               | 
+| `action:org.runner_group_runners_removed` | Se activa cuando un administrador de la organización elimina un ejecutor auto-hospedado de un grupo.                                                                                                                                               |
