@@ -115,24 +115,6 @@
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
     },
     {
-      "title": "Pinned issues preview",
-      "description": "This preview adds support for pinned issues.",
-      "toggled_by": "elektra-preview",
-      "toggled_on": [
-        "Repository.pinnedIssues",
-        "PinnedIssue",
-        "PinnedIssueEdge",
-        "PinnedIssueConnection",
-        "Mutation.pinIssue",
-        "Mutation.unpinIssue"
-      ],
-      "owning_teams": [
-        "@github/pe-pull-requests"
-      ],
-      "accept_header": "application/vnd.github.elektra-preview+json",
-      "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-    },
-    {
       "title": "Labels preview",
       "description": "This preview adds support for adding, updating, creating and deleting labels.",
       "toggled_by": "bane-preview",
@@ -1180,24 +1162,6 @@
       ],
       "accept_header": "application/vnd.github.corsair-preview+json",
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
-    },
-    {
-      "title": "Pinned issues preview",
-      "description": "This preview adds support for pinned issues.",
-      "toggled_by": "elektra-preview",
-      "toggled_on": [
-        "Repository.pinnedIssues",
-        "PinnedIssue",
-        "PinnedIssueEdge",
-        "PinnedIssueConnection",
-        "Mutation.pinIssue",
-        "Mutation.unpinIssue"
-      ],
-      "owning_teams": [
-        "@github/pe-pull-requests"
-      ],
-      "accept_header": "application/vnd.github.elektra-preview+json",
-      "href": "/graphql/overview/schema-previews#pinned-issues-preview"
     },
     {
       "title": "Labels preview",

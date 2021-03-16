@@ -7,5 +7,6 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 

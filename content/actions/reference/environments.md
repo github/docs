@@ -5,9 +5,11 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### About environments
 
@@ -19,7 +21,7 @@ Environment protection rules and environment secrets are only available on publi
 
 #### Environment protection rules
 
-Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use environment protection rules to require a manual approval or to delay a job.
+Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.
 
 ##### Required reviewers
 
@@ -30,6 +32,16 @@ For more information on reviewing jobs that reference an environment with requir
 ##### Wait timer
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+
+##### Deployment branches
+
+Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
+
+* **All branches**: All branches in the repository can deploy to the environment.
+* **Protected branches**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+* **Selected branches**: Only branches that match your specified name patterns can deploy to the environment.
+
+  For example, if you specify `releases/*` as a deployment branch rule, only branches whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a deployment branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
 #### Environment secrets
 
@@ -45,6 +57,8 @@ Secrets stored in an environment are only available to workflow jobs that refere
 1. Click **New environment**.
 1. Enter a name for the environment, then click **Configure environment**. Environment names are not case sensitive. An environment name may not exceed 255 characters and must be unique within the repository.
 1. Configure any environment protection rules or environment secrets.
+
+You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
@@ -67,3 +81,5 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.github-actions.sidebar-environment %}
 1. Next the the environment that you want to delete, click {% octicon "trashcan" aria-label="The trashcan icon" %}.
 2. Click **I understand, delete this environment**.
+
+You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."

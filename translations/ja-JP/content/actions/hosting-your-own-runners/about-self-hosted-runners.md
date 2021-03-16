@@ -120,6 +120,7 @@ The self-hosted runner polls {% data variables.product.prodname_dotcom %} to ret
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

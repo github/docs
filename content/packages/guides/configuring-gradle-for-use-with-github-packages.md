@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -28,6 +30,8 @@ You can authenticate to {% data variables.product.prodname_registry %} with Grad
 
 {% if enterpriseServerVersions contains currentVersion %}
 Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
+{% elsif currentVersion == "github-ae@latest" %}
+Replace *REGISTRY-URL* with the URL for your enterprise's Maven registry, `maven.HOSTNAME`. Replace *HOSTNAME* with the host name of {% data variables.product.product_location %}.
 {% endif %}
 
 Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
@@ -147,22 +151,22 @@ subprojects {
     }
 }
 ```
-  
+
   #### Authenticating with the `GITHUB_TOKEN`
-  
+
   {% data reusables.package_registry.package-registry-with-github-tokens %}
-  
+
   For more information about using `GITHUB_TOKEN` with Maven, see "[Publishing Java packages with Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)."
-  
+
   ### Publishing a package
-  
+
   {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
-  
+
   {% data reusables.package_registry.viewing-packages %}
-  
+
   {% data reusables.package_registry.authenticate-step %}
   2. After creating your package, you can publish the package.
-  
+
    ```shell
    $ gradle publish
   ```
@@ -201,9 +205,9 @@ You can install a package by adding the package as a dependency to your project.
       `maven`
   }
   ```
-  
+
   3. Install the package.
-  
+
   ```shell
   $ gradle install
   ```
@@ -211,4 +215,4 @@ You can install a package by adding the package as a dependency to your project.
 ### Further reading
 
 - "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

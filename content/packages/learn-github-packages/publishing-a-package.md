@@ -9,9 +9,11 @@ permissions: Anyone with write permissions for a repository can publish a packag
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### About published packages
 
@@ -25,7 +27,7 @@ If a new version of a package fixes a security vulnerability, you should publish
 
 ### Publishing a package
 
-You can publish a package to {% data variables.product.prodname_registry %} using any {% if currentVersion == "free-pro-team@latest" %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can publish a package to {% data variables.product.prodname_registry %} using any {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Create or use an existing access token with the appropriate scopes for the task you want to accomplish. For more information, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
 2. Authenticate to {% data variables.product.prodname_registry %} using your access token and the instructions for your package client.

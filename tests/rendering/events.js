@@ -280,19 +280,13 @@ describe('POST /events', () => {
         }
       }, 400)
     )
-
-    it('should page_render_duration is a positive number', () =>
-      checkEvent({
-        ...pageExample,
-        page_render_duration: -0.5
-      }, 400)
-    )
   })
 
   describe('exit', () => {
     const exitExample = {
       ...baseExample,
       type: 'exit',
+      exit_render_duration: 0.9,
       exit_first_paint: 0.1,
       exit_dom_interactive: 0.2,
       exit_dom_complete: 0.3,
@@ -302,6 +296,13 @@ describe('POST /events', () => {
 
     it('should record an exit event', () =>
       checkEvent(exitExample, 201)
+    )
+
+    it('should exit_render_duration is a positive number', () =>
+      checkEvent({
+        ...exitExample,
+        exit_render_duration: -0.5
+      }, 400)
     )
 
     it('exit_first_paint is a number', () =>

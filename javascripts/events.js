@@ -30,7 +30,7 @@ export function getUserEventsId () {
 export function sendEvent ({
   type,
   version = '1.0.0',
-  page_render_duration,
+  exit_render_duration,
   exit_first_paint,
   exit_dom_interactive,
   exit_dom_complete,
@@ -81,9 +81,10 @@ export function sendEvent ({
     },
 
     // Page event
-    page_render_duration,
+    // No extra fields
 
     // Exit event
+    exit_render_duration,
     exit_first_paint,
     exit_dom_interactive,
     exit_dom_complete,
@@ -150,12 +151,14 @@ function sendExit () {
   if (document.visibilityState !== 'hidden') return
   sentExit = true
   const {
+    render,
     firstContentfulPaint,
     domInteractive,
     domComplete
   } = getPerformance()
   return sendEvent({
     type: 'exit',
+    exit_render_duration: render,
     exit_first_paint: firstContentfulPaint,
     exit_dom_interactive: domInteractive,
     exit_dom_complete: domComplete,
@@ -165,11 +168,7 @@ function sendExit () {
 }
 
 function initPageEvent () {
-  const { render } = getPerformance()
-  const pageEvent = sendEvent({
-    type: 'page',
-    page_render_duration: render
-  })
+  const pageEvent = sendEvent({ type: 'page' })
   pageEventId = pageEvent?.context?.event_id
 }
 
