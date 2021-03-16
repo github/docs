@@ -12,7 +12,7 @@ runs-on: windows-latest
 
 {% raw %}
 ```yaml
-runs-on: windows-latest
+runs-on: macos-latest
 ```
 {% endraw %}
 
