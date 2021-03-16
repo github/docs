@@ -16,6 +16,8 @@ versions:
     - **Stale branches**: The **Stale** view shows all branches that no one has committed to in the last three months, ordered by the branches with the oldest commits first. Use this list to determine [which branches to delete](/articles/creating-and-deleting-branches-within-your-repository).
     - **All branches**: The **All** view shows the default branch, followed by all other branches ordered by the branches with the most recent commits first.
 
+4. Optionally, use the search field on the top right. It provides a simple, case-insensitive, sub-string search on the branch name. It does not support any additional query syntax.
+
 ![The branches page for the Atom repository](/assets/images/help/branches/branches-overview-atom.png)
 
 ### Further reading
