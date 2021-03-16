@@ -121,7 +121,14 @@ sections:
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact {% data variables.contact.contact_ent_support %}.
     - When GitHub Actions is enabled, use '`ghe-maintenance -u`' to unset maintenance mode.
+    - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
     - Users can dismiss a mandatory message without checking all checkboxes.
+    - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
+    - Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.
+    - Juypter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.
+    - A race condition can cause dependency graph database migrations to appear to fail.
+    - Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19

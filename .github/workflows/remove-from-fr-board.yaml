@@ -2,7 +2,7 @@ name: Remove card from FR board
 
 on:
   repository_dispatch:
-    types: remove_from_FR_board
+    types: remove_from_docs_FR_board
 
 jobs:
   remove_from_FR_board:

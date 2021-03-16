@@ -11,7 +11,7 @@ const archivedFrontmatterFallbacks = require('../lib/redirects/static/archived-f
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
 
-module.exports = async (req, res, next) => {
+module.exports = async function archivedEnterpriseVersions (req, res, next) {
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived) return next()
 
