@@ -12,7 +12,27 @@ module.exports = function handleInvalidPaths (req, res, next) {
     decodeURIComponent(req.path)
   } catch (err) {
     if (process.env.NODE_ENV !== 'test') {
-      console.log('unable to decode path', req.path, err)
+      console.error('unable to decode path', req.path, err)
+    }
+
+    return res.sendStatus(400)
+  }
+
+  // Prevent spammy request URLs from getting through by checking how they
+  // handle being normalized twice in a row
+  try {
+    const origin = 'https://docs.github.com'
+    const normalizedPath = new URL(req.path, origin).pathname
+
+    // This may also throw an error with code `ERR_INVALID_URL`
+    const reNormalizedPath = new URL(normalizedPath, origin).pathname
+
+    if (reNormalizedPath !== normalizedPath) {
+      throw new Error('URI keeps changing')
+    }
+  } catch (err) {
+    if (process.env.NODE_ENV !== 'test') {
+      console.error('unable to normalize path', req.path, err)
     }
 
     return res.sendStatus(400)
