@@ -3,7 +3,7 @@ sections:
   security_fixes:
     - Packages have been updated to the latest security versions.
   bugs:
-    - During a backup an error "Warning: One or more storage objects were not found on the source appliance." was occurring when attempting to clean up purgeable storage objects.
+    - During a backup an error "Warning&#58; One or more storage objects were not found on the source appliance." was occurring when attempting to clean up purgeable storage objects.
     - Dependency graph failed to parse `yarn.lock` JavaScript manifest files, resulting in HTTP 500 errors in logs.
     - Disabling GitHub Actions would sometimes fail.
     - Custom pre-receive hooks weren''t allowed to write to `/tmp`, preventing some scripts from running correctly.
