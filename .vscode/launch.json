@@ -4,6 +4,23 @@
     {
       "type": "node",
       "request": "attach",
+      "name": "Docker: Attach to Node",
+      "remoteRoot": "/usr/src/app"
+    },
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/bin/Debug/<target-framework>/<project-name.dll>",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "internalConsole"
+    },
+    {
+      "type": "node",
+      "request": "attach",
       "name": "Node: Nodemon",
       "processId": "${command:PickProcess}",
       "restart": true,
