@@ -63,7 +63,7 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/building-a-strong-community/about-team-discussions)."
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}

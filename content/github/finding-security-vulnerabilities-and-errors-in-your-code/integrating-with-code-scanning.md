@@ -7,8 +7,6 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-results-from-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 ---
 

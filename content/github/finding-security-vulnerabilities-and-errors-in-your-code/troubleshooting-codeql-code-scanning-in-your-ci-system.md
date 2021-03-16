@@ -6,9 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
