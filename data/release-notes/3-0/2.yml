@@ -6,7 +6,7 @@ sections:
     - During a backup an error "Warning&#58; One or more storage objects were not found on the source appliance." was occurring when attempting to clean up purgeable storage objects.
     - Dependency graph failed to parse `yarn.lock` JavaScript manifest files, resulting in HTTP 500 errors in logs.
     - Disabling GitHub Actions would sometimes fail.
-    - Custom pre-receive hooks weren''t allowed to write to `/tmp`, preventing some scripts from running correctly.
+    - Custom pre-receive hooks weren't allowed to write to `/tmp`, preventing some scripts from running correctly.
     - Systemd journal logs were duplicated in multiple places.
     - A timezone set on GitHub Enterprise 11.10.x or earlier was reset to UTC time after upgrading to 3.0 which caused timestamps to shift in some instances.
     - Clicking "Publish your first package" in the packages sidebar on a repository would lead to an empty page.
