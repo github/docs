@@ -7,7 +7,7 @@ versions:
 type: tutorial
 topics:
   - GitLab
-  - Migration
+  - 迁移
   - CI
   - CD
 ---

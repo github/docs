@@ -313,11 +313,11 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
+为系统 `PATH` 变量预先设置一个目录，使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
 
 #### 示例
 
-This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
 
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH

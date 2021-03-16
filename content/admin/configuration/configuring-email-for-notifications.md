@@ -131,7 +131,7 @@ This log shows that the appliance:
 
 #### Check {% data variables.product.product_location %} logs
 
-If you need to verify that your inbound email is functioning, there are two logfiles that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
+If you need to verify that your inbound email is functioning, there are two log files that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
 
 */var/log/mail.log* verifies that messages are reaching your server. Here's an example of a successful email reply:
 

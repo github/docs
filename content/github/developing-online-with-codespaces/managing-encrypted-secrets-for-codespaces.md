@@ -29,7 +29,7 @@ You can choose which repositories should have access to each secret. Then, you c
 1. To the right of "Codespaces secrets", click **New secret**.
   !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
 1. Under "Name", type a name for your secret.
-  !["Name" textbox](/assets/images/help/settings/codespaces-secret-name-field.png)
+  !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
 {% data reusables.user_settings.codespaces-secret-value %}
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Click **Add secret**.

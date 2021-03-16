@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### Clonar repositorios
-Los repositorios en {% data variables.product.prodname_dotcom %} son remotos.  Puedes clonar repositorios públicos de otros dueños. Puedes clonar tu propio repositorio para crear una copia local en tu computadora y sincronizarla entre las dos ubicaciones.
+### About local repositories
+Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+
+You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. Para obtener más información, consulta la sección "[Sincronizar tu rama](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
+
+When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. Para obtener más información, visita "[Acerca de las ramificaciones](/github/collaborating-with-issues-and-pull-requests/about-forks)."
+
+When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
 
 También puedes clonar un repositorio directamente desde {% data variables.product.prodname_dotcom %} o {% data variables.product.prodname_enterprise %}. Para obtener más información, visita "[Cómo clonar un repositorio desde {% data variables.product.prodname_dotcom %} hacia {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
-{% mac %}
+### Clonar un repositorio
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Clonar opción de menú en la aplicación Mac](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Pestañas de ubicación en el menú Clone a repository (Clonar un repositorio)](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![Clonar una lista de repositorio](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. Haz clic en **Choose...** (Elegir...) y, a través de la ventana Finder (Buscador) desplázate hasta la ruta donde deseas clonar el repositorio. ![El botón Choose (Elegir)](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. Haz clic en **Clone**. ![El botón Clone (Clonar)](/assets/images/help/desktop/clone-button-mac.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
-{% endmac %}
-
-{% windows %}
+### Bifurcar un repositorio
+If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Opción Clone menu (Clonar menú) en la app de Windows](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Pestañas de ubicación en el menú Clone a repository (Clonar un repositorio)](/assets/images/help/desktop/choose-repository-location-win.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![Clonar una lista de repositorio](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. Haz clic en **Choose...** (Elegir...) y, a través de Windows Explorer, desplázate hasta la ruta donde deseas clonar el repositorio. ![El botón Choose (Elegir)](/assets/images/help/desktop/clone-choose-button-win.png)
-5. Haz clic en **Clone**. ![El botón Clone (Clonar)](/assets/images/help/desktop/clone-button-win.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
 
-{% endwindows %}
+### Managing fork behavior
+You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
 
-### Ramificar repositorios
-Puedes utilizar {% data variables.product.prodname_desktop %} para crear una ramificación del repositorio y contribuir con un proyecto en donde no tengas privilegios de escritura. Los cambios en tu ramificación no afectarán al repositorio original. Puedes confirmar los cambios en tu ramificación y generar una solicitud de extracción del repositorio original con los cambios que propones. Para obtener más información, visita "[Acerca de las ramificaciones](/github/collaborating-with-issues-and-pull-requests/about-forks)."
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
 
-1. Si clonaste un repositorio en donde no tienes privilegios de escritura, intenta confirmar los cambios, {% data variables.product.prodname_desktop %} enviará una alerta de que "No cuentas con privilegios de escritura para el **REPOSITORIO**". Da clic en **crear una ramificación**. ![Crear un enlace para la ramificación](/assets/images/help/desktop/create-a-fork.png)
-3. Da clic en **Ramificar este repositorio**. ![Botón para ramificar este repositorio](/assets/images/help/desktop/fork-this-repo-button.png)
-4. Para ver tu ramificación en {% data variables.product.prodname_dotcom %}, da clic en tu foto de perfil en la esquina superior derecha de {% data variables.product.prodname_dotcom %} y posteriormente en **Tus repositorios**. ![Enlace a tus repositorios](/assets/images/help/profile/your-repositories.png)
+### Leer más
+- [Acerca de los repositorios remotos](/github/using-git/about-remote-repositories)

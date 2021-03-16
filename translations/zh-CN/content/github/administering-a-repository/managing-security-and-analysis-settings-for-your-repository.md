@@ -33,10 +33,15 @@ versions:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。
-{% if currentVersion == "free-pro-team@latest" %}如果 "{% data variables.product.prodname_secret_scanning_caps %}" 未显示，您可能需要先启用 {% data variables.product.prodname_GH_advanced_security %}。
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
   !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
-  {% endif %}
-  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  {% note %}
+**Note:** If you disable
+
+  {% data variables.product.prodname_GH_advanced_security %}, both {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  {% endnote %}
+
+  {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
   !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
 

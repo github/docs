@@ -29,7 +29,7 @@ type: tutorial
 
 * `self-hosted`：应用到所有自托管运行器的默认标签。
 * `linux`、`windows` 或 `macOS`：根据操作系统应用。
-* `x86`、`x64`、`ARM` 或 `ARM64`：根据硬件架构应用。
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 您可以使用您工作流程的 YAML 将作业发送到这些标签的组合。 在此示例中，与所有三个标签匹配的自托管运行器将有资格运行该作业：
 
@@ -64,11 +64,11 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### 自托管运行器的路由优先级
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+将作业路由到自托管运行器时，{% data variables.product.prodname_dotcom %} 将查找与作业的 `runs-on` 标签匹配的运行器：
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} 先在仓库级别搜索运行器，然后在组织级别搜索运行器{% if currentVersion ver_gt "enterprise-server@2.21" %}，然后在企业级别搜索运行器{% endif %}。
+2. 然后，将作业发送到第一个联机且空闲的匹配运行器。
+   - 如果所有匹配的联机运行器都处于忙碌状态，则作业将在匹配联机运行器数量最多的级别排队。
+   - 如果所有匹配的运行器都处于脱机状态，则作业将在匹配脱机运行器数量最多的级别排队。
+   - 如果在任何级别都没有匹配的运行器，则作业将失败。
+   - 如果作业排队的时间超过 24 小时，则作业将失败。

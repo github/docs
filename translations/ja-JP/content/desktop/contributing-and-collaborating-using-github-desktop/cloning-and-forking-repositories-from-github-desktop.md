@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### リポジトリのクローン方法
-{% data variables.product.prodname_dotcom %}上のリポジトリは、リモートリポジトリとして存在します。  他の人が所有するパブリックリポジトリをクローンできます。 自分が所有するリポジトリをクローンして、自分のコンピュータ上にローカルコピーを作成し、これら2つの場所の間で同期を行えます。
+### About local repositories
+Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+
+You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. 詳しい情報については、「[ブランチを同期する](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)」を参照してください。
+
+When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. 詳しい情報については「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」を参照してください。
+
+When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
 
 リポジトリを{% data variables.product.prodname_dotcom %}、または{% data variables.product.prodname_enterprise %}から直接クローンすることもできます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} から {% data variables.product.prodname_desktop %} にリポジトリをクローンする](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)」を参照してください。
 
-{% mac %}
+### リポジトリをクローンする
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Mac アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. [**Choose...**]をクリックし、Finderウインドウを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-mac.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
-{% endmac %}
-
-{% windows %}
+### リポジトリをフォークする
+If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Windows アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-win.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. **Choose...**をクリックし、Windows Explorerを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-win.png)
-5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-win.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
 
-{% endwindows %}
+### Managing fork behavior
+You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
 
-### リポジトリのフォーク
-書き込みアクセス権がないプロジェクトにコントリビュートするには、{% data variables.product.prodname_desktop %}を使ってそのリポジトリのフォークを作成します。 フォークに対する変更は、オリジナルのリポジトリには影響しません。 フォークに変更をコミットし、そしてオリジナルのリポジトリに対して提案する変更でプルリクエストをオープンできます。 詳しい情報については「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」を参照してください。
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
 
-1. 書き込みアクセス権を持っていないリポジトリをクローンし、変更をコミットしようとすると、{% data variables.product.prodname_desktop %}は次の警告を発します。"You don't have write access to **REPOSITORY**." **create a fork（フォークの作成）**をクリックしてください。 ![フォークの作成リンク](/assets/images/help/desktop/create-a-fork.png)
-3. **Fork this repository（このリポジトリをフォーク）**をクリックしてください。 ![このリポジトリのフォークボタン](/assets/images/help/desktop/fork-this-repo-button.png)
-4. {% data variables.product.prodname_dotcom %}上のフォークを見るには、{% data variables.product.prodname_dotcom %}の右上で自分のプロフィール画像をクリックし、**Your repositories（あなたのリポジトリ）**をクリックしてください。 ![あなたのリポジトリリンク](/assets/images/help/profile/your-repositories.png)
+### 参考リンク
+- [リモートリポジトリについて](/github/using-git/about-remote-repositories)

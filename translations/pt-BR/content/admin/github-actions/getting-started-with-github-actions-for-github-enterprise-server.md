@@ -9,13 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% if currentVersion == "enterprise-server@2.22" %}
-{% note %}
-
-**Observação:** O suporte de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22 é beta pública limitada. Revise os requisitos de armazenamento externo abaixo e [inescreva-se para a versão beta](https://resources.github.com/beta-signup/).
-
-{% endnote %}
-{% endif %}
+{% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -23,11 +17,33 @@ versions:
 
 Este artigo explica como os administradores do site podem configurar {% data variables.product.prodname_ghe_server %} para usar {% data variables.product.prodname_actions %}. Ele abrange os requisitos de hardware e software, apresenta as opções de armazenamento e descreve as políticas de gestão de segurança.
 
+{% endif %}
+
 ### Revise as considerações de hardware
+
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
+
+{% note %}
+
+**Observação**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} estava disponível para {% data variables.product.prodname_ghe_server %} 2.22 como beta limitada. {% endif %}Se você estiver fazendo a atualização de uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e desejar configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
+
+{% endnote %}
+
+{% endif %}
 
 {% data reusables.actions.enterprise-hardware-considerations %}
 
-{% endif %}
+Para obter mais informações sobre requisitos de recursos para {% data variables.product.prodname_ghe_server %}, consulte considerações de hardware para a plataforma da sua instância.
+
+- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations)
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 ### Requisitos de armazenamento externo
 
@@ -55,7 +71,7 @@ O {% data variables.product.prodname_actions %} usa armazenamento do blob para a
 
 ### Habilitar {% data variables.product.prodname_actions %}
 
-O suporte de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22 é beta pública limitada. [Inscreva-se para a versão beta](https://resources.github.com/beta-signup/).
+O suporte de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22 estava disponível como uma versão beta limitada. Para configurar {% data variables.product.prodname_actions %} para sua instância, atualize para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior. Para obter mais informações, consulte as observações da versão de [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes) e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)".
 
 ### Leia mais
 

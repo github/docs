@@ -72,7 +72,7 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Lists all the configuration values
 ```
-Allows you to find the uuid of your node in `cluster.conf`.
+Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
   $ ghe-config <em>HOSTNAME</em>.uuid

@@ -75,7 +75,7 @@ env:
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
 
-#### Determining when to use contexts
+#### 确定何时使用上下文
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 
@@ -111,7 +111,7 @@ env:
 
 `env` 上下文包含已在工作流程、作业或步骤中设置的环境变量。 有关在工作流程中设置环境变量的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)”。
 
-`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
+`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 您可以在**步骤**的任何键值中使用 `env` 上下文，但 `id` 和 `uses` 键除外。 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
 
 如果您想要在运行器中使用环境变量的值，请使用运行器操作系统的正常方法来读取环境变量。
 
@@ -362,9 +362,9 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+返回 `value` 的 JSON 对象或 JSON 数据类型。 您可以使用此函数来提供 JSON 对象作为评估表达式或从字符串转换环境变量。
 
-##### Example returning a JSON object
+##### 返回 JSON 对象的示例
 
 此工作流程在一个作业中设置 JSON矩阵，并使用输出和 `fromJSON` 将其传递到下一个作业。
 
@@ -390,9 +390,9 @@ jobs:
 ```
 {% endraw %}
 
-##### Example returning a JSON data type
+##### 返回 JSON 数据类型的示例
 
-This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+此工作流程使用 `fromJSON` 将环境变量从字符串转换为布尔值或整数。
 
 {% raw %}
 ```yaml

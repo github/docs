@@ -25,8 +25,6 @@ versions:
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -35,6 +33,8 @@ versions:
 ### 创建站点
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 如果您还没有本地版仓库，请导航到您想要存储站点源文件的位置，将 _PARENT-FOLDER_ 替换为要包含仓库文件夹的文件夹。

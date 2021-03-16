@@ -1,6 +1,6 @@
 ---
 title: グローバルwebhookの管理
-intro: 'Site administrators can view, add, edit, and delete global webhooks to track events for the enterprise.'
+intro: 'サイト管理者は、グローバル webhook を表示、追加、編集、削除して、Enterprise のイベントを追跡できます。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -11,7 +11,7 @@ versions:
 
 ### グローバルwebhookについて
 
-You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. たとえば以下のような場合に動作するようにwebhookを設定できます:
+グローバル webhook を使用して、Enterprise ユーザおよび Organization 管理のルールを自動的に監視、応答、適用できます。 たとえば以下のような場合に動作するようにwebhookを設定できます:
 - ユーザアカウントが作成または削除される
 - An organization is created or deleted
 - コラボレータがリポジトリに追加、またはリポジトリから削除される

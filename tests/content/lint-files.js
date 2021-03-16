@@ -205,7 +205,7 @@ if (!process.env.TEST_TRANSLATION) {
   const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"').toString().split('\n')
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
-  const { mdRelPaths, ymlRelPaths, releaseNotesRelPaths } = groupBy(changedFilesRelPaths, (path) => {
+  const { mdRelPaths = [], ymlRelPaths = [], releaseNotesRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
     // separate the changed files to different groups
     if (path.endsWith('README.md')) {
       return 'throwAway'
@@ -247,7 +247,7 @@ describe('lint markdown content', () => {
   describe.each(mdToLint)(
     '%s',
     (markdownRelPath, markdownAbsPath) => {
-      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors
+      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
@@ -255,6 +255,7 @@ describe('lint markdown content', () => {
 
         content = bodyContent
         frontmatterErrors = errors
+        frontmatterData = data
         ast = generateMarkdownAST(content)
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
@@ -383,15 +384,26 @@ describe('lint markdown content', () => {
         // If Liquid can't parse the file, it'll throw an error.
         // For example, the following is invalid and will fail this test:
         // {% if currentVersion ! "github-ae@latest" %}
-        await expect(renderContent.liquid.parse(content))
-          .resolves
-          .toBeTruthy()
+        expect(() => renderContent.liquid.parse(content))
+          .not
+          .toThrow()
       })
 
       if (!markdownRelPath.includes('data/reusables')) {
         test('contains valid frontmatter', () => {
           const errorMessage = frontmatterErrors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
           expect(frontmatterErrors.length, errorMessage).toBe(0)
+        })
+
+        test('frontmatter contains valid liquid', async () => {
+          const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission']
+            .filter(key => Boolean(frontmatterData[key]))
+
+          for (const key of fmKeysWithLiquid) {
+            expect(() => renderContent.liquid.parse(frontmatterData[key]))
+              .not
+              .toThrow()
+          }
         })
       }
     }

@@ -90,7 +90,7 @@ jobs:
 
 #### Using a specific .NET version
 
-You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
+You can configure your job to use a specific version of .NET, such as `3.1.3`. 或者，您也可以使用语义版本语法来获得最新的次要版本。 This example uses the latest minor release of .NET 3.
 
 {% raw %}
 ```yaml

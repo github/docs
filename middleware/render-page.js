@@ -21,6 +21,10 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
+function addCsrf (req, text) {
+  return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
+
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
 
@@ -45,7 +49,7 @@ module.exports = async function renderPage (req, res, next) {
     if (cachedHtml) {
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(cachedHtml)
+      return res.send(addCsrf(req, cachedHtml))
     }
   }
 
@@ -54,7 +58,12 @@ module.exports = async function renderPage (req, res, next) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
       console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
     }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+    return res.status(404).send(
+      addCsrf(
+        req,
+        await liquid.parseAndRender(layouts['error-404'], req.context)
+      )
+    )
   }
 
   if (req.method === 'HEAD') {
@@ -116,7 +125,7 @@ module.exports = async function renderPage (req, res, next) {
 
   // First, send the response so the user isn't waiting
   // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(output)
+  res.send(addCsrf(req, output))
 
   // Finally, save output to cache for the next time around
   if (isCacheable) {

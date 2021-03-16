@@ -73,7 +73,7 @@ Si el servidor en donde estás ejecutando
 {% endif %}
 
 #### Habilitar el escaneo de código para los repositorios individuales
-Después de que configuras un ejecutor auto-hospedado, {% if currentVersion == "enterprise-server@2.22" %}y aprovisionas las acciones,{% endif %} los usuarios pueden habilitar el {% data variables.product.prodname_code_scanning %} para los repositorios individuales de {% data variables.product.product_location %}. El flujo de trabajo predeterminado de {% data variables.product.prodname_code_scanning %} utiliza el evento `on.push` para activar el escaneo de código cada vez que alguien carga información a cualquier rama que contenga el archivo de flujo de trabajo.
+Después de que configuras un ejecutor auto-hospedado, {% if currentVersion == "enterprise-server@2.22" %}y aprovisionas las acciones,{% endif %} los usuarios pueden habilitar el {% data variables.product.prodname_code_scanning %} para los repositorios individuales de {% data variables.product.product_location %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 ### Ejecutar el {% data variables.product.prodname_code_scanning %} utilizando el {% data variables.product.prodname_codeql_runner %}
 Si no quieres utilizar {% data variables.product.prodname_actions %}, puedes ejecutar el {% data variables.product.prodname_code_scanning %} utilizando el {% data variables.product.prodname_codeql_runner %}.

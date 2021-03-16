@@ -1,6 +1,6 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers/supertest')
+const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
@@ -112,6 +112,13 @@ describe('server', () => {
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
+  })
+
+  test('returns a 400 when POST-ed invalid JSON', async () => {
+    const res = await post('/')
+      .send('not real JSON')
+      .set('Content-Type', 'application/json')
+    expect(res.statusCode).toBe(400)
   })
 
   test('converts Markdown in intros', async () => {

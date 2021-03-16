@@ -12,6 +12,8 @@ versions:
 
 {% data reusables.github-actions.actions-spending-limit-brief %} Para obtener más información, consulta la sección "[Acerca de los límites de gasto](#about-spending-limits)".
 
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+
 Los minutos se restablecen cada mes, pero no es el caso para el uso de almacenamiento.
 
 | Producto                                                              | Almacenamiento | Minutos (por mes) |

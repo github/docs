@@ -83,7 +83,6 @@ module.exports = function (app) {
     maxAge: '7 days' // A bit longer since releases are more sparse
   }))
   app.use('/events', instrument('./events'))
-  app.use('/csrf', instrument('./csrf-route'))
   app.use('/search', instrument('./search'))
   app.use(instrument('./archived-enterprise-versions'))
   app.use(instrument('./robots'))

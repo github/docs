@@ -41,10 +41,15 @@ Windowsの仮想マシンは、ユーザアカウント制御（UAC）が無効�
 
 ### サポートされているランナーとハードウェアリソース
 
-各仮想マシンで、同一のハードウェアリソースを使用できます。
 
+Hardware specification for Windows and Linux virtual machines:
 - 2コアCPU
 - 7 GBのRAMメモリー
+- 14 GBのSSDディスク容量
+
+Hardware specification for macOS virtual machines:
+- 3コアCPU
+- 14 GBのRAMメモリー
 - 14 GBのSSDディスク容量
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -71,9 +76,13 @@ Windowsの仮想マシンは、ユーザアカウント制御（UAC）が無効�
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、オペレーティングシステムのデフォルトの組み込みツールに加え、上のリファレンスのリスト内のパッケージにが含まれています。 たとえば、Ubuntu及びmacOSのランナーには、`grep`、`find`、`which`やその他のデフォルトのツールが含まれています。
 
-ワークフローログには、ランナーにプリインストールされているツールへのリンクが含まれています。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-リクエストしたいツールがある場合、[actions/virtual-environments](https://github.com/actions/virtual-environments) で Issue を開いてください。
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+リクエストしたいツールがある場合、[actions/virtual-environments](https://github.com/actions/virtual-environments) で Issue を開いてください。 This repository also contains announcements about all major software updates on runners.
 
 ### IP アドレス
 

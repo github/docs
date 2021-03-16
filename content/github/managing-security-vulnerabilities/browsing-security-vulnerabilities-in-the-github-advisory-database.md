@@ -18,13 +18,13 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 
 Each security advisory contains information about the vulnerability, including the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 
-The severity level is one of four possible levels defined in the [Common Vulnerability Scoring System (CVSS), Section 2.1.2](https://www.first.org/cvss/specification-document):
+The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
 - Low
-- Moderate
+- Medium/Moderate
 - High
 - Critical
 
-The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.0 standards and the CVSS levels described above.
+Some advisories have a specific CVSS score, which is assigned according to the "[Common Vulnerability Scoring System Calculator](https://www.first.org/cvss/calculator)." The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1 standards.
 
 {% data reusables.repositories.github-security-lab %}
 

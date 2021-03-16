@@ -4,9 +4,8 @@ intro: 'プルリクエストの自動マージを有効にすると、すべて
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### 自動マージについて
 

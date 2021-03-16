@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
   }
 
   try {
-    const results = process.env.USE_LUNR
+    const results = process.env.AIRGAP
       ? await loadLunrResults({ version, language, query, limit })
       : await loadAlgoliaResults({ version, language, query, limit })
     return res.status(200).json(results)

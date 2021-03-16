@@ -9,7 +9,7 @@ versions:
 
 ### Acerca de las etiquetas en {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} te permite crear etiquetas anotadas. Puedes utilizar una etiqueta para marcar un punto individual en el historial de tu repositorio, incluyendo un número de versión para un lanzamiento. Para obtener más información acerca de las etiquetas de lanzamiento, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
+{% data variables.product.prodname_desktop %} te permite crear etiquetas anotadas. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. Para obtener más información acerca de las etiquetas de lanzamiento, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
 
 {% data reusables.desktop.tags-push-with-commits %}
 
@@ -44,3 +44,7 @@ versions:
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}
+
+### Leer más
+
+- "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation

@@ -23,7 +23,7 @@ featuredLinks:
     - /actions/reference/encrypted-secrets
 changelog:
   - 
-    title: Environments, environment protection rules and environment secrets (beta)
+    title: 环境、环境保护规则和环境密码（测试版）
     date: '2020-12-15'
     href: https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/
   - 
@@ -67,7 +67,7 @@ versions:
   </div>
 
   <div class="d-flex flex-wrap gutter">
-    {% render 'code-example-card' for actionsCodeExamples as example %}
+    {% render code-example-card for actionsCodeExamples as example %}
   </div>
 
   <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">显示更多 {% octicon "arrow-right" %}</button>

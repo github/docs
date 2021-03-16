@@ -50,7 +50,7 @@ Before you can sponsor an account, you must have a verified email address. For m
 1. Navigate to your sponsorship dashboard for the account.
    - To sponsor a developer, under the developer's name, click **Sponsor**.
      ![Sponsor button](/assets/images/help/profile/sponsor-button.png)
-   - To sponsor an organization, to the right of the the organization's name, click **Sponsor**.
+   - To sponsor an organization, to the right of the organization's name, click **Sponsor**.
      ![Sponsor button](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization.
   ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
