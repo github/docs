@@ -66,7 +66,7 @@ async function renderPatchNotes (patch, ctx) {
   return patch
 }
 
-module.exports = async (req, res, next) => {
+module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
   // The `/release-notes` sub-path
   if (!req.path.endsWith('/release-notes')) return next()
 

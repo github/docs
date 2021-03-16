@@ -20179,7 +20179,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   isSponsoringViewer: Boolean!
 
   """
-  Whether the organization has verified its profile email and website, always false on Enterprise.
+  Whether the organization has verified its profile email and website.
   """
   isVerified: Boolean!
 
