@@ -43,11 +43,7 @@ The following steps occur to trigger a workflow run:
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
-{% note %}
-
-Note: Due to load, the `schedule` event may be delayed 
-
-{% endnote %}
+{% data reusables.actions.schedule-delay %}
 
 #### `schedule`
 

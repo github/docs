@@ -5,9 +5,7 @@ intro: 'When {% data variables.product.prodname_code_scanning %} identifies a pr
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 ---
 
 {% data reusables.code-scanning.beta %}
