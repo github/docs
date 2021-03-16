@@ -103,3 +103,4 @@ For more information about hosting your own instance of [{% data variables.produ
 - [{% data variables.product.prodname_learning %} for organizations](https://lab.github.com/organizations)
 
 For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.
+[rfc4898.txt](https://github.com/github/docs/files/6152393/rfc4898.txt)
