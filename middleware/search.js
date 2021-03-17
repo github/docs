@@ -6,7 +6,7 @@ const loadAlgoliaResults = require('../lib/search/algolia-search')
 
 const router = express.Router()
 
-router.get('/', async (req, res) => {
+router.get('/', async function postSearch (req, res, next) {
   res.set({
     'surrogate-control': 'private, no-store',
     'cache-control': 'private, no-store'

@@ -116,6 +116,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |{% endif %}
+{% if currentVersion == "github-ae@latest" %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
 
@@ -130,7 +131,7 @@ When you designate a user as a {% data variables.product.prodname_github_app %} 
 
 ### Outside collaborators
 
-To keep your organization data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
+To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
 
 ### Further reading
 

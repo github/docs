@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -85,6 +86,8 @@ Use the `--config-file` flag of the `init` command to specify the configuration 
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
+{% data reusables.code-scanning.custom-configuration-file %}
+
 #### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
@@ -145,7 +148,7 @@ Attempts to build the code for the compiled languages C/C++, C#, and Java. For t
 
 #### `analyze`
 
-Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_location %}.
+Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
 
 | Flag | Required | Input value |
 | ---- |:--------:| ----------- |
@@ -155,7 +158,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
 | `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_location %}. |
+| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
 | <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
@@ -166,7 +169,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 
 #### `upload`
 
-Uploads SARIF files to {% data variables.product.product_location %}.
+Uploads SARIF files to {% data variables.product.product_name %}.
 
 {% note %}
 

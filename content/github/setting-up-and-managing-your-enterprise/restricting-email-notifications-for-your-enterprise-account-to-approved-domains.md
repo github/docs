@@ -7,8 +7,6 @@ versions:
 permissions: Enterprise owners can restrict email notifications for an enterprise account.
 ---
 
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
-
 ### About email restrictions for your enterprise account
 
 When you restrict email notifications to verified domains, enterprise members can only use an email address associated with a verified domain to receive email notifications about activity in organizations owned by your enterprise account. The domains can be inherited from the enterprise account or configured for the specific organization. For more information about email restrictions for organizations, see "[Restricting email notifications to an approved domain](/github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain)."
