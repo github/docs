@@ -12,5 +12,7 @@ redirect_from:
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 

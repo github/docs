@@ -3,13 +3,16 @@ title: Creating a team discussion
 intro: 'Any organization member can create a _public_ team discussion post. To create a _private_ team discussion post, you must be a member of the team or an organization owner.'
 redirect_from:
   - /articles/creating-a-team-discussion
+  - /github/building-a-strong-community/creating-a-team-discussion
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
-{% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -24,6 +27,6 @@ versions:
 
 ### Further reading
 
-  - "[About team discussions](/articles/about-team-discussions)"
-  - "[Editing or deleting a team discussion](/articles/editing-or-deleting-a-team-discussion)"
-  - "[Pinning a team discussion](/articles/pinning-a-team-discussion)"
+  - "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)"
+  - "[Editing or deleting a team discussion](/github/setting-up-and-managing-organizations-and-teams/editing-or-deleting-a-team-discussion)"
+  - "[Pinning a team discussion](/github/setting-up-and-managing-organizations-and-teams/pinning-a-team-discussion)"

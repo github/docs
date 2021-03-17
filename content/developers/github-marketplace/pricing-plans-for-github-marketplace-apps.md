@@ -6,6 +6,8 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

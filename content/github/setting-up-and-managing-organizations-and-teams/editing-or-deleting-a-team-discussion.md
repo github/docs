@@ -3,10 +3,13 @@ title: Editing or deleting a team discussion
 intro: 'Organization members can edit or delete discussions on a team''s page. If you''re an organization member, you can edit or delete the discussion.'
 redirect_from:
   - /articles/editing-or-deleting-a-team-discussion
+  - /github/building-a-strong-community/editing-or-deleting-a-team-discussion
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 {% data reusables.profile.access_profile %}
@@ -21,6 +24,6 @@ versions:
 
 ### Further reading
 
-  - "[About team discussions](/articles/about-team-discussions)"
-  - "[Creating a team discussion](/articles/creating-a-team-discussion)"
-  - "[Pinning a team discussion](/articles/pinning-a-team-discussion)"
+  - "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)"
+  - "[Creating a team discussion](/github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion)"
+  - "[Pinning a team discussion](/github/setting-up-and-managing-organizations-and-teams/pinning-a-team-discussion)"

@@ -114,15 +114,18 @@ function getExampleBodyParams ({ operation }) {
     return { [paramName]: getExampleParamValue(paramName, schema) }
   }
 
-  if (schema.oneOf) {
+  if (schema.oneOf && schema.oneOf[0].type) {
     schema = schema.oneOf[0]
   }
+
   const props =
     schema.required && schema.required.length > 0
       ? schema.required
       : Object.keys(schema.properties).slice(0, 1)
+
   return props.reduce((dict, propName) => {
     const propSchema = schema.properties[propName]
+
     if (!propSchema.deprecated) {
       dict[propName] = getExampleParamValue(propName, propSchema)
     }
@@ -137,8 +140,8 @@ function getExampleParamValue (name, schema) {
   }
 
   // TODO: figure out the right behavior here
-  if (schema.oneOf) return getExampleParamValue(name, schema.oneOf[0])
-  if (schema.anyOf) return getExampleParamValue(name, schema.anyOf[0])
+  if (schema.oneOf && schema.oneOf[0].type) return getExampleParamValue(name, schema.oneOf[0])
+  if (schema.anyOf && schema.anyOf[0].type) return getExampleParamValue(name, schema.anyOf[0])
 
   switch (schema.type) {
     case 'string':

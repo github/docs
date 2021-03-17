@@ -15,6 +15,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 ### About setting pricing plans

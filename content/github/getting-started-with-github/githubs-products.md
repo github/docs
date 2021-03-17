@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - accounts
+  - cli
+  - mobile
+  - desktop
+  - security
 ---
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
@@ -79,7 +85,8 @@ In addition to the features available with {% data variables.product.prodname_te
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} also includes:
 - {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 This guide describes the information that GitHub needs in order to process a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).

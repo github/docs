@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/packages
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
