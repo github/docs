@@ -721,12 +721,14 @@ on:
 {% data reusables.github-actions.branch-requirement %}
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------- | -------------- | ------------ | -------------|	
-| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a | Last commit on default branch | Default branch |	
+| --------------------- | -------------- | ------------ | -------------|
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - `completed`<br/>- `requested` | Last commit on default branch | Default branch |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 If you need to filter branches from this event, you can use `branches` or `branches-ignore`.
 
-In this example, a workflow is configured to run after the separate “Run Tests” workflow completes.
+In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
 on:
@@ -739,6 +741,27 @@ on:
 ```
 
 {% endif %}
+
+To run a workflow job conditionally based on the result of the previous workflow run, you can use the [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) or [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) conditional combined with the `conclusion` of the previous run. For example:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    steps:
+      ...
+  on-failure:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'failure' }}{% endraw %}
+    steps:
+      ...
+```
 
 ### Triggering new workflows using a personal access token
 
