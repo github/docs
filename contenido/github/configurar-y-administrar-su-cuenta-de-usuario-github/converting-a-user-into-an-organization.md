@@ -1,4 +1,4 @@
----
+--- 
 title: Converting a user into an organization
 redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
