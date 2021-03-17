@@ -9,7 +9,9 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}

@@ -4,7 +4,9 @@ shortTitle: '{% data variables.product.prodname_code_scanning_capc %} in a conta
 intro: 'You can run {% data variables.product.prodname_code_scanning %} in a container by ensuring that all processes run in the same container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}

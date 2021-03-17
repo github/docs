@@ -6,7 +6,9 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 

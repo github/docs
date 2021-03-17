@@ -7,7 +7,9 @@ miniTocMaxHeadingLevel: 4
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}

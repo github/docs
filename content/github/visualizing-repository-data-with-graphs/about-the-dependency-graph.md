@@ -2,7 +2,8 @@
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
-  enterprise-server: '<=2.22'
+  free-pro-team: '*'
+  enterprise-server: '*'
 ---
 
 ### Dependency graph availability
@@ -44,7 +45,7 @@ You can use the dependency graph to:
 
 - Explore the repositories your code depends on{% if currentVersion == "free-pro-team@latest" %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% if currentVersion == "free-pro-team@latest" %}
 - View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
-- View and update vulnerable dependencies for your repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% if currentVersion == "free-pro-team@latest" %}
+- View and update vulnerable dependencies for your repository. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."{% if currentVersion == "free-pro-team@latest" %}
 - See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
 
 ### Enabling the dependency graph

@@ -51,10 +51,9 @@ versions:
 {% link_in_list /administering-a-repository %}
 
 {% link_in_list /visualizing-repository-data-with-graphs %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
 {% link_in_list /managing-security-vulnerabilities %}
-{% link_in_list /finding-security-vulnerabilities-and-errors-in-your-code %}{% endif %}
+
+{% link_in_list /finding-security-vulnerabilities-and-errors-in-your-code %}
 
 {% link_in_list /managing-files-in-a-repository %}
 

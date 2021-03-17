@@ -1123,7 +1123,7 @@ Key | Type | Description
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
-Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
+Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About security alerts for vulnerable dependencies](/articles/about-security-alerts-for-vulnerable-dependencies/)."
 {% endif %}
 
 #### Availability

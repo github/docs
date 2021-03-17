@@ -6,7 +6,9 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}

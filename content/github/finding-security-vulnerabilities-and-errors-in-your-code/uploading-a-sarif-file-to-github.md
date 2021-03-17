@@ -7,7 +7,9 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
 versions:
-  enterprise-server: '2.22'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.code-scanning.beta %}
