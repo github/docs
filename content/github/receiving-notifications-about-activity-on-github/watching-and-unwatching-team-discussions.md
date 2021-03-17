@@ -5,7 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-By default, you'll automatically receive notifications for team discussions you're a member of. If you don't want to receive certain notifications for an existing team discussion, you must unwatch that team. You can also unsubscribe or subscribe to specific team discussion posts. For more information, see "[About team discussions](/articles/about-team-discussions)" and "[Subscribing to and unsubscribing from notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)."
+By default, you'll automatically receive notifications for team discussions you're a member of. If you don't want to receive certain notifications for an existing team discussion, you must unwatch that team. You can also unsubscribe or subscribe to specific team discussion posts. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" and "[Subscribing to and unsubscribing from notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)."
 
 If you don't want to automatically watch team discussions when you become a member of new teams, you can update your automatic watching settings.
 
@@ -58,5 +58,5 @@ If you don't want to automatically receive team discussion notifications when yo
 ### Further reading
 
 - "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[About team discussions](/articles/about-team-discussions)"
+- "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)"
 - "[About teams](/articles/about-teams)"
