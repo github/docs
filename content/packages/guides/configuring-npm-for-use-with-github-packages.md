@@ -182,7 +182,10 @@ You also need to add the *.npmrc* file to your project so all requests to instal
   ```shell
   $ npm install
   ```
-
+6. Init
+   ```shell
+  $ npm init
+  ```
 #### Installing packages from other organizations
 
 By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
@@ -200,7 +203,7 @@ registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
-```shell
+```shellj
 registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
