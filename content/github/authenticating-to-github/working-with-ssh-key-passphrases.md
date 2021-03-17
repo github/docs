@@ -31,7 +31,7 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 {% windows %}
 
 ### Auto-launching `ssh-agent` on Git for Windows
-
+$ ssh-keygen -t rsa -b 4096 -C "mood-1010120@hotmail.com
 You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
 
 ``` bash
