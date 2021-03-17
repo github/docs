@@ -15,7 +15,10 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 ## How to search
 
 The site search is part of every version of docs.github.com. On any page, you can use the search box to search the documents we've indexed. 
-You can also query our search endpoint directly at: https://docs.github.com/search?language=en&version=dotcom&query=jekyll
+You can also query our search endpoint directly at: https://docs.github.com/search?language=en&version=dotcom&query=jekyll+topics:actions
+
+Using the attribute `topics` in your query will only return results that have the matching topic value. You can find a full list of topics in [the allowed topics file](/data/allowed-topics.js). The `topics` attribute is configured as a [`filter only` facet in Algolia](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
+
 This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable.
 
 ## Production deploys
