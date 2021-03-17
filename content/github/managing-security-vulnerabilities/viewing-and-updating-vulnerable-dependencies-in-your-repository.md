@@ -7,6 +7,8 @@ permissions: Repository administrators and organization owners can view and upda
 shortTitle: Viewing and updating vulnerable dependencies
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 Your repository's {% data variables.product.prodname_dependabot %} alerts tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can sort the list of alerts using the drop-down menu, and you can click into specific alerts for more details. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 

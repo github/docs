@@ -4,6 +4,8 @@ intro: 'You can configure your repository so that {% data variables.product.prod
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note-no-link %}

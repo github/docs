@@ -4,5 +4,7 @@ intro: '{% data variables.product.prodname_dependabot %} can maintain your repos
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 

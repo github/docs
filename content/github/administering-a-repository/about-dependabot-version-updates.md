@@ -5,9 +5,10 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
   - /github/administering-a-repository/about-github-dependabot-version-updates
-
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}

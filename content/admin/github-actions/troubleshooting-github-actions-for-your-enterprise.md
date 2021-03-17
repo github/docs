@@ -4,6 +4,8 @@ intro: 'Troubleshooting common issues that occur when using {% data variables.pr
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 ### Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
