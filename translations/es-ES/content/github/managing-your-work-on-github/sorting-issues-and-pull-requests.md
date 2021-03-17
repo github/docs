@@ -25,7 +25,7 @@ Puedes clasificar cualquier vista filtrada por:
 
 Para borrar tu selección de clasificación, haz clic en **Sort** &#062 (Clasificar); **Newest** (Más reciente).
 
-### Further reading
+### Leer más
 
 * [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"
 * "[Usar la búsqueda para filtrar propuestas y solicitudes de extracción](/articles/using-search-to-filter-issues-and-pull-requests)"

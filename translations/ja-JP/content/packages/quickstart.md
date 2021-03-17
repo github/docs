@@ -80,7 +80,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
               NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     ```
     {% endraw %}
-7. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. 次に、[**Propose new file**] をクリックしてプルリクエストを作成します。
+7. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. 次に、[**Propose new file**] をクリックしてPull Requestを作成します。
 8. **Merge** the pull request.
 9. Navigate to the **Code** tab and create a new release to test the workflow. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 

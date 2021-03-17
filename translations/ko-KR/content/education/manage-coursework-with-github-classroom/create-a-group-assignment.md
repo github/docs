@@ -140,6 +140,6 @@ You can see the teams that are working on or have submitted an assignment in the
 
 ### 더 읽을거리
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community

@@ -1,6 +1,6 @@
 ---
-title: Ejecutar un flujo de trabajo manualmente
-intro: 'Cuando se configura un flujo de trabajo para ejecutarse en un evento de `workflow_dispatch`, puedes ejecutarlo utilizando la API de REST desde la pestaña de acciones en {% data variables.product.prodname_dotcom %}.'
+title: Manually running a workflow
+intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the REST API or from the Actions tab on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -10,24 +10,27 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Configurar un flujo de trabajo para que se ejecute manualmente
+### Configuring a workflow to run manually
 
-Para ejecutar un flujo de trabajo manualmente, éste debe estar configurado para ejecutarse en el evento `workflow_dispatch`. Para obtener más información sobre cómo configurar el evento `workflow_dispatch`, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
+To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
-### Ejecutar un flujo de trabajo en {% data variables.product.prodname_dotcom %}
+### Running a workflow on {% data variables.product.prodname_dotcom %} 
 
-Para activar el evento `workflow_dispatch` en {% data variables.product.prodname_dotcom %}, tu flujo de trabajo deberá estar en la rama predeterminada. Sigue estos pasos para activar una ejecución de flujo de trabajo manualmente.
+To trigger the `workflow_dispatch` event on {% data variables.product.prodname_dotcom %}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
 
-{% data reusables.repositories.permissions-statement-read %}
+{% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. En la barra lateral izquierda, da clic ene l flujo de trabajo que quieras ejecutar. ![flujo de trabajo de la selección en las acciones](/assets/images/actions-select-workflow.png)
-1. Sobre la lista de ejecuciones de flujo de trabajo, selecciona **Ejecutar flujo de trabajo**. ![envío del flujo de trabajo de las acciónes](/assets/images/actions-workflow-dispatch.png)
-1. Selecciona la rama en donde el flujo de trabajo se ejecutará y teclea los parámetros de entrada que éste utiliza. Da clic en **Ejecutar flujo de trabajo**. ![flujo de trabajo de la ejecución manual de las acciones](/assets/images/actions-manually-run-workflow.png)
+1. In the left sidebar, click the workflow you want to run.
+![actions select workflow](/assets/images/actions-select-workflow.png)
+1. Above the list of workflow runs, select **Run workflow**.
+![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
+1. Select the branch where the workflow will run and type the input parameters used by the workflow. Click **Run workflow**.
+![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
 
-### Ejecutar un flujo de trabajo utilizando la API de REST
+### Running a workflow using the REST API
 
-Para obtener más información acerca de cómo utilizar la API de REST, consulta la sección [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Si omites las entradas, se utilizarán los valores predeterminados que se hayan definido en el flujo de trabajo.
+When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used. 
 
-Puedes activar el evento de `workflow_dispatch` desde la pestaña de Acciones en {{ site.data.variables.product.prodname_dotcom }} o utilizar la API de REST.
+For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."

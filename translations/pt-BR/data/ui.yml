@@ -4,7 +4,7 @@ header:
   contact: Contato
   notices:
     ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
-    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently under limited release as a release candidate.'''
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
     localization_complete: Publicamos atualizações frequentes em nossa documentação, e a tradução desta página ainda pode estar em andamento. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>. Se houver problemas com a tradução desta página, <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">entre em contato conosco</a>.
     localization_in_progress: Olá! No momento, esta página ainda está sendo desenvolvida ou traduzida. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>.
     early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
@@ -132,3 +132,25 @@ product_landing:
   quick_start: QuickStart
   reference_guides: Reference guides
   overview: Visão Geral
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: mais guias
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: Tipo
+    topic: Topic
+    all: Todas
+  guide_types:
+    overview: Visão Geral
+    quick_start: QuickStart
+    tutorial: Tutorial
+    how_to: How-to guide
+    reference: Referência
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

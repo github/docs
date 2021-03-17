@@ -3,7 +3,7 @@ title: Enterprise 管理者
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin
-intro: Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy, {% endif %}configure{% if enterpriseServerVersions contains currentVersion %},{% endif %} and manage {% data variables.product.product_name %}.
+intro: '{% data variables.product.product_name %} を{% if enterpriseServerVersions contains currentVersion %}デプロイ、{% endif %}設定{% if enterpriseServerVersions contains currentVersion %}、{% endif %}管理する Enterprise 管理者、システム管理者、およびセキュリティスペシャリスト向けのドキュメントとガイドです。'
 versions:
   enterprise-server: '*'
   github-ae: '*'

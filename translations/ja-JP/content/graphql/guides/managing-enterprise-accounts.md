@@ -193,6 +193,6 @@ GraphQLの使い始め方に関する詳しい情報については「[GraphQL�
 
 Enterprise Accounts APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型の概要を以下に示します。
 
-Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/graphql)の詳細なGraphQLの定義があるサイドバーを見てください。
+Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/graphql)の詳細なGraphQLの定義があるサイドバーを参照してください。
 
 GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/graphql/guides)を参照してください。

@@ -11,7 +11,7 @@ versions:
 
 ### 外部 `collectd` サーバーを設置
 
-{% data variables.product.product_location %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 Your `collectd` server must be running `collectd` version 5.x or higher.
+{% data variables.product.product_location %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 `collectd` サーバは、`collectd` 5.x 以降のバージョンを実行している必要があります。
 
 1. `collectd` サーバにログインする
 2. `collectd` を作成、または編集することで、ネットワークプラグインをロードし、適切な値をサーバとポートのディレクティブに追加する。 たいていのディストリビューションでは、これは `/etc/collectd/collectd.conf` にあります。

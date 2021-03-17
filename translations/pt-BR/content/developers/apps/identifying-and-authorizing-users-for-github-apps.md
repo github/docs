@@ -89,7 +89,7 @@ Os tokens de usuário expirados atualmente fazem parte da expiração do token b
 
 Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `expires_in`, `atualizar_token`, e `refresh_token_expires_in` são apenas retornados quando você ativar o beta para expirar os tokens de acesso do usuário para servidor.
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",

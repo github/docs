@@ -89,7 +89,7 @@ Expiring user tokens are currently part of the user-to-server token expiration b
 
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable the beta for expiring user-to-server access tokens.
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",

@@ -38,7 +38,7 @@ O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer
 
 ## Webhooks
 
-Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
+Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. Assinar esses eventos viabiliza a construção de integrações que reagem aos eventos em {% data variables.product.product_name %}. Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
 ### Escopos & Restrições
 

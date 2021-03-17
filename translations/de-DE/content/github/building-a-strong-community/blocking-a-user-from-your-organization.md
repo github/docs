@@ -13,14 +13,13 @@ Wenn Du einen Benutzer blockierst, kannst Du auswählen, ob er dauerhaft oder f�
 
 {% tip %}
 
-**Tipp:** Wenn Du einen Benutzer wegen einer hitzigen Unterhaltung blockierst, empfiehlt es sich möglicherweise, [die Unterhaltung zu schließen](/articles/locking-conversations), sodass nur Mitarbeiter kommentieren können.
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. (siehe „[Unterhaltungen sperren](/github/building-a-strong-community/locking-conversations)“)
 
 {% endtip %}
 
 Wenn Du einen Benutzer für Deine Organisation blockieren:
 - beobachtet der Benutzer die Repositorys Deiner Organisation nicht mehr
 - werden die Sternmarkierungen und Issue-Zuweisungen des Benutzers von Deinen Repositorys entfernt
-- The user's forks of your organization's repositories are deleted
 - The user's votes on discussions or comments in your organization's repositories are deleted
 - wird der Benutzer als Mitarbeiter aus den Repositorys Deiner Organisation entfernt
 - The user's contributions to your organization's repositories are no longer counted as contributions for them

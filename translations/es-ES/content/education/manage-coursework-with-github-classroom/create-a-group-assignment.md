@@ -138,8 +138,8 @@ Puedes ver los equipos que están trabajando o que han emitido una tarea en la p
 
 - Puedes proporcionar retroalimentación para una tarea si comentas en confirmaciones o líneas individuales dentro de una solicitud de cambios. Para obtener más información, consulta la sección "[Comentar en una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)" y "[Abrir una propuesta desde el código](/github/managing-your-work-on-github/opening-an-issue-from-code)". Para obtener más información sobre cómo crear respuestas guardadas para proporcionar retroalimentación a los errores comunes, consulta la sección "[Acerca de las respuestas guardadas](/github/writing-on-github/about-saved-replies)".
 
-### Further reading
+### Leer más
 
-- "[Utilizar {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Conectar un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Utilizar equipos existentes en tareas grupales](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) en la comunidad de {% data variables.product.prodname_education %}

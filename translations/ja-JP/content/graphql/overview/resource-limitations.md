@@ -15,7 +15,7 @@ versions:
 
 * クライアントはすべての[コネクション](/graphql/guides/introduction-to-graphql#connection)で引数として`first`もしくは`last`を渡さなければなりません。
 * `first`及び`last`の値は1から100の間でなければなりません。
-* 個々の呼び出しは合計500,000以上の[ノード](/graphql/guides/introduction-to-graphql#node)を要求してはなりません。
+* 個々の呼び出しは合計500,000以上の[ノード](/graphql/guides/introduction-to-graphql#node)をリクエストできません。
 
 #### 呼び出し中のノードの計算
 

@@ -12,6 +12,6 @@ versions:
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Community** (Comunidad). ![Comunidad en la barra lateral izquierda](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
-### Further reading
+### Leer más
 
 - [Acerca de los perfiles de la comunidad para repositorios públicos](/articles/about-community-profiles-for-public-repositories)"

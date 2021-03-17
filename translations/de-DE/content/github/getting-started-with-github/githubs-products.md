@@ -85,6 +85,7 @@ Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren F
 - {% data variables.contact.enterprise_support %}. Weitere Informationen findest Du unter „<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Support</a>“ und „<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Nachtrag</a>.“
 - 50.000 {% data variables.product.prodname_actions %}-Minuten
 - 50 GB {% data variables.product.prodname_registry %}-Speicher
+- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
 - A service level agreement for 99.9% monthly uptime
 - Die Option, die Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>" (Über Enterprise-Konten).
 

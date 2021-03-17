@@ -49,6 +49,6 @@ Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial,
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Further reading
+### Leer más
 
 - "[Visualizar y administrar el acceso de SAML de un miembro a tu organización](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)"

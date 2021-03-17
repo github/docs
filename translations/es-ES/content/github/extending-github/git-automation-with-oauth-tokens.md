@@ -41,6 +41,6 @@ Para evadir estos mensajes, puedes utilizar el almacenamiento de contraseñas en
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 - "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps)"

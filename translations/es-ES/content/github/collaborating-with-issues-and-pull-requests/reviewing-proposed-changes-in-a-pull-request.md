@@ -36,7 +36,7 @@ Si la solicitud de cambios contiene cambios para las dependencias, puedes utiliz
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. A la derecha del encabezado de un archivo de bloqueo o de manifiesto, muestra la revisión de dependencias dando clic en el botón de diff enriquecido **{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![El botón de diff rica](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
@@ -65,7 +65,7 @@ Después de que hayas terminado de revisar todos los archivos que quieras de la 
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtrar solicitudes de extracción por estado de revisión](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

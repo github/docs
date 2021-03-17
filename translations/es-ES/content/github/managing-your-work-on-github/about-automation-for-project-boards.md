@@ -35,6 +35,6 @@ Puedes rastrear el progreso en tu tablero de proyecto. Las tarjetas en las colum
 
 Para obtener más información, consulta la sección "[Rastrear el progreso en tu tablero de proyecto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
-### Further reading
+### Leer más
 - "[Configurar la automatización para los tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}

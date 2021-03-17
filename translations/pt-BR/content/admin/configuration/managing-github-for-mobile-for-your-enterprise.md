@@ -22,5 +22,5 @@ Os membros da sua empresa podem usar {% data variables.product.prodname_mobile %
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 1. Na barra lateral esquerda, clique em **Celular**. !["Celular" na barra lateral esquerda para o console de gerenciamento de {% data variables.product.prodname_ghe_server %}](/assets/images/enterprise/management-console/click-mobile.png)
-1. Under "GitHub for mobile", select or deselect **Enable GitHub Mobile Apps**. ![Checkbox for "Enable GitHub Mobile Apps" in the {% data variables.product.prodname_ghe_server %} management console](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
+1. Em "GitHub dispositivos móveis", selecione ou desmarque a opção de **Habilitar aplicativos para GitHub móvel**. ![Caixa de seleção para "Habilitar os aplicativos do GitHub móvel" no console de gerenciamento de {% data variables.product.prodname_ghe_server %}](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
 {% data reusables.enterprise_management_console.save-settings %}

@@ -33,14 +33,18 @@ If you're using a GPG key that matches your committer identity and your verified
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to save your selections.
+7. Enter `O` to confirm your selections.
 8. Enter your key's passphrase.
-9. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
+9. Enter `gpg> save` to save the changes
+  ```shell
+  $ gpg> save
+  ```
+10. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-10. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
 ### Дополнительная литература
 

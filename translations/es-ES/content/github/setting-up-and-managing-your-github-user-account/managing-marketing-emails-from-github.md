@@ -20,7 +20,7 @@ versions:
 3. Dentro de *Email preferences (Preferencias de correo electrónico)*, selecciona **Only receive account related emails, and those I subscribe to (Recibir únicamente correos electrónicos relacionados con la cuenta y aquellos a los cuales me suscribo)**. ![Captura de pantalla de la cancelación de la suscripción de un correo electrónico de marketing](/assets/images/help/notifications/email_preferences.png)
 4. Haz clic en **Save email preferences (Guardar preferencias de correo electrónico)**. ![Botón para guardar las preferencias de correo electrónico](/assets/images/help/notifications/save_email_preferences.png)
 
-### Further reading
+### Leer más
 
 - "[Tipos de correos electrónicos que envía GitHub](/articles/types-of-emails-github-sends)"
 - "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"

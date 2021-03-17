@@ -1,30 +1,30 @@
 ---
-title: Configuring user provisioning for your enterprise
-shortTitle: Configuring user provisioning
-intro: You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).
-permissions: Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.
+title: Enterprise 向けのユーザプロビジョニングを設定する
+shortTitle: ユーザプロビジョニングの設定
+intro: System for Cross-domain Identity Management (SCIM) のシステムを設定できます。これにより、{% data variables.product.product_location %} のアプリケーションをアイデンティティプロバイダ (IdP) 上のユーザに割り当てると、{% data variables.product.product_location %} のユーザアカウントが自動的にプロビジョニングされます。
+permissions: Enterprise オーナーは、{% data variables.product.product_name %} で Enterprise のユーザプロビジョニングを設定できます。
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
 ---
 
-### About user provisioning for your enterprise
+### Enterprise 向けのユーザプロビジョニングについて
 
-{% data reusables.saml.ae-uses-saml-sso %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+{% data reusables.saml.ae-uses-saml-sso %}詳しい情報については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
 
-{% data reusables.scim.after-you-configure-saml %} For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
+{% data reusables.scim.after-you-configure-saml %} SCIM の詳細については、IETF Web サイトの「[System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644)」を参照してください。
 
 {% if currentVersion == "github-ae@latest" %}
 
-Configuring provisioning allows your IdP to communicate with {% data variables.product.product_location %} when you assign or unassign the application for {% data variables.product.product_name %} to a user on your IdP. When you assign the application, your IdP will prompt {% data variables.product.product_location %} to create an account and send an onboarding email to the user. When you unassign the application, your IdP will communicate with {% data variables.product.product_name %} to invalidate any SAML sessions and disable the member's account.
+プロビジョニングを設定すると、{% data variables.product.product_name %} のアプリケーションを IdP のユーザに割り当てたり、割り当て解除したりするときに、IdP が {% data variables.product.product_location %} と通信できるようになります。 アプリケーションを割り当てると、IdP は {% data variables.product.product_location %} にアカウントを作成し、オンボーディングメールをユーザに送信するように求めます。 アプリケーションの割り当てを解除すると、IdP は {% data variables.product.product_name %} と通信して、SAML セッションを無効にし、メンバーのアカウントを無効にします。
 
-To configure provisioning for your enterprise, you must enable provisioning on {% data variables.product.product_name %}, then install and configure a provisioning application on your IdP.
+Enterprise のプロビジョニングを設定するには、{% data variables.product.product_name %} でプロビジョニングを有効にしてから、IdP にプロビジョニングアプリケーションをインストールして設定する必要があります。
 
-The provisioning application on your IdP communicates with {% data variables.product.product_name %} via our SCIM API for enterprises. For more information, see "[GitHub Enterprise administration](/rest/reference/enterprise-admin#scim)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+IdP のプロビジョニングアプリケーションは、Enterprise 向けの SCIM API を介して {% data variables.product.product_name %} と通信します。 詳しい情報については、{% data variables.product.prodname_dotcom %} REST API ドキュメントの「[GitHub Enterprise の管理](/rest/reference/enterprise-admin#scim)」を参照してください。
 
 {% endif %}
 
-### Supported identity providers
+### サポートされているアイデンティティプロバイダ
 
 {% data reusables.scim.supported-idps %}
 
@@ -32,49 +32,49 @@ The provisioning application on your IdP communicates with {% data variables.pro
 
 {% if currentVersion == "github-ae@latest" %}
 
-To automatically provision and deprovision access to {% data variables.product.product_location %} from your IdP, you must first configure SAML SSO when you initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+IdP から {% data variables.product.product_location %} へのアクセスを自動的にプロビジョニングおよびプロビジョニング解除するには、{% data variables.product.product_name %} を初期化するときに最初に SAML SSO を設定する必要があります。 For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
 
-You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
+{% data variables.product.product_name %} のユーザプロビジョニング用にアプリケーションを設定するには、IdP の管理アクセス権が必要です。
 
 {% endif %}
 
-### Enabling user provisioning for your enterprise
+### Enterprise 向けのユーザプロビジョニングを有効化する
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. While signed into
+1. Enterprise オーナーとして
 
-{% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+{% data variables.product.product_location %} にサインインしているときに、**admin:enterprise** スコープで個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
   {% note %}
 
   設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
-    - To create the personal access token, we recommend using the account for the first enterprise owner that you created during initialization. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
-    - You'll need this personal access token to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
+    - 個人アクセストークンを作成するには、初期化中に作成した最初の Enterprise オーナーのアカウントを使用することをお勧めします。 For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+    - IdP で SCIM 用にアプリケーションを設定するには、この個人アクセストークンが必要です。 手順の後半でトークンが再び必要になるまで、トークンをパスワードマネージャーに安全に保管してください。
 
   {% endnote %}
   {% warning %}
 
-  **Warning**: If the user account for the enterprise owner who creates the personal access token is deactivated or deprovisioned, your IdP will no longer provision and deprovision user accounts for your enterprise automatically. Another enterprise owner must create a new personal access token and reconfigure provisioning on the IdP.
+  **警告**: 個人アクセストークンを作成する Enterprise オーナーのユーザーアカウントが非アクティブ化またはプロビジョニング解除された場合、IdP は Enterprise のユーザアカウントを自動的にプロビジョニングおよびプロビジョニング解除しません。 別の Enterprise オーナーは、新しい個人アクセストークンを作成し、IdP でプロビジョニングを再設定する必要があります。
 
   {% endwarning %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**. ![Checkbox for "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
-1. [**Save**] をクリックします。 ![Save button under "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-scim-save.png)
-1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP.
+1. [SCIM User Provisioning] で、[**Require SCIM user provisioning**] を選択します。 ![Enterprise セキュリティ設定内の [Require SCIM user provisioning] のチェックボックス](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
+1. [**Save**] をクリックします。 ![Enterprise セキュリティ設定内の [Require SCIM user provisioning] の下にある [Save] ボタン](/assets/images/help/enterprises/settings-scim-save.png)
+1. IdP の {% data variables.product.product_name %} のアプリケーションでユーザプロビジョニングを設定します。
 
-  The following IdPs provide documentation about configuring provisioning for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
+  次の IdP では、{% data variables.product.product_name %} のプロビジョニングの設定に関するドキュメントを提供しています。 IdP がリストにない場合は、IdP に問い合わせて、{% data variables.product.product_name %} のサポートをご依頼ください。
 
-  | IdP      | 詳細情報                                                                                                                                                                                                                         |
-  |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Azure AD | [Tutorial: Configure {% data variables.product.prodname_ghe_managed %} for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in the Microsoft Docs |
+  | IdP      | 詳細情報                                                                                                                                                                                                |
+  |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Azure AD | Microsoft Docs の「[チュートリアル: 自動ユーザプロビジョニング用に {% data variables.product.prodname_ghe_managed %} を設定する](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial)」 |
 
-  The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.product.product_location %}.
+  IdP のアプリケーションでは、{% data variables.product.product_location %} でユーザアカウントをプロビジョニングまたはプロビジョニング解除するために 2 つの値が必要です。
 
-  | 値             | Other names                         | 説明                                                                                                          | サンプル                                        |
-  |:------------- |:----------------------------------- |:----------------------------------------------------------------------------------------------------------- |:------------------------------------------- |
-  | URL           | Tenant URL                          | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code>                   |
-  | Shared secret | Personal access token, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner            | Personal access token you created in step 1 |
+  | 値        | 別名                    | 説明                                                                                            | サンプル                      |
+  |:-------- |:--------------------- |:--------------------------------------------------------------------------------------------- |:------------------------- |
+  | URL      | テナント URL              | {% data variables.product.prodname_ghe_managed %} にある Enterprise の SCIM プロビジョニング API への URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code> |
+  | 共有シークレット | 個人アクセストークン、シークレットトークン | Enterprise オーナーに代わってプロビジョニングタスクを実行するための IdP 上のアプリケーションのトークン                                   | ステップ 1 で作成した個人アクセストークン    |
 
 {% endif %}

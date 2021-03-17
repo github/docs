@@ -58,7 +58,8 @@ Outside of the values that are provided to `stdin`, there are additional variabl
 | $GITHUB_VIA                           | Method used to create the ref.<br> **Possible values:**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | The number of push options that were sent by the client. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | $GIT_PUSH_OPTION_N                  | Where <em>N</em> is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in GIT_PUSH_OPTION_0, the second option that was sent is stored in GIT_PUSH_OPTION_1, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
+| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. 
+{% endif %}
 
 ### Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
 
@@ -93,30 +94,30 @@ You can test a pre-receive hook script locally before you create or update it on
 
 2. Create a file called `Dockerfile.dev` containing:
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
+   3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1

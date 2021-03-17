@@ -25,9 +25,11 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
     ghe-spokes evac-status
     ```
     Para {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     Para almacenamiento
     ```
     ghe-storage evacuation-status
@@ -36,18 +38,26 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
 3. Una vez que la copia esté completa, puedes evacuar el servicio de almacenamiento. Ejecuta alguno de los siguientes comandos:
 
     Para Git
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     Para {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     Para almacenamiento, coloca el nodo fuera de línea
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       luego evacúa
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

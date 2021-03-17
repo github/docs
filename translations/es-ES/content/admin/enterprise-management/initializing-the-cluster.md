@@ -45,7 +45,7 @@ Los nombres de los nodos pueden ser cualquier nombre de host válido que elijas.
 
 Especifica el primer nodo de clùster que configuraste como el primario de MySQL a travès de `mysql-server` y de `mysql-master`.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

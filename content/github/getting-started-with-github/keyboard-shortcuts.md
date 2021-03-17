@@ -64,6 +64,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>w</kbd> | Switch to a new branch or tag
 |<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
 |<kbd>i</kbd> | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)."
+|<kbd>a</kbd> | Show or hide annotations on diffs
 |<kbd>b</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
 
 ### Comments
@@ -161,8 +162,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file.
 |<kbd>g</kbd> <kbd>f</kbd> | Go to the workflow file
 |<kbd>shift + t</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
-|<kbd>shift + f</kbd> or <kbd>F</kbd> | Toggle fullscreen logs
-|<kbd>esc</kbd> | Exit fullscreen logs
+|<kbd>shift + f</kbd> or <kbd>F</kbd> | Toggle full-screen logs
+|<kbd>esc</kbd> | Exit full-screen logs
 
 {% endif %}
 

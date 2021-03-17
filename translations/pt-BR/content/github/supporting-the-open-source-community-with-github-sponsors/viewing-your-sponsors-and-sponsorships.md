@@ -19,13 +19,13 @@ Você pode ver a análise sobre seus patrocínios atuais e anteriores, os pagame
 ### Visualizando atividade de patrocínio recente
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-1. Na barra lateral esquerda, clique em **Atividade**. ![Aba de atividade](/assets/images/help/sponsors/activity-tab.png)
+{% data reusables.sponsors.activity-tab %}
 
 ### Exportando seus dados de patrocínio
 
-Se você tiver patrocinadores, você poderá exportar os seus dados de patrocínio. {% data variables.product.prodname_dotcom %} enviará um e-mail com os dados de exportação de todos os seus patrocinadores para o mês que você selecionar. Depois que a exportação estiver concluída, você poderá exportar mais um mês de dados. Você pode exportar até 10 conjuntos de dados por hora para qualquer uma das suas contas patrocinadas.
+Você pode exportar suas transações de patrocínio por mês. {% data variables.product.company_short %} enviará um e-mail com dados de transação para todos os seus patrocinadores do mês que você selecionar. Depois que a exportação estiver concluída, você poderá exportar mais um mês de dados. Você pode exportar até 10 conjuntos de dados por hora para qualquer uma das suas contas patrocinadas.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsors-tab %}
-1. Clique em **Exportar tudo**. ![Botão Exportar tudo](/assets/images/help/sponsors/export-all.png)
+{% data reusables.sponsors.activity-tab %}
+1. Clique em {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botão de exportação](/assets/images/help/sponsors/export-all.png)
 1. Escolha um período de tempo e um formato para os dados que você gostaria de exportar, e clique em **Iniciar a exportação**. ![Opções de Exportar dados](/assets/images/help/sponsors/export-your-sponsors.png)

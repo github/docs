@@ -59,6 +59,6 @@ Si haces clic en el enlace del correo electrónico de confirmación dentro de la
 3. {% data variables.product.signin_link %} a tu cuenta personal {% data variables.product.prodname_dotcom %}.
 4. Haz clic en el enlace de verificación del correo electrónico que te enviamos.
 
-### Further reading
+### Leer más
 
 - "[Cambiar tu dirección principal de correo electrónico](/articles/changing-your-primary-email-address)"

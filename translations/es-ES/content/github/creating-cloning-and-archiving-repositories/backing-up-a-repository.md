@@ -28,7 +28,7 @@ Cuando clonas un repositorio o wiki, solo se descargan los datos Git, como archi
 - [Hitos](/rest/reference/issues#list-milestones)
 - [Etiquetas](/rest/reference/issues#list-labels-for-a-repository)
 - [Observadores](/rest/reference/activity#list-watchers)
-- [Stargazers](/rest/reference/activity#list-stargazers)
+- [Fans](/rest/reference/activity#list-stargazers)
 - [Proyectos](/rest/reference/projects#list-repository-projects)
 {% endif %}
 

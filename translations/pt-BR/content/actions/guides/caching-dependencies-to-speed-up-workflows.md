@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 type: 'tutorial'
+topics:
+  - 'Fluxos de trabalho'
 ---
 
 ### Sobre a memorização das dependências do fluxo de trabalho
@@ -68,7 +70,7 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
 Este exemplo cria uma nova cache quando são alterados os pacotes no arquivo `package-lock.json` ou quando é alterado o sistema operacional do executor. A chave da cache usa contextos e expressões para gerar uma chave que inclui o sistema operacional do executor e um hash SHA-256 do arquivo `package-lock.json` file.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome : Memorização com npm
 
 em: push
@@ -124,14 +126,14 @@ Uma chave da cache pode incluir quaisquer contextos, funções, literais e opera
 Usar expressões para criar uma `chave` permite que você crie automaticamente uma nova cache quando as dependências forem alteradas. Por exemplo, você pode criar uma `chave` usando uma expressão que calcula o hash de um arquivo `package-lock.json` de npm.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} avalia a expressão `hash "package-lock.json"` para derivar a `chave` final.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +146,7 @@ Você pode fornecer uma lista de chaves de restauração a serem usadas quando h
 #### Exemplo do uso de múltiplas chaves de restauração
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +157,7 @@ restore-keys: |
 O executor avalia as expressões, que resolvem essas `chaves de restauração`:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

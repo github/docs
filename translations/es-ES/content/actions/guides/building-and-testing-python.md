@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Python'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ Te recomendamos que tengas una comprensión básica de Python, PyPy y pip. Para 
 Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -94,7 +97,7 @@ Si estás utilizando un ejecutor auto-hospedado, puedes configurarlo para utiliz
 #### Usar múltiples versiones de Python
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -126,7 +129,7 @@ jobs:
 Puedes configurar una versión específica de Python. Por ejemplo, 3.8. Como alternativa, puedes utilizar una sintaxis de versión semántica para obtener el último lanzamiento menor. En este ejemplo se usa el último lanzamiento menor de Python 3.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -158,7 +161,7 @@ Si especificas una versión de Python que no está disponible, `setup-python` fa
 También puedes usar la palabra clave `exclude` en tu flujo de trabajo si hay una configuración de Python que no deseas ejecutar. Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)".
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -196,7 +199,7 @@ Los ejecutores alojados {% data variables.product.prodname_dotcom %} tienen inst
 Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, también puedes guardar las dependencias en el caché para acelerar tu flujo de trabajo. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -213,7 +216,7 @@ steps:
 Después de actualizar `pip`, un siguiente paso típico es instalar dependencias desde *requirements.txt*.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -234,7 +237,7 @@ Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotc
 Pip almacena en caché las dependencias en diferentes ubicaciones, en función del sistema operativo del ejecutor. La ruta que necesitarás para almacenar en caché puede diferir del ejemplo de Ubuntu que aparece a continuación, según el sistema operativo que uses. Para obtener más información, consulta [Ejemplos de almacenamiento en caché de Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Setup Python
@@ -271,7 +274,7 @@ Puedes usar los mismos comandos que usas de forma local para construir y probar 
 Este ejemplo instala o actualiza `pytest` y `pytest-cov`. A continuación, se ejecutan y se emiten pruebas en formato JUnit, mientras que los resultados de la cobertura de código se emiten en Cobertura. Para obtener más información, consulta [JUnit](https://junit.org/junit5/) y [Cobertura](https://cobertura.github.io/Cobertura/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -295,7 +298,7 @@ steps:
 En el siguiente ejemplo se instala o actualiza `flake8` y se usa para limpiar todos los archivos. Para obtener más información, consulta [Flake8](http://flake8.pycqa.org/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -318,7 +321,7 @@ steps:
 Con {% data variables.product.prodname_actions %}, puedes ejecutar pruebas con tox y repartir el trabajo a través de múltiples trabajos. Necesitarás invocar tox utilizando la opción `-e py` para elegir la versión de Python en tu `PATH`, en lugar de especificar una versión específica. Para obtener más información, consulta [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -352,7 +355,7 @@ Puedes cargar artefactos para ver después de que se complete un flujo de trabaj
 En el siguiente ejemplo se muestra cómo puedes usar la acción `upload-artifact` para archivar los resultados de las pruebas de ejecución `pytest`. Para obtener más información, consulta la acción [`upload-artifact`](https://github.com/actions/upload-artifact).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -365,26 +368,26 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python # Set Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      # Install pip and pytest
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-      - name: Test with pytest
-        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-      - name: Upload pytest test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: pytest-results-${{ matrix.python-version }}
-          path: junit/test-results-${{ matrix.python-version }}.xml
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python # Set Python version
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    # Install pip and pytest
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+    - name: Test with pytest
+      run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+    - name: Upload pytest test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -395,7 +398,7 @@ Puedes configurar tu flujo de trabajo para que publique tu paquete de Python en 
 Puedes almacenar cualquier token de acceso o credenciales que se necesiten para publicar tu paquete utilizando secretos. En el siguiente ejemplo, se crea y se publica un paquete para PyPI mediante `twine` y `dist`. Para obtener más información, consulta "[Crear y usar secretos cifrados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Upload Python Package
 
 on:

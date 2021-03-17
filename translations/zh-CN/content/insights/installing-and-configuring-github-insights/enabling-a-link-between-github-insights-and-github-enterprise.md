@@ -14,7 +14,7 @@ versions:
 
 1. 连接到 {% data variables.product.prodname_ghe_server %} 的管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
 2. 运行以下命令。
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. 返回到

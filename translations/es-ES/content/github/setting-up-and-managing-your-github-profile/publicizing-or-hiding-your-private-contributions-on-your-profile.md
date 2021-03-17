@@ -20,7 +20,7 @@ Por defecto, los visitantes únicamente ven las contribuciones públicas en tu p
     - Para publicitar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y selecciona **Private contributions** (Contribuciones privadas). Los visitantes verán tus recuentos de contribuciones privadas sin más detalles. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-on.png)
     - Para ocultar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y anula la selección de **Private contributions** (Contribuciones privadas). Los visitantes únicamente verán tus contribuciones públicas. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-off.png)
 
-### Further reading
+### Leer más
 
 - "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

@@ -19,6 +19,6 @@ Cuando reabres un tablero de proyecto, tienes la opción de *sync* (sincronizar)
     - Para reabrir tu tablero de proyecto y sincronizar la automatización, haz clic en **Reopen and sync project** (Reabrir y sincronizar proyecto). ![Selecciona el botón "Reopen and resync project" (Reabrir y resincronizar proyecto)](/assets/images/help/projects/reopen-and-sync-project.png)
     - Para reabrir tu tablero de proyecto sin sincronizar la automatización, utilizando el menú desplegable, haz clic en **Reopen only** (Solo reabrir). Luego, haz clic en **Reopen only** (Solo reabrir). ![Menú desplegable para reabrir tablero de proyecto cerrado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-### Further reading
+### Leer más
 
 - "[Configurar la automatización para los tableros de proyecto](/articles/configuring-automation-for-project-boards)"

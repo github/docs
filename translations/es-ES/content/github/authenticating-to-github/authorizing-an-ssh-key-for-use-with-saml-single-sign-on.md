@@ -22,7 +22,7 @@ Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego a
 4. Busca la organización para la que deseas autorizar la clave SSH.
 5. Da clic en **Autorizar**. ![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)
 
-### Further reading
+### Leer más
 
 - "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
 - "[Acerca de la autenticación con inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)"

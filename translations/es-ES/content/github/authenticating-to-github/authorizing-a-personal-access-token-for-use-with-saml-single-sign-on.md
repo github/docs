@@ -17,7 +17,7 @@ Puedes autorizar un token de acceso personal existente, o [crear un nuevo token 
 4. Busca la organización para la que deseas autorizar el token de acceso.
 4. Da clic en **Autorizar**. ![Botón para autorizar el token](/assets/images/help/settings/token-authorize-button.png)
 
-### Further reading
+### Leer más
 
 - "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)"
 - "[Acerca de la autenticación con inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)"

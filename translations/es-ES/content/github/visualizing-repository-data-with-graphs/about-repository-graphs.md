@@ -26,7 +26,7 @@ Todos los otros gráficos del repositorio están disponibles en todos los reposi
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acceso a datos básicos del repositorio](/articles/accessing-basic-repository-data)"
 - "[Analizar cambios en el contenido de un repositorio](/articles/analyzing-changes-to-a-repository-s-content)"

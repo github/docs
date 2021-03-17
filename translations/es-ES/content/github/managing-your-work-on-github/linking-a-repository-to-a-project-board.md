@@ -27,6 +27,6 @@ Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar rep
 6. Busca el repositorio que quieras vincular. ![Campo de búsqueda en la ventana Link a repository (Vincular un repositorio)](/assets/images/help/projects/search-to-link-repository.png)
 7. Da clic en **Enlace**. Para desvincular, haz clic en **Unlink** (Desvincular). ![Botón Link (Vincular)](/assets/images/help/projects/link-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tableros de proyectos](/articles/about-project-boards)"

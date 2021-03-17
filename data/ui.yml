@@ -48,12 +48,6 @@ helpfulness:
   yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
   email_placeholder: email@example.com
   no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  category_label: What problem did you have?
-  category_default: Choose an option
-  category_unclear: Information was unclear
-  category_confusing: The content was confusing
-  category_unhelpful: The article didn't answer my question
-  category_other: Other
   comment_label: Let us know what we can do better
   optional: Optional
   required: Required

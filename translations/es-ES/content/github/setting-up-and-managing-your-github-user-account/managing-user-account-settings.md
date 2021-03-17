@@ -5,7 +5,7 @@ redirect_from:
   - /categories/29/articles/
   - /categories/user-accounts/
   - /articles/managing-user-account-settings
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -21,7 +21,7 @@ versions:
     {% link_in_list /editing-files-in-your-repository %}
     {% link_in_list /editing-files-in-another-users-repository %}
     {% link_in_list /tracking-changes-in-a-file %}
-    {% link_in_list /deleting-files %}
+    {% link_in_list /deleting-files-in-a-repository %}
     {% link_in_list /renaming-a-file %}
     {% link_in_list /getting-permanent-links-to-files %}
 {% topic_link_in_list /managing-files-using-the-command-line %}

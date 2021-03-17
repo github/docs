@@ -6,8 +6,8 @@ ownership:
     kind: heroku
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
-    maintainer: zeke
-    exec_sponsor: danaiszuul
+    maintainer: sarahs
+    exec_sponsor: scottdensmore
     product_manager: simpsoka
     mention: github/docs-engineering
     qos: critical

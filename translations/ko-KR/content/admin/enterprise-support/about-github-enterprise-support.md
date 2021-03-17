@@ -123,7 +123,6 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 ### 더 읽을거리
 
 {% if enterpriseServerVersions contains currentVersion %}
-- [Frequently asked questions about {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/faq)
 - Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"{% endif %}
 - "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% if enterpriseServerVersions contains currentVersion %}
 - "[Preparing to submit a ticket](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}

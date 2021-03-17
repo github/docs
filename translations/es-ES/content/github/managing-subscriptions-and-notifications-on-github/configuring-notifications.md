@@ -27,9 +27,9 @@ versions:
 
 Puedes recibir notificaciones de actividad en {% data variables.product.product_name %} en las siguientes ubicaciones.
 
-  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
+  - La bandeja de notificaciones en la interface web de {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
   - La bandeja de notificaciones en {% data variables.product.prodname_mobile %}, la cual sesincroniza con aquella de {% data variables.product.product_name %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}
+  - Un cliente de correo electrónico que utiliza una dirección de correo electrónico verificada, la cual también se sincroniza con la bandeja de notificaciones en {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y en {% data variables.product.prodname_mobile %}{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} Para obtener más información, consulta la sección "[Escoger tu configuración de notificaciones](#choosing-your-notification-settings)".
@@ -39,7 +39,7 @@ Puedes recibir notificaciones de actividad en {% data variables.product.product_
 
 #### Beneficios de la bandeja de entrada de notificaciones
 
-The notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+La bandeja de notificaciones en {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y en {% data variables.product.prodname_mobile %}{% endif %} incluye las opciones de clasificación que se diseñan específicamente para tu flujo de notificaciones de {% data variables.product.product_name %}, incluyendo opciones para:
   - Clasificar varias notificaciones al mismo tiempo.
   - Marcar las notificaciones como **Completadas** y eliminarlas de tu bandeja de entrada. Para ver todas tus notificaciones marcadas como **Completadas**, utiliza el query `is:done`.
   - Guardar una notificación para revisarla más tarde. Las notificaciones se resaltan en tu bandeja de entrada y se mantienen indefinidamente. Para ver todas tus notificaciones guardadas, utiliza el query `is:saved`.
@@ -81,7 +81,7 @@ Puedes personalizar las notificaciones de un repositorio, por ejemplo, puedes el
 #### Participar en conversaciones
 Siempre que comentes en una conversación, o cuando alguien @menciona tu nombre de usuario, estarás _participando_ en una conversación. Predeterminadamente, estás suscrito automáticamente a una conversación cuando participas en ella. Puedes desuscribirte manualmente de una conversación en la que hayas participado si das clic en **Desuscribir** en el informe de problemas o solicitud de extracción, o a través de la opción de **Desuscribir** en la bandeja de notificaciones.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and {% data variables.product.prodname_mobile %}{% endif %}.
+Para las conversaciones que estás observando o en las que estás participando, puedes elegir si quieres recibir notificaciones por correo electrónico o mediante la bandeja de notificaciones en {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y en {% data variables.product.prodname_mobile %}{% endif %}.
 
 ![Opciones de notificación para observar y participar](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -89,7 +89,7 @@ Por ejemplo:
   - Si no quieres que se te envíen notificaciones a tu correo electrónico, deselecciona **email** de la opción en participar y seguir de cerca las notificaciones.
   - Si quieres recibir notificaciones por correo electrónico cuando hayas participado en una conversación, entonces puedes seleccionar **email** debajo de "Participando".
 
-If you do not enable watching or participating notifications for web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+Si no habilitas las notificaciones web para los lugares que observas o en los que participas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y las móviles{% endif %}, entonces tu bandeja de notificaciones no tendrá ninguna actualización.
 
 ### Personalizar tus notificaciones de correo electrónico
 
@@ -133,7 +133,8 @@ Las notificaciones por correo electrónico de {% data variables.product.product_
 | campo `Para`                            | Este campo se conecta directamente al hilo.{% if currentVersion != "github-ae@latest" %} Si respondes al correo electrónico, agregarás un comentario nuevo a la conversación.{% endif %}
 | dirección `Cc`                          | {% data variables.product.product_name %} te enviará `Cc` si estás suscripto a una conversación. La segunda dirección de correo electrónico `Cc` coincide con el motivo de la notificación. El sufijo para estos motivos de notificación es {% data variables.notifications.cc_address %}. Los posibles motivos de notificación son: <ul><li>`assign`: Te asignaron a una propuesta o solicitud de extracción.</li><li>`author`: Creaste una propuesta o solicitud de extracción.</li><li>`comment`: Comentaste una propuesta o solicitud de extracción.</li><li>`manual`: Hubo una actualización de una propuesta o solicitud de extracción a la que te suscribiste de forma manual.</li><li>`mention`: Te mencionaron en una propuesta o solicitud de extracción.</li><li>`push`: Alguien confirmó una solicitud de extracción a la que estás suscripto.</li><li>`review_requested`: Te solicitaron a tí o a un equipo del que eres miembro revisar una solicitud de extracción.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detectó una vulnerabilidad en un repositorio para el que recibes alertas de seguridad.</li>{% endif %}<li>`state_change`: Se cerró o se abrió una propuesta o solicitud de extracción a la que estás suscripto.</li><li>`subscribed`: Hubo una actualización en un repositorio que estás mirando.</li><li>`team_mention`: Un equipo al que perteneces fue mencionado en una propuesta o solicitud de extracción.</li><li>`your_activity`: Abriste, comentaste en o cerraste una propuesta o solicitud de extracción.</li></ul> |
 | Campo `mailing list` (lista de correos) | Este campo identifica el nombre del repositorio y su propietario. El formato de esta dirección siempre es `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-| Campo `X-GitHub-Severity`               | {% data reusables.repositories.security-alerts-x-github-severity %} Los posibles niveles de gravedad son:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)". |{% endif %}
+| Campo `X-GitHub-Severity`               | {% data reusables.repositories.security-alerts-x-github-severity %} Los posibles niveles de gravedad son:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)". 
+{% endif %}
 
 ### Escoger tu configuración de notificaciones
 

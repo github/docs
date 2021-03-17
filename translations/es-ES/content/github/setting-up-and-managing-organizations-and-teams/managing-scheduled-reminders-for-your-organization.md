@@ -53,7 +53,7 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 ![Botón de recordatorios programados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+### Leer más
 
 - "[Administrar tus recordatorios programados](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
 - "[Administrar los recordatorios programados para tu equipo](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)"

@@ -120,5 +120,5 @@ You can see whether a student has joined the classroom and accepted or submitted
 
 ### 더 읽을거리
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

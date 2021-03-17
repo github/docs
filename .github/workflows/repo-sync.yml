@@ -11,24 +11,10 @@ on:
   schedule:
     - cron: '*/15 * * * *' # every 15 minutes
 
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 jobs:
-  check-freezer:
-    name: Check for deployment freezes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Exit if repo is frozen
-        if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
   repo-sync:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: Repo Sync
-    needs: check-freezer
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

@@ -25,7 +25,7 @@ Si alguien con permisos administrativos en un repositorio de la organización ot
 5. Debajo de "Permisos Base", utiliza el menú desplegable para seleccionar los nuevos permisos base. ![Selección de nuevo nivel de permiso desde el menú desplegable de "permisos base"](/assets/images/help/organizations/base-permissions-drop-down.png)
 6. Revisa los cambios. Da clic en **Cambiar el permiso predeterminado por PERMISO** para confirmar. ![Revisar y confirmar el cambio de permisos base](/assets/images/help/organizations/base-permissions-confirm.png)
 
-### Further reading
+### Leer más
 
 - "[Niveles de permisopara una organización en un repositorio](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)"
 - "[Añadir colaboradores externos a los repositorios de tu organización](/github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization)"

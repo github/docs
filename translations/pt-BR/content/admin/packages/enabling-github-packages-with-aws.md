@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with AWS
-intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
+title: Habilitar o GitHub Packeges com AWS
+intro: 'Configure {% data variables.product.prodname_registry %} com AWS como seu armazenamento externo.'
 versions:
   enterprise-server: '>=2.22'
 ---
@@ -8,7 +8,7 @@ versions:
 {% warning %}
 
 **Avisos:**
-- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
+- É fundamental que você configure todas as políticas de acesso restritivas necessárias para o seu bucket de armazenamento, porque {% data variables.product.company_short %} não aplica permissões específicas de objeto ou listas de controle de acesso adicionais (ACLs) à sua configuração do bucket de armazenamento. Por exemplo, se o seu bucket for público, os dados do bucket poderão ser acessados por meio da internet pública. Para obter mais informações, consulte "[Configurar as permissões de acesso de objetos](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" na documentação do AWS.
 - Recomendamos usar um bucket dedicado para {% data variables.product.prodname_registry %}, separar do bucket que você usa para o armazenamento de {% data variables.product.prodname_actions %}.
 - Certifique-se de configurar o bucket que você vai querer usar no futuro. Não recomendamos alterar seu armazenamento depois de começar a usar {% data variables.product.prodname_registry %}.
 
@@ -16,9 +16,9 @@ versions:
 
 ### Pré-requisitos
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
+Antes de poder habilitar e configurar {% data variables.product.prodname_registry %} em {% data variables.product.product_location_enterprise %}, você precisa preparar o bucket do seu armazenamento do AWS. Para preparar seu bucket de armazenamento do AWS, recomendamos consultar a documentação oficial do AWS na [Documentação do AWS](https://docs.aws.amazon.com/index.html).
 
-Ensure your AWS access key ID and secret have the following permissions:
+Certifique-se de que o seu ID da sua chave e o segredo de acesso do AWS tenham as permissões a seguir:
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -27,7 +27,7 @@ Ensure your AWS access key ID and secret have the following permissions:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### Enabling {% data variables.product.prodname_registry %} with AWS external storage
+### Habilitar {% data variables.product.prodname_registry %} com armazenamento externo do AWS
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -41,17 +41,17 @@ Ensure your AWS access key ID and secret have the following permissions:
 1. Em "Região do AWS S3", digite sua região para o S3. ![Campo Região do AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
 {% endif %}
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
-    - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
+1. Em "Armazenamento de pacotes", selecione **Amazon S3** e insira os detalhes do seu bucket de armazenamento:
+    - **URL do serviço do AWS:** A URL do serviço para seu bucket. Por exemplo, se seu bucket de S3 foi criado em `us-west-2 region`, esse valor deve ser `https://s3.us-west-2.guide/s.com`.
 
-      For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
+      Para obter mais informações, consulte "[pontos de extremidade do serviço AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html)" na documentação do AWS.
 
-    - **AWS S3 Bucket:** The name of your S3 bucket dedicated to {% data variables.product.prodname_registry %}.
-    - **AWS S3 Access Key** and **AWS S3 Secret Key**: The AWS access key ID and secret key to access your bucket.
+    - **Balde S3 AWS:** O nome do seu bucket do S3 dedicado a {% data variables.product.prodname_registry %}.
+    - **AWS S3 Access Key** e **AWS S3 Secret Key**: O ID da chave de acesso e segredo do AWS para acessar o seu bucket.
 
-      For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+      Para mais informações sobre como gerenciar as chaves de acesso do AWS, consulte a "[Documentação de identidade do AWS e gerenciamento de acesso](https://docs.aws.amazon.com/iam/index.html)".
 
-    ![Entry boxes for your S3 AWS bucket's details](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
+    ![Caixas de entrada para detalhes do seu bucket do AWS S3](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 

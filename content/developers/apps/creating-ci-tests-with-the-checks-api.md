@@ -12,7 +12,7 @@ versions:
 
 ### Introduction
 
-This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
 
@@ -49,7 +49,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ### Prerequisites
 
-Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -203,7 +203,7 @@ Great! You've told GitHub to create a check run. You can see the check run statu
 
 ### Step 1.4. Updating a check run
 
-When your `create_check_run` method runs, it asks GitHub to create a new check run. When Github finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
+When your `create_check_run` method runs, it asks GitHub to create a new check run. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
 
 You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on GitHub by clicking the "Re-run" button, GitHub sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
 

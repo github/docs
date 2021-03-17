@@ -1,1 +1,1 @@
-1. Under your repository name, click {% octicon "comment-discussion" aria-label="The discussion icon" %} **Discussions**. !["Discussions" tab for a repository](/assets/images/help/discussions/repository-discussions-tab.png)
+1. No nome do seu repositório, clique em {% octicon "comment-discussion" aria-label="The discussion icon" %} **Discussões**. ![Aba "Discussões" de um repositório](/assets/images/help/discussions/repository-discussions-tab.png)

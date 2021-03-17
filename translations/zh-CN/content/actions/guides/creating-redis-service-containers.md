@@ -9,7 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ type: 'tutorial'
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -91,7 +94,7 @@ jobs:
 
 {% data reusables.github-actions.redis-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the container job
   container-job:
@@ -118,7 +121,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -152,7 +155,7 @@ Redis 服务的主机名是您在工作流程中配置的标签，本例中为 `
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis runner example
 on: push
 
@@ -210,7 +213,7 @@ jobs:
 
 工作流程将 Redis 服务容器上的端口 6379 映射到 Docker 主机。 有关 `ports` 关键字的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the runner job
   runner-job:
@@ -238,7 +241,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -274,7 +277,7 @@ steps:
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const redis = require("redis");
 
 // Creates a new Redis client

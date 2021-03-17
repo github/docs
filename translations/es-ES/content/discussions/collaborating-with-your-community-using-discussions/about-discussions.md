@@ -45,7 +45,7 @@ Puedes destacar los debates que contengan conversaciones importantes, útiles o 
 
 Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
 
-### Further reading
+### Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)"

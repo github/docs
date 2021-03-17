@@ -80,6 +80,8 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 
 Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
 
+As notificações de fluxos de trabalho agendados são enviadas ao usuário que modificou a sintaxe cron no arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Notificações para execuções do fluxo de trabalho](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
+
 ### Eventos manuais
 
 Você pode acionar as execuções de fluxo de trabalho manualmente. Para acionar fluxos de trabalho específicos em um repositório, use o evento `workflow_dispatch`. Para acionar mais de um fluxo de trabalho em um repositório e criar eventos personalizados e tipos de eventos, use o evento `repository_dispatch`.
@@ -593,7 +595,8 @@ Por padrão, um fluxo de trabalho só é executado quando o tipo de atividade de
 Por exemplo, você pode executar um fluxo de trabalho quando um pull request tiver sido `atribuído`, `aberto`, `sincronizado` ou `reaberto`.
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 

@@ -22,16 +22,19 @@ versions:
 
 ### 查看仓库的推送日志
 
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. 导航到仓库。
-{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the upper-right corner of the repository's page, click
+{% octicon "rocket" aria-label="The rocket ship" %}。
+    ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### 在命令行上查看仓库的推送日志
 
-1. 通过 SSH 登录您的设备。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
-2. 在相应的 Git 仓库中，打开审核日志文件：
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. 在相应的 Git 仓库中，打开审核日志文件：
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

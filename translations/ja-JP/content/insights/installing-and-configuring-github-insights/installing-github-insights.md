@@ -16,6 +16,7 @@ versions:
 - アプリケーションサーバーに依存関係をインストールしなければなりません。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), available via apt for [Debian](https://packages.debian.org/search?keywords=netcat) and [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 

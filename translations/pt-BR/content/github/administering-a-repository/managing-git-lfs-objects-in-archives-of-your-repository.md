@@ -5,7 +5,7 @@ intro: 'Você pode escolher se os objetos {% data variables.large_files.product_
 permissions: 'Pessoas com permissões de administrador para um repositório podem gerenciar se os objetos {% data variables.large_files.product_name_short %} estão incluídos nos arquivos do repositório.'
 versions:
   free-pro-team: '*'
-  enterprise-server: '=>2.23'
+  enterprise-server: '>3.0'
   github-ae: '*'
 ---
 
@@ -13,7 +13,7 @@ versions:
 
 O {% data variables.product.product_name %} cria arquivos de código-fonte do seu repositório na forma de arquivos ZIP e tarballs. As pessoas podem baixar esses arquivos na página principal do seu repositório ou como ativos de versão. Por padrão, os objetos {% data variables.large_files.product_name_short %} não estão incluídos nesses arquivos, apenas os arquivos de ponteiro para esses objetos. Para melhorar a usabilidade dos arquivos no seu repositório, você pode optar por incluir os objetos do {% data variables.large_files.product_name_short %}.
 
-{% if currentVersion != "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" %}
 Se optar por incluir
 objetos de {% data variables.large_files.product_name_short %} nos arquivos do seu repositório, cada download desses arquivos será contabilizado no uso da banda larga para a sua conta. Cada conta recebe {% data variables.large_files.initial_bandwidth_quota %} por mês de largura de banda gratuitamente, e você pode pagar pelo uso adicional. Para obter mais informações, consulte "[Sobre armazenamento e uso de largura de banda](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)" e "[Gerenciamento de cobrança para {% data variables.large_files.product_name_long %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage)".
 {% endif %}

@@ -45,10 +45,10 @@ versions:
 7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Füge in Terminal die URL für das Remote-Repository hinzu](/articles/adding-a-remote), an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # setzt die neue Remote-Repository URL
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # Verifiziert die neue Remote-Repository URL
+  # Verifies the new remote URL
   ```
 9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell
@@ -83,10 +83,10 @@ versions:
 7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. Gib in der Eingabeaufforderung [die URL für das Remote-Repository](/articles/adding-a-remote) ein, an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # setzt die neue Remote-Repository URL
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # Verifiziert die neue Remote-Repository URL
+  # Verifies the new remote URL
   ```
 9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell
@@ -121,10 +121,10 @@ versions:
 7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Füge in Terminal die URL für das Remote-Repository hinzu](/articles/adding-a-remote), an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
-  # setzt die neue Remote-Repository URL
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
+  # Sets the new remote
   $ git remote -v
-  # Verifiziert die neue Remote-Repository URL
+  # Verifies the new remote URL
   ```
 9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell

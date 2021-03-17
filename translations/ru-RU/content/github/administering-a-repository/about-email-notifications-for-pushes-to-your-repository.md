@@ -33,8 +33,8 @@ You can filter email notifications you receive for pushes to a repository. For m
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
 5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address. ![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
-6. If you operate your own server, you can verify the integrity of emails via the **Secret** token. This token is sent with the email as the `Approved` header. If the `Approved` header matches the token you sent, you can trust that the email is from {% data variables.product.product_name %}. ![Email secret textbox](/assets/images/help/settings/email_services_token.png)
-7. Click **Save settings**. ![Save settings button](/assets/images/help/settings/save_notification_settings.png)
+1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}. ![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
+7. Click **Setup notifications**. ![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
 ### Дополнительная литература
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}

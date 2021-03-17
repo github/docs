@@ -1,32 +1,32 @@
 ---
-title: About upgrades to new releases
-shortTitle: About upgrades
-intro: 'You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.'
+title: Sobre atualizações para novas versões
+shortTitle: Sobre as atualizações
+intro: 'Você pode beneficiar-se das novas funcionalidades e correções de erros para {% data variables.product.product_name %} atualizando a sua empresa para uma versão recém-lançada.'
 versions:
   enterprise-server: '>=3.0'
 ---
 
-{% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases.
+{% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de versões maiores e menores.
 
-Major releases include new functionality and feature upgrades and typically occur quarterly.
+As principais versões incluem novas funcionalidades e atualizações de recursos e normalmente ocorrem a cada trimestre.
 
-Starting with {% data variables.product.prodname_ghe_server %} 3.0, all major releases begin with at least one release candidate. Release candidates are proposed major releases, with a complete feature set. There may be bugs or issues in a release candidate which can only be found through feedback from customers actually using {% data variables.product.product_name %}.
+Começando com {% data variables.product.prodname_ghe_server %} 3.0, todas as principais versões começam com pelo menos um candidato de versão. Os candidatos de verão são as principais versões propostas, com um conjunto completo de recursos. Pode haver erros ou problemas em um candidato de versão que só podem ser encontrados por meio do feedback de clientes que usam {% data variables.product.product_name %}.
 
-You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. For more information, see "[Upgrade requirements](/admin/enterprise-management/upgrade-requirements)."
+Você pode ter acesso rápido às últimas funcionalidades testando um candidato de versão assim que este estiver disponível. Você pode atualizar para um candidato de versão a partir de uma versão compatível e pode atualizar do candidato de versão para versões posteriores quando lançado. Você deve atualizar qualquer ambiente executando um candidato de versão assim que a versão estiver geralmente disponível. Para obter mais informações, consulte "[Requisitos de atualização](/admin/enterprise-management/upgrade-requirements)".
 
-Release candidates should be deployed on test or staging environments. As you test a release candidate, please provide feedback by contacting support. For more information, see "[Working with {% data variables.contact.github_support %}](/admin/enterprise-support)."
+Os candidatos de versão devem ser implantados em ambientes de teste ou de preparação. Ao testar um candidato de versão, entre em contato com o suporte. Para obter mais informações, consulte "[Trabalhando com {% data variables.contact.github_support %}](/admin/enterprise-support)".
 
-We'll use your feedback to apply bug fixes and any other necessary changes to create a stable production release. Each new release candidate adds bug fixes for issues found in prior versions. When the release is ready for widespread adoption, {% data variables.product.company_short %} publishes a stable production release.
+Usaremos seus comentários para aplicar correções de erros e quaisquer outras alterações necessárias para criar uma versão de produção estável. Cada novo candidato de versão adiciona correções de erros para problemas encontrados em versões anteriores. Quando a versão estiver pronta para ser utilizada amplamente, {% data variables.product.company_short %} irá publicar uma versão de produção estável.
 
 {% warning %}
 
-**Warning**: The upgrade to a new major release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. For more information, see "[Customizing user messages on your instance](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)" and "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+**Aviso**: A atualização para uma nova versão principal implicará algumas horas de inatividade, durante as quais nenhum dos seus usuários poderá usar a empresa. Você pode informar aos seus usuários sobre tempo de inatividade, publicando um banner de anúncio global, usando as configurações da sua empresa ou a API REST. Para obter mais informações, consulte "[Personalizar mensagens de usuário na sua instância](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)" e "[ administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
 
 {% endwarning %}
 
-Minor releases, which consist of hot patches and bug fixes only, happen more frequently. Minor releases are generally available when first released, with no release candidates. Upgrading to a minor release typically requires less than five minutes of downtime.
+Lançamentos menores, que consistem apenas em correções de erros e correções de erros, acontecem com mais frequência. De modo geral, as versões menores ficam disponíveis quando são lançadas pela primeira vez, sem candidatos de versões. Atualizar para uma versão menor normalmente requer menos de cinco minutos de tempo de inatividade.
 
-To upgrade your enterprise to a new release, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
+Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/enterprise-server/admin/release-notes)" e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server).
 
 ### Leia mais
 

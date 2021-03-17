@@ -83,4 +83,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 参考リンク
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+- 「[ユーザーをサスペンドする](/rest/reference/enterprise-admin#suspend-a-user)」

@@ -39,11 +39,13 @@ La acción `upload-sarif` puede configurarse para ejecutarse cuando ocurren los 
 
 Si tu archivo SARIF no incluye `partialFingerprints`, la acción `upload-sarif` calculará el campo `partialFingerprints` para ti e intentará prevenir las alertas duplicadas. {% data variables.product.prodname_dotcom %} solo puede crear `partialFingerprints` cuando el repositorio contenga tanto el archivo SARIF como el código fuente utilizado en el análisis estático. Para obtener más información acerca de prevenir alertas duplicadas, consulta la sección "[Acerca de la compatibilidad de SARIF con el escaneo de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)".
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 #### Ejemplo de flujo de trabajo para los archivos SARIF generados fuera de un repositorio
 
 Puedes crear un nuevo flujo de trabajo que cargue archivos SARIF después de que los confirmes en tu repositorio. Esto es útil cuando el archivo SARIF se genera como un artefacto fuera de tu repositorio.
 
-Este flujo de trabajo de ejemplo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+Este ejemplo de flujo de trabajo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
 Este flujo de trabajo carga el archivo `results.sarif` ubicado en la raíz del repositorio. Para obtener más información acerca de cómo crear un archivo de flujo de trabajo, consulta la sección "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
@@ -77,7 +79,7 @@ jobs:
 
 Si generas tu archivo SARIF de terceros como parte de un flujo de trabajo de integración contínua (IC), puedes agregar la acción `upload-sarif` como un paso después de ejecutar tus pruebas de IC. Si aún no tienes un flujo de trabajo de IC, puedes crearlo utilizando una plantilla de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
-Este flujo de trabajo de ejemplo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+Este ejemplo de flujo de trabajo se ejecuta cada que las confirmaciones se cargan al repositorio. La acción utiliza la propiedad `partialFingerprints` para determinar si ha habido cambios. Adicionalmente a ejecutarse cuando se cargan las confirmaciones, el flujo de trabajo se programa para su ejecución una vez por semana. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
 El flujo de trabajo muestra un ejemplo de ejecución de la herramienta de análisis estático ESLint como un paso en un flujo de trabajo. El paso `Run ESLint` ejecuta la herramienta ESLint y da como salida el archivo `results.sarif`. El flujo de trabajo entonces carga el archivo `results.sarif` a {% data variables.product.prodname_dotcom %} utilizando la acción `upload-sarif`. Para obtener más información acerca de cómo crear un archivo de flujo de trabajo, consulta la sección "[Introducción a Github Actions](/actions/learn-github-actions/introduction-to-github-actions)".
 
@@ -108,7 +110,7 @@ jobs:
         sarif_file: results.sarif
 ```
 
-### Further reading
+### Leer más
 
 - "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
 - "[Visualizar tu historial de flujos de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)"

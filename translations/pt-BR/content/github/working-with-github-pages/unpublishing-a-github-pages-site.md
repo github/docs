@@ -1,6 +1,6 @@
 ---
 title: Cancelar a publicação de um site do GitHub Pages
-intro: 'Você pode cancelar a publicação do seu site de {% data variables.product.prodname_pages %} para que o site não esteja mais disponível para {% if currentVersion == "free-pro-team@latest" %}o público{% else %}qualquer pessoa que usa {% data variables.product.product_location %}{% endif %}.'
+intro: 'Você pode cancelar a publicação do seu site de {% data variables.product.prodname_pages %} para que não fique mais disponível.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/

@@ -12,6 +12,7 @@ versions:
 
 {% endnote %}
 
+
 ### About encrypted secrets for {% data variables.product.prodname_codespaces %}
 
 You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
@@ -24,12 +25,18 @@ You can choose which repositories should have access to each secret. Then, you c
 
 ### Adding a secret
 
+{% note %}
+
+**Note:** Tokens starting with GITHUB_ are reserved
+
+{% endnote %}
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. To the right of "Codespaces secrets", click **New secret**.
   !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
 1. Under "Name", type a name for your secret.
-  !["Name" textbox](/assets/images/help/settings/codespaces-secret-name-field.png)
+  !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
 {% data reusables.user_settings.codespaces-secret-value %}
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Click **Add secret**.

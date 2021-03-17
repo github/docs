@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,20 +48,21 @@ Für die Docker-Anweisung `ENTRYPOINT` gibt es sowohl eine _shell_-Form als auch
 
 Wenn Du Deinen Container so konfigurierst, dass er die _exec_-Form der Anweisung `ENTRYPOINT` verwendet, können die in der Metadaten-Datei der Aktion konfigurierten `args` (Argumente) nicht in einer Kommando-Shell genutzt werden. Wenn die `Args` der Aktion eine Umgebungsvariable enthalten, wird die Variable nicht ersetzt. Wenn Du zum Beispiel das folgende _exec_-Format verwendest, wird nicht der in `$GITHUB_SHA` gespeicherte Wert ausgegeben, sondern stattdessen „`$GITHUB_SHA`“.
 
-```
+```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
  Wenn Du Variablensubstitution willst, verwende entweder die _Shell_-Form oder führe direkt eine Shell aus. Zum Beispiel kannst Du mit dem folgenden _exec_-Format eine Shell ausführen, um den Wert auszugeben, der in der Umgebungsvariable `GITHUB_SHA` gespeichert ist.
 
-```
+```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
  Um `args` aus der Metadaten-Datei der Aktion an einen Docker Container zu übergeben, der die _exec_-Form im `ENTRYPOINT` verwendet, empfehlen wir, ein Shell-Skript namens `entrypoint.sh` zu erstellen und dieses von der `ENTRYPOINT`-Anweisung aus anrufen:
 
 ##### Beispiel *Dockerfile*
-```
+
+```dockerfile
 # Container image that runs your code
 FROM debian:9.5-slim
 

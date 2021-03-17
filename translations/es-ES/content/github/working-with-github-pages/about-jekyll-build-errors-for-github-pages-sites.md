@@ -44,13 +44,13 @@ Puedes ver errores de compilación (pero no advertencias de compilación) para t
 Puedes configurar un servicio externo como [Travis CI](https://travis-ci.org/) para que muestre mensajes de error después de cada confirmación.
 
 1. Si no lo has hecho, agrega un archivo denominado _Gemfile_ en la raíz de tu fuente de publicación, con el siguiente contenido:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Configura el repositorio de tu sitio para el servicio de comprobación que elijas. Por ejemplo, para usar [Travis CI](https://travis-ci.org/), agrega un archivo denominado _.travis.yml_ en la raíz de tu fuente de publicación, con el siguiente contenido:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

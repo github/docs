@@ -60,7 +60,7 @@ Ya que hayas creado un borrador de listado de {% data variables.product.prodname
 
 ### Emitir tu app
 
-Ya que hayas completado tu listado de {% data variables.product.prodname_marketplace %}, puedes emitirlo para su revisión a través de la página **Resumen**. Necesitas leer y aceptar el "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)", y luego puedes dar clic en **Emitir para revisión**. Después de emitir tu app para su revisión te contactará un experto en integraciones con cualquier tipo de información adicional que se requiera para el proceso de integración. Puedes aprender más acerca del proceso de integración y revisión de seguridad en la sección "[Comenzar con {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)".
+Ya que hayas completado tu listado de {% data variables.product.prodname_marketplace %}, puedes emitirlo para su revisión a través de la página **Resumen**. Necesitas leer y aceptar el "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)", y luego puedes dar clic en **Emitir para revisión**. Después de emitir tu app para su revisión te contactará un experto en integraciones con cualquier tipo de información adicional que se requiera para el proceso de integración.
 
 ### Eliminar un listado de {% data variables.product.prodname_marketplace %}
 

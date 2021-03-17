@@ -32,7 +32,7 @@ Para más información sobre los permisos del administrador de {% data variables
 1. En "App managers" (Administradores de la app), escribe el nombre de usuario de la persona a quien deseas designar como administrador de la App GitHub para la app, y haz clic en **Grant** (Conceder). ![Agregar un administrador de {% data variables.product.prodname_github_app %} para una app específica](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.product.prodname_dotcom %} Mercado](/articles/about-github-marketplace/)"
 {% endif %}

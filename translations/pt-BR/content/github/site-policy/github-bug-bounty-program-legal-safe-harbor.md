@@ -31,4 +31,4 @@ Dito isto, se uma ação legal for iniciada por terceiros, incluindo a aplicaç�
 
 ### 3. Renúncia limitada a outras políticas do site
 
-Na medida em que suas atividades de pesquisa de segurança são inconsistentes com certas restrições em nossas [políticas relevantes do site](/categories/site-policy/) mas são consistentes com os termos do nosso programa de recompensa de bugs, renunciamos a essas restrições com o único e limitado propósito de permitir sua pesquisa de segurança sob este programa de recompensa de bugs. Assim como acima, em caso de dúvida, pergunte-nos primeiro!
+Na medida em que suas atividades de pesquisa de segurança são inconsistentes com certas restrições em nossas [políticas relevantes do site](/categories/site-policy/) mas são consistentes com os termos do nosso programa de recompensa de erros, renunciamos a essas restrições com o único e limitado propósito de permitir sua pesquisa de segurança sob este programa de recompensa de erros. Assim como acima, em caso de dúvida, pergunte-nos primeiro!

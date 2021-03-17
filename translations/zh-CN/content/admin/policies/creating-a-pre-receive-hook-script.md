@@ -58,7 +58,8 @@ versions:
 | $GITHUB_VIA                           | 用于创建 ref 的方法。<br> **可选值：**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | 客户端发送的推送选项数。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | $GIT_PUSH_OPTION_N                  | 其中 <em>N</em> 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 GIT_PUSH_OPTION_0 中，发送的第二个选项存储在 GIT_PUSH_OPTION_1 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | 推送更改的客户端发送的 user-agent 字符串。 |{% endif %}
+| $GIT_USER_AGENT                     | 推送更改的客户端发送的 user-agent 字符串。 
+{% endif %}
 
 ### 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
@@ -93,30 +94,30 @@ versions:
 
 2. 创建一个名为 `Dockerfile.dev` 的文件，其中包含：
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。 此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
+   3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。 此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1

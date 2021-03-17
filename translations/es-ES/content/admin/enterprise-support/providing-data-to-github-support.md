@@ -148,7 +148,7 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
   ```
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".

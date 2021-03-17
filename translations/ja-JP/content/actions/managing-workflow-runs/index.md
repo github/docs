@@ -1,7 +1,7 @@
 ---
 title: ワークフロー実行を管理する
 shortTitle: ワークフロー実行を管理する
-intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}review deployments, {% endif %}view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
+intro: 'ワークフロー中の各ステップのステータスと結果を見たり、保留中のワークフローをキャンセルしたり、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}デプロイメントをレビューしたり、{% endif %}支払い可能なジョブの実行分を見たり、失敗したワークフローをデバッグして再実行したり、ログを検索してダウンロードしたり、成果物をダウンロードしたりすることができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows

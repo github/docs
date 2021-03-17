@@ -40,7 +40,7 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 {% data reusables.pages.navigate-publishing-source %}
 1. Crie um novo arquivo chamado _/assets/css/style.scss_.
 2. Adicione o seguinte conteúdo ao topo do arquivo:
-  ```
+  ```scss
   ---
   ---
 

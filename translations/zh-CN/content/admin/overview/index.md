@@ -12,6 +12,7 @@ versions:
 
 ### 目录
 
+{% link_in_list /about-github-ae %}
 {% link_in_list /about-enterprise-accounts %}
 {% link_in_list /managing-your-github-enterprise-license %}
 {% link_in_list /managing-billing-for-your-enterprise %}

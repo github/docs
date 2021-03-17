@@ -10,7 +10,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans, for example: dependency graph and {% data variables.product.prodname_dependabot_alerts %}. Other security features require a license for {% data variables.product.prodname_GH_advanced_security %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}. (That is, private and internal repositories on {% data variables.product.prodname_dotcom_the_website %}, and all repositories on {% data variables.product.prodname_ghe_server %}.)
 
-For an overview of all security features, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)."
+For an overview of all security features, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)." For information about permission requirements for actions related to security features, see "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)."
 
 ### About {% data variables.product.prodname_advanced_security %} features
 

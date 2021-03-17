@@ -14,6 +14,8 @@ versions:
 
 {% data reusables.actions.actions-packages-set-spending-limit %} For more information about pricing for {% data variables.product.prodname_actions %} usage, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
 
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+
 As soon as you set a spending limit other than $0, you will be responsible for any existing overages in the current billing period. たとえば、Organizationで {% data variables.product.prodname_team %} を使用していて超過を許可しておらず、月あたりのストレージ使用量が1.9GBから2.1GBに増えるワークフローアーティファクトを作成した場合、ストレージは製品に含まれる2GBをわずかに超えることになります。
 
 Because you have not enabled overages, your next attempt to create a workflow artifact will fail. その月の0.1GBの超過分について請求書は発行されません。 However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
@@ -42,7 +44,7 @@ Organization の {% data variables.product.prodname_actions %} については�
 
 ### Enterprise アカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
 
-Enterprise アカウントの {% data variables.product.prodname_actions %} については、Enterprise オーナーと支払いマネージャーが利用上限を管理できます。
+Enterprise アカウントの {% data variables.product.prodname_actions %} の利用上限は、Enterprise オーナーと支払いマネージャーが管理できます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

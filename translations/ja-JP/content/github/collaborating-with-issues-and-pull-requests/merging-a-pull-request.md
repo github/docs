@@ -9,7 +9,6 @@ versions:
   github-ae: '*'
 ---
 
-
 ### プルリクエストのマージについて
 
 プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 デフォルトでは、head ブランチがベースブランチとコンフリクトしていない限り、どのプルリクエストもいつでもマージできます。 However, there may be restrictions on when you can merge a pull request into a specific branch. たとえば、必須のステータスチェックに合格した場合にのみ、プルリクエストをデフォルトブランチにマージできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。

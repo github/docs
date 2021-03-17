@@ -1,0 +1,25 @@
+---
+date: '2021-01-29'
+release_candidate: true
+intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+sections:
+  bugs:
+    - 
+      heading: Fixes for known issues from Release Candidate 1
+      notes:
+        - If you disabled GitHub Actions following an unsuccessful attempt to set up GitHub Actions, then you will not be able to create the first user and use the appliance.
+        - The "Mandatory message viewed" audit log event was not being saved.
+        - '`ghe-config-apply` needed to run on a replica during an initial setup before `ghe-repl-setup` could run to start replication.'
+        - Removing yourself as an enterprise owner returned a 404.
+    - 
+      heading: Fixes for other issues
+      notes:
+        - Issues with migrations and upgrades to 3.0.0 have been fixed.
+        - Backup Utilities versioning now works for release candidate versions.
+        - Generating a support bundle resulted in an error in the orchestrator logs.
+        - A large restore could result in Redis running out of memory.
+        - The checkbox to enable GitHub Actions in the Management Console is now visible with any authentication method.
+        - GitHub Actions can only be enabled if the required storage is also configured.
+        - '`ghe-repl-status` could silently fail if MSSQL replication is not configured.'
+  known_issues:
+    - The known issues for Release Candidate 1 still apply, excluding the bug fixes listed.

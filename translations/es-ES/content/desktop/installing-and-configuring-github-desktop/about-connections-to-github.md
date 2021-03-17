@@ -13,5 +13,5 @@ Después de que te autentiques en {% data variables.product.prodname_dotcom %}, 
 
 {% data variables.product.prodname_desktop %} se conecta con {% data variables.product.prodname_dotcom %} utilizando HTTPS. Si utilizas {% data variables.product.prodname_desktop %} para acceder a los repositorios que se clonaron utilizando SSH, podrías encontrar errores. Para conectarte a un repositorio que se clonó utilizando SSH, cambia las URL del destino remoto. Para obtener más información, consulta "[Changing a remote's URL](/github/using-git/changing-a-remotes-url) (Cambiar la URL de un remoto).
 
-### Further reading
+### Leer más
 - "[Clonar y bifurcar repositorios desde GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"

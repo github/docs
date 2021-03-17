@@ -60,7 +60,7 @@ versions:
 
 ### 提交应用程序
 
-完成 {% data variables.product.prodname_marketplace %} 上架信息后，您可以在 **Overview（概览）**页面中提交您的上架信息以供审查。 您需要阅读并接收“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”，然后才可以单击 **Submit for review（提交审查）**。 提交应用程序以供审查后，上架专家将与您联系，提供有关上架流程的其他信息。 有关上架和安全审查流程的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} 入门指南](/marketplace/getting-started/)”。
+完成 {% data variables.product.prodname_marketplace %} 上架信息后，您可以在 **Overview（概览）**页面中提交您的上架信息以供审查。 您需要阅读并接收“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”，然后才可以单击 **Submit for review（提交审查）**。 提交应用程序以供审查后，上架专家将与您联系，提供有关上架流程的其他信息。
 
 ### 删除 {% data variables.product.prodname_marketplace %} 上架信息
 

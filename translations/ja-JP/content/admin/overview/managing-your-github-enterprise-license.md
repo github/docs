@@ -41,7 +41,9 @@ versions:
 {% data reusables.enterprise-accounts.license-tab %}
 12. [Quick links] で [**Update license**] をクリックする。 ![ライセンス更新のリンク](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. ライセンスを選択するには、[**License file**] をクリックするか、ライセンスファイルを [**License file**] にドラッグします。 ![ライセンスファイルのアップロード](/assets/images/enterprise/management-console/upload-license.png)
-14. [**Upload**] をクリックします。 ![アップグレードを開始](/assets/images/enterprise/management-console/begin-upload.png)
+14. [**Upload**] をクリックします。 ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### ライセンス使用状況を表示する
 
@@ -52,11 +54,11 @@ versions:
 
 ### ユーザライセンスの使用状況を自動で{% data variables.product.prodname_ghe_cloud %}と同期する
 
-{% data variables.product.prodname_github_connect %} を使用して、{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間でユーザライセンスの数と使用状況を自動で同期できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間で自動ユーザライセンス同期を有効化する](/enterprise/{{currentVersion}}/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)」を参照してください。
+{% data variables.product.prodname_github_connect %}を使用して、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の間でユーザライセンスの数と使用状況を自動で同期できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間で自動ユーザライセンス同期を有効化する](/enterprise/{{currentVersion}}/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)」を参照してください。
 
 ### {% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} の間でユーザライセンスの使用状況を手動で同期する
 
-{% data variables.product.prodname_ghe_server %} から JSON ファイルをダウンロードして {% data variables.product.prodname_ghe_cloud %} にそのファイルをアップロードし、2 つのデプロイメント間でユーザライセンスの使用状況を手動で同期できます。
+{% data variables.product.prodname_ghe_server %}からJSONファイルをダウンロードして{% data variables.product.prodname_ghe_cloud %}にそのファイルをアップロードし、2つのデプロイメント間でユーザライセンスの使用状況を手動で同期できます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -70,3 +72,23 @@ versions:
 {% data reusables.enterprise-accounts.license-tab %}
 10. [Enterprise Server Instances] の下で、[**Add server usage**] をクリックします。 ![GitHub Enterprise Serversの使用状況リンクをアップロードする](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. {% data variables.product.prodname_ghe_server %}からダウンロードしたJSONファイルをアップロードします。 ![アップロードするファイルをドラッグアンドドロップまたは選択する](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### トラブルシューティング
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}

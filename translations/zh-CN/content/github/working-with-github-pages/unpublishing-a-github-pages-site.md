@@ -1,6 +1,6 @@
 ---
 title: 取消发布 GitHub Pages 站点
-intro: '您可以取消发布 {% data variables.product.prodname_pages %} 站点，使该站点不再对{% if currentVersion == "free-pro-team@latest" %}公众{% else %}所有 {% data variables.product.product_location %} 用户{% endif %}开放。'
+intro: '您可以取消发布 {% data variables.product.prodname_pages %} 站点，使该站点不再可用。'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/

@@ -1,6 +1,6 @@
 ---
 title: About authentication with SAML single sign-on
-intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %}To authenticate with the API or Git on the command line when an organization enforces SAML SSO, you must authorize your personal access token or SSH key.{% endif %}'
+intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 ---
+
+### About authentication with SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -31,13 +33,17 @@ If you have recently authenticated with your organization's SAML IdP in your bro
 
 {% data reusables.saml.you-must-periodically-authenticate %}
 
-To use the API or Git on the command line to access protected content in an organization that uses SAML SSO, you will need to use an authorized personal access token over HTTPS or an authorized SSH key. {% data variables.product.prodname_oauth_app %} access tokens are authorized by default.
+To use the API or Git on the command line to access protected content in an organization that uses SAML SSO, you will need to use an authorized personal access token over HTTPS or an authorized SSH key.
 
 If you don't have a personal access token or an SSH key, you can create a personal access token for the command line or generate a new SSH key. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" or "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-To use a new or existing personal access token or SSH key with an organization that enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+To use a new or existing personal access token or SSH key with an organization that uses or enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %}.
+### About {% data variables.product.prodname_oauth_apps %} and SAML SSO
+
+You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} to access an organization that uses or enforces SAML SSO.
+
+After an enterprise or organization owner enables or enforces SAML SSO for an organization, you must reauthorize any {% data variables.product.prodname_oauth_app %} that you previously authorized to access the organization. To see the {% data variables.product.prodname_oauth_apps %} you've authorized or reauthorize an {% data variables.product.prodname_oauth_app %}, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications).
 
 {% endif %}
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -44,10 +45,10 @@ Este procedimento demonstra como criar um modelo de fluxo de trabalho e um arqui
        runs-on: ubuntu-latest
 
        steps:
-       - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
 
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
 1. Crie um arquivo de metadados dentro do diretório `workflow-templates`. O arquivo de metadados deve ter o mesmo nome do arquivo de fluxo de trabalho, mas em vez da extensão `.yml`, deve-se adicionar `.properties.json`. Por exemplo, este arquivo denominado `octo-organization-ci.properties.json` contém os metadados para um arquivo de fluxo de trabalho denominado `octo-organization-ci.yml`:
    ```yaml
@@ -75,7 +76,7 @@ Para adicionar outro modelo de fluxo de trabalho, adicione seus arquivos ao mesm
 
 ![Arquivos do modelo do fluxo de trabalho](/assets/images/help/images/workflow-template-files.png)
 
-### Usar um modelo do fluxo de trabalho
+### Usar um modelo de fluxo de trabalho da sua organização
 
 Este procedimento demonstra como um membro da sua organização pode localizar e usar um modelo de fluxo de trabalho para criar um novo fluxo de trabalho. Os modelos de fluxo de trabalho de uma organização podem ser usados por qualquer pessoa que seja integrante da organização.
 

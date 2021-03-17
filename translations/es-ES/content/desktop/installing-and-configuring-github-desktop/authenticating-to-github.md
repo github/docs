@@ -182,5 +182,5 @@ Si tu nombre de usuario de Windows tiene caracteres extendidos de Unicode, esto 
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 - "[Acerca de la autenticación en GitHub](/github/authenticating-to-github/about-authentication-to-github)"

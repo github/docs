@@ -34,7 +34,7 @@ Las organizaciones pueden usar el correo electrónico `name@organization.com` co
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **Tip:** Si utilizas un editor de texto en la línea de comandos para teclear tu mensaje de confirmación, asegúrate de que existen dos líneas nuevas entre el final de la descripción de tu confirmación y el indicador `on-behalf-of:`.
 
   {% endtip %}
 
@@ -62,7 +62,7 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {%
 
 La confirmación, el mensaje y el distintivo nuevos aparecerán en {% data variables.product.product_location %}.
 
-### Further reading
+### Lecturas adicionales
 
 - "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

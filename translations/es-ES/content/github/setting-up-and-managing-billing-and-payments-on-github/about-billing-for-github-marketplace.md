@@ -48,7 +48,7 @@ Si cancelas una app en un plan gratuito, tu suscripción terminará de inmediato
 
 Si cancelas un prueba gratuita en un plan pago, tu suscripción se cancela de inmediato y perderás el acceso a la app. Para obtener más información, consulta [Cancelar una app de {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
 - "[Comprar e instalar aplicaciones en {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"

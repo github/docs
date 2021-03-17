@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-large-file-storage-and-bandwidth-for-your-organization/
   - /articles/managing-storage-and-bandwidth-usage/
   - /articles/managing-billing-for-git-large-file-storage
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
 ---

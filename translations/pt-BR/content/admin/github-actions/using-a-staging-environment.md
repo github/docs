@@ -1,26 +1,26 @@
 ---
-title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging environments.'
+title: Usar um ambiente de preparo
+intro: 'Aprenda a usar {% data variables.product.prodname_actions %} com ambientes de preparo de {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '>=3.0'
 ---
 
-It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.
+Pode ser útil ter um ambiente de preparo ou de teste para {% data variables.product.product_location %} para que você possa testar atualizações ou novas funcionalidades antes de implementá-las no seu ambiente de produção.
 
-A common way to create the staging environment is to use a backup of your production instance and restore it to the staging environment.
+Uma maneira comum de criar o ambiente de preparo é usar um backup da sua instância de produção e restaurá-lo para o ambiente de preparo.
 
-When setting up a {% data variables.product.prodname_ghe_server %} staging environment that has {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment uses. Otherwise, your staging environment will write to the same external storage as production.
+Ao configurar um ambiente de preparação de {% data variables.product.prodname_ghe_server %} que {% data variables.product.prodname_actions %} habilitou, você deve usar uma configuração de armazenamento externo diferente para {% data variables.product.prodname_actions %} armazenamento da usada pelo seu ambiente de produção. Caso contrário, seu ambiente de preparo escreverá no mesmo armazenamento externo da produção.
 
-Expect to see `404` errors in your staging environment when trying to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs, because that data will be missing from your staging storage location.
+Espere ver erros do tipo `404` no seu ambiente de preparo ao tentar visualizar os registros ou artefatos de execuções de fluxo de trabalho já existentes, {% data variables.product.prodname_actions %} porque esses dados estarão faltando no seu local de preparo de armazenamento.
 
-Although it is not required for {% data variables.product.prodname_actions %} to be functional in your staging environment, you can optionally copy the files from the production storage location to the staging storage location.
+Embora não seja necessário que {% data variables.product.prodname_actions %} seja funcional no seu ambiente de preparo, você pode copiar, opcionalmente, os arquivos do local de armazenamento de produção para o local de armazenamento de preparo.
 
-* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). Por exemplo:
+* Para uma conta de armazenamento do Azure, você pode usar [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). Por exemplo:
 
   ```shell
   azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
   ```
-* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). Por exemplo:
+* Para os buckets do Amazon S3, você pode usar [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). Por exemplo:
 
   ```shell
   aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>

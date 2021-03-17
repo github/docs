@@ -7,7 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -15,7 +19,7 @@ type: 'tutorial'
 
 ### はじめに
 
-このガイドは、Gradleビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、プルリクエストに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
+このガイドは、Gradleビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
 
 {% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びGradleを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Gradle のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 
@@ -38,7 +42,7 @@ Java及びGradleフレームワークの基本的な理解をしておくこと�
 リポジトリの`.github/workflows`に新しいファイルを作成して、手作業でこのワークフローを追加することもできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ jobs:
 プロジェクトのビルドに異なるコマンドを使ったり、異なるタスクを使いたいのであれば、それらを指定できます。 たとえば、_ci.gradle_ファイル中で設定された`package`タスクを実行したいこともあるでしょう。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 {% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化できます。 実行に成功した後、ローカルのGradleパッケージキャッシュがGitHub Actionsのインフラストラクチャ上に保存されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのパッケージリポジトリからダウンロードする必要がなくなります。 詳しい情報については「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシング</a>」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -105,15 +109,24 @@ steps:
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
-      path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
+  - name: Cleanup Gradle Cache
+    # GitHub ActionsでキャッシュされないようにいくつかのファイルをGradleのキャッシュから削除
+    # これらのファイルをGitHub Actionsのキャッシュからリストアすると、将来のビルドで問題が生じるかもしれない。
+    run: |
+      rm -f ~/.gradle/caches/modules-2/modules-2.lock
+      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 
-このワークフローは、ランナーのホームディレクトリ内の`.gradle/caches`ディレクトリにあるローカルのGradleパッケージキャッシュの内容を保存します。 キャッシュのキーは、Gradleのビルドファイルの内容をハッシュしたものになるので、それらに変更があればキャッシュは無効になります。
+このワークフローは、ランナーのホームディレクトリ内の`.gradle/caches`ディレクトリと`.gradle/wrapper`ディレクトリにあるローカルのGradleパッケージキャッシュの内容を保存します。 キャッシュのキーはGradleのビルドファイル（Gradleのラッパー属性ファイルを含む）の内容のハッシュになるので、それらに変更があればキャッシュは無効になります。
 
 ### 成果物としてのワークフローのデータのパッケージ化
 
@@ -122,7 +135,7 @@ steps:
 Gradleは通常、JAR、EAR、WARのような出力ファイルを`build/libs`ディレクトリに作成します。 このディレクトリの内容は`upload-artifact`アクションを使ってアップロードできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

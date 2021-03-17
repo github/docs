@@ -86,8 +86,8 @@ Para obtener información sobre los puntos finales de la API a los que {% data v
 | contenidos                | lectura/escritura | lectura                            |
 | implementaciones          | lectura/escritura | lectura                            |
 | propuestas                | lectura/escritura | lectura                            |
-| metadata                  | lectura           | lectura                            |
-| packages                  | lectura/escritura | lectura                            |
+| metadatos                 | lectura           | lectura                            |
+| paquetes                  | lectura/escritura | lectura                            |
 | solicitudes de extracción | lectura/escritura | lectura                            |
 | proyectos de repositorio  | lectura/escritura | lectura                            |
 | estados                   | lectura/escritura | lectura                            |

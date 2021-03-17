@@ -41,7 +41,9 @@ Wenn Du Benutzerlizenzen erneuern oder zu {% data variables.product.prodname_ent
 {% data reusables.enterprise-accounts.license-tab %}
 12. Klicken Sie unter „Quick links“ (Schnellzugriff) auf **Update license** (Lizenz aktualisieren). ![Lizenz-Link aktualisieren](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. Klicke zum Auswählen Deiner Lizenz auf **Lizenzdatei** oder ziehe Deine Lizenzdatei auf **Lizenzdatei**. ![Lizenzdatei hochladen](/assets/images/enterprise/management-console/upload-license.png)
-14. Klicke **Upload**. ![Upgrade-Start](/assets/images/enterprise/management-console/begin-upload.png)
+14. Klicke **Upload**. ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### Lizenznutzung anzeigen
 
@@ -70,3 +72,23 @@ Auf {% data variables.product.prodname_ghe_server %} können Sie eine JSON-Datei
 {% data reusables.enterprise-accounts.license-tab %}
 10. Klicke unter "Enterprise Server-Instanzen" auf **Servernutzung hinzufügen**. ![Link zum Hochladen der GitHub Enterprise Server-Nutzung](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Laden Sie die JSON-Datei hoch, die Sie von {% data variables.product.prodname_ghe_server %} heruntergeladen haben.![„Drag and drop or select a file to upload“ (Hochzuladende Datei per Drag-and-Drop auswählen oder suchen)](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
+
+### Problemlösungen
+
+In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Restart the services for Git authentication and the HTTP server.
+
+    {% warning %}
+
+    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+
+    {% endwarning %}
+   
+        sudo systemctl restart github-gitauth github-unicorn
+1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+
+{% endif %}

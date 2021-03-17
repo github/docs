@@ -1,6 +1,6 @@
 ---
 title: JavaScript アクションを作成する
-intro: 'このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。'
+intro: このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -10,7 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}

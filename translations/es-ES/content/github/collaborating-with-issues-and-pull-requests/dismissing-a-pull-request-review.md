@@ -1,6 +1,6 @@
 ---
 title: Descartar una revisión de una solicitud de extracción
-intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
+intro: 'Si tu repositorio requiere revisiones, puedes descartar las revisiones de solicitudes de cambios que ya no son válidas o que el revisor no puede aprobar.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
@@ -20,7 +20,7 @@ Esto cambia el estado de la revisión, que pasa a ser un comentario de revisión
 4. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego haz clic en **Descartar revisión**. ![Icono de kebab en el cuadro de fusión](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. Escribe la razón por la que descartas la revisión y luego haz clic en **Descartar revisión**. ![Botón Dismiss review (Descartar revisión)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las revisiones de solicitudes de extracción](/articles/about-pull-request-reviews)"
 - "[Revisar los cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)"

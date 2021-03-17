@@ -23,7 +23,7 @@ versions:
   # Verifies the signed tag
   ```
 
-### Further reading
+### Leer más
 
 - [Ver las etiquetas de tu repositorio](/articles/viewing-your-repositorys-tags)"
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"

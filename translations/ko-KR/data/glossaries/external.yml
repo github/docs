@@ -35,7 +35,7 @@
 - 
   term: 바이오
   description: >-
-    프로필에 있는 사용자 생성 설명: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: 청구 주기
   description: 특정 청구 계획에 대한 시간 간격입니다.
@@ -156,7 +156,7 @@
 - 
   term: 기여
   description: >-
-    GitHub의 특정 활동: - 사용자의 기여 그래프에 정사각형 추가: "[기여로 간주되는 것](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 프로필의 사용자 타임라인에 활동 추가: "[기여 활동](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: 기여자
   description: >-
@@ -229,7 +229,7 @@
     새 기능을 실험하거나 프로덕션 환경에 없는 이슈를 해결하는 데 사용되는 분기입니다. 토픽 분기라고도 합니다.
 - 
   term: 울타리친 코드 블록
-  description: '코드 블록 전후의 트리플 백틱 \`\`\`을 사용하여 GitHub Flavored Markdown으로 만들 수 있는 코드의 들여쓴 블록입니다. 이 [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)를 참조하십시오.'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: 가져오기
   description: >-

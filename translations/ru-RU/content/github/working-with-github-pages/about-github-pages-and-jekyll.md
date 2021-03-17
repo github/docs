@@ -38,7 +38,7 @@ You can configure most Jekyll settings, such as your site's theme and plugins, b
 
 Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses 
 
 If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

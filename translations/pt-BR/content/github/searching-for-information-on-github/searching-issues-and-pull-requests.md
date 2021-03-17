@@ -131,7 +131,8 @@ Você pode restringir seus resultados para apenas incluir problemas vinculados a
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) corresponde a problemas abertos no re repositório `desktop/desktop` vinculados a um pull request por uma referência fechada.                                     |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) corresponde a pull requests fechados no repositório `desktop/desktop` vinculados a um problema que o pull request pode ter fechado.                    |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) corresponde a problemas abertos no repositório `desktop/desktop` que não estão vinculados a um pull request por uma referência fechada.                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. 
+{% endif %}
 
 ### Pesquisar por etiqueta
 

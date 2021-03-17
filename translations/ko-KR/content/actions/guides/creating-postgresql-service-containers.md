@@ -9,7 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: '튜토리얼'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ You may also find it helpful to have a basic understanding of YAML, the syntax f
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
@@ -94,7 +97,7 @@ jobs:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the container job
   container-job:
@@ -124,7 +127,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -159,7 +162,7 @@ When you run a job directly on the runner machine, you'll need to map the ports 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
@@ -220,7 +223,7 @@ jobs:
 
 The workflow maps port 5432 on the PostgreSQL service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the runner job
   runner-job:
@@ -251,7 +254,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -287,7 +290,7 @@ You can modify *client.js* to include any PostgreSQL operations needed by your w
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({

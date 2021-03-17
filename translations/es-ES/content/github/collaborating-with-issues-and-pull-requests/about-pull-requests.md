@@ -61,7 +61,7 @@ Las páginas de comparación y de solicitudes de cambios utilizan métodos difer
 - Las páginas de comparación muestran el diff entre la punta de la ref de encabezado y el actual ancestro en común (es decir, la base de fusión) del encabezado y de la ref base.
 - Las páginas de solicitud de cambios muestran el diff entre la punta de la ref de encabezado y el ancestro común del encabezado y la ref base en el momento en el que la solicitud de cambios se crea. Por consecuencia, la base de fusión que se utilizó para la comparación puede ser diferente.
 
-### Further reading
+### Leer más
 
 - "[Solicitud de extracción](/articles/github-glossary/#pull-request)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Acerca de las ramas](/articles/about-branches)"

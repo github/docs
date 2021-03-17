@@ -60,50 +60,50 @@ O qualificador `commenter` encontra discussões que contêm um comentário de um
 
 Você pode usar o qualificador `envolve` para encontrar discussões que envolvam um determinado usuário. O qualificador retorna discussões que ou foram criadas por um determinado usuário, menciona o usuário, ou contém comentários feitos pelo usuário. O qualificador `involves` é um operador lógico OU entre os qualificadores `autor`, `mentions` e `commenter` para um único usuário.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                                            |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>involves:<em>USERNAME</em></code> | **[envolves:becca envolve:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** corresponde às discussões em que @becca ou @octocat estão envolvidos.                       |
-|                           | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body. |
+| Qualifier                 | Exemplo                                                                                                                                                                                           |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[envolves:becca envolve:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** corresponde às discussões em que @becca ou @octocat estão envolvidos.      |
+|                           | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) corresponde a discussões @becca que não contêm a palavra "beta" no texto. |
 
 ### Pesquisar por número de comentários
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
+Você pode usar o qualificador `comments` com os qualificadores maior que, menor que e intervalo para pesquisar pelo número de comentários. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
-| Qualifier                 | Exemplo                                                                                                                                                  |
-|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) matches discussions with more than 100 comments.            |
-|                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000. |
+| Qualifier                 | Exemplo                                                                                                                                                         |
+|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) corresponde a discussões com mais de 100 comentários.              |
+|                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) corresponde a discussões com comentários que variam de 500 a 1.000. |
 
 ### Pesquisar por número de interações
 
-You can filter discussions by the number of interactions with the `interactions` qualifier along with greater than, less than, and range qualifiers. The interactions count is the number of reactions and comments on a discussion. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
+Você pode filtrar discussões pelo número de interações com o qualificador de `interações` com os qualificadores maior que, menor que e intervalo. A contagem das interações é o número de reações e comentários em uma discussão. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
-| Qualifier                 | Exemplo                                                                                                                                             |
-|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches discussions with more than 2,000 interactions.   |
-|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches discussions with interactions ranging from 500 to 1,000. |
+| Qualifier                 | Exemplo                                                                                                                                               |
+|:------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) corresponde a discussões com mais de 2.000 interações.     |
+|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) corresponde a discussões com interações que variam de 500 a 1.000. |
 
 ### Pesquisar por número de reações
 
-You can filter discussions by the number of reactions using the `reactions` qualifier along with greater than, less than, and range qualifiers. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
+Você pode filtrar discussões pelo número de reações usando o qualificador de `reações`, junto os qualificadores maior que, menor que e de intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
 
-| Qualifier                 | Exemplo                                                                                                                                    |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) matches discussions with more than 500 reactions.      |
-|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches discussions with reactions ranging from 500 to 1,000. |
+| Qualifier                 | Exemplo                                                                                                                               |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) corresponde a discussões com mais de 500 reações. |
+|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) corresponde a discussões com 500 a 1.000 reações.        |
 
-### Search by when a discussion was created or last updated
+### Procurar por quando uma discussão foi criada ou quando foi atualizada por último
 
-You can filter discussions based on times of creation, or when the discussion was last updated. For discussion creation, you can use the `created` qualifier; to find out when an discussion was last updated, use the `updated` qualifier.
+Você pode filtrar discussões com base no tempo de criação, ou quando a discussão foi atualizada pela última vez. Para a criação de discussões, você pode usar o qualificador `criado`; para saber quando uma discussão foi atualizada pela última vez, use o qualificador `atualizada`.
 
-Both qualifiers take a date as a parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+Ambos os qualificadores tomam uma data como parâmetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                        |
-|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) matches discussions that were created after November 15, 2020.                                                              |
-| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) matches discussions with the word "weird" in the body that were updated after December 2020. |
+| Qualifier                  | Exemplo                                                                                                                                                                                                                                |
+|:-------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) corresponde a discussões que foram criadas após 15 de novembro de 2020.                                                             |
+| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) corresponde a discussões com a palavra "weird" no texto que foram atualizadas após dezembro de 2020. |
 
 ### Leia mais
 

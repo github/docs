@@ -1,12 +1,11 @@
----
-date: '09-10-2020'
+date: '2020-10-09'
 sections:
   security_fixes:
     - 'El usuario cuyo nombre de usuario del directorio de **LDAP** se estandariza a una información de inicio de cuenta de GHES podría autenticarse en la cuenta existente. {% comment %} https://github.com/github/github/pull/156517, https://github.com/github/github/pull/155512 {% endcomment %}'
     - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/22911, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
   bugs:
     - 'El menú desplegable de Formato de Id de nombre en la consola de administración se restablecerá a "no especificado" después de configurarlo como "persistente". {% comment %} https://github.com/github/enterprise2/pull/22402, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}'
-    - 'El guardar las configuraciones a través de la [consola de administración](https://docs.github.com/en/enterprise-server@latest/admin/configuration/accessing-the-management-console) añadirá una línea nueva en los archivos de la [llave y certificado TLS/SSL](https://docs.github.com/en/enterprise-server@latest/admin/configuration/configuring-tls), lo cual activó la recarga innecesaria de algunos servicios. {% comment %} https://github.com/github/enterprise2/pull/22608, https://github.com/github/enterprise2/pull/22540 {% endcomment %}'
+    - 'Saving settings via the [management console](/admin/configuration/accessing-the-management-console) would append a newline to the [TLS/SSL certificate and key](/admin/configuration/configuring-tls) files which triggered unnecessary reloading of some services. {% comment %} https://github.com/github/enterprise2/pull/22608, https://github.com/github/enterprise2/pull/22540 {% endcomment %}'
     - 'Las bitácoras de sistema para la Gráfica de dependencias no estaban rotando, lo cual permitió un crecimiento desmedido del almacenamiento. {% comment %} https://github.com/github/enterprise2/pull/22766, https://github.com/github/enterprise2/pull/22733 {% endcomment %}'
     - 'La mejora podría fallar si los trabajadores que se volvieron a poner en cola (resqued) invalidan la configuración que se está utilizando. {% comment %} https://github.com/github/enterprise2/pull/22838, https://github.com/github/enterprise2/pull/22814 {% endcomment %}'
     - 'Cuando importas un repositorio con un `ghe-migrator`, puede ocurrir una excepción inesperada cuando se presentan los datos inconsistentes. {% comment %} https://github.com/github/github/pull/153849, https://github.com/github/github/pull/151552 {% endcomment %}'

@@ -25,7 +25,7 @@ Cuando inhabilitas tableros de proyecto, ya no ves su información de manera cro
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"

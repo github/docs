@@ -49,6 +49,8 @@ O GitHub irá exibir o LEIAME do seu perfil na sua página de perfil se todas as
 
   O arquivo README gerado é pré-preenchido com um modelo para dar alguma inspiração para o LEIAME do seu perfil. ![Arquivo README com modelo pré-preenchido](/assets/images/help/repository/personal-repository-readme-template.png)
 
+Para obter um resumo todos os emojis disponíveis e seus códigos, consulte "[Folha de dicas de Emoji](http://www.emoji-cheat-sheet.com/)".
+
 ### Remover um LEIAME do perfil
 
 O perfil LEIAME é removido do seu perfil de {% data variables.product.prodname_dotcom %} se algum dos pontos seguintes se aplicar:

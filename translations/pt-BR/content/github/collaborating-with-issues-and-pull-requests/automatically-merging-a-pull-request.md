@@ -4,9 +4,8 @@ intro: 'Você pode aumentar a velocidade de desenvolvimento permitindo o merge a
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### Sobre o merge automático
 

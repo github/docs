@@ -1,15 +1,15 @@
 ---
 title: 管理企业帐户中组织的团队同步
-intro: 'You can enable team synchronization between an identity provider (IdP) and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+intro: '您可以启用身份提供程序 (IdP) 与 {% data variables.product.product_name %} 之间的团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Enterprise owners can manage team synchronization for an enterprise account.
+permissions: 企业所有者可以管理企业帐户的团队同步。
 versions:
   free-pro-team: '*'
 ---
 
-### About team synchronization for enterprise accounts
+### 关于企业帐户的团队同步
 
-If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
+如果使用 Azure AD 作为 IdP，您可以为企业帐户启用团队同步，以允许组织所有者和团队维护员将企业帐户拥有的组织中的团队与 IdP 组同步。
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -37,5 +37,5 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**. ![启用特定 IdP 租户团队同步且含有批准或取消请求选项的待处理请求](/assets/images/help/teams/approve-team-synchronization.png)
+7. 查看要连接到企业帐户的 IdP 租户的详细信息，然后单击 **Approve（批准）**。 ![启用特定 IdP 租户团队同步且含有批准或取消请求选项的待处理请求](/assets/images/help/teams/approve-team-synchronization.png)
 8. 要禁用团队同步，单击 **Disable team synchronization（禁用团队同步）**。 ![禁用团队同步](/assets/images/help/teams/disable-team-synchronization.png)

@@ -9,13 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% if currentVersion == "enterprise-server@2.22" %}
-{% note %}
-
-**Nota:** El soporte para {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} 2.22 es un beta público limitado. Revisa los requisitos de almacenamiento externo mencionados a continuación y [regístrate para el beta](https://resources.github.com/beta-signup/).
-
-{% endnote %}
-{% endif %}
+{% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -23,11 +17,33 @@ versions:
 
 Este artículo explica cómo los administradores de sitio pueden habilitar {% data variables.product.prodname_ghe_server %} para utilizar {% data variables.product.prodname_actions %}. Esto cubre los requisitos de hardware y software, presenta las opciones de almacenamiento y describe las políticas de administración de seguridad.
 
+{% endif %}
+
 ### Revisar las consideraciones de hardware
+
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
+
+{% note %}
+
+**Note**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} was available for {% data variables.product.prodname_ghe_server %} 2.22 as a limited beta. {% endif %}If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+
+{% endnote %}
+
+{% endif %}
 
 {% data reusables.actions.enterprise-hardware-considerations %}
 
-{% endif %}
+For more information about resource requirements for {% data variables.product.prodname_ghe_server %}, see the hardware considerations for your instance's platform.
+
+- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Plataforma de Google Cloud](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations)
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 ### Requisitos de almacenamiento externo
 
@@ -55,7 +71,7 @@ Para habilitar {% data variables.product.prodname_actions %} en {% data variable
 
 ### Habilitar {% data variables.product.prodname_actions %}
 
-El soporte de {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} 2.22 se ecuentra en un beta público limitado. [Regístrate para el beta](https://resources.github.com/beta-signup/).
+{% data variables.product.prodname_actions %} support on {% data variables.product.prodname_ghe_server %} 2.22 was available as a limited beta. To configure {% data variables.product.prodname_actions %} for your instance, upgrade to {% data variables.product.prodname_ghe_server %} 3.0 or later. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes) and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
 
 ### Leer más
 
@@ -69,7 +85,7 @@ El soporte de {% data variables.product.prodname_actions %} en {% data variables
 
 Sigue uno de los procedimientos siguientes para habilitar las {% data variables.product.prodname_actions %} con el proveedor de almacenamiento de tu elección:
 
-* [Habilitar las GitHub Actions con Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
+* [Habilitar las GitHub Actions con el almacenamiento de Azure Blob](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
 * [Habilitar las GitHub Actions con el almacenamiento de Amazon S3](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
 * [Habilitar las GitHub Actions con la puerta de enlace de MinIO para el almacenamiento en NAS](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
@@ -81,7 +97,7 @@ Puedes utilizar políticas para administrar el acceso a las {% data variables.pr
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}, necesitas agregar ejecutores auto-hospedados. Puedes agregar ejecutores auto-hospedados a nivel de empresa, organización o repositorio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+Para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}, necesitas agregar ejecutores auto-hospedados. Puedes agregar ejecutores auto-hospedados a nivel de empresa, organización o repositorio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 ### Administrar qué acciones pueden utilizarse en tu empresa
 

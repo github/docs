@@ -1,6 +1,6 @@
 ---
 title: Audit log を検索する
-intro: 'Site administrators can search an extensive list of audited actions on the enterprise.'
+intro: 'サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -19,7 +19,7 @@ AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使
 |     `actor_id` | アクションを開始したユーザアカウントの ID                  |
 |        `actor` | アクションを開始したユーザアカウントの名前                   |
 | `oauth_app_id` | アクションに関連付けられている OAuth アプリケーションの ID      |
-|       `action` | Name of the audited action              |
+|       `action` | 監査されたアクションの名前                           |
 |      `user_id` | アクションによって影響を受けたユーザの ID                  |
 |          `ユーザ` | アクションによって影響を受けたユーザの名前                   |
 |      `repo_id` | アクションによって影響を受けたリポジトリの ID （妥当な場合）        |
@@ -35,7 +35,7 @@ AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
+アクションの完全なリストについては、「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
 
 ### Audit log を検索する
 

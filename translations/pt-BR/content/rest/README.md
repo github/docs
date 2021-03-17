@@ -1,10 +1,10 @@
 # REST
 
-The `/content/rest` directory is where the GitHub REST API docs live!
+O diretório `/content/rest` é onde fica a documentação da API REST do GitHub!
 
-* The `/content/rest/guides` and `/content/rest/overview` directories contain regular articles. These are human-editable.
-* The `/content/rest/reference` directory contains an article for each group of endpoints in the GitHub REST API. Most of the content in this directory is rendered using `include` tags.
+* Os diretórios `/content/rest/guias` e `/content/rest/overview` contêm artigos regulares. Eles podem ser editados por uma pessoa.
+* O diretório `/content/rest/reference` contém um artigo para cada grupo de pontos de extremidade na API REST do GitHub. A maioria do conteúdo nesse diretório é processada usando tags `include`.
 
-  The content rendered by `include` tags is sourced from the `/lib/rest/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/rest/README.md`](/lib/rest/README.md).
+  O conteúdo processados com as tags `include` é fornecido no diretório `/lib/rest/static`, que é gerado automaticamente a partir do código fonte da API internamente no GitHub e não deve ser editado por uma pessoa. Para obter mais informações, consulte [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **As a result, we cannot accept contributions to REST API reference content in this repository.**
+  **Como resultado, não podemos aceitar contribuições para o conteúdo de referência da API REST neste repositório.**

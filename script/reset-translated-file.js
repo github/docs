@@ -29,12 +29,19 @@
 //
 // [end-readme]
 
+const program = require('commander')
+const { execSync } = require('child_process')
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
 const languages = require('../lib/languages')
 
-const [pathArg] = process.argv.slice(2)
+program
+  .description('reset translated files')
+  .option('-m, --use-main', 'Reset file to the translated file from `main` branch instead of from English source.')
+  .parse(process.argv)
+
+const [pathArg] = program.args
 assert(pathArg, 'first arg must be a target filename')
 let languageCode
 
@@ -43,21 +50,26 @@ let relativePath = fs.existsSync(pathArg)
   ? path.relative(process.cwd(), pathArg)
   : pathArg
 
-// extract relative path and language code if pathArg is in the format `translations/<lang>/path/to/file`
-if (relativePath.startsWith('translations/')) {
-  languageCode = Object.values(languages).find(language => relativePath.startsWith(language.dir) && language.code !== 'en').code
-  relativePath = relativePath.split(path.sep).slice(2).join(path.sep)
+if (program.useMain) {
+  execSync(`git checkout main -- ${relativePath}`)
+  console.log('reverted to file from main branch: %s', relativePath)
+} else {
+  // extract relative path and language code if pathArg is in the format `translations/<lang>/path/to/file`
+  if (relativePath.startsWith('translations/')) {
+    languageCode = Object.values(languages).find(language => relativePath.startsWith(language.dir) && language.code !== 'en').code
+    relativePath = relativePath.split(path.sep).slice(2).join(path.sep)
+  }
+
+  const englishFile = path.join(process.cwd(), relativePath)
+  assert(fs.existsSync(englishFile), `file does not exist: ${englishFile}`)
+  const englishContent = fs.readFileSync(englishFile, 'utf8')
+
+  Object.values(languages).forEach(({ code }) => {
+    if (code === 'en') return
+    if (languageCode && languageCode !== code) return
+
+    const translatedFile = path.join(process.cwd(), languages[code].dir, relativePath)
+    fs.writeFileSync(translatedFile, englishContent)
+    console.log('reverted to English: %s', path.relative(process.cwd(), translatedFile))
+  })
 }
-
-const englishFile = path.join(process.cwd(), relativePath)
-assert(fs.existsSync(englishFile), `file does not exist: ${englishFile}`)
-const englishContent = fs.readFileSync(englishFile, 'utf8')
-
-Object.values(languages).forEach(({ code }) => {
-  if (code === 'en') return
-  if (languageCode && languageCode !== code) return
-
-  const translatedFile = path.join(process.cwd(), languages[code].dir, relativePath)
-  fs.writeFileSync(translatedFile, englishContent)
-  console.log('reverted to English: %s', path.relative(process.cwd(), translatedFile))
-})

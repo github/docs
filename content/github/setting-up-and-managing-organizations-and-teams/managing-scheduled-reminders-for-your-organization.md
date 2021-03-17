@@ -11,6 +11,8 @@ versions:
 
 Organization owners can schedule a reminder for one or more teams in their organization, for all pull requests the team or teams have been requested to review. 
 
+{% data reusables.reminders.scheduled-reminders-limitations %}
+
 ### Creating a scheduled reminder for an organization
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

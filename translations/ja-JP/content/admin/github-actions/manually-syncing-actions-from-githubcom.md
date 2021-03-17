@@ -12,9 +12,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %} . 詳しい情報については、「[{% data variables.product.prodname_github_connect %} を使用した {% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスを有効化する](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
+{% data variables.product.prodname_dotcom_the_website %} からのアクションへのアクセスを有効化する際に推奨されるアプローチは、すべてのアクションへの自動アクセスを有効化することです。 これを行うには、{% data variables.product.prodname_github_connect %} を使用して {% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_ghe_cloud %} と統合します。 詳しい情報については、「[{% data variables.product.prodname_github_connect %} を使用した {% data variables.product.prodname_dotcom_the_website %} アクションへの自動アクセスを有効化する](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
 
-However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance.
+ただし、Enterprise で許可されるアクションをより厳密に制御する場合は、このガイドに従って、{% data variables.product.company_short %} のオープンソース [`actions-sync`](https://github.com/actions/actions-sync) ツールを使用して、個々のアクションリポジトリを {% data variables.product.prodname_dotcom_the_website %} から Enterprise インスタンスに同期できます。
 
 ### About the `actions-sync` tool
 
@@ -26,7 +26,7 @@ If your machine has access to both systems at the same time, you can do the sync
 
 ### 必要な環境
 
-* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
+* `actions-sync` ツールを使用する前に、すべての宛先 Organization が Enterprise インスタンスにすでに存在していることを確認する必要があります。 The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. 詳しい情報については、「[新しい Organization をゼロから作成する](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)」を参照してください。
 * You must create a personal access token (PAT) on your enterprise instance that can create and write to repositories in the destination organizations. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 ### Example: Using the `actions-sync` tool
@@ -63,7 +63,7 @@ If your machine has access to both systems at the same time, you can do the sync
      * You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).
 1. After the action repository is created on your enterprise instance, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

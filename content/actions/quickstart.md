@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'quick_start'
 topics:
   - 'Fundamentals'
@@ -14,6 +15,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -63,7 +65,7 @@ Committing the workflow file in your repository triggers the `push` event and ru
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Under **Jobs** or in the visualization graph, click the **Lint code base** job.
    ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}
@@ -78,7 +80,7 @@ Committing the workflow file in your repository triggers the `push` event and ru
 
 ### Next steps
 
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+The super-linter workflow you just added runs each time code is pushed to your repository to help you spot errors and inconsistencies in your code. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
 - "[Guides](/actions/guides)" for specific uses cases and examples
@@ -88,7 +90,7 @@ The super-linter workflow you just added runs any time code is pushed to your re
 
 ### Introduction
 
-Printing "Hello, World!" is a great way to explore the basic set up and syntax of a new programming language. In this guide, you'll use GitHub Actions to print "Hello, World!" within your {% data variables.product.prodname_dotcom %} repository's workflow logs. All you need to get started is a {% data variables.product.prodname_dotcom %} repository where you feel comfortable creating and running a sample {% data variables.product.prodname_actions %} workflow. Feel free to create a new repository for this Quickstart, you can use it to test this and future {% data variables.product.prodname_actions %} workflows.
+Printing "Hello, World!" is a great way to explore the basic set up and syntax of a new programming language. In this guide, you'll use GitHub Actions to print "Hello, World!" within your {% data variables.product.prodname_dotcom %} repository's workflow logs. All you need to get started is a {% data variables.product.prodname_dotcom %} repository where you feel comfortable creating and running a sample {% data variables.product.prodname_actions %} workflow. Feel free to create a new repository for this Quickstart to test this and future {% data variables.product.prodname_actions %} workflows.
 
 ### Creating your first workflow
 
@@ -143,7 +145,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 
 ### Next steps
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. This is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+The hello-world workflow you just added is a minimal example of a manually triggered workflow. This is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
 - "[Guides](/actions/guides)" for specific uses cases and examples

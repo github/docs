@@ -52,7 +52,7 @@ GitHub 应用程序使用[滑动速率限制规则](/apps/building-github-apps/u
 
 #### 注册新的 GitHub 应用程序
 
-一旦决定要切换到 Github 应用程序，就需要[创建新的 GitHub 应用程序](/apps/building-github-apps/)。
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### 确定应用程序所需的权限
 
@@ -62,7 +62,7 @@ GitHub 应用程序使用[滑动速率限制规则](/apps/building-github-apps/u
 
 #### 订阅 web 挂钩
 
-创建新的 GitHub 应用程序并选择其权限后，您可以选择要它订阅的 web 挂钩事件。 有关如何订阅 web 挂钩，请参阅“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
+创建新的 GitHub 应用程序并选择其权限后，您可以选择要它订阅的 web 挂钩事件。 See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### 了解不同的身份验证方法
 

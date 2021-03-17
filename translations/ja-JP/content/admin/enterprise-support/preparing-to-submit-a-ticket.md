@@ -1,6 +1,6 @@
 ---
 title: チケットのサブミットの準備
-intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
+intro: 'サポートチケットを開く前にこれらの推奨事項に従うと、{% data variables.contact.enterprise_support %} で問題解決を迅速に行うことができます。'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
@@ -11,7 +11,7 @@ versions:
 チケットをサブミットする前に以下の作業を済ませておいてください。
 
 - {% data variables.contact.github_support %} による問題の追跡、優先順位付け、再現、調査を支援する情報の取得
-- 可能であれば問題を再現し、その手順を共有する用意をしてください。
+- 可能であれば問題を再現し、問題発生の手順を共有できるようにしてください。
 - 問題の詳細な説明と期待される結果を提供できるように準備してください。
 - 問題に関連するすべてのエラーメッセージをそのままコピーしてください。
 - {% data variables.contact.github_support %} との進行中のやりとりがあれば、既存のチケット番号があるかを確認してください。

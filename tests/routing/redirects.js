@@ -159,6 +159,12 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseEnterpriseHome)
     })
+
+    test('hardcoded @latest redirects to latest version', async () => {
+      const res = await get('/en/enterprise-server@latest')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(enterpriseHome)
+    })
   })
 
   describe('2.13+ deprecated enterprise', () => {

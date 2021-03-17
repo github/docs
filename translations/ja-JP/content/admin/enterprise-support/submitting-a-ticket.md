@@ -1,6 +1,6 @@
 ---
 title: チケットのサブミット
-intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
+intro: '{% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または{% endif %} GitHub Enterprise サポートページからサポートチケットをサブミットできます。'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
@@ -13,8 +13,8 @@ versions:
 チケットをサブミットする前に、{% data variables.contact.github_support %} のための情報を収集し、担当者を選択してください。 詳しい情報については[チケットのサブミットの準備](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)を参照してください。
 
 {% if enterpriseServerVersions contains currentVersion %}
-After submitting your support request and optional diagnostic information,
-{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. 詳細は「[{% data variables.contact.github_support %} にデータを提供する](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
+サポートリクエストとオプションの Diagnostics 情報をサブミットした後、
+{% data variables.contact.github_support %} が Support Bundle をダウンロードして共有するように求める場合があります。 詳細は「[{% data variables.contact.github_support %} にデータを提供する](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
 
 ### {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
 
@@ -51,13 +51,13 @@ After submitting your support request and optional diagnostic information,
 {% if currentVersion == "github-ae@latest" %}
 ### {% data variables.contact.ae_azure_portal %} を使ってチケットをサブミットする
 
-Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure ポータル](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)をご利用ください。 詳しい情報については、Microsoft ドキュメントの「[Azure サポートリクエストの作成](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)」を参照してください。
 
-For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+緊急の問題については、確実に迅速な対応を行うため、チケットをサブミットした後、すぐにサポートホットラインに電話してください。 テクニカルサポートアカウントマネージャー (TSAM) から、オンボーディングセッションで使用する番号が提供されます。
 
 {% endif %}
 
 ### 参考リンク
 
-- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
-- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}
+- 「[{% data variables.contact.enterprise_support %} について](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)」{% if enterpriseServerVersions contains currentVersion %}
+- 「[{% data variables.product.prodname_ghe_server %} の {% data variables.contact.premium_support %} について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」{% endif %}

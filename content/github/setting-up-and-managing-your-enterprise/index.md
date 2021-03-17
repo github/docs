@@ -18,6 +18,7 @@ versions:
     {% link_in_list /about-enterprise-accounts %}
     {% link_in_list /viewing-the-subscription-and-usage-for-your-enterprise-account %}
     {% link_in_list /managing-licenses-for-visual-studio-subscription-with-github-enterprise %}
+    {% link_in_list /connecting-an-azure-subscription-to-your-enterprise %}
 {% topic_link_in_list /managing-users-in-your-enterprise %}
     {% link_in_list /roles-in-an-enterprise %}
     {% link_in_list /inviting-people-to-manage-your-enterprise %}
@@ -28,6 +29,7 @@ versions:
     {% link_in_list /managing-unowned-organizations-in-your-enterprise-account %}
     {% link_in_list /viewing-the-audit-logs-for-organizations-in-your-enterprise-account %}
     {% link_in_list /configuring-webhooks-for-organization-events-in-your-enterprise-account %}
+    {% link_in_list /managing-use-of-advanced-security-for-organizations-in-your-enterprise-account %}
 {% topic_link_in_list /configuring-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /about-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account %}

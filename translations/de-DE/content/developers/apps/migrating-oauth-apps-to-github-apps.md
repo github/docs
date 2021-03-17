@@ -52,7 +52,7 @@ GitHub Apps use [sliding rules for rate limits](/apps/building-github-apps/under
 
 #### Register a new GitHub App
 
-Once you've decided to make the switch to Github Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### Determine the permissions your app requires
 
@@ -62,7 +62,7 @@ In your GitHub App's settings, you can specify whether your app needs `No Access
 
 #### Subscribe to webhooks
 
-After you've created a new GitHub App and selected its permissions, you can select the webhook events you wish to subscribe it to. See "[Editing a Github App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
+After you've created a new GitHub App and selected its permissions, you can select the webhook events you wish to subscribe it to. See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### Understand the different methods of authentication
 

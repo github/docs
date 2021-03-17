@@ -17,7 +17,7 @@ Examples of how you can use pre-receive hooks:
 
 - Require commit messages to follow a specific pattern or format, such as including a valid ticket number or being over a certain length.
 - Lock a branch or repository by rejecting all pushes.
-- Prevent sensitive data from being added to the repository by blocking keywords, patterns or filetypes.
+- Prevent sensitive data from being added to the repository by blocking keywords, patterns or file types.
 - Prevent a PR author from merging their own changes.
 
 ### Impact on performance and workflows

@@ -34,7 +34,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 Este ejemplo de Markdown agrega una credencial de estado para un flujo de trabajo con el nombre "Greet Everyone". El `PROPIETARIO` del repositorio es la organización `actions` y el nombre del `REPOSITORIO` es `hello-world`.
 
-```
+```markdown
 ![example workflow name](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
@@ -42,7 +42,7 @@ Este ejemplo de Markdown agrega una credencial de estado para un flujo de trabaj
 
 Este ejemplo de Markdown agrega una credencial de estado para un flujo de trabajo con la ruta de archivo `.github/workflows/main.yml`. El `PROPIETARIO` del repositorio es la organización `actions` y el nombre del `REPOSITORIO` es `hello-world`.
 
-```
+```markdown
 ![example workflow file path](https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
@@ -50,7 +50,7 @@ Este ejemplo de Markdown agrega una credencial de estado para un flujo de trabaj
 
 Este ejemplo de Markdown añade un distintivo de estado para una rama con el nombre `feature-1`.
 
-```
+```markdown
 ![example branch parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
@@ -58,6 +58,6 @@ Este ejemplo de Markdown añade un distintivo de estado para una rama con el nom
 
 Este ejemplo de Markdown agrega un distintivo que muestra el estado de las ejecuciones de flujo de trabajo activadas por el evento `pull_request`.
 
-```
+```markdown
 ![example event parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?event=pull_request)
 ```

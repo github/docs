@@ -1,1 +1,1 @@
-Se você não é um gestor de cobrança da organização, peça ao seu cliente para ter um *proprietário* da organização [adicione você à organização como gerente de cobrança](/articles/adding-a-billing-manager-to-your-organization).
+If you're not a billing manager for the organization, ask your client to have an *owner* of the organization [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization).

@@ -16,7 +16,7 @@ versions:
 An enterprise account allows you to manage multiple {% data variables.product.prodname_dotcom %} organizations and {% data variables.product.prodname_ghe_server %} instances. Your enterprise account must have a handle, like an organization or personal account on {% data variables.product.prodname_dotcom %}. Enterprise administrators can manage settings and preferences, like:
 
 - Member access and management (organization members, outside collaborators)
-- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs)
+- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}, {% data variables.product.prodname_GH_advanced_security %} usage{% endif %})
 - Security (single sign-on, two factor authentication)
 - Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 

@@ -27,7 +27,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Crear una solicitud de extracción](/articles/creating-a-pull-request)"
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"

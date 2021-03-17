@@ -70,7 +70,7 @@ Las marcas horarias se calculan de forma diferente para las confirmaciones y las
 - **Confirmaciones** utilizan la información de la zona horaria en la marca de tiempo de la confirmación. Para obtener más información, consulta "[Solución de problemas con confirmaciones en tu cronología](/articles/troubleshooting-commits-on-your-timeline)."
 - **Las solicitudes de extracción** y **las propuestas** abiertas en {% data variables.product.product_name %} utilizan la zona horaria de tu navegador. Aquellas abiertas a través de API utilizan la marca horaria o la zona horaria [especificada en la llamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
-### Activity overview
+### Resumen de la actividad
 
 {% data reusables.profile.activity-overview-summary %} Para obtener más información, consulta "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."
 
@@ -91,7 +91,7 @@ Si tu administrador de sitio habilitó
 {% data variables.product.prodname_unified_contributions %}, puedes enviar un conteo de contribuciones de {% data variables.product.prodname_enterprise %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Enviar tus contribuciones {% data variables.product.prodname_ghe_server %} a tu {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

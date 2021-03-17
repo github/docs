@@ -125,6 +125,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 Con este SHA de confirmación, puedes, por ejemplo, consultar la correspondiente confirmación Git en GitHub.
 
-### Further reading
+### Leer más
 
 * "[Propiedades de Subversion admitidas por GitHub](/articles/subversion-properties-supported-by-github)"

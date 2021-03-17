@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About the `GITHUB_TOKEN` secret
 
@@ -71,7 +73,8 @@ You can use the `GITHUB_TOKEN` to make authenticated API calls. This example wor
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The {% data variables.product.prodname_secret_scanning %} API is currently in beta and subject to change.
+**注意：**{% data variables.product.prodname_secret_scanning %} API 目前处于测试阶段，可能会更改。
 
 {% endnote %}

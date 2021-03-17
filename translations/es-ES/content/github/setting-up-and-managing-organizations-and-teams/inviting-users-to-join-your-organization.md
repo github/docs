@@ -28,5 +28,5 @@ versions:
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-### Further reading
+### Leer más
 - "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

@@ -1,7 +1,7 @@
 ---
-title: Package client guides for GitHub Packages
-shortTitle: Package client guides for GitHub Packages
-intro: 'You can publish and retrieve package client images using {% data variables.product.prodname_registry %}.'
+title: Guias do cliente do pacote para o GitHub Packages
+shortTitle: Guias do cliente do pacote para o GitHub Packages
+intro: 'Você pode publicar e recuperar imagens de clientes do pacote usando {% data variables.product.prodname_registry %}.'
 mapTopic: true
 versions:
   free-pro-team: '*'

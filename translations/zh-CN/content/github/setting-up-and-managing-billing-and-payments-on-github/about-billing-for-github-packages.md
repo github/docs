@@ -14,6 +14,8 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+
 数据传输每月都会重置，而存储使用量不重置。
 
 | 产品                                                    | 存储器   | 数据传输（每月） |

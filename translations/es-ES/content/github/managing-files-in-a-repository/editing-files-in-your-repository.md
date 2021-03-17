@@ -31,6 +31,6 @@ versions:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Further reading
+### Leer más
 
 * "[Editar archivos en el repositorio de otro usuario](/articles/editing-files-in-another-user-s-repository)"

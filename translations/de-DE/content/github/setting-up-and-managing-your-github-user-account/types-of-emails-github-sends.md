@@ -1,6 +1,6 @@
 ---
 title: Arten der von GitHub versendeten E-Mails
-intro: 'Sie können von {% data variables.product.product_name %} verschiedene Arten von E-Mails erhalten, unter anderem Benachrichtigungen, Kontoinformationen und Marketingkommunikation.'
+intro: 'There are several types of emails you can receive from {% data variables.product.product_name %}, including notifications, account information, customer research invitations, and marketing communications.'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
@@ -24,6 +24,17 @@ Auch kannst Du die Art der E-Mail-Aktualisierungen festlegen, die Du zu Unterhal
 ### E-Mails mit Kontoinformationen
 
 Falls Du ein Upgrade auf bezahlte Produkte oder Funktionen durchgeführt hast, erhältst Du an die primäre E-Mail-Adresse Deines Kontos Abrechnungsquittungen. Weitere Informationen findest Du unter „[E-Mail-Adresse für die Abrechnung festlegen](/articles/setting-your-billing-email).“
+
+### Customer research emails
+
+{% data variables.product.product_name %} occasionally seeks customers to participate in research sessions to help us build a better GitHub. These are conducted remotely, open to customers worldwide, and may include:
+
+- Feedback surveys
+- Research interviews
+- Usability testing sessions
+- Previewing early prototypes or concepts
+
+These emails are infrequent and you can choose whether or not to participate. If you're interested in additional opportunities to participate in research sessions, you may add yourself to the GitHub Customer Research Panel. For more information, see "[GitHub Customer Experience Research](https://cxr.github.com)."
 
 ### Marketing-E-Mails
 

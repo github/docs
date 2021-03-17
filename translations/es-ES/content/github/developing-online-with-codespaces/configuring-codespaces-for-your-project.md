@@ -58,14 +58,14 @@ Puedes utilizar claves de configuración compatibles con {% data variables.produ
 #### Ajustes generales
 
 - `name (nombre)`
-- `parámetros`
+- `settings`
 - `extensions`
 - `forwardPorts`
 - `postCreateCommand`
 
 #### Ajustes de Docker, Dockerfile o de imagen
 
-- `imagen`
+- `image`
 - `dockerFile`
 - `context`
 - `containerEnv`

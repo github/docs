@@ -25,7 +25,7 @@ Para buscar conversaciones bloqueadas en un repositorio que no está archivado, 
 4. Lee la información acerca de bloquear conversaciones y haz clic en **Lock conversation on this issue** (Bloquear conversación sobre esta propuesta), **Lock conversation on this pull request** (Bloquear conversación sobre esta solicitud de extracción) o **Lock conversation on this commit** (Bloquear conversación sobre esta confirmación). ![Cuadro de diálogo Confirm lock with a reason (Confirmar bloqueo con motivo)](/assets/images/help/repository/lock-conversation-confirm-with-reason.png)
 5. Cuando estés listo para desbloquear la conversación, haz clic en **Unlock conversation** (Desbloquear conversación). ![Enlace Unlock conversation (Anular bloqueo de la conversación)](/assets/images/help/repository/unlock-conversation.png)
 
-### Further reading
+### Leer más
 
 - "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"

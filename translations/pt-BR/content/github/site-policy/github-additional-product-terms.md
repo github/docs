@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: December 14, 2020
+Data da entrada em vigor da versão: 14 de dezembro de 2020
 
 Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Abaixo, listamos esses recursos e produtos, juntamente com os termos adicionais correspondentes que se aplicam ao uso deles.
 
@@ -46,19 +46,19 @@ O GitHub Pages está sujeito a limites específicos de uso e largura de banda e 
 ### 5. Ações e Pacotes
 
 #### a. Uso das Ações
-GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
+O GitHub Actions é cobrado com base no uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
 
-Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). Além disso, as Ações não devem ser usadas para:
+As ações e todos elementos do Serviço de Ações não podem ser usados em violação do Contrato, a [Políticas de Uso Aceitável no GitHub](/github/site-policy/github-acceptable-use-policies), ou as limitações de serviço do GitHub Actions estabelecidas na [Documentação de Ações](/actions). Além disso, as Ações não devem ser usadas para:
 - mineração de criptomoedas;
-- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
+- usar nossos servidores para interromper ou ganhar ou tentar ganhar acesso não autorizado a qualquer serviço, dispositivo, dados, conta ou rede (a menos que autorizado pelo [programa GitHub Bug Bounty](https://bounty.github.com));
 - fornecimento de um aplicativo ou serviço independente ou integrado que ofereça Ações ou quaisquer elementos de Ações para fins comerciais;
 - qualquer atividade que coloque um peso em nossos servidores, em que esse peso é desproporcional aos benefícios oferecidos aos usuários (por exemplo, não usar Ações como uma rede de entrega de conteúdo ou como parte de um aplicativo sem servidor, mas uma Ação de baixo benefício pode ser realizada se também tiver um peso baixo); ou
 - qualquer outra atividade não relacionada à produção, teste, implantação ou publicação do projeto de software associado ao repositório onde as Ações do GitHub são usadas.
 
-Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitHub pode monitorar seu uso das Ações do GitHub. O uso indevido de Ações do GitHub pode resultar no encerramento de trabalhos ou restrições na sua capacidade de usar as Ações do GitHub.
+Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitHub pode monitorar seu uso das Ações do GitHub. O mau uso do GitHub Actions pode gerar a rescisão de trabalhos, restrições na sua capacidade de usar o GitHub Actions, ou a desabilitação de repositórios criados para executar ações de forma que viole estes Termos.
 
 #### b. Uso do pacotes
-GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
+O GitHub Packages são cobrados com base no uso. A [Documentação de pacotes](/packages) inclui detalhes, que abrangem a largura de banda e quantidades de armazenamento (dependendo do plano da sua conta) e como monitorar seu uso de pacotes e definir limites de uso. O uso de largura de banda de pacotes é limitado pela [Política de Uso Aceitável do GitHub](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -100,10 +100,10 @@ O Banco de Dados Consultivo GitHub está licenciado sob a [licença 4.0 Creative
 
 ### 13. GitHub Enterprise Server
 
-#### a. SQL Server Images
+#### a. Imagens do servidor SQL
 
-You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. A Microsoft Corporation pode desativar o SQL Server Images a qualquer momento.
+Você pode fazer o download da imagem de contêiner de edição padrão do Microsoft SQL Server para arquivos Linux ("Imagens do Servidor SQL"). Você deve desinstalar as imagens do Servidor SQL quando seu direito de usar o Software terminar. A Microsoft Corporation pode desativar o SQL Server Images a qualquer momento.
 
-#### b. Third-party components
+#### b. Componentes de terceiros
 
 O Software inclui componentes licenciados para o GitHub por terceiros, como programas de software cujas licenças exigem que o GitHub disponibilize o código-fonte desses componentes, que será fornecido mediante solicitação.

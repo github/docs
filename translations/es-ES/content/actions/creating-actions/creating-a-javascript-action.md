@@ -11,6 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Action development'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}

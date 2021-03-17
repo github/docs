@@ -123,7 +123,6 @@ versions:
 ### 延伸阅读
 
 {% if enterpriseServerVersions contains currentVersion %}
-- [关于 {% data variables.product.prodname_ghe_server %} 的常见问题](https://enterprise.github.com/faq)
 - 关于“[{% data variables.product.prodname_ghe_server %} 许可协议](https://enterprise.github.com/license)”中支持的第 10 节{% endif %}
 - "[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)"{% if enterpriseServerVersions contains currentVersion %}
 - “[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”{% endif %}

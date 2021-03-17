@@ -19,6 +19,6 @@ versions:
 
   {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación con SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

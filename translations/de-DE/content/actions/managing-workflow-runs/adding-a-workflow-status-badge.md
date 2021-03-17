@@ -34,7 +34,7 @@ https://github.com/<OWNER>/<REPOSITORY>/Workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 In diesem Markdown-Beispiel wird ein Status-Badge für einen Workflow mit dem Namen "Greet Everyone" hinzugefügt. Die `owner` des Repositorys sind die `Aktionen` Organisation, und der name `REPOSITORY` ist `hello-world`.
 
-```
+```markdown
 ! [Beispiel-Workflowname] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
@@ -42,7 +42,7 @@ In diesem Markdown-Beispiel wird ein Status-Badge für einen Workflow mit dem Na
 
 In diesem Markdown-Beispiel wird ein Status-Badge für einen Workflow mit dem Dateipfad `.github/workflows/main.yml`hinzugefügt. Die `owner` des Repositorys sind die `Aktionen` Organisation, und der name `REPOSITORY` ist `hello-world`.
 
-```
+```markdown
 ! [Beispiel Workflowdateipfad] (https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
@@ -50,7 +50,7 @@ In diesem Markdown-Beispiel wird ein Status-Badge für einen Workflow mit dem Da
 
 In diesem Markdown-Beispiel wird ein Status-Badge für eine Verzweigung mit dem Namen `Feature-1-`hinzugefügt.
 
-```
+```markdown
 ! [Beispiel-Zweigparameter] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
@@ -58,6 +58,6 @@ In diesem Markdown-Beispiel wird ein Status-Badge für eine Verzweigung mit dem 
 
 In diesem Markdown-Beispiel wird ein Badge hinzugefügt, das den Status von Workflowausführungen anzeigt, die durch das `pull_request` -Ereignis ausgelöst werden.
 
-```
+```markdown
 ! [Beispielereignisparameter] (https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?event=pull_request)
 ```

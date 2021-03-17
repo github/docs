@@ -11,7 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - 工作流程
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -79,7 +81,7 @@ type: 'tutorial'
 
 工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 它还会上传 `code-coverage.html` 报告作为另一个构件。
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -114,7 +116,7 @@ jobs:
 
 您可以为工作流程创建的单个构件自定义保留期。 使用工作流程创建新构件时，可以同时使用 `retention-days` with the `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的构件设置 5 天的自定义保留期：
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -183,7 +185,7 @@ jobs:
 
 此工作流程示例中执行的完整数学运算为 `(3 + 7) x 9 = 90`。
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]

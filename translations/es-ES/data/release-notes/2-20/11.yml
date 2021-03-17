@@ -1,5 +1,4 @@
----
-date: '09-07-2020'
+date: '2020-07-09'
 sections:
   security_fixes:
     - '**MEDIA:** Se actualizó nginx a la versión 1.16.1 y se dirigió el CVE-2019-20372. (actualizado 2020-07-22) {% comment %} https://github.com/github/enterprise2/pull/21251 {% endcomment %}'

@@ -129,6 +129,6 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Venezuela</li>
 </ul>
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"

@@ -20,6 +20,6 @@ De vez en cuando hacemos cambios en nuestras direcciones IP, y mantendremos esta
 
 Para que las aplicaciones funcionen, debes habilitar los puertos TCP 22, 80, 443 y 9418 mediante nuestros rangos de IP para `github.com`.
 
-### Further reading
+### Leer más
 
 - "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"

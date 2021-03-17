@@ -82,5 +82,5 @@ Puedes crear un mensaje personalizado que los usuarios suspendidos verán cuando
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### Further reading
+### Leer más
 - "[Suspender a un usuario](/rest/reference/enterprise-admin#suspend-a-user)"

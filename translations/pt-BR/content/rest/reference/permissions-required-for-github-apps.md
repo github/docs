@@ -107,7 +107,7 @@ _Pesquisar_
 - [`GET /search/topics`](/rest/reference/search#search-topics)
 - [`GET /search/users`](/rest/reference/search#search-users)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 ### Permissão em "ações"
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
@@ -202,6 +202,9 @@ _Branches_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#add-user-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#set-user-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#remove-user-access-restrictions) (:write)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
+{% endif %}
 
 _Colaboradores_
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/repos#add-a-repository-collaborator) (:write)
@@ -347,6 +350,9 @@ _Branches_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#add-app-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#set-app-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#remove-user-access-restrictions) (:write)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
+{% endif %}
 
 _Comentários de commit_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/repos#update-a-commit-comment) (:write)
@@ -822,7 +828,7 @@ _Equipes_
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Permission on "secret scanning alerts"
+### Permissão em "alertas de varredura de segredo"
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
 
@@ -836,6 +842,9 @@ _Equipes_
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_id`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
+- [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_id`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
+- [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-recent-code-scanning-analyses-for-a-repository) (:read)
+- [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-a-sarif-file) (:write)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}

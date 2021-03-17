@@ -1,6 +1,6 @@
 ---
 title: 概要
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
+intro: '{% data variables.product.product_name %} について学び、{% if enterpriseServerVersions contains currentVersion %}アカウントとアクセス、ライセンス、{% endif %}支払いを管理できます。'
 redirect_from:
   - /enterprise/admin/overview
 versions:
@@ -12,6 +12,7 @@ versions:
 
 ### 目次
 
+{% link_in_list /about-github-ae %}
 {% link_in_list /about-enterprise-accounts %}
 {% link_in_list /managing-your-github-enterprise-license %}
 {% link_in_list /managing-billing-for-your-enterprise %}

@@ -32,13 +32,15 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 {% if currentVersion == "free-pro-team@latest" %}
 ### Revisar alterações de dependência
 
-Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
 {% data reusables.repositories.changed-files %}
 
-1. À direita do cabeçalho para um manifesto ou arquivo de bloqueio, mostre a revisão de dependências clicando no botão de diff avançado.
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
 ### Marcar um arquivo como visualizado
@@ -65,5 +67,5 @@ Quando terminar de revisar os arquivos que deseja incluir na pull request, envie
 
 ### Leia mais
 
-- "[Sobre revisões obrigatórias para pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

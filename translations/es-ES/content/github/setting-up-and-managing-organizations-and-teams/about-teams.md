@@ -69,7 +69,7 @@ En la parte superior de la jerarquía del equipo, deberías otorgar permisos de 
 3. Crear todos los equipos nuevos que quieras, elegir un padre para cada equipo nuevo y otorgarles acceso a los repositorios.
 4. Agregar las personas directamente a los equipos.
 
-### Further reading
+### Leer más
 
 - "[Crear un equipo](/articles/creating-a-team)"
 - "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

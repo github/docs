@@ -13,7 +13,7 @@ versions:
 
 Para crear un encabezado, agrega uno a seis símbolos `#` antes del encabezado del texto. La cantidad de `#`</code> que usas determinará el tamaño del ecanbezado.
 
-```
+```markdown
 # El encabezado más largo
 ## El segundo encabezado más largo
 ###### El encabezado más pequeño
@@ -37,7 +37,7 @@ Puedes indicar énfasis con texto en negrita, cursiva o tachado.
 
 Puedes citar texto con un `>`.
 
-```
+```markdown
 Tal como dice Abraham Lincoln:
 
 > Con perdón de la expresión
@@ -55,7 +55,7 @@ Tal como dice Abraham Lincoln:
 
 Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado.
 
-```
+```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
 ```
 
@@ -102,7 +102,7 @@ Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes
 
 Puedes realizar una lista desordenada al anteceder una o más líneas de texto con `-` o `*`.
 
-```
+```markdown
 - George Washington
 - John Adams
 - Thomas Jefferson
@@ -112,7 +112,7 @@ Puedes realizar una lista desordenada al anteceder una o más líneas de texto c
 
 Para ordenar tu lista, antecede cada línea con un número.
 
-```
+```markdown
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
@@ -126,7 +126,7 @@ Puedes crear una lista anidada al dejar sangría en uno o más elementos de la l
 
 Para crear una lista anidada mediante el editor web en {% data variables.product.product_name %} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Escribe los caracteres con espacio frente a tu elemento de la lista anidada hasta que el carácter del marcador de lista (`-` or `*`) se encuentre directamente debajo del primer carácter del texto en el elemento que se encuentra por debajo.
 
-```
+```markdown
 1. Primer elemento de la lista
    - Primer elemento de la lista anidado
      - Segundo elemento de la lista anidado
@@ -140,7 +140,7 @@ Para crear una lista anidada en el editor de comentarios en {% data variables.pr
 
 En este ejemplo, puedes agregar un elemento de la lista anidada debajo del elemento de la lista `100. Primer elemento de la lista` con una sangría mínima de cinco espacios para el elemento de la lista anidada, dado que hay cinco caracteres (`100.`) antes del `Primer elemento de la lista`.
 
-```
+```markdown
 100. Primer elemento de la lista
      - Primer elemento de la lista anidada
 ```
@@ -149,7 +149,7 @@ En este ejemplo, puedes agregar un elemento de la lista anidada debajo del eleme
 
 Puedes crear múltiples niveles de listas anidadas mediante el mismo método. Por ejemplo, dado que el primer elemento de la lista tiene siete espacios (`␣␣␣␣␣-␣`) antes del contenido de la lista anidada `Primer elemento de la lista anidada`, deberías colocar sangría en el primer elemento de la lista anidada por siete espacios.
 
-```
+```markdown
 100. Primer elemento de la lista
      - Primer elemento de la lista anidada
        - Segundo elemento de la lista anidada
@@ -215,7 +215,7 @@ Puedes agregar emojis a tu escritura al escribir `:EMOJICODE:`.
 
 Si escribes `:` aparecerá una lista con los emojis sugeridos. La lista filtrará a medida que escribes; por lo tanto, una vez que encuentres el emoji que estás buscando, presiona **Tab** (Tabulador) o **Enter** (Intro) para completar el resultado resaltado.
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+Para encontrar una lista completa de emojis y códigos disponibles, consulta el [listado de emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ### Párrafos
 
@@ -231,7 +231,7 @@ Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) 
 
 Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireball](https://daringfireball.net/projects/markdown/syntax#backslash),
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - "[Acerca de escritura y formato en GitHub](/articles/about-writing-and-formatting-on-github)"

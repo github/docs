@@ -103,7 +103,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"

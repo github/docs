@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Embalaje'
+  - 'Publishing'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -55,7 +59,7 @@ Las opciones de `build-push-action` que se requieren para Docker Hub son:
 * `repository`: Tu repositorio de Docker hub en el formato `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -93,7 +97,7 @@ Las opciones de `build-push-action` requeridas para {% data variables.product.pr
 * `repository`: Debe configurarse en el formato `OWNER/REPOSITORY/IMAGE_NAME`. Por ejemplo, para una imagen nombrada como `octo-image` almacenada en {% data variables.product.prodname_dotcom %} en `http://github.com/octo-org/octo-repo`, la opción de `repository` debe configurarse como `octo-org/octo-repo/octo-image`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -126,7 +130,7 @@ En un solo flujo de trabajo, puedes publicar tu imagen de Docker en varios regis
 El siguiente flujo de trabajo de ejemplo utiliza los pasos de `build-push-action` de las secciones anteriores ("[Publicar imágenes en Docker Hub](#publishing-images-to-docker-hub)" y "[Publicar imágenes en {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") para crear un solo flujo de trabajo que cargue ambos registros.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:

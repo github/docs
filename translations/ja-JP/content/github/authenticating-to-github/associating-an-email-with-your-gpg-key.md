@@ -33,14 +33,18 @@ versions:
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. `O` を入力して選択した内容を保存してください。
+7. Enter `O` to confirm your selections.
 8. キーのパスフレーズを入力してください。
-9. `gpg --armor --export GPG key ID` と入力してください。GPG key ID は使いたいキーの ID で置き換えてください。 以下の例では、GPG キー ID は `3AA5C34371567BD2` です。
+9. Enter `gpg> save` to save the changes
+  ```shell
+  $ gpg> save
+  ```
+10. `gpg --armor --export GPG key ID` と入力してください。GPG key ID は使いたいキーの ID で置き換えてください。 以下の例では、GPG キー ID は `3AA5C34371567BD2` です。
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # ASCII armor 形式で GPG キーを出力する
   ```
-10. [GPG キーを GitHub アカウントに追加](/articles/adding-a-new-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
+11. [GPG キーを GitHub アカウントに追加](/articles/adding-a-new-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
 
 ### 参考リンク
 

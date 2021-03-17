@@ -30,11 +30,11 @@ versions:
   github-ae: '*'
 ---
 
-### Configuring the default visibility of new repositories in your enterprise
+### Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する
 
-Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+ユーザが Enterprise に新しいリポジトリを作成するたびに、そのユーザはリポジトリの可視性を選択する必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
+Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
@@ -43,15 +43,15 @@ If an enterprise owner disallows members from creating certain types of reposito
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. "Default repository visibility（デフォルトのリポジトリの可視性）"の下で、ドロップダウンメニューを使ってデフォルトの可視性を選択してください。![Drop-down menu to choose the default repository visibility for your enterprise](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
+1. "Default repository visibility（デフォルトのリポジトリの可視性）"の下で、ドロップダウンメニューを使ってデフォルトの可視性を選択してください。![Enterprise におけるデフォルトのリポジトリの可視化性を選択するためのドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
 ### リポジトリの可視性を変更するためのポリシーを設定する
 
-When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
+メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
 
-If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
+Enterprise のオーナーがリポジトリの作成を Organization のオーナーのみに制限している場合、メンバーはリポジトリの可視性を変更できません。 Enterprise のオーナーがメンバーリポジトリの作成をプライベートリポジトリのみに制限している場合、メンバーはリポジトリの可視性をプライベートにのみ変更できます。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -77,7 +77,7 @@ If an enterprise owner has restricted repository creation to organization owners
 
 ### プライベートまたは内部リポジトリのフォークに関するポリシーを施行する
 
-Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+Enterprise が所有しているすべての Organization 全体で、ユーザーにリポジトリのフォーク用にプライベートまたは内部リポジトリへのアクセスを許可したり、プライベートまたは内部リポジトリのフォークを一切禁止したり、オーナーが Organization レベルで設定を管理できるようにしたりすることができます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -95,7 +95,7 @@ Across all organizations owned by your enterprise, you can allow people with acc
 
 ### Git プッシュ制限のためのポリシーを設定する
 
-To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
+リポジトリのサイズを管理しやすくして、パフォーマンスの問題を防ぐために、Enterprise 内のリポジトリのファイルサイズ制限を設定できます。
 
 デフォルトでは、リポジトリのアップロード制限を適用すると、100MB以上のファイルの追加やアップロードができなくなります。
 
@@ -115,7 +115,7 @@ To keep your repository size manageable and prevent performance issues, you can 
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. [Repository upload limit] で、ドロップダウンメニューを使用して最大オブジェクトサイズをクリックします。 ![最大オブジェクトサイズのオプションを備えたドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories** ![すべてのリポジトリにオブジェクトの最大サイズを適用するオプション](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+5. 必要に応じて、すべてのリポジトリにアップロードの最大制限を適用するには [**Enforce on all repositories**] を選択します。 ![すべてのリポジトリにオブジェクトの最大サイズを適用するオプション](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
 ### リポジトリ間のプルリクエストのためのマージコンフリクトエディタを設定する
 
@@ -132,7 +132,7 @@ To keep your repository size manageable and prevent performance issues, you can 
 
 ### フォースプッシュを設定する
 
-それぞれのリポジトリは、所属するユーザアカウントもしくはOraganizationの設定から、デフォルトのフォースプッシュの設定を引き継ぎます。 Likewise, each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, it will change for all repositories owned by any user or organization.
+それぞれのリポジトリは、所属するユーザアカウントもしくはOraganizationの設定から、デフォルトのフォースプッシュの設定を引き継ぎます。 同様に、それぞれの Organization およびユーザアカウントは、デフォルトのフォースプッシュの設定をアプライアンス全体のフォースプッシュの設定から引き継ぎます。 Enterprise のフォースプッシュの設定を変更すると、すべてのユーザあるいは Organization が所有するすべてのリポジトリが変更されます。
 
 #### アプライアンス上でのすべてのフォースプッシュをブロックする
 
@@ -160,7 +160,7 @@ To keep your repository size manageable and prevent performance issues, you can 
 
 #### ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック
 
-リポジトリは、所属するユーザアカウントもしくはOrganizationからフォースプッシュの設定を引き継ぎます。 User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
+リポジトリは、所属するユーザアカウントもしくはOrganizationからフォースプッシュの設定を引き継ぎます。 そして、それぞれの Organization およびユーザアカウントは、フォースプッシュの設定を Enterprise のフォースプッシュの設定から引き継ぎます。
 
 引き継がれたデフォルトの設定は、ユーザアカウントもしくはOrganizationの設定をすることで上書きできます。
 
@@ -173,7 +173,7 @@ To keep your repository size manageable and prevent performance issues, you can 
 5. [Repository default settings（リポジトリのデフォルト設定）] の下の [Force pushes（フォースプッシュ）] セクションで、以下から選択してください。
     - [**Block（ブロック）**] ですべてのブランチへのフォースプッシュがブロックされます。
     - [**Block to the default branch（デフォルトブランチへのブロック）**] でデフォルトブランチへのフォースプッシュのみがブロックされます。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. **Enforce on all repositories（すべてのリポジトリに対して強制）**を選択して、リポジトリ固有の設定を上書きすることもできます。 Note that this will **not** override an enterprise-wide policy. ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+6. **Enforce on all repositories（すべてのリポジトリに対して強制）**を選択して、リポジトリ固有の設定を上書きすることもできます。 これは、Enterprise 全体のポリシーを**上書きしません**のでご注意ください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -181,11 +181,11 @@ To keep your repository size manageable and prevent performance issues, you can 
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% if enterpriseServerVersions contains currentVersion %}If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) on your enterprise, you {% else %}You {% endif %}can allow repository administrators to enable anonymous Git read access to public repositories.
+{% if enterpriseServerVersions contains currentVersion %} Enterprise で[プライベートモードを有効化](/enterprise/admin/configuration/enabling-private-mode)している場合は、{% else %}{% endif %}リポジトリ管理者がパブリックリポジトリへの匿名 Git 読み取りアクセスを有効化できるようにすることができます。
 
-Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. あなたもしくはリポジトリ管理者がこのアクセス設定をリポジトリで有効化すると、認証を受けていない Git の操作 (そして {% data variables.product.product_name %} へのネットワークアクセスができる人はだれでも) は、認証なしでリポジトリに読み取りアクセスできることになります。
+匿名 Git 読み取りアクセスを有効化すると、ユーザは Enterprise 上のカスタムツールの認証をバイパスできるようになります。 あなたもしくはリポジトリ管理者がこのアクセス設定をリポジトリで有効化すると、認証を受けていない Git の操作 (そして {% data variables.product.product_name %} へのネットワークアクセスができる人はだれでも) は、認証なしでリポジトリに読み取りアクセスできることになります。
 
-If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. リポジトリのGit読み取りアクセス設定をロックすると、サイト管理者だけがこの設定を変更できるようになります。
+必要に応じて、リポジトリのアクセス設定をロックすることで、リポジトリ管理者が Enterprise のリポジトリの匿名 Git アクセス設定を変更不可にすることができます。 リポジトリのGit読み取りアクセス設定をロックすると、サイト管理者だけがこの設定を変更できるようになります。
 
 {% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
@@ -201,7 +201,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. [Anonymous Git read access（匿名 Git 読み取りアクセス）] の下で、ドロップダウンメニューを使って [**Enabled（有効化）**] をクリックしてください。 ![[Enabled] と [Disabled] のメニューオプションが表示されている [Anonymous Git read access] ドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**. ![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+3. Enterprise のすべてのリポジトリでリポジトリ管理者が匿名 Git 読み取りアクセス設定を変更するのを避けるために、[**Prevent repository admins from changing anonymous Git read access**] を選択することもできます。 ![Enterprise のすべてのリポジトリへの匿名 Git 読み取りアクセス設定をリポジトリ管理者が変更するのを避けるための選択チェックボックス](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
 #### 特定のリポジトリでの匿名 Git 読み取りアクセスを設定する
 

@@ -28,7 +28,7 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 #### Using the BFG
 
-The [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. For example, to remove your file with sensitive data and leave your latest commit untouched, run:
+The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -46,7 +46,7 @@ After the sensitive data is removed, you must force push your changes to {% data
 $ git push --force
 ```
 
-See the [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
+See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
 #### Using filter-branch
 

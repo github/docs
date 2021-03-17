@@ -7,7 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+type: tutorial
+topics:
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +40,7 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. До�
 To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -94,7 +97,7 @@ If you are using a self-hosted runner, you can configure the runner to use the `
 #### Using multiple Python versions
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -126,7 +129,7 @@ jobs:
 You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -158,7 +161,7 @@ If you specify a version of Python that is not available, `setup-python` fails w
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -196,7 +199,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -213,7 +216,7 @@ steps:
 After you update `pip`, a typical next step is to install dependencies from *requirements.txt*.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -234,7 +237,7 @@ When using {% data variables.product.prodname_dotcom %}-hosted runners, you can 
 Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Setup Python
@@ -271,7 +274,7 @@ You can use the same commands that you use locally to build and test your code.
 This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -295,7 +298,7 @@ steps:
 The following example installs or upgrades `flake8` and uses it to lint all files. For more information, see [Flake8](http://flake8.pycqa.org/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -318,7 +321,7 @@ steps:
 With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -352,7 +355,7 @@ You can upload artifacts to view after a workflow completes. For example, you ma
 The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -365,26 +368,26 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python # Set Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      # Install pip and pytest
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-      - name: Test with pytest
-        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-      - name: Upload pytest test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: pytest-results-${{ matrix.python-version }}
-          path: junit/test-results-${{ matrix.python-version }}.xml
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python # Set Python version
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    # Install pip and pytest
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+    - name: Test with pytest
+      run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+    - name: Upload pytest test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -395,7 +398,7 @@ You can configure your workflow to publish your Python package to any package re
 You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Upload Python Package
 
 on:

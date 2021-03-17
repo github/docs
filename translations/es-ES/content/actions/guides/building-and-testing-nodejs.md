@@ -9,6 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Nodo'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -77,7 +81,7 @@ La plantilla incluye una estrategia de matriz que crea y prueba tu código con c
 Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}"](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) y "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 {% raw %}
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
@@ -93,7 +97,7 @@ steps:
 
 Como alternativa, puedes construir y probar con las versiones exactas de Node.js.
 
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [8.16.2, 10.17.0]
@@ -102,7 +106,7 @@ strategy:
 O bien, puedes construir y probar mediante una versión única de Node.js.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]
@@ -136,7 +140,7 @@ Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotc
 
 Este ejemplo instala las dependencias definidas en el archivo *package.json*. Para obtener más información, consulta [`Instalar npm`](https://docs.npmjs.com/cli/install).
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -150,7 +154,7 @@ steps:
 Mediante `npm ci` se instalan las versiones en el archivo *package-lock.json* o *npm-shrinkwrap.json* y se evitan las actualizaciones al archivo de bloqueo. Usar `npm ci` generalmente es más rápido que ejecutar `npm install`. Para obtener más información, consulta [`npm ci`](https://docs.npmjs.com/cli/ci.html) e [Introducir `npm ci` para construcciones más rápidas y confiables](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -166,7 +170,7 @@ steps:
 
 Este ejemplo instala las dependencias definidas en el archivo *package.json*. Para obtener más información, consulta [`Instalar yarn`](https://yarnpkg.com/en/docs/cli/install).
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -179,7 +183,7 @@ steps:
 
 De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo *yarn.lock* y evitar actualizaciones al archivo *yarn.lock*.
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -201,7 +205,7 @@ En el siguiente ejemplo, el secreto `NPM_TOKEN` almacena el token de autenticaci
 Antes de instalar dependencias, utiliza la acción `setup-node` para crear el archivo *.npmrc*. La acción tiene dos parámetros de entrada. El parámetro `node-version` establece la versión de Node.js y el parámetro `registry-url` establece el registro predeterminado. Si tu registro de paquetes usa ámbitos, debes usar el parámetro `scope`. Para obtener más información, consulta [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -220,7 +224,7 @@ steps:
 
 El ejemplo anterior crea un archivo *.npmrc* con el siguiente contenido:
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true
@@ -231,7 +235,7 @@ always-auth=true
 Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar las dependencias en el caché utilizando una clave única y restaurar las dependencias cuando ejecutes flujos de trabajo subsecuentes, utilizando la acción `cache`. Para obtener más información, consulta "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar en caché las dependencias para agilizar los flujos de trabajo</a>" y la acción [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -256,7 +260,7 @@ steps:
 
 Puedes usar los mismos comandos que usas de forma local para construir y probar tu código. Por ejemplo, si ejecutas `npm run build` para ejecutar pasos de construcción definidos en tu archivo *package.json* y `npm test` para ejecutar tu conjunto de pruebas, añadirías esos comandos en tu archivo de flujo de trabajo.
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js

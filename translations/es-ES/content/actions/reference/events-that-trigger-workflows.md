@@ -224,15 +224,15 @@ on:
   create
 ```
 
-#### `eliminar`
+#### `delete`
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien cree una rama o etiqueta, lo que activa el evento `delete`. Para obtener más información sobre la API de REST, consulta la sección "[Borrar una referencia](/rest/reference/git#delete-a-reference)".
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga del evento Webhook                       | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`     |
-| ---------------------------------------------- | ------------------ | --------------------------------------------- | ---------------- |
-| [`eliminar`](/webhooks/event-payloads/#delete) | n/a                | Última confirmación en la rama predeterminada | Rama por defecto |
+| Carga del evento Webhook                     | Tipos de actividad | `GITHUB_SHA`                                  | `GITHUB_REF`     |
+| -------------------------------------------- | ------------------ | --------------------------------------------- | ---------------- |
+| [`delete`](/webhooks/event-payloads/#delete) | n/a                | Última confirmación en la rama predeterminada | Rama por defecto |
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento `delete`.
 

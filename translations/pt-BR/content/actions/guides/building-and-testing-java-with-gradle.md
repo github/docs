@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Para começar rapidamente, você pode escolher o modelo do Gradle pré-configura
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ O fluxo de tarbalho inicial executará a tarefa `criar` por padrão. Na configur
 Se você usa comandos diferentes para criar seu projeto ou se você desejar usar uma atividade diferente, você poderá especificá-los. Por exemplo, é possível que você deseje executar a tarefa `pacote` configurada no seu arquivo _ci.gradle_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, a sua cache do pacote do Gradle local será armazenada na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios de pacotes remotos. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -105,15 +109,24 @@ steps:
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
-      path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
+  - name: Cleanup Gradle Cache
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+    run: |
+      rm -f ~/.gradle/caches/modules-2/modules-2.lock
+      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 
-Este fluxo de trabalho salvará o conteúdo da sua cache local do pacote Gradle, localizado no diretório `.gradle/caches` do diretório principal do executor. A chave da cache será o conteúdo em hash dos arquivos de criação do Gradle. Portanto, suas alterações irão invalidar a cache.
+Este fluxo de trabalho salvará o conteúdo de seu cache local do pacote Gradle, localizado nos diretórios `.gradle/caches` e `.gradle/wrapper` do diretório inicial do executor. A chave de cache será o conteúdo da compilação com hash (incluindo o arquivo de propriedades do wrapper do Gradle). Portanto, qualquer alteração neles irá invalidar o cache.
 
 ### Empacotar dados do fluxo de trabalho como artefatos
 
@@ -122,7 +135,7 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 De modo geral, o Gradle cria arquivos de saída como JARs, EARs ou WARs no diretório `build/libs`. Você pode fazer upload do conteúdo desse diretório usando a ação `upload-artefact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

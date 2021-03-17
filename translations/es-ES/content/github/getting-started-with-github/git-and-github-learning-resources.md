@@ -25,15 +25,13 @@ Para familiarizarte con Git, visita el [sitio oficial del proyecto Git](https://
 
 {% endif %}
 
-Adquiere más conocimientos con {% data variables.product.product_name %} a través de nuestros artículos de [seminario intensivo](/categories/bootcamp/). Consulta nuestro [ flujo de {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow) para acceder a una introducción del proceso. Consulta nuestras [guías de descripción general](https://guides.github.com) para conocer nuestros conceptos básicos.
+Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. Consulta nuestro [ flujo de {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow) para acceder a una introducción del proceso. Consulta nuestras [guías de descripción general](https://guides.github.com) para conocer nuestros conceptos básicos.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Ramas, bifurcaciones y solicitudes de extracción
 
-Conoce más sobre las [ramas de Git](http://learngitbranching.js.org/) usando una herramienta interactiva. Lee más acerca de [bifrucaciones](/articles/about-forks) y [solicitudes de extracción](/articles/using-pull-requests), además de [cómo usar las solicitudes de extracción](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) en {% data variables.product.prodname_dotcom %}.
-
-Accede a guías de referencia rápida acerca de la [línea de comando](https://hub.github.com) y de [guías de comprobación, hojas de referencia de {% data variables.product.prodname_dotcom %}, y mucho más](https://services.github.com/on-demand/resources).
+Conoce más sobre las [ramas de Git](http://learngitbranching.js.org/) usando una herramienta interactiva. Lee más acerca de [bifrucaciones](/articles/about-forks) y [solicitudes de extracción](/articles/using-pull-requests), además de [cómo usar las solicitudes de extracción](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) en {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 #### Ponte al día
 
@@ -41,9 +39,9 @@ Nuestro {% data variables.product.prodname_dotcom %} [canal con guías y capacit
 
 ### Capacitación
 
-#### Clases gratuitas
+#### Free courses
 
-{% data variables.product.product_name %} ofrece una serie de cursos de capacitación interactivos a pedido [on-demand training courses](https://services.github.com/on-demand/), entre otros, {% data variables.product.prodname_dotcom %} 101: [Introducción](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %} 102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop) y {% data variables.product.prodname_dotcom %} 103: [Línea de comando](https://services.github.com/on-demand/github-cli).
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 #### Programas educativos basados en la web de {% data variables.product.prodname_dotcom %}
 
@@ -51,7 +49,7 @@ Nuestro {% data variables.product.prodname_dotcom %} [canal con guías y capacit
 
 #### Capacitación para tu compañía
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contáctanos](https://services.github.com/#contact) para que podamos responder tus preguntas relacionadas con la capacitación.
+{% data variables.product.prodname_dotcom %} ofrece [clases presenciales](https://services.github.com/#offerings) a cargo de nuestros capacitadores sumamente experimentados. [Contáctanos](https://services.github.com/#contact) para que podamos responder tus preguntas relacionadas con la capacitación.
 
 ### Extras
 

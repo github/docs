@@ -24,5 +24,5 @@ También puedes ver información de implementación en la pestaña "Conversation
 {% data reusables.repositories.navigate-to-repo %}
 2. Arriba de la lista de archivos, haz clic en **Environments (Entornos)**. ![Entornos por encima de la página del repositorio](/assets/images/help/repository/environments.png)
 
-### Further reading
+### Leer más
  - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"

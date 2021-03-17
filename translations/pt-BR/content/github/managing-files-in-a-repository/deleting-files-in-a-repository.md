@@ -1,6 +1,6 @@
 ---
-title: Deleting files in a repository
-intro: 'You can delete an individual file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
+title: Excluir arquivos em um repositório
+intro: 'Você pode excluir um arquivo individual{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou um diretório inteiro{% endif %} no seu repositório em {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -9,18 +9,18 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.
+permissions: As pessoas com permissões de gravação podem excluir arquivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou diretórios{% endif %} em um repositório.
 ---
 
-### About file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} and directory{% endif %} deletion
+### Sobre a exclusão de arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} e diretório{% endif %}
 
-You can delete an individual file in your repository{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory, including all the files in the directory{% endif %}.
+É possível excluir um arquivo individual no repositório{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou um diretório inteiro, incluindo todos os arquivos no diretório{% endif %}.
 
-If you try to delete a file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+Se você tentar excluir um arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou diretório{% endif %} em um repositório no qual você não tem permissões de gravação, faremos uma bifurcação do projeto para a sua conta de usuário e iremos ajudá-lo a enviar um pull request para o repositório original depois de fazer commit da sua alteração. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
-If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
+Se o arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou diretório{% endif %} que você excluiu contém dados cnfidenciais, os dados ainda estarão disponíveis no histórico Git do repositório. Para remover completamente o arquivo de {% data variables.product.product_name %}, você deve remover o arquivo do histórico do seu repositório. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 
-### Deleting a file
+### Excluir um arquivo
 
 1. Navegue até o arquivo no repositório que deseja excluir.
 2. Na parte superior do arquivo, clique
@@ -31,11 +31,11 @@ If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_
 {% data reusables.files.propose_file_change %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Deleting a directory
+### Excluir um diretório
 
-1. Browse to the directory in your repository that you want to delete.
-1. In the top-right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete directory**. ![Button to delete a directory](/assets/images/help/repository/delete-directory-button.png)
-1. Review the files you will delete.
+1. Acesse o diretório no seu repositório que deseja excluir.
+1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em **Excluir diretório**. ![Botão para excluir um diretório](/assets/images/help/repository/delete-directory-button.png)
+1. Revise os arquivos que você excluirá.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

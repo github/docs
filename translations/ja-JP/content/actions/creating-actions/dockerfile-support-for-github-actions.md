@@ -1,14 +1,14 @@
 ---
 title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Docker
-intro: 'Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。'
+intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,20 +48,21 @@ Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります�
 
 _exec_形式の`ENTRYPOINT`命令を使うようにコンテナを設定した場合、アクションのメタデータファイル中に設定された`args`はコマンドシェル内では実行されません。 アクションの`args`に環境変数が含まれている場合、その変数は置換されません。 たとえば、以下の_exec_形式は`$GITHUB_SHA`に保存された値を出力せず、代わりに`"$GITHUB_SHA"`を出力します。
 
-```
+```dockerfile
 ENTRYPOINT ["echo $GITHUB_SHA"]
 ```
 
  変数の置換をさせたい場合は、_shell_形式を使うか、直接シェルを実行してください。 たとえば、以下の_exec_形式を使えば、シェルを実行して環境変数`GITHUB_SHA`に保存された値を出力できます。
 
-```
+```dockerfile
 ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 ```
 
  アクションのメタデータファイルに定義された`args`を、`ENTRYPOINT`中で_exec_形式を使うDockerコンテナに渡すには、`ENTRYPOINT`命令から呼ぶ`entrypoint.sh`というシェルスクリプトを作成することをおすすめします。
 
 ##### *Dockerfile*の例
-```
+
+```dockerfile
 # コードを実行するコンテナイメージ
 FROM debian:9.5-slim
 

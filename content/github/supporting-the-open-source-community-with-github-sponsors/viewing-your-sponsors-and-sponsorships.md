@@ -30,5 +30,5 @@ You can export your sponsorship transactions by month. {% data variables.product
 {% data reusables.sponsors.activity-tab %}
 1. Click {% octicon "download" aria-label="The download icon" %} **Export**.
   ![Export button](/assets/images/help/sponsors/export-all.png)
-1. Choose a timeframe and a format for the data you'd like to export, then click **Start export**.
+1. Choose a time frame and a format for the data you'd like to export, then click **Start export**.
   ![Options for data export](/assets/images/help/sponsors/export-your-sponsors.png)

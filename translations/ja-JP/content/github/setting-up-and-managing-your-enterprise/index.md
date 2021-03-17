@@ -18,6 +18,7 @@ versions:
     {% link_in_list /about-enterprise-accounts %}
     {% link_in_list /viewing-the-subscription-and-usage-for-your-enterprise-account %}
     {% link_in_list /managing-licenses-for-visual-studio-subscription-with-github-enterprise %}
+    {% link_in_list /connecting-an-azure-subscription-to-your-enterprise %}
 {% topic_link_in_list /managing-users-in-your-enterprise %}
     {% link_in_list /roles-in-an-enterprise %}
     {% link_in_list /inviting-people-to-manage-your-enterprise %}

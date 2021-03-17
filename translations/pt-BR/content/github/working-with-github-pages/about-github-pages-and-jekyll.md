@@ -38,7 +38,7 @@ O Jekyll não é oficialmente compatível com o Windows. Para obter mais informa
 
 Algumas definições de configuração não podem ser alteradas para sites do {% data variables.product.prodname_pages %}.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ Por padrão, blocos de código no seu site serão destacados pelo Jekyll. O Jeky
 
 Se quiser usar outro realçador, como `highlight.js`, você deverá desabilitar o realce da sintaxe do Jekyll atualizando o arquivo *_config.yml* do projeto.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

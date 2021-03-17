@@ -38,7 +38,7 @@ Se desejar interagir com vários repositórios, você poderá adicionar cada rep
 Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -80,7 +80,7 @@ Se sua instância tem o isolamento de subdomínio habilitado:
 {% if enterpriseServerVersions contains currentVersion %}
 Se sua instância tem o isolamento de subdomínio desabilitado:
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -138,7 +138,7 @@ Para obter mais informações sobre como criar um pacote, consulte a [documenta�
   {% if enterpriseServerVersions contains currentVersion %}
   Se sua instância tem o isolamento de subdomínio habilitado:
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -149,7 +149,7 @@ Para obter mais informações sobre como criar um pacote, consulte a [documenta�
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   Se sua instância tem o isolamento de subdomínio desabilitado:
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -174,7 +174,7 @@ Para instalar um pacote de Apache Maven a partir do {% data variables.product.pr
 {% data reusables.package_registry.authenticate-step %}
 2. Adicione as dependências do pacote ao elemento `dependências` do arquivo *pom.xml* do seu projeto, substituindo `com.exemplo:test` pelo seu pacote.
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>

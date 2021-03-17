@@ -19,7 +19,7 @@ Un propietario de la organización debe permitir las bifurcaciones de repositori
 {% data reusables.repositories.sidebar-settings %}
 3. En "Features" (Características), selecciona **Allow forking** (Permitir bifurcación). ![Casilla de verificación para permitir o prohibir la bifurcación de un repositorio privado](/assets/images/help/repository/allow-forking-specific-org-repo.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"

@@ -45,7 +45,7 @@ versions:
 7. No topo da página Quick Setup (Configuração rápida) do repositório do {% data variables.product.product_name %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remote. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. No Terminal, [adicione a URL para o repositório remote](/articles/adding-a-remote) onde será feito push do seu repositório local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -83,7 +83,7 @@ versions:
 7. No topo da página Quick Setup (Configuração rápida) do repositório do {% data variables.product.product_name %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remote. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. No prompt de comando, [adicione a URL para o repositório remote](/articles/adding-a-remote) onde será feito push do seu repositório local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
@@ -121,7 +121,7 @@ versions:
 7. No topo da página Quick Setup (Configuração rápida) do repositório do {% data variables.product.product_name %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remote. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. No Terminal, [adicione a URL para o repositório remote](/articles/adding-a-remote) onde será feito push do seu repositório local.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL

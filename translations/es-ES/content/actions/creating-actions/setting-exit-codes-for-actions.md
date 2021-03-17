@@ -41,11 +41,13 @@ Para obtener más información, consulta "[Crear una acción JavaScript](/articl
 
 Si vas a crear una acción de contenedor Docker, puedes establecer un código de salida fallida en tu script `entrypoint.sh`. Por ejemplo:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 Para obtener más información, consulta "[Crear una acción de contenedor Docker](/articles/creating-a-docker-container-action)".

@@ -20,7 +20,7 @@ Para criptografia em trânsito, {% data variables.product.product_name %} usa o 
 
 A chave que você fornecer é armazenada em um módulo de segurança de hardware (HSM) em um cofre chave que {% data variables.product.company_short %} gerencia.
 
-Para configurar sua chave de criptografia, use a API REST. Existem vários pontos de extremidade da API, por exemplo, para verificar o status da criptografia, atualizar sua chave de criptografia e excluir sua chave de criptografia. Observe que que apagar sua chave irá congelar a sua empresa. Para obter mais informações sobre os pontos de extremidade da API, consulte "[Criptografia estática](/rest/reference/enterprise-admin#encryption-at-rest)" na documentação da API REST.
+Para configurar sua chave de criptografia, use a API REST. Existem vários pontos de extremidade da API, por exemplo, para verificar o status da criptografia, atualizar sua chave de criptografia e desabilitar sua chave de criptografia. Observe que que desabilitar a sua chave irá congelar a sua empresa. Para obter mais informações sobre os pontos de extremidade da API, consulte "[Criptografia estática](/rest/reference/enterprise-admin#encryption-at-rest)" na documentação da API REST.
 
 ### Adicionar ou atualizar uma chave de criptografia
 
@@ -48,23 +48,23 @@ Sua chave privada RSA de 2048 bits deve estar no formato PEM como, por exemplo, 
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Excluir a sua chave de criptografia
+### Desabilitar a sua chave de criptografia
 
-Para congelar a sua empresa, por exemplo, no caso de uma violação, você pode desabilitar a criptografia, excluindo sua chave de criptografia.
+Para congelar a sua empresa, por exemplo, no caso de uma violação, você pode desabilitar a criptografia, marcando a sua chave de criptografia como desabilitada.
 
-Para descongelar a sua empresa depois de ter excluído sua chave de criptografia, entre em contato com o suporte. Para obter mais informações, consulte "[Sobre o {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
-
-1. Para excluir sua chave e desabilitar a criptografia estática, use o ponto de extremidade `DELETE /enterprise/encryption`.
+1. Para desabilitar a sua chave e a criptografia estática, use o ponto de extremidade `DELETE /enterprise/encryption`. Esta operação não exclui a chave permanentemente.
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. Opcionalmente, verifique o status da operação de exclusão.
+2. Opcionalmente, verifique o status da operação de exclusão. Demora aproximadamente dez minutos para desabilitar a criptografia em repouso.
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
+
+Para descongelar a sua empresa depois de ter desabilitado a sua chave de criptografia, entre em contato com o suporte. Para obter mais informações, consulte "[Sobre o {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
 
 ### Leia mais
 

@@ -24,5 +24,5 @@ Escribir solicitudes para la réplica exige que se envíen los datos al principa
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Further reading
+### Leer más
 - "[Crear réplicas de replicación geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

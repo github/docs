@@ -37,7 +37,7 @@ versions:
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+### Leer más
 
 - "[Crear archivos nuevos](/articles/creating-new-files)"
 - [Agregar un proyecto existente a GitHub mediante la línea de comando](/articles/adding-an-existing-project-to-github-using-the-command-line)"

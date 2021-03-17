@@ -213,7 +213,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 设备流程的速率限制
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+当用户在浏览器上提交验证码时，每个应用程序在一个小时内的提交速率限制为 50 个。
 
 如果您在请求之间所需的最短时间段（或 `interval`）内发出多个访问令牌请求 (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`)，您将达到速率限制并收到 `slow_down` 错误响应。 `slow_down` 错误响应将给最近的`间隔`增加 5 秒。 更多信息请参阅“[设备流程的错误](#errors-for-the-device-flow)”。
 

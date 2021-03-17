@@ -113,4 +113,5 @@ Para criar a instância do {% data variables.product.prodname_ghe_server %}, voc
 
 ### Leia mais
 
-- [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

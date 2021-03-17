@@ -8,9 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ### About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
@@ -45,7 +49,7 @@ The following example demonstrates how you can use {% data variables.product.pro
 
 - Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
   {% raw %}
-  ```
+  ```yaml{:copy}
   name: Create and publish a package
   on:
     push:
@@ -99,7 +103,7 @@ The following example demonstrates how you can use {% data variables.product.pro
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
           repository: ${{ github.repository }}/octo-image
           tag_with_sha: true
           tag_with_ref: true
@@ -251,14 +255,12 @@ password: ${{ secrets.GITHUB_TOKEN }}
   <tr>
   <td>
 
-{% raw %}
   ```yaml
-registry: docker.pkg.github.com
+registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
   ```
-{% endraw %}
   </td>
   <td>
-    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.
+    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.{% if currentVersion == "github-ae@latest" %} Replace <code>YOUR-HOSTNAME</code> with the name of your enterprise.{% endif %}
   </td>
   </tr>
   <tr>
@@ -302,7 +304,7 @@ tag_with_ref: true
   </tr>
   </table>
 
-- This new workflow will run automatically every time you push a change to the repository. You can view the progress in the **Actions** tab.
+- This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 - A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
 
 ### Installing a package using an action

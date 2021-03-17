@@ -22,12 +22,19 @@ Você pode integrar {% data variables.product.prodname_registry %} com as APIs d
 
 You can host multiple packages in one repository and see more information about each package by viewing the package's README, download statistics, version history, and more.
 
+<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+![Diagrama que mostra as urls de hospedagem de GitHub Packages para npm, RubyGems, Apache Maven, Gradle, Nuget e Docker](/assets/images/help/package-registry/ghes-packages-diagram.png)
+
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_github_container_registry %}](/packages/guides/about-github-container-registry)."
 
 {% data reusables.package_registry.container-registry-beta %}
 
-![Diagrama que mostra Node, RubyGems, Apache Maven, Gradle, Nuget e o registro do contêiner com suas urls de hospedagem](/assets/images/help/package-registry/packages-overview-diagram.png)
+![Diagrama que mostra as urls de hospedagem de GitHub Packages para npm, RubyGems, Apache Maven, Gradle, Nuget e Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% endif %}
 
@@ -109,11 +116,11 @@ Para obter mais informações sobre o isolamento de subdomínio, consulte "[Habi
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Package client guides for {% data variables.product.prodname_registry %}](/packages/guides/package-client-guides-for-github-packages)."
+Para obter mais informações sobre a configuração do cliente do seu pacote para uso com {% data variables.product.prodname_registry %}, consulte "[Guias do cliente do pacote para {% data variables.product.prodname_registry %}](/packages/guides/package-client-guides-for-github-packages)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-For more information about Docker and
-{% data variables.product.prodname_github_container_registry %}, see "[Container guides for {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)."
+Para mais informações sobre o Docker e
+{% data variables.product.prodname_github_container_registry %}, consulte "[Guias de contêiner para {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)".
 {% endif %}
 ### Autenticar-se no {% data variables.product.prodname_registry %}
 
@@ -143,7 +150,7 @@ Para obter mais informações, consulte:
 
 ### Gerenciar pacotes
 
-Você pode excluir uma versão de um pacote privado em {% data variables.product.product_name %} ou usar a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/manage-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/graphql/guides/forming-calls-with-graphql)".
+Você pode excluir uma versão de um pacote privado na interface de usuário de {% data variables.product.product_name %} ou usando a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/manage-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/graphql/guides/forming-calls-with-graphql)".
 
 Você pode configurar webhooks para assinar eventos relacionados aos pacotes, como quando um pacote é publicado ou atualizado. Para obter mais informações, consulte o evento de webhook de "[`pacote`](/webhooks/event-payloads/#package)".
 

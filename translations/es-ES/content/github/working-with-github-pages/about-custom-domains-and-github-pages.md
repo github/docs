@@ -58,6 +58,6 @@ Existen algunos motivos por los que tu sitio pueda estar inhabilitado automátic
 - Si bajaste de categoría de {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, todos los sitios de {% data variables.product.prodname_pages %} que se publicaron actualmente desde repositorios privados en tu cuenta quedarán sin publicar. Para obtener más información, consulta "[Bajar de categoría tu plan de facturación de {% data variables.product.prodname_dotcom %}](/articles/downgrading-your-github-billing-plan)".
 - Si transfieres a un repositorio privado a una cuenta personal que está usando {% data variables.product.prodname_free_user %}, el repositorio perderá acceso a la función de {% data variables.product.prodname_pages %}, y el sitio de {% data variables.product.prodname_pages %} actualmente publicado, quedará sin publicar. Para obtener más información, consulta "[Transferir un repositorio](/articles/transferring-a-repository)".
 
-### Further reading
+### Leer más
 
 - "[Solución de problemas de dominios personalizados y {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

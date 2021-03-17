@@ -16,6 +16,7 @@ versions:
 - Debes instalar dependencias en el servidor de aplicaciones.
   - [Docker](https://docs.docker.com/install/) 1.13.0 +
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), disponible por apt para [Debian](https://packages.debian.org/search?keywords=netcat) y [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -96,7 +97,7 @@ Para configurar {% data variables.product.prodname_insights %} para conectarse a
 12. Haz clic en **Log in with (inicia sesión con) {% data variables.product.prodname_dotcom %}**.
 13. Para autorizar el {% data variables.product.prodname_github_app %} y acceder a {% data variables.product.prodname_insights %}, haz clic en **Authorize (autorizar) {% data variables.product.prodname_github_app %}**.
 
-### Further reading
+### Leer más
 
 - "[Administrar repositorios](/insights/installing-and-configuring-github-insights/managing-repositories)"
 - "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} y protección de datos para tu organización</a>"

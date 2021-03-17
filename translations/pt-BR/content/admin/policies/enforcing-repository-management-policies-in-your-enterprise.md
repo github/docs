@@ -34,7 +34,7 @@ versions:
 
 Toda vez que alguém criar um novo repositório na sua empresa, essa pessoa deverá escolher uma visibilidade para o repositório. Ao configurar uma configuração padrão de visibilidade para a empresa, você escolhe qual visibilidade será selecionada por padrão. Para obter mais informações sobre a visibilidade de repositório, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
 
-If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. Para obter mais informações, consulte "[Definir uma política para a criação de repositórios](#setting-a-policy-for-repository-creation)".
+Se um proprietário corporativo impedir que os integrantes criem certos tipos de repositórios, os integrantes não serão capazes de criar esse tipo de repositório, mesmo se a configuração de visibilidade for o padrão para esse tipo. Para obter mais informações, consulte "[Definir uma política para a criação de repositórios](#setting-a-policy-for-repository-creation)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
@@ -49,9 +49,9 @@ If an enterprise owner disallows members from creating certain types of reposito
 
 ### Definir uma política para alterar a visibilidade de um repositório
 
-When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
+Quando você impede que os integrantes alterem a visibilidade do repositório, somente os proprietários corporativos podem alterar a visibilidade de um repositório.
 
-If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. Para obter mais informações, consulte "[Definir uma política para a criação de repositórios](#setting-a-policy-for-repository-creation)".
+Se um proprietário corporativo tiver restringido a criação de repositório apenas para os proprietários da organização, os integrantes não poderão alterar a visibilidade do repositório. Se um proprietário corporativo restringir a criação do repositório de integrantes apenas para repositórios privados, os integrantes só poderão alterar a visibilidade de um repositório para privado. Para obter mais informações, consulte "[Definir uma política para a criação de repositórios](#setting-a-policy-for-repository-creation)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -77,7 +77,7 @@ If an enterprise owner has restricted repository creation to organization owners
 
 ### Aplicar uma política de bifurcação de repositórios internos ou privados
 
-Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+Em todas as organizações pertencentes à sua empresa, é possível permitir que pessoas com acesso a um repositório privado o bifurquem, nunca permitir a bifurcação de repositórios privados ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

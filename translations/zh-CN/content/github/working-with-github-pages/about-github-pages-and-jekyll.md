@@ -38,7 +38,7 @@ Windows 并未正式支持 Jekyll。 更多信息请参阅 Jekyll 文档中的�
 
 对于 {% data variables.product.prodname_pages %} 站点，有些配置设置不能更改。
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -112,7 +112,7 @@ kramdown:
 
 如果想使用其他突显工具，如 `highlight.js`，则必须更新项目的 *_config.yml* 文件来禁用 Jekyll 的语法突显。
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

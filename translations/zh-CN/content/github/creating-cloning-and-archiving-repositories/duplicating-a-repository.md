@@ -1,6 +1,6 @@
 ---
 title: 复制仓库
-intro: '要复制存储库而不对其进行复制，可以运行特殊克隆命令，然后镜像推送到新仓库。'
+intro: '要复制存储库而不对其进行复刻，可以运行特殊克隆命令，然后镜像推送到新仓库。'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository

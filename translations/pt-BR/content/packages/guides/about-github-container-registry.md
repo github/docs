@@ -1,6 +1,6 @@
 ---
 title: Sobre o GitHub Container Registry
-intro: 'You can use {% data variables.product.prodname_github_container_registry %} to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. O {% data variables.product.prodname_github_container_registry %} permite que você configure quem pode gerenciar e acessar pacotes usando permissões refinadas.'
+intro: 'Você pode usar {% data variables.product.prodname_github_container_registry %} para hospedar e gerenciar imagens do contêiner Docker na sua organização ou conta pessoal em {% data variables.product.prodname_dotcom %}. O {% data variables.product.prodname_github_container_registry %} permite que você configure quem pode gerenciar e acessar pacotes usando permissões refinadas.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
@@ -21,7 +21,7 @@ versions:
 
 Para compartilhar o contexto sobre o uso do seu pacote, você pode vincular um repositório à sua imagem de contêiner no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Conectar um repositório a uma imagem de contêiner](/packages/guides/connecting-a-repository-to-a-container-image)".
 
-{% data variables.product.prodname_github_container_registry %} has different hosting locations, permission, and visibility than other package registries.
+{% data variables.product.prodname_github_container_registry %} tem locais de hospedagem diferentes, permissão e visibilidade diferentes dos outros registros de pacotes.
 
 |                      | Registros de pacotes                                                                                                                                                                                                                                                                                                                                                                                                        | {% data variables.product.prodname_github_container_registry %}
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ Para compartilhar o contexto sobre o uso do seu pacote, você pode vincular um r
 | Permissões           | {% data reusables.package_registry.public-or-private-packages %} You can use {% data variables.product.prodname_dotcom %} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | Para cada imagem de container, você pode escolher o nível de acesso que os outros têm. As permissões para acesso a imagens do contêiner são separadas da sua organização e das permissões do repositório. |
  Visibilidade | {% data reusables.package_registry.public-or-private-packages %} | Você pode definir a visibilidade de cada uma de suas imagens de contêiner. Uma imagem privada de contêiner só é visível para pessoas e equipes às quais é fornecido acesso na sua organização. Qualquer pessoa pode ver uma imagem pública de contêiner. | acesso anônimo | N/A | Você pode acessar imagens de contêineres públicas anonimamente.
 
-For more information, see "[About scopes and permissions for {% data variables.product.prodname_github_container_registry %}](#about-scopes-and-permissions-for-github-container-registry)."
+Para obter mais informações, consulte "[Sobre escopos e permissões para {% data variables.product.prodname_github_container_registry %}](#about-scopes-and-permissions-for-github-container-registry)".
 
 ### Formatos compatíveis
 
@@ -82,7 +82,7 @@ To install or publish a package, you must use a token with the appropriate scope
 | `delete:packages` | Exclua versões especificadas de imagens privadas ou públicas de contêiner do {% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Excluir uma imagem de contêiner](/packages/guides/deleting-a-container-image)". |
 
 
-To learn about available scopes and permissions for container images, see "[Configuring access control and visibility for container images](/packages/guides/configuring-access-control-and-visibility-for-container-images)."
+Para aprender sobre escopos e permissões disponíveis para imagens de contêiner, consulte "[Configurar controle de acesso e visibilidade para imagens do contêiner](/packages/guides/configuring-access-control-and-visibility-for-container-images)".
 
 Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token/)" e "[Escopos disponíveis](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)".
 

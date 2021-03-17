@@ -18,7 +18,7 @@ Puede añadir texto preliminar de YAML a cada plantilla de reporte de problemas 
 
 Aquí hay un ejemplo de texto preliminar de YAML.
 
-```
+```yaml
 ---
 nombre: Problema de rastreo
 acerca de: Utilice esta plantilla para rastrear nuevas características.
@@ -63,7 +63,7 @@ asignados: octocat
 {% data reusables.files.choose_commit_branch %} Las plantillas están disponibles para los colaboradores cuando están fusionadas dentro de la rama predeterminada del repositorio.
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las plantillas de propuestas y de solicitudes de extracción](/articles/about-issue-and-pull-request-templates)"
 - "[Configurar las plantillas de reporte de problemas en su repositorio](/articles/configuring-issue-templates-for-your-repository)"

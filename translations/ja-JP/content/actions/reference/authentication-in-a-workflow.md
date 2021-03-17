@@ -18,7 +18,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %}は、ワークフローで利用する`GITHUB_TOKEN`シークレットを自動的に生成します。 この`GITHUB_TOKEN`は、ワークフローの実行内での認証に利用できます。
 
-{% data variables.product.prodname_actions %}を有効化すると、{% data variables.product.prodname_dotcom %}はリポジトリに{% data variables.product.prodname_github_app %}をインストールします。 `GITHUB_TOKEN`シークレットは、{% data variables.product.prodname_github_app %}インストールアクセストークンです。 このインストールアクセストークンは、リポジトリにインストールされた{% data variables.product.prodname_github_app %}の代わりに認証を受けるために利用できます このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
+{% data variables.product.prodname_actions %}を有効化すると、{% data variables.product.prodname_dotcom %}はリポジトリに{% data variables.product.prodname_github_app %}をインストールします。 `GITHUB_TOKEN`シークレットは、{% data variables.product.prodname_github_app %}インストールアクセストークンです。 このインストールアクセストークンは、リポジトリにインストールされた{% data variables.product.prodname_github_app %}の代わりに認証を受けるために利用できます。 このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
 
 各ジョブの開始前に、{% data variables.product.prodname_dotcom %} はジョブのインストールアクセストークンをフェッチします。 トークンはジョブが終了すると期限切れになります。
 
@@ -77,7 +77,7 @@ versions:
 
 ### `GITHUB_TOKEN`の権限
 
-{% data variables.product.prodname_github_apps %} が各権限でアクセできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
+{% data variables.product.prodname_github_apps %} が各権限でアクセスできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
 
 | 権限                  | アクセスタイプ   | フォークしたリポジトリからのアクセス |
 | ------------------- | --------- | ------------------ |
@@ -86,8 +86,8 @@ versions:
 | contents            | 読み取り/書き込み | 読み取り               |
 | deployments         | 読み取り/書き込み | 読み取り               |
 | issues              | 読み取り/書き込み | 読み取り               |
-| メタデータ               | 読み取り      | 読み取り               |
-| パッケージ               | 読み取り/書き込み | 読み取り               |
+| metadata            | 読み取り      | 読み取り               |
+| packages            | 読み取り/書き込み | 読み取り               |
 | pull requests       | 読み取り/書き込み | 読み取り               |
 | repository projects | 読み取り/書き込み | 読み取り               |
 | statuses            | 読み取り/書き込み | 読み取り               |

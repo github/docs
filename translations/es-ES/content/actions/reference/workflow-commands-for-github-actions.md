@@ -83,7 +83,7 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.setFailed`                                                                                                                                                                              | Utilizada como un atajo para `::error` y `exit 1`           |
 | `core.setOutput`                                                                                                                                                                              | `set-output`                                                |
 | `core.setSecret`                                                                                                                                                                              | `add-mask`                                                  |
-| `core.startGroup`                                                                                                                                                                             | `group`                                                     |
+| `core.startGroup`                                                                                                                                                                             | `grupo`                                                     |
 | `core.warning`                                                                                                                                                                                | `warning file`                                              |
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
@@ -257,7 +257,7 @@ Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos tempor
 
 **Advertencia:** Powershell no utiliza UTF-8 predeterminadamente. Asegúrate que escribes los archivos utilizando la codificación correcta. Por ejemplo, necesitas configurar la codificación UTF-8 cuando configuras la ruta:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -272,11 +272,19 @@ Crea o actualiza una variable de entorno para todas las acciones que se ejecutan
 
 #### Ejemplo
 
-```bash
-echo "action_state=yellow" >> $GITHUB_ENV
+{% raw %}
 ```
-
-Cuando ejecutes `$action_state` en un paso subsecuente ahora se devolverá `yellow`
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
 #### Secuencias de línea múltiple
 
@@ -291,7 +299,7 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 ##### Ejemplo
 
 En este ejemplo, utilizamos `EOF` como delimitador y configuramos la variable de ambiente `JSON_RESPONSE` para el valor de la respuesta de curl.
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one

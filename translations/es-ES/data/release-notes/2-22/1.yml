@@ -1,5 +1,4 @@
----
-date: '09-10-2020'
+date: '2020-10-09'
 sections:
   security_fixes:
     - '**MEDIO**:  ImageMagick se actualizó a la dirección  [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
@@ -12,7 +11,7 @@ sections:
     - |
       Hacer una actualización utilizando un hotpatch podría ocasionar un fallo con un error de tipo: `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
     - |
-      El guardar las configuraciones a través de la [consola de administración](https://docs.github.com/en/enterprise-server@latest/admin/configuration/accessing-the-management-console) añadirá una línea nueva en los archivos de la [llave y certificado TLS/SSL](https://docs.github.com/en/enterprise-server@latest/admin/configuration/configuring-tls), lo cual activó la recarga innecesaria de algunos servicios. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+      Saving settings via the [management console](/admin/configuration/accessing-the-management-console) would append a newline to the [TLS/SSL certificate and key](/admin/configuration/configuring-tls) files which triggered unnecessary reloading of some services. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
     - |
       Las bitácoras de sistema para la Gráfica de dependencias no estaban rotando, lo cual permitió un crecimiento desmedido del almacenamiento. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
     - |
@@ -56,16 +55,16 @@ sections:
     - |
       Los nombres de usuario de GitHub se cambiaron sin querer cuando se utilizó la autentificación con SAML, cuando el nombre de usuario de GitHub no empató con el valor del atributo mapeado en el campo de `username` en la Consola de Administración. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
   changes:
-    - Se agrega compatibilidad con el tipo de instancia `m5.16xlarge` de AWS EC2. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}
-    - Elimina el requisito de las huellas dactilares de SSH en los archivos de `ghe-migrator`, ya que siempre se le puede calcular. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}
-    - Los manifiestos de las GitHub Apps ahora incluyen el campo `request_oauth_on_install`. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}
+    - 'Se agrega compatibilidad con el tipo de instancia `m5.16xlarge` de AWS EC2. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}'
+    - 'Elimina el requisito de las huellas dactilares de SSH en los archivos de `ghe-migrator`, ya que siempre se le puede calcular. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}'
+    - 'Los manifiestos de las GitHub Apps ahora incluyen el campo `request_oauth_on_install`. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}'
   known_issues:
-    - En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
-    - Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
-    - Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
-    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
-    - Las actualizaciones de configuración fallan cuando se restablecen los datos en una instancia que tiene habilitadas las GitHub Actions si la fuente de respaldo original no cuenta con la característica habilitada. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}
-    - Las GitHub Actions pueden fallar en su inicio exitoso si se habilitaron previamente en una instancia que ejecutara la versión 2.22.0 y se actualiza a la 2.22.1. (actualizado en 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
-    - En una instancia 2.22.1 recién configurada o después de actualizar 2.22.1, ya no se actualizará la fuente de actividad en el tablero de una organización. (actualizado 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
-    - Las bitácoras de auditoría pueden atribuirse a la 127.0.0.1 en vez de a la dirección IP origen real. (actualizado 2020-11-02) {% comment %}https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - 'En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Las actualizaciones de configuración fallan cuando se restablecen los datos en una instancia que tiene habilitadas las GitHub Actions si la fuente de respaldo original no cuenta con la característica habilitada. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}'
+    - 'Las GitHub Actions pueden fallar en su inicio exitoso si se habilitaron previamente en una instancia que ejecutara la versión 2.22.0 y se actualiza a la 2.22.1. (actualizado en 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}'
+    - 'En una instancia 2.22.1 recién configurada o después de actualizar 2.22.1, ya no se actualizará la fuente de actividad en el tablero de una organización. (actualizado 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}'
+    - 'Las bitácoras de auditoría pueden atribuirse a la 127.0.0.1 en vez de a la dirección IP origen real. (actualizado 2020-11-02) {% comment %}https://github.com/github/enterprise2/issues/21514 {% endcomment %}'

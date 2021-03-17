@@ -33,7 +33,7 @@ Los propietarios de la organización también pueden bloquear a los usuarios por
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
-### Further reading
+### Leer más
 - "[Informar abuso o spam](/articles/reporting-abuse-or-spam)"
 - "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)"

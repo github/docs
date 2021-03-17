@@ -16,6 +16,6 @@ Cuando desactivas una wiki, su contenido se oculta pero no se borra. Si eliges h
 {% data reusables.repositories.sidebar-settings %}
 3. En Características, quita la marca de selección de **Wiki**. ![Casilla de verificación para inhabilitar wikis](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### Further reading
+### Leer más
 
 - "[Cambiar los permisos de acceso para las wikis](/articles/changing-access-permissions-for-wikis)"

@@ -17,7 +17,7 @@ Por ejemplo, si filtras propuestas asignadas a Hubot, y clasificas las propuesta
 /issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
 ```
 
-### Further reading
+### Leer más
 
 * [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"
 * [Clasificar propuestas y solicitudes de extracción](/articles/sorting-issues-and-pull-requests)"

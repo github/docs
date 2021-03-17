@@ -24,7 +24,7 @@ Los administradores de repositorios pueden implementar la firma de confirmación
 Puedes comprobar el estado de verificación de tus confirmaciones o etiquetas firmadas en {% data variables.product.product_name %} y ver por qué las firmas de tu confirmación podrían no ser verificadas. Para obtener más información, consulta "[Comprobar la confirmación y el estado de verificación de firma de la etiqueta](/articles/checking-your-commit-and-tag-signature-verification-status)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado verificado en {% data variables.product.product_name %}. Puedes verificar la firma localmente usando la clave pública disponible en https://github.com/web-flow.gpg. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+{% data variables.product.product_name %} utilizará GPG automáticamente para firmar las confirmaciones que hagas utilizando la interface web de {% data variables.product.product_name %}, con excepción de cuando combinas y fusionas una solicitud de cambios de la cual no seas autor. Opcionalmente, puedes elegir que {% data variables.product.product_name %} firme las confirmaciones que hagas en {% data variables.product.prodname_codespaces %}. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado verificado en {% data variables.product.product_name %}. Puedes verificar la firma localmente usando la clave pública disponible en https://github.com/web-flow.gpg. Para obtener más información sobre cómo habilitar la verificación de GPG para tus codespaces, consulta la sección "[Administrar la verificación de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
 {% endif %}
 
 ### Verificación de firma de confirmación GPG
@@ -67,7 +67,7 @@ La verificación de firmas para los bots solo funcionará si la solicitud se ver
 {% data variables.product.prodname_github_app %} o bot y no contiene información personalizada del autor, del confirmante, ni de la firma, tal como la API de confirmaciones.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Firmar etiquetas](/articles/signing-tags)"

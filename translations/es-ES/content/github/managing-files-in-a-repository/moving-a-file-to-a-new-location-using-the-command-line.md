@@ -56,7 +56,7 @@ Muchos archivos pueden [moverse directamente en {% data variables.product.produc
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+### Leer más
 
 - "[Renombrar un archivo utilizando la línea de comando](/articles/renaming-a-file-using-the-command-line)"
 - [Agregar un archivo a un repositorio mediante la línea de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)"

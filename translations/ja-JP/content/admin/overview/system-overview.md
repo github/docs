@@ -77,7 +77,7 @@ versions:
 
 #### 外部サービスおよびサポートへのアクセス
 
-{% data variables.product.prodname_ghe_server %} は、お客様のネットワークから外部サービスにアクセスすることなしに運用できます。 また、メール配信、外部モニタリング、およびログ転送のため、外部サービスとのインテグレーションを有効にすることも可能です。 For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/admin/user-management/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} は、お客様のネットワークから外部サービスにアクセスすることなしに運用できます。 また、メール配信、外部モニタリング、およびログ転送のため、外部サービスとのインテグレーションを有効にすることも可能です。 詳しい情報については、「[通知のためのメール設定](/admin/configuration/configuring-email-for-notifications)」、「[外部モニタリングのセットアップ](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)」、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
 
 トラブルシューティングデータを手動で収集し、{% data variables.contact.github_support %} に送信できます。 詳しい情報については、「[{% data variables.contact.github_support %} へのデータ提供](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)」を参照してください。
 
@@ -108,7 +108,7 @@ versions:
 
 #### 監査およびアクセスのログ取得
 
-{% data variables.product.prodname_ghe_server %} は、従来型オペレーティングシステムおよびアプリケーションの両方のログを保存します。 また、アプリケーションは詳細な監査およびセキュリティログも記録し、{% data variables.product.prodname_ghe_server %} はこれを永続的に保存します。 `syslog-ng` プロトコルにより、両タイプのログをリアルタイムで複数の宛先に転送できます。 For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} は、従来型オペレーティングシステムおよびアプリケーションの両方のログを保存します。 また、アプリケーションは詳細な監査およびセキュリティログも記録し、{% data variables.product.prodname_ghe_server %} はこれを永続的に保存します。 `syslog-ng` プロトコルにより、両タイプのログをリアルタイムで複数の宛先に転送できます。 詳しい情報については、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
 
 アクセスログと監査ログには、以下のような情報が含まれています。
 

@@ -18,11 +18,11 @@ versions:
 
 ### Descontos para contas pessoais
 
-Além de repositórios públicos e privados ilimitados para alunos e docentes com o {% data variables.product.prodname_free_user %}, os alunos confirmados podem se inscrever no {% data variables.product.prodname_student_pack %} para receber outros benefícios de parceiros do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Aplicar a um pacote de desenvolvedor para estudante](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)".
+Além de repositórios públicos e privados ilimitados para alunos e docentes com o {% data variables.product.prodname_free_user %}, os alunos confirmados podem se inscrever no {% data variables.product.prodname_student_pack %} para receber outros benefícios de parceiros do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Aplicar a um pacote de desenvolvedor para estudante](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)".
 
 ### Descontos para escolas e universidades
 
-Os docentes acadêmicos confirmados podem se inscrever na {% data variables.product.prodname_team %} para atividades de ensino ou pesquisa acadêmica. Para obter mais informações, consulte "[Usar {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)". Também é possível solicitar brindes de material educacional para os alunos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
+Os docentes acadêmicos confirmados podem se inscrever na {% data variables.product.prodname_team %} para atividades de ensino ou pesquisa acadêmica. Para obter mais informações, consulte "[Usar {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)". Também é possível solicitar brindes de material educacional para os alunos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 ### Descontos para organizações sem fins lucrativos e bibliotecas
 

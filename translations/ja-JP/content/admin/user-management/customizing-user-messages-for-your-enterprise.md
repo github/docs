@@ -1,5 +1,5 @@
 ---
-title: Customizing user messages for your enterprise
+title: Enterprise のユーザメッセージをカスタマイズする
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance

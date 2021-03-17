@@ -1,6 +1,6 @@
 ---
 title: Comenzar con la búsqueda en GitHub
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/getting-started-with-searching-on-github
 versions:

@@ -53,6 +53,6 @@ Jekyll es un proyecto de código abierto activo que se actualiza de manera frecu
     - Si instalaste Bundler, ejecuta `bundle update github-pages`.
     - Si no tienes instalado Bundler, ejecuta `gem update github-pages`.
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) en la documentación de Jekyll

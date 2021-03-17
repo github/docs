@@ -35,7 +35,7 @@
 - 
   term: Bio
   description: >-
-    Die vom Benutzer generierte Beschreibung, die sich in einem Profil befindet: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: Abrechnungszeitraum
   description: Das Zeitintervall für Ihren spezifischen Abrechnungsplan.
@@ -156,7 +156,7 @@
 - 
   term: Beiträge
   description: >-
-    Spezifische Aktivitäten auf GitHub, die: - dem Beteiligungsdiagramm eines Benutzers ein Quadrat hinzufügen: „[Was zählt als ein Beitrag](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)“ - der Zeitleiste eines Benutzers in dessen Profil Aktivitäten hinzufügen "[Beitragsaktivität](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: Mitwirkende
   description: >-
@@ -229,7 +229,7 @@
     Ein Branch, der verwendet wird, um mit einem neuen Feature zu experimentieren oder einen nicht in der Produktion befindlichen Issue zu korrigieren. Wird auch als Themen-Branch bezeichnet.
 - 
   term: Fenced-Code-Block
-  description: 'Ein eingerückter Codeblock, den Du mit GitHub Flavored Markdown mit dreifachen Backticks vor und nach dem Codeblock erstellen kannst. Siehe hierzu dieses [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: abrufen
   description: >-

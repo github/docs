@@ -63,7 +63,7 @@ However, if you want stricter control over which actions are allowed in your ent
      * 将 `--repo-name` 参数替换为 `--repo-name-list` 或 `--repo-name-list-file` 便可同步多个操作。 更多信息请参阅 [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync)。
 1. 在企业实例上创建操作仓库后，企业中的人员可以使用目标仓库在其工作流程中引用操作。 对于上面显示的示例操作：
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

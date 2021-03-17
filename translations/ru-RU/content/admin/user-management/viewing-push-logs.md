@@ -22,16 +22,19 @@ Push log entries show:
 
 ### Viewing a repository's push logs
 
+1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. Navigate to a repository.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the upper-right corner of the repository's page, click
+{% octicon "rocket" aria-label="The rocket ship" %}.
+    ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. In the left sidebar, click **Push Log**. ![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Viewing a repository's push logs on the command-line
 
-1. SSH into your appliance. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
-2. In the appropriate Git repository, open the audit log file:
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. In the appropriate Git repository, open the audit log file:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

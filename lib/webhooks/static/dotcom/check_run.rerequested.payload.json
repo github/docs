@@ -95,7 +95,20 @@
     },
     "pull_requests": [
 
-    ]
+    ],
+    "deployment": {
+      "url": "https://api.github.com/repos/Codertocat/Hello-World/deployments/326191728",
+      "id": 326191728,
+      "node_id": "MDEwOkRlcGxveW1lbnQzMjYxOTE3Mjg=",
+      "task": "deploy",
+      "original_environment": "lab",
+      "environment": "lab",
+      "description": null,
+      "created_at": "2021-02-18T08:22:48Z",
+      "updated_at": "2021-02-18T09:47:16Z",
+      "statuses_url": "https://api.github.com/repos/Codertocat/Hello-World/deployments/326191728/statuses",
+      "repository_url": "https://api.github.com/repos/Codertocat/Hello-World"
+    }
   },
   "repository": {
     "id": 526,

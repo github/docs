@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/categories/admin-bootcamp/
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
-intro: 'Organizationは企業内で、部署や同様のプロジェクトで作業を行うグループなど、個別のユーザグループを作成する素晴らしい手段です。 {% if currentVersion == "github-ae@latest" %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to users in other organizations, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
+intro: 'Organizationは企業内で、部署や同様のプロジェクトで作業を行うグループなど、個別のユーザグループを作成する素晴らしい手段です。 {% if currentVersion == "github-ae@latest" %}内部{% else %} Organization に属するパブリックおよび内部{% endif %}リポジトリは、他の Organization のユーザがアクセスできますが、プライベートリポジトリは、アクセスが許可されている Organization のメンバー以外はアクセスできません。'
 mapTopic: true
 versions:
   enterprise-server: '*'

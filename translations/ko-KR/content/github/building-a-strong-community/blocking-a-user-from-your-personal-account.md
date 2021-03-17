@@ -9,11 +9,11 @@ versions:
 
 ### About blocking users
 
-You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can [choose to display a warning](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) on any repositories with prior contributions from a blocked user. You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider [locking the conversation](/articles/locking-conversations) so only collaborators can comment.
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/github/building-a-strong-community/locking-conversations)."
 
 {% endtip %}
 
@@ -22,8 +22,6 @@ When you block a user:
 - The user stops watching and unpins your repositories
 - The user is not able to join any organizations you are an owner of
 - The user's stars and issue assignments are removed from your repositories
-- The user's forks of your repositories are deleted
-- You delete any forks of the user's repositories
 - The user's votes on discussions or comments in your repositories are deleted
 - The user is removed as a collaborator on your repositories
 - The user's contributions to your repositories are no longer counted as contributions for them

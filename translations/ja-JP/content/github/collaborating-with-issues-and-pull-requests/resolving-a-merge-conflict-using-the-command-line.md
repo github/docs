@@ -46,14 +46,14 @@ versions:
 4. [Atom](https://atom.io/) などのお気に入りのテキスト エディターを開き、マージ コンフリクトが発生しているファイルに移動します。
 5. ファイル内でマージ コンフリクトの始まりを確認するには、ファイル内のコンフリクト マーカー `<<<<<<<` を検索します。 テキストエディタでファイルを開くと、`<<<<<<< HEAD` 行の後に HEAD ブランチまたはベースブランチからの変更が見えます。 次に、`=======` が見えます。これは、自分の変更と他のブランチの変更を区別するもので、その後に `>>>>>>> BRANCH-NAME` が続きます。 この例では、ある人がベースまたは HEAD ブランチで「open an issue」と書き込み、別の人が compare ブランチまたは `branch-a` に「ask your question in IRC」と書き込みました。
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}この例では、両方の変更が最終的なマージに取り込まれます。
 
   ```shell

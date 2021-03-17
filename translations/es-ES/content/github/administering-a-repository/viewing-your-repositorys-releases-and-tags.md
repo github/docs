@@ -31,6 +31,6 @@ versions:
 {% data reusables.repositories.releases %}
 2. En la parte superior de la página de lanzamiento, haz clic en **Tags** (Etiqueta). ![Página de etiquetas](/assets/images/help/releases/tags-list.png)
 
-### Further reading
+### Leer más
 
 - "[Firmar etiquetas](/articles/signing-tags)"

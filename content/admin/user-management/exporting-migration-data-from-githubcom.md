@@ -35,7 +35,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
 
-2. Start a migration by `POST`ing to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
+2. Start a migration by sending a `POST` request to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
     * Your access token for authentication.
     * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell

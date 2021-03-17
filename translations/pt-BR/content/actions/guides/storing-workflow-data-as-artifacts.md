@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'Fluxos de trabalho'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -79,7 +81,7 @@ Esse exemplo mostra como criar um fluxo de trabalho para um projeto Node.js que 
 
 O fluxo de trabalho faz o upload dos artefatos de produção no diretório `dist`, mas exclui todos os arquivos de markdown. Ele também e faz o upload do relatório de `code-coverage.html` como outro artefato.
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -114,7 +116,7 @@ jobs:
 
 Você pode definir um período de retenção personalizado para artefatos individuais criados por um fluxo de trabalho. Ao usar um fluxo de trabalho para criar um novo artefato, você pode usar `retention-days` com a ação `upload-artifact`. Este exemplo demonstra como definir um período de retenção personalizado de 5 dias para o artefato denominado `my-artifact`:
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -183,7 +185,7 @@ O Job 3 (Trabalho 3) mostra o resultado carregado no trabalho anterior:
 
 A operação matemática completa executada nesse fluxo de trabalho é `(3 + 7) x 9 = 90`.
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]

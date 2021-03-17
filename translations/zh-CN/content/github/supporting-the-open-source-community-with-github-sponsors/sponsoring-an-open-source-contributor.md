@@ -22,7 +22,7 @@ permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 
-您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织要开发票，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
+您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 

@@ -49,7 +49,7 @@ Si usar HTTPS no es una opción y tu administrador de firewall no permite las co
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+### Leer más
 
 - "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"
 

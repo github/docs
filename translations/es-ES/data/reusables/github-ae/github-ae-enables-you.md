@@ -1,1 +1,1 @@
-{% data variables.product.prodname_ghe_managed %} enables you to move your software development to the cloud while meeting the most stringent security and compliance requirements.
+{% data variables.product.prodname_ghe_managed %} te habilita para mover tu desarrollo de software a la nube mientras cumple con los requisitos de seguridad y cumplimiento más estrictos.

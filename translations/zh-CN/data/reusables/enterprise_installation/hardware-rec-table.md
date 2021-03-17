@@ -1,20 +1,20 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 {% note %}
 
-**注**：如果您在 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %} 中启用测试功能，则您的实例需要额外的硬件资源。 {% if currentVersion == "enterprise-server@2.22" %}测试{% else %}可选{% endif %}功能启用的实例的最低要求在下表中**加粗**。 更多信息请参阅“{% if currentVersion == "enterprise-server@2.22" %}[{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222){% else %}[可选功能](#optional-features){% endif %}”。
+**Note**: If you joined the beta for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} and enabled the features, your instance requires additional hardware resources. 启用测试功能的实例的最低要求在下表中用**粗体**表示。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)”。
 
 {% endnote %}
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-| 用户许可              |                                        vCPU |                                                  内存 |                                             附加的存储容量 |  根存储容量 |
-|:----------------- | -------------------------------------------:| ---------------------------------------------------:| ---------------------------------------------------:| ------:|
-| 试用版、演示版或 10 个轻度用户 |   2<br/>或 [**4**](#optional-features) |   16 GB<br/>或 [**32 GB**](#optional-features) | 100 GB<br/>或 [**150 GB**](#optional-features) | 200 GB |
-| 10-3000           |   4<br/>或 [**8**](#optional-features) |   32 GB<br/>或 [**48 GB**](#optional-features) | 250 GB<br/>或 [**300 GB**](#optional-features) | 200 GB |
-| 3000-5000         |  8<br/>或 [**12**](#optional-features) |                                               64 GB |                                              500 GB | 200 GB |
-| 5000-8000         | 12<br/>或 [**16**](#optional-features) |                                               96 GB |                                              750 GB | 200 GB |
-| 8000-10000+       | 16<br/>或 [**20**](#optional-features) | 128 GB<br/>或 [**160 GB**](#optional-features) |                                             1000 GB | 200 GB |
+| 用户许可              | vCPU |     内存 | 附加的存储容量 |  根存储容量 |
+|:----------------- | ----:| ------:| -------:| ------:|
+| 试用版、演示版或 10 个轻度用户 |    4 |  32 GB |  150 GB | 200 GB |
+| 10-3000           |    8 |  48 GB |  300 GB | 200 GB |
+| 3000-5000         |   12 |  64 GB |  500 GB | 200 GB |
+| 5000-8000         |   16 |  96 GB |  750 GB | 200 GB |
+| 8000-10000+       |   20 | 160 GB | 1000 GB | 200 GB |
 
 {% else %}
 
@@ -28,22 +28,20 @@
 
 {% endif %}
 
-有关为现有实例调整资源的更多信息，请参阅“[增加存储容量](/enterprise/admin/installation/increasing-storage-capacity)”和“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+
+If you plan to configure {% data variables.product.prodname_actions %} for your instance, you should provision additional resources. You must also configure at least one self-hosted runner to execute workflows. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+
+{% endif %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
 #### {% data variables.product.prodname_ghe_server %} 2.22 中的测试功能
 
-您可以注册 {% data variables.product.prodname_ghe_server %} 2.22 中可用的试用功能，例如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅 {% data variables.product.prodname_enterprise %} 网站上的 [2.22 系列发行说明](https://enterprise.github.com/releases/series/2.22#release-2.22.0)。
+{% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
 
-如果您为 {% data variables.product.prodname_ghe_server %} 2.22 启用测试功能，则您的实例需要额外的硬件资源。 更多信息请参阅“[最低要求](#minimum-requirements)”。
-
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
-
-#### 可选功能
-
-您可以启用 {% data variables.product.prodname_ghe_server %} 的可选功能，如 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %}。 更多信息请参阅“[对 {% data variables.product.prodname_ghe_server %} 开始使用 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)”或“[对企业开始使用 {% data variables.product.prodname_registry %}](/admin/packages/getting-started-with-github-packages-for-your-enterprise)”。
-
-如果启用可选功能，则实例需要额外的硬件资源。 更多信息请参阅“[最低要求](#minimum-requirements)”。
+If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. 更多信息请参阅“[最低要求](#minimum-requirements)”。
 
 {% endif %}

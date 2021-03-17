@@ -4,7 +4,7 @@ intro: 您可以使用标签以基于其特性来组织自托管运行器。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
 ---
 
 {% data reusables.actions.enterprise-beta %}

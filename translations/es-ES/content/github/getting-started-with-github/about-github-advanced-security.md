@@ -1,6 +1,6 @@
 ---
-title: About GitHub Advanced Security
-intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license. These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.'
+title: Acerca de GitHub Advanced Security
+intro: '{% data variables.product.prodname_dotcom %} ofrece a sus clientes características de seguridad adicionales bajo una licencia de {% data variables.product.prodname_advanced_security %}. Estas características también se habilitan para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -8,41 +8,41 @@ versions:
 
 ### Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans, for example: dependency graph and {% data variables.product.prodname_dependabot_alerts %}. Other security features require a license for {% data variables.product.prodname_GH_advanced_security %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}. (That is, private and internal repositories on {% data variables.product.prodname_dotcom_the_website %}, and all repositories on {% data variables.product.prodname_ghe_server %}.)
+{% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de éstas se incluyen en todos los planes, por ejemplo: gráfica de dependencias y {% data variables.product.prodname_dependabot_alerts %}. Otras características de seguridad requieren una licencia para que la {% data variables.product.prodname_GH_advanced_security %} se ejecute en los repositorios independientemente de aquellos públicos en {% data variables.product.prodname_dotcom_the_website %}. (Esto es, los repositorios privados e internos en {% data variables.product.prodname_dotcom_the_website %}, y todos los repositorios en {% data variables.product.prodname_ghe_server %}.)
 
-For an overview of all security features, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)."
+Para obtener un resumen de todas las características de seguridad, consulta la sección "[Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)". Para obtener más información sobre los requisitos de permisos para las acciones que se relacionan con las características de seguridad, consulta la sección "[Niveles de permiso de los repositorios para una organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)".
 
-### About {% data variables.product.prodname_advanced_security %} features
+### Acerca de las características de {% data variables.product.prodname_advanced_security %}
 
-A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
+Una licencia de {% data variables.product.prodname_GH_advanced_security %} proporciona las siguientes características adicionales:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - Search for potential security vulnerabilities and coding errors in your code. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
+- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. Para obtener más información, consulta la sección "[Revisar los cambios a las dependencias en una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+- **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Revisar los cambios a las dependencias en una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 {% endif %}
 
-For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)."
+Para obtener más información sobre las características de {% data variables.product.prodname_advanced_security %} que se encuentran en desarrollo, consulta la sección "[Plan de trabajo de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)".
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_ghe_server %}
+### Habilitar las características de {% data variables.product.prodname_advanced_security %} en {% data variables.product.prodname_ghe_server %}
 
-The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features)."
+El administrador de sitio debe habilitar la {% data variables.product.prodname_advanced_security %} para {% data variables.product.product_location %} antes de que puedas utilizar estas características. Para obtener más información, consulta la sección "[Configurar las características de la Seguridad Avanzada](/admin/configuration/configuring-advanced-security-features)".
 
-Once your system is set up, you can enable and disable these features at the organization or repository level. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
-For information about purchasing a license for
+Una vez que tu sistema se haya configurado, puedes habilitar e inhabilitar estas características a nivel de organización o de repositorio. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" y "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
+Para obtener más información sobre cómo comprar una licencia para
 
-{% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.
+{% data variables.product.prodname_GH_advanced_security %}, contacta a {% data variables.contact.contact_enterprise_sales %}.
 {% endif %}
 
-### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_dotcom_the_website %}
+### Habilitar las características de {% data variables.product.prodname_advanced_security %} en {% data variables.product.prodname_dotcom_the_website %}
 
-For public repositories on {% data variables.product.prodname_dotcom_the_website %}, these features are permanently on and are only disabled if you change the visibility of the project so that the code is no longer public.
+Para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}, estas características se encuentran activas permanentemente y solo se inhabilitan si cambias la visibilidad del proyecto para que el código ya no sea público.
 
-For all other repositories, once you have a license, you can enable and disable these features at the organization or repository level. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
-For information about purchasing a license for
+Para el resto de los repositorios, una vez que tengas una licencia, puedes habilitar e inhabilitar estas características a nivel de repositorio y de organización. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" y "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
+Para obtener más información sobre cómo comprar una licencia para
 
-{% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.
+{% data variables.product.prodname_GH_advanced_security %}, contacta a {% data variables.contact.contact_enterprise_sales %}.
 {% endif %}

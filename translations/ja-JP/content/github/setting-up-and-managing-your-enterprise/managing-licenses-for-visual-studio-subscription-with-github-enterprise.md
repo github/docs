@@ -33,7 +33,9 @@ The total quantity of your licenses for your enterprise on {% data variables.pro
 
 To use the {% data variables.product.prodname_enterprise %} portion of the license, the subscriber's user account on {% data variables.product.prodname_dotcom_the_website %} must be or become a member of an organization owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}.
 
-Organization owners can invite new members to an organization by email address. The email address that the organization owner invites must match the {% data variables.product.prodname_vs %} subscriber's User Primary Name (UPN), which should be an email address. The subscriber can accept the invitation with an existing user account on {% data variables.product.prodname_dotcom_the_website %} or create a new account.
+Organization owners can invite new members to an organization by email address. The subscriber can accept the invitation with an existing user account on {% data variables.product.prodname_dotcom_the_website %} or create a new account.
+
+While not required, we recommend that organization owners send an invitation to the same email address used for the {% data variables.product.prodname_vs %} subscriber's User Primary Name (UPN). When the email address on {% data variables.product.product_name %} matches the subscriber's UPN, you can ensure that another member of the organization does not claim the subscriber's license.
 
 For more information, see "[Inviting users to join your organization](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)," "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)," and "[Managing email preferences](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)."
 

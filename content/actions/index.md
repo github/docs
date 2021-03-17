@@ -45,6 +45,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %} -->
@@ -52,6 +53,7 @@ versions:
 <!-- {% link_with_intro /learn-github-actions %} -->
 <!-- {% link_with_intro /managing-workflow-runs %} -->
 <!-- {% link_with_intro /creating-actions %} -->
+<!-- {% link_with_intro /using-github-hosted-runners %} -->
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
@@ -66,7 +68,7 @@ versions:
   </div>
 
   <div class="d-flex flex-wrap gutter">
-    {% render 'code-example-card' for actionsCodeExamples as example %}
+    {% render code-example-card for actionsCodeExamples as example %}
   </div>
 
   <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>

@@ -33,10 +33,15 @@ You can manage the security and analysis features for your {% if currentVersion 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。
-{% if currentVersion == "free-pro-team@latest" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@3.0" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
   ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
-  {% endif %}
-  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  {% note %}
+**Note:** If you disable
+
+  {% data variables.product.prodname_GH_advanced_security %}, both {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+  {% endnote %}
+
+  {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
   ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
 

@@ -1,12 +1,11 @@
----
-date: '21-07-2020'
+date: '2020-07-21'
 sections:
   security_fixes:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/21438, https://github.com/github/enterprise2/pull/21402, https://github.com/github/enterprise2/pull/21496, https://github.com/github/enterprise2/pull/21479 {% endcomment %}'
   bugs:
     - 'Las gráficas de monitoreo de la consola de adminsitración a veces no se muestra correctamente en pantallas grandes. {% comment %} https://github.com/github/enterprise2/pull/21398, https://github.com/github/enterprise2/pull/21381 {% endcomment %}'
     - 'El flujo de creación de un manifiesto de una GitHub App no se pudo utilizar en algunos escenarios en donde la política de SameSite Cookie se aplicó. {% comment %} https://github.com/github/github/pull/147829, https://github.com/github/github/pull/144121 {% endcomment %}'
-    - "En algunas circunstancias, acceder a la página de 'Explorar' arrojó un error de aplicación. {% comment %} https://github.com/github/github/pull/149605, https://github.com/github/github/pull/148949 {% endcomment %}"
+    - 'En algunas circunstancias, acceder a la página de ''Explorar'' arrojó un error de aplicación. {% comment %} https://github.com/github/github/pull/149605, https://github.com/github/github/pull/148949 {% endcomment %}'
   known_issues:
     - 'En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

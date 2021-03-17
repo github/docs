@@ -110,7 +110,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 ```json
 {
   "message": "'Expiration' claim ('exp') must be a numeric value representing the future time at which the assertion expires.",
-  "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+  "documentation_url": "{% data variables.product.doc_url_pre %}"
 }
 ```
 

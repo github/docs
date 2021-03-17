@@ -1,6 +1,6 @@
 ---
 title: Cambiar la visibilidad del tablero de proyecto
-intro: 'As an organization owner or project board admin, you can make a project board {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private.'
+intro: 'Como propietario de una organización o administrador del tablero de proyecto, puedes convertir dicho tablero de proyecto en {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o privado.'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:
@@ -13,13 +13,13 @@ versions:
 
 {% tip %}
 
-**Tip:** When you make your project board {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %}, organization members are given read access by default. Puedes brindar a los miembros de la organización permisos de escritura o administración específicos al brindar acceso al tablero de proyecto a los equipos en los que están y al agregarlos en un tablero de proyecto como colaboradores. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+**Tip:** Cuando conviertas tu tablero de proyecto en {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %}, se les otorgará acceso de lectura a los miembros de la organización predeterminadamente. Puedes brindar a los miembros de la organización permisos de escritura o administración específicos al brindar acceso al tablero de proyecto a los equipos en los que están y al agregarlos en un tablero de proyecto como colaboradores. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 
-1. Navigate to the project board you want to make
+1. Navega hasta el tablero de proyecto que quieres convertir en
 
-{% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private.
+{% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o privado.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.choose-visibility %}

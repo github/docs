@@ -75,6 +75,10 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 - começar com `a-Z` ou `_`;
 - ser seguido por `a-Z` `0-9` `-` ou `_`.
 
+#### Determinar quando usar contextos
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 #### Contexto `github`
 
 O contexto `github` context contém informações sobre a execução do fluxo de trabalho e sobre o evento que a acionou. Você pode ler a maioria dos dados de contexto `github` em variáveis de ambiente. Para obter mais informações sobre as variáveis de ambiente, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
@@ -107,15 +111,14 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 
 O contexto `env` contém variáveis de ambiente que foram definidas em um fluxo de trabalho, trabalho ou etapa. Para obter mais informações sobre como configurar variáveis de ambiente em seu fluxo de trabalho, consulte "[Sintaxe do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)".
 
-A sintaxe de contexto `env` permite que você use o valor de uma variável de ambiente no seu arquivo de fluxo de trabalho. Se você desejar usar o valor de uma variável de ambiente dentro de um executor, use o método normal do sistema operacional do executor para ler as variáveis de ambiente.
+A sintaxe de contexto `env` permite que você use o valor de uma variável de ambiente no seu arquivo de fluxo de trabalho. Você pode usar o contexto `env` no valor de qualquer chave em uma **etapa**, exceto para as chaves `id` e `uses`. Para obter mais informações sobre a sintaxe da etapa, consulte "[Sintaxe do fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)".
 
-Você só pode usar o contexto `env` no valor de `com` e as chaves do `nome` ou em uma condição `se` da etapa. Para obter mais informações sobre a sintaxe da etapa, consulte "[Sintaxe do fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)".
+Se você desejar usar o valor de uma variável de ambiente dentro de um executor, use o método normal do sistema operacional do executor para ler as variáveis de ambiente.
 
 | Nome da propriedade    | Tipo     | Descrição                                                                                                         |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `env`                  | `objeto` | Esse contexto altera cada etapa em um trabalho. Você pode acessar esse contexto em qualquer etapa de um trabalho. |
-| `env.<env name>` | `string` | O valor de uma variável de ambiente específica.                                                                   |
-
+| `env.<env_name>` | `string` | O valor de uma variável de ambiente específica.                                                                   |
 
 #### Contexto `trabalho`
 
@@ -183,27 +186,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -345,7 +348,7 @@ O valor para `array` pode ser uma array ou uma string. Todos os valores na `arra
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -355,35 +358,56 @@ Retorna uma bela representação JSON de `value`. Você pode usar essa função 
 
 `toJSON(job)` pode retornar `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Retorna um objeto JSON para `valor`. Você pode usar esta função para fornecer um objeto JSON como uma expressão avaliada.
+Retorna um objeto do JSON ou tipo de dado do JSON para `valor`. Você pode usar esta função para fornecer um objeto do JSON como uma expressão avaliada ou para converter variáveis de ambiente de uma string.
 
-##### Exemplo
+##### Exemplo que retorna um objeto do JSON
 
 Este fluxo de trabalho define uma matriz JSON em um trabalho, e o passa para o próximo trabalho usando uma saída do `fromJSON`.
 
 {% raw %}
 ```yaml
-nome: criar
-em: push
-trabalhos
+name: build
+on: push
+jobs:
   job1:
     runs-on: ubuntu-latest
-    saídas:
-      matriz: ${{ steps.set-matrix.outputs.matrix }}
-    etapas:
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
     - id: set-matrix
-      executar: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    estratégia:
-      matriz: ${{fromJson(needs.job1.outputs.matrix)}}
-    etapas:
-    - executar: criar
+    strategy:
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+    steps:
+    - run: build
+```
+{% endraw %}
+
+##### Exemplo que retorna um tipo de dado do JSON
+
+Este fluxo de trabalho usa `fromJSON` para converter variáveis de ambiente de uma string para um número inteiro ou booleano.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - continue-on-error: ${{ fromJSON(env.continue) }}
+      timeout-minutes: ${{ fromJSON(env.time) }}
+      run: echo ...
 ```
 {% endraw %}
 
@@ -391,7 +415,7 @@ trabalhos
 
 `hashFiles(path)`
 
-Retorna um único hash para o conjunto de arquivos que correspondem ao padrão do `caminho`. Você pode fornecer um único padrão de `caminho` ou vários padrões de `caminho` separados por vírgulas. O `caminho` é relativo ao diretório `GITHUB_WORKSPACE` e pode incluir apenas arquivos dentro do `GITHUB_WORKSPACE`. Essa função calcula um hash SHA-256 individual para cada arquivo correspondente e, em seguida, usa esses hashes para calcular um hash SHA-256 final para o conjunto de arquivos. Para obter mais informações sobre o SHA-256, consulte "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
+Retorna um único hash para o conjunto de arquivos que correspondem ao padrão do `caminho`. Você pode fornecer um único padrão de `caminho` ou vários padrões de `caminho` separados por vírgulas. O `caminho` é relativo ao diretório `GITHUB_WORKSPACE` e pode incluir apenas arquivos dentro do `GITHUB_WORKSPACE`. Essa função calcula uma hash SHA-256 individual para cada arquivo correspondente e, em seguida, usa esses hashes para calcular um hash SHA-256 final para o conjunto de arquivos. Para obter mais informações sobre o SHA-256, consulte "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
 Você pode usar a correspondência de padrão de caracteres para corresponder os nomes dos arquivos. No Windows, a correspondência do padrão diferencia maiúsculas e minúsculas. Para obter mais informações sobre caracteres de correspondência de padrões suportados, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 

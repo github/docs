@@ -27,7 +27,7 @@ versions:
 
 Puedes administrar tu trabajo en {% data variables.product.product_name %} creando etiquetas para clasificar las propuestas y las solicitudes de extracción. Puedes aplicar etiquetas en el repositorio en el que éstas se hayan creado. Una vez que existe una etiqueta, puedes utilizarla en cualquier propuesta o solicitud de cambios dentro del repositorio en cuestión.
 
-Cualquiera con acceso de lectura a un repositorio puede ver y buscar las etiquetas del repositorio. Anyone with triage access to a repository can apply/dismiss existing labels. Para crear, editar, aplicar o eliminar una etiqueta, debes tener acceso de escritura al repositorio.
+Cualquiera con acceso de lectura a un repositorio puede ver y buscar las etiquetas del repositorio. Cualquiera con acceso de clasificación en un repositorio puede aplicar/descartar las etiquetas existentes. Para crear, editar, aplicar o eliminar una etiqueta, debes tener acceso de escritura al repositorio.
 
 ### Acerca de las etiquetas predeterminadas
 
@@ -90,7 +90,7 @@ El borrar una etiqueta la eliminará de las propuestas y soilcitudes de cambios.
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### Further reading
+### Leer más
 - "[Filtrar propuestas y solicitudes de cambios por etiquetas](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Administrar las etiquetas predeterminadas para los repositorios de tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - "[Fomentar las contribuciones sanas a tu proyecto con etiquetas](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

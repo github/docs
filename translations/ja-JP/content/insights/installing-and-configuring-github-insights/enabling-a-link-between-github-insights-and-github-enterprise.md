@@ -14,7 +14,7 @@ versions:
 
 1. {% data variables.product.prodname_ghe_server %}の管理シェルに接続してください。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
 2. 以下のコマンドを実行してください。
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. 次に、

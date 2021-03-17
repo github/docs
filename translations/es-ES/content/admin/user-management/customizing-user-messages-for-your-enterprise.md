@@ -4,18 +4,18 @@ redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
-intro: 'You can create custom messages that users will see on {% data variables.product.product_location %}.'
+intro: 'Puedes crear mensajes personalizados que los usuarios verán en {% data variables.product.product_location %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
 
-### About user messages
+### Acerca de los mensajes de usuario
 
-There are several types of user messages.
-- Messages that appear on the {% if enterpriseServerVersions contains currentVersion %}sign in or {% endif %}sign out page{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-- Announcement banners, which appear at the top of every page{% endif %}
+Hay varios tipos de mensajes de usuario.
+- Los mensajes que aparecen en la {% if enterpriseServerVersions contains currentVersion %}página de ingreso o de {% endif %}salida{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- Mensajes obligatorios, los cuales aparecen una vez en una ventana emergente que debe descartarse{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- Letreros de anuncio, los cuales aparecen en la parte superior de cada página{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 {% note %}
@@ -31,7 +31,7 @@ Puedes usar Markdown para dar formato al mensaje. Para obtener más información
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% if currentVersion ver_gt "enterprise-server@2.22" %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**. ![{% if currentVersion ver_gt "enterprise-server@2.22" %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
+5. {% if currentVersion ver_gt "enterprise-server@2.22" %}A la derecha de{% else %}Debajo de{% endif %} "Página de inicio de sesión", da clic en **Agregar mensaje** o **Editar mensaje**. ![{% if currentVersion ver_gt "enterprise-server@2.22" %}Botón de mensaje de Agregar{% else %}Editar{% endif %}](/assets/images/enterprise/site-admin-settings/edit-message.png)
 6. En **Mensaje de inicio de sesión**, escribe el mensaje que quisieras que vean los usuarios. ![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% if currentVersion ver_gt "enterprise-server@2.22" %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
@@ -45,7 +45,7 @@ Puedes usar Markdown para dar formato al mensaje. Para obtener más información
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+5. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}A la derecha de{% else %}Debajo de{% endif %} "Página de salida", da clic en **Agregar mensaje** o **Editar mensaje**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
 6. En **Mensaje de cierre de sesión**, escribe el mensaje que quieras que vean los usuarios. ![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
@@ -54,23 +54,23 @@ Puedes usar Markdown para dar formato al mensaje. Para obtener más información
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Creating a mandatory message
+### Crear un mensaje obligatorio
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}. Mandatory messages have a variety of uses.
+Puedes crear un mensaje obligatorio que {% data variables.product.product_name %} mostrará a todos los usuarios la primera vez que inicien sesión después de que guardaste el mensaje. El mensaje aparece en una ventana emergente que el usuario deberá descartar antes de poder utilizar {% data variables.product.product_location %}. Los mensajes obligatorios tienen varios usos.
 
-- Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.product.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
+- Proporcinar información de integración para los empleados nuevos
+- Decir a los usuarios cómo obtener ayuda con {% data variables.product.product_location %}
+- Garantizar que todos los usuarios lean tus condiciones de servicio para utilizar {% data variables.product.product_location %}
 
-If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
+Si incluyes cajas de verificación con lenguaje de marcado en el mensaje, todas ellas deberán seleccionarse antes de que el usuario pueda descartar el mensaje. Por ejemplo, si incluyes tus condiciones de servicio en el mensaje obligatorio, puede que necesites que cada usuario seleccione una casilla para confirmar que leyó dichas condiciones.
 
-Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audited actions](/admin/user-management/audited-actions)."
+Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitácora de auditoría. El evento incluye la versión del mensaje que vio el usuario. Para obtener más información, consulta la sección "[Acciones auditadas](/admin/user-management/audited-actions)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. To the right of "Mandatory message", click **Add message**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Under "Mandatory message", in the text box, type your message. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+1. A la derecha de "Mensaje obligatorio", da clic en **Agregar mensaje**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. Debajo de "Mensaje obligatorio", en la casilla de texto, teclea tu mensaje. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
@@ -81,8 +81,8 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 Puedes configurar un letrero de anuncio global para que se muestre a todos los usuarios en la parte superior de cada página.
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can also set an announcement banner
-{% if enterpriseServerVersions contains currentVersion %} in the administrative shell using a command line utility or{% endif %} using the API. Para obtener más información, consulta las secciones {% if enterpriseServerVersions contains currentVersion %}"[Utilidades de la línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" y {% endif %}"[Administración de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
+También puedes configurar un letrero de anuncio
+{% if enterpriseServerVersions contains currentVersion %} en el shell administrativo utilizando una utilidad de línea de comandos o{% endif %} utilizando la API. Para obtener más información, consulta las secciones {% if enterpriseServerVersions contains currentVersion %}"[Utilidades de la línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" y {% endif %}"[Administración de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
 {% else %}
 
 También puedes configurar un letrero de anuncio en el shell administrativo utilizando una utilidad de línea de comandos. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-announce)".
@@ -92,8 +92,8 @@ También puedes configurar un letrero de anuncio en el shell administrativo util
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
+1. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}A la derecha de{% else %}Debajo de {% endif %} "Anuncio", da clic en **Agregar anuncio**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Debajo de "Anuncio", en el campo de texto, teclea el anuncio que quieras mostrar en un letrero. ![Campo de texto para ingresar el anuncio](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date. ![Menú desplegable de calendario para elegir una fecha de vencimiento](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. Opcionalmente, debajo de "Vence en", selecciona el menú desplegable de calendario y da clic en la fecha de vencimiento. ![Menú desplegable de calendario para elegir una fecha de vencimiento](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

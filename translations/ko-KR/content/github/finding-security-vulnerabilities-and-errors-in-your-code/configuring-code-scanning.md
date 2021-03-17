@@ -18,7 +18,7 @@ You can run {% data variables.product.prodname_code_scanning %} within {% data v
 
 This article is about running {% data variables.product.prodname_code_scanning %} within {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_dotcom %}{% endif %}.
 
-Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must enable {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must set up {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %}
 
@@ -26,7 +26,7 @@ Before you can configure {% data variables.product.prodname_code_scanning %} for
 
 ### Editing a {% data variables.product.prodname_code_scanning %} workflow
 
-{% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have enabled by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
+{% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
 
 1. In your repository, browse to the workflow file you want to edit.
 1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}. ![Edit workflow file button](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
@@ -134,7 +134,7 @@ The default {% data variables.product.prodname_codeql_workflow %} file contains 
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was enabled. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was enabled, and you later added Python code, you will need to add `python` to the matrix.
+If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was set up. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was set up, and you later added Python code, you will need to add `python` to the matrix.
 
 ```yaml
 jobs:

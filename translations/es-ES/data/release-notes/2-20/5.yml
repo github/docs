@@ -1,5 +1,4 @@
----
-date: '07-04-2020'
+date: '2020-04-07'
 sections:
   security_fixes:
     - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/19536, https://github.com/github/enterprise2/pull/19494 {% endcomment %}'

@@ -15,30 +15,31 @@ O isolamento de subdomínios reduz os problemas de script entre sites e outras v
 
 Quando o isolamento do subdomínio está ativado, o {% data variables.product.prodname_ghe_server %} substitui vários caminhos pelos subdomínios.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 Para usar o Docker com
 {% data variables.product.prodname_registry %}, você também deve habilitar o isolamento de subdomínio. Para obter mais informações, consulte "[Configurar Docker para uso com o {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)".
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
-| Caminho sem isolamento de subdomínio                                                                                       | Caminho com isolamento de subdomínio                                                       |
-| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `http(s)://HOSTNAME/assets/`                                                                                               | `http(s)://assets.HOSTNAME/`                                                               |
-| `http(s)://HOSTNAME/avatars/`                                                                                              | `http(s)://avatars.HOSTNAME/`                                                              |
-| `http(s)://HOSTNAME/codeload/`                                                                                             | `http(s)://codeload.HOSTNAME/`                                                             |
-| `http(s)://HOSTNAME/gist/`                                                                                                 | `http(s)://gist.HOSTNAME/`                                                                 |
-| `http(s)://HOSTNAME/media/`                                                                                                | `http(s)://media.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/pages/`                                                                                                | `http(s)://pages.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/raw/`                                                                                                  | `http(s)://raw.HOSTNAME/`                                                                  |
-| `http(s)://HOSTNAME/render/`                                                                                               | `http(s)://render.HOSTNAME/`                                                               |
-| `http(s)://HOSTNAME/reply/`                                                                                                | `http(s)://reply.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/uploads/`                                                                                              | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| N/A, Docker com {% data variables.product.prodname_registry %} não funcionará com o isolamento de subdomínio desabilitado. | `http(s)://uploads.HOSTNAME/`                                                              |
-| `https://HOSTNAME/_registry/npm/`                                                                                          | `https://npm.HOSTNAME/`                                                                    |
-| `https://HOSTNAME/_registry/rubygems/`                                                                                     | `https://rubygems.HOSTNAME/`                                                               |
-| `https://HOSTNAME/_registry/maven/`                                                                                        | `https://maven.HOSTNAME/`                                                                  |
-| `https://HOSTNAME/_registry/nuget/`                                                                                        | `https://nuget.HOSTNAME/`{% endif %}
+| Caminho sem isolamento de subdomínio                                                                                                                                                            | Caminho com isolamento de subdomínio                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`                                                                                                                                                                    | `http(s)://assets.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/avatars/`                                                                                                                                                                   | `http(s)://avatars.HOSTNAME/`                                                                  |
+| `http(s)://HOSTNAME/codeload/`                                                                                                                                                                  | `http(s)://codeload.HOSTNAME/`                                                                 |
+| `http(s)://HOSTNAME/gist/`                                                                                                                                                                      | `http(s)://gist.HOSTNAME/`                                                                     |
+| `http(s)://HOSTNAME/media/`                                                                                                                                                                     | `http(s)://media.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/pages/`                                                                                                                                                                     | `http(s)://pages.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/raw/`                                                                                                                                                                       | `http(s)://raw.HOSTNAME/`                                                                      |
+| `http(s)://HOSTNAME/render/`                                                                                                                                                                    | `http(s)://render.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/reply/`                                                                                                                                                                     | `http(s)://reply.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/uploads/`                                                                                                                                                                   | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion == "enterprise-server@2.22" %}
+| N/A, Docker com {% data variables.product.prodname_registry %} não funcionará com o isolamento do subdomínio desabilitado para o beta 2.22 de {% data variables.product.prodname_registry %}. | `http(s)://docker.HOSTNAME/` |{% endif %}                                                      |{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/docker/`                                                                                                                                                            | `http(s)://docker.HOSTNAME/`{% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/npm/`                                                                                                                                                               | `https://npm.HOSTNAME/`                                                                        |
+| `https://HOSTNAME/_registry/rubygems/`                                                                                                                                                          | `https://rubygems.HOSTNAME/`                                                                   |
+| `https://HOSTNAME/_registry/maven/`                                                                                                                                                             | `https://maven.HOSTNAME/`                                                                      |
+| `https://HOSTNAME/_registry/nuget/`                                                                                                                                                             | `https://nuget.HOSTNAME/`{% endif %}
 
 ### Pré-requisitos
 

@@ -68,7 +68,7 @@ Si no puedes clonar un repositorio, revisa que:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+### Leer más
 
 - "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"
 {% endif %}

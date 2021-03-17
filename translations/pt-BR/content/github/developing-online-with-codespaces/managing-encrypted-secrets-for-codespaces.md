@@ -1,6 +1,6 @@
 ---
-title: Managing encrypted secrets for Codespaces
-intro: You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.
+title: Gerenciar segredos criptografados para codespaces
+intro: Você pode armazenar informações confidenciais, como tokens, que você deseja acessar nos seus codespaces por meio de variáveis de ambiente.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
@@ -8,46 +8,46 @@ versions:
 
 {% note %}
 
-**Note:** Encrypted secrets for {% data variables.product.prodname_codespaces %} is currently in beta and subject to change.
+**Observação:** Os segredos criptografados para {% data variables.product.prodname_codespaces %} estão atualmente na versão beta e sujeitos a alterações.
 
 {% endnote %}
 
-### About encrypted secrets for {% data variables.product.prodname_codespaces %}
+### Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
 
-You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
+Você pode adicionar segredos criptografados à sua conta de usuário que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
-- Personal access tokens to cloud services
-- Service principals
-- Subscription identifiers
+- Tokens de acesso pessoal para os serviços da nuvem
+- Entidades de serviço
+- Identificadores da assinatura
 
-You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret.
+Você pode escolher quais repositórios devem ter acesso a cada segredo. Em seguida, você pode usar o segredo em qualquer código que criar para um repositório que tiver acesso ao segredo.
 
-### Adding a secret
+### Adicionar um segredo
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. To the right of "Codespaces secrets", click **New secret**. !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
-1. Under "Name", type a name for your secret. !["Name" textbox](/assets/images/help/settings/codespaces-secret-name-field.png)
+1. À direita dos "Segredos dos codespaces", clique em **Novo segredo**. ![Botão "Novo segredo"](/assets/images/help/settings/codespaces-new-secret-button.png)
+1. Em "Nome", digite um nome para seu segredo. ![Caixa de texto "Nome"](/assets/images/help/settings/codespaces-secret-name-field.png)
 {% data reusables.user_settings.codespaces-secret-value %}
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Clique em **Add secret** (Adicionar segredo).
 
-### Editing a secret
+### Editar um segredo
 
-You can update the value of an existing secret, and you can change which repositories can access a secret.
+Você pode atualizar o valor de um segredo existente, bem como alterar quais repositórios podem acessar um segredo.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**. !["Update" button](/assets/images/help/settings/codespaces-secret-update-button.png)
-1. Under "Value", click **enter a new value**. !["enter a new value" link](/assets/images/help/settings/codespaces-secret-update-value-text.png)
+1. Em "Segredos do codespace", à direita do segredo que você deseja editar, clique em **Atualizar**. ![Botão "Atualizar"](/assets/images/help/settings/codespaces-secret-update-button.png)
+1. Em "Valor", clique em **Inserir um novo valor**. ![Link "Inserir um novo valor"](/assets/images/help/settings/codespaces-secret-update-value-text.png)
 {% data reusables.user_settings.codespaces-secret-value %}
 {% data reusables.user_settings.codespaces-secret-repository-access %}
-1. Optionally, to remove the secret's access to a repository, deselect the repository. ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
+1. Opcionalmente, para remover o acesso do segredo a um repositório, desmarque o repositório. ![Caixas de seleção para remover acesso aos repositórios](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Clique em **Save changes** (Salvar alterações).
 
-### Deleting a secret
+### Excluir um segredo
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**. !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
-1. Leia o alerta e clique em **OK**. ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+1. Em "Segredos dos codespaces", à direita do segredo que você deseja excluir, clique em **Excluir**. ![Botão "Excluir"](/assets/images/help/settings/codespaces-secret-delete-button.png)
+1. Leia o alerta e clique em **OK**. ![Confirmação para excluir um segredo](/assets/images/help/settings/codespaces-secret-delete-warning.png)

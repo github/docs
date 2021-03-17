@@ -39,7 +39,7 @@ Antes de abrir una propuesta o solicitud de extracción, comprueba si el reposit
 
 Al igual que las pautas de contribución, el mantenedor del repositorio puede haber incluido una plantilla para información para incluir en una propuesta o solicitud de extracción. Completar las indicaciones desde la plantilla puede ayudarte a obtener una mejor respuesta de los mantenedores.
 
-### Further reading
+### Leer más
 
 - "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"

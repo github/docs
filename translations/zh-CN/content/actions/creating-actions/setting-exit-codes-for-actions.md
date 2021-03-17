@@ -41,11 +41,13 @@ try {
 
 如果要创建 Docker 容器操作，您可以在 `entrypoint.sh` 脚本中设置失败退出代码。 例如：
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 更多信息请参阅“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。

@@ -55,7 +55,7 @@ Actions and any elements of the Actions service may not be used in violation of 
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - gitHubアクションが使用されるリポジトリに関連するソフトウェアプロジェクトの製造、テスト、デプロイ、公開に関連しないその他の行為。
 
-このような使用制限違反や、GitHubアクションの悪用を防ぐために、GitHubはGitHubアクションの使用を監視する場合があります。 GitHubアクションを不正利用した場合には、ジョブが停止されたり、GitHubアクションの使用を制限されたりすることもあります。
+このような使用制限違反や、GitHubアクションの悪用を防ぐために、GitHubはGitHubアクションの使用を監視する場合があります。 Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
 
 #### b. パッケージの使用量
 GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).

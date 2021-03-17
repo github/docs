@@ -11,7 +11,7 @@ redirect_from:
   - /articles/maintaining-teams-improved-organization-permissions/
   - /articles/maintaining-teams/
   - /articles/organizing-members-into-teams
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

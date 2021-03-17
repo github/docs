@@ -8,7 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+type: tutorial
+topics:
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -77,7 +81,7 @@ The template includes a matrix strategy that builds and tests your code with fou
 Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
@@ -93,7 +97,7 @@ steps:
 
 Alternatively, you can build and test with exact Node.js versions.
 
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [8.16.2, 10.17.0]
@@ -102,7 +106,7 @@ strategy:
 Or, you can build and test using a single version of Node.js too.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]
@@ -136,7 +140,7 @@ When using {% data variables.product.prodname_dotcom %}-hosted runners, you can 
 
 This example installs the dependencies defined in the *package.json* file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -150,7 +154,7 @@ steps:
 Using `npm ci` installs the versions in the *package-lock.json* or *npm-shrinkwrap.json* file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -166,7 +170,7 @@ steps:
 
 This example installs the dependencies defined in the *package.json* file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -179,7 +183,7 @@ steps:
 
 Alternatively, you can pass `--frozen-lockfile` to install the versions in the *yarn.lock* file and prevent updates to the *yarn.lock* file.
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -201,7 +205,7 @@ In the example below, the secret `NPM_TOKEN` stores the npm authentication token
 Before installing dependencies, use the `setup-node` action to create the *.npmrc* file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -220,7 +224,7 @@ steps:
 
 The example above creates an *.npmrc* file with the following contents:
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true
@@ -231,7 +235,7 @@ always-auth=true
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -256,7 +260,7 @@ steps:
 
 You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your *package.json* file and `npm test` to run your test suite, you would add those commands in your workflow file.
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js

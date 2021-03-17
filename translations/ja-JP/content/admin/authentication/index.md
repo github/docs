@@ -1,6 +1,6 @@
 ---
 title: 認証
-intro: You can configure how users sign into {% data variables.product.product_name %}.
+intro: ユーザが {% data variables.product.product_name %} にサインインする方法を設定できます。
 redirect_from:
   - /enterprise/admin/authentication
 versions:

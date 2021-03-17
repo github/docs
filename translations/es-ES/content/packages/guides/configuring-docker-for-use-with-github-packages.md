@@ -184,7 +184,7 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
 {% if enterpriseServerVersions contains currentVersion %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only Docker supported option for GHES 2.22 so it can be misleading.-->
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-These examples assume your instance has subdomain isolation enabled.
+Estos ejemplos asumen que tu instancia tiene habilitado el aislamiento de subdominios.
 {% endif %}
 
 
@@ -279,6 +279,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

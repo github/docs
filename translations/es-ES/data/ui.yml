@@ -4,7 +4,7 @@ header:
   contact: Contacto
   notices:
     ghae_silent_launch: GitHub AE está actualmente en un lanzamiento limitado. Por favor, <a href="https://enterprise.github.com/contact">contacta a nuestro equipo de ventas</a> para conocer más sobre esto.
-    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
+    release_candidate: '# El nombre de la versión se interpreta antes del texto siguiente a través de '' includes/header-notification.html '' se encuentra disponible actualmente como un candidato de lanzamiento. Para obtener más información, consulta la sección "<a href="/admin/overview/about-upgrades-to-new-releases">Acerca de las mejoras para los lanzamientos nuevos</a>".'
     localization_complete: Frecuentemente publicamos actualizaciones de nuestra documentación. Es posible que la traducción de esta página esté en curso. Para conocer la información más actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>. Si existe un problema con las traducciones en esta página, por favor <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">infórmanos</a>.
     localization_in_progress: '¡Hola, explorador! Esta página está bajo desarrollo activo o todavía está en la etapa de traducción. Para obtener información más actualizada y precisa, visita nuestra <a id="to-english-doc" href="/en">documentación en inglés</a>.'
     early_access: '📣 Por favor, <b>no compartas</b> esta URL públicamente. Esta página tiene contenido sobre una característica de acceso temprano.'
@@ -91,9 +91,9 @@ products:
       see_preview_notices: Ver avisos de previsualización
       preview_header_is_required: El encabezado es <strong>requerido</strong>
 footer:
-  all_rights_reserved: All rights reserved
+  all_rights_reserved: Todos los derechos reservados
   terms: Términos
-  privacy: Privacy
+  privacy: Privacidad
   security: Seguridad
   product:
     heading: Producto
@@ -133,14 +133,24 @@ product_landing:
   reference_guides: Guías de referencia
   overview: Resumen
 product_sublanding:
-  start: Start
-  start_path: Start path
-  learning_paths: Learning paths
-  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  start: Inicio
+  start_path: Ruta de inicio
+  learning_paths: Ruta de aprendizaje
+  learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
   more_guides: más guías
-  guideTypes:
+  load_more: Carga más guías
+  all_guides: Todas las guías
+  no_result: Lo sentimos, no hay una guía que coincida con tu filtro.
+  filters:
+    type: Type
+    topic: Topic
+    all: Todas
+  guide_types:
     overview: Resumen
     quick_start: Inicio Rápido
     tutorial: Tutorial
-    how_to: How-to guide
+    how_to: Guía instruccional
     reference: Referencia
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide

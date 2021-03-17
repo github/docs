@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Ruby'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,10 +49,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -63,7 +63,7 @@ jobs:
 
 La forma más fácil de especificar una versión de Ruby es utilizando la acción `ruby/setup-ruby` que se proporciona en la organización de Ruby en GitHub. Esta acción agrega cualquier versión compatible con Ruby al `PATH` de cada ejecución de un job en un flujo de trabajo. Para obtener más información, consulta [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
-Se recomienda utilizar Ruby con GitHub Actions, ya sea mediante la acción `ruby/setup-ruby` de Ruby, o mediante la acción `actions/setup-ruby` de Github; debido a que esto garantiza el comportamiento consistente entre ejecutores y versiones distintas de Ruby.
+Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
 La acción `setup-ruby` toma una versión de Ruby como entrada y la configura en el ejecutor.
 
@@ -119,10 +119,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby ${{ matrix.ruby-version }}
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
     - name: Install dependencies
@@ -316,4 +313,3 @@ jobs:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 ```
 {% endraw %}
-

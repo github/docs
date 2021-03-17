@@ -27,7 +27,7 @@ Cuando crees un archivo en {% data variables.product.product_name %}, ten en cue
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 
 - "[Agregar un archivo a un repositorio](/articles/adding-a-file-to-a-repository)"
 - [Agregar un archivo a un repositorio mediante la línea de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)"

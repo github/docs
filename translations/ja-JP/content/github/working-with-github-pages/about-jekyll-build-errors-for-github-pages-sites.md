@@ -44,13 +44,13 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 各コミット後にエラーメッセージを表示するように、[Travis CI](https://travis-ci.org/) などのサードパーティサービスを設定できます。
 
 1. 公開元のルートに、以下の内容で _Gemfile_ と呼ばれるファイルをまだ追加していない場合は、追加します。
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. 選択したテストサービス用にサイトのリポジトリを設定します。 例えば、[Travis CI](https://travis-ci.org/) を利用するには、以下の内容の _.travis.yml_ ファイルを、公開元のルートに追加します。
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

@@ -110,7 +110,7 @@ No puedes borrar una rama que esté actualmente asociada con una solicitud de ex
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 
 - [Clonar un repositorio de {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)
 - "[Rama](/articles/github-glossary/#branch)" en el glosario {% data variables.product.prodname_dotcom %}

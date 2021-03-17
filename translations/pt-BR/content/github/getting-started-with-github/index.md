@@ -28,6 +28,7 @@ versions:
     {% link_in_list /be-social %}
 {% topic_link_in_list /learning-about-github %}
     {% link_in_list /githubs-products %}
+    {% link_in_list /about-github-advanced-security %}
     {% link_in_list /exploring-early-access-releases-with-feature-preview %}
     {% link_in_list /types-of-github-accounts %}
     {% link_in_list /faq-about-changes-to-githubs-plans %}

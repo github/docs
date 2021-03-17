@@ -28,6 +28,6 @@ Para obtener más información sobre la terminología de {% data variables.produ
 
 Para obtener más información sobre cómo dar clases con {% data variables.product.prodname_classroom %}, consulta la sección "[Dar clases con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)".
 
-### Further reading
+### Leer más
 
-- "[Aprende y da clases con {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

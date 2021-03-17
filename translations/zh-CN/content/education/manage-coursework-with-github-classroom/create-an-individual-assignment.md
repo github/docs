@@ -120,5 +120,5 @@ redirect_from:
 
 ### 延伸阅读
 
-- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

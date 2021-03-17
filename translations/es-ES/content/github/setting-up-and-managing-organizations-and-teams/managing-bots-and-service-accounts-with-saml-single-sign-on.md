@@ -16,6 +16,6 @@ Para conservar el acceso a los bot y a las cuentas de servicio, los administrado
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

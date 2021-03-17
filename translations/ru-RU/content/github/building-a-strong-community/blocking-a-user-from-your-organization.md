@@ -13,14 +13,13 @@ When you block a user, you can choose to block them indefinitely or for a specif
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider [locking the conversation](/articles/locking-conversations) so only collaborators can comment.
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/github/building-a-strong-community/locking-conversations)."
 
 {% endtip %}
 
 At the time that you block a user from your organization:
 - The user stops watching your organization's repositories
 - The user's stars and issue assignments are removed from your repositories
-- The user's forks of your organization's repositories are deleted
 - The user's votes on discussions or comments in your organization's repositories are deleted
 - The user is removed as a collaborator on your organization's repositories
 - The user's contributions to your organization's repositories are no longer counted as contributions for them

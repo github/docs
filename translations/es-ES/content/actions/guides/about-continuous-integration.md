@@ -10,7 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+type: overview
+topics:
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -56,7 +59,7 @@ Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece 
 
 Para obtener más información, consulta "[ Configuración de flujo de trabajo](/articles/configuring-a-workflow)".
 
-### Further reading
+### Leer más
 
 - "[Configurar la integración continua utilizando {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}

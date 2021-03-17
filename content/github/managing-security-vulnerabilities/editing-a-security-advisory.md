@@ -22,12 +22,14 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 5. In the upper-right corner of the details for the security advisory, click {% octicon "pencil" aria-label="The edit icon" %}.
   ![Edit button for a security advisory](/assets/images/help/security/security-advisory-edit-button.png)
 {% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-severity %}
+{% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
-8. Optionally, edit the "Credits" for the security advisory.
+11. Optionally, edit the "Credits" for the security advisory.
   ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
-9. Click **Update security advisory**.
+12. Click **Update security advisory**.
   ![Add button](/assets/images/help/security/update-advisory-button.png)
-10. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.
+13. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.
 
 ### Further reading
 

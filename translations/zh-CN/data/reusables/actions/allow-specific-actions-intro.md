@@ -1,4 +1,4 @@
-When you choose **Allow select actions**, local actions are allowed, and there are additional options for allowing other specific actions:
+选择 **Allow select actions（允许选择操作）**时，允许本地操作，并且还有允许其他特定操作的其他选项。
 
 - **允许 {% data variables.product.prodname_dotcom %} 创建的操作：** 您可以允许 {% data variables.product.prodname_dotcom %} 创建的所有操作用于工作流程。 {% data variables.product.prodname_dotcom %} 创建的操作位于 `actions` 和 `github` 组织中。 更多信息请参阅 [`actions`](https://github.com/actions) 和 [`github`](https://github.com/github) 组织。
 - **Allow Marketplace actions by verified creators（允许已验证的创作者的 Marketplace 操作）：**您可以允许已验证的创作者创建的所有 {% data variables.product.prodname_marketplace %} 操作用于工作流程。 如果 GitHub 验证该操作的创建者为合作伙伴组织，{% octicon "verified" aria-label="The verified badge" %} 徽章将显示在 {% data variables.product.prodname_marketplace %} 中的操作旁边。

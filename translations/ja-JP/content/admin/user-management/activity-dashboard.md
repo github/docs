@@ -1,6 +1,6 @@
 ---
 title: アクティビティダッシュボード
-intro: 'The Activity dashboard gives you an overview of all the activity in your enterprise.'
+intro: 'アクティビティダッシュボードで、Enterprise 内のすべてのアクティビティの概要を確認できます。'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -24,8 +24,8 @@ versions:
 ![アクティビティダッシュボード](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
-For more analytics based on data from
-{% data variables.product.product_name %}, you can purchase {% data variables.product.prodname_insights %}. 詳しい情報については、「[{% data variables.product.prodname_insights %} について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
+-
+{% data variables.product.product_name %} のデータに基づく詳細な分析については、{% data variables.product.prodname_insights %} を購入できます。 詳しい情報については、「[{% data variables.product.prodname_insights %} について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
 {% endif %}
 
 ### アクティビティダッシュボードへのアクセス

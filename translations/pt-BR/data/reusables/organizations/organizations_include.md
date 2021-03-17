@@ -6,3 +6,4 @@ As organizações incluem:
 - [Equipes aninhadas que refletem a estrutura da sua empresa ou grupo](/articles/about-teams) com permissões de acesso em cascata e menções {% if currentVersion != "github-ae@latest" %}
 - A capacidade para os proprietários da organização verem a autenticação de dois fatores [two-factor authentication (2FA) status](/articles/about-two-factor-authentication) (status de autenticação de dois fatores)
 - A opção de [Exigir que todos os integrantes da organização usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- The option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}{% endif %}

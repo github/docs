@@ -7,7 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - Java
+  - Ant
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -15,7 +19,7 @@ type: 'tutorial'
 
 ### はじめに
 
-このガイドは、Antビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、プルリクエストに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ワークフローの実行による成果物をアップロードするようにもできます。
+このガイドは、Antビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ワークフローの実行による成果物をアップロードするようにもできます。
 
 {% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びAntを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Ant のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 
@@ -38,7 +42,7 @@ Java及びAntフレームワークの基本的な理解をしておくことを�
 リポジトリの`.github/workflows`に新しいファイルを作成して、手作業でこのワークフローを追加することもできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ jobs:
 プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを実行したいのであれば、それらを指定できます。 たとえば、_build-ci.xml_ファイル中で設定された`jar`ターゲットを実行したいこともあるでしょう。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -97,7 +101,7 @@ steps:
 Antは通常、JAR、EAR、WARのような出力ファイルを`build/jar`ディレクトリに作成します。 このディレクトリの内容は`upload-artifact`アクションを使ってアップロードできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

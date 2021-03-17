@@ -43,6 +43,6 @@ Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado
 12
 Haz clic en **Save ** (guardar). ![Botón para guardar la configuración de SAML SSO](/assets/images/help/saml/saml_save.png)</ol>
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

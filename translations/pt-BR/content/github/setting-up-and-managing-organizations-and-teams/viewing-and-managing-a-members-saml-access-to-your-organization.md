@@ -20,6 +20,8 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 {% data reusables.saml.about-linked-identities %}
 
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
+
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.people %}

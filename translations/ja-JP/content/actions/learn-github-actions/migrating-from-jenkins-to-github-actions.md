@@ -6,7 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Jenkins
+  - 移行
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,8 +42,8 @@ Jenkinsでは、ビルドを単一のビルドエージェントに送信する�
 同様に、{% data variables.product.prodname_actions %} はジョブを {% data variables.product.prodname_dotcom %} ホストまたはセルフホストランナーに送信でき、ラベルを使用してさまざまな属性に従ってランナーを分類できます。 以下の表は、分散ビルドの概念がJenkinsと{% data variables.product.prodname_actions %}でどのように実装されているかを比較しています。
 
 | Jenkins                                                                | {% data variables.product.prodname_actions %}
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`エージェント`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`ランナー`](/actions/learn-github-actions/introduction-to-github-actions#runners)  <br> [`セルフホストランナー`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`エージェント`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`runners`](/actions/learn-github-actions/introduction-to-github-actions#runners) <br> [`self-hosted runners`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
 
 #### セクションを利用したパイプラインの整理
 
@@ -50,7 +55,6 @@ Jenkinsは、宣言的パイプラインを複数のセクションに分割し�
 | [`post`](https://jenkins.io/doc/book/pipeline/syntax/#post)     |                                                                                                                                                                                                                                                                                                        |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#stages) | [`jobs`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobs)                                                                                                                                                                                                |
 | [`steps`](https://jenkins.io/doc/book/pipeline/syntax/#steps)   | [`jobs.<job_id>.steps`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)                                                                                                                                                                |
-
 
 ### ディレクティブの利用
 
@@ -68,7 +72,6 @@ Jenkinsは、_宣言的パイプライン_を管理するためにディレク�
 | [`tools`](https://jenkins.io/doc/book/pipeline/syntax/#tools)                              | [{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | [`input`](https://jenkins.io/doc/book/pipeline/syntax/#input)                              | [`inputs`](/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | [`when`](https://jenkins.io/doc/book/pipeline/syntax/#when)                                | [`jobs.<job_id>.if`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idif)                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-
 
 ### シーケンシャルなステージの利用
 
@@ -114,23 +117,23 @@ Jenkinsのパイプライン
 <tr>
 <td>
 
-  ```yaml
-    pipeline {
-     agent any
-      triggers {
-        cron('H/15 * * * 1-5')
-      }
-   }
-  ```
+```yaml
+pipeline {
+  agent any
+  triggers {
+    cron('H/15 * * * 1-5')
+  }
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  on:
+```yaml
+on:
   schedule:
-    - cron:  '*/15 * * * 1-5'
-  ```
+    - cron: '*/15 * * * 1-5'
+```
 
 </td>
 </tr>
@@ -150,25 +153,24 @@ Jenkinsのパイプライン
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    agent any
-    environment {
-      MAVEN_PATH = '/usr/local/maven'
-    }
+```yaml
+pipeline {
+  agent any
+  environment {
+    MAVEN_PATH = '/usr/local/maven'
   }
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
+```yaml
+jobs:
+  maven-build:
     env:
       MAVEN_PATH: '/usr/local/maven'
-
-  ```
+```
 
 </td>
 </tr>
@@ -188,30 +190,28 @@ Jenkinsのパイプライン
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    triggers {
-      upstream(
-        upstreamProjects: 'job1,job2',
-        threshold: hudson.model.Result.SUCCESS)
-      }
-    }
+```yaml
+pipeline {
+  triggers {
+    upstream(
+      upstreamProjects: 'job1,job2',
+      threshold: hudson.model.Result.SUCCESS
+    )
   }
-
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  jobs:
-    job1:
-    job2:
-      needs: job1
-    job3:
-      needs: [job1, job2]
-
-  ```
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    needs: [job1, job2]
+```
 
 </td>
 </tr>
@@ -231,26 +231,27 @@ Jenkinsのパイプライン
 <tr>
 <td>
 
-  ```yaml
+```yaml
 pipeline {
-agent none
-stages {
-  stage('Run Tests') {
-    matrix {
-      axes {
-        axis {
-          name: 'PLATFORM'
-          values: 'macos', 'linux'
+  agent none
+  stages {
+    stage('Run Tests') {
+      matrix {
+        axes {
+          axis {
+            name: 'PLATFORM'
+            values: 'macos', 'linux'
+          }
         }
-      }
-      agent { label "${PLATFORM}" }
-      stages {
-        stage('test') {
-          tools { nodejs "node-12" }
-          steps {
-            dir("scripts/myapp") {
-              sh(script: "npm install -g bats")
-              sh(script: "bats tests")
+        agent { label "${PLATFORM}" }
+        stages {
+          stage('test') {
+            tools { nodejs "node-12" }
+            steps {
+              dir("scripts/myapp") {
+                sh(script: "npm install -g bats")
+                sh(script: "bats tests")
+              }
             }
           }
         }
@@ -258,33 +259,32 @@ stages {
     }
   }
 }
-}
-  ```
+```
 
 </td>
 <td>
 
 {% raw %}
-  ```yaml
-  name: demo-workflow
-  on:
-    push:
-  jobs:
-    test:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        fail-fast: false
-        matrix:
-          os: [macos-latest, ubuntu-latest]
-      steps:
-        - uses: actions/checkout@v1
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - run: npm install -g bats
-        - run: bats tests
-          working-directory: scripts/myapp
-  ```
+```yaml
+name: demo-workflow
+on:
+  push:
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install -g bats
+      - run: bats tests
+        working-directory: scripts/myapp
+```
 {% endraw %}
 
 </td>

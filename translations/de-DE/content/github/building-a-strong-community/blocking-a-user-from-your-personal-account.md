@@ -9,11 +9,11 @@ versions:
 
 ### Informationen zum Blockieren von Benutzern
 
-Du kannst einen Benutzer in Deinen Kontoeinstellungen oder über das Profil des Benutzers blockieren. {% data variables.product.prodname_dotcom %} wird dem Benutzer nicht mitteilen, wenn Du ihn blockierst. Wenn Du vermeiden möchtest, am selben Projekt mitzuwirken wie ein von Dir blockierter Benutzer, kannst Du bei Repositorys, zu denen der blockierte Benutzer in der Vergangenheit beigetragen hat, [Warnungen anzeigen lassen](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+Du kannst einen Benutzer in Deinen Kontoeinstellungen oder über das Profil des Benutzers blockieren. {% data variables.product.prodname_dotcom %} wird dem Benutzer nicht mitteilen, wenn Du ihn blockierst. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
 {% tip %}
 
-**Tipp:** Wenn Du einen Benutzer wegen einer hitzigen Unterhaltung blockierst, empfiehlt es sich möglicherweise, [die Unterhaltung zu schließen](/articles/locking-conversations), sodass nur Mitarbeiter kommentieren können.
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. (siehe „[Unterhaltungen sperren](/github/building-a-strong-community/locking-conversations)“)
 
 {% endtip %}
 
@@ -22,8 +22,6 @@ Wenn Du einen Benutzer blockierst:
 - The user stops watching and unpins your repositories
 - The user is not able to join any organizations you are an owner of
 - werden die Sternmarkierungen und Issue-Zuweisungen des Benutzers von Deinen Repositorys entfernt
-- The user's forks of your repositories are deleted
-- You delete any forks of the user's repositories
 - The user's votes on discussions or comments in your repositories are deleted
 - Wird er als Mitarbeiter von Deinen Repositorys entfernt
 - The user's contributions to your repositories are no longer counted as contributions for them
