@@ -1335,9 +1335,8 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 
 #### Webhook payload object
 
-Key | Type | Description
-----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
+{% data reusables.webhooks.workflow_run_properties %}
+{% data reusables.webhooks.workflow_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
