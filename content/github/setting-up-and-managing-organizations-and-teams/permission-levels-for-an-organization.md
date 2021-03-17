@@ -131,7 +131,7 @@ When you designate a user as a {% data variables.product.prodname_github_app %} 
 
 ### Outside collaborators
 
-To keep your organization data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
+To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
 
 ### Further reading
 

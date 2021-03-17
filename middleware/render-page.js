@@ -6,6 +6,7 @@ const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
 const RedisAccessor = require('../lib/redis-accessor')
+const { isConnectionDropped } = require('./halt-on-dropped-connection')
 
 const { HEROKU_RELEASE_VERSION } = process.env
 const pageCacheDatabaseNumber = 1
@@ -28,31 +29,6 @@ function addCsrf (req, text) {
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
 
-  // Remove any query string (?...) and/or fragment identifier (#...)
-  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
-
-  for (const queryKey in req.query) {
-    if (!cacheableQueries.includes(queryKey)) {
-      searchParams.delete(queryKey)
-    }
-  }
-  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
-
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
-
-  // Is the request for JSON debugging info?
-  const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
-
-  if (isCacheable && !isRequestingJsonForDebugging) {
-    const cachedHtml = await pageCache.get(originalUrl)
-    if (cachedHtml) {
-      console.log(`Serving from cached version of ${originalUrl}`)
-      statsd.increment('page.sent_from_cache')
-      return res.send(addCsrf(req, cachedHtml))
-    }
-  }
-
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
@@ -70,14 +46,51 @@ module.exports = async function renderPage (req, res, next) {
     return res.status(200).end()
   }
 
+  // Remove any query string (?...) and/or fragment identifier (#...)
+  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
+
+  for (const queryKey in req.query) {
+    if (!cacheableQueries.includes(queryKey)) {
+      searchParams.delete(queryKey)
+    }
+  }
+  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
+
+  // Serve from the cache if possible (skip during tests)
+  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
+
+  // Is the request for JSON debugging info?
+  const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
+
+  if (isCacheable && !isRequestingJsonForDebugging) {
+    // Stop processing if the connection was already dropped
+    if (isConnectionDropped(req, res)) return
+
+    const cachedHtml = await pageCache.get(originalUrl)
+    if (cachedHtml) {
+      // Stop processing if the connection was already dropped
+      if (isConnectionDropped(req, res)) return
+
+      console.log(`Serving from cached version of ${originalUrl}`)
+      statsd.increment('page.sent_from_cache')
+      return res.send(addCsrf(req, cachedHtml))
+    }
+  }
+
   // add page context
   const context = Object.assign({}, req.context, { page })
 
   // collect URLs for variants of this page in all languages
   context.page.languageVariants = Page.getLanguageVariants(req.path)
 
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
+
   // render page
   context.renderedPage = await page.render(context)
+
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
 
   // get mini TOC items on articles
   if (page.showMiniToc) {

@@ -1,5 +1,5 @@
 const walkSync = require('walk-sync')
-const fs = require('fs').promises
+const readFileAsync = require('../../lib/readfile-async')
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -61,7 +61,7 @@ describe('check for repository references', () => {
   })
 
   test.each(filenames)('in file %s', async (filename) => {
-    const file = await fs.readFile(filename, 'utf8')
+    const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
       .filter(repoName => !ALLOW_LIST.has(repoName))

@@ -638,6 +638,27 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
+#### Example using action inside a different private repository than the workflow
+
+Your workflow must checkout the private repository and reference the action locally.
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
+
 ### `jobs.<job_id>.steps[*].run`
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.

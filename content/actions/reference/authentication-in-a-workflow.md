@@ -95,6 +95,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 | repository projects | read/write | read |
 | statuses | read/write  | read |
 
+{% data reusables.actions.workflow-runs-dependabot-note %}
+
 If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
 
 1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
