@@ -64,6 +64,12 @@ Under "Individual or group assignment", select the drop-down menu, and click **I
 
 #### Choosing a template repository
 
+{% note %}
+
+**Note:** If you provide empty repositories or starter code, the repositories must belong to your organization or be public repositories. 
+
+{% endnote %}
+
 By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %} For more information about template repositories, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
