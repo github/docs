@@ -77,7 +77,7 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {%
 
 La confirmación y el mensaje nuevos aparecerán en {% data variables.product.product_location %}.
 
-### Further reading
+### Leer más
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}

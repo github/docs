@@ -4,7 +4,12 @@ intro: '{% data variables.product.prodname_actions %} と GitLab CI/CDはいく�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - GitLab
+  - 移行
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,8 +65,8 @@ job1:
 jobs:
   job1:
     steps:
-    - uses: actions/checkout@v2
-    - run: echo "Run your script here"
+      - uses: actions/checkout@v2
+      - run: echo "Run your script here"
 ```
 {% endraw %}
 </td>
@@ -257,24 +262,24 @@ jobs:
   build_a:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
 
   build_b:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first, in parallel with build_a"
+      - run: echo "This job will be run first, in parallel with build_a"
 
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
     steps:
-    - run: echo "This job will run after build_a and build_b have finished"
+      - run: echo "This job will run after build_a and build_b have finished"
 
   deploy_ab:
     runs-on: ubuntu-latest
     needs: [test_ab]
     steps:
-    - run: echo "This job will run after test_ab is complete"
+      - run: echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
 </td>
@@ -335,23 +340,23 @@ test_async:
 ```yaml
 jobs:
   test_async:
-  - name: Cache node modules
-    uses: actions/cache@v2
-    with:
-      path: ~/.npm
-      key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
-      restore-keys: v1-npm-deps-
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: v1-npm-deps-
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_actions %} キャッシングは、{% data variables.product.prodname_dotcom %} ホストランナーにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### 成果物
 
-GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、ジョブによって作成されたファイルとディレクトリをアーティファクトとしてアップロードできます。 {% data variables.product.prodname_actions %} では、アーティファクトを使用して、複数のジョブ間でデータを永続化できます。
+GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、ジョブによって作成されたファイルとディレクトリを成果物としてアップロードできます。 {% data variables.product.prodname_actions %} では、成果物を使用して、複数のジョブ間でデータを永続化できます。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -371,7 +376,7 @@ GitLab CI/CD
 script:
 artifacts:
   paths:
-  - math-homework.txt
+    - math-homework.txt
 ```
 {% endraw %}
 </td>
@@ -389,7 +394,7 @@ artifacts:
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローデータをアーティファクトとして保存する](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
+詳しい情報については、「[ワークフローデータを成果物として保存する](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
 
 ### データベースとサービスコンテナ
 
@@ -415,21 +420,21 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # The hostname used to communicate with the
-    # PostgreSQL service container
+    # PostgreSQLサービスコンテナと通信するために
+    # 使われるホスト名
     POSTGRES_HOST: postgres
-    # The default PostgreSQL port
+    # PostgreSQLのデフォルトのポート
     POSTGRES_PORT: 5432
   image: node:10.18-jessie
   services:
     - postgres
   script:
-  # Performs a clean installation of all dependencies
-  # in the `package.json` file
-   - npm ci
-   # Runs a script that creates a PostgreSQL client,
-   # populates the client with data, and retrieves data
-   - node client.js
+    # `package.json`ファイル中のすべての依存関係を
+    # クリーンインストールする
+    - npm ci
+    # PostgreSQLクライアントを作成し、クライアントにデータを
+    # 展開し、データを取り出すスクリプトを実行する
+    - node client.js
   tags:
     - docker
 ```
@@ -453,20 +458,20 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Performs a clean installation of all dependencies
-      # in the `package.json` file
+      # 「package.json」ファイル内のすべての依存関係の 
+      # クリーンインストールを実行する
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # Runs a script that creates a PostgreSQL client,
-        # populates the client with data, and retrieves data
+        # PostgreSQL クライアントを作成してクライアントにデータを入力し 
+        # データを取得するスクリプトを実行する
         run: node client.js
         env:
-          # The hostname used to communicate with the
-          # PostgreSQL service container
+          # PostgreSQL サービスコンテナとの通信に
+          # 使用されるホスト名
           POSTGRES_HOST: postgres
-          # The default PostgreSQL port
+          # デフォルトの PostgreSQL ポート
           POSTGRES_PORT: 5432
 ```
 {% endraw %}

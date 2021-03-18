@@ -52,7 +52,7 @@ GitHub Appは[レート制限に対するスライディングルール](/apps/b
 
 #### 新しいGitHub Appの登録
 
-GitHub Appへ切り替えすることを決めたら、[新しいGitHub Appを作成](/apps/building-github-apps/)しなければなりません。
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
 
 #### アプリケーションが必要とする権限の決定
 
@@ -62,7 +62,7 @@ GitHub Appの設定で、アプリケーションがそれぞれの権限の種�
 
 #### webhookのサブスクライブ
 
-新しいGitHub Appを作成し、その権限を選択したら、サブスクライブさせたいwebhookイベントを選択できます。 webhookをサブスクライブする方法を学ぶには、「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
+新しいGitHub Appを作成し、その権限を選択したら、サブスクライブさせたいwebhookイベントを選択できます。 See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
 
 #### 様々な認証方法の理解
 

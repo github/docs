@@ -29,7 +29,7 @@ Si la firma de tu confirmación no está verificada, puedes aprender más sobre 
 3. Junto a la descripción de tu etiqueta, hay un cuadro que muestra si la firma de la etiqueta está verificada o no está verificada. ![firma de etiqueta verificada](/assets/images/help/commits/gpg-signed-tag-verified.png)
 4. Para ver información más detallada sobre la firma de la etiqueta, haz clic en **Verified** (Verificada) o **Unverified** (No verificada). Si la firma de tu etiqueta no está verificada, puedes aprender más sobre por qué haciendo clic en el cuadro **Unverified** (No verificado). ![Etiqueta firmada verificada](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"
 - "[Firmar confirmaciones](/articles/signing-commits)"

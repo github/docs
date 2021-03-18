@@ -38,7 +38,7 @@ Wenn es nicht praktikabel ist, Umgebungsvariablen zu setzen, kannst Du die Proxy
 
 Eine beispielhafte Proxy-Konfiguration mittels _.env_ ist unten dargestellt:
 
-```
+```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

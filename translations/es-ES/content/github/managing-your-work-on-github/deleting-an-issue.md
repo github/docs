@@ -19,6 +19,6 @@ Los colaboradores no reciben una notificación cuando eliminas una propuesta. Cu
 3. En la barra lateral derecha, debajo de "Notificaciones", da clic en **Borrar informe de problemas**. ![Texto de "Borrar informe de problemas" resaltado al final de la barra lateral derecha de la página del informe de problemas](/assets/images/help/issues/delete-issue.png)
 4. Para confirmar la eliminación, haz clic en **Eliminar esta propuesta**.
 
-### Further reading
+### Leer más
 
 - "[Enlazar una solicitud de extracción a un informe de problemas](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"

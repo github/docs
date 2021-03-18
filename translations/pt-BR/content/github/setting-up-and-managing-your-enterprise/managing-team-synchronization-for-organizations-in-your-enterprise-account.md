@@ -1,15 +1,15 @@
 ---
 title: Gerenciar a sincronização de equipes para organizações na conta corporativa
-intro: 'You can enable team synchronization between an identity provider (IdP) and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+intro: 'É possível habilitar a sincronização de equipes entre um provedor de identidade (IdP) e {% data variables.product.product_name %} para permitir que organizações pertencentes à sua conta corporativa gerenciem a associação de equipes por meio de grupos IdP.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Enterprise owners can manage team synchronization for an enterprise account.
+permissions: Os proprietários das empresas podem gerenciar a sincronização de equipes para uma conta corporativa.
 versions:
   free-pro-team: '*'
 ---
 
-### About team synchronization for enterprise accounts
+### Sobre a sincronização de equipes para contas corporativas
 
-If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
+Se você usar o Azure AD como seu IdP, você pode habilitar a sincronização de equipes para sua conta corporativa para permitir que os proprietários da organização e mantenedores de equipe sincronizem as equipes nas organizações pertencentes às contas corporativas com os grupos de IdP.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -37,5 +37,5 @@ Você deve efetuar a autenticação na sua conta corporativa usando o SAML SSO e
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**. ![Solicitação pendente para habilitar a sincronização de equipes para um determinado encarregado do IdP com opção de aprovar ou cancelar a solicitação](/assets/images/help/teams/approve-team-synchronization.png)
+7. Revise os detalhes do organismo de IdP que você deseja conectar à conta corporativa e, em seguida, clique em **Aprovar**. ![Solicitação pendente para habilitar a sincronização de equipes para um determinado encarregado do IdP com opção de aprovar ou cancelar a solicitação](/assets/images/help/teams/approve-team-synchronization.png)
 8. Para desativar a sincronização de equipe, clique **Desativar sincronização de equipe**. ![Desabilitar a sincronização de equipes](/assets/images/help/teams/disable-team-synchronization.png)

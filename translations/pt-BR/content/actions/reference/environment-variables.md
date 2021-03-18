@@ -21,14 +21,24 @@ versions:
 Para definir as variáveis do ambiente personalizadas, você deverá especificar as variáveis no arquivo do fluxo de trabalho. Você pode definir as variáveis de ambiente para uma etapa, trabalho ou para todo um fluxo de trabalho, usando as palavras-chave [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env). Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
 ```yaml
-passos:
-  - nome: Olá mundo
-    run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+jobs:
+  weekday_job:
+    runs-on: ubuntu-latest
     env:
-      FIRST_NAME: Mona
-      middle_name: The
-      Last_Name: Octocat
+      DAY_OF_WEEK: Mon
+    steps:
+      - name: "Hello world when it's Monday"
+        if: env.DAY_OF_WEEK == 'Mon'
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
 ```
+
+Para usar o valor de uma variável de ambiente em um arquivo do fluxo de trabalho, você deve usar o [contexto` env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). Se você deseja usar o valor de uma variável de ambiente dentro de um executor, você poderá usar o método normal do sistema operacional do executor para ler variáveis de ambiente.
+
+Se você usar a chave `executar` do arquivo de fluxo de trabalho para ler variáveis de ambiente de dentro do sistema operacional do executor (como mostrado no exemplo acima), a variável será substituída no sistema operacional do executor depois que a tarefa for enviada para o executor. Para outras partes de um arquivo de fluxo de trabalho, você deve usar o contexto `env` para ler variáveis de ambiente. Isso ocorre porque as chaves do fluxo de trabalho (como `se`) exigem que a variável seja substituída durante o processamento do fluxo de trabalho antes de ser enviada para o executor.
 
 Você também pode usar o {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %} arquivo de ambiente `GITHUB_ENV` {% else %} comando de fluxo de trabalho `set-env` {% endif %} para definir uma variável de ambiente que as seguintes etapas em um fluxo de trabalho podem usar. O {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}arquivo de ambiente{% else %} comando `set-env` {% endif %} pode ser usado diretamente por uma ação ou como um comando de shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
 
@@ -56,6 +66,16 @@ Você também pode usar o {% if currentVersion == "free-pro-team@latest" or curr
 | `GITHUB_SERVER_URL`  | Retorna a URL do servidor {% data variables.product.product_name %}. Por exemplo: `https://github.com`.                                                                                                                                                                                                                                                                              |
 | `GITHUB_API_URL`     | Retorna a URL da API. Por exemplo: `https://api.github.com`.                                                                                                                                                                                                                                                                                                                         |
 | `GITHUB_GRAPHQL_URL` | Retorna a URL API do GraphQL. Por exemplo: `https://api.github.com/graphql`.                                                                                                                                                                                                                                                                                                         |
+
+{% tip %}
+
+**Observação:** Se você precisar usar o URL de um fluxo de trabalho em um trabalho, você poderá combinar estas variáveis de ambiente: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
+
+#### Determinar quando usar variáveis de ambiente padrão ou contextos
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
 
 ### Convenções de nomenclatura para variáveis de ambiente
 

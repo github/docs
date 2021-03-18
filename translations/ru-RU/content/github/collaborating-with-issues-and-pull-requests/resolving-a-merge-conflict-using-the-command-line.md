@@ -46,14 +46,14 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 4. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
 5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
   ```shell

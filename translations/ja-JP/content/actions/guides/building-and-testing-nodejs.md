@@ -8,7 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - ノード
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -77,7 +81,7 @@ jobs:
 それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 マトリクス戦略とコンテキストに関する詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)」及び「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
@@ -93,7 +97,7 @@ steps:
 
 あるいは、厳密にNode.jsバージョンを指定してビルドとテストを行うこともできます。
 
-```yaml
+```yaml{:copy}
 strategy:
   matrix:
     node-version: [8.16.2, 10.17.0]
@@ -102,7 +106,7 @@ strategy:
 または、Node.jsの1つのバージョンを使ってビルドとテストを行うこともできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]
@@ -136,7 +140,7 @@ Node.jsのバージョンを指定しなかった場合、{% data variables.prod
 
 以下の例では、*package.json*ファイルで定義された依存関係がインストールされます。 詳しい情報については[`npm install`](https://docs.npmjs.com/cli/install)を参照してください。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -150,7 +154,7 @@ steps:
 `npm ci`を使うと、 *package-lock.json*あるいは*npm-shrinkwrap.json*ファイル中のバージョンがインストールされ、ロックファイルの更新を回避できます。 概して`npm ci`は、`npm install`を実行するよりも高速です。 詳しい情報については[`npm ci`](https://docs.npmjs.com/cli/ci.html)及び「[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -166,7 +170,7 @@ steps:
 
 以下の例では、*package.json*ファイルで定義された依存関係がインストールされます。 詳しい情報については[`yarn install`](https://yarnpkg.com/en/docs/cli/install)を参照してください。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -179,7 +183,7 @@ steps:
 
 あるいは`--frozen-lockfile`を渡して*yarn.lock*ファイル中のバージョンをインストールし、*yarn.lock*ファイルの更新を回避できます。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -201,7 +205,7 @@ steps:
 依存関係をインストールする前に、`setup-node`アクションを使って*.npmrc*ファイルを作成してください。 このアクションには2つの入力パラメーターがあります。 `node-version`パラメーターはNode.jsのバージョンを設定し、`registry-url`パラメーターはデフォルトのレジストリを設定します。 パッケージレジストリがスコープを使うなら、`scope`パラメーターを使わなければなりません。 詳しい情報については[`npm-scope`](https://docs.npmjs.com/misc/scope)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -220,7 +224,7 @@ steps:
 
 上の例では、以下の内容で*.npmrc*ファイルを作成しています。
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true
@@ -231,7 +235,7 @@ always-auth=true
 {% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用して依存関係をキャッシュし、`cache` アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシング</a>」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
@@ -256,7 +260,7 @@ steps:
 
 ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。 たとえば*package.json*ファイルで定義されたビルドのステップを実行するのに`npm run build`を実行し、テストスイートを実行するのに`npm test`を実行しているなら、それらのコマンドをワークフローファイルに追加します。
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js

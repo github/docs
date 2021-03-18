@@ -31,7 +31,7 @@ Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Bloquear a un usuario desde tu cuenta personal](/articles/blocking-a-user-from-your-personal-account)"
 - "[Bloquear a un usuario de tu organización](/articles/unblocking-a-user-from-your-organization)"

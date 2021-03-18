@@ -62,6 +62,8 @@ O tema engloba layouts, inclusões e folhas de estilo padrão que serão aplicad
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
+Seu post já deve estar no seu site! Se a URL de base do seu site for `https://octocat.github.io`, o seu novo post estará localizado em `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+
 ### Próximas etapas
 
 {% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".

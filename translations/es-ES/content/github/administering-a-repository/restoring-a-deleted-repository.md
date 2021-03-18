@@ -36,6 +36,6 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}
 
-### Further reading
+### Leer más
 
 - "[Borrar un repositorio](/articles/deleting-a-repository)"

@@ -1,9 +1,6 @@
 import { tags } from './hyperscript'
 import { sendEvent } from './events'
 import searchWithYourKeyboard from 'search-with-your-keyboard'
-import truncate from 'html-truncate'
-
-const maxContentLength = 300
 
 let $searchInputContainer
 let $searchResultsContainer
@@ -29,7 +26,7 @@ export default function search () {
     languages,
     versions,
     nonEnterpriseDefaultVersion
-  } = JSON.parse(document.getElementById('search-options').text)
+  } = JSON.parse(document.getElementById('expose').text).searchOptions
   version = deriveVersionFromPath(versions, nonEnterpriseDefaultVersion)
   language = deriveLanguageCodeFromPath(languages)
 
@@ -274,8 +271,7 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
       ),
       div(
         { class: 'search-result-content d-block text-gray' },
-        // Truncate without breaking inner HTML tags
-        markify(truncate(content, maxContentLength))
+        markify(content)
       )
     )
   )

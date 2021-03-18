@@ -41,7 +41,7 @@ Para encontrar más información, visita la sección "[ Configurar tu proyecto p
 
 Para seguir aprendiendo sobre los {% data variables.product.prodname_discussions %} y crear uno rápidamente para tu comunidad, consulta la sección "[Guía de inicio rápido para los {% data variables.product.prodname_discussions %}](/discussions/quickstart)".
 
-### Further reading
+### Leer más
 
 - "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"

@@ -32,7 +32,7 @@ Si tu organización [requiere miembros y colaboradores externos para usar la aut
 7. Junto al nombre del colaborador, escribe el nivel de permiso correspondiente: *Write* (Escritura) *Read* (Lectura) o *Admin* (Administración). ![El recolector de permisos del repositorio](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
 - "[Eliminar a un colaborador externo desde el repositorio de una organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

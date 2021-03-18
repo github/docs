@@ -140,6 +140,6 @@ Você pode ver as equipes que estão trabalhando ou que enviaram uma atividade n
 
 ### Leia mais
 
-- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquise](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Usar Equipes Existentes atividades em grupo?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) na comunidade de {% data variables.product.prodname_education %}

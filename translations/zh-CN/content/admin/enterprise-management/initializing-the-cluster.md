@@ -45,7 +45,7 @@ versions:
 
 通过 `mysql-server` 和 `mysql-master` 指定您配置为 MySQL 主要节点的第一个集群节点。
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

@@ -15,7 +15,7 @@ type: 'how_to'
 
 ### 概要
 
-ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
+ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 Organization を使用すると、シークレット、成果物、およびセルフホストランナーを一元的に保存および管理できます。 `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
 
 ### ワークフロー テンプレートの作成
 
@@ -76,7 +76,7 @@ type: 'how_to'
 
 ![ワークフロー テンプレート ファイル](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template from your organization
+### Organization のワークフローテンプレートを使用する
 
 この手順では、Organizationのメンバーがワークフロー テンプレートを検索して利用し、新しいワークフローを作成する方法を示します。 Organizationのワークフロー テンプレートは、Organizationのメンバーであるすべてのユーザーが使用できます。
 

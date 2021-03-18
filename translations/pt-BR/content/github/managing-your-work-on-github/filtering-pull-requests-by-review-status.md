@@ -11,7 +11,7 @@ versions:
 
 Você pode filtrar uma lista de pull requests do repositório para encontrar:
 - Pull requests que ainda não foram [revisadas](/articles/about-pull-request-reviews)
-- Pull requests que [necessitam de revisão](/articles/about-required-reviews-for-pull-requests) antes de serem mescladas
+- Pull requests que [necessitam de revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) antes de serem mescladas
 - Pull requests que um revisor aprovou
 - Pull requests nas quais um revisor solicitou alterações
 - Pull requests que você revisou

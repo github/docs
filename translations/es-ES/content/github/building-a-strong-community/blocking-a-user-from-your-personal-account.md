@@ -9,11 +9,11 @@ versions:
 
 ### Acerca de bloquear usuarios
 
-Puedes bloquear a un usuario en los parámetros de tu cuenta o desde el perfil del usuario. {% data variables.product.prodname_dotcom %} no notificará al usuario cuando lo bloquees. Si no deseas contribuir en el mismo proyecto que alguien que has bloqueado, puedes [exhibir una advertencia](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) en cualquier repositorio con contribuciones previas de un usuario bloqueado. Puede que aún veas la actividad de los usuarios bloqueados en los espacios compartidos y los usuarios bloqueados pueden borrar su contenido existente.
+Puedes bloquear a un usuario en los parámetros de tu cuenta o desde el perfil del usuario. {% data variables.product.prodname_dotcom %} no notificará al usuario cuando lo bloquees. Si quieres evitar contribuir en el mismo proyecto que alguien que has bloqueado, puedes elegir que se muestre una advertencia en cualquier repositorio que tenga contribuciones previas de los usuarios que has bloqueado. Para obtener más información, consulta la sección "[Bloquear a un usuario en tus ajustes de cuenta](#blocking-a-user-in-your-account-settings)". Puede que aún veas la actividad de los usuarios bloqueados en los espacios compartidos y los usuarios bloqueados pueden borrar su contenido existente.
 
 {% tip %}
 
-**Sugerencia:** Si estás bloqueando a un usuario por una conversación encendida, considera [bloquear la conversación](/articles/locking-conversations) de manera que solo los colaboradores puedan comentar.
+**Tip:** Si bloqueas a un usuario debido a una conversación fuerte, considera bloquear dicha conversación para que solo puedan comentar los colaboradores. Para obtener más información, consulta "[Bloquear conversaciones](/github/building-a-strong-community/locking-conversations)."
 
 {% endtip %}
 
@@ -22,8 +22,6 @@ Cuando bloqueas a un usuario:
 - El usuario deja de observar y deja de fijar tus repositorios
 - El usuario no puede unirse a ninguna organización que te pertenezca
 - Las asignaciones con estrella y las propuestas del usuario se eliminarán de tus repositorios
-- Se borran las bifurcaciones del usuario para tus repositorios
-- Borras cualquier bifuracación de los repositorios del usuario
 - Se borran los votos del usuario en los comentarios o debates de tus repositorios
 - El usuario será eliminado como colaborador en los repositorios de tu organización
 - Las contribuciones del usuario ya no contarán como tales para ellos en tus repositorios
@@ -69,7 +67,7 @@ Utiliza {% data variables.contact.report_abuse %} para contactarnos si te están
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Ver usuarios que has bloqueado de tu cuenta personal](/articles/viewing-users-you-ve-blocked-from-your-personal-account)"
 - "[Desbloquear a un usuario desde tu cuenta personal](/articles/unblocking-a-user-from-your-personal-account)"

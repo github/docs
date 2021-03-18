@@ -7,7 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - パッケージ化
+  - Publishing
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -43,7 +48,7 @@ _build.gradle_ファイルには、Gradleがパッケージを公開する配布
 _build.gradle_ファイルのpublishingブロックには、パッケージリポジトリを指す新しいMavenリポジトリを定義できます。  たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、_build.gradle_ は`”OSSRH"`という名前でリポジトリを指定できます。
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -67,7 +72,7 @@ publishing {
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -105,7 +110,7 @@ _build.gradle_のpublishingブロックには、{% data variables.product.prodna
 たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -126,7 +131,7 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryに公開するワークフローを作成できます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -162,7 +167,7 @@ _build.gradle_ファイルに、{% data variables.product.prodname_dotcom %}リ�
 Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -191,7 +196,7 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{% data variables.product.prodname_registry %}の両方に公開するワークフローを作成できます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:

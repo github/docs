@@ -28,7 +28,7 @@ Este tipo de enlace permanente se presentará como un fragmento de código únic
 5. Dirígete a la conversación en la que deseas enlazar el fragmento de código.
 6. Pega tu enlace permanente en un comentario y haz clic en **Comentar**. ![Enlace permanente pegado en un comentario en el mismo repositorio](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Further reading
+### Leer más
 
 - [Crear una propuesta](/articles/creating-an-issue/)"
 - "[Abrir una propuesta desde el código](/articles/opening-an-issue-from-code/)"

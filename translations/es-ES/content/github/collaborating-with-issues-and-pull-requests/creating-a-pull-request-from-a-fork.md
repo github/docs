@@ -3,7 +3,7 @@ title: Crear una solicitud de extracción desde una bifurcación
 intro: Puedes crear una solicitud de extracción para proponer cambios que has hecho a una bifurcación de un repositorio ascendente.
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
-permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
+permissions: Cualquiera con permisos de escritura en un repositorio puede crear una solicitud de extracción desde una bifurcación propiedad de un usuario.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -27,7 +27,7 @@ También puedes otorgar permiso a los mantenedores del repositorio ascendente pa
 
 {% data reusables.repositories.asking-for-review %}
 
-### Further reading
+### Leer más
 
 - "[Trabajar con bifurcaciones](/articles/working-with-forks)"
 - "[Permitir cambios en una rama de solicitud de extracción creada desde una bifurcación](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

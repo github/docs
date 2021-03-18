@@ -20,7 +20,7 @@ For encryption in transit, {% data variables.product.product_name %} uses Transp
 
 The key that you provide is stored in a hardware security module (HSM) in a key vault that {% data variables.product.company_short %} manages.
 
-To configure your encryption key, use the REST API. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and delete your encryption key. Note that deleting your key will freeze your enterprise. For more information about the API endpoints, see "[Encryption at rest](/rest/reference/enterprise-admin#encryption-at-rest)" in the REST API documentation.
+To configure your encryption key, use the REST API. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. For more information about the API endpoints, see "[Encryption at rest](/rest/reference/enterprise-admin#encryption-at-rest)" in the REST API documentation.
 
 ### Adding or updating an encryption key
 
@@ -48,23 +48,23 @@ Your 2048 bit RSA private key should be in PEM format, for example in a file cal
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Deleting your encryption key
+### Disabling your encryption key
 
-To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by deleting your encryption key.
+To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by marking your encryption key as disabled.
 
-To unfreeze your enterprise after you've deleted your encryption key, contact support. For more information, see "[About {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)."
-
-1. To delete your key and disable encryption at rest, use the `DELETE /enterprise/encryption` endpoint.
+1. To disable your key and encryption at rest, use the `DELETE /enterprise/encryption` endpoint. This operation does not delete the key permanently.
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. Optionally, check the status of the delete operation.
+2. Optionally, check the status of the delete operation. It takes approximately ten minutes to disable encryption at rest.
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
+
+To unfreeze your enterprise after you've disabled your encryption key, contact support. For more information, see "[About {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)."
 
 ### Дополнительная литература
 

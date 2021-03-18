@@ -18,11 +18,11 @@ Uma conta corporativa permite gerenciar várias organizações{% if enterpriseSe
 - Segurança {% if enterpriseServerVersions contains currentVersion %}(logon único, autenticação de dois fatores)
 - Compartilhamento de pacotes de solicitação e {% if enterpriseServerVersions contains currentVersion %}suporte {% endif %} com {% data variables.contact.enterprise_support %}{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about the management of your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." {% endif %}Para obter mais informações sobre como gerenciar suas configurações de cobrança de {% data variables.product.product_name %}, consulte "[Gerenciar cobrança para sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} Para obter mais informações sobre o gerenciamento da sua assinatura de {% data variables.product.prodname_ghe_cloud %}, consulte "[Visualizar a assinatura e o uso da sua conta corporativa](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)". {% endif %}Para obter mais informações sobre como gerenciar suas configurações de cobrança de {% data variables.product.product_name %}, consulte "[Gerenciar cobrança para sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
 
-For more information about the management of users, organizations, data, and policies for {% data variables.product.product_location %}, see "[Managing users, organizations, and repositories](/admin/user-management)" and "[Setting policies for your enterprise](/admin/policies)."
+Para obter mais informações sobre o gerenciamento de usuários, organizações, dados e políticas para {% data variables.product.product_location %}, consulte "[Gerenciar usuários, organizações e repositórios](/admin/user-management)" e "[Definir políticas para a sua empresa](/admin/policies)."
 
-For more information about the management of enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
+Para obter mais informações sobre o gerenciamento de contas corporativas usando a API do GraphQL, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 
 {% if enterpriseServerVersions contains currentVersion %}
 

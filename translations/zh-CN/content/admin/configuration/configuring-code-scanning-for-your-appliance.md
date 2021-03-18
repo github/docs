@@ -73,7 +73,7 @@ If the server on which you are running
 {% endif %}
 
 #### Enabling code scanning for individual repositories
-After you configure a self-hosted runner, {% if currentVersion == "enterprise-server@2.22" %}and provision the actions,{% endif %} users can enable {% data variables.product.prodname_code_scanning %} for individual repositories on {% data variables.product.product_location %}. 默认 {% data variables.product.prodname_code_scanning %} 工作流程使用 `on.push` 事件触发代码扫描 - 每次推送到任何包含工作流程文件的分支时触发。
+After you configure a self-hosted runner, {% if currentVersion == "enterprise-server@2.22" %}and provision the actions,{% endif %} users can enable {% data variables.product.prodname_code_scanning %} for individual repositories on {% data variables.product.product_location %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 ### 使用 {% data variables.product.prodname_codeql_runner %} 运行 {% data variables.product.prodname_code_scanning %}
 If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_runner %}.

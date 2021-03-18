@@ -93,7 +93,7 @@ versions:
     {% link_in_list /changing-the-visibility-of-your-organizations-dependency-insights %}
     {% link_in_list /managing-the-display-of-member-names-in-your-organization %}
     {% link_in_list /managing-updates-from-accounts-your-organization-sponsors %}
-    {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
+    {% link_in_list /managing-the-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
@@ -121,7 +121,7 @@ versions:
     {% link_in_list /about-identity-and-access-management-with-saml-single-sign-on %}
     {% link_in_list /about-scim %}
     {% link_in_list /connecting-your-identity-provider-to-your-organization %}
-    {% link_in_list /configuring-saml-single-sign-on-and-scim-using-okta %}
+    {% link_in_list /connecting-your-identity-provider-to-your-organization %}
     {% link_in_list /enabling-and-testing-saml-single-sign-on-for-your-organization %}
     {% link_in_list /preparing-to-enforce-saml-single-sign-on-in-your-organization %}
     {% link_in_list /enforcing-saml-single-sign-on-for-your-organization %}

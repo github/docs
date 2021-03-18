@@ -76,8 +76,8 @@ $ ghe-config -l
 ```
 `cluster.conf`で有効なUUIDを検索できます。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -544,8 +544,8 @@ ghe-dpages status
 ```
 
 クラスタノードの退避に先立って{% data variables.product.prodname_pages %}ストレージサービスを退避するには、以下のようにします。
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -570,16 +570,16 @@ ghe-spokes route
 
 クラスタノード上のストレージサービスを退避するには、以下のようにします。
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 このユーティリティを使用すると、クラスタノードからの待避の前にストレージサービスをすべて待避させることができます。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

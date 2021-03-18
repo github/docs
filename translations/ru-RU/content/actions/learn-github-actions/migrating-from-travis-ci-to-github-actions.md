@@ -6,7 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+type: tutorial
+topics:
+  - Travis CI
+  - Migration
+  - CI
+  - CD
 ---
 
 ### Introduction
@@ -69,8 +74,8 @@ Travis CI
 ```yaml
 matrix:
   include:
-  - rvm: 2.5
-  - rvm: 2.6.3
+    - rvm: 2.5
+    - rvm: 2.6.3
 ```
 {% endraw %}
 </td>
@@ -109,8 +114,8 @@ Travis CI
 ```yaml
 branches:
   only:
-  - main
-  - 'mona/octocat'
+    - main
+    - 'mona/octocat'
 ```
 {% endraw %}
 </td>
@@ -119,7 +124,7 @@ branches:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
 ```
@@ -155,9 +160,9 @@ git:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-    - uses: actions/checkout@v2
-      with:
-        submodules: false
+- uses: actions/checkout@v2
+  with:
+    submodules: false
 ```
 {% endraw %}
 </td>
@@ -207,10 +212,10 @@ When working with different languages in {% data variables.product.prodname_acti
 Например:
 
 ```yaml
-      steps:
-        - name: Run build script
-          run: ./.github/scripts/build.sh
-          shell: bash
+steps:
+  - name: Run build script
+    run: ./.github/scripts/build.sh
+    shell: bash
 ```
 
 ### Error handling in {% data variables.product.prodname_actions %}
@@ -275,11 +280,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -345,20 +350,20 @@ Travis CI
 <tr>
 <td>
 
-  ```yaml
+```yaml
 env:
   - MAVEN_PATH="/usr/local/maven"
-  ```
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
-      env:
-        MAVEN_PATH: '/usr/local/maven'
-  ```
+```yaml
+jobs:
+  maven-build:
+    env:
+      MAVEN_PATH: '/usr/local/maven'
+```
 
 </td>
 </tr>
@@ -378,24 +383,24 @@ Travis CI
 <tr>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 install:
-    - npm install
+  - npm install
 script:
-    - npm run build
-    - npm test
-  ```
+  - npm run build
+  - npm test
+```
 {% endraw %}
 </td>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 name: Node.js CI
 on: [push]
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -404,7 +409,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-  ```
+```
 {% endraw %}
 </td>
 </tr>

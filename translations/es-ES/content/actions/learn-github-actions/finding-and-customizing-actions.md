@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'how_to'
+topics:
+  - 'Fundamentals'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -68,7 +70,7 @@ steps:
 
 #### Utilizar SHAs
 
-Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. Este ejemplo apunta al SHA de una acción:
+Si necesitas utilizar un versionamiento más confiable, debes utilizar el valor de SHA asociado con la versión de la acción. Los SHA son inmutables y, por lo tanto, más confiables que las etiquetas o las ramas. Sin embargo, este acercamiento significa que no recibirás actualizaciones para una acción automáticamente, incluyendo las correcciones de errores y actualizaciones de seguridad. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Debes utilizar el valor completo del SHA de la confirmación y no uno abreviado. {% endif %}Este ejemplo apunta al SHA de una acción:
 
 ```yaml
 steps:

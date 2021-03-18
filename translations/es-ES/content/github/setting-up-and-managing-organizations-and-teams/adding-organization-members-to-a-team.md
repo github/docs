@@ -22,7 +22,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Administrar el acceso del equipo al repositorio de una organización](/articles/managing-team-access-to-an-organization-repository)"

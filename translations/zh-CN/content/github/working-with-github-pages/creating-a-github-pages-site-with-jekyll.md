@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### 基本要求
 
 必须安装 Jekyll 和 Git 后才可使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点。 更多信息请参阅 Jekyll 文档中的[安装](https://jekyllrb.com/docs/installation/)和“[设置 Git](/articles/set-up-git)”。
@@ -23,8 +25,6 @@ versions:
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -33,6 +33,8 @@ versions:
 ### 创建站点
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 如果您还没有本地版仓库，请导航到您想要存储站点源文件的位置，将 _PARENT-FOLDER_ 替换为要包含仓库文件夹的文件夹。
@@ -95,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

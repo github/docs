@@ -10,7 +10,7 @@ versions:
 
 ### Acerca de la replicación de disponibilidad alta para clústers
 
-Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. Si los fallos de hardware o de software afectan el datacenter que tiene tu clúster activo, puedes conmutar por error a los nódos de réplica y continuar procesando las solicitudes de los usuarios sin perder datos.
+Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
 
 En el modo de alta disponibilidad, cada nodo activo se sincroniza regularmente con un nodo pasivo correspondiente. El nodo pasivo se ejecuta en espera y no sirve a las aplicaciones ni procesa solicitudes de usuarios.
 

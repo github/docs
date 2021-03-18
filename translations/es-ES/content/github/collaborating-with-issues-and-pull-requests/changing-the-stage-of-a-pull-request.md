@@ -32,6 +32,6 @@ Puedes convertir una solicitud de extracción en borrador en cualquier momento. 
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)"

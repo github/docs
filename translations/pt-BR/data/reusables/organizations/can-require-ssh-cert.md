@@ -1,1 +1,1 @@
-Você pode exigir que os integrantes usem certificados SSH para acessar os recursos da organização, a menos que o SSH esteja desabilitado no seu repositório.
+You can require that members use SSH certificates to access organization resources, unless SSH is disabled in your repository.

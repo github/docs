@@ -23,6 +23,6 @@ versions:
 {% data reusables.user_settings.add_and_verify_email %}
 {% data reusables.user_settings.select_primary_email %}
 
-### Further reading
+### Leer más
 
 - "[Administrar preferencias de correo electrónico](/articles/managing-email-preferences/)"

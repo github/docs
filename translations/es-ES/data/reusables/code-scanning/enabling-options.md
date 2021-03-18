@@ -15,7 +15,7 @@
     </td>
     
     <td>
-      Utilizar {% data variables.product.prodname_actions %} (consulta la sección "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar el {% data variables.product.prodname_code_scanning %} utilizando acciones</a>") o utilizar el {% data variables.product.prodname_codeql_runner %} en un sistema de integración continua (IC) de terceros (consulta la sección "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Ejecutar el escaneo de código en tu sistema de IC</a>").
+      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>").
     </td>
   </tr>
   
@@ -25,7 +25,7 @@
     </td>
     
     <td>
-      Utilizar {% data variables.product.prodname_actions %} (consulta la sección "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar el {% data variables.product.prodname_code_scanning %}utilizando acciones</a>") o generarlas externamente y cargarlas a {% data variables.product.product_name %} (consulta la sección "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Cargar un archivo SARIF a {% data variables.product.prodname_dotcom %}</a>").
+      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
     </td>
   </tr>
 </table>

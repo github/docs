@@ -76,7 +76,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>control shift p</kbd> or <kbd>command shift p</kbd>              | Toggles between the **Write** and **Preview** comment tabs                                                                                                                                                       |
 | <kbd>control enter</kbd>                                              | Submits a comment                                                                                                                                                                                                |
 | <kbd>control .</kbd> and then <kbd>control [saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>control g</kbd> or <kbd>command g</kbd>                          | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+| <kbd>control g</kbd> or <kbd>command g</kbd>                          | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." 
+{% endif %}
 | <kbd>r</kbd>                                                          | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)."                                            |
 
 ### Issue and pull request lists
@@ -111,7 +112,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>k</kbd>                           | Move selection up in the list                                                                                                                                                                                                                                                                                                        |
 | <kbd>cmd + shift + enter </kbd>        | Add a single comment on a pull request diff                                                                                                                                                                                                                                                                                          |
 | <kbd>alt</kbd> and click               | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-| Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
+| Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."
+{% endif %}
 
 ### Project boards
 

@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### Prerrequisitos
 
 Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product.prodname_pages %}, debes instalar Jekyll y Git. Para obtener más información, consulta [Instalación](https://jekyllrb.com/docs/installation/) en la documentación de Jekyll y "[Configurar Git](/articles/set-up-git)".
@@ -23,8 +25,6 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -33,6 +33,8 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 ### Crear tu sitio
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Si aún no tienes una copia local de tu repositorio, desplázate hasta la ubicación en la que quieras almacenar los archivos fuente de tu sitio y reemplaza _PARENT-FOLDER_ por la carpeta que quieras que contenga la carpeta para su repositorio.
@@ -95,7 +97,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

@@ -1,6 +1,6 @@
 ---
 title: Organizaciones
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:

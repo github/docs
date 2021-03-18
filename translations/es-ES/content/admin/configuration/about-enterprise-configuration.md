@@ -25,7 +25,7 @@ Posteriormente, puedes utilizar el panel de administrador de sitio y la configur
 Todas las empresas se configuran con aislamiento de subdominios y compatibilidad con TLS 1.2 y superior únicamente para el tráfico cifrado.
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Administrar usuarios, organizaciones y repositorios](/admin/user-management)"
 - "[Configurar políticas para tu empresa](/admin/policies)"

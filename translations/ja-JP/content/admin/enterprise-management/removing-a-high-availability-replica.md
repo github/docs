@@ -35,7 +35,7 @@ versions:
   {% if currentVersion ver_gt "enterprise-server@2.22" %}
   {% note %}
 
-  **Note:** If you have {% data variables.product.prodname_actions %} enabled, you should decommission the former replica server or update its {% data variables.product.prodname_actions %} configuration to use different external storage. For more information, see "[High availability for {% data variables.product.prodname_actions %}](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)."
+  **注釈:** {% data variables.product.prodname_actions %} を有効化している場合は、以前のレプリカサーバーを使用停止するか、その {% data variables.product.prodname_actions %} 設定を更新して別の外部ストレージを使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} の High Availability 設定](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)」を参照してください。
 
   {% endnote %}
   {% endif %}

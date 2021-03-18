@@ -13,7 +13,7 @@ versions:
 {% data reusables.organizations.block_users %}
 5. Dentro de "Blocked users" (Usuarios bloqueados), revisa la lista de usuarios que fueron bloqueados de tu organización. ![Lista de usuarios bloqueados](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
-### Further reading
+### Leer más
 
 - "[Bloquear a un usuario de tu organización](/articles/unblocking-a-user-from-your-organization)"
 - "[Desbloquear a un usuario de tu organización](/articles/unblocking-a-user-from-your-organization)"

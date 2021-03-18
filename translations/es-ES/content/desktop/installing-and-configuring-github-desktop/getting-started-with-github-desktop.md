@@ -102,6 +102,6 @@ Puedes ver tus propias solicitudes de extracción o las de tus colaboradores en 
 #### Mantener tu repositorio local sincronizado
 Cuando haces cambios a tus repositorios locales o cuando otros hacen cambios a los repositorios remotos, necesitarás sincronizar tu copia local del proyecto con el repositorio remoto. {% data variables.product.prodname_desktop %} puede mantener sincronizada tu copia local de un proyecto con la versión remota al subir y extraer las confirmaciones. Para obtener más información, consulta la sección "[Sincronizar tu rama](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
 
-### Further reading
+### Leer más
 - "[Instalar y autenticarse en {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop)"
 - "[Colaborar y contribuir utilizando {% data variables.product.prodname_desktop %}](/desktop/contributing-and-collaborating-using-github-desktop)"

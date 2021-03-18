@@ -51,7 +51,7 @@ Para encontrar algunas consultas de ejemplo, visita la sección "[Una consulta d
 2. Porporciona permisos de control total a tu token de acceso personal para las áreas de GHES a las que quisieras acceder. Para tener permiso total a los repositorios privados, organizaciones, equipos, datos de usuario y acceso a la facturación empresarial y datos de perfil, te recomendamos que selecciones estos alcances para tu token de acceso personal:
     - `repo`
     - `admin:org`
-    - `user`
+    - `usuario`
     - `admin:enterprise`
 
   Los alcances específicos para la cuenta empresarial son:

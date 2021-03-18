@@ -28,6 +28,8 @@ For an overview of repository-level security, see "[About securing your reposito
 7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
   ![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
 
+{% data reusables.security.displayed-information %}
+
 ### Enabling or disabling features for new repositories
 
 {% data reusables.user_settings.access_settings %}

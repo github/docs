@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Para comenzar rápidamente, puedes elegir la plantilla de Gradle preconfigurada 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ El flujo de trabajo de inicio ejecutará la tarea `build` por defecto. En la con
 Si usas diferentes comandos para construir tu proyecto, o si quieres usar una tarea diferente, puedes especificarlo. Por ejemplo, es posible que desees ejecutar la tarea `package` que está configurada en tu archivo _ci.gradle_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar tus dependencias en el caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu caché de paquete de Gradle local se almacenará en la infraestructura de acciones de GitHub. En las ejecuciones de flujo de trabajo futuras, la caché se restaurará para que las dependencias no necesiten ser descargadas desde los repositorios de paquetes remotos. Para obtener más información, consulta "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar en caché las dependencias para agilizar los flujos de trabajo</a>" y la acción [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -105,15 +109,24 @@ steps:
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
-      path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
+  - name: Cleanup Gradle Cache
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+    run: |
+      rm -f ~/.gradle/caches/modules-2/modules-2.lock
+      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 
-Este flujo de trabajo guardará los contenidos de tu caché de paquete Gradle local, que se encuentra en el directorio `.gradle/caches` del directorio de inicio del ejecutor. La clave de caché será el contenido con hash de los archivos de construcción de Gradle, por lo que los cambios en ellos invalidarán la memoria caché.
+Este flujo de trabajo guardará el contenido del caché de tu paquete local de Gradle, el cual se ubica en los directorios `.gradle/caches` y `.gradle/wrapper` dek directorio de inicio del ejecutor. La clave del caché será el contenido cifrado de los archivos de compilación de gradle (incluyendo las propiedades del archivo de envoltorio (wrapper)), así que cualquier cambio que se realice sobre ellos invalidará el caché.
 
 ### Empaquetar datos de flujo de trabajo como artefactos
 
@@ -122,7 +135,7 @@ Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es po
 Por lo general, Gradle creará archivos de salida como JAR, EAR o WAR en el directorio `build/libs`. Puedes cargar los contenidos de ese directorio utilizando la acción `upload-Artifact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

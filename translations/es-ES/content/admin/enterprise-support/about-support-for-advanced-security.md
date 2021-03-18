@@ -38,13 +38,13 @@ Puedes ponerte en contacto con {% data variables.contact.enterprise_support %} a
 
 ### Horas de operación
 
-Ofrecemos soporte para {% data variables.product.prodname_advanced_security %} en Inglés 24 horas al día, 5 días a la semana, excluyendo fines de semana y días festivos en Estados Unidos. holidays. El tiempo de respuesta estándar es de 1 día hábil.
+Ofrecemos soporte para {% data variables.product.prodname_advanced_security %} en Inglés 24 horas al día, 5 días a la semana, excluyendo fines de semana y días festivos en Estados Unidos. EE.UU. El tiempo de respuesta estándar es de 1 día hábil.
 
 ### Cronograma de feriados
 
-{% data variables.contact.enterprise_support %} observa estos días festivos en Estados Unidos. holidays.
+{% data variables.contact.enterprise_support %} observa estos días festivos en Estados Unidos. EE.UU.
 
-| Feriado en EE.UU. holiday         | Fecha en la que se celebra  |
+| Feriado en EE.UU.                 | Fecha en la que se celebra  |
 | --------------------------------- | --------------------------- |
 | Año Nuevo                         | 1 de enero                  |
 | Día de Martin Luther King, Jr.    | Tercer lunes de enero       |

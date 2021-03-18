@@ -149,7 +149,7 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de SSH](/articles/about-ssh)"
 - Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)"

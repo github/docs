@@ -26,13 +26,13 @@ To use {% data variables.product.prodname_registry %} with Docker, you must have
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Connecting to the official NPM registry
+### Connecting to the official npm registry
 
-If you've enabled npm packages on your enterprise and want to allow access to the official NPM registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official NPM registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
 
-To allow network connections to the NPM registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
 
 | Source | Destination | Port | Type |
 |---|---|---|---|

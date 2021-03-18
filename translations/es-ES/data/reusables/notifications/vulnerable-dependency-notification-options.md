@@ -1,10 +1,10 @@
 {% if currentVersion == "free-pro-team@latest" %}
-By default, you will receive notification of new
-{% data variables.product.prodname_dependabot_alerts %}:
-- by email, an email is sent every time a vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option)
-- in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option)
-- on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option)
-- in your inbox, as web notifications for new vulnerabilities with a critical or high severity (**Web** option)
+Predeterminadamente, recibirás notificaciones de
+las {% data variables.product.prodname_dependabot_alerts %} nuevas:
+- por correo electrónico, se envía un correo electrónico cada vez que se encuentra una vulnerabilidad con una severidad crítica o alta (Opción de **Enviar un correo electrónico cada vez que se encuentra una vulnerabilidad**)
+- en la interface de usuario, se muestra una advertencia en tu archivo de repositorio y vistas de código si hay dependencias vulnerables (opción de **Alertas de la IU**)
+- en la línea de comandos, las advertencias se muestran como rellamados cuando subes información a los repositorios con dependencias vulnerables (opción de **Línea de comandos**)
+- en tu bandeja de entrada como notificaciones web para vulnerabilidades nuevas con una severidad alta o crítica (opción **Web**)
 Puede spersonalizar la forma en que se te notifica sobre
 
 {% data variables.product.prodname_dependabot_alerts %}. Por ejemplo, puedes recibir un correo electrónico semanal con el resúmen de las alertas de hasta 10 de tus repositorios si utilizas las opciones "**Enviar un resumen de vulnerabilidades por correo electrónico** y **Resumen semanal de seguridad por correo electrónico**.
@@ -12,10 +12,10 @@ Puede spersonalizar la forma en que se te notifica sobre
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 Predeterminadamente, si tu administrador de sitio configuró el correo electrónico para recibir notificaciones en tu instancia, recibirás
-{% data variables.product.prodname_dependabot_alerts %}:
+las {% data variables.product.prodname_dependabot_alerts %} nuevas:
 - por correo electrónico, se envia un correo electrónico cada vez que se enecuentre una vulnerabilidad {% if currentVersion ver_gt "enterprise-server@2.23" %}con severidad alta o crítica{% endif %} (opción **Enviar un correo electrónico cada que se encuentre una vulnerabilidad**)
-- in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option)
-- on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option)
+- en la interface de usuario, se muestra una advertencia en tu archivo de repositorio y vistas de código si hay dependencias vulnerables (opción de **Alertas de la IU**)
+- en la línea de comandos, las advertencias se muestran como rellamados cuando subes información a los repositorios con dependencias vulnerables (opción de **Línea de comandos**)
 - en tu bandeja de entrada, como notificaciones web {% if currentVersion ver_gt "enterprise-server@2.23" %}para vulnerabilidades nuevas con severidad alta o crítica {% endif %}(opción **Web**)
 Puede spersonalizar la forma en que se te notifica sobre
 

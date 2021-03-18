@@ -1,3 +1,4 @@
+const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
 const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
@@ -17,10 +18,24 @@ function sortPatchKeys (release, version) {
         ...release[key]
       }
     })
+    // Filter out any deprecated patches
+    .filter(key => !key.deprecated)
   return keys
     .sort((a, b) => {
-      if (a.version > b.version) return -1
-      if (a.version < b.version) return 1
+      let aTemp = a.version
+      let bTemp = b.version
+
+      // There's an RC version here, so doing regular semver
+      // comparisons won't work. So, we'll convert the incompatible version
+      // strings to real semver strings, then compare.
+      const [aBase, aRc] = a.version.split('.rc')
+      if (aRc) aTemp = `${aBase}-rc.${aRc}`
+
+      const [bBase, bRc] = b.version.split('.rc')
+      if (bRc) bTemp = `${bBase}-rc.${bRc}`
+
+      if (semver.gt(aTemp, bTemp)) return -1
+      if (semver.lt(aTemp, bTemp)) return 1
       return 0
     })
 }
@@ -51,7 +66,7 @@ async function renderPatchNotes (patch, ctx) {
   return patch
 }
 
-module.exports = async (req, res, next) => {
+module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
   // The `/release-notes` sub-path
   if (!req.path.endsWith('/release-notes')) return next()
 

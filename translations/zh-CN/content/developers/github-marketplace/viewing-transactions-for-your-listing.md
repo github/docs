@@ -1,6 +1,6 @@
 ---
 title: 查看上架产品的交易
-intro: '{% data variables.product.prodname_marketplace %} 交易页面允许您下载和查看 {% data variables.product.prodname_marketplace %} 上架产品的所有交易。 You can view transactions for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
+intro: '{% data variables.product.prodname_marketplace %} 交易页面允许您下载和查看 {% data variables.product.prodname_marketplace %} 上架产品的所有交易。 您可以查看 {% data variables.product.prodname_github_app %} 在过去一天（24 小时）、一周、一月或整个上架期间的交易。'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:

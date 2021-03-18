@@ -23,7 +23,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリでは、ファイルを参照して
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 

@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'how_to'
+topics:
+  - 'Princípios básicos'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -68,7 +70,7 @@ etapas:
 
 #### Usar SHAs
 
-Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. Este exemplo tem como alvo a ação do SHA:
+Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
 
 ```yaml
 etapas:

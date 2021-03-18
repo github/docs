@@ -135,7 +135,7 @@ Están disponibles en tu aparato los tarballes con una lista completa de depende
 
 También están disponibles los tarballes, con una lista completa de las dependencias y los metadatos, en `https://enterprise.github.com/releases/<version>/download.html`.
 
-### Further reading
+### Leer más
 
 - "[Configurar una prueba de {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)"
 - "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)"

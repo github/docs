@@ -53,7 +53,7 @@ versions:
 11. Copia tu llave GPG, comenzando con `-----BEGIN PGP PUBLIC KEY BLOCK-----` y terminando con `-----END PGP PUBLIC KEY BLOCK-----`.
 12. [Agrega la llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+### Leer más
 
 * "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 * "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"

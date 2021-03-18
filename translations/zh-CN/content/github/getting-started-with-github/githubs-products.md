@@ -85,6 +85,7 @@ versions:
 - {% data variables.contact.enterprise_support %}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。
 - 50,000 {% data variables.product.prodname_actions %} 分钟
 - 50GB {% data variables.product.prodname_registry %} 存储空间
+- {% data variables.product.prodname_pages %} 站点的访问控制。 更多信息请参阅“<a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">更改 {% data variables.product.prodname_pages %} 站点的可见性</a>”
 - 99.9% 月持续运行时间的服务等级协议
 - 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
 

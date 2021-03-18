@@ -10,7 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Desenvolvimento da ação
+  - Princípios básicos
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -124,7 +127,7 @@ etapas:
 
 #### Usar um SHA do commit para o gerenciamento de versão
 
-Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. Usar um valor integral SHA do commit em vez de um valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que use a mesma abreviatura.
+Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado.{% else %}Usar o valor SHA completo de um commit em vez do valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que usa a mesma abreviação.{% endif %}
 
 ```yaml
 etapas:

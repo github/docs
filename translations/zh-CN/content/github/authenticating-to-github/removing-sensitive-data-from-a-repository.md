@@ -28,7 +28,7 @@ versions:
 
 #### 使用 BFG
 
-[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。 例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -46,7 +46,7 @@ $ bfg --replace-text passwords.txt
 $ git push --force
 ```
 
-有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 的文档。
+有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 的文档。
 
 #### 使用 filter-branch
 

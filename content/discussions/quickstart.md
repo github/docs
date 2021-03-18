@@ -16,7 +16,7 @@ Discussions give a space for more collaborative conversations by connecting and 
 
 ### Enabling {% data variables.product.prodname_discussions %} on your repository
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public repositories.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public and private repositories.
 
 When you first enable a {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
@@ -49,13 +49,13 @@ Anyone with access to a repository can create a discussion.
 
 ### Organizing discussions into relevant categories
 
-Repository owners and people with write access can create new categories to keep discussions organized. Collaborators participating and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)"
+Repository owners and people with write access can create new categories to keep discussions organized. Collaborators participating and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
 
 ### Promoting healthy conversations
 
 People with write permissions for a repository can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
 
 ### Next steps
 

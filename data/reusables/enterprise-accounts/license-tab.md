@@ -6,6 +6,6 @@
 {% else %}
 
 1. In the left sidebar, click **License**.
-  !["License" tab in the enterprise account settings sidebar](/assets/images/enterprise/enterprises/license.png)
+  !["License" tab in the enterprise account settings sidebar](/assets/images/enterprise/enterprise-server/license.png)
 
 {% endif %}

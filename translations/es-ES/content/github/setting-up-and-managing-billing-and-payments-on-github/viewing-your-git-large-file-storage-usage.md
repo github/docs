@@ -29,7 +29,7 @@ versions:
 {% data reusables.user_settings.subscriptions-tab %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-### Further reading
+### Leer más
 
 - "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"
 - "[Actualizar {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

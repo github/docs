@@ -37,6 +37,6 @@ La primera vez que configuras una tarea con un IDE en elínea, debes autorizar l
 
 En todos tus repositorios, otorga acceso de **lectura** a la app para metadatos, administración y código, y acceso de **escritura** para administración y código. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

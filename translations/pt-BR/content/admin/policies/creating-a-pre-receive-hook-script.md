@@ -58,7 +58,8 @@ Fora dos valores fornecidos para `stdin`, há variáveis adicionais disponíveis
 | $GITHUB_VIA                           | Método de criação da ref.<br> **Valores possíveis:**<br> - `api de desenvolvimento automerge` <br> - `edição blob` <br> - `api de merge branch` <br> - `botão de exclusão de página de branches` <br> - `api de criação de refs git` <br> - `api de exclusão de refs git` <br> - `api de atualização de refs git` <br> - `api de merge` <br> - `botão de exclusão de branch de pull request` <br> - `botão de desfazer branch de pull request` <br> - `api de merge de pull request` <br> - `botão de merge de pull request` <br> - `api de reverter pull request` <br> - `botão de exclusão de versões` <br> - `restauração de branch de ferramentas de equipe` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | Número de opções de push enviadas pelo cliente. Para obter mais informações sobre as opções de push, consulte "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" na documentação do Git.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | $GIT_PUSH_OPTION_N                  | Quando <em>N</em> for um número inteiro a partir de 0, esta variável vai conter a string de opção de push enviada pelo cliente. A primeira opção enviada é armazenada em GIT_PUSH_OPTION_0, a segunda é armazenada em GIT_PUSH_OPTION_1 e assim por diante. Para obter mais informações sobre as opções de push, consulte "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" na documentação do Git. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | A string do user-agent enviada pelo cliente que fez push das alterações. |{% endif %}
+| $GIT_USER_AGENT                     | A string do user-agent enviada pelo cliente que fez push das alterações. 
+{% endif %}
 
 ### Configurar permissões e fazer push de um hook pre-receive para o {% data variables.product.prodname_ghe_server %}
 
@@ -93,30 +94,30 @@ Antes de criar ou atualizar um script de hook pre-receive no appliance do {% dat
 
 2. Crie um arquivo de nome `Dockerfile.dev` contendo:
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. Crie um script pre-receive de teste chamado `always_reject.sh`. Este exemplo de script rejeitará todos os pushes, o que é importante para bloquear um repositório:
+   3. Crie um script pre-receive de teste chamado `always_reject.sh`. Este exemplo de script rejeitará todos os pushes, o que é importante para bloquear um repositório:
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1

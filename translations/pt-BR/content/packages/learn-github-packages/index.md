@@ -1,7 +1,7 @@
 ---
-title: Learn GitHub Packages
-shortTitle: Learn GitHub Packages
-intro: 'You can find out more about GitHub Packages, including publishing new packages to {% data variables.product.prodname_registry %}.'
+title: Aprenda sobre o GitHub Pckages
+shortTitle: Aprenda sobre o GitHub Pckages
+intro: 'Você pode saber mais sobre o GitHub Packages, incluindo a publicação de novos pacotes em {% data variables.product.prodname_registry %}.'
 redirect_from:
   - /packages/getting-started-with-github-container-registry
 versions:

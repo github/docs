@@ -26,9 +26,9 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
    * **URL de serviço do AWS**: A URL do serviço para seu bucket. Por exemplo, se o seu bucket S3 foi criado na região `us-west-2`, esse valor deverá ser `https://s3.us-west-2.amazonaws.com`.
 
-     For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
+     Para obter mais informações, consulte "[pontos de extremidade do serviço AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html)" na documentação do AWS.
    * **Balde S3 AWS**: O nome do seu bucket S3.
-   * **Chave de acesso do AWS S3** e **Chave de segredo do AWS S3**: A chave de acesso AWS e chave do segredo para o seu bucket. For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+   * **Chave de acesso do AWS S3** e **Chave de segredo do AWS S3**: A chave de acesso AWS e chave do segredo para o seu bucket. Para mais informações sobre como gerenciar as chaves de acesso do AWS, consulte a "[Documentação de identidade do AWS e gerenciamento de acesso](https://docs.aws.amazon.com/iam/index.html)".
 
    ![Botão de opção para selecionar o armazenamento do Amazon S3 e campos para configuração S3](/assets/images/enterprise/management-console/actions-aws-s3-storage.png)
 {% data reusables.enterprise_management_console.save-settings %}

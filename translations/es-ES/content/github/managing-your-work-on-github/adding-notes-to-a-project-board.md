@@ -62,7 +62,7 @@ Cuando conviertes una nota en una propuesta, la propuesta se crea automáticamen
 3. Para editar los contenidos de la nota, haz clic en **Edit note** (Editar nota). ![Botón para editar notas](/assets/images/help/projects/edit-note.png)
 4. Para eliminar los contenidos de las notas, haz clic en **Delete note** (Eliminar nota). ![Botón para eliminar notas](/assets/images/help/projects/delete-note.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"

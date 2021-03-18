@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de verificações de status necessárias
-intro: 'You can check for common errors and resolve issues with required status checks.'
+intro: 'Você pode verificar erros comuns e resolver problemas com as verificações de status necessárias.'
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
@@ -8,9 +8,9 @@ versions:
   github-ae: '*'
 ---
 
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)".
+Se você tiver uma verificação e um status com o mesmo nome e selecionar esse nome como uma verificação de status obrigatória, a verificação e o status serão obrigatórios. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)".
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. Isso garante que o branch foi testado com o código mais recente do branch base. Se o branch estiver desatualizado, você precisará fazer merge do branch base no seu branch. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
+Depois que você habilitar as verificações de status solicitadas, seu branch pode precisar estar atualizado com o branch de base antes da ação de merge. Isso garante que o branch foi testado com o código mais recente do branch base. Se o branch estiver desatualizado, você precisará fazer merge do branch base no seu branch. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 {% note %}
 
@@ -26,13 +26,13 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. Isso pode ser feito sem verificações de status em execução no próprio commit de merge.
+**Observação:** as pull requests que são atualizadas e passam nas verificações de status obrigatórias podem sofrer merge localmente e enviadas por push para o branch protegido. Isso pode ser feito sem verificações de status em execução no próprio commit de merge.
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. If the test merge commit has a status, the test merge commit must pass. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de merge de testes tem status, o commit de merge de testes deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre commits de merge de teste, consulte "[Pulls](/rest/reference/pulls#get-a-pull-request)".
 
 ![Branch com commits de mescla conflitantes](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Um schnell loszulegen, kannst Du beim Erstellen eines neuen Workflows die vorkon
 Du kannst auch manuell diesen Workflow hinzufügen, indem Du eine neue Datei im Verzeichnis `.github/workflows` Deines Reporitorys erstellst.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ Der Starter-Workflow führt standardmäßig das „target“ (Ziel) `package` au
 Wenn Du zum Bauen Deines Projekts andere Befehle verwenden oder ein anderes Ziel auszuführen möchtest, kannst Du dies angeben. Vielleicht möchtest Du beispielsweise das Ziel `verify` ausführen, das in Deiner Datei _pom-ci.xml_ konfiguriert ist.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -95,7 +99,7 @@ steps:
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. Nach einem erfolgreichen Lauf wird Dein lokales Maven-Repository in der Aktions-Infrastruktur auf GitHub gespeichert. Bei zukünftigen Workflow-Ausführungen wird der Cache wiederhergestellt, so dass Abhängigkeiten nicht aus entfernten Maven-Repositories heruntergeladen werden müssen. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching-Abhängigkeiten zur Beschleunigung von Workflows</a>“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 1.8
@@ -122,7 +126,7 @@ Nachdem sowohl Build erfolgreich war und Deine Tests bestanden hat, wirst Du die
 Maven erstellt normalerweise Ausgabedateien wie JARs, EARs oder WARs im Verzeichnis `target`. Um diese als Artefakte hochzuladen, kannst du sie in ein neues Verzeichnis kopieren, welches Artefakte zum Hochladen enthält. Zum Beispiel kannst Du ein Verzeichnis namens `staging` erstellen. Dann kannst Du den Inhalt dieses Verzeichnisses mit der Aktion `upload-artifact` hochladen.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

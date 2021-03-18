@@ -24,7 +24,7 @@ If you use a continuous integration or continuous delivery/deployment (CI/CD) sy
 
 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
-You can use the {% data variables.product.prodname_codeql_runner %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_location %}. For information, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+You can use the {% data variables.product.prodname_codeql_runner %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_location %}. For information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 The {% data variables.product.prodname_codeql_runner %} is a command-line tool that runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. You add the runner to your third-party system, then call the runner to analyze code and upload the results to {% data variables.product.product_location %}. These results are displayed as {% data variables.product.prodname_code_scanning %} alerts in the repository.
 
@@ -92,6 +92,8 @@ For both commands, you must specify the URL of {% data variables.product.product
 You can configure where the {% data variables.product.prodname_codeql_runner %} stores the CodeQL bundle for future analysis on a server using the <nobr>`--tools-dir`</nobr> flag and where it stores temporary files during analysis using <nobr>`--temp-dir`</nobr>.
 
 To view the command-line reference for the runner, use the `-h` flag. For example, to list all commands run: `codeql-runner-OS -h`, or to list all the flags available for the `init` command run: `codeql-runner-OS init -h` (where `OS` varies according to the executable that you are using). For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)."
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### Basic example
 

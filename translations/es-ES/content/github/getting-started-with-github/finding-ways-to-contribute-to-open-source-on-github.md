@@ -46,7 +46,7 @@ Para configurar tu propio espejo, puedes configurar [un gancho posrecepción](ht
 
 Puedes buscar repositorios en función de si tienen un espejo o no. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-a-mirror)".
 
-### Further reading
+### Leer más
 
 - "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"
 - "[Acerca del tablero de tu organización](/articles/about-your-organization-dashboard)"

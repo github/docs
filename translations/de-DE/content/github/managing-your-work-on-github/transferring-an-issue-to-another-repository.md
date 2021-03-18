@@ -11,7 +11,7 @@ versions:
 
 Für die Übertragung eines offenen Issues in ein anderes Repository benötigst Du Schreibberechtigung sowohl für das Repository, aus dem der Issue stammt, wie auch für das Repository, in das der Issue übertragen wird. Weitere Informationen finden Sie unter„[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“.
 
-You can only transfer issues between repositories owned by the same user or organization account.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+Du kannst Issues nur zwischen Repositorys übertragen, die demselben Benutzer- oder Organisationskonto angehören. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 Wenn Du einen Issue überträgst, bleiben seine Kommentare und Bearbeiter erhalten. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“
 

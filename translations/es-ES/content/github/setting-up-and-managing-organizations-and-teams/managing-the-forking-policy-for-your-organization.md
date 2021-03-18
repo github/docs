@@ -24,7 +24,7 @@ Si permites que se bifurquen los repositorios privados{% if currentVersion == "f
 5. Debajo de "Bifurcación de repositorios", selecciona **Permitir la bifurcación de repositorios privados** o **Permitir la bifurcación de repositorios privados e internos**. ![Casilla de verificación para permitir o prohibir la bifurcación en la organización](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Haz clic en **Save ** (guardar).
 
-### Further reading
+### Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"

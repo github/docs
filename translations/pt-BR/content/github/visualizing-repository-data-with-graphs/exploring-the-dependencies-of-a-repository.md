@@ -82,22 +82,22 @@ Você também pode habilitar ou desabilitar o gráfico de dependências para tod
 
 Você pode desabilitar o gráfico de dependências a qualquer momento clicando em **Desabilitar** ao lado de "Gráfico de dependência" na aba de análise & de Segurança &.
 
-### Changing the "Used by" package
+### Alterar o pacote "Usado por"
 
-If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+Se o gráfico de dependências estiver habilitado e o seu repositório contiver um pacote publicado em um ecossistema de pacote compatível, {% data variables.product.prodname_dotcom %} exibirá uma seção "Usado por" na barra lateral da aba do **Código** do seu repositório. Para obter mais informações sobre os ecossistemas de pacotes compatíveis, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+A seção "Usado por" mostra o número de referências públicas ao pacote que foi encontrado, e exibe os avatares de alguns dos proprietários dos projetos dependentes.
 
-!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+![Seção da barra lateral "Usado por"](/assets/images/help/repository/used-by-section.png)
 
-Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+Clicar em qualquer item desta seção irá levar você para a aba **Dependentes** do gráfico de dependências.
 
-The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+A seção "Usado por" representa um único pacote do repositório. Se você tiver permissões de administrador em um repositório que contém vários pacotes, você poderá escolher qual pacote a seção "Usado por" representa.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+4. Em "Configure as funcionalidades de segurança e análise", clique no menu suspenso na seção "Usados pelo contador" e escolha um pacote. ![Escolha um pacote "Usado por"](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 

@@ -11,7 +11,7 @@ redirect_from:
   - /categories/3/articles/
   - /articles/managing-your-organization-s-paid-seats/
   - /articles/managing-billing-for-your-github-account
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
 ---

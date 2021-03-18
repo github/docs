@@ -44,6 +44,6 @@ Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes 
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
-### Further reading
+### Leer más
 
 - "[Crear un enlace permanente a un fragmento de código](/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet)".

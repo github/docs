@@ -27,7 +27,9 @@ Die Benutzer sind dafür verantwortlich, sicherzustellen, dass die Inhalte, die 
 
 GitHub now has a license from OFAC to provide cloud services to developers located or otherwise resident in Iran. This includes all public and private services for individuals and organizations, both free and paid.
 
-Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials, may be restricted from accessing or using GitHub.com. Darüber hinaus dürfen Benutzer GitHub.com nicht für oder im Namen solcher Parteien nutzen, einschließlich der Regierungen von sanktionierten Ländern. Des Weiteren darf GitHub.com nicht für Zwecke verwendet werden, die nach den geltenden Exportkontrollgesetzen verboten sind, einschließlich verbotener Endnutzungen, die in [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5) beschrieben sind.
+GitHub cloud services, both free and paid, are also generally available to developers located in Cuba.
+
+Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials, may be restricted from accessing or using GitHub.com. Additionally, users may not use GitHub.com for or on behalf of such parties, generally including the Governments of sanctioned countries. Des Weiteren darf GitHub.com nicht für Zwecke verwendet werden, die nach den geltenden Exportkontrollgesetzen verboten sind, einschließlich verbotener Endnutzungen, die in [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5) beschrieben sind.
 
 #### GitHub Enterprise Server
 
@@ -41,13 +43,13 @@ GitHub Enterprise Server darf nicht in Länder, die in der Ländergruppe E:1 in 
 
 #### On which countries and territories are U.S. government sanctions applied?
 
-Krim, Kuba, Iran, Nordkorea und Syrien. With respect to Iran, however, GitHub now has a license from the U.S. Treasury Department's Office of Foreign Assets Control (OFAC) to provide cloud services to developers located or otherwise resident in that country.
+Krim, Kuba, Iran, Nordkorea und Syrien. With respect to Iran, however, GitHub now has a license from the U.S. Treasury Department's Office of Foreign Assets Control (OFAC) to provide cloud services to developers located or otherwise resident in that country. GitHub cloud services, both free and paid, are also generally available to developers located in Cuba.
 
 #### Wie stellt GitHub sicher, dass Personen, die nicht in den sanktionierten Ländern und Gebieten leben bzw. professionelle Verbindungen zu den sanktionierten Ländern und Gebieten haben, immer noch Zugang oder die Möglichkeit haben, Berufung einzulegen?
 
 In dem seltenen Fall, dass ein Konto unbeabsichtigt oder irrtümlich betroffen ist, haben wir ein Berufungsverfahren, um solche Fälle zu klären.
 
-Wenn ein einzelner Benutzer oder der Administrator einer Organisation der Meinung ist, fälschlicherweise mit einem Flag gekennzeichnet worden zu sein, dann hat dieser Benutzer die Möglichkeit, gegen die Kennzeichnung Einspruch zu erheben, indem er GitHub Verifizierungsinformationen zur Verfügung stellt. Wenn GitHub hinreichende Informationen erhält, um zu verifizieren, dass der Benutzer oder die Organisation nicht mit einer von den USA sanktionierten oder anderweitig durch US-Wirtschaftssanktionen eingeschränkten Region verbunden ist, wird das Flag entfernt. economic sanctions, then the flag will be removed. Bitte beachten Sie hierzu das [Antragsformular für Einsprüche zu Einzelpersonenkonten](https://airtable.com/shrGBcceazKIoz6pY) und das [Antragsformular für Einsprüche zu Organisationskonten](https://airtable.com/shrB2je5RBkqLEt5D).
+Wenn ein einzelner Benutzer oder der Administrator einer Organisation der Meinung ist, fälschlicherweise mit einem Flag gekennzeichnet worden zu sein, dann hat dieser Benutzer die Möglichkeit, gegen die Kennzeichnung Einspruch zu erheben, indem er GitHub Verifizierungsinformationen zur Verfügung stellt. If GitHub receives sufficient information to verify that the user or organization is not affiliated with a U.S.-sanctioned jurisdiction for which we do not have a license or otherwise restricted by U.S. economic sanctions, then the flag will be removed. Bitte beachten Sie hierzu das [Antragsformular für Einsprüche zu Einzelpersonenkonten](https://airtable.com/shrGBcceazKIoz6pY) und das [Antragsformular für Einsprüche zu Organisationskonten](https://airtable.com/shrB2je5RBkqLEt5D).
 
 #### Haben Reisen in diese Regionen irgendwelche Auswirkungen?
 
@@ -55,13 +57,17 @@ Reisen in diese Regionen können sich auf Ihren Kontostatus auswirken, aber die 
 
 #### Was ist verfügbar und nicht verfügbar?
 
-GitHub now has a license from OFAC to provide cloud services to developers located or otherwise resident in the U.S.-sanctioned country of Iran. The license includes all public and private services for individuals and organizations, both free and paid. However, Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub.
+GitHub now has a license from OFAC to provide cloud services to developers located or otherwise resident in the U.S.-sanctioned country of Iran. The license includes all public and private services for individuals and organizations, both free and paid. GitHub cloud services, both free and paid, are also generally available to developers located in Cuba.
 
-GitHub hat sich verpflichtet, Entwicklern mit Einzelpersonen- und Organisationskonten in von den USA sanktionierten Regionen weiterhin kostenlose öffentliche Repository-Dienste anzubieten. Dazu gehören der eingeschränkte Zugriff zu kostenlosen Diensten, wie z. B. öffentliche Repositorys für Open-Source-Projekte (und zugehörige öffentliche Seiten), öffentliche Gists und zugeteilte kostenlose Aktionsminuten, nur für die persönliche Kommunikation und nicht für kommerzielle Zwecke.
+GitHub is committed to continuing to offer free public repository services to developers with individual and organizational accounts in Syria and Crimea. Dazu gehören der eingeschränkte Zugriff zu kostenlosen Diensten, wie z. B. öffentliche Repositorys für Open-Source-Projekte (und zugehörige öffentliche Seiten), öffentliche Gists und zugeteilte kostenlose Aktionsminuten, nur für die persönliche Kommunikation und nicht für kommerzielle Zwecke.
 
 For paid organizational accounts in these sanctioned regions, users may have limited access to their public repositories, which have been downgraded to archived read-only repositories. For free organizational accounts in these sanctioned regions, however, users will continue to have full access to free public repositories for open source projects (and associated public Pages), public gists, and allotted free Action minutes.
 
-GitHub will continue advocating with U.S. regulators for the greatest possible access to code collaboration services to developers in sanctioned regions, such as Syria and Crimea, including private repositories. We believe that offering those services advances human progress, international communication, and the enduring U.S. foreign policy of promoting free speech and the free flow of information.
+GitHub will continue advocating with U.S. regulators for the greatest possible access to code collaboration services to developers in Syria and Crimea, including private repositories. We believe that offering those services advances human progress, international communication, and the enduring U.S. foreign policy of promoting free speech and the free flow of information.
+
+Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub, wherever located. Users may not use GitHub.com for or on behalf of such parties, generally including the Governments of sanctioned countries.
+
+GitHub services are not available to developers located or otherwise resident in North Korea.
 
 #### Wie definieren Sie diese spezifischen Benutzer?
 
@@ -89,8 +95,13 @@ For example, a developer in Iran may sign up for a Free or Pro plan for their in
 
 Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub.
 
-If GitHub determines that an individual falls into a restricted category (SDNs, other blocked parties, or certain government officials), their account will be flagged and they will not be able to use any GitHub features. If they believe that they have been flagged in error, then they have the opportunity to appeal the flag by providing verification information to GitHub using our [individual account appeals request form](https://airtable.com/shrGBcceazKIoz6pY). If GitHub receives sufficient information to verify that the individual is not in a category restricted by U.S. economic sanctions, then the flag will be removed.
+If GitHub determines that an individual or organization falls into a restricted category (SDNs, other blocked parties, or certain government officials), their account will be flagged and they will not be able to use any GitHub features. If they believe that they have been flagged in error, then they have the opportunity to appeal the flag by providing verification information to GitHub using our [individual account appeals request form or organization account appeals request form](https://airtable.com/shrGBcceazKIoz6pY). If GitHub receives sufficient information to verify that the individual is not in a category restricted by U.S. economic sanctions, then the flag will be removed.
 
 #### Will Iranian GitHub users be able to use paid services under the license?
 
 Pursuant to the license we have received from OFAC, we are restoring all cloud services to Iranian users, including paid services. We accept all major credit cards, but third parties process payments for us, so payments are subject to the terms and conditions of our payment processors. Those third parties may include restrictions that block payments from Iran.
+
+#### Can you clarify availability of GitHub to Cuban developers?
+
+GitHub cloud services, both free and paid, are generally available to developers located in Cuba.  
+Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub, wherever located. Additionally, users may not use GitHub.com for or on behalf of such parties, generally including the Governments of sanctioned countries.

@@ -40,7 +40,7 @@ Las personas con permisos de escritura para un repositorio pueden agregar un tem
 {% data reusables.pages.navigate-publishing-source %}
 1. Crea un archivo nuevo denominado _/assets/css/style.scss_.
 2. Agrega el siguiente contenido en la parte superior del archivo:
-  ```
+  ```scss
   ---
   ---
 
@@ -63,6 +63,6 @@ Las personas con permisos de escritura para un repositorio pueden agregar un tem
 7. Pega el contenido del diseño personalizado que copiaste anteriormente.
 8. Personaliza el diseño como desees.
 
-### Further reading
+### Leer más
 
 - "[Crear archivos nuevos](/articles/creating-new-files)"

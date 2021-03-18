@@ -13,7 +13,7 @@ Só é possível fazer commits em branches da pull request que:
 - esteja aberta em um repositório em que você tem acesso push e que foi criada de uma bifurcação desse repositório
 - estão em uma bifurcação de propriedade do usuário
 - tiver permissão concedida pelo criador da pull request
-- não tenha [restrições de branch](/articles/about-branch-restrictions) que impedirá você de fazer commit
+- não tenha [restrições de branch](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) que impedirá você de fazer commit
 
 Somente o usuário que criou a pull request pode dar a você permissão para fazer push de commits na bifurcação de propriedade do usuário. Para obter mais informações, consulte "[Permitir alterações no branch de uma pull request criada de uma bifurcação](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
 

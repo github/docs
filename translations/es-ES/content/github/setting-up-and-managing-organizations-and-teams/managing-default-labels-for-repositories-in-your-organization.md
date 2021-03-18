@@ -58,6 +58,6 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las etiquetas](/articles/about-labels)"

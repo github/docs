@@ -27,6 +27,6 @@ versions:
 {% data reusables.organizations.billing %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"

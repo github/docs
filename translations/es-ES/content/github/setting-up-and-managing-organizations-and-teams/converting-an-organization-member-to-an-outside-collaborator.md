@@ -33,7 +33,7 @@ Cuando conviertes a un miembro de la organización en colaborador externo, sus p
 5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Menú desplegable con la opción para convertir miembros en colaboradores externos](/assets/images/help/teams/user-bulk-management-options.png)
 6. Lee la información sobre cómo convertir miembros en colaboradores externos, luego haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Información sobre permisos de colaboradores externos y botón Convert to outside collaborators (Convertir en colaboradores externos)](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
 
-### Further reading
+### Leer más
 
 - "[Agregar colaboradores externos a repositorios de tu organización](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
 - "[Eliminar a un colaborador externo desde el repositorio de una organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

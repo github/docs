@@ -44,7 +44,7 @@ versions:
 
 {% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 （アメリカの祝日は除く）
 
-| アメリカ合衆国の祝日 祝日               | 対象日付                        |
+| アメリカ合衆国の祝日 祝日               | 対象となる日付                     |
 | --------------------------- | --------------------------- |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |

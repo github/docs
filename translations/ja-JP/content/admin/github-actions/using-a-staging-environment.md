@@ -1,26 +1,26 @@
 ---
-title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging environments.'
+title: ステージング環境を使用する
+intro: '{% data variables.product.prodname_actions %} を {% data variables.product.prodname_ghe_server %} ステージング環境で使用する方法について説明します。'
 versions:
   enterprise-server: '>=3.0'
 ---
 
-It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.
+{% data variables.product.product_location %} のステージング環境またはテスト環境があると便利な場合があります。これにより、更新または新機能を本番環境に実装する前にテストできます。
 
-A common way to create the staging environment is to use a backup of your production instance and restore it to the staging environment.
+ステージング環境を作成する一般的な方法は、本番インスタンスのバックアップを使用して、それをステージング環境に復元することです。
 
-When setting up a {% data variables.product.prodname_ghe_server %} staging environment that has {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment uses. Otherwise, your staging environment will write to the same external storage as production.
+{% data variables.product.prodname_actions %} が有効になっている {% data variables.product.prodname_ghe_server %} ステージング環境をセットアップする場合、{% data variables.product.prodname_actions %} ストレージには本番環境が使用するものとは異なる外部ストレージ設定を使用する必要があります。 それ以外の場合、ステージング環境は本番環境と同じ外部ストレージに書き込まれます。
 
-Expect to see `404` errors in your staging environment when trying to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs, because that data will be missing from your staging storage location.
+既存の {% data variables.product.prodname_actions %} ワークフロー実行からログまたはアーティファクトを表示しようとすると、ステージング環境で `404` エラーが発生することが予想されます。これは、そのデータがステージングストレージの場所から消失するためです。
 
-Although it is not required for {% data variables.product.prodname_actions %} to be functional in your staging environment, you can optionally copy the files from the production storage location to the staging storage location.
+{% data variables.product.prodname_actions %} がステージング環境で機能する必要はありませんが、必要に応じて、ファイルを本番ストレージの場所からステージングストレージの場所にコピーできます。
 
-* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). 例:
+* Azure ストレージアカウントの場合、[`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account) を使用できます。 例:
 
   ```shell
   azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
   ```
-* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). 例:
+* Amazon S3 バケットの場合、[`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html) を使用できます。 例:
 
   ```shell
   aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>

@@ -112,7 +112,7 @@ The example above uses the maximum expiration time of 10 minutes, after which th
 ```json
 {
   "message": "'Expiration' claim ('exp') must be a numeric value representing the future time at which the assertion expires.",
-  "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+  "documentation_url": "{% data variables.product.doc_url_pre %}"
 }
 ```
 

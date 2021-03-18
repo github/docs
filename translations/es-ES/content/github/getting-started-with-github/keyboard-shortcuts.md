@@ -76,7 +76,8 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>control shift p</kbd> o <kbd>comando shift p</kbd>                        | Alterna entre las pestañas de comentarios **Write** (Escribir) y **Preview** (Vista previa)                                                                                                                                                                                                         |
 | <kbd>control enter</kbd>                                                       | Envía un comentario                                                                                                                                                                                                                                                                                 |
 | <kbd>control .</kbd> y luego <kbd>control [número de respuesta guardada]</kbd> | Abre el menú de respuestas guardadas y luego completa automáticamente el campo de comentarios con una respuesta guardada. Para obtener más información, consulta la sección "[Acerca de las respuestas guardadas](/articles/about-saved-replies)".{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>control g</kbd> o <kbd>comando g</kbd>                                    | Inserta una sugerencia. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+| <kbd>control g</kbd> o <kbd>comando g</kbd>                                    | Inserta una sugerencia. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)." 
+{% endif %}
 | <kbd>r</kbd>                                                                   | Cita el texto seleccionado en tu respuesta. Para obtener más información, consulta "[Escritura básica y sintaxis de formato](/articles/basic-writing-and-formatting-syntax#quoting-text)".                                                                                                          |
 
 ### Listas de propuestas y solicitudes de extracción
@@ -111,7 +112,8 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>k</kbd>                           | Mueve la selección hacia arriba en la lista                                                                                                                                                                                                                                                                                                                                                     |
 | <kbd>cmd + shift + enter </kbd>        | Agrega un comentario simple en una diferencia de solicitud de extracción                                                                                                                                                                                                                                                                                                                        |
 | <kbd>alt</kbd> y haz clic              | Alterna entre colapsar y expandir todos los comentarios de revisión desactualizados en una solicitud de cambios presionando `alt` y dando clic en **Mostrar desactualizados** U **Ocultar.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} desactualizados**                                        |
-| Da clic, luego <kbd>shift</kbd> y clic | Comenta en líneas múltiples de una solicitud de extracción dando clic en un número de línea, sosteniendo <kbd>shift</kbd>, y luego dando clic en otro número de línea. Para obtener más información, consulta "[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
+| Da clic, luego <kbd>shift</kbd> y clic | Comenta en líneas múltiples de una solicitud de extracción dando clic en un número de línea, sosteniendo <kbd>shift</kbd>, y luego dando clic en otro número de línea. Para obtener más información, consulta "[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."
+{% endif %}
 
 ### Tableros de proyecto
 
@@ -159,10 +161,10 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | Atajo del teclado                                        | Descripción                                                                                   |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | <kbd>command + space </kbd> o <kbd>control + space</kbd> | En el editor del flujo de trabajo, obtén las sugerencias para tu archivo de flujo de trabajo. |
-| <kbd>g</kbd> <kbd>f</kbd>                                | Go to the workflow file                                                                       |
-| <kbd>shift + t</kbd> or <kbd>T</kbd>                     | Toggle timestamps in logs                                                                     |
-| <kbd>shift + f</kbd> or <kbd>F</kbd>                     | Toggle fullscreen logs                                                                        |
-| <kbd>esc</kbd>                                           | Exit fullscreen logs                                                                          |
+| <kbd>g</kbd> <kbd>f</kbd>                                | Ir al archivo de flujo de trabajo                                                             |
+| <kbd>shift + t</kbd> or <kbd>T</kbd>                     | Activa las marcas de tiempo en las bitácoras                                                  |
+| <kbd>shift + f</kbd> or <kbd>F</kbd>                     | Activa las bitácoras de pantalla completa                                                     |
+| <kbd>esc</kbd>                                           | Salir de las bitácoras de pantalla completa                                                   |
 
 {% endif %}
 
@@ -183,7 +185,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>shift + m</kbd>                       | Silencia el hilo |
 {% endif %}
 
-### Network graph
+### Gráfica de Red
 
 | Atajo del teclado                           | Descripción                      |
 | ------------------------------------------- | -------------------------------- |

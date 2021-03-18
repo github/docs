@@ -87,6 +87,6 @@ Si una imagen está siendo proporcionada desde una red privada o desde un servid
 
 Para solucionar esto, mueva la imagen a un servicio que esté disponible públicamente.
 
-### Further reading
+### Leer más
 
 - "[Imágenes de usuarios de conexiones proxy](https://github.com/blog/1766-proxying-user-images)" en {% data variables.product.prodname_blog %}

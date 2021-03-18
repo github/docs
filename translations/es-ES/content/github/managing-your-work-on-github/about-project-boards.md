@@ -57,7 +57,7 @@ Para obtener más información, consulta "[Acerca de la automatización para tab
 
 {% data reusables.project-management.copy-project-boards %}
 
-### Further reading
+### Leer más
 
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
 - "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}

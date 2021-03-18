@@ -40,7 +40,7 @@ Después de cambiar el nombre de tu organización:
 {% data reusables.organizations.org_settings %}
 4. Cerca de la parte de abajo de la página de parámetros, en "Rename organization" (Renombrar organización), haz clic en **Rename Organization** (Renombrar organización). ![Botón Rename organization (Renombrar organización)](/assets/images/help/settings/settings-rename-organization.png)
 
-### Further reading
+### Leer más
 
 * "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)"
 * "[¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"

@@ -41,11 +41,13 @@ try {
 
 Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトで設定できます。 例:
 
+{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
+{% endraw %}
 
 詳しい情報については「[Docker コンテナアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。

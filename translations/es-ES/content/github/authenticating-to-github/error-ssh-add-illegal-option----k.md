@@ -26,7 +26,7 @@ Para agregar tu llave privada SSH al ssh-agent, puedes especificar la ruta a la 
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Generar una clave SSH nueva y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
 - [Página de manual de Linux para SSH-ADD](http://man7.org/linux/man-pages/man1/ssh-add.1.html)

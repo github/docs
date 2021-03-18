@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}
+intro: ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% if enterpriseServerVersions contains currentVersion %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,7 +15,7 @@ versions:
 - {% data variables.product.product_name %} へのサインイン。
 - Issue やプルリクエストへのコメント。
 - リポジトリの作成、削除、Watch、スター付け。
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- コミットのプッシュ。{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
 ### 休眠ユーザの表示

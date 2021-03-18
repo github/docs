@@ -33,14 +33,18 @@ Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität un
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Gib `O` ein, um Deine Auswahl zu speichern.
+7. Enter `O` to confirm your selections.
 8. Gib die Passphrase Deines Schlüssels ein.
-9. Gib `gpg --armor --export GPG key ID` ein. Setze dabei die gewünschte GPG-Schlüssel-ID ein. Im folgenden Beispiel ist die GPG-Schlüssel-ID `3AA5C34371567BD2`:
+9. Enter `gpg> save` to save the changes
+  ```shell
+  $ gpg> save
+  ```
+10. Geben Sie `gpg --armor --export GPG key ID` ein. Setzen Sie dabei die gewünschte GPG-Schlüssel-ID ein. Im folgenden Beispiel ist die GPG-Schlüssel-ID `3AA5C34371567BD2`:
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Gibt den GPG Schluessel im ASCII armor format aus
   ```
-10. Lade den GPG-Schlüssel hoch, indem Du ihn [zu Deinem GitHub-Konto hinzufügst](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Laden Sie den GPG-Schlüssel hoch, indem Sie ihn [zu Ihrem GitHub-Konto hinzufügen](/articles/adding-a-new-gpg-key-to-your-github-account).
 
 ### Weiterführende Informationen
 

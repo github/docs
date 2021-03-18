@@ -21,9 +21,46 @@ learningTracks:
   - getting_started
   - continuous_integration
   - continuous_deployment
+  - deploy_to_the_cloud
   - hosting_your_own_runners
   - create_actions
 layout: product-sublanding
+includeGuides:
+  - /actions/quickstart
+  - /actions/learn-github-actions/introduction-to-github-actions
+  - /actions/creating-actions/creating-a-docker-container-action
+  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+  - /actions/guides/building-and-testing-python
+  - /actions/guides/building-and-testing-nodejs
+  - /actions/guides/about-packaging-with-github-actions
+  - /actions/guides/publishing-docker-images
+  - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/guides/about-continuous-integration
+  - /actions/guides/building-and-testing-powershell
+  - /actions/guides/building-and-testing-ruby
+  - /actions/guides/building-and-testing-java-with-maven
+  - /actions/guides/building-and-testing-java-with-gradle
+  - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guides/publishing-nodejs-packages
+  - /actions/guides/publishing-java-packages-with-maven
+  - /actions/guides/publishing-java-packages-with-gradle
+  - /actions/guides/storing-workflow-data-as-artifacts
+  - /actions/guides/about-service-containers
+  - /actions/guides/creating-redis-service-containers
+  - /actions/guides/creating-postgresql-service-containers
+  - /actions/guides/deploying-to-amazon-elastic-container-service
+  - /actions/guides/deploying-to-azure-app-service
+  - /actions/guides/deploying-to-google-kubernetes-engine
+  - /actions/learn-github-actions/essential-features-of-github-actions
+  - /actions/learn-github-actions/security-hardening-for-github-actions
+  - /actions/creating-actions/about-actions
+  - /actions/creating-actions/creating-a-javascript-action
+  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/learn-github-actions/migrating-from-jenkins-to-github-actions
+  - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 ---
 
 <!-- {% link_in_list /about-continuous-integration %} -->

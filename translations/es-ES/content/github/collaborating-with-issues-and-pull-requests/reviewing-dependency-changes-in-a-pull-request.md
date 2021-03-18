@@ -36,7 +36,7 @@ La revisión de dependencias es compatible con los mismos lenguajes de programac
 
    ![El menú de filtro de archivo](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. A la derecha del encabezado de un archivo de bloqueo o de manifiesto, muestra la revisión de dependencias dando clic en el botón de diff enriquecido **{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![El botón de diff rica](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 

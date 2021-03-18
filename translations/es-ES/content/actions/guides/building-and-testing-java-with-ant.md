@@ -8,6 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Ant'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -38,7 +42,7 @@ Para comenzar rápidamente, puedes elegir la plantilla de Ant preconfigurada cua
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +83,7 @@ El flujo de trabajo de inicio ejecutará el destino predeterminado especificado 
 Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el destino `jar` que está configurado en tu archivo _build-ci.xml_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -97,7 +101,7 @@ Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es po
 Por lo general, Ant crea archivos de salida como JAR, EAR o WAR en el directorio `build/jar`. Puedes cargar los contenidos de ese directorio utilizando la acción `upload-Artifact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

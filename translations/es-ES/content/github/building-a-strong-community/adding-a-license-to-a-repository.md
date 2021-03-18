@@ -45,6 +45,6 @@ Las licencias de código abierto permiten que otras personas usen, cambien y dis
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)"

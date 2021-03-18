@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 require('./lib/check-node-version')
 require('./lib/handle-exceptions')
 require('./lib/feature-flags')

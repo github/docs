@@ -27,6 +27,8 @@ Você pode fazer o upload dos resultados usando {% data variables.product.prodna
 - {% data variables.product.prodname_dotcom %} exibirá alertas de {% data variables.product.prodname_code_scanning %} do arquivo SARIF carregado em seu repositório. Se você bloquear o upload automático, quando você estiver pronto para fazer o upload de resultados, você poderá usar o comando `upload` (para obter mais informações, consulte "[Executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
 - Uma ferramenta que gera resultados como um artefato fora do seu repositório, você pode usar a API de {% data variables.product.prodname_code_scanning %} para fazer o upload do arquivo (para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF](/rest/reference/code-scanning#upload-a-sarif-file)").
 
+{% data reusables.code-scanning.not-available %}
+
 ### Fazer o upload uma análise de {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_actions %}
 
 Para fazer o upload de um arquivo SARIF de terceiros para {% data variables.product.prodname_dotcom %}, você precisará de um fluxo de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Aprender {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" e "[Aprender {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
@@ -36,6 +38,8 @@ O seu fluxo de trabalho precisará usar a ação `upload-sarif`, que tem parâme
 A ação `upload-sarif` pode ser configurada para ser executada quando ocorrem o evento `push` e `agendado`. Para obter mais informações sobre eventos do {% data variables.product.prodname_actions %}, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
 
 Se o seu arquivo SARIF não incluir `partialFingerprints`, a ação `upload-sarif` calculará o campo `parcialFingerprints` para você e tentará evitar alertas duplicados. O {% data variables.product.prodname_dotcom %} só pode criar `partialFingerprints` quando o repositório contiver o arquivo SARIF e o código-fonte usado na análise estática. Para obter mais informações sobre a prevenção de alertas duplicados, consulte "[Sobre o suporte SARIF para a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)".
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 #### Exemplo de fluxo de trabalho para arquivos SARIF gerados fora de um repositório
 

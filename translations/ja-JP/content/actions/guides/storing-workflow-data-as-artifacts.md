@@ -1,6 +1,6 @@
 ---
-title: ワークフロー データをアーティファクトとして保存する
-shortTitle: ワークフロー アーティファクトを保存する
+title: ワークフロー データを成果物として保存する
+shortTitle: ワークフローの成果物を保存する
 intro: 成果物を使うと、ワークフロー内のジョブ間でデータを共有し、ワークフローが完了したときに、そのワークフローのデータを保存できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -11,7 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+type: tutorial
+topics:
+  - ワークフロー
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +38,7 @@ type: 'tutorial'
 
 {% else %}
 
-アーティファクトは、{% data variables.product.product_location %} 上の {% data variables.product.prodname_actions %} 向けに設定された外部 blob ストレージ上のストレージスペースを消費します。
+成果物は、{% data variables.product.product_location %} 上の {% data variables.product.prodname_actions %} 向けに設定された外部 blob ストレージ上のストレージスペースを消費します。
 
 {% endif %}
 
@@ -79,7 +81,7 @@ type: 'tutorial'
 
 このワークフローは `dist` ディレクトリにプロダクションの成果物をアップロードしますが、Markdownファイルはその対象外です。 また、 `code-coverage.html`レポートは別の成果物としてアップロードされます。
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -110,11 +112,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### カスタムアーティファクトの保持期間を設定する
+### カスタムの成果物の保持期間を設定する
 
-ワークフローによって作成された個々のアーティファクトのカスタム保存期間を定義できます。 ワークフローを使用して新しいアーティファクトを作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前のアーティファクトに 5 日間のカスタム保存期間を設定する方法を示しています。
+ワークフローによって作成された個々の成果物のカスタム保存期間を定義できます。 ワークフローを使用して新しい成果物を作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前の成果物に 5 日間のカスタム保存期間を設定する方法を示しています。
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -128,13 +130,13 @@ jobs:
 
 ### 成果物のダウンロードあるいは削除
 
-ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
+ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされた成果物をダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/rest/reference/actions#artifacts)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用して成果物をダウンロードまたは削除できます。 詳しい情報については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローの成果物を削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[Artifacts REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 
-[`actions/download-artifact`](https://github.com/actions/download-artifact) のダウンロードアクションを使用して、ワークフローの実行中に以前にアップロードされたアーティファクトをダウンロードできます。
+[`actions/download-artifact`](https://github.com/actions/download-artifact) のダウンロードアクションを使用して、ワークフローの実行中に以前にアップロードされた成果物をダウンロードできます。
 
 {% note %}
 
@@ -170,12 +172,12 @@ jobs:
 
 ジョブ1は、以下のステップを実行します。
 - 数式の計算を実行し、その結果を`math-homework.txt`というテキストファイルに保存します。
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+- `upload-artifact` アクションを使って、`math-homework.txt` ファイルを `homework` という成果物名でアップロードします。
 
 ジョブ2は、前のジョブの結果を利用して、次の処理を実行します。
 - 前のジョブでアップロードされた`homework`成果物をダウンロードします。 デフォルトでは、`download-artifact`アクションは、ステップが実行されているワークスペースディレクトリに成果物をダウンロードします。 入力パラメータの`path`を使って、別のダウンロードディレクトリを指定することもできます。
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- `math-homework.txt`ファイルをアップロードします。 This upload overwrites the previously uploaded artifact because they share the same name.
+- `math-homework.txt` ファイル中の値を読み取り、数式の計算を実行して、結果を `math-homework.txt` に再度保存し、その内容を上書きします。
+- `math-homework.txt`ファイルをアップロードします。 このアップロードでは、同じ名前を共有しているため、以前にアップロードされた成果物を上書きします。
 
 ジョブ3は、前のジョブでアップロードされた結果を表示して、次の処理を実行します。
 - `homework`成果物をダウンロードします。
@@ -183,7 +185,7 @@ jobs:
 
 このワークフロー例で実行される完全な数式は、`(3 + 7) x 9 = 90`です。
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
@@ -237,7 +239,7 @@ jobs:
           echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+ワークフローの実行により、生成された成果物がアーカイブされます。 アーカイブされた成果物のダウンロードの詳細については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 ![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
@@ -248,6 +250,6 @@ The workflow run will archive any artifacts that it generated. For more informat
 
 ### 参考リンク
 
-- /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
+- [{% data variables.product.prodname_actions %}の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)
 
 {% endif %}

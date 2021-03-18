@@ -27,7 +27,7 @@ Solo los propietarios y mantenedores de la organización en un equipo padre pued
 {% data reusables.organizations.create_team %}
 9. También puede [darle acceso al equipo a los repositorios de la organización](/articles/managing-team-access-to-an-organization-repository).
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Cambiar la visibilidad del equipo](/articles/changing-team-visibility)"

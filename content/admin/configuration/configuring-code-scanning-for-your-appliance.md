@@ -42,6 +42,13 @@ For the users of {% data variables.product.product_location %} to be able to ena
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
+To enable {% data variables.product.prodname_code_scanning %} programmatically, run the following commands on the appliance:
+
+```shell
+ghe-config app.minio.enabled true
+ghe-config app.code-scanning.enabled true
+ghe-config-apply
+```
 
 ### Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
 
@@ -72,7 +79,7 @@ If the server on which you are running {% data variables.product.prodname_ghe_se
 {% endif %}
 
 #### Enabling code scanning for individual repositories
-After you configure a self-hosted runner, {% if currentVersion == "enterprise-server@2.22" %}and provision the actions,{% endif %} users can enable {% data variables.product.prodname_code_scanning %} for individual repositories on {% data variables.product.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+After you configure a self-hosted runner, {% if currentVersion == "enterprise-server@2.22" %}and provision the actions,{% endif %} users can enable {% data variables.product.prodname_code_scanning %} for individual repositories on {% data variables.product.product_location %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 ### Running {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_runner %}
 If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_runner %}. 
@@ -89,3 +96,11 @@ The {% data variables.product.prodname_codeql_runner %} is a command-line tool t
 1. Under "{% data variables.product.prodname_advanced_security %}", unselect **{% data variables.product.prodname_code_scanning_capc %}**.
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}
+
+To disable {% data variables.product.prodname_code_scanning %} programmatically, run the following commands on the appliance:
+
+```shell
+ghe-config app.minio.enabled false
+ghe-config app.code-scanning.enabled false
+ghe-config-apply
+```

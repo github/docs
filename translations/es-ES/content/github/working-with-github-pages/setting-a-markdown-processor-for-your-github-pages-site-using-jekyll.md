@@ -27,7 +27,7 @@ Puedes usar Flavored Markdown de {% data variables.product.prodname_dotcom %} co
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 
 - [Documentación de kramdown](https://kramdown.gettalong.org/documentation.html)
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)

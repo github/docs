@@ -4,7 +4,7 @@ Después de que exportes el registro como JSON o CSV, verás las siguientes clav
 | ------------------------ | ------------------------------------------------------------------------------------- |
 | `Acción`                 | team.create                                                                           |
 | `actor (actor)`          | octocat                                                                               |
-| `user`                   | codertocat                                                                            |
+| `usuario`                | codertocat                                                                            |
 | `org`                    | octo-org                                                                              |
 | `repo`                   | octo-org/documentation                                                                |
 | `created_at (creado en)` | 1429548104000 (Los registros horarios muestran la hora desde Epoch con milisegundos). |

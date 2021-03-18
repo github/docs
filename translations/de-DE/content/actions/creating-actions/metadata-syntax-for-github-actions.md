@@ -1,7 +1,7 @@
 ---
 title: Metadaten-Syntax für GitHub-Aktionen
 shortTitle: Metadaten-Syntax
-intro: Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.
+intro: 'Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -21,6 +21,6 @@ Cuando creas un repositorio nuevo en {% data variables.product.product_location 
 4. Teclea el nombre predeterminado que quisieras utilizar para las ramas nuevas. ![Caja de texto para ingresar el nombre predeterminado](/assets/images/help/settings/repo-default-name-text.png)
 5. Da clic en **Actualizar**. ![Botón de actualizar](/assets/images/help/settings/repo-default-name-update.png)
 
-### Further reading
+### Leer más
 
 - "[Administrar el nombre de la rama predeterminada para los repositorios en tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"

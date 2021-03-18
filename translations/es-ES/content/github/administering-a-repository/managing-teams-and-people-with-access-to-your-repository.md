@@ -48,7 +48,7 @@ Para obtener más información acerca de los niveles de permiso en los repositor
 {% data reusables.repositories.navigate-to-manage-access %}
 4. Debajo de "Administrar acceso", encuentra al equipo o persona de quien quieras eliminar el acceso y da clic{% octicon "trashcan" aria-label="The trashcan icon" %}. ![Icono de papelera para eliminar el acceso](/assets/images/help/repository/manage-access-remove.png)
 
-### Further reading
+### Leer más
 
 - "[Configurar la visibilidad de un repositorio](/github/administering-a-repository/setting-repository-visibility)"
 - "[Configurar los permisos básicos para una organización](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
