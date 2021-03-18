@@ -11,7 +11,7 @@ versions:
 ### Table of Contents
 {% topic_link_in_list /managing-security-vulnerabilities-in-your-project %}
     {% link_in_list /adding-a-security-policy-to-your-repository %}
-    {% link_in_list /about-disclosing-vulnerabilities %}   
+    {% link_in_list /about-coordinated-disclosure-of-security-vulnerabilities %}   
     {% link_in_list /about-github-security-advisories %}
     {% link_in_list /permission-levels-for-security-advisories %}
     {% link_in_list /creating-a-security-advisory %}
