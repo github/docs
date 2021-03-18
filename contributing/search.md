@@ -14,8 +14,11 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 ## How to search
 
-The site search is part of every version of docs.github.com. On any page, you can use the search box to search the documents we've indexed. 
-You can also query our search endpoint directly at: https://docs.github.com/search?language=en&version=dotcom&query=jekyll
+The site search is part of every version of docs.github.com. On any page, you can use the search box to search the documents we've indexed.
+You can also query our search endpoint directly at: https://docs.github.com/search?version=dotcom&language=en&filters=topics:%27oauth%20apps%27+AND+topics:%27github%20apps%27&query=install
+
+Using the attribute `topics` in your query will only return results that have the matching topic value. You can find a full list of topics in [the allowed topics file](/data/allowed-topics.js). The `topics` attribute is configured as a [`filter only` facet in Algolia](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/). When the topic contains spaces, you must use quotes. For Algolia, [here](https://www.algolia.com/doc/api-reference/api-parameters/filters/#handle-attributes-with-spaces) is an example for filters containing spaces. Algolia also requires [boolean operators](https://www.algolia.com/doc/api-reference/api-parameters/filters) to combine more than one filter. 
+
 This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable.
 
 ## Production deploys

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/submitting-content-removal-requests
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 We understand that copyrighted, trademarked, or private content may get published on GitHub – either accidentally or on purpose – sometimes in repositories that you do not own. Because the nature of this content varies, and because of different applicable laws, each category has its own, distinct reporting requirements outlined in our policies.
