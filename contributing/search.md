@@ -16,7 +16,7 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
 You can also query our search endpoint directly at: 
-https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>
+`https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
  
 - The VERSION can be any numbered GitHub Enterprise Server version (e.g., `2.22`, `3.0`), GitHub AE (`ghae`), or the Free pro team plan (`dotcom`).
 - The LANGUAGE CODE can be: `cn`, `de`, `en`, `es`, `ja`, or `pt`.
