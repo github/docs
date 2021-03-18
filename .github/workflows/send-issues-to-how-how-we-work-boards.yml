@@ -11,7 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - if: contains(github.event.issue.labels.*.name, 'feature')
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'feature') && !contains(github.event.issue.labels.*.name, 'epic')
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            var column_id = 9659080;
+            try {
+              github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'feature')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
@@ -26,7 +41,7 @@ jobs:
             } catch (error) {
               console.log(error);
             }
-      - if: contains(github.event.issue.labels.*.name, 'epic')
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'epic')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
