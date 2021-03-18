@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."

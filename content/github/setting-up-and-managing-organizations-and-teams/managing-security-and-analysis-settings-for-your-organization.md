@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About management of security and analysis settings

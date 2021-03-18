@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
