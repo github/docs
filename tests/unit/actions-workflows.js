@@ -48,7 +48,8 @@ describe('GitHub Actions workflows', () => {
   test('no scheduled workflows run on the hour', () => {
     const hourlySchedules = scheduledWorkflows.filter(schedule => {
       const hour = schedule.split(' ')[0]
-      return hour === '0' || hour === '00'
+      // return any minute cron segments that equal 0, 00, 000, etc.
+      return !/[^0]/.test(hour)
     })
     expect(hourlySchedules).toEqual([])
   })
