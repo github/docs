@@ -1,6 +1,6 @@
 ---
 title: Configuring your enterprise
-intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
+intro: 'After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization''s needs.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -12,5 +12,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 

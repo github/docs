@@ -48,6 +48,7 @@ function updateFrontmatter (filePath, newTopics) {
   } else if (Array.isArray(data.topics)) {
     topics = topics.concat(data.topics)
   }
+
   newTopics.forEach(topic => {
     topics.push(topic)
   })

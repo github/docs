@@ -3,6 +3,9 @@ title: Managing scheduled reminders for your organization
 intro: You can get reminders in Slack for all pull requests that teams in your organization have been requested to review.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About scheduled reminders for pull requests

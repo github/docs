@@ -4,4 +4,7 @@ intro: 'Configure high availability for {% data variables.product.prodname_actio
 mapTopic: true
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
+

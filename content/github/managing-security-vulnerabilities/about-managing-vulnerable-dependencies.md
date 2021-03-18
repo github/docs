@@ -3,6 +3,8 @@ title: About managing vulnerable dependencies
 intro: '{% data variables.product.prodname_dotcom %} helps you to avoid using third-party software that contains known vulnerabilities.'
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 {% data variables.product.prodname_dotcom %} provides the following tools for removing and avoiding vulnerable dependencies.

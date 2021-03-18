@@ -3,6 +3,8 @@ title: Withdrawing a security advisory
 intro: You can withdraw a security advisory that you've published.
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 If you publish a security advisory in error, you can withdraw the security advisory by contacting {% data variables.contact.contact_support %}.

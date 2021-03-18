@@ -1,12 +1,14 @@
 ---
 title: Limiting interactions in your repository
-intro: 'You can temporarily enforce a period of limited activity for certain users on a public repository.'
+intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+topics:
+  - community
 ---
 
 ### About temporary interaction limits
