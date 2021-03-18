@@ -14,5 +14,5 @@ versions:
 {% link_in_list /viewing-deployment-history %}
 {% link_in_list /using-ssh-agent-forwarding %}
 {% link_in_list /secret-scanning %}
-{% link_in_list /replacing-github-services %}
+{% link_in_list /replacing-github-uservices %}
 {% link_in_list /github-developer-program %}
