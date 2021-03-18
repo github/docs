@@ -44,7 +44,7 @@ Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar arm
 
 Faz-se o upload dos artefatos durante a execução de um fluxo de trabalho e você pode visualizar o nome e o tamanho do artefato na UI. Quando se faz o download de um artefato usando a UI {% data variables.product.product_name %}, todos os arquivos cujo upload foi feito individualmente como parte do get do artefato zipado em um arquivo único. Isso significa que a cobrança é calculada com base no tamanho do artefato subido e não com base no tamanho do arquivo zip.
 
-O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para mais informações veja o {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
+O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para mais informações veja o {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artifact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artifact` e `download-artifact` ações em {% data variables.product.product_location %}{% endif %}.
 
 Para compartilhar dados entre trabalhos:
 
@@ -136,7 +136,7 @@ Após a conclusão da execução de um fluxo de trabalho, você pode fazer o dow
 
 #### Fazer o download dos artefatos durante a execução de um fluxo de trabalho
 
-A ação [`actions/download-artefact`](https://github.com/actions/download-artifact) pode ser usada para fazer o download de artefatos previamente carregados durante a execução de um fluxo de trabalho.
+A ação [`actions/download-artifact`](https://github.com/actions/download-artifact) pode ser usada para fazer o download de artefatos previamente carregados durante a execução de um fluxo de trabalho.
 
 {% note %}
 
@@ -166,7 +166,7 @@ Para mais informações sobre a sintaxe, consulte a ação {% if currentVersion 
 
 ### Transmitir dados entre trabalhos em um fluxo
 
-Você pode usar as ações `upload-artifact` e `download-artifact` para compartilhar os dados entre os trabalhos em um fluxo de trabalho. Este exemplo de fluxo de trabalho ilustra como transmitir dados entre trabalhos em um mesmo fluxo. Para mais informações veja o {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
+Você pode usar as ações `upload-artifact` e `download-artifact` para compartilhar os dados entre os trabalhos em um fluxo de trabalho. Este exemplo de fluxo de trabalho ilustra como transmitir dados entre trabalhos em um mesmo fluxo. Para mais informações veja o {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artifact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artifact` e `download-artifact` ações em {% data variables.product.product_location %}{% endif %}.
 
 Os trabalhos que são dependentes de artefatos de um trabalho anterior devem aguardar a finalização do trabalho dependente. Esse fluxo de trabalho usa a palavra-chave `needs` para garantir que `job_1`, `job_2` e `job_3` sejam executados sequencialmente. Por exemplo, `job_2` requer `job_1` usando a sintaxe `needs: job_1`.
 
