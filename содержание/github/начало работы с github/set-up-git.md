@@ -1,3 +1,4 @@
+[logs_2 (1).zip](https://github.com/github/docs/files/6163955/logs_2.1.zip)
 ---
 title: Set up Git
 redirect_from:
