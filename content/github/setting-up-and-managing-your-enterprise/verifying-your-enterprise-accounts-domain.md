@@ -8,6 +8,8 @@ permissions: Enterprise owners can verify an enterprise account's domain.
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - enterprise
 ---
 
 ### About domain verification

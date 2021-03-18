@@ -3,10 +3,13 @@ title: About team discussions
 intro: 'Your team can plan together, update one another, or talk about any topic you''d like in discussion posts on your team''s page in an organization.'
 redirect_from:
   - /articles/about-team-discussions
+  - /github/building-a-strong-community/about-team-discussions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -15,7 +18,7 @@ Any organization member can post on your team's page or participate in a public 
 
 ![Discussions tab of team page with public and private discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-You can link to any team discussion to reference it elsewhere. You can pin important posts to your team's page for quick reference later. For more information, see "[Pinning a team discussion](/articles/pinning-a-team-discussion)."
+You can link to any team discussion to reference it elsewhere. You can pin important posts to your team's page for quick reference later. For more information, see "[Pinning a team discussion](/github/setting-up-and-managing-organizations-and-teams/pinning-a-team-discussion)."
 
 ![Pinned discussions tab of team page with pinned discussion](/assets/images/help/organizations/team-discussions-pinned.png)
 
@@ -41,5 +44,5 @@ For more information, see {% if currentVersion == "free-pro-team@latest" or curr
 
 - "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
 - "[About teams](/articles/about-teams)"
-- "[Creating a team discussion](/articles/creating-a-team-discussion)"
-- "[Editing or deleting a team discussion](/articles/editing-or-deleting-a-team-discussion)"
+- "[Creating a team discussion](/github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion)"
+- "[Editing or deleting a team discussion](/github/setting-up-and-managing-organizations-and-teams/editing-or-deleting-a-team-discussion)"

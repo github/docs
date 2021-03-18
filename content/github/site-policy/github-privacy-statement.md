@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: December 19, 2020

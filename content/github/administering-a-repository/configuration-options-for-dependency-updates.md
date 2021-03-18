@@ -5,6 +5,8 @@ permissions: 'People with write permissions to a repository can configure {% dat
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}

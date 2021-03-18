@@ -12,6 +12,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

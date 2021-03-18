@@ -12,7 +12,7 @@ router.get('/', async function postSearch (req, res, next) {
     'cache-control': 'private, no-store'
   })
 
-  const { query, version, language, limit: limit_ } = req.query
+  const { query, version, language, filters, limit: limit_ } = req.query
   const limit = Math.min(parseInt(limit_, 10) || 10, 100)
   if (!versions.has(version) || !languages.has(language)) {
     return res.status(400).json([])
@@ -23,8 +23,8 @@ router.get('/', async function postSearch (req, res, next) {
 
   try {
     const results = process.env.AIRGAP
-      ? await loadLunrResults({ version, language, query, limit })
-      : await loadAlgoliaResults({ version, language, query, limit })
+      ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
+      : await loadAlgoliaResults({ version, language, query, filters, limit })
     return res.status(200).json(results)
   } catch (err) {
     console.error(err)

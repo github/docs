@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 {% data reusables.dependabot.beta-note %}

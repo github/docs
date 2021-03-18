@@ -3,6 +3,8 @@ title: Managing security and analysis settings for your user account
 intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
 ---
 
 ### About management of security and analysis settings
