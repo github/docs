@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 When you unblock a user, they'll be able to invite you to be a collaborator to their repositories. If they [@mention you](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) anywhere on GitHub, you'll receive notifications.

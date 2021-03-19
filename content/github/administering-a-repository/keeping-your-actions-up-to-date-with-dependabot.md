@@ -5,6 +5,8 @@ redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}

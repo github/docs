@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.code-scanning.beta %}

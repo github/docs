@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 Anyone with admin permissions to a repository can create a security advisory.

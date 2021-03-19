@@ -3,6 +3,8 @@ title: Reviewing dependency changes in a pull request
 intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
 versions:
   free-pro-team: '*'
+topics:
+  - pull requests
 ---
 
 {% note %}

@@ -3,6 +3,8 @@ title: Managing how contributors report abuse in your organization's repository
 intro: You can allow contributors to report disruptive behavior directly to repository maintainers.
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Anyone with admin permissions to a repository can manage how contributors report abuse in the repository.

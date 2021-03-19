@@ -2133,6 +2133,16 @@ type CheckRun implements Node & UniformResourceLocatable {
   id: ID!
 
   """
+  Whether this check run is required to pass before merging.
+  """
+  isRequired(
+    """
+    The pull request this check is required for
+    """
+    pullRequestId: ID!
+  ): Boolean!
+
+  """
   The name of the check for this check run.
   """
   name: String!
@@ -31868,6 +31878,16 @@ type StatusContext implements Node {
   """
   description: String
   id: ID!
+
+  """
+  Whether this status is required to pass before merging.
+  """
+  isRequired(
+    """
+    The pull request this status is required for
+    """
+    pullRequestId: ID!
+  ): Boolean!
 
   """
   The state of this status context.
