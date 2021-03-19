@@ -83,6 +83,6 @@ Collaborators can also perform the following actions.
 | Publish, view, or install packages | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" |{% endif %}
 | Remove themselves as collaborators on the repository | "[Removing yourself from a collaborator's repository](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)" |
 
-### Further reading
+### Further reading 
 
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
