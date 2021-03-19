@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."

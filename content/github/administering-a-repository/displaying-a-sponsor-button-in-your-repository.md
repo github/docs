@@ -6,6 +6,8 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### About FUNDING files
@@ -16,7 +18,7 @@ You can add one username, package name, or project name per external funding pla
 
 Platform | Syntax
 -------- | -----
-[CommunityBridge](https://communitybridge.org) | `community_bridge: PROJECT-NAME`
+[LFX Mentorship (formerly CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) | `community_bridge: PROJECT-NAME`
 [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]`
 [IssueHunt](https://issuehunt.io/) | `issuehunt: USERNAME`
 [Ko-fi](https://ko-fi.com/) | `ko_fi: USERNAME`

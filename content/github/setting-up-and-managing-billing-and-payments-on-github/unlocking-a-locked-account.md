@@ -11,6 +11,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.

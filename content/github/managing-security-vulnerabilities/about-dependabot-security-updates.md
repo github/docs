@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 ### About {% data variables.product.prodname_dependabot_security_updates %}
@@ -24,6 +26,10 @@ versions:
 The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency that is not explicitly defined. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)."
 
 {% endnote %}
+
+You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+
+{% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
 ### About pull requests for security updates
 

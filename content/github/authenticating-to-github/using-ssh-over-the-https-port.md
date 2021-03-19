@@ -5,6 +5,8 @@ redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 
 {% tip %}
@@ -33,6 +35,7 @@ To set this in your ssh config, edit the file at `~/.ssh/config`, and add this s
 Host {% data variables.command_line.codeblock %}
   Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
+  User git
 ```
 
 You can test that this works by connecting once more to {% data variables.product.product_location %}:

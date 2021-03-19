@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -36,7 +38,5 @@ Once you have {% if enterpriseServerVersions contains currentVersion or currentV
 {% if currentVersion == "free-pro-team@latest" %}
 ### Third-party backup tools
 
-A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
-
-You can back up all of a repository's Git data (such as project files and commit history), as well as much data from {% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub is available in {% data variables.product.prodname_marketplace %}.
+A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

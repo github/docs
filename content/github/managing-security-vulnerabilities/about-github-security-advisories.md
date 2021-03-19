@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}

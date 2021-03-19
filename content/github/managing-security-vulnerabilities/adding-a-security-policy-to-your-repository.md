@@ -5,6 +5,8 @@ redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 ### About security policies

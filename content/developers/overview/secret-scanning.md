@@ -7,6 +7,8 @@ redirect_from:
   - /partnerships/secret-scanning
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
 {% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
@@ -276,6 +278,48 @@ current_key = current_key_object["key"]
 openssl_key = OpenSSL::PKey::EC.new(current_key)
 
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
+```
+
+**Validation sample in JavaScript**
+```js
+const crypto = require("crypto");
+const axios = require("axios");
+
+const GITHUB_KEYS_URI = "https://api.github.com/meta/public_keys/secret_scanning";
+
+/**
+ * Verify a payload and signature against a public key
+ * @param {String} payload the value to verify
+ * @param {String} signature the expected value
+ * @param {String} keyID the id of the key used to generated the signature
+ * @return {void} throws if the signature is invalid
+ */
+const verify_signature = async (payload, signature, keyID) => {
+  if (typeof payload !== "string" || payload.length === 0) {
+    throw new Error("Invalid payload");
+  }
+  if (typeof signature !== "string" || signature.length === 0) {
+    throw new Error("Invalid signature");
+  }
+  if (typeof keyID !== "string" || keyID.length === 0) {
+    throw new Error("Invalid keyID");
+  }
+
+  const keys = (await axios.get(GITHUB_KEYS_URI)).data;
+  if (!(keys?.public_keys instanceof Array) || keys.length === 0) {
+    throw new Error("No public keys found");
+  }
+
+  const publicKey = keys.public_keys.find((k) => k.key_identifier === keyID) ?? null;
+  if (publicKey === null) {
+    throw new Error("No public key found matching key identifier");
+  }
+
+  const verify = crypto.createVerify("SHA256").update(payload);
+  if (!verify.verify(publicKey.key, Buffer.from(signature, "base64"), "base64")) {
+    throw new Error("Signature does not match payload");
+  }
+};
 ```
 
 #### Implement secret revocation and user notification in your secret alert service

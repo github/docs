@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 
@@ -64,6 +66,7 @@ versions:
     {% link_in_list /enabling-and-disabling-version-updates %}
     {% link_in_list /listing-dependencies-configured-for-version-updates %}
     {% link_in_list /managing-pull-requests-for-dependency-updates %}
+    {% link_in_list /managing-encrypted-secrets-for-dependabot %}
     {% link_in_list /customizing-dependency-updates %}
     {% link_in_list /configuration-options-for-dependency-updates %}
     {% link_in_list /keeping-your-actions-up-to-date-with-dependabot %}
