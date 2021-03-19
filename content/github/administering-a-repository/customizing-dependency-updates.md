@@ -4,6 +4,8 @@ intro: 'You can customize how {% data variables.product.prodname_dependabot %} m
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}

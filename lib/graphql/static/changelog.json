@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `isRequired` was added to object type `CheckRun`",
+          "Field `isRequired` was added to object type `StatusContext`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `isPinned` was added to object type `Issue`",
           "Enum value 'CREATED_AT` was added to enum `VerifiableDomainOrderField'",
           "Field `createdAt` was added to object type `VerifiableDomain`",

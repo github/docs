@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
   enterprise-server: '>=2.22'
+topics:
+  - github apps
 ---
 
 {% warning %}

@@ -6,6 +6,9 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   free-pro-team: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -35,11 +37,17 @@ To customize the way the {% data variables.product.prodname_codeql_runner %} sca
 
 Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
 
-To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<pr-number>/head` or `refs/pull/<pr-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
+To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
 
 ```shell
-$ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/head
+$ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 ```
+
+{% note %}
+
+**Note**: If you analyze code with a third-party tool and want the results to appear as pull request checks, you must run the `upload` command and use the `--ref` flag to specify the pull request instead of the branch. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`.
+
+{% endnote %}
 
 ### Overriding automatic language detection
 
@@ -110,7 +118,9 @@ If the `autobuild` command can't build your code, you can run the build steps yo
 
 By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. 
+- If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
+- If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 ### {% data variables.product.prodname_codeql_runner %} command reference
 

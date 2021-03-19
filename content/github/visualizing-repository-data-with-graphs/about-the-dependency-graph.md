@@ -4,6 +4,8 @@ intro: 'Detailed information about the dependency graph, the ecosystems it suppo
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - repositories
 ---
 
 ### Dependency graph availability

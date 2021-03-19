@@ -4,6 +4,8 @@ intro: 'You can develop in your codespace directly in {% data variables.product.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}

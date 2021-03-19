@@ -3,6 +3,8 @@ title: Editing a security advisory
 intro: You can edit the metadata and description for a security advisory if you need to update details or correct errors.
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 People with admin permissions to a security advisory can edit the security advisory.

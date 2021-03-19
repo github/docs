@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - repositories
 ---
 
 ### Viewing the dependency graph
