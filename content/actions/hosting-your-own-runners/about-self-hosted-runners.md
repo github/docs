@@ -66,6 +66,10 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.github-actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
 
+### Workflow continuity for self-hosted runners
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
 ### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
