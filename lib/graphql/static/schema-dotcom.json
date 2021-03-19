@@ -38493,6 +38493,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -38503,6 +38511,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
