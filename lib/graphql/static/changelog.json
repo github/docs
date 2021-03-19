@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `requiresCodeOwnerReviews` was added to object type `RefUpdateRule`",
+          "Field `viewerAllowedToDismissReviews` was added to object type `RefUpdateRule`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `isRequired` was added to object type `CheckRun`",
           "Field `isRequired` was added to object type `StatusContext`"
         ]
