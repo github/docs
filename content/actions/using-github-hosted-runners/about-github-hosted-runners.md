@@ -34,6 +34,12 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 {% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
+#### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
+
 #### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
 
 The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
@@ -41,7 +47,6 @@ The Linux and macOS virtual machines both run using passwordless `sudo`. When yo
 Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
 ### Supported runners and hardware resources
-
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU

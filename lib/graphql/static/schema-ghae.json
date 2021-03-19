@@ -7528,6 +7528,26 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "isRequired",
+          "description": "<p>Whether this check run is required to pass before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The pull request this check is required for.</p>",
+              "type": {
+                "name": "ID!",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
           "name": "name",
           "description": "<p>The name of the check for this check run.</p>",
           "type": "String!",
@@ -45358,6 +45378,26 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this status is required to pass before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The pull request this status is required for.</p>",
+              "type": {
+                "name": "ID!",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
         },
         {
           "name": "state",
