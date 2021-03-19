@@ -4,7 +4,6 @@ intro: 'If you want to use {% data variables.product.prodname_GH_advanced_securi
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.0'
 ---
 
 ### About licensing for {% data variables.product.prodname_GH_advanced_security %}

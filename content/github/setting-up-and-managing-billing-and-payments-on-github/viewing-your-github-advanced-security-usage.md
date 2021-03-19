@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.ghas %}'
 redirect_from: /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.0'
 ---
 
 Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts, or seats, that can use these features. Periodically you should check that your use is within your license capacity. For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %} enterprise license](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."
