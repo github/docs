@@ -8341,6 +8341,26 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "isRequired",
+          "description": "<p>Whether this check run is required to pass before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The pull request this check is required for.</p>",
+              "type": {
+                "name": "ID!",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
           "name": "name",
           "description": "<p>The name of the check for this check run.</p>",
           "type": "String!",
@@ -29790,7 +29810,7 @@
         },
         {
           "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
+          "description": "<p>Whether the organization has verified its profile email and website.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -38473,6 +38493,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -38483,6 +38511,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -48996,6 +49032,26 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this status is required to pass before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The pull request this status is required for.</p>",
+              "type": {
+                "name": "ID!",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
         },
         {
           "name": "state",

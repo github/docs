@@ -5,6 +5,8 @@ redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 
 {% tip %}

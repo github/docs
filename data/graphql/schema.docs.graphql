@@ -2223,6 +2223,16 @@ type CheckRun implements Node & UniformResourceLocatable {
   id: ID!
 
   """
+  Whether this check run is required to pass before merging.
+  """
+  isRequired(
+    """
+    The pull request this check is required for
+    """
+    pullRequestId: ID!
+  ): Boolean!
+
+  """
   The name of the check for this check run.
   """
   name: String!
@@ -20179,7 +20189,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   isSponsoringViewer: Boolean!
 
   """
-  Whether the organization has verified its profile email and website, always false on Enterprise.
+  Whether the organization has verified its profile email and website.
   """
   isVerified: Boolean!
 
@@ -26866,6 +26876,11 @@ type RefUpdateRule {
   requiredStatusCheckContexts: [String]
 
   """
+  Are reviews from code owners required to update matching branches.
+  """
+  requiresCodeOwnerReviews: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -26874,6 +26889,11 @@ type RefUpdateRule {
   Are commits required to be signed.
   """
   requiresSignatures: Boolean!
+
+  """
+  Is the viewer allowed to dismiss reviews.
+  """
+  viewerAllowedToDismissReviews: Boolean!
 
   """
   Can the viewer push to the branch
@@ -34801,6 +34821,16 @@ type StatusContext implements Node {
   """
   description: String
   id: ID!
+
+  """
+  Whether this status is required to pass before merging.
+  """
+  isRequired(
+    """
+    The pull request this status is required for
+    """
+    pullRequestId: ID!
+  ): Boolean!
 
   """
   The state of this status context.

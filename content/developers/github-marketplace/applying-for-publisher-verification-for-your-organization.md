@@ -3,6 +3,8 @@ title: Applying for publisher verification for your organization
 intro: 'To offer paid plans for your app or to include a marketplace badge in your app listing, you must complete the publisher verification process for your organization.'
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.

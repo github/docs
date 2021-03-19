@@ -40,7 +40,7 @@ This example workflow uses the [labeler action](https://github.com/actions/label
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -94,6 +94,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 | pull requests | read/write | read |
 | repository projects | read/write | read |
 | statuses | read/write  | read |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
 

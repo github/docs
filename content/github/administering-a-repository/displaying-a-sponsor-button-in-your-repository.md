@@ -6,6 +6,8 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### About FUNDING files
