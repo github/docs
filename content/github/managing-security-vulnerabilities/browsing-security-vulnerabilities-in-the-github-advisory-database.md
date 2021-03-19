@@ -4,6 +4,8 @@ intro: 'The {% data variables.product.prodname_advisory_database %} allows you t
 shortTitle: Browsing the Advisory Database
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 ### About security vulnerabilities

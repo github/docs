@@ -11,7 +11,7 @@ on:
 jobs:
   invalid-repo-sync-check:
     name: Close external Repo Sync PRs
-    if: ${{ github.repository == 'github/docs' && github.ref == 'refs/heads/repo-sync' }}
+    if: ${{ github.repository == 'github/docs' && github.head_ref == 'repo-sync' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9

@@ -9,6 +9,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 ### About configuring {% data variables.product.prodname_dependabot_security_updates %}

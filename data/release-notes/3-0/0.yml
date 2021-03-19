@@ -113,6 +113,7 @@ sections:
         - The format of several log files have changed, including the addition of a PID for different log types. This does not affect how GitHub Enterprise Support uses support bundles to troubleshoot issues.
         - A PATCH request to the webhook configuration API no longer erases the webhook secret.
         - Certain types of pre-receive hooks were failing.
+        - 'The Packages NuGet service now normalizes semantic versions on publish. An invalid semantic version (for example: v1.0.0.0.0.0) is not downloadable by NuGet clients and therefore a NuGet service is expected to normalize those versions (for example: v1.0.0.0.0.0 --> v1.0.0). Any original, non-normalized, version will be available in the `verbatimVersion` field. No changes to client configurations are required.'
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
