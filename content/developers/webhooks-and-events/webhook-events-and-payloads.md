@@ -224,6 +224,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 #### Webhook payload object
 
 {% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -252,6 +253,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 #### Webhook payload object
 
 {% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
