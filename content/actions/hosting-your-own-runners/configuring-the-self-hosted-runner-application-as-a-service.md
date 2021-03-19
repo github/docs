@@ -23,7 +23,7 @@ defaultPlatform: linux
 
 
 {% linux %}
-
+{% Linux start %}
 {{ service_nonwindows_intro }}
 
 For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
