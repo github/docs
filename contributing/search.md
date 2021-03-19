@@ -133,7 +133,7 @@ Each record represents a section of a page. Sections are derived by splitting up
 ```js
 {
   objectID: '/en/actions/creating-actions/about-actions#about-actions',
-  url: 'https://help.github.com/en/actions/creating-actions/about-actions#about-actions',
+  url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',
   slug: 'about-actions',
   breadcrumbs: 'GitHub Actions / Creating actions / About actions',
   heading: 'About actions',
