@@ -1,5 +1,5 @@
 ---
-title: About GitHub Container Registry
+title: Everything About GitHub Container Registry
 intro: 'You can use {% data variables.product.prodname_github_container_registry %} to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_github_container_registry %} allows you to configure who can manage and access packages using fine-grained permissions.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
