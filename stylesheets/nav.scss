@@ -17,6 +17,7 @@ header summary,
 
 .dropdown-withArrow[open] {
   .arrow {
+    transition: transform 0.30s;
     transform: rotate(180deg) scaleX(-1);
   }
 }
