@@ -23,6 +23,8 @@ Form and inputs using .ais- prefix gets added by search.js */
   font-size: 16px;
   @extend .form-control;
   background: $white url("/assets/images/octicons/search.svg") no-repeat 6px;
+  box-shadow: none;
+  transition: box-shadow 0.35s;
 }
 
 .ais-SearchBox-reset {
