@@ -38,6 +38,18 @@
   transform: translateX(3px);
 }
 
+a.link-with-hover.Bump-link--hover.no-underline.d-block.py-2 {
+  background: none;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  transition: background 0.30s;
+}
+
+a.link-with-hover.Bump-link--hover.no-underline.d-block.py-2:hover {
+  background: #c4c4c420;
+}
+
 .Bump-link--hover .Bump-link-symbol {
   color: inherit;
   opacity: 0;
