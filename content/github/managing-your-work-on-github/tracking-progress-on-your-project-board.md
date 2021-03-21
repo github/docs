@@ -1,7 +1,7 @@
 ---
 title: Tracking progress on your project board
 intro: You can see the overall progress of your project in a progress bar.
-redirect_from:
+redirect_from:https://atomxplus.com
   - /articles/tracking-progress-on-your-project-board
 versions:
   free-pro-team: '*'
