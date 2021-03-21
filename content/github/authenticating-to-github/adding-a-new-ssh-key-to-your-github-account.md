@@ -1,6 +1,6 @@
 ---
 title: Adding a new SSH key to your GitHub account
-intro: 'To configure your {% data variables.product.product_name %} account to use your new (or existing) SSH key, you''ll also need to add it to your {% data variables.product.product_name %} account.'
+intro: 'To configure your account to use your new (or existing) SSH key, you''ll also need to add it to your account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
 versions:
@@ -11,15 +11,15 @@ topics:
   - ssh
 ---
 
-Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
+Before adding a new SSH key to your account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 * [Generated a new SSH key and added it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)."
+After adding a new SSH key to your account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)."
 
-{% data reusables.ssh.dsa-support %}
 
-{% mac %}
+
+macOS:
 
 1. Copy the SSH public key to your clipboard.
 
@@ -40,7 +40,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "My MacBook".
 6. Paste your key into the "Key" field.
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
@@ -49,7 +49,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% endmac %}
 
-{% windows %}
+Windows:
 
 1. Copy the SSH public key to your clipboard.
 
@@ -70,7 +70,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "My Windows Desktop".
 6. Paste your key into the "Key" field.
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
@@ -103,7 +103,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac or remote desktop, you might call this key "Personal MacBook Air or Remote Desktop".
 6. Paste your key into the "Key" field.
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
