@@ -1,9 +1,11 @@
 ---
 title: Limiting interactions for your user account
-intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.'
+intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.
 versions:
   free-pro-team: '*'
 permissions: Anyone can limit interactions for their own user account.
+topics:
+  - community
 ---
 
 ### About temporary interaction limits

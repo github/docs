@@ -1,6 +1,7 @@
 ---
 title: About licensing for GitHub Advanced Security
 intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features in a private or internal repository, you need a license. These features are available free of charge for public repositories.'
+product: '{% data reusables.gated-features.ghas %}'
 versions:
   free-pro-team: '*'
 ---
@@ -11,22 +12,20 @@ If you want to use {% data variables.product.prodname_GH_advanced_security %} fe
 
 {% data reusables.advanced-security.license-overview %}
 
-You can buy a license for an organization that is owned by a user account or for your enterprise account. If you want to use {% data variables.product.prodname_GH_advanced_security %} features for a private, user-owned repository, you must transfer the repository to an organization with a license.
-
-To discuss licensing for {% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.
+To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ### About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
 
 We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_dotcom_the_website %}:
 
-- **Committers** is the number of committers who contributed to at least one private repository in an organization and who use a seat in your license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join your organization or enterprise account.
+- **Committers** is the number of committers who contributed to at least one private repository in an organization and who use a seat in your license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
 - **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
 If there are no unique committers, this means that all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
 
 {% note %}
 
-**Note:** The total number of seats used in your license is not the sum of either the committers or the unique committers to each repository or organization. This is because there are people who contribute to multiple repositories or organizations. The number of seats used is measured across the whole enterprise or organization account to ensure that each person is counted only once regardless of how many repositories or organizations they contribute to.
+**Note:** The total number of seats used in your license is not the sum of either the committers or the unique committers to each repository or organization. This is because there are people who contribute to multiple repositories or organizations. The number of seats used is measured across the whole enterprise account to ensure that each person is counted only once regardless of how many repositories or organizations they contribute to.
 
 {% endnote %}
 
@@ -47,4 +46,4 @@ When you decide which repositories and organizations to prioritize for {% data v
 - Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or vulnerable dependencies would have the greatest impact on your company.
 - Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
 
-When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, you should assess which other codebases you could add without adding any extra unique committers and using up more seats on your license. After this, review the next most important and busy code bases. If you want to increase the number of seats in your license, contact {% data variables.contact.contact_enterprise_sales %}.
+When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, you should assess which other codebases you could add without adding any extra unique committers and using up more seats on your license. After this, review the next most important and busy codebases. If you want to increase the number of seats in your license, contact {% data variables.contact.contact_enterprise_sales %}.

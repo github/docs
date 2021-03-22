@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 Anyone with admin permissions to a security advisory can publish the security advisory.

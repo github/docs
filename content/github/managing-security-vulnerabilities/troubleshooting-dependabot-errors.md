@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 {% data reusables.dependabot.beta-note %}
@@ -76,9 +78,20 @@ There are separate limits for security and version update pull requests, so that
 
 The best way to resolve this error is to merge or close some of the existing pull requests and trigger a new pull request manually. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
 
-#### {% data variables.product.prodname_dependabot %} can't resolve your dependency files
+#### {% data variables.product.prodname_dependabot %} can't resolve or access your dependencies
 
-If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, the operation will fail with the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." The API error type is `git_dependencies_not_reachable`.  
+If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, the operation will fail with the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." The API error type is `git_dependencies_not_reachable`.
+
+Similarly, if {% data variables.product.prodname_dependabot %} can't access a private package registry in which a dependency is located, one of the following errors is generated:
+
+*	"Dependabot can't reach a dependency in a private package registry"<br>
+   (API error type: `private_source_not_reachable`)
+*	"Dependabot can't authenticate to a private package registry"<br>
+   (API error type:`private_source_authentication_failure`)
+*	"Dependabot timed out while waiting for a private package registry"<br>
+   (API error type:`private_source_timed_out`)
+*	"Dependabot couldn't validate the certificate for a private package registry"<br>
+   (API error type:`private_source_certificate_failure`)
 
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations. 
 

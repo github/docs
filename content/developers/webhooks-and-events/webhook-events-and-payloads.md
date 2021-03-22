@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - webhooks
 ---
 
 
@@ -222,6 +224,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 #### Webhook payload object
 
 {% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -250,6 +253,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 #### Webhook payload object
 
 {% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1335,9 +1339,8 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 
 #### Webhook payload object
 
-Key | Type | Description
-----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
+{% data reusables.webhooks.workflow_run_properties %}
+{% data reusables.webhooks.workflow_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}

@@ -5,9 +5,10 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
   - /github/administering-a-repository/about-github-dependabot-version-updates
-
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}
@@ -21,6 +22,8 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 When {% data variables.product.prodname_dependabot %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot %} raises a pull request to replace the outdated dependency with the new version directly. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
 If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+
+{% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -38,7 +41,9 @@ You can configure version updates for repositories that contain a dependency man
 
 {% note %}
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+{% data reusables.dependabot.private-dependencies-note %} 
+
+{% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
 

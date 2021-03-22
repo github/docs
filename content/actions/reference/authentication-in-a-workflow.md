@@ -40,7 +40,7 @@ This example workflow uses the [labeler action](https://github.com/actions/label
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
