@@ -1,4 +1,55 @@
----
+---trunk
+# 
+    "name": "Regular Expressions (Babel)",
+    "scopeName": "source.regexp.js",
+    "fileTypes": [
+        "re"
+    ],
+    "repository": {
+        "character-class-definition": {
+            "patterns": [
+                {
+					"name": "constant.other.character-class.set.regexp",
+                    "begin": "(\\[)(\\^)?",
+                    "end": "(\\])",
+                    "beginCaptures": {
+                        "1": {"name": "punctuation.definition.character-class.regexp"},
+                        "2": {"name": "keyword.operator.negation.regexp"}
+                    },
+                    "endCaptures": {
+                        "1": {"name": "punctuation.definition.character-class.regexp"}
+                    },
+                    "patterns": [
+                        {"include": "#character-class"},
+                        {
+                            "name": "constant.other.character-class.range.regexp",
+                            "match": "((\\\\[wWsSdD]|\\.)|(\\\\([trnvf0]|c[A-Z]|x[\\da-fA-F]{2}|u[\\da-fA-F]{4}|.)))\\-((\\\\[wWsSdD]|\\.)|(\\\\([trnvf0]|c[A-Z]|x[\\da-fA-F]{2}|u[\\da-fA-F]{4}|.)))",
+							"captures": {
+								"2": {"name": "constant.other.character-class.escape.backslash.regexp"},
+                                "3": {"name": "constant.character.escape.backslash.regexp"},
+                                "5": {"name": "constant.other.character-class.escape.backslash.regexp"},
+                                "6": {"name": "constant.character.escape.backslash.regexp"}
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "group-assertion": {
+            "patterns": [
+                {
+                    "patterns": [
+                        {"include": "$self"}
+                    ],
+                    "begin": "(\\()((\\?=)|(\\?!))",
+                    "end": "(\\))",
+                    "name": "meta.group.assertion.regexp",
+                    "endCaptures": {
+                        "1": {"name": "punctuation.definition.group.regexp"}
+                    },
+                    "beginCaptures": {
+                        "1": {"name": "punctuation.definition.group.regexp"},
+                        "2": {"name
 title: Configuring Apache Maven for use with GitHub Packages
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
