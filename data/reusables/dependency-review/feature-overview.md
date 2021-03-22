@@ -1,0 +1,1 @@
+Dependency review allows you to easily understand your dependencies before you introduce them to your environment. As part of a pull request, you can see the dependencies you’re introducing, changing, or removing, as well as information about their vulnerabilities, age, usage, and license.
