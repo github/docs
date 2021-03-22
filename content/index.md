@@ -1,4 +1,4 @@
----
+---main
 title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
@@ -13,5 +13,5 @@ featuredLinks:
     - /github/using-git/managing-remote-repositories
     - /github/working-with-github-pages
 versions: '*'
----
+---master
 
