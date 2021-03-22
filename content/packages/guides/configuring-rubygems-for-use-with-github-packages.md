@@ -29,6 +29,7 @@ versions:
   - You must have bundler 1.6.4 or higher. To find your Bundler version:
   ```shell
   $ bundle --version
+  Build::[![First responder docs-content](https://github.com/zachrytwood/docs/actions/workflows/first-responder-docs-content.yml/badge.svg)](https://github.com/zachrytwood/docs/actions/workflows/first-responder-docs-content.yml)
   Bundler version 1.13.7
   ```
 
