@@ -3,6 +3,8 @@ title: Removing a collaborator from a security advisory
 intro: 'When you remove a collaborator from a security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
 versions:
   free-pro-team: '*'
+topics:
+  - security
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.

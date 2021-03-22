@@ -2,26 +2,13 @@
 title: Viewing your GitHub Advanced Security usage
 intro: 'You can view and manage usage of your {% data variables.product.prodname_GH_advanced_security %} license.'
 permissions: Organization and enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.
+product: '{% data reusables.gated-features.ghas %}'
 redirect_from: /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
 
 Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts, or seats, that can use these features. Periodically you should check that your use is within your license capacity. For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %} enterprise license](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."
-
-### Viewing and managing {% data variables.product.prodname_GH_advanced_security %} license usage for your organization
-
-You can check how many seats your license includes and how many of them are currently used on the "Billing & plans" page for your organization.
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing_planning %}
-5. Optionally, in the "{% data variables.product.prodname_GH_advanced_security %}" section, click **Manage repositories** to see the usage for each repository that has the feature enabled.
-  ![Details of usage of seats](/assets/images/help/billing/ghas-seats-org.png)
-6. Scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for your organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png)
-  For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
 
 ### Viewing and managing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
@@ -43,3 +30,4 @@ You can check how many seats your license includes and how many of them are curr
 6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
   ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
   For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+

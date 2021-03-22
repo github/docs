@@ -7,5 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 

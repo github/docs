@@ -3,6 +3,8 @@ title: Listing dependencies configured for version updates
 intro: 'You can view the dependencies that {% data variables.product.prodname_dependabot %} monitors for updates.'
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.dependabot.beta-note %}

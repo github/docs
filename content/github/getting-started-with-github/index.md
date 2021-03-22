@@ -34,6 +34,11 @@ featuredLinks:
     - /github/getting-started-with-github/types-of-github-accounts
     - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
     - /github/getting-started-with-github/troubleshooting-connectivity-problems
+topics:
+  - pull requests
+  - issues
+  - notifications
+  - accounts
 ---
 
 <div hidden>

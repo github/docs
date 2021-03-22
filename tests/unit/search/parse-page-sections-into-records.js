@@ -20,19 +20,21 @@ describe('search parsePageSectionsIntoRecords module', () => {
         objectID: '/example/href#first',
         url: 'https://docs.github.com/example/href#first',
         slug: 'first',
-        breadcrumbs: 'a / b / c',
+        breadcrumbs: 'GitHub Actions / actions learning path',
         heading: 'First heading',
         title: 'I am the page title',
-        content: "Here's a paragraph. And another."
+        content: "Here's a paragraph. And another.",
+        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions']
       },
       {
         objectID: '/example/href#second',
         url: 'https://docs.github.com/example/href#second',
         slug: 'second',
-        breadcrumbs: 'a / b / c',
+        breadcrumbs: 'GitHub Actions / actions learning path',
         heading: 'Second heading',
         title: 'I am the page title',
-        content: "Here's a paragraph in the second section. And another."
+        content: "Here's a paragraph in the second section. And another.",
+        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions']
       }
     ]
 
@@ -50,9 +52,10 @@ describe('search parsePageSectionsIntoRecords module', () => {
       {
         objectID: '/example/href',
         url: 'https://docs.github.com/example/href',
-        breadcrumbs: 'x / y / z',
+        breadcrumbs: 'Education / map topic',
         title: 'A page without sections',
-        content: 'First paragraph. Second paragraph.'
+        content: 'First paragraph. Second paragraph.',
+        topics: ['key1', 'key2', 'key3', 'Education']
       }
     ]
     expect(records).toEqual(expected)

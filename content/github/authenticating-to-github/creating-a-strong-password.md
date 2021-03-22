@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - identity
+  - access management
 ---
 
 You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
