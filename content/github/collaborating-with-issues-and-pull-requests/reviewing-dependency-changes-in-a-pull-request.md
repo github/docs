@@ -6,6 +6,7 @@ versions:
 topics:
   - pull requests
 ---
+<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
 {% note %}
 
