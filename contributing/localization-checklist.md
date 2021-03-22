@@ -2,24 +2,24 @@
 
 Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).
 
-- [ ] Use examples that are generic and can be understood by most people.
-- [ ] Avoid controversial examples or culturally specific to a group.
-- [ ] Write in active voice.
-- [ ] Write simple, short and easy to understand sentences.
-- [ ] Avoid using too many pronouns that can make text unclear.
-- [ ] Avoid slang and jokes.
-- [ ] Avoid negative sentences.
-- [ ] Use industry standard acronyms whenever possible and explain custom acronyms.
-- [ ] Use indicative mood.
-- [ ] Eliminate redundant and wordy expressions.
-- [ ] Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which one is the noun being modified.
-- [ ] Avoid invisible plurals in which it is not clear if the first noun is meant to be singular or plural.
-- [ ] Avoid nominalization.
-- [ ] Avoid using ambiguous modal auxiliary verbs.
-- [ ] Avoid gender-specific words.
-- [ ] Avoid prepositional phrases.
-- [ ] Avoid vague nouns and pronouns (vague sentence subject).
-- [ ] Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title". Alternatively, add relevant links to a "Further reading" section at the end of the topic.
+- [x ] Use examples that are generic and can be understood by most people.
+- [x] Avoid controversial examples or culturally specific to a group.
+- [x ] Write in active voice.
+- [x] Write simple, short and easy to understand sentences.
+- [x] Avoid using too many pronouns that can make text unclear.
+- [x] Avoid slang and jokes.
+- [x] Avoid negative sentences.
+- [x] Use industry standard acronyms whenever possible and explain custom acronyms.
+- [x] Use indicative mood.
+- [x] Eliminate redundant and wordy expressions.
+- [x ] Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which one is the noun being modified.
+- [ x] Avoid invisible plurals in which it is not clear if the first noun is meant to be singular or plural.
+- [ x] Avoid nominalization.
+- [ x] Avoid using ambiguous modal auxiliary verbs.
+- [ x] Avoid gender-specific words.
+- [x ] Avoid prepositional phrases.
+- [ x] Avoid vague nouns and pronouns (vague sentence subject).
+- [x ] Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title". Alternatively, add relevant links to a "Further reading" section at the end of the topic.
 
 ## Examples
 
