@@ -5,9 +5,7 @@ intro: 'You can find vulnerabilities and errors in your project''s code on {% da
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 topics:
   - security
 ---

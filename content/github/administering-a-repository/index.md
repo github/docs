@@ -27,6 +27,7 @@ topics:
     {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}{% if currentVersion == "free-pro-team@latest" %}
     {% link_in_list /enabling-or-disabling-github-discussions-for-a-repository %}{% endif %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}
+    {% link_in_list /managing-security-and-analysis-settings-for-your-repository %}
     {% link_in_list /enabling-anonymous-git-read-access-for-a-repository %}
     {% link_in_list /configuring-autolinks-to-reference-external-resources %}
     {% link_in_list /renaming-a-repository %}
@@ -55,18 +56,3 @@ topics:
     {% link_in_list /linking-to-releases %}
     {% link_in_list /comparing-releases %}
     {% link_in_list /automation-for-release-forms-with-query-parameters %}
-{% topic_link_in_list /securing-your-repository %}
-    {% link_in_list /about-securing-your-repository %}
-    {% link_in_list /about-secret-scanning %}
-    {% link_in_list /configuring-secret-scanning-for-your-repositories %}
-    {% link_in_list /managing-alerts-from-secret-scanning %}
-    {% link_in_list /managing-security-and-analysis-settings-for-your-repository %}
-{% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
-    {% link_in_list /about-dependabot-version-updates %}
-    {% link_in_list /enabling-and-disabling-version-updates %}
-    {% link_in_list /listing-dependencies-configured-for-version-updates %}
-    {% link_in_list /managing-pull-requests-for-dependency-updates %}
-    {% link_in_list /managing-encrypted-secrets-for-dependabot %}
-    {% link_in_list /customizing-dependency-updates %}
-    {% link_in_list /configuration-options-for-dependency-updates %}
-    {% link_in_list /keeping-your-actions-up-to-date-with-dependabot %}
