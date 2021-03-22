@@ -141,3 +141,13 @@ To keep your organization's data secure while allowing access to repositories, y
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+### Further reading
+
+- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[About teams](/articles/about-teams)"
+- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+### Further reading
+
+- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[About teams](/articles/about-teams)"
+- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
