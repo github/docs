@@ -37,7 +37,9 @@ If you are over your license limit, {% data variables.product.prodname_GH_advanc
 
 As soon as you free up some seats, by disabling {% data variables.product.prodname_GH_advanced_security %} for some repositories or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_advanced_security %} will work again as normal.
 
-For information on viewing usage, see "[Viewing your GitHub Advanced Security usage](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)."
+You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)."
+
+For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)."
 
 ### Getting the most out of your {% data variables.product.prodname_GH_advanced_security %} license
 
