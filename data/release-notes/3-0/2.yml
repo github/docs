@@ -18,6 +18,7 @@ sections:
     - Webhooks configured with a content type of `application/x-www-form-urlencoded` did not receive query parameters in the POST request body.
     - Users could dismiss a mandatory message without checking all checkboxes.
     - In some cases after upgrading from a 2.22.X instance, the web interface assets were missing and the page would not render correctly.
+    - Running `ghe-config-apply` could time out with `Failure waiting for nomad jobs to apply` due to `'job' stanza not found`.
   known_issues:
     - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
     - Custom firewall rules are not maintained during an upgrade.
