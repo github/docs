@@ -15,12 +15,14 @@ The initial report of a vulnerability is made privately, and the full details ar
 #### Best practices for vulnerability reporters
 
 Vulnerability reporters such as security researchers should try to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, you should avoid:
-- Disclosing the vulnerability publicly.
+- Disclosing the vulnerability publicly without giving maintainers a chance to remediate.
 - Bypassing the maintainers.
 - Disclosing the vulnerability before a fixed version of the code is available.
 - Expecting to be compensated for reporting an issue, where no public bounty program exists.
 
-It's acceptable for vulnerability reporters to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
+It's acceptable for vulnerability reporters to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it. 
+
+We recommend vulnerability clearly state the terms of their disclosure policy as part of their reporting process. Even if the vulnerability reporter does not adhere to a strict policy, they should set clear expectations to maintainers in terms of timelines on intended vulnerability disclosures. For an example of disclosure policy, see the [Security Lab's disclosure policy](https://securitylab.github.com/advisories#policy) on the GitHub Security Lab website.
 
 #### Best practices for maintainers
 
@@ -31,9 +33,9 @@ Maintainers should disclose vulnerabilities in a timely manner. If there is a se
 - Acknowlege receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
 - Involve the vulnerability reporter when you verify the impact and veracity of the report. It's likely the vulnerability reporter has already spent time considering the vulnerability in a variety of scenarios, some of which you may have not considered yourself.
 - Remediate the issue in a way that you see fit, taking any concerns and advice provided by the vulnerability reporter into careful consideration. Often the vulnerability reporter will have knowledge of certain corner cases and remediation bypasses that are easy to miss without a security research background.
-- Always acknowledge the vulnerability reporter in terms of crediting the finding.
+- Always acknowledge the vulnerability reporter when you credit the discovery.
 - Aim to publish a fix as soon as you can.
-- Ensure that you make the wider ecosystem aware of the issue and its remediation when you diclose the vulnerability. It is not uncommon to see cases where a recognized security issue is fixed in the current development branch of a project, but the commit or subsequent release is not explicitly marked as a security fix or release. This can cause problems with downstream consumers.
+- Ensure that you make the wider ecosystem aware of the issue and its remediation when you disclose the vulnerability. It is not uncommon to see cases where a recognized security issue is fixed in the current development branch of a project, but the commit or subsequent release is not explicitly marked as a security fix or release. This can cause problems with downstream consumers.
 
 Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in software, and users will trust maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
 
@@ -55,7 +57,7 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
  If you are a maintainer, you can take ownership of the process at the very beginning of the pipeline by setting up a security policy for your repository, or otherwise making security reporting instructions clearly available, for example in your project’s README file. If there is no security policy, it's likely that a vulnerability reporter will try to email you or otherwise privately contact you. Alternatively, someone may open a (public) issue with details of a security issue.
 
- As a maintainer, to disclose a vulnerability that exists in your repository, you first create a draft security advisory in your package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+ As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 
  To get started, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
