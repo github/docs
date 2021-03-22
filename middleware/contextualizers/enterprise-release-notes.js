@@ -1,7 +1,7 @@
 const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
-const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
+const { supported, latest } = require('../../lib/enterprise-server-releases')
 
 /**
  * Turn { [key]: { notes, intro, date } }
@@ -92,7 +92,7 @@ module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
   req.context.releaseNotes = await Promise.all(patches.map(async patch => renderPatchNotes(patch, req.context)))
 
   // Put together information about other releases
-  req.context.releases = enterpriseReleases.map(version => {
+  req.context.releases = supported.map(version => {
     const ret = { version }
     if (!req.context.site.data['release-notes']) return ret
     const release = req.context.site.data['release-notes'][version.replace(/\./g, '-')]
@@ -101,9 +101,12 @@ module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
     return { ...ret, patches }
   })
 
-  const releaseIndex = enterpriseReleases.findIndex(release => release === requestedVersion)
-  req.context.nextRelease = enterpriseReleases[releaseIndex - 1]
-  req.context.prevRelease = enterpriseReleases[releaseIndex + 1]
+  const releaseIndex = supported.findIndex(release => release === requestedVersion)
+  req.context.nextRelease = supported[releaseIndex - 1]
+  req.context.prevRelease = supported[releaseIndex + 1]
+
+  req.context.latestPatch = patches[0].version
+  req.context.latestRelease = latest
 
   return next()
 }
