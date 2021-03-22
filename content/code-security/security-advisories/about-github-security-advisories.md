@@ -17,7 +17,7 @@ topics:
 
 ### About {% data variables.product.prodname_security_advisories %}
 
-{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/github/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
+{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
 
 {% data reusables.security-advisory.security-advisory-overview %}
 
