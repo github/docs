@@ -35,6 +35,30 @@ You can enable automatic security updates for any repository that uses {% data v
 1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, use the "Dismiss" drop-down, and click a reason for dismissing the alert.
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down.png)
 
+### If you can't view reports
+
+Security is a priority, so, security alerts by default are only visible to repository administrators.
+So, contact your administrator. And point them here.
+
+#### If your team members can't view reports
+
+If you have lots of repositories, you'll need to manually add a group in order to allow your developers to see the reports.
+
+* For each repository, visit `{github-base-url}/{org-name}/{repo-name}/settings/security_analysis#security_analysis_bucket`
+* Scroll to the bottom of the page.
+* Focus the text field labeled `Choose the people or teams you would like to grant access`.
+* No, there isn't an anchor for this portion of the page.
+
+Unlike org membership where the box is a search box to filter org members and there's a button to invite members,
+and unlike the teams list where the box is a search box to filter teams and there's a button to add teams,
+and unlike team membership where the box is a search box to filter existing members and there's a button to add teams,
+this text field is a way to directly add teams or people to the list.
+
+* Select the team/person (you should make it a team, this is painful enough, you really don't want to have to do this again)
+* Don't forget to click Save changes
+
+Once you've added a team to the list, they'll be able to see alerts.
+
 ### Further reading
 
 - "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
