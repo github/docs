@@ -14,7 +14,7 @@ env:
 jobs:
   build:
     # Do not run this job for translations PRs
-    if: ${{ github.ref != 'refs/heads/translations' }}
+    if: ${{ github.head_ref != 'translations' && github.ref != 'refs/heads/translations' }}
 
     runs-on: ubuntu-latest
     steps:

@@ -5,7 +5,7 @@ header:
   notices:
     ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>了解更多信息。
     release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
-    localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">告诉我们</a>。
+    localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
     early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
 search:

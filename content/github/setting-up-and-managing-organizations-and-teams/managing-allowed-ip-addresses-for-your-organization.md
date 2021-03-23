@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization owners can manage allowed IP addresses for an organization.

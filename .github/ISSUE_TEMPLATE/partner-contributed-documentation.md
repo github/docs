@@ -21,6 +21,9 @@ Please be sure to complete all items in the checklists that follow, and feel fre
 
 - [ ] Prior to submitting documentation, please apply to join the GitHub Technology Partner Program: [partner.github.com/apply](https://partner.github.com/apply?partnershipType=Technology+Partner). Please feel free to proceed once your application is approved.
 
+## What information would you like to add to docs.github.com?
+<!-- Please explain what your proposed article is about, what customers it benefits, and any other information that would help us to prioritize this request -->
+
 ## Tasks
 
 Please be sure to complete each of the following:

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
