@@ -1,5 +1,9 @@
 name: Check for External Repo Sync PR
 
+# **What it does**: If someone made a repo sync pull request other than Octomerger, close it.
+# **Why we have it**: Another form of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
 on:
   pull_request:
     types:
