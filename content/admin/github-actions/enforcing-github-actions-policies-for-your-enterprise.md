@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.ae-beta %}
