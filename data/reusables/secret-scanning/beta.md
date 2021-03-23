@@ -6,7 +6,7 @@
 {% endnote %}
 
 {% endif %}
-{% if currentVersion gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@3.0" %}
 
 {% note %}
 
