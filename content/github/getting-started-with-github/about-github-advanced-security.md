@@ -54,3 +54,17 @@ For other repositories, once you have a license for your enterprise account, you
 If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)."
 
 {% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+### Further reading
+
+- "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)"
+
+{% elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+
+### Further reading
+
+- "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
+
+{% endif %}
