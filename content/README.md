@@ -228,9 +228,9 @@ includeGuides:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article.
-- Type: `String`
-- Optional.
+- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics and the topics are listed under the guide intro. Topics are also added to all search records that get created for each page. The search records contain a `topics` property that is used to filter search results by topics. For more information, see the [Search](/contributing/search.md) contributing guide. Refer to the content models for more details around adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
+- Type: Array of `String`s
+- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics or a adding a topic to a new article may not add value.
 
 ### `contributor`
 - Purpose: Indicate an article is contributed and maintained by a third-party organization, typically a GitHub Technology Partner.

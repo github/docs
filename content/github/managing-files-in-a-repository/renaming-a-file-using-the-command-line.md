@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Many files can be [renamed directly on {% data variables.product.product_name %}](/articles/renaming-a-file), but some files, such as images, require that you rename them from the command line.

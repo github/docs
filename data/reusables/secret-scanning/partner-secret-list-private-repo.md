@@ -49,6 +49,7 @@ Proctorio | Proctorio Linkage Key | proctorio_linkage_key
 Proctorio | Proctorio Registration Key | proctorio_registration_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
+PyPI | PyPI API Token | pypi_api_token
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 SendGrid | SendGrid API Key | sendgrid_api_key

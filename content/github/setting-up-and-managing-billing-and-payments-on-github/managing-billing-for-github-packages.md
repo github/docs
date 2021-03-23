@@ -4,5 +4,7 @@ intro: 'You can view your {% data variables.product.prodname_registry %} usage a
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 

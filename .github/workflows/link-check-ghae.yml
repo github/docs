@@ -47,7 +47,7 @@ jobs:
       #   run: npm run heroku-postbuild
       #   env:
       #     DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-      #     GIT_BRANCH: ${{ github.ref }}
+      #     GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Build

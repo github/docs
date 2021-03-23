@@ -39,6 +39,6 @@ module.exports = [
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",
   "tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61",
-  "EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575",
+  "EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519",
   "dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58",
 ];
