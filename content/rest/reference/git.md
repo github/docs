@@ -70,6 +70,8 @@ A Git tag is similar to a [Git reference](/rest/reference/git#refs), but the Git
 
 A Git tree object creates the hierarchy between files in a Git repository. You can use the Git tree object to create the relationship between directories and the files they contain. These endpoints allow you to read and write [tree objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects) to your Git database on {% data variables.product.product_name %}.
 
+Important: Some paths require special priveleges to be manipulated using this API, such as `.github/workflows`.
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'trees' %}{% include rest_operation %}{% endif %}
 {% endfor %}
