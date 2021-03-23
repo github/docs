@@ -3,12 +3,8 @@ title: Running CodeQL code scanning in your CI system
 shortTitle: Running in your CI
 intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 topics:
   - security
 ---

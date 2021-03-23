@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const app = require('../lib/app')
+const app = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')

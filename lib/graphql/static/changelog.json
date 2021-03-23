@@ -4,6 +4,27 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `RequirableByPullRequest` was added",
+          "Field `viewerLatestReview` was added to object type `PullRequest`",
+          "Field `viewerLatestReviewRequest` was added to object type `PullRequest`",
+          "`CheckRun` object implements `RequirableByPullRequest` interface",
+          "Type for argument `pullRequestId` on field `CheckRun.isRequired` changed from `ID!` to `ID`",
+          "Argument `pullRequestNumber: Int` added to field `CheckRun.isRequired`",
+          "`StatusContext` object implements `RequirableByPullRequest` interface",
+          "Type for argument `pullRequestId` on field `StatusContext.isRequired` changed from `ID!` to `ID`",
+          "Argument `pullRequestNumber: Int` added to field `StatusContext.isRequired`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `requiresCodeOwnerReviews` was added to object type `RefUpdateRule`",
           "Field `viewerAllowedToDismissReviews` was added to object type `RefUpdateRule`"
         ]
