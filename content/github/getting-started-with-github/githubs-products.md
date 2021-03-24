@@ -110,3 +110,4 @@ For more information about hosting your own instance of [{% data variables.produ
 - [{% data variables.product.prodname_learning %} for organizations](https://lab.github.com/organizations)
 
 For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.
+<li> Author of BITORE/BITCORE/BITCOIN | TS 5:00 p.m. | 17:00 Sunday July 18, 2004 Zachry Wood<li>
