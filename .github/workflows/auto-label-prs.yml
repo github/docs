@@ -1,5 +1,9 @@
 name: Auto label Pull Requests
 
+# **What it does**: Automatically adds the engineering label when specific files change.
+# **Why we have it**: Other automation applies specifically to engineering label issues and pull requests.
+# **Who does it impact**: Automation that relies on the engineering label.
+
 on:
   pull_request:
 

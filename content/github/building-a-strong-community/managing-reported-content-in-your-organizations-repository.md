@@ -3,6 +3,8 @@ title: Managing reported content in your organization's repository
 intro: 'After a contributor reports disruptive content in a repository, repository maintainers can view and manage the report.'
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Anyone with admin permissions to a repository can view and manage reported content for the repository.
