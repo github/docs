@@ -160,3 +160,6 @@ product_sublanding:
     tutorial: Tutorial
     how_to: How-to guide
     reference: Reference
+learning_track_nav:
+  prevGuide: Previous Guide
+  nextGuide: Next Guide

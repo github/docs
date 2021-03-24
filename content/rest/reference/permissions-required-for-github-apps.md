@@ -842,6 +842,9 @@ _Teams_
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_id`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
+- [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_id`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
+- [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-recent-code-scanning-analyses-for-a-repository) (:read)
+- [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-a-sarif-file) (:write)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}

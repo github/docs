@@ -703,6 +703,18 @@ steps:
 
 You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
+For example:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+
 #### Exit codes and error action preference
 
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
