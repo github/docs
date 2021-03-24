@@ -34,8 +34,6 @@ If none of these files are found, then any files or folders in `dotfiles` starti
 
 Any changes to your `dotfiles` repository will apply only to each new codespace, and do not affect any existing codespace.
 
-For more information, see [Personalizing](https://docs.microsoft.com/visualstudio/online/reference/personalizing) in the {% data variables.product.prodname_vscode %} documentation.
-
 {% note %}
 
 **Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the _User_ settings for the {% data variables.product.prodname_vscode %} editor with your `dotfiles` repository. You can set default _Workspace_ and _Remote [Codespaces]_ settings for a specific project in the project's repository. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)."

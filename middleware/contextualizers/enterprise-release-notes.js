@@ -1,7 +1,15 @@
 const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
-const { supported, latest } = require('../../lib/enterprise-server-releases')
+const { all, firstReleaseNote, latest } = require('../../lib/enterprise-server-releases')
+
+// Display all GHES release notes, regardless of deprecation status,
+// starting with the first release notes in 2.20
+const supported = all.filter(release => {
+  return semver.gte(
+    semver.coerce(release), semver.coerce(firstReleaseNote)
+  ) && release !== '11.10.340'
+})
 
 /**
  * Turn { [key]: { notes, intro, date } }

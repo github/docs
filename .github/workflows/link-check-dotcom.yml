@@ -1,5 +1,9 @@
 name: 'Link Checker: Dotcom'
 
+# **What it does**: This checks links for dotcom version of docs.
+# **Why we have it**: We want to know if links break.
+# **Who does it impact**: Docs content.
+
 on:
   workflow_dispatch:
   push:
