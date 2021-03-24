@@ -104,13 +104,13 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 15 * * 0'
+    - cron: '20 14 * * 1'
 ```
 
 This workflow scans:
 * Every push to the default branch and the protected branch
 * Every pull request to the default branch
-* The default branch at 3 P.M. every Sunday
+* The default branch every Monday at 14:20 UTC
 
 ### Specifying an operating system
 

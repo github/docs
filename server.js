@@ -91,25 +91,23 @@ async function setupWorker (id, disconnect) {
 }
 
 function calculateWorkerCount () {
-  // Heroku's recommended WEB_CONCURRENCY count based on the WEB_MEMORY config
+  // Heroku's recommended WEB_CONCURRENCY count based on the WEB_MEMORY config,
+  // or explicitly configured by us
   const { WEB_CONCURRENCY } = process.env
 
-  const recommendedCount = parseInt(WEB_CONCURRENCY, 10) || 1
+  const recommendedCount = parseInt(WEB_CONCURRENCY, 10)
   const cpuCount = os.cpus().length
 
   // Ensure the recommended count is AT LEAST 1 for safety
-  let workerCount = Math.max(recommendedCount, 1)
+  let workerCount = Math.max(recommendedCount || 1, 1)
 
-  // Let's do some math...
-  // If in a deployed environment...
-  if (NODE_ENV === 'production') {
-    // If WEB_MEMORY or WEB_CONCURRENCY values were configured in Heroku, use
-    // the smaller value between their recommendation vs. the CPU count
-    if (WEB_CONCURRENCY) {
-      workerCount = Math.min(recommendedCount, cpuCount)
-    } else {
-      workerCount = cpuCount
-    }
+  // If WEB_CONCURRENCY value was configured to a valid number...
+  if (recommendedCount > 0) {
+    // Use the smaller value between the recommendation vs. the CPU count
+    workerCount = Math.min(workerCount, cpuCount)
+  } else if (NODE_ENV === 'production') {
+    // Else if in a deployed environment, default to the CPU count
+    workerCount = cpuCount
   }
 
   return workerCount
