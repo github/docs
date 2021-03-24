@@ -5,6 +5,8 @@ redirect_from:
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 
