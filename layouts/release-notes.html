@@ -39,7 +39,7 @@
 
           <div class="markdown-body">
             {% for patch in releaseNotes %}
-              <div class="js-release-notes-patch mb-10 bg-gray-light pb-6 border-bottom border-top" data-version="{{ patch.version }}">
+              <div class="js-release-notes-patch mb-10 bg-gray-light pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
                 <header class="container-xl position-sticky top-0 bg-gray-light border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
                   <div class="d-flex flex-items-center">
                     <h2 class="border-bottom-0 m-0 p-0">
@@ -60,9 +60,21 @@
                   </div>
 
                   <p class="text-gray mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease == latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version == latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_release_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_and_release %}</p>
+                  {% endif %}
                 </header>
 
-                <div class="container-xl px-3" id="{{ patch.version }}">
+                <div class="container-xl px-3">
                   <div class="mt-3">{{ patch.intro }}</div>
 
                   {% for section in patch.sections %}

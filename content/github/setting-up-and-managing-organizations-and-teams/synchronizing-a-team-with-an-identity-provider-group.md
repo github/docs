@@ -6,6 +6,9 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   free-pro-team: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -18,7 +21,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
 
-Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}or using the API{% endif %}.
+Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} or using the API{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
 All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour.

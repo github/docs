@@ -91,17 +91,23 @@ async function decorate () {
   }, {})
 
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
-    // munge OpenAPI definitions object in an array of operations objects
-    const operations = await getOperations(schema)
+    try {
+      // munge OpenAPI definitions object in an array of operations objects
+      const operations = await getOperations(schema)
 
-    // process each operation, asynchronously rendering markdown and stuff
-    await Promise.all(operations.map(operation => operation.process()))
+      // process each operation, asynchronously rendering markdown and stuff
+      await Promise.all(operations.map(operation => operation.process()))
 
-    const filename = path.join(decoratedPath, `${schemaName}.json`)
-      .replace('.deref', '')
-    // write processed operations to disk
-    fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
+      const filename = path.join(decoratedPath, `${schemaName}.json`)
+        .replace('.deref', '')
+      // write processed operations to disk
+      fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
 
-    console.log('Wrote', path.relative(process.cwd(), filename))
+      console.log('Wrote', path.relative(process.cwd(), filename))
+    } catch (error) {
+      console.error(error)
+      console.log('🐛 Whoops! It looks like the decorator script wasn\'t able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.')
+      process.exit(1)
+    }
   }
 }
