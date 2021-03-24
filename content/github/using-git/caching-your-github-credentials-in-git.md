@@ -71,6 +71,14 @@ You can also install a native Git shell, such as [Git for Windows](https://git-f
 $ git config --global credential.helper wincred
 ```
 
+On newer versions of Git (2.28.0 and later), Git for Windows includes the replacement for the wincred credential helper. The new cross-platform replacement, [Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core), can be configured as the global (or system) credential helper with the following command:
+
+```shell
+$ git config --global credential.helper manager-core
+```
+
+Note that Git Credential Manager Core can use the credentials originally created with Git Credential Manager for Windows, so you do not have to re-authenticate. See the blog post in Further Reading below for more.
+
 {% endwindows %}
 
 {% linux %}
@@ -100,3 +108,4 @@ Turn on the credential helper so that Git will save your password in memory for 
 
 - "[Updating credentials from the OSX Keychain](/articles/updating-credentials-from-the-osx-keychain/)"
 - "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)"
+- "[Git Credential Manager Core: Building a universal authentication experience](https://github.blog/2020-07-02-git-credential-manager-core-building-a-universal-authentication-experience/)"
