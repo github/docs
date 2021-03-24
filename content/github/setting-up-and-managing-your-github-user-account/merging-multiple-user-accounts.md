@@ -7,6 +7,8 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
 ---
 
 {% tip %}

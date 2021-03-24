@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -16,6 +18,7 @@ versions:
 
 {% topic_link_in_list /using-github-actions-in-github-ae %}
   {% link_in_list /getting-started-with-github-actions-for-github-ae %}
+  {% link_in_list /using-actions-in-github-ae %}
 
 {% topic_link_in_list /enabling-github-actions-for-github-enterprise-server %}
   {% link_in_list /getting-started-with-github-actions-for-github-enterprise-server %}

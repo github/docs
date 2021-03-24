@@ -84,7 +84,7 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 #### Choosing a template repository
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} For more information about template repositories, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
+By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 

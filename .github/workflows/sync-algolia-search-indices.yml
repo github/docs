@@ -1,5 +1,9 @@
 name: Algolia
 
+# **What it does**: This updates our search indexes after each deployment.
+# **Why we have it**: We want our search indexes kept up to date.
+# **Who does it impact**: Anyone using search on docs.
+
 on:
   workflow_dispatch:
   push:

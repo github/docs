@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Are you a law enforcement officer conducting an investigation that may involve user content hosted on GitHub?

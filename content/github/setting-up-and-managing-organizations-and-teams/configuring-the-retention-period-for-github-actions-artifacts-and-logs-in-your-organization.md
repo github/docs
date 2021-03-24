@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

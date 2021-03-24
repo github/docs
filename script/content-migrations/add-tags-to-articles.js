@@ -33,30 +33,30 @@ XlsxPopulate.fromFileAsync('./SanitizedInformationArchitecture.xlsx')
         fileName = fileName + '/index.md'
       }
 
-      const topicsArray = topics.replace(', ', ',').split(',') || []
+      const topicsArray = topics.split(',').map(topic => topic.trim()) || []
       updateFrontmatter(path.join(process.cwd(), fileName), topicsArray)
     }
   })
 
 function updateFrontmatter (filePath, newTopics) {
-  try {
-    const articleContents = fs.readFileSync(filePath, 'utf8')
-    const { content, data } = readFrontmatter(articleContents)
+  const articleContents = fs.readFileSync(filePath, 'utf8')
+  const { content, data } = readFrontmatter(articleContents)
 
-    let topics = []
-    if (typeof data.topics === 'string') {
-      topics = [data.topics]
-    } else if (Array.isArray(data.topics)) {
-      topics = topics.concat(data.topics)
-    }
-    newTopics.forEach(topic => {
-      topics.push(topic)
-    })
-    data.topics = topics
-
-    const newContents = readFrontmatter.stringify(content, data, { lineWidth: 10000 })
-    fs.writeFileSync(filePath, newContents)
-  } catch (error) {
-    console.log(`This file is not valid: ${filePath}`)
+  let topics = []
+  if (typeof data.topics === 'string') {
+    topics = [data.topics]
+  } else if (Array.isArray(data.topics)) {
+    topics = topics.concat(data.topics)
   }
+
+  newTopics.forEach(topic => {
+    topics.push(topic)
+  })
+
+  // remove any duplicates
+  const uniqueTopics = [...new Set(topics)]
+  data.topics = uniqueTopics
+
+  const newContents = readFrontmatter.stringify(content, data, { lineWidth: 10000 })
+  fs.writeFileSync(filePath, newContents)
 }

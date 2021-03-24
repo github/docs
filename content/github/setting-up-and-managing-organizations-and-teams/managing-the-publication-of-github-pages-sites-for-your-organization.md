@@ -9,7 +9,9 @@ versions:
   github-ae: '*'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization
-
+topics:
+  - organizations
+  - teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -1,10 +1,12 @@
 ---
 title: Restricting email notifications for your enterprise account to approved domains
-intro: "You can prevent your enterprise's information from leaking into personal accounts by restricting email notifications about activity in organizations owned by your enterprise account to verified domains."
+intro: You can prevent your enterprise's information from leaking into personal accounts by restricting email notifications about activity in organizations owned by your enterprise account to verified domains.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise account.
+topics:
+  - enterprise
 ---
 
 ### About email restrictions for your enterprise account
