@@ -280,8 +280,8 @@ describe('lint markdown content', () => {
           const parsed = yaml.safeLoad(rendered)
           return parsed.on.schedule
         })))
-        .flat()
-        .map(schedule => schedule.cron)
+          .flat()
+          .map(schedule => schedule.cron)
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -314,7 +314,7 @@ describe('lint markdown content', () => {
           const hour = schedule.split(' ')[0]
           // return any minute cron segments that equal 0, 00, 000, etc.
           return !/[^0]/.test(hour)
-          })
+        })
         expect(hourlySchedules).toEqual([])
       })
 
