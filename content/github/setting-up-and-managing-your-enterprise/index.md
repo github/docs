@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 
@@ -29,7 +31,6 @@ versions:
     {% link_in_list /managing-unowned-organizations-in-your-enterprise-account %}
     {% link_in_list /viewing-the-audit-logs-for-organizations-in-your-enterprise-account %}
     {% link_in_list /configuring-webhooks-for-organization-events-in-your-enterprise-account %}
-    {% link_in_list /managing-use-of-advanced-security-for-organizations-in-your-enterprise-account %}
 {% topic_link_in_list /configuring-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /about-identity-and-access-management-for-your-enterprise-account %}
     {% link_in_list /enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account %}
@@ -46,4 +47,4 @@ versions:
     {% link_in_list /enforcing-a-policy-on-dependency-insights-in-your-enterprise-account %}
     {% link_in_list /enforcing-github-actions-policies-in-your-enterprise-account %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account %}
-
+    {% link_in_list /enforcing-policies-for-advanced-security-in-your-enterprise-account %}

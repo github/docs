@@ -11,5 +11,7 @@ intro: 'Configure {% data variables.product.prodname_ghe_server %} with the DNS 
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 

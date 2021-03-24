@@ -12,6 +12,7 @@ export default function displayPlatformSpecificContent () {
   if (platform === 'darwin') platform = 'mac'
   if (platform === 'ios') platform = 'mac'
   if (platform === 'android') platform = 'linux'
+  if (platform === 'cros') platform = 'linux'
   if (platform.startsWith('win')) platform = 'windows'
 
   const platformsInContent = findPlatformSpecificContent(platform)

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 To retain access for bots and service accounts, organization administrators can [enable](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).

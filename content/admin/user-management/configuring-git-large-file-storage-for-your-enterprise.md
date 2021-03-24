@@ -15,6 +15,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### About {% data variables.large_files.product_name_long %}
