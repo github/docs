@@ -5,9 +5,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
 miniTocMaxHeadingLevel: 4
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 topics:
   - security
 ---
@@ -102,13 +100,13 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 15 * * 0'
+    - cron: '40 7 * * 2'
 ```
 
 This workflow scans:
 * Every push to the default branch and the protected branch
 * Every pull request to the default branch
-* The default branch at 3 P.M. every Sunday
+* The default branch every Tuesday at 7:40 UTC
 
 ### Specifying an operating system
 
