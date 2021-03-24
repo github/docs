@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 

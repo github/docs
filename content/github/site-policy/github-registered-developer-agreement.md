@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 GitHub is fortunate to have many developers integrating with our platform. We think that’s awesome, and we want to make that experience even better.  GitHub’s Developer Program (the “Program”) helps us to connect with you, share information with you, and support your creative efforts better than ever before. The special relationship between GitHub and the developer community that the Program creates requires a special set of terms. Welcome to the Registered Developer Agreement (“Agreement”).
 

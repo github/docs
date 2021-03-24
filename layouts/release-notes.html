@@ -60,6 +60,18 @@
                   </div>
 
                   <p class="text-gray mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease == latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version == latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_release_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_and_release %}</p>
+                  {% endif %}
                 </header>
 
                 <div class="container-xl px-3">

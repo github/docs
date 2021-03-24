@@ -1,6 +1,6 @@
 ---
 title: Configuring email for notifications
-intro: To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.
+intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration/
   - /enterprise/admin/articles/configuring-email/
@@ -10,6 +10,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

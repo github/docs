@@ -1,7 +1,7 @@
 const request = require('supertest')
 const nock = require('nock')
 const cheerio = require('cheerio')
-const app = require('../../server')
+const app = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)

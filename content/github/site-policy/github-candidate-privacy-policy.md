@@ -2,6 +2,9 @@
 title: GitHub Candidate Privacy Policy
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective Date: March 8, 2021

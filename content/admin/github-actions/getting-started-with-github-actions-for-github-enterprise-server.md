@@ -7,6 +7,8 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
