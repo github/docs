@@ -27,7 +27,7 @@ As you make changes to files in your text editor and save them locally, you will
 * The yellow {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} icon indicates modified files.
 * The green {% octicon "diff-added" aria-label="The diff added icon color-green" %} icon indicates added files.
 * To access stashed changes, click **Stashed Changes**.
-![Stashed changes option](/assets/images/help/desktop/stashed-changes.png)
+  ![Stashed changes option](/assets/images/help/desktop/stashed-changes.png)
 * {% data reusables.desktop.commit-all-desc %}
   ![Select checkbox to commit all changed files](/assets/images/help/desktop/commit-all.png)
 * {% data reusables.desktop.commit-some-desc %}
