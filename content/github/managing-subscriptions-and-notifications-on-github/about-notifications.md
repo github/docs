@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -63,7 +65,7 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see “[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-You can enable push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
 {% endif %}
 
 ### Reasons for receiving notifications

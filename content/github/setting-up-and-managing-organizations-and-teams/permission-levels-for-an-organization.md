@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Permission levels for an organization
@@ -49,8 +52,8 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | @mention any visible team | **X** | **X** |  |
 | Can be made a *team maintainer* | **X** | **X** |  |
 | View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)" for details) | **X** | **X** |  |
-| View and post public team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** | **X** |  |
-| View and post private team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** |  |  |
+| View and post public team discussions to **all teams** (see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" for details) | **X** | **X** |  |
+| View and post private team discussions to **all teams** (see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" for details) | **X** |  |  |
 | Edit and delete team discussions in **all teams** (see "[Managing disruptive comments](/articles/managing-disruptive-comments)" for details) | **X** |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/articles/managing-disruptive-comments/#hiding-a-comment)" for details) | **X** | **X** | |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)" for details) | **X** |  |  |
@@ -103,8 +106,8 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Transfer repositories | **X** | |
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)" for details) | **X** | **X** | |
-| View and post public team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** | **X** |  |
-| View and post private team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** |  |  |
+| View and post public team discussions to **all teams** (see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" for details) | **X** | **X** |  |
+| View and post private team discussions to **all teams** (see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" for details) | **X** |  |  |
 | Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/articles/managing-disruptive-comments)) | **X** |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/articles/managing-disruptive-comments/#hiding-a-comment)" for details) | **X** | **X** | **X** |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)" for details) | **X** |  |  |
@@ -131,7 +134,7 @@ When you designate a user as a {% data variables.product.prodname_github_app %} 
 
 ### Outside collaborators
 
-To keep your organization data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
+To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
 
 ### Further reading
 
