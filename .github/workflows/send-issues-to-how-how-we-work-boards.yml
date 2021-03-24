@@ -8,6 +8,7 @@ on:
   issues:
     types:
       - labeled
+      - opened
       - reopened
 
 jobs:
