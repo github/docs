@@ -4,4 +4,7 @@ intro: 'Learn how to configure storage and enable {% data variables.product.prod
 mapTopic: true
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
+
