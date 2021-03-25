@@ -1,6 +1,8 @@
-# Make sure the Docker container still builds
-
 name: Build Docker image
+
+# **What it does**: This builds our Docker container.
+# **Why we have it**: We don't use the Docker container internally, but other teams depend on our Docker container.
+# **Who does it impact**: Enterprise customers.
 
 on:
   push:

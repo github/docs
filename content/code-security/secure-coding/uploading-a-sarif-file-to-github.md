@@ -59,11 +59,11 @@ Alternatively, you could modify this workflow to upload a directory of SARIF fil
 name: "Upload SARIF"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Thursday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 4'
 
 jobs:
   build:
@@ -91,11 +91,11 @@ The workflow shows an example of running the ESLint static analysis tool as a st
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Wednesday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 3'
 
 jobs:
   build:

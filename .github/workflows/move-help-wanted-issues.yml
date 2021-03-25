@@ -1,4 +1,9 @@
 name: Move help wanted issues
+
+# **What it does**: In the open source repo, when the "help wanted" or "good first issue" labels are added to an issue, the issue is added to the "Help wanted" column on the project board.
+# **Why we have it**: To keep track of help wanted issues.
+# **Who does it impact**: Open-source contributors.
+
 on:
   issues:
     types:
