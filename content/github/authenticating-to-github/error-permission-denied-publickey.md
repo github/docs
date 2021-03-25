@@ -279,3 +279,18 @@ If you don't see your public key in {% data variables.product.product_name %}, y
 **Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
 
 {% endwarning %}
+
+### Pay attention to command output
+
+If you see something like:
+
+```
+Cloning into 'AwesomeCode'...
+\302\226git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+Please note the "\302\226" in front of "git@" causing your command to use "\302\226git" as user instead of "git". It's likely inserted during copy paste.
