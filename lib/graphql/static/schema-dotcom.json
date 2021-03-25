@@ -48262,6 +48262,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "monthlyPriceInCents",
           "description": "<p>How much this tier costs per month in cents.</p>",
           "type": "Int!",
