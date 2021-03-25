@@ -30,5 +30,5 @@ You can only use your password to log on to {% data variables.product.product_na
 
 ### Further reading
 
-- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git/)"
+- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
 - "[Keeping your account and data secure](/articles/keeping-your-account-and-data-secure/)"

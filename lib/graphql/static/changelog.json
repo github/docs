@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `isOneTime` was added to object type `SponsorsTier`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `RequirableByPullRequest` was added",
           "Field `viewerLatestReview` was added to object type `PullRequest`",
           "Field `viewerLatestReviewRequest` was added to object type `PullRequest`",

@@ -9,6 +9,7 @@
 
     <main class="width-full overflow-auto">
       {% include header %}
+      {% include deprecation-banner %}
 
       <div class="bg-gray">
         <div class="container-xl px-3 px-md-6 pt-3 pb-2">
@@ -108,9 +109,9 @@
         </div>
       {% endif %}
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>
