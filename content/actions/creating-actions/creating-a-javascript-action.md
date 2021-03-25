@@ -89,11 +89,12 @@ The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit
 
 The toolkit offers more than the `core` and `github` packages. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
-At your terminal, install the actions toolkit `core` and `github` packages.
+At your terminal, install the actions toolkit `core`, `github` and `http-client` packages.
 
 ```shell
 npm install @actions/core
 npm install @actions/github
+npm install @actions/http-client
 ```
 
 Now you should see a `node_modules` directory with the modules you just installed and a `package-lock.json` file with the installed module dependencies and the versions of each installed module.
