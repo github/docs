@@ -34259,6 +34259,11 @@ type SponsorsTier implements Node {
   id: ID!
 
   """
+  Whether this tier is only for use with one-time sponsorships.
+  """
+  isOneTime: Boolean!
+
+  """
   How much this tier costs per month in cents.
   """
   monthlyPriceInCents: Int!
