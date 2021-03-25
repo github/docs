@@ -22,13 +22,13 @@ topics:
 
 {% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {% data variables.product.prodname_actions %}. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
-You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. The results must use SARIF version 2.1.0. For more information, see "[About SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
+You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. The results must use SARIF version 2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
 
 You can upload the results using {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %} (available if your organization is taking part in the beta program){% endif %}, the {% data variables.product.prodname_code_scanning %} API, or the {% data variables.product.prodname_codeql_runner %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
 
 - {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
 - {% data variables.product.prodname_actions %} to run a SARIF-compatible analysis tool, you could update the workflow to include a final step that uploads the results (see below).
-- The {% data variables.product.prodname_codeql_runner %}, to run {% data variables.product.prodname_code_scanning %} in your CI system, by default the runner automatically uploads results to {% data variables.product.prodname_dotcom %} on completion. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)").
+- The {% data variables.product.prodname_codeql_runner %}, to run {% data variables.product.prodname_code_scanning %} in your CI system, by default the runner automatically uploads results to {% data variables.product.prodname_dotcom %} on completion. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)").
 - A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}
@@ -59,11 +59,11 @@ Alternatively, you could modify this workflow to upload a directory of SARIF fil
 name: "Upload SARIF"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Thursday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 4'
 
 jobs:
   build:
@@ -91,11 +91,11 @@ The workflow shows an example of running the ESLint static analysis tool as a st
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Wednesday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 3'
 
 jobs:
   build:
