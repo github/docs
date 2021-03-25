@@ -6,6 +6,10 @@
 
 name: Repo Sync
 
+# **What it does**: Syncs docs and docs-internal.
+# **Why we have it**: To keep the open-source repository up-to-date, while still having an internal repository for sensitive work.
+# **Who does it impact**: Open-source.
+
 on:
   workflow_dispatch:
   schedule:

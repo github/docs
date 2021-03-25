@@ -139,6 +139,22 @@ You will be responsible for specifying the terms and conditions regarding any re
 #### 4.7. Requested Payment Information.
 To pay you, you must provide us with complete and accurate financial, tax, and banking information that we request (for example, by means of account creation or setup, or otherwise). We will notify you, by any means of communication, of changes to what information is required. If you fail to accurately provide (or accurately maintain) such information, (a) we can deduct from your Sponsored Developer Payment any related bank fees, and (b) we can terminate these Additional Terms and you may forfeit any amounts owed to you by GitHub.
 
+#### 4.8. Stripe Connect
+
+If you are paid through Stripe Connect, the following additional terms apply to your usage of GitHub Sponsors:
+
+**Full service agreement**
+
+_Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
+
+Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
+
+**Recipient service agreement**
+
+_Applies to Sponsored Developer Accounts in all other countries._
+
+We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recipient Agreement](https://stripe.com/connect-account/legal/recipient) applies to your receipt of such payouts. To receive payouts from GitHub Sponsors, you must provide us accurate and complete information about you and your business, and you authorize us to share it and transaction information related to your payout with Stripe.
+
 ### 5. Representations and Warranties; Limitation of Liability; Indemnification.
 
 #### 5.1. By Sponsored Developer.

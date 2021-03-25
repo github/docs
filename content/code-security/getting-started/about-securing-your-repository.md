@@ -69,7 +69,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+- **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}

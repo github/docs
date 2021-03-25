@@ -15716,7 +15716,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -40973,7 +40973,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -53944,7 +53944,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

@@ -1,5 +1,9 @@
 name: Remove card from FR board
 
+# **What it does**: Removes the triggering issue or PR from the docs-content first responder board. This workflow is expected to trigger from a slash command.
+# **Why we have it**: To help with first responder duties
+# **Who does it impact**: Docs-content team first responders
+
 on:
   repository_dispatch:
     types: remove_from_docs_FR_board
