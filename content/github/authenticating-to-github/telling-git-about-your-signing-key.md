@@ -28,7 +28,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. If you aren't using the GPG suite, paste the text below to add the GPG key to your bash profile:
+1. If you aren't using the GPG suite, run the following commands to add the GPG key to your `.zshrc` file, if it exists, and your `.zprofile` file:
   ```shell
   $ test -r ~/.zshrc && echo 'export GPG_TTY=$(tty)' >> ~/.zshrc
   $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
