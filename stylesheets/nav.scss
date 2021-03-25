@@ -17,6 +17,7 @@ header summary,
 
 .dropdown-withArrow[open] {
   .arrow {
+    transition: transform 0.35s;
     transform: rotate(180deg) scaleX(-1);
   }
 }
@@ -42,6 +43,7 @@ header summary,
     padding: $spacer-3;
     padding-top: $spacer-8;
     box-shadow: 0 1px 15px $black-fade-15;
+    transition: all .3s ease-in-out;
   }
 }
 
