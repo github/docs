@@ -1,4 +1,9 @@
 name: Epic Status Update
+
+# **What it does**: For our epic issue status comments, also ping us in Slack.
+# **Why we have it**: So that we can write one status update and have it show up in two places.
+# **Who does it impact**: GitHub docs staff.
+
 on:
   issue_comment:
     types: [created]
@@ -19,5 +24,5 @@ jobs:
         id: notify
         with:
           slack-channel: 'C01EEKVR0Q7'
-          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_TOKEN }}
           slack-text: \n><${{ github.event.comment.html_url}}|*${{github.event.issue.title}}*>\nstatus update posted by ${{github.event.comment.user.login}}\n\n${{ steps.trimmed.outputs.value }}

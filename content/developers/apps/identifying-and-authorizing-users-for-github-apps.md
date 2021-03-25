@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
@@ -92,9 +94,9 @@ By default, the response takes the following form. The response parameters `expi
 ```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-  "expires_in": "28800",
+  "expires_in": 28800,
   "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
-  "refresh_token_expires_in": "15811200",
+  "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }
