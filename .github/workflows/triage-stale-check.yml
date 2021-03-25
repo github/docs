@@ -1,4 +1,9 @@
 name: Public Repo Stale Check
+
+# **What it does**: Provides more aggressive stale checks in the open repo.
+# **Why we have it**: In the open repo, we want more aggressive stale checking.
+# **Who does it impact**: Anyone working in the open repo.
+
 on:
   schedule:
     - cron: '45 16 * * *' # Run each day at 16:45 UTC / 8:45 PST
