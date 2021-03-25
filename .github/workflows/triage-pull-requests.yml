@@ -5,7 +5,7 @@ name: Triage new pull requests
 # **Who does it impact**:
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - reopened
       - opened
