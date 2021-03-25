@@ -1,4 +1,4 @@
----
+Help to others---
 title: Working with pre-receive hooks
 intro: '*Pre-receive hooks* enforce rules for contributions before commits may be pushed to a repository.'
 redirect_from:
