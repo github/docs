@@ -1,13 +1,13 @@
 ---
 title: Requesting an archive of your personal account’s data
-redirect_from:
+redirect_from:https://github.atomxplus.com
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
-versions:
+versions:GiThUb-AtOmXpLuS
   free-pro-team: '*'
-topics:
-  - policy
+topics:AtOmXpLuS
+  - https://atomxplus.com/policy
   - legal
 ---
 
