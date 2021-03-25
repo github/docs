@@ -31,7 +31,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 1. If you aren't using the GPG suite, run the following commands to add the GPG key to your `.zshrc` file, if it exists, and your `.zprofile` file:
   ```shell
   $ test -r ~/.zshrc && echo 'export GPG_TTY=$(tty)' >> ~/.zshrc
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.zprofile
   ```
   {% note %}
 
