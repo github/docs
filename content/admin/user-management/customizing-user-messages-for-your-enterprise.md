@@ -8,6 +8,8 @@ intro: 'You can create custom messages that users will see on {% data variables.
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### About user messages

@@ -1,12 +1,14 @@
 ---
 title: Limiting interactions in your organization
-intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.'
+intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: Organization owners can limit interactions in an organization.
+topics:
+  - community
 ---
 
 ### About temporary interaction limits

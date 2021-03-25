@@ -5,6 +5,9 @@ redirect_from:
   - /categories/site-policy
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 
@@ -24,7 +27,7 @@ versions:
 {% link_in_list /guide-to-submitting-a-dmca-takedown-notice %}
 {% link_in_list /guide-to-submitting-a-dmca-counter-notice %}
 {% link_in_list /github-trademark-policy %}
-{% link_in_list /github-sensitive-data-removal-policy %}
+{% link_in_list /github-private-information-removal-policy %}
 {% link_in_list /github-subprocessors-and-cookies %}
 {% link_in_list /github-bug-bounty-program-legal-safe-harbor %}
 {% link_in_list /responsible-disclosure-of-security-vulnerabilities %}

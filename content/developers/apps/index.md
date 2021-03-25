@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}

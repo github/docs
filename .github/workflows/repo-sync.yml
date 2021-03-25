@@ -6,6 +6,10 @@
 
 name: Repo Sync
 
+# **What it does**: Syncs docs and docs-internal.
+# **Why we have it**: To keep the open-source repository up-to-date, while still having an internal repository for sensitive work.
+# **Who does it impact**: Open-source.
+
 on:
   workflow_dispatch:
   schedule:
@@ -40,7 +44,7 @@ jobs:
           destination_branch: main
           pr_title: 'repo sync'
           pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: autoupdate,automated-reposync-pr
+          pr_label: automerge,autoupdate,automated-reposync-pr
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Find pull request
@@ -87,32 +91,6 @@ jobs:
             } else {
               console.log(`Branch is already up-to-date`)
             }
-
-      - name: Enable GitHub auto-merge
-        if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const pull = await github.pulls.get({
-              ...context.repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-            })
-
-            const pullNodeId = pull.data.node_id
-            console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
-
-            const mutation = `mutation ($id: ID!) {
-              enablePullRequestAutoMerge(input: {
-                pullRequestId: $id,
-                mergeMethod: MERGE
-              })
-            }`
-            const variables = {
-              id: pullNodeId
-            }
-            await github.graphql(mutation, variables)
-            console.log('Auto-merge enabled!')
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd

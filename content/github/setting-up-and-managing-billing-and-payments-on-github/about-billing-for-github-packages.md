@@ -4,6 +4,8 @@ intro: 'If you want to use {% data variables.product.prodname_registry %} beyond
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 ### About billing for {% data variables.product.prodname_registry %}

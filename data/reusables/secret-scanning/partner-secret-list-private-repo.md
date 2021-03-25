@@ -1,5 +1,5 @@
-Partner | Supported secret | API slug 
---- | --- | --- 
+Partner | Supported secret | API slug
+--- | --- | ---
 n/a | JSON Web Token | json_web_token
 n/a | OAuth Client Credential | api_credential_assignment
 Adafruit IO | Adafruit IO Key | adafruit_io_key
@@ -49,8 +49,10 @@ Proctorio | Proctorio Linkage Key | proctorio_linkage_key
 Proctorio | Proctorio Registration Key | proctorio_registration_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
+PyPI | PyPI API Token | pypi_api_token
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+SendGrid | SendGrid API Key | sendgrid_api_key
 Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token
