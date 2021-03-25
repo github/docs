@@ -4,7 +4,8 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/using-git/which-remote-url-should-i-use), you can use a credential helper to tell Git to remember your credentials.'
+  - /github/using-git/caching-your-github-credentials-in-git
+intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), you can use a credential helper to tell Git to remember your credentials.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

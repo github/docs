@@ -4,6 +4,7 @@ redirect_from:
   - /git-ignore/
   - /ignore-files/
   - /articles/ignoring-files
+  - /github/using-git/ignoring-files
 intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'

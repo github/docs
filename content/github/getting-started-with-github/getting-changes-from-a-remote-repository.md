@@ -4,12 +4,13 @@ intro: You can use common Git commands to access remote repositories.
 redirect_from:
   - /articles/fetching-a-remote/
   - /articles/getting-changes-from-a-remote-repository
+  - /github/using-git/getting-changes-from-a-remote-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 ---
-These commands are very useful when interacting with [a remote repository](/articles/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
+These commands are very useful when interacting with [a remote repository](/github/getting-started-with-github/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
 
 ### Cloning a repository
 
@@ -20,7 +21,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/articles/which-remote-url-should-i-use) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
+You can choose from [several different URLs](/github/getting-started-with-github/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
 
 ![Remote URL list](/assets/images/help/repository/remotes-url.png)
 
@@ -39,15 +40,14 @@ such remote-tracking branch names to `origin/foo`.
 
 Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
 
-If you already have a local repository [with a remote URL](/articles/adding-a-remote) set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
+If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always [add a new remote](/articles/adding-a-remote)
-and then fetch.
+Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Merging changes into your local branch
 

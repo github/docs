@@ -3,6 +3,7 @@ title: Resolving merge conflicts after a Git rebase
 intro: 'When you perform a `git rebase` operation, you''re typically moving commits around. Because of this, you might get into a situation where a merge conflict is introduced. That means that two of your commits modified the same line in the same file, and Git doesn''t know which change to apply.'
 redirect_from:
   - /articles/resolving-merge-conflicts-after-a-git-rebase
+  - /github/using-git/resolving-merge-conflicts-after-a-git-rebase
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

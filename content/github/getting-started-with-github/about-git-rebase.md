@@ -4,6 +4,7 @@ redirect_from:
   - /rebase/
   - articles/interactive-rebase/
   - /articles/about-git-rebase
+  - /github/using-git/about-git-rebase
 intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
 versions:
   free-pro-team: '*'
@@ -67,7 +68,7 @@ There are six commands available while rebasing:
 
 ### An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/articles/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
 ```
 pick 1fc6c95 Patch A

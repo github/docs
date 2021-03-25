@@ -3,6 +3,7 @@ title: Setting your username in Git
 intro: 'Git uses a username to associate commits with an identity. The Git username is not the same as your {% data variables.product.product_name %} username.'
 redirect_from:
   - /articles/setting-your-username-in-git
+  - /github/using-git/setting-your-username-in-git
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
