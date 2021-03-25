@@ -21,7 +21,7 @@ jobs:
           days-before-pr-stale: 7
           days-before-pr-close: 3
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'waiting for review'
+          exempt-pr-labels: 'waiting for review,never-stale'
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
@@ -40,3 +40,4 @@ jobs:
           # a comment being posted every 14 days as an infinite loop, which is what
           # we want
           stale-pr-label: 'waiting for review'
+          exempt-pr-labels: 'never-stale'
