@@ -9,6 +9,7 @@ versions:
 topics:
   - accounts
   - notifications
+
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
