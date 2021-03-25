@@ -31,8 +31,6 @@ versions:
 
 {% link_in_list /creating-cloning-and-archiving-repositories %}
 
-{% link_in_list /using-git %}
-
 {% link_in_list /committing-changes-to-your-project %}
 
 {% link_in_list /collaborating-with-issues-and-pull-requests %}
