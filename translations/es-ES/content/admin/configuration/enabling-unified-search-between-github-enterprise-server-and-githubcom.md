@@ -10,6 +10,8 @@ redirect_from:
 permissions: 'Los administradores de sitio para {% data variables.product.prodname_ghe_server %} que también sean dueños de la cuenta organizacional o empresarial conectada de {% data variables.product.prodname_ghe_cloud %} pueden habilitar la búsqueda unificada entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - empresa
 ---
 
 Cuando habilitas la búsqueda unificada, los usuarios pueden ver los resultados de la búsqueda desde contenido público y privado en {% data variables.product.prodname_dotcom_the_website %} cuando buscan desde {% data variables.product.product_location_enterprise %}.

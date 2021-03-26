@@ -5,6 +5,8 @@ redirect_from:
   - /articles/downgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

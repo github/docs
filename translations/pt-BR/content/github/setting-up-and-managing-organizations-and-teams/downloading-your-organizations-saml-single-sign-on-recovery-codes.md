@@ -7,6 +7,9 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os códigos de recuperação não devem ser compartilhados ou distribuídos. É recomendável salvá-los com um gerenciador de senha como [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/).

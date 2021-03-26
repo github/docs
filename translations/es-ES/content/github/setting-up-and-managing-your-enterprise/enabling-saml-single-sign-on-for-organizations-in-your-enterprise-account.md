@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Los propietarios de la empresa pueden habilitar el inicio de sesión único de SAML para las organizaciones en una cuenta empresarial.
 versions:
   free-pro-team: '*'
+topics:
+  - empresa
 ---
 
 ### Acerca del inicio de sesión único de SAML para las cuentas empresariales

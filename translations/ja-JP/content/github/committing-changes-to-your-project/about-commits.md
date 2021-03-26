@@ -19,7 +19,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 Organization に代わってコミットを作成することもできます。 詳しい情報については、「[Organization の代理でコミットを作成する](/github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization)」を参照してください。{% endif %}
 
-リベースを使用すると、一連のコミットを変更したり、タイムラインでのコミットの順序を変更したりできます。 詳しい情報については、「[Git リベースについて](/github/using-git/about-git-rebase)」を参照してください。
+リベースを使用すると、一連のコミットを変更したり、タイムラインでのコミットの順序を変更したりできます。 詳しい情報については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」を参照してください。
 
 ### 参考リンク
 - 「[{% data variables.product.prodname_desktop %} でプロジェクトの変更をコミットしてレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)」

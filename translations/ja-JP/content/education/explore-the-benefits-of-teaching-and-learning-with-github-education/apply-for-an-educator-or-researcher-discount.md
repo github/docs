@@ -1,5 +1,5 @@
 ---
-title: Apply for an educator or researcher discount
+title: 教育者割引または研究者割引への応募
 intro: '教育者もしくは研究者は、Organization アカウントに対して無料で {% data variables.product.prodname_team %} を受けるために応募できます。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
@@ -19,7 +19,7 @@ versions:
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+{% data variables.product.product_name %}のユーザアカウント作成に関する詳しい情報については「[新規{% data variables.product.prodname_dotcom %}アカウントにサインアップする](/github/getting-started-with-github/signing-up-for-a-new-github-account)」を参照してください。
 
 ### 教育者割引または研究者割引に応募する
 

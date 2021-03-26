@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - aplicativos oauth
 ---
 
 A implementação do OAuth de {% data variables.product.product_name %}oferece suporte ao [tipo de concessão do código padrão](https://tools.ietf.org/html/rfc6749#section-4.1) {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} e o OAuth 2.0 [Concessão de Autorização do Dispositivo](https://tools.ietf.org/html/rfc8628) para aplicativos que não têm acesso a um navegador web{% endif %}.

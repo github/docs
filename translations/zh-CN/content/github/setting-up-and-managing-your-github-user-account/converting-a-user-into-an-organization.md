@@ -8,6 +8,8 @@ intro: 您可以将用户帐户转换为组织。 这样可以对属于组织的
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 帐户
 ---
 
 {% warning %}

@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profil
+  - pull requests
+  - Issues (Lieferungen)
+  - notifications
+  - accounts
 ---
 
 Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“

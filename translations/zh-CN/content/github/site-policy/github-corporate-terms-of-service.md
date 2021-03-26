@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 感谢您选择 GitHub 满足贵公司的业务需求。 请仔细阅读本协议，因为它管辖对产品（定义如下）的使用，除非 GITHUB 在这方面与客户签订了单独的书面协议。 单击“I AGREE（我同意）”或类似按钮或者使用产品，即表示客户接受本协议的所有条款和条件。 如果客户代表公司或其他法律实体签订本协议，则表示其拥有让该公司或其他法律实体受本协议约束的法律权限。

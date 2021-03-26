@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 组织的权限级别
@@ -49,8 +52,8 @@ versions:
 | @提及任何可见团队                                                                                                                                                                                                                                                     | **X** | **X** |       |
 | 可成为*团队维护员*                                                                                                                                                                                                                                                    | **X** | **X** |       |
 | 查看组织洞见（详细信息请参阅“[查看用于组织的洞见](/articles/viewing-insights-for-your-organization)”）                                                                                                                                                                                | **X** | **X** |       |
-| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/articles/about-team-discussions)”）                                                                                                                                                                                     | **X** | **X** |       |
-| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/articles/about-team-discussions)”）                                                                                                                                                                                     | **X** |       |       |
+| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”）                                                                                                                                       | **X** | **X** |       |
+| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”）                                                                                                                                       | **X** |       |       |
 | 编辑和删除**所有团队**的团队讨论（详细信息请参阅“[管理破坏性评论](/articles/managing-disruptive-comments)”）                                                                                                                                                                                | **X** |       |       |
 | 隐藏对提交、拉取请求和议题的评论（详细信息请参阅“[管理破坏性评论](/articles/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                                                                                | **X** | **X** |       |
 | 对组织禁用团队讨论（详细信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”）                                                                                                                                                                   | **X** |       |       |
@@ -104,8 +107,8 @@ versions:
 | 转让仓库                                                                                                                                                                                                                                                          | **X** |                                                                                                  |
 | 管理组织的 SSH 认证中心（详细信息请参阅“[管理组织的 SSH 认证中心](/articles/managing-your-organizations-ssh-certificate-authorities)”）                                                                                                                                                  | **X** |                                                                                                  |
 | 创建项目板（详细信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”）                                                                                                                                                                           | **X** |                                             **X** |                                              |
-| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/articles/about-team-discussions)”）                                                                                                                                                                                     | **X** |                                             **X** |                                              |
-| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/articles/about-team-discussions)”）                                                                                                                                                                                     | **X** |                                                |                                                 |
+| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”）                                                                                                                                       | **X** |                                             **X** |                                              |
+| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”）                                                                                                                                       | **X** |                                                |                                                 |
 | 编辑和删除**所有团队**中的团队讨论（更多信息请参阅“[管理破坏性评论](/articles/managing-disruptive-comments)”）                                                                                                                                                                               | **X** |                                                |                                                 |
 | 隐藏对提交、拉取请求和议题的评论（详细信息请参阅“[管理破坏性评论](/articles/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                                                                                | **X** |                                          **X** | **X**                                           |
 | 对组织禁用团队讨论（详细信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”）                                                                                                                                                                   | **X** |                                                |                                                 |
@@ -119,6 +122,7 @@ versions:
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                                       | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                          | **X** |                                           
 {% endif %}
+{% if currentversion == "github-ae@latest" %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** |{% endif %}
 
 {% endif %}
 
@@ -133,7 +137,7 @@ versions:
 
 ### 外部协作者
 
-在授予仓库访问权限时，为确保组织数据的安全，您可以添加*外部协作者*。 {% data reusables.organizations.outside_collaborators_description %}
+在允许访问仓库时，为确保组织数据的安全，您可以添加*外部协作者*。 {% data reusables.organizations.outside_collaborators_description %}
 
 ### 延伸阅读
 

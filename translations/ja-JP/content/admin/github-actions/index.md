@@ -1,16 +1,24 @@
 ---
-title: Managing GitHub Actions for your enterprise
-intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にし、{% data variables.product.prodname_actions %} のポリシーと設定を管理します。'
+title: Enterprise 向けの GitHub Actions を管理する
+intro: '{% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} で {% data variables.product.prodname_actions %} を有効にし、{% data variables.product.prodname_actions %} のポリシーと設定を管理します。'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - enterprise
 ---
 
+{% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 目次
+
+{% topic_link_in_list /using-github-actions-in-github-ae %}
+  {% link_in_list /getting-started-with-github-actions-for-github-ae %}
+  {% link_in_list /using-actions-in-github-ae %}
 
 {% topic_link_in_list /enabling-github-actions-for-github-enterprise-server %}
   {% link_in_list /getting-started-with-github-actions-for-github-enterprise-server %}

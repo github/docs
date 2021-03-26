@@ -14,6 +14,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### {% data variables.product.prodname_pages %} について
@@ -133,20 +135,10 @@ If you choose the `/docs` folder of the `master` branch as your publishing sourc
 
 #### 禁止される用途
 
-{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とるす、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
+{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
+In addition,
 
-さらに、{% data variables.product.prodname_pages %} サイトでは、以下を禁じています:
-
-  - 法律違反、またはそれ以外で当社の[利用規約](/articles/github-terms-of-service/)または[コミュニティガイドライン](/articles/github-community-guidelines/)に反しているコンテンツまたは行為
-  - 暴力的または脅迫的なコンテンツまたは活動
-  - 過剰な自動一括活動 (スパム送信など)
-  - GitHub ユーザまたは GitHub サービスを危険にさらす活動
-  - 攻略法詐欺
-  - 性的・わいせつなコンテンツ
-  - 自分の素性またはサイトの目的を誤って表現しているコンテンツ
-If you have questions about whether your use or intended use falls into these categories, please contact
-
-{% data variables.contact.contact_support %}.
+{% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. For a list of prohibited uses, see "[{% data variables.product.prodname_dotcom %}'s Additional Product Terms for {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)."
 {% endif %}
 
 ### {% data variables.product.prodname_pages %} での MIME タイプ

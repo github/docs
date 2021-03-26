@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-time-synchronization
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 更改默认 NTP 服务器

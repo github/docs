@@ -3,6 +3,8 @@ title: Gerenciando sua meta de patrocínio
 intro: Você pode definir uma meta para o seu desenvolvedor patrocinado ou conta da organização patrocinada para ajudar a comunidade a entender o impacto de patrocinar você.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre metas de patrocínio

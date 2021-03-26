@@ -1,6 +1,6 @@
 ---
 title: 将您的签名密钥告知 Git
-intro: "要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。"
+intro: '要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 {% mac %}

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About payouts from {% data variables.product.prodname_sponsors %}

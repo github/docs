@@ -7,10 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - 支払い
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
@@ -56,7 +60,7 @@ GitHub アクションの使用は、
 [GitHub 利用規約](/articles/github-terms-of-service/)で {% data variables.product.prodname_actions %} を使用していることを確認する必要があります。 {% data variables.product.prodname_actions %}の固有の規約に関する詳しい情報については、[GitHubの追加製品規約](/github/site-policy/github-additional-product-terms#a-actions-usage)を参照してください。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 成果物とログの保持ポリシー
 
 リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
@@ -79,7 +83,7 @@ GitHub アクションの使用は、
 - 「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)」{% if currentVersion == "free-pro-team@latest" %}
 - {% data variables.product.prodname_ghe_cloud %} の「[Enterprise アカウントでの {% data variables.product.prodname_actions %} ポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### ワークフローの無効化と有効化
 
 {% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。
