@@ -6,6 +6,7 @@ redirect_from:
   - /line-endings/
   - /articles/dealing-with-line-endings/
   - /articles/configuring-git-to-handle-line-endings
+  - /github/using-git/configuring-git-to-handle-line-endings
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

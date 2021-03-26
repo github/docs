@@ -3,6 +3,7 @@ title: Splitting a subfolder out into a new repository
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository/
   - /articles/splitting-a-subfolder-out-into-a-new-repository
+  - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
 intro: You can turn a folder within a Git repository into a brand new repository.
 versions:
   free-pro-team: '*'
@@ -49,7 +50,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
   {% tip %}
 
-  **Tip:** For information on the difference between HTTPS and SSH URLs, see "[Which remote URL should I use?](/articles/which-remote-url-should-i-use)"
+  **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
   {% endtip %}
 

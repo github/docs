@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} flow is a lightweight, bran
 redirect_from:
   - /articles/what-is-a-good-git-workflow/
   - /articles/git-workflows
+  - /github/using-git/git-workflows
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

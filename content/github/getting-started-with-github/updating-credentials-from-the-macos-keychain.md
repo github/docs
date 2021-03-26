@@ -4,6 +4,7 @@ intro: 'You''ll need to update your saved credentials in the `git-credential-osx
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
+  - /github/using-git/updating-credentials-from-the-macos-keychain
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -35,4 +36,4 @@ If it's successful, nothing will print out. To test that it works, try and clone
 
 ### Further reading
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git/)"
+- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"

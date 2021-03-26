@@ -3,6 +3,7 @@ title: Using Git rebase on the command line
 redirect_from:
   - /articles/using-git-rebase/
   - /articles/using-git-rebase-on-the-command-line
+  - /github/using-git/using-git-rebase-on-the-command-line
 intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   free-pro-team: '*'
@@ -139,4 +140,4 @@ Force pushing has serious implications because it changes the historical sequenc
 
 ### Further reading
 
-* "[Resolving merge conflicts after a Git rebase](/articles/resolving-merge-conflicts-after-a-git-rebase)"
+* "[Resolving merge conflicts after a Git rebase](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"

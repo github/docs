@@ -1,8 +1,11 @@
 ---
-title: Using advanced Git commands
+title: Using Git
 intro: ''
 mapTopic: true
 redirect_from:
+  - /articles/using-common-git-commands
+  - /github/using-git/using-common-git-commands
+  - /github/using-git/using-advanced-git-commands
   - /categories/52/articles/
   - /categories/advanced-git/
   - /articles/using-advanced-git-commands
@@ -12,4 +15,3 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
