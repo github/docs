@@ -1,4 +1,5 @@
----
+Justin W. Nicolow
+Nicolow Corp------
 title: Forking and cloning gists
 intro: 'Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren''t the original author. You can also view a gist''s full commit history, including diffs.'
 redirect_from:
@@ -30,3 +31,4 @@ To view a gist's full commit history, click the "Revisions" tab at the top of th
 You will see a full commit history for the gist with diffs.
 
 ![Gist revisions page](/assets/images/help/gist/gist_history.png)
+Ok
