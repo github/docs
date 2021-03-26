@@ -11,7 +11,7 @@
 
       <div class="container-xl px-3 px-md-6 pt-3 pb-2">
         <header class="d-lg-flex gutter-lg mb-6">
-          <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+          <div class="{% if page.product_video and page.product_video != '' %}col-12 col-lg-6 mb-3 mb-lg-0{% endif %}">
             <span class="text-mono text-gray">Product</span>
             <h1 class="mb-3 font-mktg">
               {{ page.shortTitle }}
@@ -22,24 +22,26 @@
             </h1>
             <div class="lead-mktg text-gray">{{ page.intro }}</div>
 
-            <a href="{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
+            {% if page.introLinks.quickstart and page.introLinks.quickstart != '' %}
+            <a href="{{ currentPath }}{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
               {% data ui.product_landing.quick_start %}
             </a>
+            {% endif %}
 
-            {% if page.introLinks.reference %}
-              <a href="{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
+            {% if page.introLinks.reference and page.introLinks.reference != '' %}
+              <a href="{{ currentPath }}{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
                 {% data ui.product_landing.reference_guides %}
               </a>
             {% endif %}
 
-            {% if page.introLinks.overview %}
-              <a href="{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
+            {% if page.introLinks.overview and page.introLinks.overview != '' %}
+              <a href="{{ currentPath }}{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
                 {% data ui.product_landing.overview %}
               </a>
             {% endif %}
           </div>
 
-          {% if page.product_video %}
+          {% if page.product_video and page.product_video != '' %}
             <div class="col-12 col-lg-6">
               <div class="position-relative" style="padding-bottom:56.25%;">
                 {% unless process.env.AIRGAP %}
