@@ -5,6 +5,8 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### About navigating code on {% data variables.product.prodname_dotcom %}

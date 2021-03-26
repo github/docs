@@ -5,6 +5,9 @@ redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
+  - 通知
 ---
 
 ### 通知电子邮件

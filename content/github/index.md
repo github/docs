@@ -23,8 +23,6 @@ versions:
 {% link_in_list /managing-subscriptions-and-notifications-on-github %}
 
 <!-- Notifications v1 -->
-{% link_in_list /receiving-notifications-about-activity-on-github %}
-
 {% link_in_list /setting-up-and-managing-organizations-and-teams %}
 {% link_in_list /setting-up-and-managing-your-enterprise %}
 {% link_in_list /setting-up-and-managing-billing-and-payments-on-github %}
@@ -32,8 +30,6 @@ versions:
 {% link_in_list /writing-on-github %}
 
 {% link_in_list /creating-cloning-and-archiving-repositories %}
-
-{% link_in_list /using-git %}
 
 {% link_in_list /committing-changes-to-your-project %}
 

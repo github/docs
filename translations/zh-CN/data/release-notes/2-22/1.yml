@@ -18,11 +18,11 @@ sections:
     - |
       The MS SQL Server performance graph showed statistics from the primary instance even when a replica was selected. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
     - |
-      `ghe-actions-precheck` would silently exit without running the storage checks if Actions was not enabled. {% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+      如果 Actions 未启用，`ghe-actions-precheck` 将不运行存储检查而静默退出。{% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
     - |
-      Upgrade could fail if the resqued workers override setting is in use. {% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+      如果请求的工人覆盖设置在使用中，升级可能会失败。{% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
     - |
-      Some services running in containers were not sending logs to the journal. {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+      在容器中运行的一些服务没有发送日志到日报。 {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
     - |
       Links to GitHub Security Advisories would use a URL with the hostname of the GitHub Enterprise Server instance instead of GitHub.com, directing the user to a nonexistent URL. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
     - |

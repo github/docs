@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: Qualquer pessoa pode patrocinar contas em nome da própria conta de usuário. Os proprietários e gerentes de faturamento da organização podem patrocinar contas em nome de sua organização.
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -49,7 +51,7 @@ Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verif
 1. Em {% data variables.product.product_name %}, acesse o perfil do usuário ou organização que deseja patrocinar.
 1. Acesse o painel de patrocínio para a conta.
    - Para patrocinar um desenvolvedor, sob o nome do desenvolvedor, clique em **Patrocinador**. ![Botão Sponsor (Patrocinar)](/assets/images/help/profile/sponsor-button.png)
-   - Para patrocinar uma organização, à direita do nome da organização, clique em **Patrocinador**. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-org-button.png)
+   - Para patrocinar uma organização clique em **Patrocinador** à direita do nome da organização. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Opcionalmente, no lado direito da página, para patrocinar a conta em nome da sua organização, use o menu suspenso **Patrocinar como** e clique na organização. ![Menu suspenso para escolher a conta que você irá patrocinar como](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 {% data reusables.sponsors.sponsorship-details %}

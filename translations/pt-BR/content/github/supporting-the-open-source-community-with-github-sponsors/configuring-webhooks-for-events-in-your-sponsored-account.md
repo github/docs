@@ -3,6 +3,8 @@ title: Configurando webhooks para eventos em sua conta patrocinada
 intro: Você pode configurar webhooks para alertá-lo quando receber novos patrocínios ou patrocinadores existentes fizerem alterações em seus patrocínios.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre webhooks para eventos da sua conta patrocinada

@@ -17089,7 +17089,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -43989,7 +43989,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -48260,6 +48260,14 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "monthlyPriceInCents",
@@ -57836,7 +57844,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

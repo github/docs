@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 ### Tipos de mídia personalizados para problemas

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 プルリクエスト内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子の欠如、コードの所有権、ドットファイルでフィルタリングできます。

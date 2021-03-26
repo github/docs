@@ -14,6 +14,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
+  - 通知
 ---
 
 ### 关于提交电子邮件地址

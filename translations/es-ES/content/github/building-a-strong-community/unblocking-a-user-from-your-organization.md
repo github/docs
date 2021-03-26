@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Después de desbloquear un usuario desde tu organización, este podrá contribuir con los repositorios de tu organización.

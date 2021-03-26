@@ -1,9 +1,12 @@
 name: OpenAPI generate decorated schema files
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
 
 jobs:
   generate-decorated-files:

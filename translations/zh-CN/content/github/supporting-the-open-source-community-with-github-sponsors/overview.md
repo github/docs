@@ -4,5 +4,7 @@ intro: '了解 {% data variables.product.prodname_sponsors %} 以及您如何作
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 

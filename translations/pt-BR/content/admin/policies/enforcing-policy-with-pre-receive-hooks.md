@@ -7,5 +7,7 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-policy-with-pre-receive-hooks
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 

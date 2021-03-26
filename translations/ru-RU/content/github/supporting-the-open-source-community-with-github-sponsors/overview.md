@@ -4,5 +4,7 @@ intro: 'Learn about {% data variables.product.prodname_sponsors %} and how you c
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 

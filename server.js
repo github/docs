@@ -13,7 +13,14 @@ require('./lib/feature-flags')
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
 
-function main () {
+// Start the server!
+if (NODE_ENV === 'production') {
+  clusteredMain()
+} else {
+  nonClusteredMain()
+}
+
+function clusteredMain () {
   // Spin up a cluster!
   throng({
     master: setupPrimary,
@@ -22,8 +29,40 @@ function main () {
   })
 }
 
-// Start the server!
-main()
+async function nonClusteredMain () {
+  await checkPortAvailability()
+  await startServer()
+}
+
+async function checkPortAvailability () {
+  // Check that the development server is not already running
+  const portInUse = await portUsed.check(port)
+  if (portInUse) {
+    console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
+    console.log('Try running `killall node` to shut down all your running node processes.\n\n\n')
+    console.log('\x07') // system 'beep' sound
+    process.exit(1)
+  }
+}
+
+async function startServer () {
+  const app = require('./lib/app')
+  const warmServer = require('./lib/warm-server')
+
+  // If in a deployed environment...
+  if (NODE_ENV === 'production') {
+    // If in a true production environment, wait for the cache to be fully warmed.
+    if (process.env.HEROKU_PRODUCTION_APP || process.env.GITHUB_ACTIONS) {
+      await warmServer()
+    }
+  }
+
+  // Workaround for https://github.com/expressjs/express/issues/1101
+  const server = require('http').createServer(app)
+  server
+    .listen(port, () => console.log(`app running on http://localhost:${port}`))
+    .on('error', () => server.close())
+}
 
 // This function will only be run in the primary process
 async function setupPrimary () {
@@ -34,14 +73,7 @@ async function setupPrimary () {
 
   console.log('Starting up primary...')
 
-  // Check that the development server is not already running
-  const portInUse = await portUsed.check(port)
-  if (portInUse) {
-    console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
-    console.log('Try running `killall node` to shut down all your running node processes.\n\n\n')
-    console.log('\x07') // system 'beep' sound
-    process.exit(1)
-  }
+  await checkPortAvailability()
 }
 
 // IMPORTANT: This function will be run in a separate worker process!
@@ -64,22 +96,7 @@ async function setupWorker (id, disconnect) {
   console.log('Starting up worker...')
 
   // Load the server in each worker process and share the port via sharding
-  const app = require('./lib/app')
-  const warmServer = require('./lib/warm-server')
-
-  // If in a deployed environment...
-  if (NODE_ENV === 'production') {
-    // If in a true production environment, wait for the cache to be fully warmed.
-    if (process.env.HEROKU_PRODUCTION_APP || process.env.GITHUB_ACTIONS) {
-      await warmServer()
-    }
-  }
-
-  // Workaround for https://github.com/expressjs/express/issues/1101
-  const server = require('http').createServer(app)
-  server
-    .listen(port, () => console.log(`app running on http://localhost:${port}`))
-    .on('error', () => server.close())
+  await startServer()
 
   function shutdown () {
     if (exited) return
@@ -91,25 +108,23 @@ async function setupWorker (id, disconnect) {
 }
 
 function calculateWorkerCount () {
-  // Heroku's recommended WEB_CONCURRENCY count based on the WEB_MEMORY config
+  // Heroku's recommended WEB_CONCURRENCY count based on the WEB_MEMORY config,
+  // or explicitly configured by us
   const { WEB_CONCURRENCY } = process.env
 
-  const recommendedCount = parseInt(WEB_CONCURRENCY, 10) || 1
+  const recommendedCount = parseInt(WEB_CONCURRENCY, 10)
   const cpuCount = os.cpus().length
 
   // Ensure the recommended count is AT LEAST 1 for safety
-  let workerCount = Math.max(recommendedCount, 1)
+  let workerCount = Math.max(recommendedCount || 1, 1)
 
-  // Let's do some math...
-  // If in a deployed environment...
-  if (NODE_ENV === 'production') {
-    // If WEB_MEMORY or WEB_CONCURRENCY values were configured in Heroku, use
-    // the smaller value between their recommendation vs. the CPU count
-    if (WEB_CONCURRENCY) {
-      workerCount = Math.min(recommendedCount, cpuCount)
-    } else {
-      workerCount = cpuCount
-    }
+  // If WEB_CONCURRENCY value was configured to a valid number...
+  if (recommendedCount > 0) {
+    // Use the smaller value between the recommendation vs. the CPU count
+    workerCount = Math.min(workerCount, cpuCount)
+  } else if (NODE_ENV === 'production') {
+    // Else if in a deployed environment, default to the CPU count
+    workerCount = cpuCount
   }
 
   return workerCount
