@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 ### 关于存档中的 {% data variables.large_files.product_name_short %} 对象

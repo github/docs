@@ -28,6 +28,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する

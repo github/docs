@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 モバイルアプリまたは {% if currentVersion == "free-pro-team@latest" %} テキストメッセージ{% endif %}を使って、2 要素認証を設定できます。 また、セキュリティキーを追加することも可能です。

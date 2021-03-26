@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 環境変数について
 
@@ -40,7 +42,7 @@ jobs:
 
 ワークフローファイルの`run`キーを使って環境変数をランナーのオペレーティングシステム内から読む場合（上の例のように）、ジョブがランナーに送られた後に変数はランナーのオペレーティングシステム内で置き換えられます。 ワークフローファイルの他の部分では、環境変数を読むために`env`コンテキストを使わなければなりません。これは、ワークフローのキー（`if`など）で、ワークフローがランナーに送られる前に変数が置き換えられなければならないためです。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `GITHUB_ENV` 環境ファイル {% else %} `set-env` ワークフローコマンド {% endif %} を使用して、ワークフローの次の手順で使用できる環境変数を設定することもできます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} 環境ファイル {% else %} `set-env` コマンド {% endif %} は、アクションによって直接使用することも、`run` キーワードを使用してワークフローファイルのシェルコマンドとして使用することもできます。 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} `GITHUB_ENV` 環境ファイル {% else %} `set-env` ワークフローコマンド {% endif %} を使用して、ワークフローの次の手順で使用できる環境変数を設定することもできます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} 環境ファイル {% else %} `set-env` コマンド {% endif %} は、アクションによって直接使用することも、`run` キーワードを使用してワークフローファイルのシェルコマンドとして使用することもできます。 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
 
 ### デフォルトの環境変数
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - búsqueda de github
 ---
 
 Para mostrar bifurcaciones en los resultados de la [búsqueda de repositorios](/articles/searching-for-repositories), agrega `fork:true` o `fork:only` en tu consulta.

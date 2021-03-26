@@ -1,9 +1,11 @@
 ---
 title: Limitar las interacciones para tu cuenta de usuario
-intro: 'Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu cuenta de usuario.'
+intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu cuenta de usuario.
 versions:
   free-pro-team: '*'
 permissions: Cualquiera puede limitar las interacciones de su propia cuenta de usuario.
+topics:
+  - comunidad
 ---
 
 ### Acerca de los límites de interacción temporales

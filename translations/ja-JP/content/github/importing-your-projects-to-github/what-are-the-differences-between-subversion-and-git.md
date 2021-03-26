@@ -51,7 +51,7 @@ SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 
 
 ### 履歴を保存する
 
-SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git は、[`git rebase`](/articles/about-git-rebase) のようなツールを使って、過去のコミットや変更を修正できます。
+SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

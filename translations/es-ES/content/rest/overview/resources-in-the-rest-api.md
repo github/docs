@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -158,7 +160,7 @@ En este ejemplo, los valores 'vmg' and 'redcarpet' se proporcionan para los par�
 Para las solicitudes de tipo `POST`, `PATCH`, `PUT`, and `DELETE`, los parámetros que no se incluyen en la URL deben codificarse como JSON con un Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Terminal raíz
@@ -314,6 +316,8 @@ Para las solicitudes de la API que utilizan Autenticación Básica u OAuth, pued
 Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes que se hacen utilizando un token de OAuth para los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite incrementado de 15,000 solicitudes por hora.
 
 {% endif %}
+
+Cuando utilizas el `GITHUB_TOKEN` integrado en GitHub Actions, el límite de tasa es de 1,000 solicitudes por hora por repositorio. Para las organizaciones que pertenecen a una cuenta de GitHub Enterprise Cloud, este límite será de 15,000 solicitudes por hora por repositorio.
 
 Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes no autenticadas se asocian con la dirección IP que las origina, y no con el usuario que realiza la solicitud.
 

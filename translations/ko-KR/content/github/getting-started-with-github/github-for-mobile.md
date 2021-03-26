@@ -4,6 +4,8 @@ intro: 'Triage, collaborate, and manage your work on {% data variables.product.p
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

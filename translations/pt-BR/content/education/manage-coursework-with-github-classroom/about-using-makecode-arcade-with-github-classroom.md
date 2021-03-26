@@ -28,4 +28,4 @@ Por padrão, o MakeCode Arcade está configurado para realizar push no repositó
 
 ### Leia mais
 
-- "[Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

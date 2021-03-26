@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Sobre erros de criação do Jekyll

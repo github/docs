@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - búsqueda de github
 ---
 
 Puedes buscar propuestas y solicitudes de extracción globalmente a través de todos los {% data variables.product.product_name %}, o buscar propuestas y solicitudes de extracción dentro de una organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".

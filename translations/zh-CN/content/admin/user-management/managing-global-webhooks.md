@@ -7,6 +7,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
 ### 关于全局 web 挂钩

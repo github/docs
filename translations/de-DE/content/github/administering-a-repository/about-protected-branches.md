@@ -19,6 +19,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 ### About branch protection rules

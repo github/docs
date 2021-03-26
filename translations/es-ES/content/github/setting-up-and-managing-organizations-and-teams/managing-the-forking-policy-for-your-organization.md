@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Predeterminadamente, las organizaciones nuevas se configuran para no permitir que se bifurquen los repositorios privados{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} e internos{% endif %}.

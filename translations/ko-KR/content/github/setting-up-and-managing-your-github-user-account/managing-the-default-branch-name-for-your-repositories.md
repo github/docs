@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - accounts
 ---
 
 ### About the default branch name

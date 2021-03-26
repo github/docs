@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-organizations-for-procurement-companies
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 要访问组织，每个成员都必须登录到其自己的个人用户帐户。

@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 米国内の納税者は、支払いを受け取る前に W-9 をサブミットする必要があります。 米国外の納税者は、支払いを受け取る前に W-8BEN をサブミットする必要があります。 詳細は、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)」と「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)」を参照してください。 {% data variables.product.prodname_dotcom %} から適切なフォームが送信されて期限が通知され、フォームに記入して送信する十分な時間が与えられます。

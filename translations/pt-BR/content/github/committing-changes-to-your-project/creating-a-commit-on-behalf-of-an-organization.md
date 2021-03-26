@@ -47,7 +47,7 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/articles/pushing-commits-to-a-remote-repository/)".
+O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
 ### Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
 

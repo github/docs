@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
 ### はじめに
 
-This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+このガイドでは、[GitHub App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
 
 CI とは、ソフトウェアの開発においてコードを頻繁に共有リポジトリにコミットする手法のことです。 コードをコミットする頻度が高いほどエラーの発生が早くなり、開発者がエラーの原因を見つけようとしてデバッグする必要性も減ります。 コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 コードの記述により多くの時間をかけられるようになり、エラーのデバッグやマージコンフリクトの解決にかける時間が減るので、これは開発者にとって素晴らしいやり方です。 🙌
 
@@ -24,7 +26,7 @@ CI サーバーは、コードの文法チェッカー (スタイルフォーマ
 
 [Checks API](/rest/reference/checks) を使用すると、リポジトリでコミットされている各コードに対して自動的に実行される CI テストを設定できます。 Checks API は、プルリクエストの [**Checks**] タブにおいて、各チェックについての詳細情報をレポートします。 Checks API を使用すると、コードの特定の行に対して追加的な情報を含むアノテーションを作成できます。 アノテーションは [**Checks**] タブに表示されます。 プルリクエストの一部であるファイルに対してアノテーションを作成すると、そのアノテーションは [**Files changed**] タブにも表示されます。
 
-_チェックスイート_とは、 _チェック実行_ (個々の CI テスト) をグループ化したものです。 チェックスイートにもチェック実行にも_ステータス_が含まれており、GitHub のプルリクエストで表示できます。 ステータスを使用して、コードコミットがエラーを発生させるタイミングを決定できます。 これらのステータスを[保護されたブランチ](/rest/reference/repos#branches)で使用すると、プルリクエストを早まってマージすることを防げます。 See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+_チェックスイート_とは、 _チェック実行_ (個々の CI テスト) をグループ化したものです。 チェックスイートにもチェック実行にも_ステータス_が含まれており、GitHub のプルリクエストで表示できます。 ステータスを使用して、コードコミットがエラーを発生させるタイミングを決定できます。 これらのステータスを[保護されたブランチ](/rest/reference/repos#branches)で使用すると、プルリクエストを早まってマージすることを防げます。 詳細は「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)」を参照してください。
 
 Checks API は、新しいコードがリポジトリにプッシュされるたびに、リポジトリにインストールされている全ての GitHub App に [`check_suite` webhook イベント](/webhooks/event-payloads/#check_suite)を送信します。 Checks API イベントの全てのアクションを受信するには、アプリケーションに `checks:write` 権限が必要です。 GitHub はデフォルトのフローを使ってリポジトリの新しいコードのコミットに `check_suite` イベントを自動的に作成しますが、[チェックスイートのためのリポジトリプリファレンスの更新](/rest/reference/checks#update-repository-preferences-for-check-suites)を行っても構いません。 デフォルトのフローは以下の通りです。
 
@@ -49,7 +51,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 ### 必要な環境
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
+[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
 
 [Ruby プログラミング言語](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) webhook ペイロード配信サービス、GitHub REST API 用の [Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)、および [Sinatra ウェブフレームワーク](http://sinatrarb.com/) を使用して、Checks API CI サーバーアプリケーションを作成します。
 
@@ -203,7 +205,7 @@ $ ruby template_server.rb
 
 ### ステップ 1.4. チェック実行を更新する
 
-`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. このイベントは、チェックの実行を開始する合図です。
+`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 GitHub がチェック実行の作成を完了すると、`created` アクションの `check_run` webhook イベントを受信します。 このイベントは、チェックの実行を開始する合図です。
 
 イベントハンドラーを更新し、`created` アクションを待ち受けるようにしましょう。 イベントハンドラーを更新する際、`rerequested` アクションに条件を追加できます。 誰かが [Re-run] ボタンをクリックして GitHub 上で単一のテストを再実行すると、GitHub はアプリケーションに `rerequested` チェック実行イベントを送信します。 チェック実行が `rerequested` の場合、すべてのプロセスを開始し、新しいチェック実行を作成します。
 
@@ -722,7 +724,7 @@ RuboCop ツールには、見つけたエラーを自動的に修正する `--au
 
 リポジトリにブッシュするには、アプリケーションに [Repository contents] への書き込み権限が必要です。 この権限については、[ステップ 2.2. リポジトリをクローンする](#step-22-cloning-the-repository)で既に [**Read & write**] に設定しているので、もう準備は整っています。
 
-ファイルをコミットするには、どの[ユーザ名](/articles/setting-your-username-in-git/)と[メールアドレス](/articles/setting-your-commit-email-address-in-git/)をコミットに関連付けるか Git が知っている必要があります。 `.env` ファイルにあと 2 つの環境変数を追加して、名前 (`GITHUB_APP_USER_NAME`) とメールアドレス (`GITHUB_APP_USER_EMAIL`) の設定を保存します。 アプリケーションにはあなたの名前を付けることもできます。この例では、メールアドレスは何でも構いません。 例:
+ファイルをコミットするには、どの[ユーザ名](/github/getting-started-with-github/setting-your-username-in-git/)と[メールアドレス](/articles/setting-your-commit-email-address-in-git/)をコミットに関連付けるか Git が知っている必要があります。 `.env` ファイルにあと 2 つの環境変数を追加して、名前 (`GITHUB_APP_USER_NAME`) とメールアドレス (`GITHUB_APP_USER_EMAIL`) の設定を保存します。 アプリケーションにはあなたの名前を付けることもできます。この例では、メールアドレスは何でも構いません。 例:
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
