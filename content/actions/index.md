@@ -3,7 +3,7 @@ title: GitHub Actions Documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
-  quickstart: /actions/quickstart
+  quickstart: '{% if currentVersion == "free-pro-team@latest" %}/actions/quickstart{% endif %}'
   reference: /actions/reference
 featuredLinks:
   guides:
@@ -32,7 +32,7 @@ changelog:
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
 
-product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+product_video: '{% if currentVersion == "free-pro-team@latest" %}https://www.youtube-nocookie.com/embed/cP0I9w2coGU{% endif %}'
 
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
