@@ -23,19 +23,19 @@
             <div class="lead-mktg text-gray">{{ page.intro }}</div>
 
             {% if page.introLinks.quickstart and page.introLinks.quickstart != '' %}
-            <a href="{{ currentPath }}{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
+            <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
               {% data ui.product_landing.quick_start %}
             </a>
             {% endif %}
 
             {% if page.introLinks.reference and page.introLinks.reference != '' %}
-              <a href="{{ currentPath }}{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
+              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
                 {% data ui.product_landing.reference_guides %}
               </a>
             {% endif %}
 
             {% if page.introLinks.overview and page.introLinks.overview != '' %}
-              <a href="{{ currentPath }}{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
+              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
                 {% data ui.product_landing.overview %}
               </a>
             {% endif %}
