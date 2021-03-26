@@ -1,5 +1,9 @@
 name: CodeQL analysis
 
+# **What it does**: This runs CodeQL on our repository.
+# **Why we have it**: Security scanning.
+# **Who does it impact**: Docs engineering.
+
 on:
   push:
     branches:

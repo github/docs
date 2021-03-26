@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.

@@ -5,6 +5,9 @@ redirect_from:
   - /categories/site-policy
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 

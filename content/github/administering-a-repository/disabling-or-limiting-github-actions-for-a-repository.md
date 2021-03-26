@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.actions.enterprise-beta %}

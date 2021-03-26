@@ -1,7 +1,7 @@
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
-const app = require('../../server')
+const app = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
