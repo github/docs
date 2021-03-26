@@ -4,7 +4,7 @@ intro: You can change the name of a branch in a repository.
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.1'
+  enterprise-server: '>=3.2'
 topics:
   - repositories
 ---
@@ -13,7 +13,9 @@ topics:
 
 You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)."
 
-If you rename a branch, {% data variables.product.prodname_dotcom %} will automatically redirect links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %} that contain the old branch name to the equivalent link on the renamed branch. {% data variables.product.prodname_dotcom %} will also update branch protection policies, as well as the base branch for open pull requests and draft releases.
+If you rename a branch, {% data variables.product.prodname_dotcom %} will automatically redirect links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %} that contain the old branch name to the equivalent link on the renamed branch. {% data variables.product.prodname_dotcom %} will also update branch protection policies, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} will provide instructions on the repository's home page directing contributors to update their local Git environments.
+
+Although {% data variables.product.prodname_dotcom %} will redirect file links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %}, it will not automatically redirect raw file links. In addition, {% data variables.product.prodname_dotcom %} will not perform any redirects if users perform a `git pull` for the previous branch name. 
 
 ### Renaming a branch
 
