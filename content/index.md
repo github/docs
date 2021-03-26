@@ -13,5 +13,6 @@ featuredLinks:
     - /github/getting-started-with-github/managing-remote-repositories
     - /github/working-with-github-pages
 versions: '*'
+.
 ---
 
