@@ -1,4 +1,5 @@
 ---
+
 title: Changing project board visibility
 intro: 'As an organization owner or project board admin, you can make a project board {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private.'
 redirect_from:
