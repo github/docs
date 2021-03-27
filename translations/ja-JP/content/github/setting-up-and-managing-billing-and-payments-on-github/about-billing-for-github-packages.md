@@ -4,6 +4,8 @@ intro: 'アカウントに含まれるストレージやデータ転送を超え
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.prodname_registry %}の支払いについて

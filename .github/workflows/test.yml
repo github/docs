@@ -2,6 +2,10 @@
 
 name: Node.js Tests
 
+# **What it does**: Runs our tests.
+# **Why we have it**: We want our tests to pass before merging code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
 on:
   workflow_dispatch:
   push:

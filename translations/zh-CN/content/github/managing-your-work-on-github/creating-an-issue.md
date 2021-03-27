@@ -1,13 +1,15 @@
 ---
 title: 创建议题
 intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
-permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
+permissions: 具有读取权限的人可以在启用了议题的仓库中创建议题。
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 您可以根据现有拉取请求中的代码打开新议题。 更多信息请参阅“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。

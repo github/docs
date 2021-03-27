@@ -1,6 +1,7 @@
 ---
 date: '2021-01-29'
 release_candidate: true
+deprecated: true
 intro: As versões de candidatos devem ser testadas em ambientes que não são de produção. Para obter mais informações sobre o Programa Candidato de Versão, consulte o [Blogue do GitHub](https://github. log/2020-12-03-improving-the-ghes-release-process-release-candidates/) ou "[Sobre atualizações de novas versões](/admin/overview/about-upgrades-to-new-releases)."
 sections:
   bugs:

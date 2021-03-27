@@ -41,7 +41,7 @@ versions:
 
 {% tip %}
 
-**提示：**在成功地将项目转换为 Git 后，您可以[将其推送到 {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/)。
+**提示：**在成功地将项目转换为 Git 后，您可以[将其推送到 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}
 

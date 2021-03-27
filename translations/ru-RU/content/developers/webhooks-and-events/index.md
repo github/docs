@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - веб-перехватчики
+  - events
 ---
 
 ### Table of Contents

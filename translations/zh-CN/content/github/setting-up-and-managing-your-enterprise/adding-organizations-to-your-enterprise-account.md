@@ -7,11 +7,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 企业所有者可在企业帐户的设置中创建新组织。
 
-要将组织添加到企业帐户，必须在企业帐户设置中创建组织。 您不能将现有组织转移到企业帐户中。
+要将组织添加到企业帐户，必须在企业帐户设置中创建组织。 If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
 
 ### 在企业帐户中创建组织
 

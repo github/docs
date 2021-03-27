@@ -4,14 +4,8 @@ shortTitle: Setting up code scanning
 intro: 'You can set up {% data variables.product.prodname_code_scanning %} by adding a workflow to your repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
-redirect_from:
-  - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
 topics:
   - security
 ---

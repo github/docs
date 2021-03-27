@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 커뮤니티
 ---
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.

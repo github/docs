@@ -24,7 +24,7 @@ versions:
 
 ### 更改讨论类别
 
-您可以对讨论进行分类，以帮助社区成员查找相关的讨论。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”文章。
+您可以对讨论进行分类，以帮助社区成员查找相关的讨论。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
 
 您也可以将讨论移动到另一个类别。
 

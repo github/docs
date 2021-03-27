@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ### Über Basisberechtigungen für eine Organisation

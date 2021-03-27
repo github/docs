@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
+topics:
+  - repositories
 ---
 
 ### Acerca de cambiar la rama predeterminada

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+topics:
+  - enterprise
 ---
 
 ### Sobre a alta disponibilidade de replicação de clusters

@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de las variables de entorno
 
@@ -40,7 +42,7 @@ Para utilizar el valor de una variable de ambiente en un archivo de flujo de tra
 
 Si utilizas la clave `run` de los archivos del flujo de trabajo para leer las variables de ambiente desde dentro del sistema operativo ejecutor (como se muestra en el ejemplo anterior), dicha variable se sustituirá en el sistema operativo ejecutor después de que se envíe el job al ejecutor. En el caso de otras partes de un archivo de flujo de trabajo, debes utilizar el contexto `env` para leer las variables de ambiente; esto es porque las claves de flujo de trabajo (tales como `if`) requieren que se sustituya la variable durante el procesamiento de dicho flujo de trabajo antes de que se envíe al ejecutor.
 
-Tambièn puedes utilizar el archivo de ambiente de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV`{% else %} el comando de flujo de trabajo `set-env`{% endif %} para configurar una variable de ambiente que pueda utilizar los siguientes pasos en un flujo de trabajo. El {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}archivo de ambiente{% else %} comando `set-env`{% endif %} puede utilizarse directamente a travès de una acciòn o como un comando de shell en un archivo de trabajo utilizando la palabra clave `run`. Para obtener más información, consulta "[Comandos de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
+También puedes utilizar el {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} archivo de ambiente `GITHUB_ENV`{% else %} comando de flujo de trabajo `set-env`{% endif %} para configurar una variable de ambiente que puedan utilizar los siguientes pasos en un flujo de trabajo. Una acción puede utilizar directamente el {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}archivo de ambiente{% else %} comando `set-env`{% endif %}, o se puede utilizar como un comando de shell en un archivo de flujo de trabajo si se utiliza la palabra clave `run`. Para obtener más información, consulta "[Comandos de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
 
 ### Variables de entorno predeterminadas
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - events
 ---
 
 
@@ -152,19 +154,19 @@ Una confirmación se agregó a la rama `HEAD` de la solicitud de extracción.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nombre        | Type                | Descripción                                                                                                                                                                                       |
-| ------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sha`         | `secuencia`         | El SHA de la confirmación en la solicitud de extracción.                                                                                                                                          |
-| `node_id`     | `secuencia`         | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                                         |
-| `url`         | `secuencia`         | La URL de la API de REST que recuperará la confirmación.                                                                                                                                          |
-| `html_url`    | `secuencia`         | La URL de HTML de la confirmación.                                                                                                                                                                |
-| `autor`       | `objeto`            | La persona que autorizó la confirmación.                                                                                                                                                          |
-| `confirmante` | `objeto`            | La persona que confirmó la confirmación en nombre del autor.                                                                                                                                      |
-| `árbol`       | `objeto`            | El árbol de Git de la confirmación.                                                                                                                                                               |
-| `message`     | `secuencia`         | El mensaje de la confirmación.                                                                                                                                                                    |
-| `parents`     | `matriz de objetos` | Una lista de confirmaciones padre.                                                                                                                                                                |
-| `verfication` | `objeto`            | El resultado de verificar la firma de la confirmación. Para obtener más información, consulta la sección "[Objeto de verificación de firmas](/rest/reference/git#signature-verification-object)". |
-| `event`       | `secuencia`         | El valor del evento es `"committed"`.                                                                                                                                                             |
+| Nombre         | Type                | Descripción                                                                                                                                                                      |
+| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`          | `secuencia`         | El SHA de la confirmación en la solicitud de extracción.                                                                                                                         |
+| `node_id`      | `secuencia`         | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                        |
+| `url`          | `secuencia`         | La URL de la API de REST que recuperará la confirmación.                                                                                                                         |
+| `html_url`     | `secuencia`         | La URL de HTML de la confirmación.                                                                                                                                               |
+| `autor`        | `objeto`            | La persona que autorizó la confirmación.                                                                                                                                         |
+| `confirmante`  | `objeto`            | La persona que confirmó la confirmación en nombre del autor.                                                                                                                     |
+| `árbol`        | `objeto`            | El árbol de Git de la confirmación.                                                                                                                                              |
+| `message`      | `secuencia`         | El mensaje de la confirmación.                                                                                                                                                   |
+| `parents`      | `matriz de objetos` | Una lista de confirmaciones padre.                                                                                                                                               |
+| `verificación` | `objeto`            | El resultado de verificar la firma de la confirmación. Para obtener más información, consulta la sección "[Objeto de verificación de firmas](/rest/reference/git#get-a-commit)". |
+| `event`        | `secuencia`         | El valor del evento es `"committed"`.                                                                                                                                            |
 
 ### connected
 
