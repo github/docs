@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: 'how_to'
 topics:
-  - 'Fundamentals'
+  - 'Fundamentals' 
 ---
 
 {% data reusables.actions.enterprise-beta %}
