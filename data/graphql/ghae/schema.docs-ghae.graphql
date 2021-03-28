@@ -31493,6 +31493,11 @@ type Sponsorship implements Node {
   id: ID!
 
   """
+  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
+  """
+  isOneTimePayment: Boolean!
+
+  """
   The entity that is being sponsored
   """
   maintainer: User! @deprecated(reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.")
