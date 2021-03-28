@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织所有者和帐单管理员可以代表其组织赞助帐户。
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

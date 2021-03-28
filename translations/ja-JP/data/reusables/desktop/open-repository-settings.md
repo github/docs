@@ -1,14 +1,14 @@
-1. Open the **Repository** menu, then click **Repository settings...**.
+1. **Repository（リポジトリ）**メニューを開き、**Repository settings...（リポジトリ設定...）**をクリックしてください。
 
   {% mac %}
 
-  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
+  ![Macアプリケーションのリポジトリ設定メニューオプション](/assets/images/help/desktop/mac-repository-settings.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Repository settings menu option in the Windows app](/assets/images/help/desktop/windows-repository-settings.png)
+  ![Windowsアプリケーションのリポジトリ設定メニューオプション](/assets/images/help/desktop/windows-repository-settings.png)
 
   {% endwindows %}
   

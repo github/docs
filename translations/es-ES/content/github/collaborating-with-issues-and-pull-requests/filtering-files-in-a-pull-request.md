@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Puedes filtrar archivos en una solicitud de cambios por tipo de extensión, tal como `.html` o `.js`, por falta de extensión, propietario del código, o dotfiles.

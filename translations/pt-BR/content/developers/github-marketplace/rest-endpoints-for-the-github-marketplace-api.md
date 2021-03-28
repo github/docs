@@ -7,6 +7,8 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

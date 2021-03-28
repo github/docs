@@ -32,8 +32,7 @@ Before organization owners or members can publish container images to {% data va
 {% data reusables.organizations.org_settings %}
 4. On the left, click **Packages**.
 5. Under "Improved container support", select "Enable improved container support" and click **Save**. ![Enable container registry support option and save button](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
-6. Under "Container creation", choose whether you want to enable the creation of public and/or private container images.
+6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
     - To enable organization members to create public container images, click **Public**.
     - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images. For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
-
-    ![Options to enable public or private packages ](/assets/images/help/package-registry/package-creation-org-settings.png)
+    - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**. ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)

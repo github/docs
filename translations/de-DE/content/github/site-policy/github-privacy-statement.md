@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: December 19, 2020
@@ -94,7 +97,7 @@ Wir erfassen nicht absichtlich persönliche Benutzerdaten, die **in Ihren Reposi
 
 ### Wie verwendet GitHub Ihre Informationen
 
-- Wir können Ihre Daten für folgende Zwecke verwenden:
+Wir können Ihre Daten für folgende Zwecke verwenden:
 - Wir verwenden Ihre [Registrierungsinformationen](#registration-information), um Ihr Konto zu erstellen und Ihnen den Dienst zur Verfügung zu stellen.
 - Wir verwenden Ihre [Zahlungsinformationen](#payment-information), um Ihnen die bezahlten Konto-Dienste, Marketplace-Dienste, das Sponsorenprogramm oder einen anderen von Ihnen angeforderten bezahlten GitHub-Dienst bereitzustellen.
 - Wir verwenden Ihre personenbezogenen Daten, insbesondere Ihren Benutzernamen, um Sie auf GitHub zu identifizieren.
@@ -245,7 +248,7 @@ Auf unserer Webseite [Cookies und Tracking](/github/site-policy/github-subproces
 
 #### DNT
 
-"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub reagiert auf Browser-DNT-Signale und folgt dem [W3C-Standard für das Reagieren auf DNT-Signale](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. Es gibt auch gute Anwendungen, die die Online-Verfolgung verhindern. Ein gutes Beispiel dafür ist [Privacy Badger](https://privacybadger.org/).
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub reagiert auf Browser-DNT-Signale und folgt dem [W3C-Standard für das Reagieren auf DNT-Signale](https://www.w3.org/TR/tracking-dnt/). Wenn Sie diese Einstellung in Ihrem Browser setzen wollen, schauen Sie sich die Dokumentation Ihres Browsers an. Es gibt auch gute Anwendungen, die die Online-Verfolgung verhindern. Ein gutes Beispiel dafür ist [Privacy Badger](https://privacybadger.org/).
 
 ### Wie GitHub Ihre Daten schützt
 

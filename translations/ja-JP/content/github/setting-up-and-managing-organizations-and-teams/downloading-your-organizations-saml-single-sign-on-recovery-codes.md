@@ -7,6 +7,9 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 リカバリコードは共有や配布しないでください。 [LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[Keeper](https://keepersecurity.com/) などのパスワードマネージャで保存することをおすすめします。

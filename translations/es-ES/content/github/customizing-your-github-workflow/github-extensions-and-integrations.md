@@ -30,12 +30,20 @@ Con el {% data variables.product.prodname_dotcom %} para la extensión de Visual
 
 ### Herramientas de gestión de proyectos
 
-Puedes integrar tu cuenta personal o de organización de {% data variables.product.product_name %} con las herramientas de administración de proyectos de terceros tales como Jira o Slack.
+Puedes integrar tu cuenta personal o de organización de {% data variables.product.product_name %} con las herramientas de administración de proyectos de terceros tales como Jira.
 
 #### Integración de Jira Cloud y {% data variables.product.product_name %}.com
 
 Puedes integrar Jira Cloud con tu cuenta personal o de organización para escanear confirmaciones y solicitudes de extracción, y crear los metadatos e hipervínculos correspondientes en cualquiera de las propuestas de Jira mencionadas. Para obtener más información, visita la [App de integración de Jira](https://github.com/marketplace/jira-software-github) en marketplace.
 
+### Herramientas de comunicación para equipos
+
+Puedes integrar tu cuenta organizacional o personal de {% data variables.product.product_name %} con las herramientas de comunicación para equipos de terceros tales como Slack o Microsoft Teams.
+
 #### Integración con Slack y con {% data variables.product.product_name %}
 
 Puedes integrar Slack con tu cuenta de organización o personal para suscribirte a las notificaciones, cerrar o abrir propuestas, y proporcionar referencias enriquecidas a las propuestas y solicitudes de cambios sin salir de Slack. Para obtener más información, visita la [App de integración de Slack](https://github.com/marketplace/slack-github) en Marketplace.
+
+#### Microsoft Teams y su integración con {% data variables.product.product_name %}
+
+Puedes integrar a Microsoft Teams con tu cuenta organizacional o personal para acceder a la información sobre {% data variables.product.product_name %} en conjunto con una comunicación de equipo más amplia. Cuando integras a Microsoft Teams con {% data variables.product.product_name %}, puedes suscribirte para las notificaciones, cerrar o abrir propuestas y proporcionar referencias ricas para las propuestas y solicitudes de cambio sin salir de Microsoft Teams. Para obtener más información, visita la [App de integración de Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) en Microsoft AppsSource.

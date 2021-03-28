@@ -8,9 +8,9 @@ permissions: Los propietarios de las empresas pueden verificar los dominios de s
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - empresa
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### Acerca de la verificación de dominios
 

@@ -24,7 +24,7 @@ Organization のオーナーは、Organization が所有するリポジトリの
 
 ### ディスカッションのカテゴリを変更する
 
-ディスカッションを分類して、コミュニティメンバーが関連するディスカッションを見つけやすくすることができます。 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」の記事を参照してください。
+ディスカッションを分類して、コミュニティメンバーが関連するディスカッションを見つけやすくすることができます。 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」を参照してください。
 
 ディスカッションを別のカテゴリに移動することもできます。
 
