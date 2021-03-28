@@ -14,4 +14,3 @@ featuredLinks:
     - /github/working-with-github-pages
 versions: '*'
 ---
-
