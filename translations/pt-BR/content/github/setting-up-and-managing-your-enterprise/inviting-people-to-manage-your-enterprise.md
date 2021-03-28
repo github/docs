@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre convidar pessoas para gerenciar sua conta corporativa

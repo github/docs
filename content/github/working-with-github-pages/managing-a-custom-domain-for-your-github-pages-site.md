@@ -13,6 +13,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - pages
 ---
 
 People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.

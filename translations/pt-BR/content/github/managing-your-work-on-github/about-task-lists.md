@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 As listas de tarefas são renderizadas com caixas de seleção clicáveis em comentários. Você pode marcar ou desmarcar as caixas de seleção para marcá-las como completas ou incompletas.

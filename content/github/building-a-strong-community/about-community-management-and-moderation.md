@@ -3,6 +3,8 @@ title: About community management and moderation
 intro: '{% data variables.product.prodname_dotcom %} offers tools that help repository maintainers establish and enforce standards of behavior in their communities on {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 ### About community management and moderation

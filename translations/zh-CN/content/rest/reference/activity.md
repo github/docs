@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 {% for operation in currentRestOperations %}
@@ -32,8 +34,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
 ```
-
-事件支持分页，但不支持 `per_page` 选项。 固定页面大小为 30 个条目。 支持最多获取 10 页，总共 300 个事件。 更多信息请参阅“[使用分页遍历](/rest/guides/traversing-with-pagination)”。
 
 时间表中只包含过去 90 天内创建的事件。 超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。
 

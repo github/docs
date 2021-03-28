@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 以下限制大多会影响 {% data variables.product.product_name %} 和 API。

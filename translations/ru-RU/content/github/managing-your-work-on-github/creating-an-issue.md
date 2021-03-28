@@ -1,13 +1,15 @@
 ---
 title: Creating an issue
 intro: 'Issues can be used to keep track of bugs, enhancements, or other requests.'
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 You can open a new issue based on code from an existing pull request. For more information, see "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)."

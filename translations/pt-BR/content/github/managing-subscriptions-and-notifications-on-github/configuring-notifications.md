@@ -17,6 +17,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - notificações
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -50,8 +52,8 @@ A caixa de entrada de notificações em {% data variables.product.product_name %
   - Notificações em grupo em sua caixa de entrada por repositório ou data para obter uma visão geral rápida com menos comutação de contexto
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-Além disso, a caixa de entrada de notificações em
-{% data variables.product.prodname_mobile %} permite que você faça triagem de notificações no modo escuro e receba notificações push para menções diretas. Para obter mais informações, consulte "[Habilitar notificações push com GitHub para celular](#enabling-push-notifications-with-github-for-mobile)" ou "[GitHub para celular](/github/getting-started-with-github/github-for-mobile)".
+Além disso, você pode receber e acessar as notificações no seu dispositivo móvel com
+{% data variables.product.prodname_mobile %}. Para obter mais informações, consulte "[Gerenciar as suas configurações de notificação com o GitHub para celular](#managing-your-notification-settings-with-github-for-mobile)" ou "[GitHub para celular](/github/getting-started-with-github/github-for-mobile)".
 {% endif %}
 
 #### Benefícios da utilização de um cliente de e-mail para notificações
@@ -64,7 +66,7 @@ As notificações de e-mail também permitem flexibilidade com os tipos de notif
 
 ### Sobre notificações de participação e inspeção
 
-Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/github/building-a-strong-community/about-team-discussions)".
+Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
 
 Para ver repositórios que você está inspecionando, acesse a sua [página de inspeção](https://github.com/watching). Para obter mais informações, consulte "[Gerenciando assinaturas e notificações do GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -155,6 +157,26 @@ Por padrão, sempre que você obtiver acesso a um novo repositório, você come�
 
 Se "Inspecionar repositórios automaticamente" estiver desativado, então você não inspecionará automaticamente seus próprios repositórios. É necessário navegar na página do seu repositório e escolher a opção de inspeção.
 
+### Configurando as configurações de inspeção para um repositório individual
+
+É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por receber notificações apenas sobre {% if currentVersion == "free-pro-team@latest" %}certos tipos de eventos como problemas, pull requests, discussões (se habilitado para o repositório) e {% endif %}novas versões, ou ignorar completamente um repositório individual.
+
+{% data reusables.repositories.navigate-to-repo %}
+2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção.
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+A opção **Personalizar** permite que você personalize ainda mais as notificações para que você seja notificado apenas quando eventos específicos ocorrerem no repositório, além de participar e @mentions.
+
+   ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+
+Se você selecionar "Problemas", você será notificado e irá inscrever-se para receber atualizações sobre cada problema (incluindo aqueles que existiam antes de você selecionar esta opção) no repositório. Se você for @mentioned em um pull request neste repositório, você receberá notificações sobre isso também e será inscrito em atualizações desse pull request específico, além de ser notificado sobre problemas.
+
+{% endif %}
+
 ### Escolhendo para onde as notificações de e-mail da sua organização são enviadas
 
 Se pertencer a uma organização, você poderá escolher a conta de e-mail em que deseja receber as notificações da atividade da organização. Por exemplo, se pertencer a uma organização para fins de trabalho, talvez você queira receber as notificações no seu endereço de e-mail profissional, e não no endereço pessoal.
@@ -203,26 +225,39 @@ Escolha como você deseja receber atualizações de execução de fluxo de traba
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-### Habilitando notificações push com {% data variables.product.prodname_mobile %}
+### Gerenciar as suas configurações de notificação com {% data variables.product.prodname_mobile %}
 
-Quando você instalar {% data variables.product.prodname_mobile %}, você será automaticamente incluído em notificações da web. Você poderá então ativar notificações push para menções diretas no app.
+Quando você instalar {% data variables.product.prodname_mobile %}, você será automaticamente incluído em notificações da web. No aplicativo, você pode habilitar notificações push para os seguintes eventos.
+- Menções diretas
+- Atribuições para problemas ou pull requests
+- Solicitações para revisar um pull request
+- Solicitações para aprovação de implantação
 
-Você só pode receber notificações de pushes para repositórios no {% data variables.product.prodname_mobile %} neste momento.
+Você também pode agendar quando {% data variables.product.prodname_mobile %} enviará notificações por push para o seu dispositivo móvel.
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-#### Habilitar notificações de push com {% data variables.product.prodname_ios %}
+#### Gerenciar as suas configurações de notificação com {% data variables.product.prodname_ios %}
 
-1. Acima de "Home", clique na foto do seu perfil.
-2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}. ![Ícone de configurações para GitHub para iOS](/assets/images/help/mobile/ios-settings-icon.png)
-3. Para atualizar suas configurações de notificação, clique em **Notificações push**.
-4. Para ativar as notificações push para menções diretas, use a alternância **Menções Diretas**.
+1. No menu inferior, toque em **Perfil**.
+2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}.
+3. Para atualizar as suas configurações de notificação, toque em **Notificações** e, em seguida, use os atalhos para habilitar ou desabilitar os seus tipos preferidos de notificações de push.
+4. Opcionalmente, para agendar quando {% data variables.product.prodname_mobile %} enviará notificações de push para seu dispositivo móvel, toque em **Horas de Trabalho**, use o **horário de trabalho personalizado** e, em seguida, escolha quando você gostaria de receber notificações de push.
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Habilitar notificações de push com {% data variables.product.prodname_android %}
+#### Gerenciar as suas configurações de notificação com {% data variables.product.prodname_android %}
 
-1. Acima de "Home", clique na foto do seu perfil.
-2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}. ![Ícone de configurações para GitHub para iOS](/assets/images/help/mobile/android-settings-icon.png)
-3. Para ativar as notificações push para menções diretas, use a alternância **Menções Diretas**.
-{% endif %}
+1. No menu inferior, toque em **Perfil**.
+2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}.
+3. Para atualizar as suas configurações de notificação, toque em **Notificações** e, em seguida, use os atalhos para habilitar ou desabilitar os seus tipos preferidos de notificações de push.
+4. Opcionalmente, para agendar quando {% data variables.product.prodname_mobile %} enviará notificações para seu dispositivo móvel, toque em **Receber notificações**, use o **horário de trabalho personalizado**, e em seguida, escolha quando você gostaria de receber notificações de push.
+
+### Configurar as configurações de inspeção para um repositório individual com {% data variables.product.prodname_mobile %}
+
+É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por receber notificações apenas sobre {% if currentVersion == "free-pro-team@latest" %}certos tipos de eventos como problemas, pull requests, discussões (se habilitado para o repositório) e {% endif %}novas versões, ou ignorar completamente um repositório individual.
+
+1. Em {% data variables.product.prodname_mobile %}, acesse a página principal do repositório.
+2. Toque em **Inspecionar**. ![O botão de inspecionar em {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
+3. Para escolher para quais atividades você recebe notificações, toque nas suas configurações de inspeção preferenciais. ![Manu suspenso de configurações de inspeção em {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+
 {% endif %}

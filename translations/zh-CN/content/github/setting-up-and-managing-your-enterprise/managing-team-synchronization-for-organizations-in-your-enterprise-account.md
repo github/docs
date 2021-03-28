@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 企业所有者可以管理企业帐户的团队同步。
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 ### 关于企业帐户的团队同步

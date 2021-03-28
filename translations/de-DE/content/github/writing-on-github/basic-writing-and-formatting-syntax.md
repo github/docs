@@ -197,7 +197,7 @@ Weitere Informationen findest Du unter „[Automatisch verknüpfte Verweise und 
 
 Einige {% data variables.product.prodname_github_app %}s stellen Informationen in {% data variables.product.product_name %} für URLs bereit, die auf die registrierten Domänen verknüpfen. {% data variables.product.product_name %} zeigt die von der App bereitgestellten Informationen unter der URL im Text oder Kommentar eines Issues bzw. Pull Requests an.
 
-![Inhaltsanhang](/assets/images/help/writing/content-attachment.png)
+![Inhaltsanhang](/assets/images/github-apps/content_reference_attachment.png)
 
 To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 

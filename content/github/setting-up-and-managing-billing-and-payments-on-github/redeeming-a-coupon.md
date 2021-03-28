@@ -8,6 +8,8 @@ redirect_from:
   - /articles/redeeming-a-coupon
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 {% data variables.product.product_name %} can't issue a refund if you pay for an account before applying a coupon. We also can't transfer a redeemed coupon or give you a new coupon if you apply it to the wrong account. Confirm that you're applying the coupon to the correct account before you redeem a coupon.

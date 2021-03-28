@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 Usar várias réplicas ativas diminui a distância até a réplica mais próxima. Por exemplo, uma organização com escritórios em San Francisco, Nova York e Londres pode executar o appliance primário em um datacenter próximo a Nova York e duas réplicas em datacenters próximos a San Francisco e Londres. Ao usar um DNS compatível com localização geográfica, os usuários podem ser direcionados para o servidor mais próximo disponível e acessar os dados do repositório em menos tempo. Definir o appliance próximo a Nova York como o primário ajuda a reduzir a latência entre os hosts, em comparação a definir o appliance próximo a San Francisco como o principal, que tem maior latência para Londres.

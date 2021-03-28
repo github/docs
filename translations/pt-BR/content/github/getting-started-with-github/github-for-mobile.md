@@ -4,6 +4,8 @@ intro: 'Faça triagem, colabore e gerencie seu trabalho em {% data variables.pro
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - móvel
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organizationのオーナーは、OrganizationのSSH認証局 (CAN) を管理できます。

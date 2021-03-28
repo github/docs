@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 authors:
   - potatoqualitee
 type: tutorial
@@ -15,12 +16,17 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
 本指南演示如何将 PowerShell 用于 CI。 它介绍了如何使用 Pester、安装依赖项、测试模块以及发布到 PowerShell Gallery。
 
-{% data variables.product.prodname_dotcom %} 托管的运行器具有预安装了软件的工具缓存，包括 PowerShell 和 Pester。 有关最新版软件以及 PowerShell 和 Pester 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% data variables.product.prodname_dotcom %} 托管的运行器具有预安装了软件的工具缓存，包括 PowerShell 和 Pester。
+
+{% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}有关最新版软件以及 PowerShell 和 Pester 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% endif %}
 
 ### 基本要求
 
@@ -64,7 +70,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)

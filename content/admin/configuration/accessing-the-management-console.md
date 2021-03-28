@@ -12,6 +12,8 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### About the {% data variables.enterprise.management_console %}
