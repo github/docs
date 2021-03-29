@@ -1,35 +1,33 @@
 ---
-name: Suggest ideas and updates for the Docs website
+name: Improve the docs.github.com site
 about: Make a suggestions or report a problem on the docs.github.com website.
+title: ''
 labels: engineering
-body:
-  - type: markdown
-    attributes:
-      value: |
-        HUBBERS BEWARE! Please confirm you're on the github/docs-internal repo and not the github/docs repo before proceeding, unless you want to make your work public to the entire internet. The github/docs repo is open source and public to the entire internet.
+assignees: ''
+---
 
-        For questions, ask in Discussions: https://github.com/github/docs/discussions
-  - type: checkboxes
-    attributes:
-      label: Contributing Guidelines
-      options:
-        - label: 'I agree to follow the [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)'
-          required: true
-        - label: 'I have read the [Contributing Guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)'
-          required: true
-        - label: 'There is not a similar issue that has been [already opened](https://github.com/github/docs/issues)'
-          required: true
-  - type: textarea
-    attributes:
-      label: Suggestion
-      description: What changes are you suggesting?
-      placeholder: Explain, in writing, with as much detail as possible, what changes you're suggesting and why. Provide supporting information using screenshots and URLs where possible, to help us understand your suggested changes.
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: Additional Information
-      placeholder: Any additional information, configuration, or data that might be necessary to reproduce the issue.
-    validations:
-      required: true
+<!--
+HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+-->
 
+<!--
+For questions, ask in Discussions: https://github.com/github/docs/discussions
+
+Before you file an issue read the:
+- Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
+- Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
+
+Check to make sure someone hasn't already opened a similar issue: https://github.com/github/docs/issues
+-->
+
+### What is the current behavior?
+
+<!-- Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc. -->
+
+### What changes are you suggesting?
+
+<!-- Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome? -->
+
+### Additional information
+
+<!-- Any additional information, configuration, or data that might be necessary to reproduce the issue. -->
