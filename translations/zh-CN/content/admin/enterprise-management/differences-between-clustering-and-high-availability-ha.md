@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 故障场景

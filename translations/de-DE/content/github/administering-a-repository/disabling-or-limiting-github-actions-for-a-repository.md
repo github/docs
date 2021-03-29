@@ -4,6 +4,9 @@ intro: 'Repository-Inhaber können {% data variables.product.prodname_actions %}
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data reusables.actions.enterprise-beta %}

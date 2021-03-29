@@ -6,6 +6,9 @@ redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Ao [exigir logon único SAML](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) na sua organização, os integrantes que não tenham sido autenticados por meio de seu provedor de identidade (IdP) serão removidos da organização e receberão um e-mail notificando-os sobre a remoção.

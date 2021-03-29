@@ -4,6 +4,34 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `closestLesserValueTier` was added to object type `SponsorsTier`",
+          "Field `isCustomAmount` was added to object type `SponsorsTier`",
+          "Field `isOneTimePayment` was added to object type `Sponsorship`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `isOneTime` was added to object type `SponsorsTier`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `RequirableByPullRequest` was added",
           "Field `viewerLatestReview` was added to object type `PullRequest`",
           "Field `viewerLatestReviewRequest` was added to object type `PullRequest`",

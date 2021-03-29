@@ -8,9 +8,9 @@ permissions: 企业所有者可以验证企业帐户的域。
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - 企业
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### 关于域验证
 

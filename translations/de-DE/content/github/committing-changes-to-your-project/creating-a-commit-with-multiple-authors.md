@@ -62,7 +62,7 @@ Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit e
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/articles/pushing-commits-to-a-remote-repository/).“
+Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).“
 
 ### Commits mit Co-Autor auf {% data variables.product.product_name %} erstellen
 

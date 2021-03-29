@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.discussions %}'
 permissions: Las personas con permisos administrativos en un repositorio pueden habilitar los debates en éste.
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.discussions.beta %}

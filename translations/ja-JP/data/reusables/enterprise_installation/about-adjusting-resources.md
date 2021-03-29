@@ -1,1 +1,1 @@
-For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+既存のインスタンスのリソース調整に関する詳しい情報については「[ストレージ容量の増加](/enterprise/admin/installation/increasing-storage-capacity)」及び「[CPUあるいはメモリリソースの増加](/enterprise/admin/installation/increasing-cpu-or-memory-resources)」を参照してください。

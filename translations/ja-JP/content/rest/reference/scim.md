@@ -4,6 +4,8 @@ redirect_from:
   - /v3/scim
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
 ### Organization 向け SCIM プロビジョニング

@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### 鍵ファイルからのパスフレーズの除去

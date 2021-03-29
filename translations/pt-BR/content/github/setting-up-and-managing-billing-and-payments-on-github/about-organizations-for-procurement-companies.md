@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-organizations-for-procurement-companies
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 Para acessar uma organização, cada integrante deve entrar na própria conta de usuário pessoal.
