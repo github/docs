@@ -5,6 +5,10 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
+  - cobrança
 ---
 
 Os integrantes da equipe Proprietários da organização podem conceder permissões de *gerente de cobrança* para as pessoas. Depois que uma pessoa aceita o convite deles para se tornar um gerente de cobrança da sua organização, ela poderá convidar mais pessoas para serem gerentes de cobrança.

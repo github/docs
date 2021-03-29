@@ -7,6 +7,8 @@ redirect_from:
 intro: '站点管理员可以将任何普通用户升级为站点管理员，也可以将其他站点管理员降级为普通用户。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% tip %}

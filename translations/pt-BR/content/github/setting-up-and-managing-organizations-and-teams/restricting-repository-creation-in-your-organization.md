@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% if currentVersion == "free-pro-team@latest" %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".

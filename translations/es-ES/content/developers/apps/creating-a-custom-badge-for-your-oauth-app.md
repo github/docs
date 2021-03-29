@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 Predeterminadamente, una App de OAuth nueva tendrá un [identicon](https://github.com/blog/1586-identicons) que se genera automáticamente. Una insignia de identicon se ve más o menos así:

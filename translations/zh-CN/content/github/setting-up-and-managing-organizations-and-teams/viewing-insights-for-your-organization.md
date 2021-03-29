@@ -6,6 +6,9 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。

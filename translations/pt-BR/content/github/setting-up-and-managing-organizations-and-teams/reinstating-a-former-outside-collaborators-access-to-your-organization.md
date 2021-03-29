@@ -1,6 +1,6 @@
 ---
 title: Restabelecer o acesso de um ex-colaborador externo à organização
-intro: "É possível restabelecer as permissões de acesso de um ex-colaborador externo para repositórios, forks e configurações da organização."
+intro: 'É possível restabelecer as permissões de acesso de um ex-colaborador externo para repositórios, forks e configurações da organização.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion == "free-pro-team@latest" %}convidá-los{% else %}add{% endif %} para a organização nesse período de tempo.

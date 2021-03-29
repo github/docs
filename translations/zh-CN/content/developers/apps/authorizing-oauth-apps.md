@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授予类型](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}以及 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)（针对无法访问 web 浏览器的应用程序）{% endif %}。

@@ -17,6 +17,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - 通知
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -50,8 +52,8 @@ versions:
   - 按仓库或日期对收件箱中的通知进行分组，以快速概览通知，减少上下文切换
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-此外，
-{% data variables.product.prodname_mobile %} 上的通知收件箱允许您在黑暗模式下对通知进行分类，并接收直接提及的推送通知。 更多信息请参阅“[为移动版 GitHub 启用推送通知](#enabling-push-notifications-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
+此外，您还可以通过
+{% data variables.product.prodname_mobile %} 在移动设备上接收通知和对其分类。 更多信息请参阅“[使用移动版 GitHub 管理通知设置](#managing-your-notification-settings-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
 {% endif %}
 
 #### 对通知使用电子邮件客户端的优点
@@ -64,7 +66,7 @@ versions:
 
 ### 关于参与和查看通知
 
-关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/github/building-a-strong-community/about-team-discussions)”。
+关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
 
 要查看您关注的仓库，请参阅[关注页面](https://github.com/watching)。 更多信息请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -155,6 +157,26 @@ versions:
 
 如果禁用了“Automatically watch repositories（自动关注仓库）”，您将不会自动关注自己拥有的仓库。 您必须导航到仓库页面，然后选择关注选项。
 
+### 配置单个仓库的关注设置
+
+您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% if currentVersion == "free-pro-team@latest" %}特定事件类型，如议题、拉取请求、讨论（如已对仓库启用）以及{% endif %}新版本的通知，或者完全忽略单个仓库。
+
+{% data reusables.repositories.navigate-to-repo %}
+2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+   ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+**Custom（自定义）** 选项可用于进一步自定义通知，以便除了参与和 @提及之外，您仅在仓库中发生特定事件时才收到通知。
+
+   ![仓库下拉菜单中的自定义关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+
+如果选择“Issues（议题）”，您将收到仓库中每个议题（包括在您选择此选项之前存在的议题）的更新通知并订阅它们。 如果您被此仓库中的拉取请求 @提及，则除了收到有关议题的通知外，您还将收到有关该特定拉取请求更新的通知并订阅它们。
+
+{% endif %}
+
 ### 选择接收组织的电子邮件通知的位置
 
 如果您属于某个组织，您可以选择要接收组织活动通知的电子邮件帐户。 例如，如果您属于某个工作组织，您可能希望通知发送到您的工作电子邮件地址，而不是您的个人地址。
@@ -203,26 +225,39 @@ versions:
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-### 使用 {% data variables.product.prodname_mobile %} 启用推送通知
+### 使用 {% data variables.product.prodname_mobile %} 管理通知设置
 
-安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 然后，您可以针对应用程序中的直接提及启用推送通知。
+安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 在应用程序中，您可以为以下事件启用推送通知。
+- 直接提及
+- 分配到议题或拉取请求
+- 请求审核拉取请求
+- 请求批准部署
 
-目前，您只能针对 {% data variables.product.prodname_mobile %} 上仓库的推送接收通知。
+您还可以安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知。
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-#### 使用 {% data variables.product.prodname_ios %} 启用推送通知
+#### 使用 {% data variables.product.prodname_ios %} 管理通知设置
 
-1. 在“Home（主页）”上，点击您的个人资料照片。
-2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。 ![iOS 版 GitHub 的设置图标](/assets/images/help/mobile/ios-settings-icon.png)
-3. 要更新通知设置，请点击 **Push notifications（推送通知）**。
-4. 要针对直接提及开启推送通知，请使用 **Direct Mentions（直接提及）**切换按钮。
+1. 在底部菜单中，单击 **Profile（个人资料）**。
+2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。
+3. 要更新通知设置，请点击 **Notifications（通知）** ，然后使用切换来启用或禁用首选类型的推送通知。
+4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击 **Working Hours（工作时间）**，使用 **Custom working hours（自定义工作时间）** 切换，然后选择何时接收推送通知。
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### 使用 {% data variables.product.prodname_android %} 启用推送通知
+#### 使用 {% data variables.product.prodname_android %} 管理通知设置
 
-1. 在“Home（主页）”上，点击您的个人资料照片。
-2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。 ![Android 版 GitHub 的设置图标](/assets/images/help/mobile/android-settings-icon.png)
-3. 要针对直接提及开启推送通知，请使用 **Direct mentions（直接提及）**切换按钮。
-{% endif %}
+1. 在底部菜单中，单击 **Profile（个人资料）**。
+2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。
+3. 要更新通知设置，请点击 **Notifications（通知）** ，然后使用切换来启用或禁用首选类型的推送通知。
+4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击 **Receive Notifications（接收通知）**，使用 **Custom working hours（自定义工作时间）** 切换，然后选择何时接收推送通知。
+
+### 使用 {% data variables.product.prodname_mobile %} 配置个别仓库的关注设置
+
+您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% if currentVersion == "free-pro-team@latest" %}特定事件类型，如议题、拉取请求、讨论（如已对仓库启用）以及{% endif %}新版本的通知，或者完全忽略单个仓库。
+
+1. 在 {% data variables.product.prodname_mobile %} 上，导航到仓库的主页面。
+2. 点击 **Watch（关注）**。 ![{% data variables.product.prodname_mobile %} 上的关注按钮](/assets/images/help/notifications-v2/mobile-watch-button.png)
+3. 要选择接收通知的活动，请点击首选的关注设置。 ![{% data variables.product.prodname_mobile %} 中的关注设置下拉菜单](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+
 {% endif %}

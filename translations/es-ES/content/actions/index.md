@@ -43,6 +43,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %} -->
@@ -50,6 +51,7 @@ versions:
 <!-- {% link_with_intro /learn-github-actions %} -->
 <!-- {% link_with_intro /managing-workflow-runs %} -->
 <!-- {% link_with_intro /creating-actions %} -->
+<!-- {% link_with_intro /using-github-hosted-runners %} -->
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 

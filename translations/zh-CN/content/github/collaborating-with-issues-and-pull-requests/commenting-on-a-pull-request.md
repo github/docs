@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 ### 关于拉取请求评论

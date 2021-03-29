@@ -1,6 +1,6 @@
 ---
 title: 恢复前外部协作者对组织的访问权限
-intro: "您可以恢复前外部协作者对组织仓库、复刻和设置的访问权限。"
+intro: '您可以恢复前外部协作者对组织仓库、复刻和设置的访问权限。'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 当外部协作者对组织私有仓库的权限被删除时，该用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion == "free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。

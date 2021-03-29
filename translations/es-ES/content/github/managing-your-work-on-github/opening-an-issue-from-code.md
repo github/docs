@@ -1,13 +1,15 @@
 ---
 title: Abrir una propuesta desde el código
 intro: Puedes abrir una nueva propuesta desde una línea específica o líneas de código en un archivo o solicitud de extracción.
-permissions: 'Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.'
+permissions: Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Cuando abres una propuesta desde el código, la propuesta contiene un fragmento de código que muestra la línea o rango de código que elegiste. Solo puedes abrir una propuesta en el mismo repositorio donde se almacena el código.

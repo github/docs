@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
@@ -50,6 +52,7 @@ Name | Type | Description
 `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
+`allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
 {% note %}
 
@@ -92,9 +95,9 @@ By default, the response takes the following form. The response parameters `expi
 ```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-  "expires_in": "28800",
+  "expires_in": 28800,
   "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
-  "refresh_token_expires_in": "15811200",
+  "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }

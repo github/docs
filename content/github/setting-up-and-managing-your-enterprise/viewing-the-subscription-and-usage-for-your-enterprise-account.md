@@ -2,13 +2,15 @@
 title: Viewing the subscription and usage for your enterprise account
 intro: 'You can view the current subscription, license usage, invoices, payment history, and other billing information for your enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: 'Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.'
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### About billing for enterprise accounts

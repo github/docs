@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 重大变更包括会改变现有查询或可能影响客户端运行时行为的变更。 有关重大变更及它们何时发生的列表，请参阅我们的[重大变更日志](/graphql/overview/breaking-changes)。

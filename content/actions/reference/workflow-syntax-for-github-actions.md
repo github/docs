@@ -122,7 +122,7 @@ The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` an
 
 #### Example ignoring paths
 
-Anytime a path name matches a pattern in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
 ```yaml
 on:
@@ -314,7 +314,6 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
 
 ##### Example

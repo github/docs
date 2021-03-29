@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -36,9 +38,7 @@ Depois de ter {% if enterpriseServerVersions contains currentVersion or currentV
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Ferramentas de backup de terceiros
+Existem várias ferramentas de autoatendimento que automatizam backups de repositórios. Ao contrário de projetos de arquivamento, em que _todos_ os repositórios públicos em
 
-Existem várias ferramentas de autoatendimento que automatizam backups de repositórios. Ao contrário de projetos arquivados, que arquivam _todos_ os repositórios públicos em {% data variables.product.product_name %} que não tenham optado por não participar e tornam os dados acessíveis para todos, as ferramentas de backup irão fazer o download dos dados de repositórios _específicos_ e organizá-los em um novo branch ou diretório. Para obter mais informações sobre projetos de arquivamento, consulte "[Sobre arquivamento de conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
-Você pode fazer backup de todos os dados de um repositório Git (como arquivos de projeto e histórico de commit), bem como da quantidade de dados de
-
-{% data variables.product.product_name %} (como problemas e pull requests), com [BackHub](https://github.com/marketplace/backhub), que cria backups recorrentes diários dos seus repositórios com instantâneos de até 30 dias no tempo. O BackHub está disponível no {% data variables.product.prodname_marketplace %}.
+{% data variables.product.product_name %} que não optaram por sair e tornar os dados acessíveis a qualquer pessoa, as ferramentas de backup irão fazer o download de dados de repositórios _específicos_ e organizá-los em um novo branch ou diretório. Para obter mais informações sobre projetos de arquivamento, consulte "[Sobre arquivamento de conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)". Para obter mais informações sobre ferramentas de backup self-service, consulte a categoria [Utilitários de backup em {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
 {% endif %}

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/contacting-your-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About sponsorship updates

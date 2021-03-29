@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."

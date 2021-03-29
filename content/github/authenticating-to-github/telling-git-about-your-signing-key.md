@@ -1,6 +1,6 @@
 ---
 title: Telling Git about your signing key
-intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identity
+  - access management
 ---
 
 {% mac %}

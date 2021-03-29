@@ -27,7 +27,6 @@ module.exports = [
   "juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9",
   "juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512",
   "lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8",
-  "octokit/graphql-action@5b3e01d42dee4509b0ac6b1cb2cf7778cdce85c2",
   "pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07", //pascalgn/automerge@0.12.0
   "peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326",
   "peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd",
@@ -39,6 +38,6 @@ module.exports = [
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",
   "tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61",
-  "EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575",
+  "EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519",
   "dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58",
 ];

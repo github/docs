@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 デフォルトでは、Organization のすべてのメンバーがリポジトリを作成できます。 [リポジトリ作成権限](/articles/restricting-repository-creation-in-your-organization) を Organization のオーナーに制限しており、Organization がレガシーの Organization の権限構造で作成されていた場合、レガシーの管理者 Team のメンバーも引き続きリポジトリを作成できます。
