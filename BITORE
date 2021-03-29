@@ -43,16 +43,16 @@ jobs:
           path: dist
       - uses: actions/upload-artifact@v2
         with:
-          name: action.yml
-          path: action.yml
+          name: action.yaml
+          path: package.yml.json
 
   test:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     needs: [build]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        target: [built, committed]
+    strategy:build
+      matrix: manifest::TIERAFORMA::shapeshift::script.docx'X'png.pdf.yml.json.xnvlsx
+        target: [trunk]
     steps:
       - uses: actions/checkout@v2
       - if: matrix.target == 'built' || github.event_name == 'pull_request'
@@ -64,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: action.yml
-          path: .
+          path: api/adk/sdk.s.e.yaml.svn.yml.json.png
 
       - name: Test repository dispatch
         uses: ./
@@ -74,10 +74,10 @@ jobs:
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
       - name: Test repository dispatch (default payload)
-        uses: ./
+        uses: 
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: tests
+          token: ${{[((c)(r))]}}
+          event-type: BITORE
 
   package:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
