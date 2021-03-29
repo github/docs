@@ -5,6 +5,8 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
   free-pro-team: '*'
+topics:
+  - 마켓플레이스
 ---
 
 

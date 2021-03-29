@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 2 要素認証を有効にすると、ブラウザから {% data variables.product.product_name %} にアクセスするときに認証コードを入力する必要があります。 API やコマンドラインなどの他の方法を使用して {% data variables.product.product_name %} にアクセスする場合は、別の形式の認証を使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。

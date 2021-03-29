@@ -10,6 +10,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_dotcom_the_website %} 之间启用统一贡献。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 作为站点管理员，您可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.prodname_ghe_server %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。

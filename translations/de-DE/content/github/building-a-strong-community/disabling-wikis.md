@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 Wenn Du ein Wiki deaktivierst, wird der Inhalt ausgeblendet, aber nicht gelöscht. Wenn Du Wikis zu einem späteren Zeitpunkt erneut aktivierst, werden Deine ursprünglichen Seiten wiederhergestellt.

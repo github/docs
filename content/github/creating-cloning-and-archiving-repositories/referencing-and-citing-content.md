@@ -5,6 +5,8 @@ redirect_from:
   - /articles/referencing-and-citing-content
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### Issuing a persistent identifier for your repository with Zenodo

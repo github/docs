@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
 ### 访问审核日志

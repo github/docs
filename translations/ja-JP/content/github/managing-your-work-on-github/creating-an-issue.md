@@ -1,13 +1,15 @@
 ---
 title: Issue の作成
 intro: 'Issue は、バグ、拡張、その他リクエストの追跡に使用できます。'
-permissions: '読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。'
+permissions: 読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 既存のプルリクエストのコードに基づく新しい Issue を開くことができます。 詳しい情報については「[コードから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-code)」を参照してください。

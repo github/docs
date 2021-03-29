@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 ### Zusätzlichen Speicher und Bandbreite für ein persönliches Konto kaufen

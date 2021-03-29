@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 企业所有者可以对企业帐户中的组织启用 SAML 单点登录。
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 ### 关于企业帐户的 SAML 单点登录

@@ -1,6 +1,6 @@
 ---
 title: Managing billing for your enterprise
-intro: 'You can view billing information for your enterprise.'
+intro: You can view billing information for your enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 The error you receive may look like the following:
 

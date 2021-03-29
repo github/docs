@@ -35,7 +35,7 @@
 - 
   term: biografía
   description: >-
-    La descripción generada por el usuario encontrada en un perfil: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    La descripción generada por el usuario encontrada en un perfil: https://docs.github.com/articles/adding-a-bio-to-your-profile/
 - 
   term: ciclo de facturación
   description: El intervalo de tiempo para tu plan de facturación específico.
@@ -155,7 +155,7 @@
 - 
   term: contribuciones
   description: >-
-    Actividades específicas en GitHub que: - Agregarán un cuadrado al gráfico de contribuciones de un usuario: "[Que cuenta como una contribución](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Agregarán actividades a la cronología de un usuario en su perfil: "[Actividad de contribución](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Actividades específicas en GitHub que: - Agregarán un cuadrado al gráfico de contribuciones de un usuario: "[Que cuenta como una contribución](https://docs.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Agregarán actividades a la cronología de un usuario en su perfil: "[Actividad de contribución](https://docs.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: colaborador
   description: >-
@@ -228,7 +228,7 @@
     Una rama usada para experimentar con una nueva función o corregir una propuesta que no está en producción. También llamada rama de tema.
 - 
   term: bloque de código cercado
-  description: 'Un bloque de código sangrado que puedes crear con el formato Markdown de GitHub utilizando triple diagonal inversa \`\`\` antes y después del mismo. Consulta el [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'Un bloque de código sangrado que puedes crear con el formato Markdown de GitHub utilizando triple diagonal inversa \`\`\` antes y después del mismo. Consulta el [example](https://docs.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: extraer
   description: >-

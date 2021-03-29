@@ -1,10 +1,12 @@
 ---
 title: スポンサーシップを管理する
-intro: You can manage who can see your sponsorship and whether you receive email updates from the sponsored account.
+intro: あなたのスポンサーシップを表示できる人や、スポンサードアカウントからメールで最新情報を受け取るかどうかを管理できます。
 redirect_from:
   - /articles/managing-your-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -17,9 +19,9 @@ versions:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Managing email updates for your sponsorship
+### スポンサーシップのメールアップデートを管理する
 
-You can choose whether an account you sponsor can send you email updates about their work. The sponsored account will not have access to your email address.
+スポンサーしているアカウントがその作業に関するメールアップデートを送信できるかどうかを選択できます。 スポンサードアカウントは、あなたのメールアドレスにアクセスできません。
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -31,5 +33,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ### 参考リンク
 
-- "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
-- "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"
+- [スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)
+- [スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)

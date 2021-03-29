@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 ### 关于对企业帐户的 SAML 访问

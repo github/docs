@@ -6,6 +6,9 @@ redirect_from:
   - /articles/verifying-your-organizations-domain
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于域验证

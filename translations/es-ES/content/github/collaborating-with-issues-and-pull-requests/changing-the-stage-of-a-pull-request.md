@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 ### Marcar una solicitud como lista para revisión

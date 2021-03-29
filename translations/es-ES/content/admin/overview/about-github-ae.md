@@ -1,17 +1,15 @@
 ---
 title: Acerca de GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} es la forma más segura y compatible para utilizar {% data variables.product.prodname_dotcom %}.'
+intro: '{% data variables.product.prodname_ghe_managed %} es una forma de tener cumplimiento y seguridad ampliada para utilizar {% data variables.product.prodname_dotcom %} en la nube.'
 versions:
   github-ae: '*'
 ---
 
 ### Acerca de {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}
+{% data reusables.github-ae.github-ae-enables-you %}{% data variables.product.prodname_ghe_managed %} es completamente administrador, confiable y escalable, lo cual te permite acelerar la entrega sin sacrificar la administración de riesgos.
 
-{% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. Puedes incrementar la velocidad de desarrollo, automatizar los flujos de trabajo integralmente, asegurar tu código y colaborar en la herramienta favorita del desarrollador.
-
-{% data variables.product.prodname_ghe_managed %} proporciona todo el poder de [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) a tu organización. Con {% data variables.product.prodname_ghe_managed %}, también puedes adecuarte a las medidas de seguridad y cumplimiento con una suite de características y certificaciones que te dan todo el control.
+{% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. Puedes incrementar la velocidad de desarrollo con las herramientas que los equipos conocen y adoran mientras mantienes el cumplimiento regulatorio y de la industria con controles de acceso y seguridad, automatización de flujos de trabajo y requerimiento de políticas únicos.
 
 ### Una nube de disponibilidad alta y escala planetaria
 
@@ -36,11 +34,3 @@ Asegura el acceso a tu empresa en {% data variables.product.prodname_ghe_managed
 ### Ambientes comerciales y gubernamentales
 
 {% data variables.product.prodname_ghe_managed %} se encuentra disponible en la nube de Azure Government, la nube de confianza de las agencias gubernamentales de los EE.UU. y de sus socios. {% data variables.product.prodname_ghe_managed %} también se encuentra disponible en la nube comercial, para que puedas elegir el ambiente de hospedaje que se adecua a tu organización.
-
-### Soporte Premium Plus
-
-El soporte Premium Plus se encuentra disponible para todos los clientes de {% data variables.product.prodname_ghe_managed %} para garantizar que tengas la experiencia de soporte más rápida y personal. Un representante de cuenta dedicado trabajará contigo para ayudarte a obtener el máximo provecho de {% data variables.product.prodname_dotcom %}. Nuestro equipo de soporte resolverá tus problemas a cualquier hora del día y en el menor tiempo posible.
-
-### Acerca de la facturación para {% data variables.product.prodname_ghe_managed %}
-
-{% data reusables.github-ae.about-billing %} Para obtener más información, consulta la sección "[Administrar la facturación de tu empresa](/admin/overview/managing-billing-for-your-enterprise)".

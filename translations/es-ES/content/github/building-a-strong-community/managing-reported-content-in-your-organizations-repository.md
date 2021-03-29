@@ -3,6 +3,8 @@ title: Administrar el contenido reportado en el repositorio de tu organización
 intro: 'Una vez que un colaborador reporta contenido ofensivo en un repositorio, los mantenedores del mismo pueden ver y administrar esta información.'
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Cualquiera con permisos de administrador para un repositorio puede ver y administrar el contenido reportado del mismo.

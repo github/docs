@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 ### 关于 {% data variables.product.prodname_dotcom %} 向验证身份
@@ -45,9 +48,9 @@ versions:
 
 ### 使用命令行进行身份验证
 
-您可以通过两种方式从命令行访问 {% data variables.product.product_name %} 上的仓库：HTTPS 和 SSH ，两者采用不同的身份验证。 验证方法取决于克隆仓库时您是选择 HTTPS 还是 SSH 远程 URL。 有关使用哪种访问方式的更多信息，请参阅“[我应该使用哪个远程 URL？](/github/using-git/which-remote-url-should-i-use)”
+您可以通过两种方式从命令行访问 {% data variables.product.product_name %} 上的仓库：HTTPS 和 SSH ，两者采用不同的身份验证。 验证方法取决于克隆仓库时您是选择 HTTPS 还是 SSH 远程 URL。 For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
-* 即使您在防火墙或代理后面，也可以通过 HTTPS 处理 {% data variables.product.product_name %} 上的所有仓库。 除非您使用[凭据小助手](/github/using-git/caching-your-github-credentials-in-git)缓存了凭据，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入凭据以向 {% data variables.product.product_name %} 验证。 {% data reusables.user_settings.password-authentication-deprecation %}
+* 即使您在防火墙或代理后面，也可以通过 HTTPS 处理 {% data variables.product.product_name %} 上的所有仓库。 除非您使用[凭据小助手](/github/getting-started-with-github/caching-your-github-credentials-in-git)缓存了凭据，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入凭据以向 {% data variables.product.product_name %} 验证。 {% data reusables.user_settings.password-authentication-deprecation %}
 
 * 您可以通过 SSH 处理 {% data variables.product.product_name %} 上的所有仓库，尽管防火墙和代理可能拒绝允许 SSH 连接。 使用 SSH 需要在本地计算机上生成 SSH 公钥/私密对，并将公钥添加到 {% data variables.product.product_name %} 帐户。 除非您已[存储密钥](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入 SSH 密钥密码短语。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 

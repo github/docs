@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+topics:
+  - 엔터프라이즈
 ---
 
 ### About high availability replication for clusters

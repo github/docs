@@ -13,5 +13,7 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 

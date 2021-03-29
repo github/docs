@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -30,7 +32,7 @@ versions:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 4. 重启设备，以检测新存储分配。
-5. 运行 `ghe-storage-extend` 命令以展开 `/data` 文件系统：
+5. 运行 `ghe-storage-extend` 命令以展开 `/data/user` 文件系统：
   ```shell
   $ ghe-storage-extend
   ```

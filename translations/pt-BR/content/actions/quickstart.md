@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'quick_start'
 topics:
   - 'Princípios básicos'
@@ -14,6 +15,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -62,7 +64,7 @@ Fazer commit do arquivo de fluxo de trabalho no repositório aciona o evento `pu
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho de **base de código Lint**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}
 1. Na barra lateral esquerda, clique no trabalho **Lint de código-bsee**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job.png)
@@ -85,7 +87,7 @@ O fluxo de trabalho do super-linter que você acabou de adicionar é executado s
 
 ### Introdução
 
-Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a sintaxe básicas de uma nova linguagem de programação. Neste guia, você usará o GitHub Actions para imprimir "Hello, World!" dentro dos registros do fluxo de trabalho do seu repositório de {% data variables.product.prodname_dotcom %}. Tudo o que você precisa para começar é um repositório de {% data variables.product.prodname_dotcom %} em que você se sente confortável para criar e executar um fluxo de trabalho de amostra de {% data variables.product.prodname_actions %}. Sinta-se à vontade para criar um novo repositório para este Início rápido. Você pode usá-lo para testar este e futuros fluxos de trabalho de {% data variables.product.prodname_actions %}.
+Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a sintaxe básicas de uma nova linguagem de programação. Neste guia, você usará o GitHub Actions para imprimir "Hello, World!" dentro dos registros do fluxo de trabalho do seu repositório de {% data variables.product.prodname_dotcom %}. Tudo o que você precisa para começar é um repositório de {% data variables.product.prodname_dotcom %} em que você se sente confortável para criar e executar um fluxo de trabalho de amostra de {% data variables.product.prodname_actions %}. Sinta-se à vontade para criar um novo repositório para este Início rápido testar esse e fluxos de trabalhos de {% data variables.product.prodname_actions %} futuros.
 
 ### Criar o seu primeiro fluxo de trabalho
 
@@ -140,7 +142,7 @@ Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a s
 
 ### Next steps
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. Esse é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
+The hello-world workflow you just added is a minimal example of a manually triggered workflow. Esse é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
 
 - "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para um tutorial detalhado
 - "[Guides](/actions/guides)" para casos específicos de usos e exemplos
