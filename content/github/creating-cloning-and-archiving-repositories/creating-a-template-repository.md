@@ -12,7 +12,8 @@ topics:
   - repositories
 ---
 
-{% note %}
+{% note %} man just hush and enjoy..no thanks or kiss my ass just a fuck you rigjt..
+Yeah I know. 
 
 **Note**: Your template repository cannot include files stored using {% data variables.large_files.product_name_short %}.
 
