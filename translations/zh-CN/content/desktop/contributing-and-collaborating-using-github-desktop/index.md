@@ -19,6 +19,7 @@ versions:
 {% topic_link_in_list /making-changes-in-a-branch %}
     {% link_in_list /managing-branches %}
     {% link_in_list /committing-and-reviewing-changes-to-your-project %}
+    {% link_in_list /stashing-changes %}
     {% link_in_list /pushing-changes-to-github %}
     {% link_in_list /reverting-a-commit %}
     {% link_in_list /managing-tags %}

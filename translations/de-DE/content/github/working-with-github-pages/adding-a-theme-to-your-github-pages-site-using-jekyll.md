@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.

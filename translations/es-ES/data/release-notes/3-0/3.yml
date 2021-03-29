@@ -1,0 +1,31 @@
+---
+date: '2021-03-23'
+intro: 'Los requisitos mínimos de infraestructura incrementaron para {% data variables.product.prodname_ghe_server %}3.0+. Para obtener más información, consulta la sección "[Acerca de los requisitos mínimos para GitHub Enterprise Server 3.0 y posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".'
+sections:
+  security_fixes:
+    - '**ALTA:** Se identificó una vulnerabilidad de ejecución de código remoto en GitHub Enterprise Server, la cual pudo haberse aprovechado al crear un sitio de GitHub Pages. Las opciones de configuración controladas por el usuario que utilizan las GitHub Pages no se restringieron lo suficiente e hicieron posible que se ignoraran las variables de ambiente que llevaron a la ejecución de código en la instancia de GitHub Enterprise Server. Para aprovechar esta vulnerabilidad, un atacante necesitaría permisos para crear y compilar un sitio de GitHub pages en la instancia de GitHub Enterprise Server. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server antes de la 3.0.3 y se arregló en la 3.0.3, 2.22.9, y 2.21.17. Esta vulnerabilidad se reportó a través del programa de Recompensas por Errores de GitHub y se le asignó un CVE-2021-22864.'
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - El ejecutar `ghe-cluster-config-init` pudo haber causado que un clúster fuera inoperable.
+    - El resolver conflictos de fusión en la GUI fallaba cuando los ganchos de pre-recepción personalizados se configuraban en el repositorio.
+    - '`launch-deployer` y `launch-receiver` se estaban registrando al nivel de DEBUG y llenaban las bitácoras con información innecesaria.'
+    - El sistema pudo haber perdido el rastreo del PID de HAProxy.
+    - Cuando se configuraron las acciones para utilizar un almacenamiento de S3, las bitácoras para una acción fallaban en cargarse algunas veces.
+    - La advertencia de la recuperación de fallos de mysql se mostró indefinidamente después de una recuperación de fallos exitosa.
+    - La ejecución de `ghe-cluster-config-init` no reconocía completamente el código de salida de los jobs en segundo plano que condujeron a un manejo inadecuado de las verificaciones previas al vuelo.
+    - Al habilitar las GitHub Actions, la inicialización podía fallar silenciosamente.
+    - Cuando se habilitaron las alertas de vulnerabilidades, las actualizaciones a la serie 3.0 fallaron.
+    - Los jobs relacionados con los Codespaces se estaban poniendo en fila, lo cual ocasionó a una acumulación de jobs sin procesar.
+  changes:
+    - Utiliza una cantidad relativa para el `bootstrap_expect` cónsul y nómada, lo cual permitió que un clúster hiciera un arranque primario, incluso si un conjunto de nodos estaba fuera de servicio.
+    - Las bitácoras rotarán con base en su tamaño adicionalmente al tiempo.
+    - Se agregó a kafka-lite al comando `ghe-cluster-status`.
+  known_issues:
+    - En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - Cuando se habilita el modo de mantenimiento, algunos servicios siguen listándose como "procesos activos". Se espera que los servicios identificados se ejecuten durante el modo de mantenimiento. Si experimentas este problema y no estás seguro de cómo proceder, contacta al [Soporte de GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/).
+    - La interpretación de Jupyter Notebook en la IY web pudo haber fallado si el bloc de notas incluye caracteres no codificados en UTF-8.
+    - El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.

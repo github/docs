@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 リポジトリに対して管理者権限がある人は、リポジトリへのチームアクセスを管理できます。 チームメンテナは、リポジトリへのチームアクセスを削除できます。

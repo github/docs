@@ -5,6 +5,9 @@ redirect_from:
   - /articles/global-privacy-practices
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: July 22, 2020

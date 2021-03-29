@@ -5,6 +5,8 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 Organization の設定内、もしくはユーザが作成した特定のコメントから、ユーザをブロックできます。 コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。
@@ -13,7 +15,7 @@ Organization の設定内、もしくはユーザが作成した特定のコメ�
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
+**ヒント:**過熱した会話を鎮めるためにユーザをブロックする場合、コラボレータだけがコメントできるように会話をロックすることを検討してください。 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
 
 {% endtip %}
 

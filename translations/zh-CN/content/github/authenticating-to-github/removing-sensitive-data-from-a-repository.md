@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 `git filter-branch` 命令和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。

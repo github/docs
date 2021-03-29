@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre as permissões básicas para uma organização

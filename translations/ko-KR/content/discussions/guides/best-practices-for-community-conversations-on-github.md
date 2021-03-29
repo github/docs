@@ -29,7 +29,7 @@ You can use {% data variables.product.prodname_discussions %} to discuss big pic
 
 Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 ### Following contributing guidelines
 

@@ -6,6 +6,7 @@ productsInOrder:
   - github
   - 管理员
   - 讨论
+  - code-security
   - 操作
   - 包
   - developers
@@ -13,4 +14,4 @@ productsInOrder:
   - graphql
   - insights
   - 教育版
-  - desktop
+  - 电脑版

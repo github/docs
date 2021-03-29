@@ -12,7 +12,7 @@ sections:
     - 'SSH証明書の適用方法が、OrganizationとBusiness間で整合していませんでした。{% comment %} https://github.com/github/github/pull/163423, https://github.com/github/github/pull/159538, https://github.com/github/authentication/issues/115 {% endcomment %}'
     - '不正確なパスワードの利用のためにアカウントにレート制限が適用された場合に、最大で24時間ロックアウトされることがありました。{% comment %} https://github.com/github/github/pull/163433, https://github.com/github/github/pull/162938, https://github.com/github/github-ds/pull/51 {% endcomment %}'
     - '多くの参照を持つリポジトリ上のPull Requestの同期が、ワーカーキューを遅れさせることがありました。{% comment %} https://github.com/github/github/pull/163573, https://github.com/github/github/pull/163142 {% endcomment %}'
-    - '特定のページへのアクセスを試みた後にサインインすると、意図したアクセス先ではなくホームページにユーザが送られてしまいました。{% comment %} https://github.com/github/github/pull/163782, https://github.com/github/github/pull/163579, https://github.com/github/github/pull/154117, https://github.com/github/ecosystem-apps/issues/1076 {% endcomment %}'
+    - '特定のページにアクセスしようとした後に、ローカルのユーザ名とパスワードで（ビルトイン認証）サインインすると、ユーザは意図したアクセス先ではなくホームページに送られました。{% comment %}https://github.com/github/github/pull/163782, https://github.com/github/github/pull/163579, https://github.com/github/github/pull/154117, https://github.com/github/ecosystem-apps/issues/1076 {% endcomment %}'
     - 'ビルトインの認証を内部的なSAMLアイデンティティプロバイダで利用しているGHESインスタンスにおいて、関連づけられたメールアドレスのないユーザはWebインターフェースからコミットを作成できませんでした。{% comment %} https://github.com/github/github/pull/164009, https://github.com/github/github/pull/163530, https://github.com/github/github/issues/163524 {% endcomment %}'
   known_issues:
     - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'

@@ -44842,6 +44842,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",

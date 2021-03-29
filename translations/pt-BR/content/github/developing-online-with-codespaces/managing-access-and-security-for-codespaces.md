@@ -4,6 +4,8 @@ intro: Você pode gerenciar os repositórios que os codespaces podem acessar.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% note %}

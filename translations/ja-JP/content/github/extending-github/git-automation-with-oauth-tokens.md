@@ -33,7 +33,7 @@ versions:
 
 {% data reusables.command_line.providing-token-as-password %}
 
-これらのプロンプトを回避するには、Git パスワードキャッシュを使用できます。 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
+これらのプロンプトを回避するには、Git パスワードキャッシュを使用できます。 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/getting-started-with-github/caching-your-github-credentials-in-git)」を参照してください。
 
 {% warning %}
 

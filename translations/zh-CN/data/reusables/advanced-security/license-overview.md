@@ -1,0 +1,1 @@
+{% data variables.product.prodname_GH_advanced_security %} 的每个许可证都规定了可以使用这些功能的最大帐户或席位数量。 Each active committer to at least one repository with the feature enabled uses one seat. An active committer is someone who authored at least one commit that was pushed to the repository in the last 90 days.

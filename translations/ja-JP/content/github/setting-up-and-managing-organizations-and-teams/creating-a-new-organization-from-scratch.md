@@ -8,6 +8,9 @@ versions:
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
+topics:
+  - organizations
+  - teams
 ---
 
 ゼロから作成されたばかりの新しい Organization には、何のリポジトリも関連付けられていません。 自分の Organization へのリポジトリ追加に関する詳しい情報については、「[新しいリポジトリを作成する](/articles/creating-a-new-repository)」と「[リポジトリを移譲する](/articles/transferring-a-repository)」を参照してください。

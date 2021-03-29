@@ -5,6 +5,9 @@ redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:
   free-pro-team: '*'
+topics:
+  - アカウント
+  - notifications
 ---
 
 ### {% data variables.product.prodname_dotcom %} マーケティング メールのサブスクライブを解除する

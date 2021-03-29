@@ -8,6 +8,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以为 {% data variables.product.prodname_ghe_server %} 上易受攻击的依赖项启用 {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}安全{% endif %}警报。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于 {% data variables.product.prodname_ghe_server %} 上易受攻击的依赖项的警报

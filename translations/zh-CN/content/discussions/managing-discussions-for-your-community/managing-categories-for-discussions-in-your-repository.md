@@ -12,9 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
-每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。{% data reusables.discussions.repository-category-limit %}
-
-更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
+每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。 {% data reusables.discussions.repository-category-limit %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
 ### 默认类别
 
