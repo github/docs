@@ -1,0 +1,173 @@
+##Run:Automate::Fix::All:::name: build and deploy':'
+'on:':'
+  '# Request::Push::branches::[mainbranch]
+#Pull::branches::[trunk]/<!--
+Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to a pull request) and what changes you've made, we can triage your pull request to the best possible team for review.
+
+See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
+
+For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
+
+We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
+
+Thanks again!
+-->
+
+### Why:
+
+<!-- 
+- If there's an existing issue for your change, please link to it.
+- If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
+**Closes [issue link]**
+
+##Run::
+# Name:: Build BITORE.SIGS
+
+# run::Const::':'Linux':'X':'32':'kernel':'2.6':'Intel':'X':'86':'Windows':'X':'86_64
+# deploy-to-heroku** link in your pull request, then click **View deployment**
+- [×] For content changes, I have reviewed the [localization checklist](https://github.com/github/docs/trunk/contributing.Md/localization-checklist.md)
+- [×] For content changes, I have reviewed the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md::CONST:':'
+
+# Push:'On::':'run://':'Script':'::Const:':':'Name:':'Echo':hello-World!':'build'script'reads'space'as'char'ghost.char'as'metadata'babel':'integar':'keycode':'
+# ::runs-on::':'{'{'WebRootUrl'}':'{'https://bitcore.net}':'{'$RubyGems'}'}':'':'Rake.U/$Gem.spec'":"'#Makefile::Rake.U/Rust.ui/Deno.yaml':'{{$Gem.spec_BITORE}':'{.yaml.json}}':'
+# Const:((c)(r))/Deno/Rust/Slate.pkg/.yaml/api/adk/sdk':'
+# install/jdk.s./dl':'
+# bundle-on::Python.js/eslint/pyper/bin/bash/gradle/babel':'
+# Const::':'
+'# Versioning:':'@':'v'-'0.1.3.6.8.3':'
+'# Const::$mkdir':'Name::':'Build::':'{{{{{$Gemfile_token_item_id}{[Volume]}':'{{{BITORE_((c)(r))_34173}}}}':'
+# unzip::-c++
+# -curl
+# fetch/opt/gradle/**Metadata**@**v**-**0.1.0**6.8.3**/
+# Request::':'
+# Pull::user/bin/@ZachryTylerWoodAdministrator@.git/user/repositories/paradice/workflows/test/package.json
+#Const::Src/Code/bin/bash/meta/Jekyll//Utf8-latest/Unicode/Metadata/Dns.Python.Javascript':'::Const:':'https://github.com/git.it/workflows/update-dep.yml':'
+'#Run:Name:::https://github.com/gh-Pages/Hello-World/#743/hello World!/ZachryTylerWoodAdministrator@.git.it/user/repositories/pyper/bin/bash/actions/workflows/update-dep.yml/badge.svg{WebRootUrl}{https://github.com/zachrytylerwoodadministrator@.git.it}package.api/sdk.yaml.xslvnx.png.yml.json::Const:::Build::"'package.json"' 'server.js'"'result'='?,'"'true.'"' '#:run::Automate::run::Const::Input::Config.yml.json.xvlsnx::bundle-with::dns.Python.javascript/java.sun/RuntimeWinRawr.Zip/jdk.s.e{WebRootUrl.config.json}::Const::Repository:type:DOCKE.Gui':'@zachrytwoodiii/user/bin/repositories':'@zachrytwoodiii/CONTRIBUTING.mD/readme.Md::Deploy:':'::Launch:':'::Return::':'Run'
+    branches: [trunk]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+  pull_request:
+    branches: [master]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm ci
+      - run: npm run build
+      - run: npm run format-check
+      - run: npm run lint
+      - run: npm run test
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - uses: actions/upload-artifact@v2
+        with:
+          name: action.yaml
+          path: package.yml.json
+
+  test:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    needs: [build]
+    runs-on: ubuntu-latest
+    strategy:build
+      matrix: manifest::TIERAFORMA::shapeshift::script.docx'X'png.pdf.yml.json.xnvlsx
+        target: [trunk]
+    steps:
+      - uses: actions/checkout@v2
+      - if: matrix.target == 'built' || github.event_name == 'pull_request'
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - if: matrix.target == 'built' || github.event_name == 'pull_request'
+        uses: actions/download-artifact@v2
+        with:
+          name: action.yml
+          path: api/adk/sdk.s.e.yaml.svn.yml.json.png
+
+      - name: Test repository dispatch
+        uses: ./
+        with:
+          token: ${{[((c)(r))]}}
+          event-type: tests
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+
+      - name: Test repository dispatch (default payload)
+        uses: 
+        with:
+          token: ${{[((c)(r))]}}
+          event-type: BITORE
+
+  package:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update distribution
+          title: Update distribution
+          body: |
+            # Updates the distribution for changes on `master`
+           Auto-generated by [create-pull-request][1
+# branches::[TREE]':'
+# WebRootUrl::https://github.com/Zachry)TylerWood10151994create-pull-request
+# branches::[default]
+# update-distribution
+# Automerge::TIERAFORMA::SHAPESHIFT::![bANDOS CHESTPLATE](https://user-images.githubusercontent.com/80817828/112751852-b7b62a00-8f95-11eb-93dc-580f5284ac31.png)
+---[trunk]
+title: Working with GitHub Pages
+shortTitle: GitHub Pages
+intro: 'You can create a website directly from a {% data variables.product.product_name %} repository.'
+redirect_from:
+  - /categories/20/articles/
+  - /categories/95/articles/
+  - /categories/github-pages-features/
+  - /pages/
+  - /categories/96/articles/
+  - /categories/github-pages-troubleshooting/
+  - /categories/working-with-github-pages
+product: '{% data reusables.gated-features.pages %}'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
+topics:gh-pages/hello-World!
+# {% topic_link_in_list /getting-started-with-github-pages %}
+    {% link_in_list /about-github-pages %}
+    {% link_in_list /creating-a-github-pages-site %}
+    {% link_in_list /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser %}
+    {% link_in_list /configuring-a-publishing-source-for-your-github-pages-site %}
+    {% link_in_list /changing-the-visibility-of-your-github-pages-site %}
+    {% link_in_list /creating-a-custom-404-page-for-your-github-pages-site %}
+    {% link_in_list /securing-your-github-pages-site-with-https %}
+    {% link_in_list /using-submodules-with-github-pages %}
+    {% link_in_list /unpublishing-a-github-pages-site %}
+{% topic_link_in_list /setting-up-a-github-pages-site-with-jekyll %}
+    {% link_in_list /about-github-pages-and-jekyll %}
+    {% link_in_list /creating-a-github-pages-site-with-jekyll %}
+    {% link_in_list /testing-your-github-pages-site-locally-with-jekyll %}
+    {% link_in_list /adding-content-to-your-github-pages-site-using-jekyll %}
+    {% link_in_list /setting-a-markdown-processor-for-your-github-pages-site-using-jekyll %}
+    {% link_in_list /adding-a-theme-to-your-github-pages-site-using-jekyll %}
+    {% link_in_list /about-jekyll-build-errors-for-github-pages-sites %}
+    {% link_in_list /troubleshooting-jekyll-build-errors-for-github-pages-sites %}
+{% topic_link_in_list /configuring-a-custom-domain-for-your-github-pages-site %}
+    {% link_in_list /about-custom-domains-and-github-pages %}
+    {% link_in_list /managing-a-custom-domain-for-your-github-pages-site %}
+    {% link_in_list /troubleshooting-custom-domains-and-github-pages %}
