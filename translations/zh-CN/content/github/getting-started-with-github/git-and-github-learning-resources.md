@@ -15,7 +15,7 @@ authors:
 
 ### 使用 Git
 
-通过访问[官方 Git 项目站点](https://git-scm.com)并阅读 [ProGit 电子书](http://git-scm.com/book)熟悉 Git。 使用 [Try Git](https://try.github.com) 模拟器时，您可以查看 [Git 命令列表](https://git-scm.com/docs)或 [Git 命令查询参考](http://gitref.org)。
+通过访问[官方 Git 项目站点](https://git-scm.com)并阅读 [ProGit 书籍](http://git-scm.com/book)熟悉 Git。 使用 [Try Git](https://try.github.com) 模拟器时，您可以查看 [Git 命令列表](https://git-scm.com/docs)或 [Git 命令查询参考](http://gitref.org)。
 
 ### 使用 {% data variables.product.product_name %}
 
@@ -31,7 +31,7 @@ authors:
 
 #### 分支、复刻和拉取请求
 
-使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/articles/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/articles/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 从[命令行](https://cli.github.com/)访问有关使用 {% data variables.product.prodname_dotcom %} 的参考。
 
 #### 收看视频
 
@@ -39,9 +39,9 @@ authors:
 
 ### 培训
 
-#### Free courses
+#### 免费课程
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} 提供一系列交互式、[点播培训培训课程](https://lab.github.com/)，包括 [{% data variables.product.prodname_dotcom %} 简介](https://lab.github.com/githubtraining/introduction-to-github)；关于 HTML、Python 和 NodeJS 等编程语言和工具的课程；{% data variables.product.product_name %} 特定工具，如 {% data variables.product.prodname_actions %}。
 
 #### {% data variables.product.prodname_dotcom %} 基于 web 的教育课程
 
@@ -49,7 +49,7 @@ authors:
 
 #### 为您的公司提供培训
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. 如需询问有关培训的问题，请[联系我们](https://services.github.com/#contact)。
+{% data variables.product.prodname_dotcom %} 提供[现场课程](https://services.github.com/#offerings)，我们安排经验丰富的教育工作者现场讲授。 如需询问有关培训的问题，请[联系我们](https://services.github.com/#contact)。
 
 ### 其他资源
 

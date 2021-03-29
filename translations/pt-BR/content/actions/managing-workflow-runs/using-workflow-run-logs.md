@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Na página de execução de fluxo de trabalho, você pode verificar se a execução está em andamento ou foi concluída. Você deve estar conectado a uma conta {% data variables.product.prodname_dotcom %} para visualizar as informações da execução do seu fluxo de trabalho, incluindo os repositórios públicos. Para obter mais informações, consulte "[Permissões de acesso no GitHub](/articles/access-permissions-on-github)".
 
@@ -43,9 +45,9 @@ Para trabalhos executados em executores hospedados no {% data variables.product.
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
@@ -64,10 +66,10 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. No canto superior direito, clique em
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo do registro**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **fazer o download do arquivo de log**.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
@@ -86,16 +88,16 @@ Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. No canto superior direito, clique em
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
  ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated.png)

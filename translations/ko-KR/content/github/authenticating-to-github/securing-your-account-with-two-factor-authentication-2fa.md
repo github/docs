@@ -9,5 +9,7 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 自分のアカウントで有料の {% data variables.product.prodname_dotcom %} 製品を使用している場合は、{% data variables.contact.github_support %} に直接問い合わせることができます。 ユーザアカウントまたは Organization の {% data variables.product.prodname_free_user %} を使用している場合は、{% data variables.contact.contact_support %} に連絡してアカウント、セキュリティ、悪用の問題を報告できます。 詳しい情報については、「[GitHub Supportについて](/github/working-with-github-support/about-github-support)」を参照してください。

@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
@@ -29,6 +31,9 @@ versions:
 {% if enterpriseServerVersions contains currentVersion %}
 将 *REGISTRY-URL* 替换为您实例的 Maven 注册表的 URL。 如果您的实例启用了子域隔离，请使用 `maven.HOSTNAME`。 如果您的实例禁用了子域隔离，请使用 `HOSTNAME/_registry/maven`。 无论是哪种情况，都要将 *HOSTNAME* 替换为
 {% data variables.product.prodname_ghe_server %} 实例的主机名。
+{% elsif currentVersion == "github-ae@latest" %}
+将 *REGISTRY-URL* 替换为企业的 Maven 注册表 `maven.HOSTNAME` 的 URI。 将 *HOSTNAME* 替换为
+{% data variables.product.product_location %} 的主机名称。
 {% endif %}
 
 将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *REPOSITORY* 替换为要发布的包所在仓库的名称，将 *OWNER* 替换为 {% data variables.product.prodname_dotcom %} 上拥有该仓库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
@@ -212,4 +217,4 @@ subprojects {
 ### 延伸阅读
 
 - "[配置 Apache Maven 用于 {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
-- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

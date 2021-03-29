@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-statement-against-modern-slavery-and-child-labor
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 *Erklärung 2018*

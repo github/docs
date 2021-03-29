@@ -21,6 +21,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 permissions: As pessoas com permissões de administrador em um repositório podem gerenciar as regras de proteção do branch.
+topics:
+  - repositories
 ---
 
 ### Sobre as regras de proteção do branch

@@ -25,7 +25,7 @@ In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git pu
 $ git remote set-url origin <em>new_url</em>
 ```
 
-For more information, see "[Changing a Remote's URL](/github/using-git/changing-a-remotes-url)."
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 

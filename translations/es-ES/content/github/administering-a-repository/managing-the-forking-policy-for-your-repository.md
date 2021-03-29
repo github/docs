@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Un propietario de la organización debe permitir las bifurcaciones de repositorios privados{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e internos{% endif %} a nivel organizacional antes de que puedas permitir o dejr de permitir las bifurcaciones en un repositorio específico. Para obtener más información, consulta "[Administrar la política de ramificación para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)."

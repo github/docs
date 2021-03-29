@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können den Markdown-Prozessor für eine {% data variables.product.prodname_pages %}-Website festlegen.

@@ -1,12 +1,14 @@
 ---
 title: Restringir interações na organização
-intro: 'É possível aplicar temporariamente um período de atividade limitada para determinados usuários em todos os repositórios públicos pertencentes à sua organização.'
+intro: É possível aplicar temporariamente um período de atividade limitada para determinados usuários em todos os repositórios públicos pertencentes à sua organização.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: Os proprietários da organização podem limitar interações em uma organização.
+topics:
+  - comunidade
 ---
 
 ### Sobre limites temporários de interação

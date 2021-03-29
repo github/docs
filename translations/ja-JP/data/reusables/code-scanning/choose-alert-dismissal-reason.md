@@ -1,1 +1,1 @@
-It's important to choose the appropriate reason from the drop-down menu as this may affect whether a query continues to be included in future analysis.
+クエリが将来の分析に含まれ続けるかに影響することがあるので、ドロップダウンメニューから適切な理由を選択することは重要です。

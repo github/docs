@@ -13,6 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - cuentas
+  - repositories
 ---
 
 ### Eliminar bifurcaciones de repositorios privados

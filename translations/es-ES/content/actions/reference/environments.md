@@ -5,9 +5,11 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los ambientes
 
@@ -19,7 +21,7 @@ Las reglas de protección del ambiente y secretos de ambiente solo se encuentran
 
 #### Reglas de protección de ambiente
 
-Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. Puedes utilizar reglas de protección de ambiente para requerir aprobaciones manuales o para retrasar un job.
+Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
 
 ##### Revisores requeridos
 
@@ -31,6 +33,17 @@ Para obtener más información sobre cómo revisar jobs que referencian un ambie
 
 Utiliza un temporizador de espera para retrasar un job durante una cantidad de tiempo específica después de que el job se active inicialmente. El tiempo (en minutos) debe ser un número entero entre 0 y 43,200 (30 días).
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}
+##### Ramas de despliegue
+
+Utiliza ramas de despliegue para restringir las ramas que pueden hacer despliegues en el ambiente. A continuación encnotrarás las opciones para las ramas de despliegue de un ambiente:
+
+* **Todas las ramas**: Todas las ramas del repositorio pueden hacer despliegues en el ambiente.
+* **Ramas protegidas**: Solo las ramas que tengan reglas de protección de rama habilitadas podrán hacer despliegues en el ambiente. Si no se han definido reglas de protección de ramas en ninguna de las ramas del repositorio, entonces todas las ramas podrán hacer despliegues. Para obtener más iformación acerca de las reglas de protección de rama, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+* **Ramas selectas**: Solo las ramas que coincidan con tus patrones específicos de nombre podrán hacer despliegues en el ambiente.
+
+  Por ejemplo, si especificas `releases/*` como una regla de rama de despliegue, solo aquellas ramas cuyo nombre inicie con `releases/` podrán hacer despliegues en el ambiente. (Los caracteres de comodín no coincidirán con `/`. Para hacer coincidir las ramas que inicien con `release/` y contengan una diagonal sencilla adicional utiliza `release/*/*`.) Si agregas `main` como regla de rama de despliegue, la rama que se llame `main` también podrá hacer despliegues en el ambiente. Para obtener más información sobre las opciones de sintaxis para las ramas de despliegue, consulta la [documentación de File.fnmatch de Ruby](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+{% endif %}
 #### Secretos de ambiente
 
 Los secretos que se almacenan en un ambiente sólo se encuentran disponibles para los jobs de flujo de trabajo que referencien el ambiente. Si el ambiente requiere aprobación, un job no puede acceder a secretos de ambiente hasta que uno de los revisores requeridos lo apruebe. Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
@@ -45,6 +58,8 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 1. Da clic en **Ambiente nuevo**.
 1. Ingresa un nombre para el ambiente y luego da clic en **Configurar ambiente**. Los nombres de ambiente no distinguen entre mayúsculas y minúsculas. Un nombre de ambiente no deberá exceder los 255 caracteres y deberá ser único dentro del repositorio.
 1. Configura cualquier regla de protección o secreto de ambiente.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 
@@ -67,3 +82,5 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 {% data reusables.github-actions.sidebar-environment %}
 1. Junto al ambiente que quieres borrar, da clic en {% octicon "trashcan" aria-label="The trashcan icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
