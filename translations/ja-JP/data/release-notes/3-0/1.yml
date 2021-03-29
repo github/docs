@@ -1,0 +1,68 @@
+---
+date: '2021-03-02'
+intro: '{% data variables.product.prodname_ghe_server %} 3.0以降では最小のインフラストラクチャの要件が増加されました。詳しい情報については「[GitHub Enterprise Server 3.0以降に対する最小要件について](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。'
+sections:
+  security_fixes:
+    - '**高:** 特別な細工が行われたPull RequestやREST APIのリクエストを通じて、認可されていないリポジトリへの書き込みアクセスを、インスタンスの認証されたユーザが取得できてしまう、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。攻撃者はターゲットのリポジトリをフォークできなければなりませんが、これはOrganizationが所有しているプライベートリポジトリではデフォルトで無効化されている設定です。必須のPull Requestレビューやステータスチェックといったブランチ保護で、さらなるレビューや検証なしに未認可のコミットがマージされることは避けられます。この脆弱性にはCVE-2021-22861が割り当てられました。この問題は、[GitHub Bug Bounty Program](https://bounty.github.com)を通じて報告されました。'
+    - '**高:** 適切な認可なしに、Pull Requestのメンテナのコラボレーション権限を修正できる、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性を突くことで、攻撃者は自分がメンテナになっているリポジトリでオープンされたPull Requestのheadブランチへのアクセスを得ることができます。Organizationが所有するプライベートリポジトリではフォークがデフォルトで無効になっており、この脆弱性を避けることができます。加えて、必須のPull Requestレビューやステータスチェックといったブランチ保護で、さらなるレビューや検証なしに未認可のコミットがマージされることは避けられます。この脆弱性にはCVE-2021-22863が割り当てられました。この問題は、[GitHub Bug Bounty Program](https://bounty.github.com)を通じて報告されました。'
+    - '**高:** リポジトリをフォークできる認証されたユーザが、フォークの親リポジトリのActionsのシークレットを開示できてしまう、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性が存在したのは、任意のSHAもしくはフォークリポジトリ外の他のPull Requestの時点まで、Pull Requestのベース参照を更新できる欠陥のためです。PR内のこの正しくない参照を確立することによって、フォークからワークフローに送信されるActionsのシークレットを限定する制限がバイパスされることがありました。この脆弱性は、GitHub Enterprise Serverのバージョン3.0.0、3.0.0.rc2、3.0.0.rc1に影響するもので、CVE-2021-22862が割り当てられました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告されました。'
+    - '**中:** GitHub PagesのビルドからのGitHubトークンがログに残ることがあります。'
+    - 'パッケージは最新のセキュリティバージョンにアップデートされました。'
+  bugs:
+    - 'ロードバランサーのヘルスチェックによって、babeldのログがPROXYプロトコルに関するエラーで埋め尽くされてしまうことがあります。'
+    - 'HTTPヘッダが、アーカイブに対する304ステータスのような特定のレスポンスにおいてHTTP RFC標準に準拠していませんでした。'
+    - '依存関係グラフの機能が有効化されたPythonのリポジトリをホストするインスタンスにおいて、ルートディスクがエラーログで埋め尽くされてしまい、インスタンスが応答しなくなることがありました。'
+    - 'GitHub Enterprise Backup Utilitiesがスナップショットを取る際に、情報提供のメッセージが意図せずエラーとして記録され、そのためにcronジョブによってスケジュールされたstderrへの出力を待ち受けているバックアップの際に、不要なメールが送信されてしまいます。'
+    - 'VMWare ESX 6.7において、初期の設定がホストのキーを生成する際にハングし、そのインスタンスがSSHでアクセスできなくなってしまうことがありました。'
+    - 'GitHub Actionsが有効化されていると、管理コンソールでメンテナンスモードの無効化に失敗します。'
+    - 'パッケージ作成の設定がOrganizationメンバーの設定ページに表示されますが、この機能はまだ利用できません。'
+    - 'Security & AnalysisページでSecret Scanningを有効化する際に、ダイアログが誤ってプライベートリポジトリに触れます。'
+    - 'Wikiページを編集する際に、保存ボタンをクリックすると500エラーが返されることがあります。'
+    - 'サブジェクトの別名に複数の名前がある証明書を使ってS/MIME署名されたコミットで、誤ってコミットバッジに"Unverified"と表示されます。'
+    - 'LDAP認証を設定されたインスタンス上でGitの操作を実行したユーザに500エラーが返されました。'
+    - 'サスペンドされたユーザがTeamに追加されると、メールが送信されます。'
+    - 'リポジトリが大量のマニフェストを持っていると、`You have reached the maximum number of allowed manifest files (20) for this repository`というエラーがInsights -> Dependency graphタブに表示されます。詳しい情報については[可視化の制限](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data)を参照してください。'
+    - '所有するリポジトリでActionsが有効化されていなくても、ユーザにCode Scanning CodeQL Actionをセットアップするオプションが表示されてしまうのを修正しました。'
+    - 'Enterpriseアカウント設定にある"Prevent repository admins from changing anonymous Git read access"チェックボックスが、正常に有効化または無効化できませんでした。'
+    - '須のメッセージを表示するために使われるモーダルに垂直スクロールバーが含まれず、長いメッセージをすべて見ることができませんでした。'
+    - 'ハードリブートやアプリケーションのクラッシュ後に、Redisの起動に失敗することがあります。'
+    - '依存関係グラフがPythonの`setup.py`マニフェストファイルのパースに失敗し、HTTP 500エラーがログに残されます。これが重複されるロギングの問題と組み合わさると、ルートボリュームの使用率が増大します。'
+  changes:
+    - '複数のユーザが同じアーカイブを並行してダウンロードするリクエストが処理され、パフォーマンスが向上します。'
+  known_issues:
+    - '新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。'
+    - 'カスタムのファイアウォールのルールは、アップグレードの際に維持されません。'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。'
+    - '同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。'
+    - 'メンテナンスモードが有効化されているとき、サービスの中に引き続き"active processes"としてリストされるものがあります。特定されたサービスは、メンテナンスモード中にも実行されることが期待されるものです。この問題が生じており、不確実な場合は[GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us)もしくは[GitHub Premium Support](https://premium.githubsupport.com/)にお問い合わせください。'
+    - '`/var/log/messages`、`/var/log/syslog`、`/var/log/user.log`への重複したロギングによって、ルートボリュームの使用率が増大します。'
+    - 'ユーザが、すべてのチェックボックスをチェックすることなく必須のメッセージを閉じることができます。'
+    - '[pre-receiveフックスクリプト](/admin/policies/enforcing-policy-with-pre-receive-hooks)は一時ファイルを書くことができず、そのためにスクリプトの実行が失敗することがあります。pre-receiveフックを使うユーザは、ステージング環境でスクリプトが書き込みアクセス権を必要とするかを確認するためのテストをするべきです。'
+    - 'リポジトリの[デプロイキー](/developers/overview/managing-deploy-keys)が、LFSオブジェクトを含むリポジトリで使用できません。'
+    - 'ノートブックに非UTF-8でエンコードされた文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。'
+    - 'Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。'
+    - '依存関係グラフがJavaScriptの`yarn.lock`マニフェストファイルのパースに失敗し、ログにHTTP 500エラーが残ります。'
+    - '以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。'
+    - |
+      ユーザは、アバターのようなアセットがロードされないことや、コードのプッシュ/プルの失敗を体験するかもしれません。これは、`haproxy-cluster-proxy`サービス内のPIDミスマッチによって生じることがあります。影響されたインスタンスがあるかは、以下のようにして判断します。
+
+      **単一インスタンス**
+
+      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
+
+        ```
+        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
+        ```
+
+      2. ミスマッチがあると表示されたら、インスタンスを再起動してください。
+
+      **クラスタもしくはHigh Availability構成**
+
+      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
+
+        ```
+        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
+        ```
+
+      2. 1つ以上のノードが影響されていると表示されたら、影響されているノードを再起動してください。

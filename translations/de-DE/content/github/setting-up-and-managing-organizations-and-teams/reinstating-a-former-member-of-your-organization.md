@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Organization owners can reinstate a former member of an organization.'
+permissions: Organization owners can reinstate a former member of an organization.
+topics:
+  - organisationen
+  - teams
 ---
 
 ### About member reinstatement

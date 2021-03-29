@@ -29,7 +29,7 @@ Puedes utilizar lps {% data variables.product.prodname_discussions %} para debat
 
 Las propuestas son útiles para debatir detalles específicos de un proyecto como registros de errores y mejoras planificadas. Para obtener más información, consulta "[Acerca de las propuestas](/articles/about-issues)". Las solicitudes de extracción te permiten comentar directamente en los cambios propuestos. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)" y "[Comentar en una solicitud de extracción](/articles/commenting-on-a-pull-request)".
 
-{% data reusables.organizations.team-discussions-purpose %} Para obtener más información, consulta "[Acerca de los debates de equipo](/articles/about-team-discussions)".
+{% data reusables.organizations.team-discussions-purpose %} Para obtener más información, consulta "[Acerca de los debates de equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
 
 ### Seguir los lineamientos de contribución
 

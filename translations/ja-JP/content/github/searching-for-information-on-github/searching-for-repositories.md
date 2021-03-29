@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github search
 ---
 
 {% data variables.product.product_location %} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。
@@ -48,7 +50,7 @@ versions:
 
 ### リポジトリのサイズで検索
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
+`size` 修飾子は、不等号や範囲の修飾子を使うことで、特定のサイズ (キロバイト) に合致するリポジトリを表示します。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
 | 修飾子                       | サンプル                                                                                                                   |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------- |

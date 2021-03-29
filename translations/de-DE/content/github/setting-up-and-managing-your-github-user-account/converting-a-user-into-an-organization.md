@@ -8,6 +8,8 @@ intro: Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - accounts
 ---
 
 {% warning %}

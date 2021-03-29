@@ -5,6 +5,8 @@ redirect_from:
   - /articles/reporting-abuse-or-spam
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 オーナー、コラボレータ、以前のコントリビューター、および書き込みアクセスを持つユーザは、Issue やプルリクエスト、および Issue、プルリクエスト、コミットについてのコメントをレポートできます。 {% data variables.product.prodname_marketplace %} のアプリケーションについては誰でもレポートできます。

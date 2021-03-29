@@ -2,6 +2,7 @@ const { execSync } = require('child_process')
 const { get, set } = require('lodash')
 const fs = require('fs')
 const path = require('path')
+const readFileAsync = require('../lib/readfile-async')
 const fm = require('../lib/frontmatter')
 const matter = require('gray-matter')
 const chalk = require('chalk')
@@ -23,7 +24,7 @@ const fixableYmlProps = ['date']
 const loadAndValidateContent = async (path, schema) => {
   let fileContents
   try {
-    fileContents = await fs.promises.readFile(path, 'utf8')
+    fileContents = await readFileAsync(path, 'utf8')
   } catch (e) {
     console.error(e.message)
     return null
@@ -70,13 +71,14 @@ changedFilesRelPaths.forEach(async (relPath) => {
   if (!engResult) return
   const { data: engData } = engResult
 
-  console.log(chalk.red('fixing errors in ') + chalk.bold(relPath))
+  console.log(chalk.bold(relPath))
 
   const newData = data
 
-  fixableErrors.forEach(({ property }) => {
+  fixableErrors.forEach(({ property, message }) => {
     const correctValue = get(engData, property)
-    console.log(`  [${property}]: ${get(data, property)} -> ${correctValue}`)
+    console.log(chalk.red(`  error message: [${property}] ${message}`))
+    console.log(`  fix property [${property}]: ${get(data, property)} -> ${correctValue}`)
     set(newData, property, correctValue)
   })
 

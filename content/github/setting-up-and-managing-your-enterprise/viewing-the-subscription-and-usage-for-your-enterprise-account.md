@@ -2,13 +2,15 @@
 title: Viewing the subscription and usage for your enterprise account
 intro: 'You can view the current subscription, license usage, invoices, payment history, and other billing information for your enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: 'Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.'
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### About billing for enterprise accounts
@@ -37,6 +39,6 @@ For more information about managing billing managers, see "[Inviting people to m
 
 - "[About billing for GitHub Actions](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions)"
 - "[About billing for Git Large File Storage](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage)"
-- "[Managing use of Advanced Security for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account)"
+- "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)"
 
 {% endif %}

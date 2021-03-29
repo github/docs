@@ -2,12 +2,10 @@
 title: About code scanning
 intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/about-automated-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
+topics:
+  - security
 ---
 
 {% data reusables.code-scanning.beta %}

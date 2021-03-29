@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 {% data variables.product.product_name %} utiliza la [biblioteca de Linguist](https://github.com/github/linguist) de código abierto para

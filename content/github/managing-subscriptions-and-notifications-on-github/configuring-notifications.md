@@ -17,6 +17,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -50,7 +52,7 @@ The notifications inbox on {% data variables.product.product_name %}{% if curren
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-In addition, the notifications inbox on {% data variables.product.prodname_mobile %} allows you to triage notifications in dark mode and receive push notifications for direct mentions. For more information, see "[Enabling push notifications with GitHub for mobile](#enabling-push-notifications-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
+In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
 
 #### Benefits of using an email client for notifications
@@ -63,7 +65,7 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/building-a-strong-community/about-team-discussions)."
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -152,6 +154,26 @@ By default, anytime you gain access to a new repository, you will automatically 
 
 If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
 
+### Configuring your watch settings for an individual repository
+
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option.
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
+
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+
+If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+
+{% endif %}
+
 ### Choosing where your organization’s email notifications are sent
 
 If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.	
@@ -200,28 +222,41 @@ Choose how you want to receive workflow run updates for repositories that you ar
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-### Enabling push notifications with {% data variables.product.prodname_mobile %}
+### Managing your notification settings with {% data variables.product.prodname_mobile %}
 
-When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. You can then enable push notifications for direct mentions within the app.
+When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
+- Direct mentions
+- Assignments to issues or pull requests
+- Requests to review a pull request
+- Requests to approve a deployment
 
-You can only receive notifications for pushes to repositories on {% data variables.product.prodname_mobile %} at this time.
+You can also schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device.
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
-#### Enabling push notifications with {% data variables.product.prodname_ios %}
+#### Managing your notification settings with {% data variables.product.prodname_ios %}
 
-1. Above "Home", tap your profile photo.
+1. In the bottom menu, tap **Profile**.
 2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Settings icon for GitHub for iOS](/assets/images/help/mobile/ios-settings-icon.png)
-3. To update your notification settings, tap **Push notifications**.
-4. To turn on push notifications for direct mentions, use the **Direct Mentions** toggle.
+3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Enabling push notifications with {% data variables.product.prodname_android %}
+#### Managing your notification settings with {% data variables.product.prodname_android %}
 
-1. Above "Home", tap your profile photo.
+1. In the bottom menu, tap **Profile**.
 2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Settings icon for GitHub for Android](/assets/images/help/mobile/android-settings-icon.png)
-3. To turn on push notifications for direct mentions, use the **Direct mentions** toggle.
-{% endif %}
+3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Receive Notifications**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+
+### Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
+
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+
+1. On {% data variables.product.prodname_mobile %}, navigate to main page of the repository.
+2. Tap **Watch**.
+   ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
+3. To choose what activities you receive notifications for, tap your preferred watch settings.
+   ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+
 {% endif %}

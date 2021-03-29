@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 测试 SSH 连接之前，您应已完成以下各项：

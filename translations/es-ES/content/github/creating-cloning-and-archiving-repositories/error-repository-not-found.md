@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Comprueba que no haya errores tipográficos
@@ -15,7 +17,7 @@ Los errores tipográficos suceden, y los nombres de los repositorios distinguen 
 
 Para evitar este error, cuando clonas, copia y pega siempre la URL del clon desde la página del repositorio. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 
-Para actualizar el remoto en un repositorio existente, consulta "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)".
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Comprobar tus permisos
 
