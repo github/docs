@@ -35,7 +35,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
   ```
   Alternatively, if you use the `bash` shell, run this command:
   ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; //
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
 
