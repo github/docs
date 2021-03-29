@@ -48,7 +48,7 @@ walk(path.join(process.cwd(), 'content'), { includeBasePath: true, directories: 
     newContent = newContent.replace(/###? Table of Contents\n/i, '')
 
     // Fix this one weird file
-    if (file.relativePath === 'content/discussions/guides/index.md') {
+    if (relativePath === 'discussions/guides/index.md') {
       data.children = [
         '/best-practices-for-community-conversations-on-github',
         '/finding-discussions-across-multiple-repositories',
