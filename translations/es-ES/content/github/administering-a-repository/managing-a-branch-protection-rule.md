@@ -21,6 +21,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 permissions: Las personas con permisos administrativos en un repositorio pueden administrar las reglas de protección de rama.
+topics:
+  - repositories
 ---
 
 ### Acerca de las reglas de protección de rama

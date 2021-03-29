@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Acerca de {% data variables.product.prodname_sponsors %}

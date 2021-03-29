@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 1. Wenn Du das einige Mitglied mit *Inhaber*-Berechtigungen bist, gib einem anderen Organisationsmitglied ebenfalls die Inhaberrolle. Weitere Informationen findest Du unter „[Ernennung eines Organisationsinhabers](/github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."

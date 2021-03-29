@@ -2,7 +2,7 @@
 date: '2020-06-23'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/20747, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/20747, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
   bugs:
     - 'Excessively large log events could lead to log forwarding instability when UDP was used as the transport mechanism. {% comment %} https://github.com/github/enterprise2/pull/20458, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
     - 'The internal communication service used to access MySQL could restart more often than required, including part way through the upgrade process, which could cause the upgrade to partially fail. We have reduced the rate of restarts and made the code more robust. {% comment %} https://github.com/github/enterprise2/pull/20957, https://github.com/github/enterprise2/pull/20972, https://github.com/github/github/pull/146974 {% endcomment %}'
@@ -18,3 +18,4 @@ sections:
     - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'Security alerts are not reported when pushing to a repository on the command line. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - 'Audit logs may be attributed to 127.0.0.1 instead of the actual source IP address. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "Configuring a repository's permission to `Triage` or `Maintain` fails with an error message."

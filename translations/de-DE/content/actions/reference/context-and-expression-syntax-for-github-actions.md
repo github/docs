@@ -11,14 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Kontexten und Ausdrücken
 
-Mit Ausdrücken können Sie programmatisch Variablen in Workflow-Dateien festlegen und auf Kontexte zugreifen. Ein Ausdruck kann eine beliebige Kombination aus literalen Werten, Verweisen auf einen Kontext und Funktionen sein. Sie können Literale, Kontextverweise und Funktionen mithilfe von Operatoren kombinieren.
+Mit Ausdrücken können Sie programmatisch Variablen in Workflow-Dateien festlegen und auf Kontexte zugreifen. Ein Ausdruck kann eine beliebige Kombination aus literalen Werten, Verweisen auf einen Kontext und Funktionen sein. Du kannst Literale, Kontextverweise und Funktionen mithilfe von Operatoren kombinieren.
 
 Ausdrücke werden häufig mit dem Bedingungs-Schlüsselwort `if` in einer Workflow-Datei verwendet, um zu entscheiden, ob ein Schritt ausgeführt werden soll. Wenn eine `if`-Bedingung `true` (wahr) ist, wird der Schritt ausgeführt.
 
@@ -67,11 +69,11 @@ Kontexte sind eine Möglichkeit, auf Informationen zu Workflow-Läufen, Runner-U
 | `matrix`    | `Objekt` | Ermöglicht den Zugriff auf die Matrixparameter, die Du für den aktuellen Job konfiguriert hast. Wenn Du beispielsweise einen Matrix-Build mit den Versionen von `os` und `node` konfigurierst, umfasst das Kontextobjekt `matrix` die Versionen von `os` und `node` des aktuellen Auftrags. |
 | `needs`     | `Objekt` | Ermöglicht den Zugriff auf die Ausgaben aller Jobs, die als Abhängigkeit des aktuellen Jobs definiert sind. Weitere Informationen findest Du unter [`needs`-Kontext](#needs-context).                                                                                                       |
 
-Als Teil eines Ausdrucks können Sie mit einer der beiden folgenden Syntaxarten auf Kontextinformationen zugreifen.
+Als Teil eines Ausdrucks kannst Du mit einer der beiden folgenden Syntaxarten auf Kontextinformationen zugreifen.
 - Index-Syntax: `github['sha']`
 - Syntax zur Dereferenzierung von Eigenschaften: `github.sha`
 
-Bei der Eigenschaftsdereferenzierungs-Syntax muss der Eigenschaftsname
+Bei der Syntax zur Dereferenzierung von Eigenschaften muss der Name der Eigenschaft:
 - mit `a-Z` oder `_` beginnen,
 - mit `a-Z`, `0-9`, `-` oder `_` weitergehen.
 
@@ -138,7 +140,7 @@ Der `job`-Kontext enthält Informationen zum gerade ausgeführten Auftrag.
 
 #### `steps`-Kontext
 
-Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Job, die bereits ausgeführt wurden.
+Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Auftrag, die bereits ausgeführt wurden.
 
 | Name der Eigenschaft                                | Typ      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -152,11 +154,12 @@ Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Job, di
 
 Der `runner`-Kontext enthält Informationen über den Runner, der den aktuellen Job ausführt.
 
-| Name der Eigenschaft | Typ      | Beschreibung                                                                                                                                                                                                                                                                                                                                 |
-| -------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`          | `string` | Das Betriebssystem des Runners, der den Job ausführt. Mögliche Werte sind `Linux`, `Windows` oder `macOS`.                                                                                                                                                                                                                                   |
-| `runner.temp`        | `string` | Der Pfad des temporären Verzeichnisses für den Runner. Dieses Verzeichnis ist zu Beginn jedes Auftrags garantiert leer, sogar bei selbst-gehosteten Runnern.                                                                                                                                                                                 |
-| `runner.tool_cache`  | `string` | Der Pfad des Verzeichnisses, das einige der vorinstallierten Tools für {% data variables.product.prodname_dotcom %}-gehostete Runner enthält. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Name der Eigenschaft | Typ      | Beschreibung                                                                                                                                                                                                                                                        |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`          | `string` | Das Betriebssystem des Runners, der den Job ausführt. Mögliche Werte sind `Linux`, `Windows` oder `macOS`.                                                                                                                                                          |
+| `runner.temp`        | `string` | Der Pfad des temporären Verzeichnisses für den Runner. Dieses Verzeichnis ist zu Beginn jedes Auftrags garantiert leer, sogar bei selbst-gehosteten Runnern.                                                                                                        |
+| `runner.tool_cache`  | `string` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." |
+{% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### `needs`-Kontext
 
@@ -213,11 +216,11 @@ jobs:
 
 ### Literale
 
-In einem Ausdruck können Sie die Datentypen `boolean`, `null`, `number` oder `string` verwenden. Bei booleschen Literalen wird die Groß- und Kleinschreibung nicht berücksichtigt. Du kannst also sowohl `true` als auch `True` benutzen.
+In einem Ausdruck kannst Du die Datentypen `boolean`, `null`, `number` oder `string` verwenden. Bei booleschen Literalen wird die Groß- und Kleinschreibung nicht berücksichtigt. Du kannst also sowohl `true` als auch `True` benutzen.
 
 | Datentyp        | Literalwert                                                                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `boolean`       | `true` (ja) oder `false` (nein)                                                                                                                  |
+| `boolean`       | `true` oder `false`                                                                                                                              |
 | `null (nichts)` | `null (nichts)`                                                                                                                                  |
 | `number`        | Alle von JSON unterstützten Zahlenformate                                                                                                        |
 | `string`        | Du musst einfache Anführungszeichen verwenden. Maskiere einfache Anführungszeichen (Apostrophen) mit einem weiteren einfachen Anführungszeichen. |
@@ -240,20 +243,20 @@ env:
 
 ### Operatoren
 
-| Operator                  | Beschreibung                 |
-| ------------------------- | ---------------------------- |
-| `( )`                     | Logische Gruppierung         |
-| `[ ]`                     | Index                        |
-| `.`                       | Eigenschaftsdereferenzierung |
-| `!`                       | Nicht                        |
-| `<`                    | Kleiner als                  |
-| `<=`                   | Kleiner oder gleich          |
-| `>`                    | Größer als                   |
-| `>=`                   | Größer oder gleich           |
-| `==`                      | Gleich                       |
-| `!=`                      | Ungleich                     |
-| `&&`              | Und                          |
-| <code>\|\|</code> | Oder                         |
+| Operator                  | Beschreibung                       |
+| ------------------------- | ---------------------------------- |
+| `( )`                     | Logische Gruppierung               |
+| `[ ]`                     | Index                              |
+| `.`                       | Dereferenzierung einer Eigenschaft |
+| `!`                       | Nicht                              |
+| `<`                    | Kleiner als                        |
+| `<=`                   | Kleiner oder gleich                |
+| `>`                    | Größer als                         |
+| `>=`                   | Größer oder gleich                 |
+| `==`                      | Gleich                             |
+| `!=`                      | Ungleich                           |
+| `&&`              | Und                                |
+| <code>\|\|</code> | Oder                               |
 
 {% data variables.product.prodname_dotcom %} vergleicht auf Gleichheit in toleranter Weise.
 
@@ -286,7 +289,7 @@ env:
 
 `contains( search, item )`
 
-Gibt `true` zurück, wenn der `item` in `search` enthalten ist. Wenn `search` ein Array ist, gibt diese Funktion `true` zurück, wenn der `item` ein Element im Array ist. Wenn `search` ein String ist, gibt diese Funktion `true` zurück, wenn der `item` ein Teilstring von `search` ist. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Wandelt Werte in einen String um.
+Gibt `true` zurück, wenn der `item` in `search` enthalten ist. Wenn `search` ein Array ist, gibt diese Funktion `true` zurück, wenn der `item` ein Element im Array ist. Wenn `search` ein String ist, gibt diese Funktion `true` zurück, wenn der `item` ein Teilstring von `search` ist. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Übergibt Werte an einen String.
 
 ##### Beispiel mit einem Array
 
@@ -300,7 +303,7 @@ Gibt `true` zurück, wenn der `item` in `search` enthalten ist. Wenn `search` ei
 
 `startsWith( searchString, searchValue )`
 
-Gibt `true` zurück, wenn der `searchString` mit `searchValue` beginnt. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Wandelt Werte in einen String um.
+Gibt `true` zurück, wenn der `searchString` mit `searchValue` beginnt. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Übergibt Werte an einen String.
 
 ##### Beispiel
 
@@ -310,7 +313,7 @@ Gibt `true` zurück, wenn der `searchString` mit `searchValue` beginnt. Bei dies
 
 `endsWith( searchString, searchValue )`
 
-Gibt `true` zurück, wenn der `searchString` mit `searchValue` endet. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Wandelt Werte in einen String um.
+Gibt `true` zurück, wenn der `searchString` mit `searchValue` endet. Bei dieser Funktion wird die Groß- und Kleinschreibung nicht berücksichtigt. Übergibt Werte an einen String.
 
 ##### Beispiel
 
@@ -342,7 +345,7 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 `join( array, optionalSeparator )`
 
-Der Wert für `array` kann ein Array oder ein String sein. Alle Werte im `array` werden in einem String zusammengeführt. Wenn Du `optionalSeparator` angibst, wird er zwischen den verketteten Werten eingefügt. Andernfalls wird der Standard-Trennzeichen `,` verwendet. Wandelt Werte in einen String um.
+Der Wert für `array` kann ein Array oder ein String sein. Alle Werte im `array` werden in einem String zusammengeführt. Wenn Du `optionalSeparator` angibst, wird er zwischen den verketteten Werten eingefügt. Andernfalls wird der Standard-Trennzeichen `,` verwendet. Übergibt Werte an einen String.
 
 ##### Beispiel
 

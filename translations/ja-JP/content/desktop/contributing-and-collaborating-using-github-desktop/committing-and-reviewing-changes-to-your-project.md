@@ -18,7 +18,7 @@ versions:
 1. [新しいブランチを作成](/desktop/guides/contributing-to-projects/managing-branches)するか、クリックして既存のブランチを選択します
 
 {% octicon "git-branch" aria-label="The branch icon" %} ツールバーの**現在のブランチ**とリストからブランチを選択します。
-  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. コミットに含める変更の選択方法

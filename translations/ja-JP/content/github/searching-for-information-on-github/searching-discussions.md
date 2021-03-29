@@ -1,64 +1,66 @@
 ---
-title: Searching discussions
-intro: You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.
+title: ディスカッションを検索する
+intro: '{% data variables.product.product_name %} 上のディスカッションを検索し、検索修飾子を使用して検索結果を絞り込むことができます。'
 versions:
   free-pro-team: '*'
+topics:
+  - github search
 ---
 
 {% data reusables.discussions.beta %}
 
-### About searching for discussions
+### ディスカッションの検索について
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにディスカッションを検索できます。あるいは、特定の Organization のみのディスカッションの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
 
 {% data reusables.search.syntax_tips %}
 
 ### タイトル、本文、またはコメントで検索
 
-With the `in` qualifier you can restrict your search for discussions to the title, body, or comments. You can also combine qualifiers to search a combination of title, body, or comments. When you omit the `in` qualifier, {% data variables.product.product_name %} searches the title, body, and comments.
+`in` 修飾子を使用すると、ディスカッションの検索をタイトル、本文、またはコメントに制限できます。 修飾子を組み合わせて、タイトル、本文、またはコメントの組み合わせを検索することもできます。 `in` 修飾子を省略すると、{% data variables.product.product_name %} はタイトル、本文、およびコメントを検索します。
 
-| 修飾子           | サンプル                                                                                                                                                             |
-|:------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:title`    | [**welcome in:title**](https://github.com/search?q=welcome+in%3Atitle&type=Discussions) matches discussions with "welcome" in the title.                         |
-| `in:body`     | [**onboard in:title,body**](https://github.com/search?q=onboard+in%3Atitle%2Cbody&type=Discussions) matches discussions with "onboard" in the title or body.     |
-| `in:comments` | [**thanks in:comments**](https://github.com/search?q=thanks+in%3Acomment&type=Discussions) matches discussions with "thanks" in the comments for the discussion. |
+| 修飾子           | サンプル                                                                                                                                     |
+|:------------- |:---------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:title`    | [**welcome in:title**](https://github.com/search?q=welcome+in%3Atitle&type=Discussions) は、タイトルに「welcome」を含むディスカッションにマッチします。              |
+| `in:body`     | [**error in:title,body**](https://github.com/search?q=onboard+in%3Atitle%2Cbody&type=Discussions) は、タイトルか本文に「onboard」を含むディスカッションにマッチします。 |
+| `in:comments` | [**welcome in:title**](https://github.com/search?q=thanks+in%3Acomment&type=Discussions) は、ディスカッションのコメントに「thanks」を含むディスカッションにマッチします。     |
 
 ### ユーザまたは Organization のリポジトリ内の検索
 
-To search discussions in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search discussions in a specific repository, you can use the `repo` qualifier.
+特定のユーザまたは Organization のすべてのリポジトリのディスカッションを検索するには、`user` 修飾子または `org` 修飾子を使います。 特定のリポジトリのディスカッションを検索するには、`repo` 修飾子を使います。
 
-| 修飾子                       | サンプル                                                                                                                                                                                                                                   |
-|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:octocat feedback**](https://github.com/search?q=user%3Aoctocat+feedback&type=Discussions) matches discussions with the word "feedback" from repositories owned by @octocat.                                                    |
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Discussions&utf8=%E2%9C%93) matches discussions in repositories owned by the GitHub organization.                                                                       |
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:nodejs/node created:<2021-01-01**](https://github.com/search?q=repo%3Anodejs%2Fnode+created%3A%3C2020-01-01&type=Discussions) matches discussions from @nodejs' Node.js runtime project that were created before January 2021. |
+| 修飾子                       | サンプル                                                                                                                                                                                                    |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**user:octocat feedback**](https://github.com/search?q=user%3Aoctocat+feedback&type=Discussions) @octocat が所有するリポジトリからの「feedback」という単語を含むディスカッションにマッチします。                                              |
+| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Discussions&utf8=%E2%9C%93) は、GitHub Organization が保有するリポジトリのディスカッションにマッチします。                                                            |
+| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:nodejs/node created:<2021-01-01**](https://github.com/search?q=repo%3Anodejs%2Fnode+created%3A%3C2020-01-01&type=Discussions) は、2021年1月以前に作成された@nodejs の Node.js ランタイムプロジェクトからのディスカッションにマッチします。 |
 
 ### リポジトリの可視性によるフィルタ
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+`is` 修飾子を使用して、ディスカッションを含むリポジトリの可視性でフィルタできます。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-| Qualifier  | Example | :- | :- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories. | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) matches discussions that contain the word "tiramisu" in private repositories you can access.
+| 修飾子  | 例 | :- | :- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) はパブリックリポジトリへのディスカッションにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) は内部リポジトリへのディスカッションにマッチします。 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) は、アクセス可能なプライベートリポジトリに「tiramisu」という単語を含むディスカッションにマッチします。
 
 ### 作者で検索
 
-The `author` qualifier finds discussions created by a certain user.
+`author` 修飾子は、特定のユーザが作成したディスカッションを表示します。
 
-| 修飾子                       | サンプル                                                                                                                                                                                                             |
-|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) matches discussions with the word "cool" that were created by @octocat.                                            |
-|                           | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) matches discussions created by @octocat that contain the word "bootstrap" in the body. |
+| 修飾子                       | サンプル                                                                                                                                                                          |
+|:------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) は、@octocat が作成した「cool」という単語を含むディスカッションにマッチします。                               |
+|                           | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) は、@octocat が作成した「bootstrap」という単語を含むディスカッションにマッチします。 |
 
 ### コメントした人で検索
 
-The `commenter` qualifier finds discussions that contain a comment from a certain user.
+`commenter` 修飾子は、特定のユーザからのコメントを含むディスカッションを検索します。
 
-| 修飾子                       | サンプル                                                                                                                                                                                                                                                          |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) matches discussions in repositories owned by GitHub, that contain the word "github," and have a comment by @becca. |
+| 修飾子                       | サンプル                                                                                                                                                                                                            |
+|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) は、@beccaのコメントがあり、「github」という単語がある、GitHub が所有するリポジトリのディスカッションにマッチします。 |
 
-### Search by a user that's involved in a discussion
+### ディスカッションに関与しているユーザで検索
 
-You can use the `involves` qualifier to find discussions that involve a certain user. The qualifier returns discussions that were either created by a certain user, mention the user, or contain comments by the user. The `involves` qualifier is a logical OR between the `author`, `mentions`, and `commenter` qualifiers for a single user.
+`involves` 修飾子では、特定のユーザが関与するディスカッションを表示します。 修飾子は、特定のユーザが作成したディスカッション、特定のユーザをメンションしたディスカッション、特定のユーザによるコメントを含むディスカッションを返します。 `involves` 修飾子は、単一ユーザについて、`author`、`mentions`、および `commenter` を論理 OR でつなげます。
 
 | 修飾子                       | サンプル                                                                                                                                                                                                               |
 |:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

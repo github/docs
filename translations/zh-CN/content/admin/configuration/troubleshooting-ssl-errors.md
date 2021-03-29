@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 将密码从密钥文件中移除

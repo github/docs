@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -138,7 +140,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-先に[@defunkt][defunkt github]について取得したパブリックな情報に加えて、今回はユーザプロフィールのパブリックでない情報も表示されているはずです。 たとえば、レスポンスには`plan`オブジェクトが表示されますが、これはアカウントの{% data variables.product.product_name %}プランについての詳細です。
+This time, in addition to the same set of public information we retrieved for [@defunkt][defunkt github] earlier, you should also see the non-public information for your user profile. For example, you'll see a `plan` object in the response which gives details about the {% data variables.product.product_name %} plan for the account.
 
 #### OAuthトークンのアプリケーションへの使用
 
@@ -186,10 +188,11 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 これらの呼び出しから返される情報は、認証時にトークンが持っているスコープにより異なります。
 
-* `public_repo` [スコープ][scopes]を持つトークンは、github.comで表示するためのアクセス権を持つすべてのパブリックリポジトリを含むレスポンスを返します。
-* `repo` [スコープ][scopes]を持つトークンは、github.comで表示するためのアクセス権を持つすべてのパブリックリポジトリおよびプライベートリポジトリを含むレスポンスを返します。
+{% if currentVersion != "github-ae@latest" %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
 
-[Docs][repos-api]に記載されている通り、これらのメソッドは`type`パラメータを取り、これによって、ユーザがリポジトリに対して持つアクセス権に基づき、返されるリポジトリをフィルタリングできます。 こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
+As the [docs][repos-api] indicate, these methods take a `type` parameter that can filter the repositories returned based on what type of access the user has for the repository. こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
@@ -214,7 +217,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-この最小限の例では、ブログ用の新しいリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 ブログはパブリックになりますが、リポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore template][gitignore templates]によるリポジトリの初期化も行います。
+In this minimal example, we create a new private repository for our blog (to be served on [GitHub Pages][pages], perhaps). Though the blog {% if currentVersion != "github-ae@latest" %}will be public{% else %}is accessible to all enterprise members{% endif %}, we've made the repository private. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
 
 生成されたリポジトリは、`https://github.com/<your_username>/blog`にあります。 オーナーであるOrganization以下にリポジトリを作成するには、APIメソッドを `/user/repos`から`/orgs/<org_name>/repos`に変更するだけです。
 

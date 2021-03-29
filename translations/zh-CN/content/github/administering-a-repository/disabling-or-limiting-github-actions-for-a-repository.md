@@ -1,9 +1,12 @@
 ---
-title: 禁用或限制仓库的 GitHub 操作
+title: 禁用或限制仓库的 GitHub Actions
 intro: '仓库所有者可禁用、启用和限制特定仓库的 {% data variables.product.prodname_actions %}。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data reusables.actions.enterprise-beta %}

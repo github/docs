@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Las listas de tareas están representadas con casillas de verificación interactivas en los comentarios. Puedes seleccionar o quitar la marca de selección de las casillas de verificación para marcarlas como completas o incompletas.

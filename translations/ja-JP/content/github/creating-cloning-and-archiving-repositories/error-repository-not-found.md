@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### スペルを確認する
@@ -15,7 +17,7 @@ versions:
 
 このエラーを回避するには、クローン時は常にリポジトリのページからクローン URL をコピーして貼り付けるようにします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
-既存のリポジトリのリモートを更新するには、「[リモートの URL を変更する](/articles/changing-a-remote-s-url)」を参照してください。
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### 権限をチェックする
 

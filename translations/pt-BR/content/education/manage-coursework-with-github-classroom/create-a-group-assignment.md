@@ -84,7 +84,7 @@ Se você já criou uma atividade em grupo para a sala de aula, você pode reutil
 
 #### Escolher um repositório de modelo
 
-Por padrão, uma nova atividade criará um repositório vazio para cada equipe criada por um aluno. {% data reusables.classroom.you-can-choose-a-template-repository %} Para obter mais informações sobre repositórios de modelos, consulte "[Criar um repositório de modelo](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
+Por padrão, uma nova atividade criará um repositório vazio para cada equipe criada por um aluno. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -132,7 +132,7 @@ Você pode ver as equipes que estão trabalhando ou que enviaram uma atividade n
 
 ### Próximas etapas
 
-- Após criar a atividade e seus alunos formarem equipes, os integrantes da equipe poderão começar a trabalhar nas atividades usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Tanto você como a equipe podem revisar o histórico de commit do repositório. Para obter mais informações, consulte "[Primeiros passos com com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github), "[Criar, clonar e arquivar repositórios](/github/creating-cloning-and-archiving-repositories)," "[Usar Git](/github/using-git), e "[Colaborar com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests), e o curso livre sobre [gestão de conflitos de merge](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
+- Após criar a atividade e seus alunos formarem equipes, os integrantes da equipe poderão começar a trabalhar nas atividades usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Tanto você como a equipe podem revisar o histórico de commit do repositório. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
 - Quando uma equipe termina uma atividade, você poderá revisar os arquivos no repositório, ou você poderá revisar o histórico e as visualizações do repositório para entender melhor como a equipe colaborou. Para obter mais informações, consulte "[Visualizar dados do repositório com gráficos](/github/visualizing-repository-data-with-graphs)".
 

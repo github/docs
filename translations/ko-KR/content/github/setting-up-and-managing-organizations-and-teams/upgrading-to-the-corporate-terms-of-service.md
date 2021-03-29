@@ -5,6 +5,9 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the Corporate Terms of Service.

@@ -158,6 +158,7 @@
     "replace": "^1.2.0",
     "robots-parser": "^2.1.1",
     "start-server-and-test": "^1.12.0",
+    "strip-ansi": "^6.0.0",
     "supertest": "^4.0.2",
     "url-template": "^2.0.8",
     "webpack-dev-middleware": "^3.7.2",

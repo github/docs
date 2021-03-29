@@ -71,13 +71,14 @@ changedFilesRelPaths.forEach(async (relPath) => {
   if (!engResult) return
   const { data: engData } = engResult
 
-  console.log(chalk.red('fixing errors in ') + chalk.bold(relPath))
+  console.log(chalk.bold(relPath))
 
   const newData = data
 
-  fixableErrors.forEach(({ property }) => {
+  fixableErrors.forEach(({ property, message }) => {
     const correctValue = get(engData, property)
-    console.log(`  [${property}]: ${get(data, property)} -> ${correctValue}`)
+    console.log(chalk.red(`  error message: [${property}] ${message}`))
+    console.log(`  fix property [${property}]: ${get(data, property)} -> ${correctValue}`)
     set(newData, property, correctValue)
   })
 

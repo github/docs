@@ -1,34 +1,36 @@
 ---
-title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} in 5 minutes or less with {% data variables.product.prodname_actions %}.'
+title: GitHub Packagesのクイックスタート
+intro: '{% data variables.product.prodname_actions %}で{% data variables.product.prodname_registry %}に公開します。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ### はじめに
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to publish a package to {% data variables.product.prodname_registry %}. In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}. Feel free to create a new repository for this Quickstart. You can use it to test this and future {% data variables.product.prodname_actions %} workflows.
+このガイドでは、コードをテストする{% data variables.product.prodname_actions %}ワークフローを作成して、それを{% data variables.product.prodname_registry %}に公開します。
 
-### Publishing your package
+### パッケージを公開する
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. Create a private repository if you’d like to delete this package later, public packages cannot be deleted. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
-    {% raw %}
+1. {% data variables.product.prodname_dotcom %} に新しいリポジトリを作成し、ノードに`.gitignore`を追加します。 {% if currentVersion ver_lt "enterprise-server@3.1" %}このパッケージを後で削除したい場合は、プライベートリポジトリを作成します。パブリックパッケージは削除できません。{% endif %}詳しい情報については、「[新しいリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)」を参照してください。
+2. リポジトリをローカルマシンにクローンします。
     ```shell
-    $ git clone https://github.com/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
-    {% endraw %}
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
+3. `index.js`ファイルを作成し、「Hello world!」を表示する基本的なアラートを作成します。
     {% raw %}
     ```javascript{:copy}
     alert("Hello, World!");
     ```
     {% endraw %}
-4. Initialize an npm package. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0` if you do not have any tests. Commit your changes and push them to
-{% data variables.product.prodname_dotcom %}.
+4. npmパッケージを`npm init`で初期化します。 パッケージ初期化ウィザードで、_`@YOUR-USERNAME/YOUR-REPOSITORY`_の形式で名前を入力し、テストスクリプトを`exit 0`に設定します。 これにより、パッケージの情報が付いた`package.json`ファイルが生成されます。
     {% raw %}
     ```shell
     $ npm init
@@ -36,17 +38,19 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
       package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
       ...
       test command: <em>exit 0</em>
-      ...
+      ...    
+    ```
+    {% endraw %}
 
+5. `npm install`を実行して`package-lock.json`ファイルを生成し、変更をコミットして{% data variables.product.prodname_dotcom %}にプッシュします。
+    ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-    {% endraw %}
-5. {% data variables.product.prodname_dotcom %} のリポジトリから、`release-package.yml` という名前の新しいファイルを `.github/workflows` ディレクトリに作成します。 詳細は「[新しいファイルを作成する](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。
-6. Copy the following YAML content into the `release-package.yml` file.
-    {% raw %}
+6. `.github/workflows`ディレクトリを作成します。 このディレクトリ内に、`release-package.yml`という名前のファイルを作成します。
+7. 以下の内容のYAMLを`release-package.yml`ファイルにコピーします。{% if currentVersion == "github-ae@latest" %}`YOUR-HOSTNAME`をEnterpriseの名前に置き換えてください。{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -73,38 +77,41 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
           - uses: actions/setup-node@v1
             with:
               node-version: 12
-              registry-url: https://npm.pkg.github.com/
+              registry-url: {% if currentVersion == "github-ae@latest" %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
-              NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+              NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-    {% endraw %}
-7. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. 次に、[**Propose new file**] をクリックしてPull Requestを作成します。
-8. **Merge** the pull request.
-9. Navigate to the **Code** tab and create a new release to test the workflow. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+8. コミットして変更を{% data variables.product.prodname_dotcom %}にプッシュします。
+    ```shell
+    $ git add .github/workflows/release-package.yml
+    $ git commit -m "workflow to publish package"
+    $ git push
+    ```
+9.  作成したワークフローは、リポジトリに新しいリリースが作成されるたびに実行されます。 テストにパスすると、パッケージは{% data variables.product.prodname_registry %}に公開されます。
 
-Creating a new release in your repository triggers the workflow to build and test your code. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+    これを試すには、リポジトリの [**Code**] タブに移動し、新しいリリースを作成します。 詳しい情報については、「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)」を参照してください。
 
-### Viewing your published package
+### 公開したパッケージを表示する
 
-Packages are published at the repository level. You can see all the packages in a repository and search for a specific package.
+パッケージはリポジトリレベルで公開されます。 リポジトリ内のすべてのパッケージを表示し、特定のパッケージを検索できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
 
-### Installing a published package
+### 公開したパッケージをインストールする
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Configuring npm for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)."
+これでパッケージを公開できたので、プロジェクト全体で依存関係として利用できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} で利用するために npm を設定する](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)」を参照してください。
 
 ### 次のステップ
 
-The basic workflow you just added runs any time a new release is created in your repository. But, this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
+ここで追加した基本的なワークフローは、リポジトリ内に新しいリリースが作成されるたびに実行されます。 ただし、これは {% data variables.product.prodname_registry %} でできることの一部にすぎません。 単一のワークフローで複数のレジストリにパッケージを公開する、ワークフローをトリガーしてマージされたプルリクエストなどさまざまなイベントで実行する、コンテナを管理するなど、いろいろなことができます。
 
-Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. 開始する場合、 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
+{% data variables.product.prodname_registry %}と{% data variables.product.prodname_actions %}を組み合わせることで、プリケーション開発プロセスのほぼすべての要素を自動化するために役立ちます。 始める準備はできましたか？ 以下は、{% data variables.product.prodname_registry %}および{% data variables.product.prodname_actions %}で次のステップへ進むために役立つリソースです。
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Guides](/packages/guides)" for specific uses cases and examples
+- GitHub Packagesについての詳細なチュートリアル、「[{% data variables.product.prodname_registry %}を学ぶ](/packages/learn-github-packages)」
+- GitHub Actionsの詳細なチュートリアル、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」
+- 特定の使用例とサンプルについては、「[ガイド](/packages/guides)」

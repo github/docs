@@ -9,6 +9,8 @@ redirect_from:
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 
