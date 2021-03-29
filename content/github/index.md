@@ -38,8 +38,6 @@ versions:
 {% link_in_list /managing-your-work-on-github %}
 {% link_in_list /developing-online-with-codespaces %}
 
-{% link_in_list /building-a-strong-community %}
-
 {% link_in_list /searching-for-information-on-github %}
 
 {% link_in_list /importing-your-projects-to-github %}
