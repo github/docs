@@ -1270,7 +1270,7 @@ Path patterns must match the whole path, and start from the repository's root.
 | Pattern | Description of matches | Example matches |
 |---------|------------------------|-----------------|
 | `'*'` | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `README.md`<br/><br/>`server.rb` |
-| `'*.jsx?'` | The `?` character matches zero or one of the preceding character. | `page.js`<br/><br/>`page.jsx` |
+| `'*.js?'` | The `?` wildcard matches a single character or none. Matches a single character or none preceded by `.js`. | `page.js`<br/><br/>`page.jsx` |
 | `'**'` | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter. | `all/the/files.md` |
 | `'*.js'` | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository. | `app.js`<br/><br/>`index.js`
 | `'**.js'` | Matches all `.js` files in the repository. | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js` |
