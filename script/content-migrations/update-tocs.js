@@ -14,7 +14,7 @@ const linksArray = new RegExp(linkString.source, 'gm')
 // The product order is determined by data/products.yml
 const productsFile = path.join(process.cwd(), 'data/products.yml')
 const productsYml = yaml.load(fs.readFileSync(productsFile, 'utf8'))
-const sortedProductIds = productsYml.productsInOrder.concat('/early-access')
+const sortedProductIds = productsYml.productsInOrder.concat('early-access')
 
 // This script turns `{% link /<link> %} style content into children: [ -/<link> ] frontmatter arrays.
 //
