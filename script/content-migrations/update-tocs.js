@@ -34,17 +34,16 @@ const indexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirector
 
 indexFiles
   .forEach(indexFile => {
-    const relativePath = indexFile.replace(/^.+content\//, '')
+    const relativePath = indexFile.replace(/^.+\/content\//, '')
     const documentType = getDocumentType(relativePath)
 
     const { data, content } = frontmatter(fs.readFileSync(indexFile, 'utf8'))
-    let newContent = content
 
     if (documentType === 'homepage') {
       data.children = sortedProductIds
     }
 
-    const linkItems = newContent.match(linksArray) || []
+    const linkItems = content.match(linksArray) || []
 
     // Turn the `{% link /<link> %}` list into an array of /<link> items
     if (documentType === 'product' || documentType === 'mapTopic') {
@@ -57,14 +56,6 @@ indexFiles
       data.children = childMapTopics.length ? getLinks(childMapTopics) : getLinks(linkItems)
     }
 
-    linkItems.forEach(linkItem => {
-      newContent = newContent.replace(linkItem, '').trim()
-    })
-
-    newContent = newContent
-      .replace(/###? Table of Contents\n/i, '')
-      .replace(/<!-- {2}-->\n/g, '')
-
     // Fix this one weird file
     if (relativePath === 'discussions/guides/index.md') {
       data.children = [
@@ -74,7 +65,8 @@ indexFiles
       ]
     }
 
-    fs.writeFileSync(indexFile, frontmatter.stringify(newContent.trim(), data, { lineWidth: 10000 }))
+    // Index files should no longer have body content, so we write an empty string
+    fs.writeFileSync(indexFile, frontmatter.stringify('', data, { lineWidth: 10000 }))
   })
 
 function getLinks (linkItemArray) {
