@@ -1,7 +1,7 @@
 ---
 title: GitHub's products
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
-redirect_from:
+redirect_from:https://atomxplus.com
   - /articles/github-s-products
   - /articles/githubs-products
 versions:
