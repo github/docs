@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 In der Blame-Ansicht kannst Du den Revisionsverlauf einer vollständigen Datei Zeile für Zeile sehen oder durch klicken auf {% octicon "versions" aria-label="The prior blame icon" %} auch nur den Verlauf einer einzelnen Zeile anzeigen. Mit jedem Klick auf {% octicon "versions" aria-label="The prior blame icon" %} siehst Du die vorangegangene Revisionsinformation zur betreffenden Zeile, einschließlich des Committers und des Commit-Zeitpunkts der Änderung.

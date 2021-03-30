@@ -1,6 +1,5 @@
 module.exports = createCodeSamples
 
-const { URL } = require('url')
 const urlTemplate = require('url-template')
 const { stringify } = require('javascript-stringify')
 const { get, mapValues, snakeCase } = require('lodash')
@@ -45,7 +44,7 @@ function toShellExample ({ route, serverUrl }) {
   const args = [
     method !== 'GET' && `-X ${method}`,
     defaultAcceptHeader ? `-H "Accept: ${defaultAcceptHeader}"` : '',
-    new URL(path, serverUrl).href,
+    `${serverUrl}${path}`,
     Object.keys(params).length && `-d '${JSON.stringify(params)}'`
   ].filter(Boolean)
   return `curl \\\n  ${args.join(' \\\n  ')}`

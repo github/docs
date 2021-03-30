@@ -16,7 +16,7 @@ Los debates proporcionan un espacio para que existan conversaciones colaborativa
 
 ### Habilitar los {% data variables.product.prodname_discussions %} en tu repositorio
 
-Los propietarios de los repositoriso con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios públicos.
+Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios privados o públicos.
 
 Cuando habilitas un {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
 
@@ -45,7 +45,7 @@ Cualquiera con acceso a un repositorio puede crear un debate.
 
 ### Organizar los debates en tus categorías relevantes
 
-Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)"
+Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 ### Promover las conversaciones sanas
 

@@ -1,0 +1,38 @@
+name: Send Crowdin PRs to boards
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  triage:
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.head.ref == 'translations'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            var squadBoardColumnId = 13447153; // Add to the team backlog/squad board
+
+            try {
+              await github.projects.createCard({
+                column_id: squadBoardColumnId,
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
+              });
+            } catch (error) {
+              console.log(error);
+            }
+
+            var prBoardColumnId = 10095775; // Add to the pull requests board
+            try {
+              await github.projects.createCard({
+                column_id: prBoardColumnId,
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
+              });
+            } catch (error) {
+              console.log(error);
+            }

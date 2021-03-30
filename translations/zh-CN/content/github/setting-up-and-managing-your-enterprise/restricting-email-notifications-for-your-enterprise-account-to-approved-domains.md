@@ -1,13 +1,13 @@
 ---
 title: 将企业帐户的电子邮件通知限制为已批准的域
-intro: "通过将有关企业帐户所拥有组织中活动的电子邮件通知限制为经过验证的域，可以防止企业的信息泄漏到个人帐户。"
+intro: 通过将有关企业帐户所拥有组织中活动的电子邮件通知限制为经过验证的域，可以防止企业的信息泄漏到个人帐户。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 permissions: 企业所有者可以限制企业帐户的电子邮件通知。
+topics:
+  - 企业
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### 关于企业帐户的电子邮件限制
 

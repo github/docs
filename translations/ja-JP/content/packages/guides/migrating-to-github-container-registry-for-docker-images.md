@@ -84,7 +84,7 @@ versions:
 
 2. {% data variables.product.prodname_actions %} ワークフローファイルで、パッケージ URL を `https://docker.pkg.github.com` から `ghcr.io` に更新します。
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} は PAT において `GITHUB_TOKEN` の使用をサポートしていないので、`CR_PAT` などの別のカスタム変数を使用する必要があります。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+3. 新しい {% data variables.product.prodname_container_registry %} 認証個人アクセストークン (PAT) を GitHub Actions シークレットとして追加します。 {% data variables.product.prodname_github_container_registry %} は PAT において `GITHUB_TOKEN` の使用をサポートしていないので、`CR_PAT` などの別のカスタム変数を使用する必要があります。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
 
 4. {% data variables.product.prodname_actions %} ワークフローファイルにおいて、Docker レジストリ PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} をコンテナレジストリ {% data variables.product.prodname_container_registry %} PAT の新しい変数 (たとえば {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}) に置き換えて、認証 PAT を更新します。
 

@@ -15,7 +15,7 @@ When you pull to your local branch, you only update your local copy of the repos
 
 To add changes from one branch to another branch, you can merge the branches. To apply changes to your branch from another branch in the same repository, you can merge the other branch into your branch on {% data variables.product.prodname_desktop %}. To request that changes from your branch are merged into another branch, in the same repository or in another repository in the network, you can create a pull request on {% data variables.product.prodname_desktop %}. For more information, see "[Merging another branch into your project branch](#merging-another-branch-into-your-project-branch)" and "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-Some workflows require or benefit from rebasing instead of merging. By rebasing you can reorder, edit, or squash commits together. For more information, see "[About Git rebase](/articles/about-git-rebase)" and "[Rebasing your project branch onto another branch](#rebasing-your-project-branch-onto-another-branch)."
+Some workflows require or benefit from rebasing instead of merging. By rebasing you can reorder, edit, or squash commits together. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)" and "[Rebasing your project branch onto another branch](#rebasing-your-project-branch-onto-another-branch)."
 
 ### Pulling to your local branch from the remote
 

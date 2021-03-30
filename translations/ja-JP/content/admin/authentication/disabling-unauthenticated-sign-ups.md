@@ -7,6 +7,8 @@ redirect_from:
 intro: 'ビルトイン認証を使っている場合、認証されていない人がアカウントを作成するのをブロックできます。'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

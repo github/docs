@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca del secreto del `GITHUB_TOKEN`
 
@@ -38,7 +40,7 @@ Este flujo de trabajo de ejemplo usa la [acción de etiquetadora](https://github
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -51,7 +53,7 @@ Este flujo de trabajo de ejemplo usa la [acción de etiquetadora](https://github
 
 #### Ejemplo de llamada a la API REST
 
-Puedes usar el `GITHUB_TOKEN` para realizar llamadas API autenticadas. Este flujo de trabajo de ejemplo crea una propuesta mediante la API REST del {% data variables.product.prodname_dotcom %}:
+Puedes usar el `GITHUB_TOKEN` para realizar llamadas API autenticadas. Este flujo de trabajo de ejemplo crea una propuesta mediante la API REST de {% data variables.product.prodname_dotcom %}:
 
   {% raw %}
   ```yaml
@@ -71,7 +73,8 @@ Puedes usar el `GITHUB_TOKEN` para realizar llamadas API autenticadas. Este fluj
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
@@ -91,6 +94,8 @@ Para obtener información sobre los puntos finales de la API a los que {% data v
 | solicitudes de extracción | lectura/escritura | lectura                            |
 | proyectos de repositorio  | lectura/escritura | lectura                            |
 | estados                   | lectura/escritura | lectura                            |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 Si necesitas un token que requiere permisos que no están disponibles en el `GITHUB_TOKEN`, puedes crear un token de acceso personal y establecerlo como un secreto en tu repositorio:
 

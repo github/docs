@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### 個人アカウントの支払い請求先メールアドレスを設定する

@@ -7,15 +7,17 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### グローバルwebhookについて
 
 グローバル webhook を使用して、Enterprise ユーザおよび Organization 管理のルールを自動的に監視、応答、適用できます。 たとえば以下のような場合に動作するようにwebhookを設定できます:
 - ユーザアカウントが作成または削除される
-- An organization is created or deleted
+- Organization が作成または削除される
 - コラボレータがリポジトリに追加、またはリポジトリから削除される
-- A repository is forked
+- リポジトリがフォークされる
 
 ![グローバル webhook のリスト](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 

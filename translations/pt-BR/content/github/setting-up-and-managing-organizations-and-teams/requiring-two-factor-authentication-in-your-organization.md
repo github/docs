@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre a autenticação de dois fatores para organizações

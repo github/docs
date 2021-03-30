@@ -4,6 +4,8 @@ redirect_from:
   - /v3/scim
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
 ### 组织的 SCIM 预配

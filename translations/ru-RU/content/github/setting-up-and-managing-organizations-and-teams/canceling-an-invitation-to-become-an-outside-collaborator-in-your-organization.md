@@ -4,6 +4,9 @@ intro: You can cancel all invitations for a person to become an outside collabor
 permissions: Organization owners can cancel an invitation to become an outside collaborator in the organization.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 You can view a list of all people with pending invitations to become an outside collaborator on any repository owned by your organization.
