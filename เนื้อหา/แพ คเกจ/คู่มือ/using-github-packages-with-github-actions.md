@@ -1,3 +1,5 @@
+
+
 ---
 title: Using GitHub Packages with GitHub Actions
 intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
