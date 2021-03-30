@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.
@@ -40,7 +42,7 @@ Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein De
 {% data reusables.pages.navigate-publishing-source %}
 1. Erstelle eine neue Datei mit den Namen _/assets/css/style.scss_.
 2. Füge oben in der Datei den folgenden Inhalt hinzu:
-  ```
+  ```scss
   ---
   ---
 

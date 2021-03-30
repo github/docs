@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アカウント
 ---
 
 ### 権限の概要
@@ -22,7 +24,7 @@ versions:
 管理者アクセス権を持つプロジェクトボードのオーナーとコラボレーターは、プロジェクトボードを完全制御できます。 プロジェクトボードのコラボレーターによって許可される権限すべてに加え、管理者権限を持つプロジェクトボードのオーナーとコラボレーターは、次の操作が可能です:
 
 - [コラボレーターを管理、表示、追加する](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Configure a project board as {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private](/articles/changing-project-board-visibility)
+- [プロジェクトボードを、{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}またはプライベートに設定する](/articles/changing-project-board-visibility)
 - [プロジェクトボードを削除する](/articles/deleting-a-project-board/)
 - [プロジェクトボードをクローズする](/articles/closing-a-project-board/)
 - [クローズしたプロジェクトボードを再オープンする](/articles/reopening-a-closed-project-board)
@@ -51,7 +53,7 @@ versions:
 
 ### プロジェクトボードの可視性
 
-You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. デフォルトでは、ユーザー所有のプロジェクトボードはプライベートです。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
+プロジェクトボードの表示をプライベートから{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}に変更したり、元に戻したりすることができます。 デフォルトでは、ユーザー所有のプロジェクトボードはプライベートです。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
 
 ### 参考リンク
 

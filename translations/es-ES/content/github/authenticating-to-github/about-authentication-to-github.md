@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidad
+  - administración de accesos
 ---
 
 ### Acerca de la autenticación en {% data variables.product.prodname_dotcom %}
@@ -45,9 +48,9 @@ Puedes autenticarte con la API de varias formas.
 
 ### Autenticarte con la línea de comandos
 
-Puedes acceder a los repositorios en {% data variables.product.product_name %} desde la línea de comandos en dos formas, HTTPS y SSH, y ambas tienen una forma diferente para autenticarte. El método para autenticarte se determina con base en si escoges una URL remota de HTTPS o SSH cuando clonas el repositorio. Para obtener más información acerca de en qué forma acceder, consulta la sección "[¿Qué URL remota debería usar?](/github/using-git/which-remote-url-should-i-use)"
+Puedes acceder a los repositorios en {% data variables.product.product_name %} desde la línea de comandos en dos formas, HTTPS y SSH, y ambas tienen una forma diferente para autenticarte. El método para autenticarte se determina con base en si escoges una URL remota de HTTPS o SSH cuando clonas el repositorio. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
-* Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de HTTPS, aún si estás detrás de un cortafuegos o de un proxy. Cada vez que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te pedirá que ingreses tus credenciales para autenticarte con {% data variables.product.product_name %} a menos de que las guardes en caché con un [asistente de credenciales](/github/using-git/caching-your-github-credentials-in-git). {% data reusables.user_settings.password-authentication-deprecation %}
+* Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de HTTPS, aún si estás detrás de un cortafuegos o de un proxy. Cada vez que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te pedirá que ingreses tus credenciales para autenticarte con {% data variables.product.product_name %} a menos de que las guardes en caché con un [asistente de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git). {% data reusables.user_settings.password-authentication-deprecation %}
 
 * Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de SSH, aunque los cortafuegos y los proxys podrían rehusarse a permitir las conexiones de SSH. Para utilizar SSH necesitas generar un par de llaves pública/privada de SSH en tu máquina local y agregar la llave pública a tu cuenta de {% data variables.product.product_name %}. Cada que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te solicitará que ingreses tu frase de ingreso de la llave SSH, a menos de que hayas [almacenado la llave](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). Para obtener más información, consulta "[Generar una nueva llave SSH y agregarla a ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 

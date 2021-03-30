@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber können die SSH-Zertifizierungsstellen (CA) einer Organisation verwalten.

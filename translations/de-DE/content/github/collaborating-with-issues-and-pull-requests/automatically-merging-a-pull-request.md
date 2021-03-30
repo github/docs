@@ -1,12 +1,14 @@
 ---
 title: Automatically merging a pull request
-intro: 'You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.'
+intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### About auto-merge
 

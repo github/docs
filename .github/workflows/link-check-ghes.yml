@@ -1,8 +1,15 @@
 name: 'Link Checker: Enterprise Server'
 
+# **What it does**: This checks links for GHES version of docs.
+# **Why we have it**: We want to know if links break.
+# **Who does it impact**: Docs content.
+
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   see_if_should_skip:
@@ -44,7 +51,7 @@ jobs:
       #   run: npm run heroku-postbuild
       #   env:
       #     DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-      #     GIT_BRANCH: ${{ github.ref }}
+      #     GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Build

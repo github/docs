@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - webhooks
 ---
 
 
@@ -145,7 +147,7 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### comentario_confirmación de cambios
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -162,7 +164,8 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` estará vacío en el resto de las acciones.
+`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` es
+{% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}vacío {% endif %}para el resto de las acciones.
 
 #### Ejemplo de carga útil del webhook
 
@@ -222,6 +225,7 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 #### Objeto de carga útil del webhook
 
 {% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -231,7 +235,7 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 
 {{ webhookPayloadsForCurrentVersion.create }}
 
-### eliminar
+### delete
 
 {% data reusables.webhooks.delete_short_desc %}
 
@@ -250,6 +254,7 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 #### Objeto de carga útil del webhook
 
 {% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -294,7 +299,7 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 | Clave        | Type                                                                                                                                        | Descripción                                              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | `Acción`     | `secuencia`                                                                                                                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment` | `object`                                                                                                                                    | El [despliegue](/rest/reference/repos#list-deployments). |
+| `deployment` | `objeto`                                                                                                                                    | El [despliegue](/rest/reference/repos#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -319,11 +324,11 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 | Clave                              | Type                                                                                                                                        | Descripción                                                                               |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | `Acción`                           | `secuencia`                                                                                                                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `object`                                                                                                                                    | El [Estado del despliegue](/rest/reference/repos#list-deployment-statuses).               |
+| `deployment_status`                | `objeto`                                                                                                                                    | El [Estado del despliegue](/rest/reference/repos#list-deployment-statuses).               |
 | `deployment_status["state"]`       | `secuencia`                                                                                                                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                    |
 | `deployment_status["target_url"]`  | `secuencia`                                                                                                                                 | El enlace opcional agregado al estado.                                                    |
 | `deployment_status["description"]` | `secuencia`                                                                                                                                 | La descripción opcional legible para las personas que se agrega al estado.                |
-| `deployment`                       | `object`                                                                                                                                    | El [despliegue](/rest/reference/repos#list-deployments) con el que se asocia este estado. |
+| `deployment`                       | `objeto`                                                                                                                                    | El [despliegue](/rest/reference/repos#list-deployments) con el que se asocia este estado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -430,14 +435,6 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**Nota:**{% data reusables.pre-release-program.suspend-installation-beta %}Para obtener más información, consulta la sección "[Suspender la instalación de una {% data variables.product.prodname_github_app %}](/apps/managing-github-apps/suspending-a-github-app-installation/)".
-
-{% endnote %}
-{% endif %}
-
 #### Disponibilidad
 
 - {% data variables.product.prodname_github_app %}s
@@ -537,8 +534,8 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 | Clave                  | Type        | Descripción                                                           |
 | ---------------------- | ----------- | --------------------------------------------------------------------- |
 | `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`, `edited`, o `deleted`. |
-| `label`                | `object`    | La etiqueta que se añadió.                                            |
-| `changes`              | `object`    | Los cambios a la etiqueta si la acción se `edited` (editó).           |
+| `etiqueta`             | `objeto`    | La etiqueta que se añadió.                                            |
+| `changes`              | `objeto`    | Los cambios a la etiqueta si la acción se `edited` (editó).           |
 | `changes[name][from]`  | `secuencia` | La versión previa del nombre si la acción está como `edited`.         |
 | `changes[color][from]` | `secuencia` | La versión previa del color si la acción se `edited` (editó).         |
 {% data reusables.webhooks.repo_desc %}
@@ -631,7 +628,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 | --------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`  | `secuencia` | La acción realizada. Puede ser `deleted`.                                                                                                                         |
 | `hook_id` | `número`    | La id del webhook modificado.                                                                                                                                     |
-| `hook`    | `object`    | El webhook modificado. Este contendrá claves diferentes con base en el tipo de webhook que sea: de repositorio, organización, negocio, app, o GitHub Marketplace. |
+| `gancho`  | `objeto`    | El webhook modificado. Este contendrá claves diferentes con base en el tipo de webhook que sea: de repositorio, organización, negocio, app, o GitHub Marketplace. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -678,8 +675,8 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 | Clave        | Type        | Descripción                                                                                                                                                                                                                                          |
 | ------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`     | `secuencia` | La acción que se realizó. Puede ser uno de entre:{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, o `member_invited`. |
-| `invitation` | `object`    | La invitación para el usuario o correo electrónico si la acción es `member_invited`.                                                                                                                                                                 |
-| `membership` | `object`    | La membrecía entre el usuario y la organización.  No está presente cuando la cción es `member_invited`.                                                                                                                                              |
+| `invitación` | `objeto`    | La invitación para el usuario o correo electrónico si la acción es `member_invited`.                                                                                                                                                                 |
+| `membership` | `objeto`    | La membrecía entre el usuario y la organización.  No está presente cuando la cción es `member_invited`.                                                                                                                                              |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -704,7 +701,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 | Clave          | Type        | Descripción                                                 |
 | -------------- | ----------- | ----------------------------------------------------------- |
 | `Acción`       | `secuencia` | La acción realizada. Puede ser `blocked` o `unblocked`.     |
-| `blocked_user` | `object`    | Información acerca del usuario que se bloqueó o desbloqueó. |
+| `blocked_user` | `objeto`    | Información acerca del usuario que se bloqueó o desbloqueó. |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -712,6 +709,10 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 #### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.org_block.blocked }}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 
 ### package
 
@@ -749,7 +750,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 | Clave   | Type     | Descripción                                                                                                      |
 | ------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | `id`    | `número` | El idientificador único de la compilación de la página.                                                          |
-| `build` | `object` | La misma terminal de [Listar las compilaciones de GitHub Pages](/rest/reference/repos#list-github-pages-builds). |
+| `build` | `objeto` | La misma terminal de [Listar las compilaciones de GitHub Pages](/rest/reference/repos#list-github-pages-builds). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -775,7 +776,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `zen`          | `secuencia` | Secuencia aleatoria de GitHub zen.                                                                                                                                                                                                                                                                                                                                                                                |
 | `hook_id`      | `número`    | La ID del webhook que activó el ping.                                                                                                                                                                                                                                                                                                                                                                             |
-| `hook`         | `object`    | La [configuración del webhook](/rest/reference/repos#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                   |
+| `gancho`       | `objeto`    | La [configuración del webhook](/rest/reference/repos#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                   |
 | `hook[app_id]` | `número`    | Cuando registras una {% data variables.product.prodname_github_app %} nueva, {% data variables.product.product_name %} envía un evento de ping a la **URL del webhook** que especificaste durante el registro. El evento contiene la `app_id`, la cual se requiere para [autenticar](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) una app. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -851,10 +852,10 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### public
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Disponibilidad
 
 - Webhooks de repositorio
@@ -874,7 +875,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 #### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.public }}
-
+{% endif %}
 ### solicitud_extracción
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -978,7 +979,7 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 | `commits[][id]`            | `secuencia` | El SHA de la confirmación.                                                                                                                                                                                                                                                                                                                                                           |
 | `commits[][timestamp]`     | `secuencia` | La marca de tiempo de tipo ISO 8601 de la confirmación.                                                                                                                                                                                                                                                                                                                              |
 | `commits[][message]`       | `secuencia` | El mensaje de la confirmación.                                                                                                                                                                                                                                                                                                                                                       |
-| `commits[][author]`        | `object`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                  |
+| `commits[][author]`        | `objeto`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                  |
 | `commits[][author][name]`  | `secuencia` | El nombre del autor de git.                                                                                                                                                                                                                                                                                                                                                          |
 | `commits[][author][email]` | `secuencia` | La dirección de correo electrónico del autor de git.                                                                                                                                                                                                                                                                                                                                 |
 | `commits[][url]`           | `url`       | URL que apunta al recurso de la API de la confirmación.                                                                                                                                                                                                                                                                                                                              |
@@ -986,7 +987,7 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 | `commits[][added]`         | `arreglo`   | Un arreglo de archivos que se agregaron en la confirmación.                                                                                                                                                                                                                                                                                                                          |
 | `commits[][modified]`      | `arreglo`   | Un areglo de archivos que modificó la confirmación.                                                                                                                                                                                                                                                                                                                                  |
 | `commits[][removed]`       | `arreglo`   | Un arreglo de archivos que se eliminaron en la confirmación.                                                                                                                                                                                                                                                                                                                         |
-| `pusher`                   | `object`    | El usuario que subió la confirmación.                                                                                                                                                                                                                                                                                                                                                |
+| `pusher`                   | `objeto`    | El usuario que subió la confirmación.                                                                                                                                                                                                                                                                                                                                                |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1128,7 +1129,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
-Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad proporciona información acerca de las vulnerabilidades relacionadas con la seguridad en el software dentro de GitHub. El conjunto de datos de la asesoría de seguridad también impulsa las alertas de seguridad de Github, consulta la sección "[Acerca de las alertas de seguridad para dependencias vulnerables](/articles/about-security-alerts-for-vulnerable-dependencies/)".
+Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad proporciona información acerca de las vulnerabilidades relacionadas con la seguridad en el software dentro de GitHub. El conjunto de datos de la asesoría de seguridad también impulsa las alertas de seguridad de Github, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 {% endif %}
 
 #### Disponibilidad
@@ -1140,7 +1141,7 @@ Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad
 | Clave               | Type        | Descripción                                                                                                                              |
 | ------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`            | `secuencia` | La acción que se realizó. La acción puede ser una de entre `published`, `updated`, o `performed` en el caso de todos los eventos nuevos. |
-| `security_advisory` | `object`    | Los detalles de la asesoría de seguridad, incluyendo el resumen, descripción, y severidad.                                               |
+| `security_advisory` | `objeto`    | Los detalles de la asesoría de seguridad, incluyendo el resumen, descripción, y severidad.                                               |
 
 #### Ejemplo de carga útil del webhook
 
@@ -1210,7 +1211,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 | `id`          | `número`    | El identificador único del estado.                                                                                                                                                                       |
 | `sha`         | `secuencia` | El SHA de la confirmación.                                                                                                                                                                               |
 | `state`       | `secuencia` | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                                                                                                                                   |
-| `description` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                                                                                                                               |
+| `descripción` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                                                                                                                               |
 | `url_destino` | `secuencia` | El enlace opcional agregado al estado.                                                                                                                                                                   |
 | `branches`    | `arreglo`   | Un conjunto de objetos de la rama que contiene el SHA del estado. Cada rama contiene el SHA proporcionado, pero éste puede ser o no el encabezado de la rama. El conjunto incluye un máximo de 10 ramas. |
 {% data reusables.webhooks.repo_desc %}
@@ -1236,15 +1237,15 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 | Clave                                           | Type        | Descripción                                                                                                                                                                                                                                                                                              |
 | ----------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`                                        | `secuencia` | La acción que se realizó. Puede ser uno de entre `created`, `deleted`, `edited`, `added_to_repository`, o `removed_from_repository`.                                                                                                                                                                     |
-| `team`                                          | `object`    | El equipo mismo.                                                                                                                                                                                                                                                                                         |
-| `changes`                                       | `object`    | Los cambios al equipo si la acción está como `edited`.                                                                                                                                                                                                                                                   |
+| `equipo`                                        | `objeto`    | El equipo mismo.                                                                                                                                                                                                                                                                                         |
+| `changes`                                       | `objeto`    | Los cambios al equipo si la acción está como `edited`.                                                                                                                                                                                                                                                   |
 | `changes[description][from]`                    | `secuencia` | La versión previa de la descripción si la acción está como `edited`.                                                                                                                                                                                                                                     |
 | `changes[name][from]`                           | `secuencia` | La versión previa del nombre si la acción está como `edited`.                                                                                                                                                                                                                                            |
 | `changes[privacy][from]`                        | `secuencia` | La versión previa de la privacidad del equipo si ésta se encuentra como `edited`.                                                                                                                                                                                                                        |
 | `changes[repository][permissions][from][admin]` | `boolean`   | La versión previa de los permisos de `admin` del miembro del equipo en un repositorio si la acción se encuentra como `edited`.                                                                                                                                                                           |
 | `changes[repository][permissions][from][pull]`  | `boolean`   | La versión previa de los permisos de `pull` del miembro del equipo en un repositorio si la acción se encuentra como `edited`.                                                                                                                                                                            |
 | `changes[repository][permissions][from][push]`  | `boolean`   | La versión previa de los permisos de `push` del miembro del equipo en un repositorio si la acción se encuentra como `edited`.                                                                                                                                                                            |
-| `repositorio`                                   | `object`    | El repositorio que se agregó o eliminó del alcance del equipo si la acción se encuentra como `added_to_repository`, `removed_from_repository`, o `edited`. Para las acciones que estén como `edited`, el `repository` también contendrá los nuevos niveles de permiso del equipo para dicho repositorio. |
+| `repositorio`                                   | `objeto`    | El repositorio que se agregó o eliminó del alcance del equipo si la acción se encuentra como `added_to_repository`, `removed_from_repository`, o `edited`. Para las acciones que estén como `edited`, el `repository` también contendrá los nuevos niveles de permiso del equipo para dicho repositorio. |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
@@ -1264,9 +1265,9 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 
 #### Objeto de carga útil del webhook
 
-| Clave  | Type     | Descripción                                                                                                                     |
-| ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `team` | `object` | El [equipo](/rest/reference/teams) que se modificó.  **Nota:** Los eventos anteriores podrían no incluir esto en la carga útil. |
+| Clave    | Type     | Descripción                                                                                                                     |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `equipo` | `objeto` | El [equipo](/rest/reference/teams) que se modificó.  **Nota:** Los eventos anteriores podrían no incluir esto en la carga útil. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1340,9 +1341,8 @@ Cuando una ejecución de flujo de trabajo de {% data variables.product.prodname_
 
 #### Objeto de carga útil del webhook
 
-| Clave    | Type        | Descripción                                                                                                                                |
-| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Acción` | `secuencia` | La mayoría de las cargas útiles de webhooks contienen una propiedad de `action` que contiene la actividad específica que activa el evento. |
+{% data reusables.webhooks.workflow_run_properties %}
+{% data reusables.webhooks.workflow_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}

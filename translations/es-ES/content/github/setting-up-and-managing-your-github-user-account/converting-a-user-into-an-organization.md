@@ -8,6 +8,8 @@ intro: Puedes convertir tu cuenta de usuario en una organización. Esto permite 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - cuentas
 ---
 
 {% warning %}
@@ -54,7 +56,7 @@ Puedes convertir tu cuenta de usuario personal directamente en una organización
 
 {% endtip %}
 
-### Further reading
+### Leer más
 - "[Configurar equipos](/articles/setting-up-teams)"
 {% if currentVersion == "free-pro-team@latest" %}- "[Invitar usuarios para que se unan a tu organización](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Acceder a una organización](/articles/accessing-an-organization)"

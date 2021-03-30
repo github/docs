@@ -1,6 +1,6 @@
 ---
 title: 暗号化されたシークレット
-intro: Encrypted secrets allow you to store sensitive information in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or repository environments{% else %} or repository{% endif %}.
+intro: 暗号化されたシークレットを使うと、機密情報をOrganization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -17,12 +17,12 @@ versions:
 
 ### 暗号化されたシークレットについて
 
-Secrets are encrypted environment variables that you create in an organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+シークレットは暗号化された環境変数で、Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} リポジトリ、あるいはリポジトリ環境{% else %}あるいはリポジトリ{% endif %}に作成できます。 作成したシークレットは、{% data variables.product.prodname_actions %}ワークフローで利用できます。 {% data variables.product.prodname_dotcom %}はシークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使用されるまで暗号化されたままになっていることを確実にするのを助けるために[libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使います。
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+環境レベルで保存されたシークレットについては、それらへのアクセスを制御するために必須のレビュー担当者を有効化することができます。 必須の承認者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。
 {% endif %}
 
 #### シークレットに名前を付ける
@@ -32,10 +32,10 @@ For secrets stored at the environment level, you can enable required reviewers t
 * シークレット名には、英数字（`[a-z]`、`[A-Z]`、`[0-9]`）または下線（`_`）のみを含めることができます。 スペースは使用できません。
 * シークレット名の最初を `GITHUB_` プレフィックスにすることはできません。
 * シークレット名の最初を数字にすることはできません。
-* Secret names are not case-sensitive.
-* シークレット名は、作成されたレベルで一意である必要があります。 For example, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
+* シークレット名は大文字と小文字を区別しません。
+* シークレット名は、作成されたレベルで一意である必要があります。 たとえば {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}環境のレベルで作成されたシークレットはその環境内でユニークな名前になっていなければならず、{% endif %}リポジトリのレベルで作成されたシークレットはそのリポジトリ内でユニークな名前になっていなければならず、Organizationのレベルで作成されたシークレットはそのレベルでユニークな名前になっていなければなりません。
 
-  If a secret with the same name exists at multiple levels, the secret at the lower level takes precedence. For example, if an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
+  複数のレベルで同じ名前のシークレットが存在する場合、低いレベルのシークレットが優先されます。 たとえば、Organizationレベルのシークレットがリポジトリレベルのシークレットと同じ名前を持っているなら、リポジトリレベルのシークレットが優先されます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}同様に、Organization、リポジトリ、環境のすべてのレベルで同じ名前のシークレットがあるなら、環境レベルのシークレットが優先されます。{% endif %}
 
 {% data variables.product.prodname_dotcom %} がログのシークレットを確実に削除するよう、シークレットの値として構造化データを使用しないでください。 たとえば、JSONやエンコードされたGit blobを含むシークレットは作成しないでください。
 
@@ -43,7 +43,7 @@ For secrets stored at the environment level, you can enable required reviewers t
 
 シークレットをアクションが使用できるようにするには、ワークフローファイルでシークレットを入力または環境変数に設定する必要があります。 アクションに必要な入力および環境変数については、アクションのREADMEファイルを確認します。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
 
-ファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
+ワークフローファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
 
 {% warning %}
 
@@ -52,14 +52,14 @@ For secrets stored at the environment level, you can enable required reviewers t
 {% endwarning %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
+Organization及びリポジトリのシークレットはワークフローの実行がキューイングされた時点で読まれ、環境のシークレットは環境を参照しているジョブが開始された時点で読まれます。
 {% endif %}
 
 REST API を使用してシークレットを管理することもできます。 詳しい情報については、「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 #### 認証情報のアクセス許可を制限する
 
-クレデンシャルを生成する際には、可能な限り最小限の権限だけを許可することをおすすめします。 たとえば、個人のクレデンシャルを使う代わりに、[デプロイキー](/developers/overview/managing-deploy-keys#deploy-keys)あるいはサービスアカウントを使ってください。 必要なのが読み取りだけであれば、読み取りのみの権限を許可すること、そしてアクセスをできるかぎり限定することを考慮してください。 個人アクセストークン（PAT）を生成する際には、必要最小限のスコープを選択してください。
+認証情報を生成する際には、可能な限り最小限の権限だけを許可することをおすすめします。 たとえば、個人の認証情報を使う代わりに、[デプロイキー](/developers/overview/managing-deploy-keys#deploy-keys)あるいはサービスアカウントを使ってください。 必要なのが読み取りだけであれば、読み取りのみの権限を許可すること、そしてアクセスをできるかぎり限定することを考慮してください。 個人アクセストークン（PAT）を生成する際には、必要最小限のスコープを選択してください。
 
 ### リポジトリの暗号化されたシークレットの作成
 
@@ -68,23 +68,23 @@ REST API を使用してシークレットを管理することもできます�
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Click **New repository secret**.
+1. **New repository secret（新しいリポジトリのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの値を入力します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
+リポジトリが{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}環境のシークレットを持っているか{% endif %}親のOrganizationのシークレットにアクセスできるなら、それらのシークレットもこのページにリストされます。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Creating encrypted secrets for an environment
+### 環境の暗号化されたシークレットの生成
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Click on the environment that you want to add a secret to.
-1. Under **Environment secrets**, click **Add secret**.
+1. シークレットを追加したい環境をクリックしてください。
+1. **Environment secrets（環境のシークレット）**の下で、**Add secret（シークレットの追加）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの値を入力します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
@@ -99,7 +99,7 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Click **New organization secret**.
+1. **New organization secret（新しいOrganizationのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの **Value（値）** を入力します。
 1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。
@@ -177,7 +177,7 @@ steps:
 
 ### シークレットの制限
 
-You can store up to 1,000 secrets per organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, 100 secrets per repository, and 100 secrets per environment{% else %} and 100 secrets per repository{% endif %}. A workflow may use up to 100 organization secrets and 100 repository secrets.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Additionally, a job referencing an environment may use up to 100 environment secrets.{% endif %}
+Organizationには最大1,000個のシークレットを{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリには100個のシークレットを、環境には100個のシークレットを{% else %}、リポジトリには100個のシークレットを{% endif %}保存できます。 ワークフローは最大で100個のOrganizationのシークレットと100個のリポジトリシークレットを利用できます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} 加えて、環境を参照するジョブは最大で100個の環境のシークレットを利用できます。{% endif %}
 
 シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{% data variables.product.prodname_dotcom %}に保存します。 たとえば、{% data variables.product.prodname_dotcom %}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
 

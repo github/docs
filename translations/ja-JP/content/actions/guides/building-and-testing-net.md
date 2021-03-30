@@ -5,13 +5,20 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
 このガイドは、.NETパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、.NET Core SDKを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 最新のソフトウェアとプリインストールされたバージョンの.NET Core SDKの完全なリストについては、[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/reference/specifications-for-github-hosted-runners)を参照してください。
+{% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} で.NETプロジェクトをビルドしてテストするには、.NET Core SDKを含むカスタムオペレーティングシステムイメージを作成する必要があります。 {% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、.NET Core SDKを含むソフトウェアがプリインストールされたツールキャッシュがあります。 最新のソフトウェアとプリインストールされたバージョンの.NET Core SDKの完全なリストについては、[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/reference/specifications-for-github-hosted-runners)を参照してください。
+{% endif %}
 
 ### 必要な環境
 
@@ -41,10 +48,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK ${{ matrix.dotnet }}
-      uses: actions/setup-dotnet@v1.6.0
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v1.7.2
       with:
-        dotnet-version: {{ matrix.dotnet-version }}
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -58,7 +65,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %}ホストランナーにプリインストールされたバージョンの.NET Core SDKを使うには、`setup-dotnet`アクションを使ってください。 このアクションは各ランナーのツールキャッシュから指定されたバージョンの.NETを見つけ、必要なバイナリを`PATH`に追加します。 これらの変更は、ジョブの残りの部分で保持されます。
 
-`setup-dotnet`アクションは、{% data variables.product.prodname_actions %}で.NETを使うための推奨される方法です。これは、それによって様々なランナーや様々なバージョンの.NETに渡って一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、.NETをインストールして`PATH`に追加しなければなりません。 詳しい情報については[`setup-dotnet`](https://github.com/marketplace/actions/setup-dotnet)を参照してください。
+`setup-dotnet`アクションは、{% data variables.product.prodname_actions %}で.NETを使うための推奨される方法です。これは、それによって様々なランナーや様々なバージョンの.NETに渡って一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、.NETをインストールして`PATH`に追加しなければなりません。 詳しい情報については[`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk)アクションを参照してください。
 
 #### 複数の.NETバージョンの利用
 
@@ -79,10 +86,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup dotnet ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v1.6.0
+      uses: actions/setup-dotnet@v1.7.2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
-    # You can test your matrix by printing the current dotnet version
+    # 現在の dotnet バージョンを出力してマトリックスをテストする
     - name: Display dotnet version
       run: dotnet --version
 ```
@@ -111,7 +118,7 @@ jobs:
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -132,13 +139,13 @@ steps:
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - uses: actions/cache@v2
   with:
     path: ~/.nuget/packages
-    # Look to see if there is a cache hit for the corresponding requirements file
+    # 対応する要件ファイルのキャッシュヒットがあるかどうかを確認する
     key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
     restore-keys: |
       ${{ runner.os }}-nuget
@@ -164,7 +171,7 @@ steps:
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.6.0
+  uses: actions/setup-dotnet@v1.7.2
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -199,7 +206,7 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - name: Setup dotnet
-        uses: actions/setup-dotnet@v1.6.0
+        uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
@@ -211,7 +218,7 @@ jobs:
         with:
           name: dotnet-results-${{ matrix.dotnet-version }}
           path: TestResults-${{ matrix.dotnet-version }}
-        # always()を使い、テストが失敗したときにテスト結果が公開されるよう、このステップが必ず実行されるようにする
+        # always() を使用して常にこのステップを実行し、テストが失敗したときにテスト結果を公開する
         if: ${{ always() }}
 ```
 {% endraw %}
@@ -239,7 +246,7 @@ jobs:
         source-url: https://nuget.pkg.github.com/<owner>/index.json
     env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build <my project>
+    - run: dotnet build --configuration Release <my project>
     - name: Create the package
     run: dotnet pack --configuration Release <my project>
     - name: Publish the package to GPR

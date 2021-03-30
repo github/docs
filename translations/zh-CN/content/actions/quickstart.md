@@ -7,10 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: 'quick_start'
+topics:
+  - '基础'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -18,7 +23,7 @@ versions:
 
 ### 创建第一个工作流程
 
-1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflow` 目录中创建一个名为 `superlinter.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflows` 目录中创建一个名为 `superlinter.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
 2. 将以下 YAML 内容复制到 `superlinter.yml` 文件中。 **注：** 如果您的默认分支不是 `main`，请更新 `DEFAULT_BRANCH` 的值以匹配您仓库的默认分支名称。
     {% raw %}
     ```yaml{:copy}
@@ -59,20 +64,20 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. 在 **Jobs（作业）**下或可视化图中，单击 **Lint code base（Lint 代码基础）**作业。 ![Lint 代码库作业](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}
 1. 在左侧边栏中，单击 **Lint code base（Lint 代码库）**作业。 ![Lint 代码库作业](/assets/images/help/repository/superlinter-lint-code-base-job.png)
 {% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### More workflow templates
+### 更多工作流程模板
 
 {% data reusables.actions.workflow-template-overview %}
 
 ### 后续步骤
 
-只要代码推送到仓库，您刚才添加的 super-linter 工作流程就会运行，以帮助您发现代码中的错误和不一致。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 以下是一些帮助您对 {% data variables.product.prodname_actions %} 执行后续操作的有用资源：
+每次将代码推送到仓库时，您刚添加的 super-linter 工作流程都会运行，以帮助您发现代码中的错误和不一致。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 以下是一些帮助您对 {% data variables.product.prodname_actions %} 执行后续操作的有用资源：
 
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，以获取深入教程
 - “[指南](/actions/guides)”，以获取特定用例和示例
@@ -82,7 +87,7 @@ versions:
 
 ### Introduction
 
-打印“Hello, World!”是探索新编程语言的基本设置和语法的好方法。 在本指南中，您将使用 GitHub Actions 在 {% data variables.product.prodname_dotcom %} 仓库的工作流程日志中打印“Hello, World!”。 您只需要一个您可以在其中轻松创建和运行示例 {% data variables.product.prodname_actions %} 工作流程的 {% data variables.product.prodname_dotcom %} 仓库。 请随意为此快速入门创建新仓库，您可以使用它来测试此仓库和未来的 {% data variables.product.prodname_actions %} 工作流程。
+打印“Hello, World!”是探索新编程语言的基本设置和语法的好方法。 在本指南中，您将使用 GitHub Actions 在 {% data variables.product.prodname_dotcom %} 仓库的工作流程日志中打印“Hello, World!”。 您只需要一个您可以在其中轻松创建和运行示例 {% data variables.product.prodname_actions %} 工作流程的 {% data variables.product.prodname_dotcom %} 仓库。 请随时为此快速启动创建一个新仓库，以测试这个及未来的 {% data variables.product.prodname_actions %} 工作流程。
 
 ### Creating your first workflow
 
@@ -120,7 +125,7 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to run.
+1. 在左侧边栏中，单击您想要运行的工作流程。
    ![选择 say hello 作业](/assets/images/help/repository/say-hello-job.png)
 1. 在右侧，单击 **Run workflow（运行工作流程）**下拉菜单，然后单击 **Run workflow（运行工作流程）**。 （可选）您可以在运行工作流程之前在“问候的人（Person to greet）”输入中输入自定义消息。
    ![触发手动工作流程](/assets/images/help/repository/manual-workflow-trigger.png)
@@ -137,7 +142,7 @@ versions:
 
 ### Next steps
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. 这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 下面是一些可帮助您执行 {% data variables.product.prodname_actions %} 后续步骤的有用资源：
+The hello-world workflow you just added is a minimal example of a manually triggered workflow. 这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 下面是一些可帮助您执行 {% data variables.product.prodname_actions %} 后续步骤的有用资源：
 
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，用于深入的教程
 - “[Guides](/actions/guides)”，用于特定的使用情况和示例

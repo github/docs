@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### 克隆仓库
-{% data variables.product.prodname_dotcom %} 上的仓库作为远程仓库存在。  您可以克隆其他人拥有的公共仓库。 您可以克隆自己的仓库，从而在计算机上创建本地副本，并在两个本地位置之间实现同步。
+### 关于本地仓库
+{% data variables.product.prodname_dotcom %} 上的仓库是远程仓库。 您可以通过 {% data variables.product.prodname_desktop %} 克隆或复刻仓库以在计算机上创建本地仓库。
+
+您可以通过克隆仓库创建 {% data variables.product.product_name %} 上您可以访问的任何仓库的本地副本。 如果您拥有一个仓库或拥有写入权限，您可以在本地和远程位置之间进行同步。 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
+
+当您克隆仓库时，您推送到 {% data variables.product.product_name %} 的任何更改都将影响原始仓库。 要在不影响原始项目的情况下进行更改，您可以通过复刻仓库来创建单独的副本。 您可以创建拉取请求来提议维护员将您的复刻中的更改加入原始上游仓库。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
+
+当您尝试使用 {% data variables.product.prodname_desktop %} 克隆您没有写入权限的仓库时，{% data variables.product.prodname_desktop %} 会自动提示您创建复刻。 您可以选择使用复刻参加原始上游仓库，或者在您自己的项目上独立工作。 任何现有复刻都默认对其上游仓库进行更改。 您可以随时修改此选项。 更多信息请参阅“[管理复刻行为](#managing-fork-behavior)”。
 
 也可以直接从 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 克隆仓库。 更多信息请参阅“[将仓库从 {% data variables.product.prodname_dotcom %} 克隆至 {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)。”
 
-{% mac %}
+### 克隆仓库
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Mac 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. 单击 **Choose...（选择...）**，并使用 Finder 窗口找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-mac.png)
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.choose-clone-repository %}
-  ![Windows 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-windows.png)
-{% data reusables.desktop.cloning-location-tab %}
-  ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}
-  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. 单击 **Choose...（选择...）**，并使用 Windows 资源管理器找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-win.png)
-5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-win.png)
-
-{% endwindows %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
 ### 复刻仓库
-要对您没有写入权限的项目做出贡献，可以使用 {% data variables.product.prodname_desktop %} 创建仓库分支。 分支上的变更不会影响原始仓库。 您可以提交分支上的变更，然后将拉取请求对含有提议变更的原始仓库开放。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
+如果您克隆一个您没有写入权限的仓库，{% data variables.product.prodname_desktop %} 将创建一个复刻。 在创建或克隆复刻后，{% data variables.product.prodname_desktop %} 会问您打算如何使用该复刻。
 
-1. 如果您克隆了自己没有写入权限的仓库，并查实提交变更。{% data variables.product.prodname_desktop %} 将警告您“您对 **REPOSITORY（仓库）**没有写入权限。 单击 **create a fork（创建分支）**。 ![创建分支链接](/assets/images/help/desktop/create-a-fork.png)
-3. 单击 **Fork this repository（复刻此仓库）**。 ![复刻此仓库按钮](/assets/images/help/desktop/fork-this-repo-button.png)
-4. 要查看 {% data variables.product.prodname_dotcom %} 上的分支，请在 {% data variables.product.prodname_dotcom %} 右上角单击个人资料照片，然后再单击 **Your repositories（您的仓库）**。 ![您的仓库链接](/assets/images/help/profile/your-repositories.png)
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
+
+### 管理复刻行为
+您可以更改复刻对 {% data variables.product.prodname_desktop %} 中上游仓库的行为。
+
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
+
+### 延伸阅读
+- [关于远程仓库](/github/getting-started-with-github/about-remote-repositories)

@@ -8,6 +8,6 @@ versions:
   github-ae: '*'
 ---
 
-Alle verfügbaren Git-Befehle auf einmal zu lernen ist eine Herausforderung. Halte als Referenz einen unserer [Git-Merkzettel](https://services.github.com/on-demand/resources/cheatsheets/) bereit. Der Merkzettel zur Git-Verwendung liegt in mehreren Sprachen vor. Weitere Informationen findest Du auf der [Ressourcen-Seite auf der GitHub Dienste-Website](https://services.github.com/on-demand/resources/).
+Alle verfügbaren Git-Befehle auf einmal zu lernen ist eine Herausforderung. Our cheat sheets provide a quick reference for the commands you'll use most often: see "[Git Cheat Sheets](https://training.github.com/)." The "Using Git" cheat sheet is available in several languages.
 
 Darüber hinaus findest Du auf unserer Seite [Git- und GitHub-Lerninhalte](/articles/git-and-github-learning-resources/) zahlreiche Links zu Leitfäden, Videos und anderen Ressourcen.

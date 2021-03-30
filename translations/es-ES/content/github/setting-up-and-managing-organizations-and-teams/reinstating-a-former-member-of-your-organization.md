@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Los propietarios de las organizaciones pueden reinstaurar a un miembro previo de las mismas.'
+permissions: Los propietarios de las organizaciones pueden reinstaurar a un miembro previo de las mismas.
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca de la reinstauración de miembros
@@ -54,6 +57,6 @@ Si tu organización tiene una suscripción de pago por usuario, debes de contar 
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"

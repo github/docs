@@ -1,1 +1,1 @@
-Optionally, decide whether to provide empty repositories or starter code, and preconfigure a development environment for your students.
+空のリポジトリあるいはスターターコードを提供するかを決めて、学生のための開発環境を事前設定することもできます。

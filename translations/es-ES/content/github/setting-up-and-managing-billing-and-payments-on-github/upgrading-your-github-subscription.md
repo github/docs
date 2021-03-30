@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - facturación
 ---
 
 ### Subir de categoría la suscripción de tu cuenta personal
@@ -93,7 +95,7 @@ Si quisieras que usuarios adicionales tengan acceso a los repositorios privados 
 
 {% data reusables.dotcom_billing.500-error %}
 
-### Further reading
+### Leer más
 
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

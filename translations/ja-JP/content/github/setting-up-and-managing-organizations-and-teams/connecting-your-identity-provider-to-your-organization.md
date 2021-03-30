@@ -6,6 +6,9 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data variables.product.product_name %} Organization で [SAML SSO を有効化する](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)前に、アイデンティティプロバイダ (IdP) を Organization に接続する必要があります。

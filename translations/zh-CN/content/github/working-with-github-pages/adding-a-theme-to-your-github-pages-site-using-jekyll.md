@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 将主题添加到 {% data variables.product.prodname_pages %} 网站。
@@ -40,7 +42,7 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 1. 创建一个名为 _/assets/css/style.scss_ 的新文件。
 2. 在文件顶部添加以下内容：
-  ```
+  ```scss
   ---
   ---
 

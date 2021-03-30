@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
 versions:
   enterprise-server: '*'
+topics:
+  - empresa
 ---
 
 ### Crear una réplica de alta disponibilidad
@@ -95,7 +97,7 @@ Para probarlo, puedes agregar entradas al archivo de `hosts` de la estación de 
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-### Further reading
+### Leer más
 
 - "[Acerca de la configuración de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
 - "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
