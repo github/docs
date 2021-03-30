@@ -74,7 +74,7 @@ Mandatory messages have a variety of uses.
 
 {% note %}
 
-**Note:** You can only set up mandatory messages once (it's not possible to reset a mandatory message).
+**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
 
 {% endnote %}
 
