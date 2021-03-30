@@ -58,5 +58,5 @@ Anyone watching the pull request or repository will receive a notification of yo
 ### Further reading
 
 - "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}
