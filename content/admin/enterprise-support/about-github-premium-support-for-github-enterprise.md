@@ -35,7 +35,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 
 {% data reusables.support.signing-up-for-premium-support %}
 
-{% data reusables.support.scope-of-support %} For more information, see "[Reaching {% data variables.product.prodname_ghe_server %} Support](/enterprise/admin/guides/enterprise-support/reaching-github-support)."
+{% data reusables.support.scope-of-support %}
 
 {% data reusables.support.contacting-premium-support %}
 
@@ -53,8 +53,12 @@ You must install the minimum supported version of {% data variables.product.prod
 
 When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
-- [Ticket priorities for {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
-- [Ticket priorities for {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
+- [About {% data variables.contact.premium_support %}](#about--data-variablescontactpremium_support-)
+- [Hours of operation](#hours-of-operation)
+- [Assigning a priority to a support ticket](#assigning-a-priority-to-a-support-ticket)
+  - [Ticket priorities for {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for--data-variablesproductprodname_ghe_cloud-)
+  - [Ticket priorities for {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for--data-variablesproductprodname_ghe_server-)
+- [Resolving and closing support tickets](#resolving-and-closing-support-tickets)
 
 #### Ticket priorities for {% data variables.product.prodname_ghe_cloud %}
 

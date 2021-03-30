@@ -21,7 +21,7 @@ topics:
 {% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %} and Japanese{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
-You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_global_portal %} for help with:
+You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
  - Installing and using {% data variables.product.product_name %}
  - Identifying and verifying the causes of suspected errors
 
@@ -43,7 +43,7 @@ For more information, see "[About {% data variables.contact.premium_support %} f
 
 ### Contacting {% data variables.contact.enterprise_support %}
 
-You can contact {% data variables.contact.enterprise_support %} through {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_global_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.ae_azure_portal %}{% endif %} to report issues in writing. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+You can contact {% data variables.contact.enterprise_support %} through {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.ae_azure_portal %}{% endif %} to report issues in writing. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Hours of operation
