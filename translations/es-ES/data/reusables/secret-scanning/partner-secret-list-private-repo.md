@@ -26,6 +26,7 @@
 | Dropbox                   | Token de Acceso de Vida Corta de Dropbox            | dropbox_short_lived_access_token     |
 | Dynatrace                 | Token de Acceso de Dynatrace                        | dynatrace_access_token                 |
 | Dynatrace                 | Token Interno de Dynatrace                          | dynatrace_internal_token               |
+| Facebook                  | Facebook Access Token                               | facebook_access_token                  |
 | Finicity                  | Clave de App de Finicity                            | finicity_app_key                       |
 | Frame.io                  | Token Web de JSON de Frame.io                       | frameio_jwt                              |
 | Frame.io                  | Token de Desarrollador de Frame.io                  | frameio_developer_token                |
@@ -49,8 +50,10 @@
 | Proctorio                 | Clave de Registro de Proctorio                      | proctorio_registration_key             |
 | Proctorio                 | Clave de Secreto de Proctorio                       | proctorio_secret_key                   |
 | Pulumi                    | Token de Acceso de Pulumi                           | pulumi_access_token                    |
+| PyPI                      | Token de la API de PyPI                             | pypi_api_token                         |
 | Samsara                   | Token de API de Samsara                             | samsara_api_token                      |
 | Samsara                   | Token de Acceso de OAuth de Samsara                 | samsara_oauth_access_token             |
+| SendGrid                  | Clave de la API de SendGrid                         | sendgrid_api_key                       |
 | Shopify                   | Secreto Compartid de la App de Shopify              | shopify_app_shared_secret              |
 | Shopify                   | Token de Acceso de Shopify                          | shopify_access_token                   |
 | Shopify                   | Token de Acceso de la App Personalizada de Shopify  | shopify_custom_app_access_token      |

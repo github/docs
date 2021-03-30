@@ -30,12 +30,20 @@ Mit der {% data variables.product.prodname_dotcom %}-Erweiterung für Visual Stu
 
 ### Projektmanagement-Tools
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira.
 
 #### Jira Cloud und {% data variables.product.product_name %}.com-Integration
 
 Sie können Jira Cloud in Ihr persönliches Konto oder Organisations-Konto integrieren, um Commits und Pull Requests zu scannen und relevante Metadaten und Hyperlinks in allen erwähnten Jira-Issues zu erstellen. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
 
+### Team communication tools
+
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party team communication tools, such as Slack or Microsoft Teams.
+
 #### Slack and {% data variables.product.product_name %} integration
 
 You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.
+
+#### Microsoft Teams and {% data variables.product.product_name %} integration
+
+You can integrate Microsoft Teams with your personal or organization account to access information about {% data variables.product.product_name %} alongside wider team communication. When you integrate Microsoft Teams with {% data variables.product.product_name %}, you can subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.

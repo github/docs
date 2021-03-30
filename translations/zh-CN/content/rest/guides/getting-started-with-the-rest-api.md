@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -186,8 +188,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
 
-* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共仓库。
-* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共和私有仓库。
+{% if currentVersion != "github-ae@latest" %}
+* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共仓库。{% endif %}
+* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在{% data variables.product.product_location %} 上有权查看的所有{% if currentVersion != "github-ae@latest" %}公共{% else %}内部{% endif %}和私有仓库。
 
 如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对仓库的访问权限类型来过滤返回的仓库。 这样，我们可以只获取直接拥有的仓库、组织仓库或用户通过团队进行协作的仓库。
 
@@ -214,7 +217,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新仓库。 尽管博客将会公开，但我们将仓库设为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
+在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的私有仓库。 虽然博客 {% if currentversion != "github-ae@latest" %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
 
 生成的仓库可在 `https://github.com/<your_username>/blog` 上找到。 要在您拥有的组织下创建仓库，只需将 API 方法从 `/user/repos` 更改为 `/orgs/<org_name>/repos`。
 

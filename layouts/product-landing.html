@@ -7,6 +7,7 @@
 
     <main class="width-full">
       {% include header %}
+      {% include deprecation-banner %}
 
       <div class="container-xl px-3 px-md-6 pt-3 pb-2">
         <header class="d-lg-flex gutter-lg mb-6">
@@ -142,9 +143,9 @@
         {% endif %}
       </div>
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

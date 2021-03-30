@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -31,8 +33,6 @@ Ao criar um novo codespace, o {% data variables.product.prodname_dotcom %} clona
 Se nenhum desses arquivos for encontrado, quaisquer arquivos ou pastas nos `dotfiles` que comecem com `.` será vinculado simbolicamente ao diretório `~` ou `$HOME` do codespace.
 
 Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
-
-Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
 
 {% note %}
 

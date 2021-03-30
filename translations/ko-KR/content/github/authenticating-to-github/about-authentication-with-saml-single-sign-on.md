@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   github-ae: '*'
+topics:
+  - sso
 ---
 
 ### About authentication with SAML SSO

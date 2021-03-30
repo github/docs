@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Los propietarios de las organizaciones pueden {% if currentVersion == "free-pro-team@latest" %}invitar usuarios para que se unan{% else %}agregar usuarios a{% endif %} éstas.
+permissions: 'Los propietarios de las organizaciones pueden {% if currentVersion == "free-pro-team@latest" %}invitar usuarios para que se unan{% else %}agregar usuarios a{% endif %} éstas.'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

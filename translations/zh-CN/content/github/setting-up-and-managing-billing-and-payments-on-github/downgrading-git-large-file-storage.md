@@ -7,6 +7,8 @@ redirect_from:
   - /articles/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 降级数据包数量后，更改将在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage) 的计费”。

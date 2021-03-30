@@ -18,7 +18,7 @@ versions:
 1. [Crie um novo branch](/desktop/guides/contributing-to-projects/managing-branches) ou selecione um branch existente, clicando em
 
 {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** na barra de ferramentas e selecionando o branch na lista.
-  ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. Selecionar alterações para inclusão em um commit

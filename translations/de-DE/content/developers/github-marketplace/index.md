@@ -7,6 +7,8 @@ redirect_from:
   - /marktplatz
 versions:
   free-pro-team: '*'
+topics:
+  - marktplatz
 ---
 
 {% topic_link_in_list /github-marketplace-overview %}

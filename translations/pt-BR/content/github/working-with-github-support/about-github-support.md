@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-support
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 ### Sobre o {% data variables.contact.github_support %}

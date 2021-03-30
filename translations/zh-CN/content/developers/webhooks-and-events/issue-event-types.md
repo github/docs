@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 事件
 ---
 
 
@@ -152,19 +154,19 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称            | 类型     | 描述                                                                               |
-| ------------- | ------ | -------------------------------------------------------------------------------- |
-| `sha`         | `字符串`  | 拉取请求中提交的 SHA。                                                                    |
-| `node_id`     | `字符串`  | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。                             |
-| `url`         | `字符串`  | 用于检索提交的 REST API URL。                                                            |
-| `html_url`    | `字符串`  | 提交的 HTML URL。                                                                    |
-| `作者`          | `对象`   | 编写提交的人。                                                                          |
-| `提交者`         | `对象`   | 代表作者进行提交的人。                                                                      |
-| `树`           | `对象`   | 提交的 Git 树。                                                                       |
-| `message`     | `字符串`  | 提交消息.                                                                            |
-| `父项`          | `对象数组` | 父提交的列表。                                                                          |
-| `verfication` | `对象`   | 验证提交签名的结果。 更多信息请参阅“[签名验证对象](/rest/reference/git#signature-verification-object)”。 |
-| `event`       | `字符串`  | 事件值为 `"committed"`。                                                              |
+| 名称         | 类型     | 描述                                                              |
+| ---------- | ------ | --------------------------------------------------------------- |
+| `sha`      | `字符串`  | 拉取请求中提交的 SHA。                                                   |
+| `node_id`  | `字符串`  | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。            |
+| `url`      | `字符串`  | 用于检索提交的 REST API URL。                                           |
+| `html_url` | `字符串`  | 提交的 HTML URL。                                                   |
+| `作者`       | `对象`   | 编写提交的人。                                                         |
+| `提交者`      | `对象`   | 代表作者进行提交的人。                                                     |
+| `树`        | `对象`   | 提交的 Git 树。                                                      |
+| `message`  | `字符串`  | 提交消息.                                                           |
+| `父项`       | `对象数组` | 父提交的列表。                                                         |
+| `验证`       | `对象`   | 验证提交签名的结果。 更多信息请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。 |
+| `event`    | `字符串`  | 事件值为 `"committed"`。                                             |
 
 ### connected
 

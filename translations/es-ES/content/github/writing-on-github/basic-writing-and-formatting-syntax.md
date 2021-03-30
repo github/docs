@@ -197,7 +197,7 @@ Para obtener más información, consulta "[Referencias y direcciones URL autovin
 
 Algunas {% data variables.product.prodname_github_app %} brindan información en {% data variables.product.product_name %} para las URL que se vinculan con sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
 
-![Adjunto de contenido](/assets/images/help/writing/content-attachment.png)
+![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
 Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que utilice la API de adjuntos de contenido instalada en el repositorio.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
 
