@@ -5,6 +5,8 @@ permissions: As pessoas com permissões de gravação em um repositório podem r
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+topics:
+  - repositories
 ---
 
 ### Sobre a renomeação de branches

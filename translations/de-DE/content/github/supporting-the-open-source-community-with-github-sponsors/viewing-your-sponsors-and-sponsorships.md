@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About sponsors and sponsorships
@@ -28,4 +30,4 @@ You can export your sponsorship transactions by month. {% data variables.product
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.activity-tab %}
 1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![Schaltfläche „Export"](/assets/images/help/sponsors/export-all.png)
-1. Wähle einen Zeitrahmen und ein Format für die zu exportierenden Daten und klicke dann auf **Start export** (Export starten). ![Optionen für den Datenexport](/assets/images/help/sponsors/export-your-sponsors.png)
+1. Choose a time frame and a format for the data you'd like to export, then click **Start export**. ![Optionen für den Datenexport](/assets/images/help/sponsors/export-your-sponsors.png)

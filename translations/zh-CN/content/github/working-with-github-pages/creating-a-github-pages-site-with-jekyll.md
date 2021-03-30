@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -65,23 +67,24 @@ versions:
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
- 7. 要创建新的 Jekyll 站点，请使用 `jekyll new` 命令，将 _VERSION_ 替换为当前的 Jekyll 依赖项版本。 更多信息请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。
-    - 如已安装 Bundler：
-      ```shell
-      $ bundle exec jekyll <em>VERSION</em> new .
-      # Creates a Jekyll site in the current directory
-      ```
-    - 如果尚未安装 Bundler：
-     ```shell
-     $ jekyll <em>VERSION</em> new .
-     # Creates a Jekyll site in the current directory
-     ```
-8. 打开已创建的 Gemfile，并按照 Gemfile 注释中的说明使用 {% data variables.product.prodname_pages %}。 ![更新 Gemfile 的说明](/assets/images/help/pages/gemfile-instructions.png)
-9. 更新 `gem "github-pages"` 行，使该行类似如下，将 _VERSION_ 替换为 `github-pages` 的当前依赖项版本。 更多信息请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。
-```shell
-gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
-```
+7. 要创建新 Jekyll 站点，请使用 `jekyll new` 命令：
+   ```shell
+   $ jekyll new .
+   # Creates a Jekyll site in the current directory
+   ```
+8. 打开 Jekyll 创建的 Gemfile 文件。
+1. 将 "#" 添加到以 `gem "jekyll "` 开头的行首，以注释此行。
+1. 编辑以 `# gem "github-pages"` 开头的行来添加 `github-pages` gem。 将此行更改为：
+
+   ```shell
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
+   ```
+
+   将 _GITHUB-PAGES-VERSION_ 替换为 `github-pages` gem 的最新支持版本。 您可以在这里找到这个版本：“[依赖项版本](https://pages.github.com/versions/)”。
+
+   正确版本 Jekyll 将安装为 `github-pages` gem 的依赖项。
 10. 保存并关闭 Gemfile。
+11. 从命令行运行 `bundle update`。
 11. （可选）在本地测试您的站点。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
 12. 将您的 {% data variables.product.product_name %} 仓库添加为远程仓库，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ 替换为您企业的主机名，将 {% endif %} _USER_ 替换为拥有该仓库的帐户{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}，{% endif %}并将 _REPOSITORY_ 替换为仓库名称。
 ```shell

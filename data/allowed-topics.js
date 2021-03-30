@@ -80,5 +80,6 @@ module.exports = [
   'sso',
   'teams',
   'usernames',
-  'webhooks'
+  'webhooks',
+  'Xcode'
 ]

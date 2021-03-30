@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Check your spelling
@@ -15,7 +17,7 @@ Typos happen, and repository names are case-sensitive.  If you try to clone `git
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
-To update the remote on an existing repository, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)".
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Checking your permissions
 

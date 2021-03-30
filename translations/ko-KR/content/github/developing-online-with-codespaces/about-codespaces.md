@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -56,4 +58,4 @@ A limited number of people will be invited to join the beta. To join the waitlis
 
 If you encounter problems using {% data variables.product.prodname_codespaces %}, see "[Troubleshooting your codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)."
 
-If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Community Forum](https://github.community/c/codespaces-beta/45).
+If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Codespaces Feedback](https://github.com/github/feedback/discussions/categories/codespaces-feedback) discussion.

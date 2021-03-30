@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Data de vigência: 19 de dezembro de 2020
@@ -94,7 +97,7 @@ Não coletamos intencionalmente as Informações Pessoais de Usuário **armazena
 
 ### Como o GitHub usa suas informações
 
-- Podemos usar as suas informações das seguintes maneiras:
+Podemos usar as suas informações das seguintes maneiras:
 - Usamos suas [Informações de Registro](#registration-information) para criar sua conta e prestar o Serviço a você.
 - Usamos suas [Informações de Pagamento](#payment-information) para prestar o serviço de Conta Paga, o serviço do Marketplace, o Programa de Patrocinadores ou qualquer outro serviço pago que você solicitar no GitHub.
 - Usamos suas Informações Pessoais de Usuário, especificamente seu nome de usuário, para identificar você no GitHub.
@@ -245,7 +248,7 @@ Fornecemos mais informações sobre [cookies no GitHub](/github/site-policy/gith
 
 #### DNT
 
-"[Não rastrear](https://www.eff.org/issues/do-not-track)" (DNT) é uma preferência de privacidade que você pode definir no seu navegador se não quiser que os serviços on-line coletem e compartilhem certos tipos de informações sobre a sua atividade on-line de serviços de rastreamento de terceiros. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Se você deseja configurar seu navegador para sinalizar que não gostaria de ser rastreado, verifique a documentação do seu navegador para saber como habilitar essa sinalização. Há também bons aplicativos que bloqueiam o rastreamento online, como [Badger de Privacidade](https://privacybadger.org/).
+"[Não rastrear](https://www.eff.org/issues/do-not-track)" (DNT) é uma preferência de privacidade que você pode definir no seu navegador se não quiser que os serviços on-line coletem e compartilhem certos tipos de informações sobre a sua atividade on-line de serviços de rastreamento de terceiros. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Se você deseja configurar seu navegador para sinalizar que não gostaria de ser rastreado, verifique a documentação do seu navegador para saber como ativar essa sinalização. Há também bons aplicativos que bloqueiam o rastreamento online, como [Badger de Privacidade](https://privacybadger.org/).
 
 ### Como o GitHub protege suas informações
 

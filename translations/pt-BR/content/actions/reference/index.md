@@ -6,10 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sintaxe de fluxo de trabalho
 
@@ -27,12 +29,12 @@ Você pode configurar fluxos de trabalho para serem executados quando eventos es
 
 ### Autenticação e segredos
 
-{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}. Você também pode armazenar informações sensíveis como um segredo na sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes{% else %} ou repositório{% endif %}. {% data variables.product.prodname_dotcom %} criptografa todos os segredos.
+{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}. Você também pode armazenar informações confidenciais como um segredo na sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repositório ou ambientes{% else %} ou repositório{% endif %}. {% data variables.product.prodname_dotcom %} criptografa todos os segredos.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### Ambientes
 
 Os trabalhos do fluxo de trabalho podem fazer referência a ambientes que possuem regras de proteção ou segredos específicos do ambiente.
@@ -40,12 +42,11 @@ Os trabalhos do fluxo de trabalho podem fazer referência a ambientes que possue
 {% link_in_list /environments %}
 {% endif %}
 
-### Runners hospedados no {% data variables.product.prodname_dotcom %}
+### Variáveis de ambiente
 
-O GitHub oferece máquinas virtuais hospedadas para executar fluxos de trabalho. A máquina virtual contém um ambiente com ferramentas, pacotes e variáveis de ambiente para o GitHub Actions usar.
+{% data variables.product.prodname_dotcom %} define as variáveis do ambiente para cada execução do fluxo de trabalho {% data variables.product.prodname_actions %}. Você também pode definir variáveis de ambiente personalizadas no seu arquivo do fluxo de trabalho.
 
 {% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Administração

@@ -24,7 +24,7 @@ Para gerenciar as discussões em um repositório, as discussões devem ser habil
 
 ### Alterar a categoria para uma discussão
 
-Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, consulte "[Gerenciar categorias de discussões no artigo do seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
+Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 Você também pode mover a discussão para uma categoria diferente.
 

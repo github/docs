@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The macOS 11.0 virtual environment is currently provided as a private preview only. Any users or organizations that are already using this runner can continue using it, but we're not accepting any further users or organizations at this time. The `macos-latest` YAML workflow label still uses the macOS 10.15 virtual environment.
+**ノート:** macOS 11.0の仮想環境は、現在プライベートプレビューとしてのみ提供されています。 このランナーをすでに利用しているユーザもしくはOrganizationは引き続きこのランナーをご利用いただけますが、現時点でこれ以上のユーザやOrganizationは受け付けておりません。 YAMLワークフローラベルの`macos-latest` は、引き続きmacOS 10.15の仮想環境を使用します。
 
 {% endnote %}

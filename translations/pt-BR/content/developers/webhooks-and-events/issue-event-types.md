@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - eventos
 ---
 
 
@@ -152,19 +154,19 @@ Um commit foi adicionado ao branch `HEAD` do pull request.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nome          | Tipo               | Descrição                                                                                                                                                                          |
-| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sha`         | `string`           | O SHA do commit no pull request.                                                                                                                                                   |
-| `node_id`     | `string`           | O [Global Node ID](/graphql/guides/using-global-node-ids) do evento.                                                                                                               |
-| `url`         | `string`           | A URL da API REST para recuperar o commit.                                                                                                                                         |
-| `html_url`    | `string`           | A URL de HTML do commit.                                                                                                                                                           |
-| `autor`       | `objeto`           | A pessoa que autorizou o commit.                                                                                                                                                   |
-| `committer`   | `objeto`           | A pessoa que confirmou o commit em nome do autor.                                                                                                                                  |
-| `árvore`      | `objeto`           | A árvore Git do commit.                                                                                                                                                            |
-| `mensagem`    | `string`           | A mensagem do commit.                                                                                                                                                              |
-| `principais`  | `array de objetos` | Uma lista de commits principais.                                                                                                                                                   |
-| `verificação` | `objeto`           | O resultado de verificação da assinatura do commit. Para obter mais informações, consulte "[Objeto verificação de assinatura](/rest/reference/git#signature-verification-object)". |
-| `event`       | `string`           | O valor do evento é `"commited"`.                                                                                                                                                  |
+| Nome          | Tipo               | Descrição                                                                                                                                                         |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`         | `string`           | O SHA do commit no pull request.                                                                                                                                  |
+| `node_id`     | `string`           | O [Global Node ID](/graphql/guides/using-global-node-ids) do evento.                                                                                              |
+| `url`         | `string`           | A URL da API REST para recuperar o commit.                                                                                                                        |
+| `html_url`    | `string`           | A URL de HTML do commit.                                                                                                                                          |
+| `autor`       | `objeto`           | A pessoa que autorizou o commit.                                                                                                                                  |
+| `committer`   | `objeto`           | A pessoa que confirmou o commit em nome do autor.                                                                                                                 |
+| `árvore`      | `objeto`           | A árvore Git do commit.                                                                                                                                           |
+| `mensagem`    | `string`           | A mensagem do commit.                                                                                                                                             |
+| `principais`  | `array de objetos` | Uma lista de commits principais.                                                                                                                                  |
+| `verificação` | `objeto`           | O resultado de verificação da assinatura do commit. Para obter mais informações, consulte "[Objeto verificação de assinatura](/rest/reference/git#get-a-commit)". |
+| `event`       | `string`           | O valor do evento é `"commited"`.                                                                                                                                 |
 
 ### conectado
 
@@ -466,7 +468,7 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
-<table spaces-before="0" line-breaks-before="2">
+<table spaces-before="0">
 <thead>
 <tr>
   <th align="left">Tipo de problema</th>
@@ -493,7 +495,7 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
-<table spaces-before="0" line-breaks-before="2">
+<table spaces-before="0">
 <thead>
 <tr>
   <th align="left">Tipo de problema</th>
@@ -532,7 +534,7 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
-<table spaces-before="0" line-breaks-before="2">
+<table spaces-before="0">
 <thead>
 <tr>
   <th align="left">Tipo de problema</th>
