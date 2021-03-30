@@ -10,7 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 type: 'tutorial'
+topics:
+  - 'Workflows'
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### About caching workflow dependencies
 
@@ -18,7 +22,7 @@ Workflow runs often reuse the same outputs or downloaded dependencies from one r
 
 Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
-To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
+To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache). If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 
@@ -68,7 +72,7 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
 This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching with npm
 
 on: push

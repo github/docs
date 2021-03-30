@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Los propietarios de organización pueden configurar {% data variables.product.prodname_sponsors %} para una organización.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Unirte a {% data variables.product.prodname_sponsors %}
@@ -80,6 +82,6 @@ Antes de que tu organización pueda convertirse en patrocinada, deberás habilit
 
 {% data reusables.sponsors.github-review-app %}
 
-### Further reading
+### Leer más
 - "[Acerca de {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
 - "[Recibir patrocinios a través de {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors)".

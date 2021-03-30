@@ -190,6 +190,36 @@ describe('Page class', () => {
       expect($.text()).not.toBe('This text should render on any actively supported version of Enterprise Server')
       expect($.text()).toBe('This text should only render on non-Enterprise')
     })
+
+    test('support next to-be-released Enterprise Server version in frontmatter', async () => {
+      // This fixture has `enterprise-server: '>=3.1'` hardcoded in the frontmatter
+      const page = await Page.init({
+        relativePath: 'page-versioned-for-next-enterprise-release.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      // set version to 3.0
+      const context = {
+        currentVersion: 'enterprise-server@3.0',
+        currentLanguage: 'en'
+      }
+      await expect(() => { return page.render(context) }).not.toThrow()
+    })
+
+    test('support next GitHub AE version in frontmatter', async () => {
+      // This fixture has `github-ae: 'next'` hardcoded in the frontmatter
+      const page = await Page.init({
+        relativePath: 'page-versioned-for-ghae-next.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      // set version to @latest
+      const context = {
+        currentVersion: 'github-ae@latest',
+        currentLanguage: 'en'
+      }
+      await expect(() => { return page.render(context) }).not.toThrow()
+    })
   })
 
   test('preserves `languageCode`', async () => {
@@ -337,6 +367,46 @@ describe('Page class', () => {
       await page.render(context)
       expect(getLinkData).toHaveBeenCalledWith(guides, context)
       expect(page.learningTracks).toHaveLength(2)
+    })
+  })
+
+  describe('includeGuides', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-includeGuides.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+    })
+
+    it('includes guide paths specified in frontmatter', async () => {
+      expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
+    })
+
+    it('renders guides and topics', async () => {
+      getLinkData.mockImplementation(() => {
+        return [{
+          page: { topics: ['Spring', 'Summer'] }
+        }, {
+          page: { topics: ['Summer', 'Fall'] }
+        }, {
+          page: { topics: ['Fall', 'Winter'] }
+        }]
+      })
+      const guides = ['/path/guide1', '/path/guide2', '/path/guide3']
+      const context = {
+        currentVersion: nonEnterpriseDefaultVersion,
+        currentLanguage: 'en'
+      }
+      await page.render(context)
+      expect(getLinkData).toHaveBeenCalledWith(guides, context)
+      expect(page.includeGuides).toHaveLength(3)
+      expect(page.allTopics).toHaveLength(4)
+      expect(page.allTopics).toEqual(
+        expect.arrayContaining(['Spring', 'Summer', 'Fall', 'Winter'])
+      )
     })
   })
 

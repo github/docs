@@ -7,12 +7,12 @@
   <body class="d-lg-flex">
     {% include sidebar %}
 
-    <main class="width-full">
+    <main class="flex-1 min-width-0">
       {% include header %}
       {% include deprecation-banner %}
 
-      <div class="d-flex flex-items-stretch">
-        <article class="flex-auto">
+      <div class="d-flex">
+        <article class="min-width-0 flex-1">
           <div class="d-flex flex-items-center flex-justify-between bg-white text-bold px-5 py-2">
             {% if prevRelease %}
               <a
@@ -39,18 +39,18 @@
 
           <div class="markdown-body">
             {% for patch in releaseNotes %}
-              <div class="js-release-notes-patch mb-10 bg-gray-light px-3 pb-6 border-bottom border-top" data-version="{{ patch.version }}">
-                <header class="container-xl position-sticky top-0 bg-gray-light border-bottom pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
+              <div class="js-release-notes-patch mb-10 bg-gray-light pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
+                <header class="container-xl position-sticky top-0 bg-gray-light border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
                   <div class="d-flex flex-items-center">
                     <h2 class="border-bottom-0 m-0 p-0">
                       {{ allVersions[currentVersion].versionTitle }}.{{ patch.patchVersion }}
                     </h2>
 
                     {% if patch.release_candidate %}
-                      <span class="IssueLabel bg-orange text-white ml-3">Release Candidate</span>
+                      <span class="IssueLabel bg-orange text-white ml-3" style="white-space: pre">Release Candidate</span>
                     {% endif %}
 
-                    <a href="https://enterprise.github.com/releases/{{ patch.version | replace: '-rc', '' }}/download" class="ml-3 text-small text-bold">
+                    <a href="https://enterprise.github.com/releases/{{ patch.downloadVersion }}/download" class="ml-3 text-small text-bold">
                       Download
                     </a>
 
@@ -60,18 +60,30 @@
                   </div>
 
                   <p class="text-gray mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease == latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version == latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_release_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="text-gray mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_and_release %}</p>
+                  {% endif %}
                 </header>
 
-                <div class="container-xl" id="{{ patch.version }}">
-                  <p class="mt-3">{{ patch.intro }}</p>
+                <div class="container-xl px-3">
+                  <div class="mt-3">{{ patch.intro }}</div>
 
                   {% for section in patch.sections %}
-                    <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
-                      <div class="mr-2 flex-shrink-0 mb-5 col-12 col-xl-3">
-                        {% include 'release-notes-category-label' %}
+                    <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                      <div class="col-12 col-xl-3 mb-5">
+                        {% include release-notes-category-label %}
                       </div>
 
-                      <ul class="flex-auto pl-5 pl-xl-0 release-notes-list">
+                      <ul class="col-12 col-xl-9 release-notes-list">
                         {% for note in section[1] %}
                           <li class="release-notes-list-item {% if note.heading %}list-style-none{% endif %}">
                             {% if note.heading %}
@@ -102,7 +114,7 @@
 
         <aside
           class="markdown-body position-sticky top-0 d-none d-md-block border-left no-print bg-white flex-shrink-0"
-          style="width: 300px; height: 100vh;"
+          style="width: 260px; height: 100vh;"
         >
           <nav class="height-full overflow-auto">
             <ul class="list-style-none pl-0 text-bold">
@@ -150,9 +162,9 @@
         </aside>
       </div>
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

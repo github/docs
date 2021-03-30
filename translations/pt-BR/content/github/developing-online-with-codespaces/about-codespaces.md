@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% note %}
@@ -38,7 +40,7 @@ Todos os desenvolvedores podem criar um ou mais codespaces para qualquer reposit
 
 {% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
 
-You can configure settings to add encrypted secrets, enable GPG verification, and allow codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+Você pode definir as configurações para adicionar segredos criptografados, habilitar a verificação de GPG e permitir que os codespaces acessem outros repositórios. Para obter mais informações, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Gerenciar verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)" e "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
@@ -56,4 +58,4 @@ Um número limitado de pessoas será convidado a participar do beta. Para partic
 
 Se você tiver algum problema ao usar {% data variables.product.prodname_codespaces %}, consulte "[Solucionar problemas do seu codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)".
 
-Se você ainda precisar de ajuda ou tiver um feedback sobre {% data variables.product.prodname_codespaces %}, use o [Fórum da Comunidade](https://github.community/c/codespaces-beta/45).
+Se você ainda precisa de ajuda ou tem feedback sobre {% data variables.product.prodname_codespaces %}, use a discussão de [Feedback para codespaces](https://github.com/github/feedback/discussions/categories/codespaces-feedback).

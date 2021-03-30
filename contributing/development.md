@@ -15,7 +15,7 @@ Once you've installed Node.js (which includes the popular `npm` package manager)
 ```sh
 git clone https://github.com/github/docs
 cd docs
-npm install
+npm ci
 npm run build
 npm start
 ```
@@ -24,7 +24,9 @@ You should now have a running server! Visit [localhost:4000](http://localhost:40
 
 When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in your terminal window.
 
-Note that `npm run build` is a one-time step that create static assets.
+Note that `npm ci` and `npm run build` are steps that should typically only need to be run once each time you pull the latest for a branch.
+ - `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file
+ - `npm run build` creates static assets, such as the `dist/index.js` and `dist/index.css` files
 
 ### Using GitHub Codespaces
 

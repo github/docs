@@ -9,10 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 When your GitHub App acts on behalf of a user, it performs user-to-server requests. These requests must be authorized with a user's access token. User-to-server requests include requesting data for a user, like determining which repositories to display to a particular user. These requests also include actions triggered by a user, like running a build.
 
@@ -50,6 +52,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 | `redirect_uri` | `문자열` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
 | `state`        | `문자열` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.                                                                                                                                                                                                                                                                                                                      |
 | `login`        | `문자열` | Suggests a specific account to use for signing in and authorizing the app.                                                                                                                                                                                                                                                                                                                                                              |
+| `allow_signup` | `문자열` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.                                                                                                                                                                                                                   |
 
 {% note %}
 
@@ -67,9 +70,9 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -87,14 +90,14 @@ Expiring user tokens are currently part of the user-to-server token expiration b
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
-By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable the beta for expiring user-to-server access tokens.
+By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 
-```
+```json
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-  "expires_in": "28800",
+  "expires_in": 28800,
   "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
-  "refresh_token_expires_in": "15811200",
+  "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }

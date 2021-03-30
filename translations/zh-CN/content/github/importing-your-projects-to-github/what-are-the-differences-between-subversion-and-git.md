@@ -51,7 +51,7 @@ Git 工作流程可能类似如下：
 
 ### 保留历史记录
 
-SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`git rebase`](/articles/about-git-rebase) 等工具修改以前的提交和更改。
+SVN 配置为假设项目的历史记录永不更改。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

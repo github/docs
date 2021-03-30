@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfis
 ---
 
 ### Contribuições que são contabilizadas
 
-#### Issues, pull requests and discussions
+#### Problemas, pull requests e discussões
 
-Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+Os problemas, pull requests e discussões aparecerão no gráfico de contribuição se estiverem abertos em um repositório autônomo, não em uma bifurcação.
 
 #### Commits
 Os commits aparecerão no gráfico de contribuições se atenderem a **todas** estas condições:

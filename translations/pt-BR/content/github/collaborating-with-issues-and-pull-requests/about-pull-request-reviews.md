@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Sobre revisões de pull request
@@ -44,7 +46,7 @@ Você pode exibir todas as revisões que uma pull request recebeu na linha do te
 
 ### Revisões obrigatórias
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
 {% tip %}
 

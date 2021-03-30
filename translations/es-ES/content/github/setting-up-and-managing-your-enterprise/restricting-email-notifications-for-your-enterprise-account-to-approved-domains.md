@@ -1,13 +1,13 @@
 ---
 title: Restringir las notificaciones de correo electrónico para tu cuenta empresarial a los dominios aprobados
-intro: "Puedes prevenir que exista una fuga de la información de tu empresa en las cuentas personales si restringes las notificaciones de correo electrónico sobre la actividad en las organizaciones que le pertenecen a tu cuenta empresarial para que solo se acepten los dominios verificados."
+intro: Puedes prevenir que exista una fuga de la información de tu empresa en las cuentas personales si restringes las notificaciones de correo electrónico sobre la actividad en las organizaciones que le pertenecen a tu cuenta empresarial para que solo se acepten los dominios verificados.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 permissions: Los propietarios de las empresas pueden restringir las notificaciones por correo electrónico para una cuenta empresarial.
+topics:
+  - empresa
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### Acerca de las restricciones para tu cuenta empresarial
 

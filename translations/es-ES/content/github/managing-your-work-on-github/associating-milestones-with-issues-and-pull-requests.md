@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -20,7 +22,7 @@ A medida que trabajas en las propuestas y las solicitudes de extracción, puedes
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de los hitos](/articles/about-milestones)"
 - "[Crear y editar hitos para propuestas y solicitudes de extracción](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"

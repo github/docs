@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### Exigir autenticação de dois fatores para organizações na conta corporativa
@@ -115,4 +117,4 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 
 ### Leia mais
 
-- "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"
+- "[Configurar identidade e gerenciamento de acesso para a sua conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

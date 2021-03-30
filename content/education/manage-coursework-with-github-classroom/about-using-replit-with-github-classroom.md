@@ -16,7 +16,7 @@ Repl.it is an online integrated development environment (IDE) that supports mult
 
 The first time the student clicks the button to visit Repl.it, the student must sign into Repl.it with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on Repl.it.
 
-For more information about working on Repl.it, see the [Repl.it Quickstart Guide](https://docs.repl.it/misc/quick-start#the-repl-environment).
+For more information about working on Repl.it, see the [Repl.it Quickstart Guide](https://docs.repl.it/repls/quick-start#the-repl-environment).
 
 For group assignments, students can use Repl.it Multiplayer to work collaboratively. For more information, see the [Repl.it Multiplayer](https://repl.it/site/multiplayer) website.
 

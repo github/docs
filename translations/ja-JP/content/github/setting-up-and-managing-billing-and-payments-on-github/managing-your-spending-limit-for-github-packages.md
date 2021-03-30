@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_registry %} の使用に対して利�
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.prodname_registry %} の利用上限について
@@ -13,6 +15,8 @@ versions:
 {% data reusables.package_registry.packages-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} For more information about pricing for {% data variables.product.prodname_registry %} usage, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 As soon as you set a spending limit other than $0, you will be responsible for any existing overages in the current billing period. たとえば、Organizationで {% data variables.product.prodname_team %} を使用していて超過を許可しておらず、月あたりのストレージ使用量が1.9GBから2.1GBに増えるプライベートパッケージの新しいバージョンを発行した場合、ストレージは製品に含まれる2GBをわずかに超えることになります。
 

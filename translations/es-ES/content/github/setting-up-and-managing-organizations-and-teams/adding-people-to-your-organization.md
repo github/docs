@@ -24,5 +24,5 @@ Si tu organización[requiere que los miembros usen autenticación de dos factore
 {% data reusables.organizations.add-user-to-teams %}
 {% data reusables.organizations.send-invitation %}
 
-### Further reading
+### Leer más
 - "[Agregar miembros de la organización a un equipo](/articles/adding-organization-members-to-a-team)"

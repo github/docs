@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 If you only have three nodes in your data services cluster, you can't evacuate the nodes, because `ghe-spokes` doesn’t have another place to make a copy. If you have four or more, `ghe-spokes` will move all the repositories off of the evacuated node.

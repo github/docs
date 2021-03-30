@@ -5,6 +5,8 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - Trabajos
 ---
 
 Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_dotcom %}, puedes contactar directamente a {% data variables.contact.github_support %}. Si tu cuenta utiliza {% data variables.product.prodname_free_user %} para cuentas organizacionales y de usuario, puedes contactar a {% data variables.contact.contact_support %} para reportar problemas con la cuenta, seguridad y abuso. Para obtener más informaciónm, consulta la sección "[Acerca de GitHub Support](/github/working-with-github-support/about-github-support)".
@@ -31,7 +33,7 @@ Si utilizas {% data variables.product.prodname_ghe_server %}, {% data variables.
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Further reading
+### Leer más
 - "[Productos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
 - "[Acerca de {% data variables.contact.github_support %}](/articles/about-github-support)"
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

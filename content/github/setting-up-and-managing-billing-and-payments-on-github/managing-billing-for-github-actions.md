@@ -4,5 +4,7 @@ intro: 'You can view your usage and set a spending limit for {% data variables.p
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 

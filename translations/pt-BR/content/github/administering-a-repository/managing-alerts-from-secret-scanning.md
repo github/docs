@@ -21,7 +21,7 @@ versions:
    {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
    ![Lista de alertas do escaneamento secreto](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
-1. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
+1. Opcionalmente, use o menu suspenso "Marcar como" e clique em um motivo para resolver um alerta.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Menu suspenso para resolver um alerta do escaneamento de segredo](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-support
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 ### Sobre o {% data variables.contact.github_support %}
@@ -23,9 +25,9 @@ Para verificar se, atualmente, há algum incidente afetando os serviços no {% d
 
 ### Entrar em contato com o {% data variables.contact.github_support %}
 
-You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
+Você pode usar {% data variables.contact.community_support_forum %} para procurar tópicos, fazer perguntas, compartilhar soluções e interagir diretamente com {% data variables.contact.community_support %}.
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
+Para relatar problemas de segurança, segurança e abuso ou receber suporte assistido para uma conta paga, acesse {% data variables.contact.contact_support_portal %}. Se você for um administrador de {% data variables.product.prodname_ghe_server %} sem uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}, acesse {% data variables.contact.contact_enterprise_portal %}.
 
 ### Conceder acesso temporário do {% data variables.contact.github_support %} a um repositório privado
 

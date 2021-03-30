@@ -1,0 +1,67 @@
+name: Check for Spammy Issues
+
+# **What it does**: This action closes low value pull requests in the open-source repository.
+# **Why we have it**: We get lots of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
+on:
+  issues:
+    types: [opened]
+jobs:
+  spammy-title-check:
+    name: Remove issues with spammy titles
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          script: |
+
+            const issue = context.payload.issue
+            const owner = 'github'
+            const repo = 'docs'
+
+            const titleWordCount = issue.title.trim().split(' ').length
+            const titleWordCountMin = 2
+
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'employees',
+                username: context.payload.sender.login,
+              });
+
+              // Do not perform this workflow with GitHub employees. This return
+              // statement only gets hit if the user is a GitHub employee
+              return
+            } catch(err) {
+              // An error will be thrown if the user is not a GitHub employee
+              // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
+
+              if(titleWordCount > titleWordCountMin) {
+                return
+              }
+            }
+
+            //
+            // Assuming the user is not a GitHub employee and the issue title
+            // has the minimum number of words required, proceed.
+            //
+
+            // Close the issue and add the invalid label
+            await github.issues.update({
+              owner: owner,
+              repo: repo,
+              issue_number: issue.number,
+              labels: ['invalid'],
+              state: 'closed'
+            });
+
+            // Comment on the issue
+            await github.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: issue.number,
+              body: "This issue appears to have been opened accidentally. I'm going to close it now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+            });

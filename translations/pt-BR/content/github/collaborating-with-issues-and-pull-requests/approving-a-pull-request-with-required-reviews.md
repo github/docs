@@ -7,9 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+Para obter mais informações sobre as análises necessárias, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
 Você pode comentar em uma pull request, aprovar as alterações ou solicitar melhorias antes da aprovação. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)".
 

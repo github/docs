@@ -234,9 +234,7 @@ No arquivo de workflow use o parâmetro `config-file` da ação `init` para espe
     config-file: ./.github/codeql/codeql-config.yml
 ```
 
-The configuration file can be located within the local repository, or in a remote, public repository. Using a remote, public repository allows you to specify configuration options for multiple repositories in a single place. When you reference a configuration file located in a remote repository, you can use the _OWNER/REPOSITORY/FILENAME@BRANCH_ syntax. For example, _monacorp/shared/codeql-config.yml@main_.
-
-As configurações no arquivo são escritas no formato YAML.
+O arquivo de configuração pode ser localizado no repositório local ou em um repositório remoto público. Para repositórios remotos, você pode usar a sintaxe _owner/repository/file.yml@branch_. As configurações no arquivo são escritas no formato YAML.
 
 #### Especificar consultas adicionais
 
@@ -280,7 +278,7 @@ paths-ignore:
 
 Para linguagens compiladas, se você deseja limitar {% data variables.product.prodname_code_scanning %} a diretórios específicos no seu projeto, você deverá especificar os passos de compilação adequados no fluxo de trabalho. Os comandos que você precisa usar para excluir um diretório da criação dependerão do seu sistema de criação. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
+Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
 
 #### Exemplo de arquivo de configuração
 

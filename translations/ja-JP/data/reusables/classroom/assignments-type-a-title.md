@@ -1,5 +1,5 @@
-Type a title for the assignment. Optionally, click {% octicon "pencil" aria-label="The pencil icon" %} to edit the prefix.
+課題のタイトルを入力してください。 あるいは、{% octicon "pencil" aria-label="The pencil icon" %}をクリックしてプレフィックスを編集してください。
 
 <div class="procedural-image-wrapper">
-  <img alt="Assignment title and prefix" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-assignment-title.png">
+  <img alt="課題のタイトルとプレフィックス" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-assignment-title.png">
 </div>

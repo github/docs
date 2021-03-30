@@ -1,23 +1,32 @@
 ---
 title: 使用 Ant 构建和测试 Java
-intro: 您可以在 GitHub 操作中创建持续集成 (CI) 工作流程，以使用 Ant 构建和测试 Java 项目。
+intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Ant 构建和测试 Java 项目。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Java
+  - Ant
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
 本指南介绍如何使用 Ant 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以从工作流程运行上传构件。
 
+{% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Ant。 有关软件以及 JDK 和 Ant 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% endif %}
 
 ### 基本要求
 
@@ -38,7 +47,7 @@ type: 'tutorial'
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +88,7 @@ jobs:
 如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 例如，您可能想要运行在 _build-ci.xml_ 文件中配置的 `jar` 目标。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -97,7 +106,7 @@ steps:
 Ant 通常会在 `build/jar` 目录中创建 JAR、EAR 或 WAR 等输出文件。 您可以使用 `upload-artifact` 操作上传该目录的内容。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

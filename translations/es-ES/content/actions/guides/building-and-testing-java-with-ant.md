@@ -7,17 +7,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'tutorial'
+topics:
+  - 'CI'
+  - 'Java'
+  - 'Ant'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
 Esta guía te muestra cómo crear un flujo de trabajo que realiza integración continua (CI) para tu proyecto de Java por medio del sistema de construcción Ant. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes ampliar tu flujo de trabajo de CI para cargar artefactos desde una ejecución de flujo de trabajo.
 
+{% if currentVersion == "github-ae@latest" %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado, que incluye Java Development Kits (JDK) y Ant. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Ant, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Prerrequisitos
 
@@ -38,7 +47,7 @@ Para comenzar rápidamente, puedes elegir la plantilla de Ant preconfigurada cua
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -79,7 +88,7 @@ El flujo de trabajo de inicio ejecutará el destino predeterminado especificado 
 Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el destino `jar` que está configurado en tu archivo _build-ci.xml_.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
@@ -97,7 +106,7 @@ Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es po
 Por lo general, Ant crea archivos de salida como JAR, EAR o WAR en el directorio `build/jar`. Puedes cargar los contenidos de ese directorio utilizando la acción `upload-Artifact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1

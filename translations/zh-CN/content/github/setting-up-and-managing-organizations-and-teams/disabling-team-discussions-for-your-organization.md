@@ -7,9 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
-{% data reusables.organizations.team-discussions-default %} 有关团队讨论的更多信息，请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+{% data reusables.organizations.team-discussions-default %} 有关团队讨论的更多信息，请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### Discussions on {% data variables.product.product_name %}
@@ -16,7 +18,7 @@ You can create and participate in issues, pull requests, and team discussions, d
 
 Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 ### Reacting to ideas in comments
 

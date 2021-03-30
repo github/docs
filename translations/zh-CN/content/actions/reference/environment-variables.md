@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于环境变量
 
@@ -21,16 +23,26 @@ versions:
 要设置自定义环境变量，您需要在工作流程文件中指定变量。 您可以使用 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv) 和 [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) 关键字定义步骤、作业或整个工作流程的环境变量。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
 
 ```yaml
-steps:
-  - name: Hello world
-    run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+jobs:
+  weekday_job:
+    runs-on: ubuntu-latest
     env:
-      FIRST_NAME: Mona
-      middle_name: The
-      Last_Name: Octocat
+      DAY_OF_WEEK: Mon
+    steps:
+      - name: "Hello world when it's Monday"
+        if: env.DAY_OF_WEEK == 'Mon'
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
 ```
 
-您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
+要在工作流程文件中使用环境变量的值，您应该使用 [`env` 上下文](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)。 如果要在运行器中使用环境变量的值，您可以使用运行器操作系统的正常方法来读取环境变量。
+
+如果使用工作流程文件的 `run` 键从运行器操作系统中读取环境变量（如上例所示），则在作业发送到运行器后，该变量将在运行器操作系统中被替换。 对于工作流程文件的其他部分，必须使用 `env` 上下文来读取环境变量；这是因为工作流程键（例如 `if`）需要在发送到运行器之前，在工作流程处理过程中替换变量。
+
+您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`GITHUB_ENV` 环境文件{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
 
 ### 默认环境变量
 
@@ -59,11 +71,11 @@ steps:
 
 {% tip %}
 
-**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+**注：**如果需要在作业中使用工作流程运行的 URL，您可以组合这些环境变量：`$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
 
 {% endtip %}
 
-#### Determining when to use default environment variables or contexts
+#### 确定何时使用默认环境变量或上下文
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 

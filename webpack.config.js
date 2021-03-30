@@ -86,12 +86,5 @@ module.exports = {
       ]
     }),
     new EnvironmentPlugin(['NODE_ENV'])
-  ],
-  resolve: {
-    alias: {
-      // Hogan uses `new Function` which breaks content security policy
-      // Turns out, we aren't even using it anyways!
-      'hogan.js': path.resolve(__dirname, 'javascripts/fake-hogan.js')
-    }
-  }
+  ]
 }

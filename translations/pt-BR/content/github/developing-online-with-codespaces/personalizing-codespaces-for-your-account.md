@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -32,15 +34,13 @@ Se nenhum desses arquivos for encontrado, quaisquer arquivos ou pastas nos `dotf
 
 Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
 
-Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
-
 {% note %}
 
 **Observação:** Atualmente, o {% data variables.product.prodname_codespaces %} não é compatível com a personalização das configurações do _Usuário_ para o editor de {% data variables.product.prodname_vscode %} com o repositório `dotfiles`. É possível definir as configurações-padrão do _espaço de trabalho_ e _Remote [Codespaces]_ para um projeto específico no repositório do projeto. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)".
 
 {% endnote %}
 
-You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+Você também pode definir as configurações para que a sua conta de usuário adicione segredos criptografados, habilitar a verificação de GPG e permitir que os seus codespaces acessem outros repositórios. Para obter mais informações, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Gerenciar verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)" e "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
 
 ### Leia mais
 

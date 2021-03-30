@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidade
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -18,7 +20,7 @@ Você pode adicionar o YAML frontmatter a cada modelo de problema para preencher
 
 Aqui está um exemplo de YAML front matter.
 
-```
+```yaml
 ---
 name: Rastreando problema
 about: Use este modelo para rastrear novos recursos.

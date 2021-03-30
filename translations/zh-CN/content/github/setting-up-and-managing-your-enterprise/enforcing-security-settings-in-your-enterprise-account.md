@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 ### 要求企业帐户中的组织进行双重身份验证

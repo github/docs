@@ -15,7 +15,7 @@ Quando você puxa para o branch local, você só atualiza sua cópia local do re
 
 Para adicionar alterações de um branch para outro branch, você fazer merge dos branches. Para aplicar as alterações ao seu branch a partir de outro branch no mesmo repositório, você pode fazer o merge do outro branch no seu branch no {% data variables.product.prodname_desktop %}. Para solicitar que as alterações do seu branch sejam mescladas em outro branch, no mesmo repositório ou em outro repositório na rede, você pode criar um pull request no {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte "[Mesclar outro branch no seu seu branch de projeto](#merging-another-branch-into-your-project-branch)e "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
-Alguns fluxos de trabalho exigem ou beneficiam-se da rebase em vez de merge. Ao fazer o rebase, é possível reordenar, editar ou juntar commits. Para obter mais informações, consulte "[Sobre o rebase do Git](/articles/about-git-rebase)" e "[Fazer rebase do branch do projeto em outro branch](#rebasing-your-project-branch-onto-another-branch)".
+Alguns fluxos de trabalho exigem ou beneficiam-se da rebase em vez de merge. Ao fazer o rebase, é possível reordenar, editar ou juntar commits. Para obter mais informações, consulte "[Sobre o rebase do Git](/github/getting-started-with-github/about-git-rebase)" e "[Fazer rebase do branch do projeto em outro branch](#rebasing-your-project-branch-onto-another-branch)".
 
 ### Puxar para o seu branch local a partir do remoto
 

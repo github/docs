@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.
+permissions: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.'
+topics:
+  - organizations
+  - teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

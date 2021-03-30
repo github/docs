@@ -6,6 +6,9 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织所有者可设置查看组织依赖项洞察图的限制。 默认情况下，组织的所有成员都可以查看组织依赖项洞察图。

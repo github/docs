@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre contextos e expressões
 
@@ -152,11 +154,12 @@ O contexto `steps` (etapas) contém informações sobre as etapas já executadas
 
 O contexto do `executor` contém informações sobre o executor que está executando o trabalho atual.
 
-| Nome da propriedade | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `string` | O sistema operacional do executor que está executando o trabalho. Os valores possíveis são: `Linux`, `Windows` ou `macOS`.                                                                                                                                                                                                                                                 |
-| `runner.temp`       | `string` | O caminho do diretório temporário para o executor. É certo que este diretório estará vazio no início de cada trabalho, mesmo em executores auto-hospedados.                                                                                                                                                                                                                |
-| `runner.tool_cache` | `string` | O caminho do diretório que contém algumas das ferramentas pré-instaladas para executores hospedados no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Nome da propriedade | Tipo     | Descrição                                                                                                                                                                                                                                                                                           |
+| ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `string` | O sistema operacional do executor que está executando o trabalho. Os valores possíveis são: `Linux`, `Windows` ou `macOS`.                                                                                                                                                                          |
+| `runner.temp`       | `string` | O caminho do diretório temporário para o executor. É certo que este diretório estará vazio no início de cada trabalho, mesmo em executores auto-hospedados.                                                                                                                                         |
+| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)". |
+{% else %}O caminho do diretório que contém algumas das ferramentas pré-instaladas para executores hospedados de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### Contexto `needs`
 
@@ -186,27 +189,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -348,7 +351,7 @@ O valor para `array` pode ser uma array ou uma string. Todos os valores na `arra
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -358,35 +361,56 @@ Retorna uma bela representação JSON de `value`. Você pode usar essa função 
 
 `toJSON(job)` pode retornar `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Retorna um objeto JSON para `valor`. Você pode usar esta função para fornecer um objeto JSON como uma expressão avaliada.
+Retorna um objeto do JSON ou tipo de dado do JSON para `valor`. Você pode usar esta função para fornecer um objeto do JSON como uma expressão avaliada ou para converter variáveis de ambiente de uma string.
 
-##### Exemplo
+##### Exemplo que retorna um objeto do JSON
 
 Este fluxo de trabalho define uma matriz JSON em um trabalho, e o passa para o próximo trabalho usando uma saída do `fromJSON`.
 
 {% raw %}
 ```yaml
-nome: criar
-em: push
-trabalhos
+name: build
+on: push
+jobs:
   job1:
     runs-on: ubuntu-latest
-    saídas:
-      matriz: ${{ steps.set-matrix.outputs.matrix }}
-    etapas:
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
     - id: set-matrix
-      executar: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    estratégia:
-      matriz: ${{fromJson(needs.job1.outputs.matrix)}}
-    etapas:
-    - executar: criar
+    strategy:
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+    steps:
+    - run: build
+```
+{% endraw %}
+
+##### Exemplo que retorna um tipo de dado do JSON
+
+Este fluxo de trabalho usa `fromJSON` para converter variáveis de ambiente de uma string para um número inteiro ou booleano.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - continue-on-error: ${{ fromJSON(env.continue) }}
+      timeout-minutes: ${{ fromJSON(env.time) }}
+      run: echo ...
 ```
 {% endraw %}
 

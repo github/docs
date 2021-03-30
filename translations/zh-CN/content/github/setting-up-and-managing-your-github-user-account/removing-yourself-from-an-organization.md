@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

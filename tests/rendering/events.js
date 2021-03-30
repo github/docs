@@ -1,6 +1,7 @@
 const request = require('supertest')
 const nock = require('nock')
-const app = require('../../server')
+const cheerio = require('cheerio')
+const app = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -14,8 +15,9 @@ describe('POST /events', () => {
     process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
     process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
     agent = request.agent(app)
-    const csrfRes = await agent.get('/csrf')
-    csrfToken = csrfRes.body.token
+    const csrfRes = await agent.get('/en')
+    const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
+    csrfToken = $('meta[name="csrf-token"]').attr('content')
     nock('http://example.com')
       .post('/hydro')
       .reply(200, {})
@@ -117,6 +119,16 @@ describe('POST /events', () => {
           timestamp: 1234
         }
       }, 400)
+    )
+
+    it('should allow page_event_id', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          page_event_id: baseExample.context.event_id
+        }
+      }, 201)
     )
 
     it('should not allow a honeypot token', () =>
@@ -268,20 +280,13 @@ describe('POST /events', () => {
         }
       }, 400)
     )
-
-    it('should page_render_duration is a positive number', () =>
-      checkEvent({
-        ...pageExample,
-        page_render_duration: -0.5
-      }, 400)
-    )
   })
 
   describe('exit', () => {
     const exitExample = {
       ...baseExample,
       type: 'exit',
-      exit_page_id: 'c93c2d16-8e07-43d5-bc3c-eacc999c184d',
+      exit_render_duration: 0.9,
       exit_first_paint: 0.1,
       exit_dom_interactive: 0.2,
       exit_dom_complete: 0.3,
@@ -293,12 +298,11 @@ describe('POST /events', () => {
       checkEvent(exitExample, 201)
     )
 
-    it('should require exit_page_id', () =>
-      checkEvent({ ...exitExample, exit_page_id: undefined }, 400)
-    )
-
-    it('should require exit_page_id is a uuid', () =>
-      checkEvent({ ...exitExample, exit_page_id: 'afjdskalj' }, 400)
+    it('should exit_render_duration is a positive number', () =>
+      checkEvent({
+        ...exitExample,
+        exit_render_duration: -0.5
+      }, 400)
     )
 
     it('exit_first_paint is a number', () =>
