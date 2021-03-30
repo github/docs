@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" version="2.0" xml:base="https://www.osha.gov/">
+  <channel>
+    <title>OSHA Federal Register</title>
+    <link>https://www.osha.gov/</link>
+    <description>Current OSHA Federal Register</description>
+    <language>en</language>
+    
+    <item>
+  <title>National Advisory Committee on Occupational Safety and Health  (NACOSH); Charter Renewal</title>
+  <link>https://www.osha.gov/laws-regs/federalregister/2020-10-02</link>
+  <description>[Federal Register Volume 85, (Friday, October 2, 2020 )] [Notice] [Pages 62326-62327] National Advisory Committee on Occupational Safety and Health  (NACOSH); Charter Renewal</description>
+  <pubDate>Friday, October 2, 2020</pubDate>
+    <dc:creator>National Advisory Committee on Occupational Safety and Health  (NACOSH); Charter Renewal</dc:creator>
+    <guid isPermaLink="true">https://www.osha.gov/laws-regs/federalregister/2020-10-02</guid>
+    </item>
+<item>
+  <title>Agency Information Collection Activities; Submission for OMB  Review; Comment Request; Ethylene Oxide Standard</title>
+  <link>https://www.osha.gov/laws-regs/federalregister/2020-09-28</link>
+  <description>[Federal Register Volume 85, (Monday, September 28, 2020 )] [Notice] [Pages 60837-60837] Agency Information Collection Activities; Submission for OMB  Review; Comment Request; Ethylene Oxide Standard</description>
+  <pubDate>Monday, September 28, 2020</pubDate>
+    <dc:creator>Agency Information Collection Activities; Submission for OMB  Review; Comment Request; Ethylene Oxide Standard</dc:creator>
+    <guid isPermaLink="true">https://www.osha.gov/laws-regs/federalregister/2020-09-28</guid>
+    </item>
+<item>
+  <title>MET Laboratories, Inc.: Grant of Expansion of Recognition</title>
+  <link>https://www.osha.gov/laws-regs/federalregister/2020-09-28-0</link>
+  <description>[Federal Register Volume 85, (Monday, September 28, 2020 )] [Notice] [Pages 60839-60840] MET Laboratories, Inc.: Grant of Expansion of Recognition</description>
+  <pubDate>Monday, September 28, 2020</pubDate>
+    <dc:creator>MET Laboratories, Inc.: Grant of Expansion of Recognition</dc:creator>
+    <guid isPermaLink="true">https://www.osha.gov/laws-regs/federalregister/2020-09-28-0</guid>
+    </item>
+<item>
+  <title>Agency Information Collection Activities; Submission for OMB Review; Comment Request; Concrete and Masonry Construction Standard</title>
+  <link>https://www.osha.gov/laws-regs/federalregister/2020-09-23-0</link>
+  <description>[Federal Register Volume 85, (Wednesday, September 23, 2020 )] [Notice] [Pages 59825-59826] Agency Information Collection Activities; Submission for OMB Review; Comment Request; Concrete and Masonry Construction Standard</description>
+  <pubDate>Wednesday, September 23, 2020</pubDate>
+    <dc:creator>Agency Information Collection Activities; Submission for OMB Review; Comment Request; Concrete and Masonry Construction Standard</dc:creator>
+    <guid isPermaLink="true">https://www.osha.gov/laws-regs/federalregister/2020-09-23-0</guid>
+    </item>
+<item>
+  <title>Agency Information Collection Activities; Submission for OMB Review; Comment Request; Logging Operations Standards</title>
+  <link>https://www.osha.gov/laws-regs/federalregister/2020-09-23</link>
+  <description>[Federal Register Volume 85, (Wednesday, September 23, 2020 )] [Notice] [Pages 59826] Agency Information Collection Activities; Submission for OMB Review; Comment Request; Logging Operations Standards</description>
+  <pubDate>Wednesday, September 23, 2020</pubDate>
+    <dc:creator>Agency Information Collection Activities; Submission for OMB Review; Comment Request; Logging Operations Standards</dc:creator>
+    <guid isPermaLink="true">https://www.osha.gov/laws-regs/federalregister/2020-09-23</guid>
+    </item>
+
+  </channel>
+</rss>
