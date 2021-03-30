@@ -58,7 +58,6 @@
     "hot-shots": "^8.2.0",
     "html-entities": "^1.2.1",
     "imurmurhash": "^0.1.4",
-    "ioredis": "^4.24.4",
     "is-url": "^1.2.4",
     "js-cookie": "^2.2.1",
     "js-yaml": "^3.14.0",
