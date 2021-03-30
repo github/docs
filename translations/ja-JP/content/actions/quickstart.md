@@ -7,13 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'quick_start'
 topics:
-  - 'Fundamentals'
+  - '基本'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -62,7 +64,7 @@ topics:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. **Jobs（ジョブ）**の下、もしくは可視化グラフ内で、**Lint code base**ジョブをクリックしてください。 ![Lint コードベースジョブ](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}
 1. 左サイドバーで、[**Lint code base**] をクリックします。 ![Lint コードベースジョブ](/assets/images/help/repository/superlinter-lint-code-base-job.png)
@@ -75,9 +77,9 @@ topics:
 
 ### 次のステップ
 
-追加した super-linter ワークフローは、コードがリポジトリにプッシュされるたびに実行され、コードのエラーや不整合を見つけます。 ただし、これは {% data variables.product.prodname_actions %} でできることの一部にすぎません。 リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 開始する場合、 {% data variables.product.prodname_actions %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
+追加した super-linter ワークフローは、コードがリポジトリにプッシュされるたびに実行され、コードのエラーや不整合を見つけます。 ただし、これは {% data variables.product.prodname_actions %} でできることの一部にすぎません。 リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 始める準備はできましたか？ {% data variables.product.prodname_actions %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
 
-- 詳細なチュートリアルは、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」
+- 詳細なチュートリアルは、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」をご覧ください
 - 特定の使用例とサンプルについては、「[ガイド](/actions/guides)」
 - Super-Linter アクションの設定の詳細については、[github/super-linter](https://github.com/github/super-linter)
 
@@ -85,7 +87,7 @@ topics:
 
 ### はじめに
 
-"Hello, World!"を出力するのは、基本的なセットアップと新しいプログラミング言語の構文を探るための素晴らしい方法です。 このガイドでは、GitHub Actionsを使って{% data variables.product.prodname_dotcom %}リポジトリのワークフローログに"Hello, World!"と出力します。 始めるのに必要なものは、サンプルの{% data variables.product.prodname_actions %}ワークフローを快適に作成して実行できそうな{% data variables.product.prodname_dotcom %}リポジトリだけです。 このクイックスタートのために新しいリポジトリを作成してもかまいません。それを使って、今回と将来の{% data variables.product.prodname_actions %}ワークフローをテストできます。
+"Hello, World!"を出力するのは、基本的なセットアップと新しいプログラミング言語の構文を探るための素晴らしい方法です。 このガイドでは、GitHub Actionsを使って{% data variables.product.prodname_dotcom %}リポジトリのワークフローログに"Hello, World!"と出力します。 始めるのに必要なものは、サンプルの{% data variables.product.prodname_actions %}ワークフローを快適に作成して実行できそうな{% data variables.product.prodname_dotcom %}リポジトリだけです。 このクイックスタート用の新しいリポジトリを自由に作成して、現在および将来の {% data variables.product.prodname_actions %} ワークフローをテストできます。
 
 ### 最初のワークフローの作成
 
@@ -115,7 +117,7 @@ topics:
             echo "Hello ${{ github.event.inputs.name }}!"
     ```
     {% endraw %}
-3. ページの株間でスクロールして、**Create a new branch for this commit and start a pull request（このコミットに新しいブランチを作成してPull Requestを開始）**を選択してください。 そして、Pull Requestを作成するために**Propose new file（新しいファイルを提案）**をクリックしてください。
+3. ページの下部までスクロールして、**Create a new branch for this commit and start a pull request（このコミットに新しいブランチを作成してPull Requestを開始）**を選択してください。 そして、Pull Requestを作成するために**Propose new file（新しいファイルを提案）**をクリックしてください。
     ![ワークフローファイルのコミット](/assets/images/help/repository/commit-hello-world-file.png)
 4. Pull Requestがマージされたら、"Trigger your workflow（ワークフローをトリガー）"に移動する準備ができます。
 
@@ -132,15 +134,15 @@ topics:
 1. 左のサイドバーで、"say_hello"ジョブをクリックしてください。
    ![ワークフロージョブのリスト](/assets/images/help/repository/workflow-job-listing.png)
 1. ワークフローのログ中で、'Run echo "Hello World!"'セクションを展開してください。
-   ![ワークフローの詳細](/assets/images/help/repository/workflow-log-listing.png)
+   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
 
-### さらなるワークフローのテンプレート
+### その他のワークフローテンプレート
 
 {% data reusables.actions.workflow-template-overview %}
 
 ### 次のステップ
 
-今追加したhello-worldワークフローは、手動でトリガーされるワークフローのシンプルな例です。 これは、{% data variables.product.prodname_actions %}でできることのほんの手始めに過ぎません。 リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 始める準備はできましたか？ 以下は、{% data variables.product.prodname_actions %}で次のステップへ進むのに役立つリソースです。
+追加した hello-world ワークフローは、手動でトリガーされるワークフローの最小限の例です。 これは、{% data variables.product.prodname_actions %}でできることのほんの手始めに過ぎません。 リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 始める準備はできましたか？ 以下は、{% data variables.product.prodname_actions %}で次のステップへ進むのに役立つリソースです。
 
 - 詳細なチュートリアルとして「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」
 - 特定のユースケースや例のための「[Guides](/actions/guides)」

@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 页面
 ---
 
 ### _CNAME_ 错误

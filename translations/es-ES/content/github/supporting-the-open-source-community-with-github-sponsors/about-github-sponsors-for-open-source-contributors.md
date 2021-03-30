@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Unirte a {% data variables.product.prodname_sponsors %}

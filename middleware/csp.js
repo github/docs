@@ -7,7 +7,7 @@ const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 // module.exports = contentSecurityPolicy({
-module.exports = async (req, res, next) => {
+module.exports = function csp (req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],

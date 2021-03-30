@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 生效日期：**2021 年 1 月 29 日**
@@ -50,6 +53,7 @@ GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站�
 | Cookie 名称 | 原因                                   | 描述                                                      | 过期*                |
 |:--------- |:------------------------------------ |:------------------------------------------------------- |:------------------ |
 | GitHub    | `app_manifest_token`                 | 此 cookie 用于表明页面之间的临时应用程序和框架状态，例如用户在多步骤表单中处于哪一步。         | 5 分钟               |
+| GitHub    | `color_mode`                         | 此 cookie 用于指示用户选择的主题首选项。                                | 会话                 |
 | GitHub    | `_device_id`                         | 出于安全考虑，此 Cookie 用于跟踪已识别的设备。                             | 1 年                |
 | GitHub    | `dotcom_user`                        | 此 cookie 用于向我们表明用户已登录。                                  | 1 年                |
 | GitHub    | `_gh_ent`                            | 此 cookie 用于表明页面之间的临时应用程序和框架状态，例如客户在多步骤表单中处于哪一步。         | 两周                 |

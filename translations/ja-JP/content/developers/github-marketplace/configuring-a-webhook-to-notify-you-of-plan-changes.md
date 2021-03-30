@@ -9,6 +9,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

@@ -1,11 +1,14 @@
 ---
 title: Administrar la fusión automática para las solicitudes de cambios en tu repositorio
-intro: "Puedes permitir o dejar de permitir la fusión automática de solicitudes de cambio en tu repositorio."
+intro: Puedes permitir o dejar de permitir la fusión automática de solicitudes de cambio en tu repositorio.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 permissions: Las personas con permisos de mantenedor pueden administrar las fusiones automáticas de solicitudes de cambios en un repositorio.
+topics:
+  - repositories
 ---
 
 Si permites la fusión automática de solciitudes de cambios en tu repositorio, las personas pueden configurar que solicitudes de cambio individuales en éste se fusionen automáticamente cuando todos los requisitos de fusión se cumplan. Para obtener más información, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".

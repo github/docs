@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
 ### 获取有关交付的信息

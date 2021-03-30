@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identity
+  - access management
 ---
 
 ### About commit signature verification

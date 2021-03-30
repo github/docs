@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
@@ -48,9 +50,8 @@ Para mantener tus credenciales seguras, te recomendamos que guardes tu token de 
 {% endraw %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 {% raw %}
@@ -67,7 +68,7 @@ $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 {% endraw %}
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 
 {% raw %}
@@ -79,7 +80,7 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 
 {% endif %}
 
-Para utilizar este ejemplo de comando de ingreso, reemplaza `USERNAME` con tu nombre de usuario de {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` con la URL de {% data variables.product.product_location %},{% endif %} y `~/TOKEN.txt` con la ruta de archivo de tu token de acceso personal para {% data variables.product.product_name %}.
+Para utilizar este ejemplo de comando de ingreso, reemplaza `USERNAME` con tu nombre de usuario de {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, `HOSTNAME` con la URL de {% data variables.product.product_location %},{% endif %} y `~/TOKEN.txt` con la ruta de archivo de tu token de acceso personal para {% data variables.product.product_name %}.
 
 Para obtener más información, consulta la sección "[Inicio de sesión de Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
@@ -109,14 +110,13 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Con la ID de la imagen Docker, etiqueta la imagen Docker, reemplazando *OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o la imagen y *VERSION* con la versión del paquete en tiempo de construcción.
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y *VERSION* con la versión del paquete en la hora de creación.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y a *VERSION* con la versión del paquete al momento de la compilación.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
@@ -124,7 +124,7 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   ```
 .
 </code>
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -132,20 +132,19 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   {% endif %}
   {% endif %}
 3. Si aún no has creado una imagen de docker para el paquete, crea la imagen, reemplaza *OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenezca el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen, *VERSION* con la versión y hora de creación del paquete,
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y *PATH* hacia la imagen si no está en el directorio de trabajo actual.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y *PATH* hacia la imagen si no está en el directorio de trabajo actual.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
-  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -159,14 +158,13 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
-  <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
   {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
   Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
   ```shell
   $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -181,13 +179,8 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
 
 #### Ejemplo de publicación de una imagen Docker
 
-{% if enterpriseServerVersions contains currentVersion %}
-<!--Versioning out this "subdomain isolation enabled" line because it's the only Docker supported option for GHES 2.22 so it can be misleading.-->
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 Estos ejemplos asumen que tu instancia tiene habilitado el aislamiento de subdominios.
-{% endif %}
-
-
 {% endif %}
 
 Puedes publicar la versión 1.0 de la imagen `monalisa` en el repositorio `octocat/octo-app` usando una ID de imagen.
@@ -251,7 +244,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-Puedes utilizar el comando `docker pull` para instalar una imagen de docker desde {% data variables.product.prodname_registry %}, reemplazando *OWNER* con el nombre de la cuenta de usuario o de organización a la cual pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}, {% endif %} y *TAG_NAME* con la etiqueta de la imagen que quieres instalar.
+Puedes utilizar el comando `docker pull` para instalar una imagen de docker desde el {% data variables.product.prodname_registry %}, reemplazando a *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio, a *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, a *IMAGE_NAME* con el nombre del paquete o imagen,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} a *HOSTNAME* con el nombre de host de {% data variables.product.product_location %}, {% endif %} y a *TAG_NAME* con la etiqueta de la imagen que quieres instalar.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -259,13 +252,13 @@ $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em
 ```
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 ```shell
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
@@ -281,4 +274,4 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ### Leer más
 
-- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

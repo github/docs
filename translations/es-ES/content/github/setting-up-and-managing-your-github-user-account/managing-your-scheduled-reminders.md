@@ -3,6 +3,8 @@ title: Administrar tus recordatorios programados
 intro: Obtén recordatorios en Slack cuando tú o tu equipo tenga solicitudes de extracción pendientes de revisión.
 versions:
   free-pro-team: '*'
+topics:
+  - cuentas
 ---
 
 ### Acerca de los recordatorios programados para usuarios
@@ -12,6 +14,8 @@ Los recordatorios programados se utilizan para garantizar que los usuarios se en
 Para ciertos eventos, también puedes habilitar las alertas en tiempo real para los recordatorios programados. Las alertas en tiempo real se envían a tu canal de Slack tan pronto se suscita un evento importante, tal como cuando se te asigna una revisión.
 
 Puedes configurar recordatorios programados para solicitudes de revisión a nivel personal o a nivel de equipo para las solicitudes de extracción en las organizaciones de las cuales eres miembro. Antes de que puedas crear un recordatorio programado para ti mismo, un propietario de la organización debe autorizar tu espacio de trabajo en Slack. Para obtener más información, consulta la sección "[Administrar recordatorios programados para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)".
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Crear recordatorios programados para tu cuenta de usuario
 

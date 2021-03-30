@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
@@ -246,7 +248,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 ##### `runs.steps[*].env`
 
-**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar las variables de ambiente que se almacenan en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
+**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar la variable de ambiente que se almacena en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
 
 ##### `runs.steps[*].working-directory`
 
@@ -296,7 +298,7 @@ runs:
 
 #### `runs.image`
 
-**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local a tu repositorio, utiliza una ruta relativa a tu archivo de metadatos de la acción. La aplicación `docker` ejecutará este archivo.
+**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local de tu repositorio, el archivo debe nombrarse como `Dockerfile` y debes utilizar una ruta relativa a tu archivo de metadatos de acción. La aplicación `docker` ejecutará este archivo.
 
 #### `runs.env`
 
@@ -330,7 +332,7 @@ Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si u
 
 {% data reusables.github-actions.dockerfile-guidelines %}
 
-Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entonces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
+Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
@@ -350,7 +352,7 @@ runs:
 
 ### `branding (marca)`
 
-Puedes usar un color y un icono de [Feather](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Las insignias se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 #### Ejemplo
 
@@ -362,11 +364,11 @@ branding:
 
 #### `branding.color`
 
-El color de fondo de la insignia. Puede ser: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, o `gray-dark`.
+El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `verde`, `anaranjado`, `rojo`, `púrpura` o `gris oscuro`.
 
 #### `branding.icon`
 
-El nombre del icono de [Feather](https://feathericons.com/) que se debe usar.
+El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar.
 
 <table>
 <tr>

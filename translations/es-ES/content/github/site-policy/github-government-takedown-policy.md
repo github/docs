@@ -2,6 +2,9 @@
 title: Política de retiro gubernamental de GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - política
+  - legal
 ---
 
 #### ¿Qué es esto?

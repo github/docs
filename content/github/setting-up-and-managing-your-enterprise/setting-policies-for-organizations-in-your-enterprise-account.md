@@ -7,4 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/setting-policies-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
+

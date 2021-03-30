@@ -1,5 +1,9 @@
 name: Update GraphQL files
 
+# **What it does**: This updates our GraphQL schemas.
+# **Why we have it**: We want our GraphQL docs up to date.
+# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+
 on:
   workflow_dispatch:
   schedule:

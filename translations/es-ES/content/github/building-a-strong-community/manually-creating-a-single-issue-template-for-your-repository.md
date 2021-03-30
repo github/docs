@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}

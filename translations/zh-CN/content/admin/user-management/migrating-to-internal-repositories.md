@@ -7,6 +7,8 @@ redirect_from:
 permissions: 站点 administrator 可以迁移到内部仓库。
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - 企业
 ---
 
 ### 关于内部仓库

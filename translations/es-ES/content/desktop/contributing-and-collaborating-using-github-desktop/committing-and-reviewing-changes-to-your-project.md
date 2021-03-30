@@ -18,7 +18,7 @@ versions:
 1. [Crea una rama nueva](/desktop/guides/contributing-to-projects/managing-branches), o selecciona una rama existente dando clic
 
 {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** en la barra de herramientas y seleccionando la rama de la lista.
-  ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. Seleccionar cambios para incluirlos en una confirmación

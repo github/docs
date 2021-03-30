@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - コミュニティ
 ---
 
 ### コメントの編集履歴の詳細を表示する

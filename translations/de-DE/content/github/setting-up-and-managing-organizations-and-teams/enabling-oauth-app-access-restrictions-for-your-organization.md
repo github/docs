@@ -6,6 +6,9 @@ redirect_from:
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

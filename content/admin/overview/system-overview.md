@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Storage architecture
