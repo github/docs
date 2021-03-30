@@ -10,5 +10,3 @@ If your support request is outside of the scope of what our team can help you wi
 - Open Source projects
 
 If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed. For more information, see the section below.
-
-{% data reusables.support.contacting-premium-support %}
