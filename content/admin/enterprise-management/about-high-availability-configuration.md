@@ -14,6 +14,8 @@ When you configure high availability, there is an automated setup of one-way, as
 
 {% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Targeted failure scenarios
 
 Use a high availability configuration for protection against:
