@@ -74,7 +74,7 @@ Mandatory messages have a variety of uses.
 
 {% note %}
 
-**Note:** As mandatory messages are meant for use during the initial configuration of the system, you can only set up mandatory messages once. 
+**Note:** You can only set up mandatory messages once (it's not possible to reset a mandatory message).
 
 {% endnote %}
 
