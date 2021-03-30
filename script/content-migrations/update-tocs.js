@@ -34,7 +34,7 @@ const indexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirector
 
 indexFiles
   .forEach(indexFile => {
-    const relativePath = indexFile.replace(/^.+content\//, '')
+    const relativePath = indexFile.replace(/^.+\/content\//, '')
     const documentType = getDocumentType(relativePath)
 
     const { data, content } = frontmatter(fs.readFileSync(indexFile, 'utf8'))
