@@ -6,6 +6,7 @@ const walk = require('walk-sync')
 const yaml = require('js-yaml')
 const frontmatter = require('../../lib/read-frontmatter')
 const getDocumentType = require('../../lib/get-document-type')
+const languages = require('../../lib/languages')
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
@@ -22,13 +23,22 @@ const sortedProductIds = productsYml.productsInOrder.concat('/early-access')
 // NOTE: The results won't work with the TOC handling currently in production, so the results must NOT
 // be committed until the updated handling is in place.
 
-walk(path.join(process.cwd(), 'content'), { includeBasePath: true, directories: false })
+const walkOpts = {
+  includeBasePath: true,
+  directories: false
+}
+
+const fullDirectoryPaths = Object.values(languages).map(langObj => path.join(process.cwd(), langObj.dir, 'content'))
+const indexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirectoryPath, walkOpts)).flat()
   .filter(file => file.endsWith('index.md'))
-  .forEach(file => {
-    const relativePath = file.replace(`${path.join(process.cwd(), 'content/')}`, '')
+
+indexFiles
+  .forEach(indexFile => {
+    const relativePath = indexFile.replace(/^.+content\//, '')
+    console.log(relativePath)
     const documentType = getDocumentType(relativePath)
 
-    const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
+    const { data, content } = frontmatter(fs.readFileSync(indexFile, 'utf8'))
     let newContent = content
 
     if (documentType === 'homepage') {
@@ -37,7 +47,7 @@ walk(path.join(process.cwd(), 'content'), { includeBasePath: true, directories: 
 
     const linkItems = newContent.match(linksArray) || []
 
-    // Turn the `{% link /<link> %}` list into an array of /<link>
+    // Turn the `{% link /<link> %}` list into an array of /<link> items
     if (documentType === 'product' || documentType === 'mapTopic') {
       data.children = getLinks(linkItems)
     }
@@ -65,7 +75,7 @@ walk(path.join(process.cwd(), 'content'), { includeBasePath: true, directories: 
       ]
     }
 
-    fs.writeFileSync(file, frontmatter.stringify(newContent.trim(), data, { lineWidth: 10000 }))
+    fs.writeFileSync(indexFile, frontmatter.stringify(newContent.trim(), data, { lineWidth: 10000 }))
   })
 
 function getLinks (linkItemArray) {
