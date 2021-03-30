@@ -10,11 +10,11 @@ versions:
   free-pro-team: '*'
 ---
 
-{% data variables.product.prodname_campus_program %} is a package of premium GitHub access for teaching-focused institutions that grant degrees, diplomas, or certificates, which includes:
+{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates, which includes:
 
 - No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
 - Teacher training to master Git and {% data variables.product.prodname_dotcom %} with our Campus Advisor program
-- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from GitHub partners
+- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
 - Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 
 Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
