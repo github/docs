@@ -71,3 +71,21 @@ versions:
 1. 在“Internal support contact（内部支持联系人）”右侧，单击 **Configure（配置）**。 ![用于内部支持联系人配置的"Configure（配置）"按钮](/assets/images/enterprise/configuration/ae-support-configure.png)
 2. 在“Internal support contact（内部支持联系人）”下，选择您企业的用户通过网址或电子邮件地址联系支持的方法。 然后，键入支持联系信息。 ![内部支持联系人 URL 的文本字段](/assets/images/enterprise/configuration/ae-support-link-url.png)
 3. 单击 **Save（保存）**。 ![用于企业支持联系人配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)
+
+### 设置电子邮件设置
+
+一旦初始化，您便可在初始化过程后重新配置任何设置。 更多信息请参阅“[配置电子邮件通知](/admin/configuration/configuring-email-for-notifications)”。
+
+1. 在“Configure email settings（配置电子邮件设置）”右侧，单击 **Configure（配置）**。 ![用于电子邮件设置配置的"Configure（配置）"按钮](/assets/images/enterprise/configuration/ae-email-configure.png)
+2. 选择 **Enable email**。 这将启用出站和入站电子邮件，但是，为使入站电子邮件运行，您还需要配置 DNS 设置。 更多信息请参阅“[配置 DNS 和防火墙设置以允许传入的电子邮件](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。 ![用于电子邮件设置配置的"Enable（启用）"复选框](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. 完成电子邮件服务器设置：
+  - 在 **Server address** 字段中，输入您的 SMTP 服务器的地址。
+  - 在 **Port** 字段中，输入 SMTP 服务器用于发送电子邮件的端口。
+  - 在 **Domain** 字段中，输入您的 SMTP 服务器将随 HELO 响应（如有）发送的域名。
+  - 在 **Authentication** 下拉菜单中，选择您的 SMTP 服务器使用的加密类型。
+  - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
+
+4. 如果您想丢弃发送到无回复电子邮件地址的所有传入电子邮件，请选中 **Discard email addressed to the no-reply email address**。 ![用于电子邮件设置配置的"Discard（放弃）"复选框](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. 单击 **Test email settings（测试电子邮件设置）**。 ![用于电子邮件设置配置的"Test email settings（测试电子邮件设置）"按钮](/assets/images/enterprise/configuration/ae-test-email.png)
+6. 在“Send test email to（发送测试电子邮件到）”下，请输入测试电子邮件要发送到的电子邮件地址，然后单击 **Send test email（发送测试电子邮件）**。 ![用于电子邮件设置配置的"Send test email（发送测试电子邮件）"按钮](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. 单击 **Save（保存）**。 ![用于企业支持联系人配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)

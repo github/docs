@@ -8,6 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca del acceso de SAML a tu organización

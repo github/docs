@@ -64,6 +64,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>w</kbd>      | Cambia a una rama o etiqueta nueva                                                                                                                                                                    |
 | <kbd>y</kbd>      | Expande una URL a su forma canónica. Para obtener más información, consulta "[Obtener enlaces permanentes a los archivos](/articles/getting-permanent-links-to-files)".                               |
 | <kbd>i</kbd>      | Muestra u oculta comentarios en diferencias. Para obtener más información, consulta "[Comentar en la diferencia de una solicitud de extracción](/articles/commenting-on-the-diff-of-a-pull-request)". |
+| <kbd>a</kbd>      | Muestra u oculta las anotaciones en los diffs                                                                                                                                                         |
 | <kbd>b</kbd>      | Abre la visualización del último responsable. Para obtener más información, consulta "[Rastrear las modificaciones de un archivo](/articles/tracing-changes-in-a-file)".                              |
 
 ### Comentarios
@@ -164,7 +165,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>g</kbd> <kbd>f</kbd>                                | Ir al archivo de flujo de trabajo                                                             |
 | <kbd>shift + t</kbd> or <kbd>T</kbd>                     | Activa las marcas de tiempo en las bitácoras                                                  |
 | <kbd>shift + f</kbd> or <kbd>F</kbd>                     | Activa las bitácoras de pantalla completa                                                     |
-| <kbd>esc</kbd>                                           | Salir de las bitácoras de pantalla completa                                                   |
+| <kbd>esc</kbd>                                           | Sal de las bitácoras de pantalla completa                                                     |
 
 {% endif %}
 

@@ -1,34 +1,36 @@
 ---
 title: Guía de inciio rápido para GitHub Packages
-intro: 'Publica en el {% data variables.product.prodname_registry %} en 5 minutos o menos con {% data variables.product.prodname_actions %}.'
+intro: 'Publica en el {% data variables.product.prodname_registry %} con {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ### Introducción
 
-Solo necesitas un repositorio existente de {% data variables.product.prodname_dotcom %} para publicar un paquete en el {% data variables.product.prodname_registry %}. En esta guía, crearás un flujo de trabajo de {% data variables.product.prodname_actions %} para probar tu código y luego lo publicarás en el {% data variables.product.prodname_registry %}. Ten la libertad de crear un repositorio nuevo para esta guía de incio rápido. Puedes utilizarlo para probar este flujo de trabajo de {% data variables.product.prodname_actions %}, y los subsecuentes.
+En esta guía, crearás un flujo de trabajo de {% data variables.product.prodname_actions %} para probar tu código y luego lo publicarás en el {% data variables.product.prodname_registry %}.
 
 ### Publicar tu paquete
 
-1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. Crea un repositorio si te gustaría borrar este paquete posteriormente. Los paquetes públicos no podrán borrarse. Para obtener más información, consulta la sección "[Crear un nuevo repositorio](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. {% if currentVersion ver_lt "enterprise-server@3.1" %} Crea un repositorio privado si te gustaría borrar este paquete más adelante, los paquetes públicos no pueden borrarse.{% endif %} Para obtener más información, consulta la sección "[Crear un repositorio nuevo ](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
 2. Clona el repositorio en tu máquina local.
-    {% raw %}
     ```shell
-    $ git clone https://github.com/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
-    {% endraw %}
 3. Crea un archivo `index.js` y agrega una alerta básica que diga "Hello world!"
     {% raw %}
     ```javascript{:copy}
     alert("Hello, World!");
     ```
     {% endraw %}
-4. Inicializa un paquete de npm. En el asistente de inicialización de paquetes, ingresa tu paquete con el nombre _`@YOUR-USERNAME/YOUR-REPOSITORY`_, y configura el script de prueba como `exit 0` si no tienes ninguna prueba. Confirma tus cambios y súbelos a
-{% data variables.product.prodname_dotcom %}.
+4. Inicializa un paquete de npm con `npm init`. En el asistente de inicialización de paquetes, ingresa tu paquete con el nombre: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, y configura el script de pruebas en `exit 0`. Esto generará un archivo `package.json` con información sobre tu paquete.
     {% raw %}
     ```shell
     $ npm init
@@ -36,17 +38,19 @@ Solo necesitas un repositorio existente de {% data variables.product.prodname_do
       package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
       ...
       test command: <em>exit 0</em>
-      ...
+      ...    
+    ```
+    {% endraw %}
 
+5. Ejecuta `npm install` para generar el archivo `package-lock.json` y luego confirma y sube tus cambios a {% data variables.product.prodname_dotcom %}.
+    ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-    {% endraw %}
-5. Desde tu repositorio en {% data variables.product.prodname_dotcom %}, crea un archivo nuevo en el directorio `.github/workflows` que se llame `release-package.yml`. Para obtener más información, consulta "[Crear nuevos archivos](/github/managing-files-in-a-repository/creating-new-files)."
-6. Copia el siguiente contenido de YAML en el archivo `release-package.yml`.
-    {% raw %}
+6. Crea un directorio de `.github/workflows`. En este directorio, crea un archivo que se llame `release-package.yml`.
+7. Copia el siguiente contenido de YAML en el archivo `release-package.yml`{% if currentVersion == "github-ae@latest" %}, reemplazando a `YOUR-HOSTNAME` con el nombre de tu empresa{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -73,18 +77,21 @@ Solo necesitas un repositorio existente de {% data variables.product.prodname_do
           - uses: actions/setup-node@v1
             with:
               node-version: 12
-              registry-url: https://npm.pkg.github.com/
+              registry-url: {% if currentVersion == "github-ae@latest" %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
-              NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+              NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-    {% endraw %}
-7. Desplázate hasta el final de la página y selecciona **Crear una rama nueva para esta confirmación e iniciar una solicitud de cambios**. Después, para crear una solicitud de cambios, da clic en **Proponer un archivo nuevo**.
-8. **Fusiona** la solicitud de cambios.
-9. Navega a la pestaña de **Código** y crea un lanzamiento nuevo para probar el flujo de trabajo. Para obtener más información, consulta la sección "[Gestionar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)".
+8. Confirma y sube tus cambios a {% data variables.product.prodname_dotcom %}.
+    ```shell
+    $ git add .github/workflows/release-package.yml
+    $ git commit -m "workflow to publish package"
+    $ git push
+    ```
+9.  El flujo de trabajo que creaste se ejecutará cuando sea que se cree un lanzamiento nuevo en tu repositorio. Si las pruebas pasan, entonces el paquete se publicará en {% data variables.product.prodname_registry %}.
 
-El crear un lanzamiento nuevo en tu repositorio activa el flujo de trabajo para compilar y probar tu código. Si las pruebas pasan, entonces el paquete se publicará en {% data variables.product.prodname_registry %}.
+    Para probar esto, navega a la pestaña de **Código** en tu repositorio y crea un lanzamiento nuevo. Para obtener más información, consulta la sección "[Gestionar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)".
 
 ### Visualizar tu paquete publicado
 

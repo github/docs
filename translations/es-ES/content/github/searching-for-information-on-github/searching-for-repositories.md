@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - búsqueda de github
 ---
 
 Puedes buscar repositorios globalmente a través de todos los {% data variables.product.product_location %}, o buscar repositorios dentro de una organización particular. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".

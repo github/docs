@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidad
+  - administración de accesos
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

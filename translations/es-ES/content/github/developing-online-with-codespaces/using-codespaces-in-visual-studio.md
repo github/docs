@@ -4,6 +4,8 @@ intro: 'Puedes desarrollar en tu codespace directamente en {% data variables.pro
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}

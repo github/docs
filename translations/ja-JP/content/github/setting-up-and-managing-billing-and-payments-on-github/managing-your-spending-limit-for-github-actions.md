@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_actions %} の使用に対して利�
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.prodname_actions %} の利用上限について

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Cuando cierras un tablero de proyecto, todas las automatizaciones del flujo de trabajo configuradas se pausarán por defecto.

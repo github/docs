@@ -1,19 +1,19 @@
 | Partner                   | Supported secret                       | API slug                                 |
 | ------------------------- | -------------------------------------- | ---------------------------------------- |
-| n/a                       | JSON Web Token                         | json_web_token                         |
-| n/a                       | OAuth Client Credential                | api_credential_assignment              |
+| n/a                       | JSON Web 令牌                            | json_web_token                         |
+| n/a                       | OAuth 客户端凭据                            | api_credential_assignment              |
 | Adafruit IO               | Adafruit IO Key                        | adafruit_io_key                        |
-| Alibaba Cloud             | Alibaba Cloud Access Key ID            | alibaba_cloud_access_key_id          |
-| Alibaba Cloud             | Alibaba Cloud Access Key Secret        | alibaba_cloud_access_key_secret      |
-| Amazon Web Services (AWS) | Amazon AWS Access Key ID               | aws_access_key_id                      |
-| Amazon Web Services (AWS) | Amazon AWS Secret Access Key           | aws_secret_access_key                  |
+| Alibaba Cloud             | Alibaba 云访问密钥 ID                       | alibaba_cloud_access_key_id          |
+| Alibaba Cloud             | Alibaba 云访问密钥机密                        | alibaba_cloud_access_key_secret      |
+| Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID                     | aws_access_key_id                      |
+| Amazon Web Services (AWS) | Amazon AWS 机密访问密钥                      | aws_secret_access_key                  |
 | Atlassian                 | Atlassian API Token                    | atlassian_api_token                    |
 | Atlassian                 | Atlassian JSON Web Token               | atlassian_jwt                            |
-| Azure                     | Azure DevOps Personal Access Token     | azure_devops_personal_access_token   |
-| Azure                     | Azure SAS Token                        | azure_sas_token                        |
-| Azure                     | Azure Service Management Certificate   | azure_management_certificate           |
-| Azure                     | Azure SQL Connection String            | azure_sql_connection_string            |
-| Azure                     | Azure Storage Account Key              | azure_storage_account_key              |
+| Azure                     | Azure DevOps 个人访问令牌                    | azure_devops_personal_access_token   |
+| Azure                     | Azure SAS 令牌                           | azure_sas_token                        |
+| Azure                     | Azure 服务管理证书                           | azure_management_certificate           |
+| Azure                     | Azure SQL 连接字符串                        | azure_sql_connection_string            |
+| Azure                     | Azure 存储账户密钥                           | azure_storage_account_key              |
 | Clojars                   | Clojars Deploy Token                   | clojars_deploy_token                   |
 | CloudBees CodeShip        | CloudBees CodeShip Credential          | codeship_credential                      |
 | Databricks                | Databricks Access Token                | databricks_access_token                |
@@ -26,6 +26,7 @@
 | Dropbox                   | Dropbox Short Lived Access Token       | dropbox_short_lived_access_token     |
 | Dynatrace                 | Dynatrace Access Token                 | dynatrace_access_token                 |
 | Dynatrace                 | Dynatrace Internal Token               | dynatrace_internal_token               |
+| Facebook                  | Facebook Access Token                  | facebook_access_token                  |
 | Finicity                  | Finicity App Key                       | finicity_app_key                       |
 | Frame.io                  | Frame.io JSON Web Token                | frameio_jwt                              |
 | Frame.io                  | Frame.io Developer Token               | frameio_developer_token                |
@@ -49,8 +50,10 @@
 | Proctorio                 | Proctorio Registration Key             | proctorio_registration_key             |
 | Proctorio                 | Proctorio Secret Key                   | proctorio_secret_key                   |
 | Pulumi                    | Pulumi Access Token                    | pulumi_access_token                    |
+| PyPI                      | PyPI API Token                         | pypi_api_token                         |
 | Samsara                   | Samsara API Token                      | samsara_api_token                      |
 | Samsara                   | Samsara OAuth Access Token             | samsara_oauth_access_token             |
+| SendGrid                  | SendGrid API Key                       | sendgrid_api_key                       |
 | Shopify                   | Shopify App Shared Secret              | shopify_app_shared_secret              |
 | Shopify                   | Shopify Access Token                   | shopify_access_token                   |
 | Shopify                   | Shopify Custom App Access Token        | shopify_custom_app_access_token      |

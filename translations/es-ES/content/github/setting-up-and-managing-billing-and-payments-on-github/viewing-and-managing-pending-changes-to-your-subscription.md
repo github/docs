@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - facturación
 ---
 
 Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.

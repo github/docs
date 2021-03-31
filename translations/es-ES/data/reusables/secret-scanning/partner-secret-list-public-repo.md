@@ -49,6 +49,7 @@
 | Proctorio                 | Clave de Registro de Proctorio                                                       |
 | Proctorio                 | Clave de Secreto de Proctorio                                                        |
 | Pulumi                    | Token de Acceso de Pulumi                                                            |
+| PyPI                      | Token de la API de PyPI                                                              |
 | Samsara                   | Token de API de Samsara                                                              |
 | Samsara                   | Token de Acceso de OAuth de Samsara                                                  |
 | Shopify                   | Secreto Compartid de la App de Shopify                                               |

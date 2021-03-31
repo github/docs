@@ -9081,7 +9081,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -48238,6 +48238,14 @@
           "href": "/graphql/reference/objects#sponsorstieradmininfo"
         },
         {
+          "name": "closestLesserValueTier",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with a lesser cost. Returns the published tier with the\nmonthly price closest to this tier's without going over.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -48260,6 +48268,22 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "isCustomAmount",
+          "description": "<p>Whether this tier was chosen at checkout time by the sponsor rather than\ndefined ahead of time by the maintainer who manages the Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "monthlyPriceInCents",
@@ -48470,6 +48494,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "maintainer",

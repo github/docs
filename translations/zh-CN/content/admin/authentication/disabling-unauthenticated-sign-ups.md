@@ -7,6 +7,8 @@ redirect_from:
 intro: '如果您使用的是内置身份验证，可以阻止未经身份验证的人创建帐户。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

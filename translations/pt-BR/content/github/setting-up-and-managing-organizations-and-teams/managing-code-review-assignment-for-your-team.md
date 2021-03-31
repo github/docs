@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os mantenedores de equipe e os proprietários da organização podem configurar atribuições de revisão de código.

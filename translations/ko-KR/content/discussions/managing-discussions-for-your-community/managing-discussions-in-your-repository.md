@@ -24,7 +24,7 @@ To manage discussions in a repository, discussions must be enabled for the repos
 
 ### Changing the category for a discussion
 
-You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)" article.
+You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
 
 You can also move a discussion to a different category.
 

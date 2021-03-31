@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber können die Standardkennzeichnungen für Repositorys in der Organisation verwalten.

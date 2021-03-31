@@ -246,7 +246,7 @@ jobs:
         source-url: https://nuget.pkg.github.com/<owner>/index.json
     env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build <my project>
+    - run: dotnet build --configuration Release <my project>
     - name: Create the package
     run: dotnet pack --configuration Release <my project>
     - name: Publish the package to GPR

@@ -54,7 +54,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Personal access tokens can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
+Personal access tokens can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
 If you are not prompted for your username and password, your credentials may be cached on your computer. You can [update your credentials in the Keychain](/articles/updating-credentials-from-the-osx-keychain) to replace your old password with the token.
 
