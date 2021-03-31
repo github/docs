@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates, which includes:
+{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
 
 - No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
 - Teacher training to master Git and {% data variables.product.prodname_dotcom %} with our Campus Advisor program
