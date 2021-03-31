@@ -1,0 +1,12 @@
+
+| 操作                             | 描述                                                                                                                                                                                                  |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `remove_self_hosted_runner`    | 当自托管运行器被移除时触发。                                                                                                                                                                                      |
+| `register_self_hosted_runner`  | 在注册新的自托管运行器时触发。 更多信息请参阅“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。                                                                                                 |
+| `runner_group_created`         | 在创建自托管运行器组时触发。 For more information, see "[About self-hosted runner groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#about-self-hosted-runner-groups). |
+| `runner_group_removed`         | 当自托管运行器组被移除时触发。 更多信息请参阅“[移除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。                                    |
+| `runner_group_runner_removed`  | 当 REST API 用于从组中删除自托管运行器时触发。                                                                                                                                                                        |
+| `runner_group_runners_added`   | 当自托管运行器添加到组时触发。 更多信息请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。                               |
+| `runner_group_runners_updated` | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。                                                                          |
+| `runner_group_updated`         | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。        |
+| `self_hosted_runner_updated`   | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                |

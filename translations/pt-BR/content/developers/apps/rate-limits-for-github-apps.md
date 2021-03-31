@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - aplicativos github
 ---
 
 ### Solicitações de servidor para servidor

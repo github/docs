@@ -8,6 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
+  - issues
+  - notifications
+  - アカウント
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

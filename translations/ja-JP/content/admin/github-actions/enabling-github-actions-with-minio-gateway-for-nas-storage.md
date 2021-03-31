@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.p
 permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 ### 必要な環境

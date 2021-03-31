@@ -1,3 +1,3 @@
-You can choose the delivery method for notifications about {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} on repositories that you are watching, as well as the frequency at which the notifications are sent to you.
+Watchしているリポジトリ上の{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティアラート{% endif %}に関する通知の配信方法と、通知が送信される頻度を選択できます。
 
 

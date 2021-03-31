@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Atualizar a assinatura da sua conta pessoal

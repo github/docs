@@ -30,12 +30,20 @@ Atom、Unity、Visual Studio などのサードパーティのエディタツー
 
 ### プロジェクト管理ツール
 
-{% data variables.product.product_name %} の個人アカウントまたは Organization を Jira や Slack などのサードパーティのプロジェクト管理ツールと統合できます。
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira.
 
 #### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
 Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、Marketplace の[Jira 統合アプリケーション](https://github.com/marketplace/jira-software-github)にアクセスしてください。
 
+### Team communication tools
+
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party team communication tools, such as Slack or Microsoft Teams.
+
 #### Slack と {% data variables.product.product_name %} の統合
 
 Slack を個人アカウントまたは Organization アカウントと統合して、通知をサブスクライブし、Issue をクローズまたはオープンして、Slack を離れることなく Issue への豊富なリファレンスとプルリクエストを提供できます。 詳細については、Marketplace の[Slack 統合アプリケーション](https://github.com/marketplace/slack-github)にアクセスしてください。
+
+#### Microsoft Teams and {% data variables.product.product_name %} integration
+
+You can integrate Microsoft Teams with your personal or organization account to access information about {% data variables.product.product_name %} alongside wider team communication. When you integrate Microsoft Teams with {% data variables.product.product_name %}, you can subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.

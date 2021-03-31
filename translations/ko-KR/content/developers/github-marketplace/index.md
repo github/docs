@@ -7,6 +7,8 @@ redirect_from:
   - /마켓플레이스
 versions:
   free-pro-team: '*'
+topics:
+  - 마켓플레이스
 ---
 
 {% topic_link_in_list /github-marketplace-overview %}

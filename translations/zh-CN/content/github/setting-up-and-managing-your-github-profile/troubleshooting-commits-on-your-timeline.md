@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 个人资料
 ---
 
 ### 查看提交详细信息的预期行为

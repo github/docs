@@ -1,4 +1,4 @@
-| Tecla    | Tipo     | Descrição                                                                          |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| `Ação`   | `string` | A ação que foi executada. This can be either `created`, `resolved`, or `reopened`. |
-| `alerta` | `objeto` | The secret scanning alert involved in the event.                                   |
+| Tecla    | Tipo     | Descrição                                                                    |
+| -------- | -------- | ---------------------------------------------------------------------------- |
+| `Ação`   | `string` | A ação que foi executada. Isto pode ser `created`, `resolved` ou `reopened`. |
+| `alerta` | `objeto` | O alerta de varredura de segredo envolvido no evento.                        |

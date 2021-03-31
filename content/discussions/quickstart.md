@@ -39,7 +39,7 @@ You can welcome your community and introduce a new way to communicate in a repos
 
 You can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion.
 
-For more information about providing guidelines for your project, see "[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and "[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+For more information about providing guidelines for your project, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 ### Creating a new discussion
 

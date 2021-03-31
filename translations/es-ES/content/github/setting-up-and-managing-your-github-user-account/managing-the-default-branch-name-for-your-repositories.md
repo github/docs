@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - cuentas
 ---
 
 ### Acerca de la administración del nombre de la rama predeterminada

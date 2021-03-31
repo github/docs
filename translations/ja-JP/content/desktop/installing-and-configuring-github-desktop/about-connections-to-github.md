@@ -11,7 +11,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %} への認証後、{% data variables.product.prodname_desktop %} を使用してリモートリポジトリに接続できます。 {% data variables.product.prodname_desktop %} は、認証情報（ユーザ名とパスワード、または個人アクセストークン）をキャッシュし、その認証情報を使用してリモートリポジトリへの接続ごとに認証します。
 
-{% data variables.product.prodname_desktop %} は、HTTPS を使用して {% data variables.product.prodname_dotcom %} に接続します。 SSH を使用してクローンされたリポジトリにアクセスする際に {% data variables.product.prodname_desktop %} を使用すると、エラーが発生する可能性があります。 SSH を使用してクローンされたリポジトリに接続するには、リモートの URL を変更します。 詳しい情報については、「[リモートの URL を変更する](/github/using-git/changing-a-remotes-url)」を参照してください。
+{% data variables.product.prodname_desktop %} は、HTTPS を使用して {% data variables.product.prodname_dotcom %} に接続します。 SSH を使用してクローンされたリポジトリにアクセスする際に {% data variables.product.prodname_desktop %} を使用すると、エラーが発生する可能性があります。 SSH を使用してクローンされたリポジトリに接続するには、リモートの URL を変更します。 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### 参考リンク
 - 「[GitHub Desktop からのリポジトリのクローンとフォーク](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)」

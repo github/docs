@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}

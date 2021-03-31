@@ -4,6 +4,8 @@ intro: 'Você pode definir um limite de gastos para o uso do {% data variables.p
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Sobre sintaxe limites de gastos para o {% data variables.product.prodname_actions %}

@@ -10,20 +10,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Límites para las versiónes de npm publicadas
 
 Si estableces más de 1,000 versiones de paquetes de npm en el {% data variables.product.prodname_registry %}, podrías notar que ocurren problemas de rendimiento y de tiempos excedidos durante el uso.
 
 En el futuro, para mejorar el rendimiento del servicio, no podrás publicar más de 1,000 versiones de un paquete en {% data variables.product.prodname_dotcom %}. Cualquier versión que se publique antes de llegar a este límite aún será legible.
 
-Si llegas a este límite, considera borrar las versiones del paquete o contacta a soporte para recibir ayuda. Cuando se aplique este límite, actualizaremos nuestra documentación con una forma de dar soluciones para él. Para obtener más información, consulta la sección "[Borrar un paquete](/packages/manage-packages/deleting-a-package)" o "[Contactar a soporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
+Si llegas a este límite, considera borrar las versiones del paquete o contacta a soporte para recibir ayuda. Cuando se aplique este límite, actualizaremos nuestra documentación con una forma de dar soluciones para él. Para obtener más información, consulta la sección "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}" o [Contactar a Soporte](/packages/learn-github-packages/about-github-packages#contacting-support)".
 
 {% endif %}
 
@@ -37,7 +39,7 @@ Si llegas a este límite, considera borrar las versiones del paquete o contacta 
 
 Puedes autenticarte en {% data variables.product.prodname_registry %} con npm al editar tu archivo *~/.npmrc* por usuario para incluir tu token de acceso personal o al iniciar sesión en npm en la línea de comando por medio tu nombre de usuario y token de acceso personal.
 
-Para autenticarte agregando tu token de acceso personal a tu archivo *~/.npmrc*, edita el archivo *~/.npmrc* para que tu proyecto incluya la siguiente línea, reemplazando {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %} y {% endif %}*TOKEN* con tu token de acceso personal.  Crea un nuevo archivo *~/.npmrc* si no existe uno.
+Para autenticarte agregando tu token de acceso personal a tu archivo *~/.npmrc*, edita el archivo *~/.npmrc* para que tu proyecto incluya la siguiente línea, reemplazando a{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* con el nombre de host de {% data variables.product.product_location %} y a {% endif %}*TOKEN* con tu token de acceso personal. Crea un nuevo archivo *~/.npmrc* si no existe uno.
 
 {% if enterpriseServerVersions contains currentVersion %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
@@ -187,29 +189,27 @@ También debes agregar el archivo *.npmrc* a tu proyecto por lo que todas las so
 
 #### Instalar paquetes de otras organizaciones
 
-Por defecto, solo puedes usar paquetes de {% data variables.product.prodname_registry %} de una organización. Si te gustaría enrutar las solicitudes de paquetes a varias organizaciones y usuarios, puedes agregar líneas adicionales a tu archivo *.npmrc* reemplazando {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %} y {% endif %}*OWNER* con el nombre de la cuenta de usuario o de organización a la cual pertenece el repositorio que contiene tu proyecto.
+Por defecto, solo puedes usar paquetes de {% data variables.product.prodname_registry %} de una organización. Si te gustaría enrutar las solicitudes de paquetes a organizaciones y usuarios múltiples, puedes agregar líneas adicionales a tu archivo de *.npmrc*, reemplazando a {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* con el nombre de host de {% data variables.product.product_location %} y a {% endif %}*OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.
 
 {% if enterpriseServerVersions contains currentVersion %}
 Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 {% endif %}
 
 ```shell
-registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 
 ```shell
-registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
 ```
 {% endif %}
 
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### Utilizar el registro oficial de NPM
 
 El {% data variables.product.prodname_registry %} te permite acceder al registro oficial de NPM en `registry.npmjs.com`, si tu administrador de {% data variables.product.prodname_ghe_server %} habilitó esta característica. Para obtener más información, consulta la sección [Conectarse al registro oficial de NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
@@ -217,4 +217,4 @@ El {% data variables.product.prodname_registry %} te permite acceder al registro
 
 ### Leer más
 
-- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

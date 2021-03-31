@@ -4,6 +4,8 @@ intro: '通过与 {% data variables.product.product_name %} 上的帐户连接�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
