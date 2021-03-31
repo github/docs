@@ -131,6 +131,7 @@ sections:
     - Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.
     - A race condition can cause dependency graph database migrations to appear to fail.
     - Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.
+    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19

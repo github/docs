@@ -337,6 +337,60 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
+{% if currentVersion == "free-pro-team@latest" %}
+### discussion
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+#### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`.
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.discussion.created }}
+
+### discussion_comment
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+#### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
+`comment` | `object` | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
+{% endif %}
+
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 ### enterprise
