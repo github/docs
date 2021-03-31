@@ -23,7 +23,6 @@ const fullDirectoryPaths = Object.values(languages).map(langObj => path.join(pro
 const categoryIndexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirectoryPath, walkOpts)).flat()
   .filter(file => categoryFileRegex.test(file))
 
-// const categoryIndexFiles = [ path.join(process.cwd(), 'content/desktop/installing-and-configuring-github-desktop/index.md') ]
 
 categoryIndexFiles.forEach(categoryIndexFile => {
   let categoryIndexContent = fs.readFileSync(categoryIndexFile, 'utf8')
