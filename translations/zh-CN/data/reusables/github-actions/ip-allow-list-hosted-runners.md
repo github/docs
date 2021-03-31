@@ -1,3 +1,3 @@
-To allow your {% data variables.actions.hosted_runner %}s to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your {% data variables.actions.hosted_runner %}s to the IP allow list. 更多信息请参阅“[添加允许的 IP 地址](#adding-an-allowed-ip-address)”。
+为了让您的 {% data variables.actions.hosted_runner %} 与 {% data variables.product.prodname_dotcom %} 通信，请将 {% data variables.actions.hosted_runner %} 的 IP 地址或 IP 地址范围添加到 IP 允许列表。 更多信息请参阅“[添加允许的 IP 地址](#adding-an-allowed-ip-address)”。
 
-For more information about {% data variables.actions.hosted_runner %}s, see "[About {% data variables.actions.hosted_runner %}s](/github-ae@latest/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+有关 {% data variables.actions.hosted_runner %} 的更多信息，请参阅“[关于 {% data variables.actions.hosted_runner %}](/github-ae@latest/actions/using-github-hosted-runners/about-ae-hosted-runners)”。

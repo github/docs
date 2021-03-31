@@ -1,7 +1,7 @@
 {% if currentVersion == "github-ae@latest" %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_registry %} is currently in beta for {% data variables.product.prodname_ghe_managed %}.
+**ノート:** {% data variables.product.prodname_registry %}は現在{% data variables.product.prodname_ghe_managed %}でベータです。
 
 {% endnote %}
 {% endif %}

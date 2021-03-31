@@ -48,7 +48,7 @@ Cuando transfieres un repositorio, también se transfieren sus propuestas, solic
   $ git remote set-url origin <em>new_url</em>
   ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### Transferencias de repositorios y organizaciones
 

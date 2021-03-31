@@ -57,5 +57,5 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 ### 参考リンク
 
 - 「[コードスニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」
-{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」
+{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」
 {% endif %}

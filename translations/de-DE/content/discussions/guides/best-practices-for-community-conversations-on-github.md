@@ -35,7 +35,7 @@ Issues sind nützlich bei der Diskussion spezifischer Details eines Projekts, be
 
 Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
 
-Weitere Informationen findest Du unter „[Dein Projekt für förderliche Beiträge einrichten](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+Weitere Informationen findest Du unter „[Dein Projekt für förderliche Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)."
 
 ### Nächste Schritte:
 
@@ -43,7 +43,7 @@ To continue learning about {% data variables.product.prodname_discussions %} and
 
 ### Weiterführende Informationen
 
-- „[Dein Projekt für sinnvolle Beiträge einrichten](/articles/setting-up-your-project-for-healthy-contributions)“
-- „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Kommentare und Unterhaltungen moderieren](/articles/moderating-comments-and-conversations)“
+- „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
+- „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- „[Kommentare und Unterhaltungen moderieren](/communities/moderating-comments-and-conversations)“
 - „[Auf {% data variables.product.prodname_dotcom %} schreiben](/articles/writing-on-github)“
