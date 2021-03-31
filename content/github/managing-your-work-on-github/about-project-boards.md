@@ -16,7 +16,7 @@ Project boards are made up of issues, pull requests, and notes that are categori
 
 Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+You can create notes withidffn columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
 Types of project boards:
 
