@@ -245,18 +245,17 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 
 1. In the bottom menu, tap **Profile**.
 2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Receive Notifications**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
 ### Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
 
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
-1. On {% data variables.product.prodname_mobile %}, navigate to main page of the repository.
+1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
 2. Tap **Watch**.
    ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
 3. To choose what activities you receive notifications for, tap your preferred watch settings.
    ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
 
 {% endif %}
