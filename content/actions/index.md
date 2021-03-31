@@ -15,7 +15,7 @@ featuredLinks:
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
-    - '{% if currentVersion == "github-ae@latest" %}/actions/reference/workflow-syntax-for-github-actions{% endif %}'
+    - /actions/reference/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
     - /actions/reference/events-that-trigger-workflows
     - /actions/reference/context-and-expression-syntax-for-github-actions
