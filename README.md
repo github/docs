@@ -1,75 +1,102 @@
-## GitHub Docs <!-- omit in toc -->
+# mime-db
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+[![Node.js Version][node-image]][node-url]
+[![Build Status][ci-image]][ci-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+This is a database of all mime types.
+It consists of a single, public JSON file and does not include any logic,
+allowing it to remain as un-opinionated as possible with an API.
+It aggregates data from the following sources:
 
-In this article:
+- http://www.iana.org/assignments/media-types/media-types.xhtml
+- http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+- http://hg.nginx.org/nginx/raw-file/default/conf/mime.types
 
-- [Contributing](#contributing)
-- [READMEs](#readmes)
-- [License](#license)
+## Installation
+
+```bash
+npm install mime-db
+```
+
+### Database Download
+
+If you're crazy enough to use this in the browser, you can just grab the
+JSON file using [jsDelivr](https://www.jsdelivr.com/). It is recommended to
+replace `master` with [a release tag](https://github.com/jshttp/mime-db/tags)
+as the JSON format may change in the future.
+
+```
+https://cdn.jsdelivr.net/gh/jshttp/mime-db@master/db.json
+```
+
+## Usage
+
+<!-- eslint-disable no-unused-vars -->
+
+```js
+var db = require('mime-db')
+
+// grab data on .js files
+var data = db['application/javascript']
+```
+
+## Data Structure
+
+The JSON file is a map lookup for lowercased mime types.
+Each mime type has the following properties:
+
+- `.source` - where the mime type is defined.
+    If not set, it's probably a custom media type.
+    - `apache` - [Apache common media types](http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types)
+    - `iana` - [IANA-defined media types](http://www.iana.org/assignments/media-types/media-types.xhtml)
+    - `nginx` - [nginx media types](http://hg.nginx.org/nginx/raw-file/default/conf/mime.types)
+- `.extensions[]` - known extensions associated with this mime type.
+- `.compressible` - whether a file of this type can be gzipped.
+- `.charset` - the default charset associated with this type, if any.
+
+If unknown, every property could be `undefined`.
 
 ## Contributing
 
-### Start contributing right now:
+To edit the database, only make PRs against `src/custom-types.json` or
+`src/custom-suffix.json`.
 
-We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
+The `src/custom-types.json` file is a JSON object with the MIME type as the
+keys and the values being an object with the following keys:
 
-#### Click **make a contribution** from docs
+- `compressible` - leave out if you don't know, otherwise `true`/`false` to
+  indicate whether the data represented by the type is typically compressible.
+- `extensions` - include an array of file extensions that are associated with
+  the type.
+- `notes` - human-readable notes about the type, typically what the type is.
+- `sources` - include an array of URLs of where the MIME type and the associated
+  extensions are sourced from. This needs to be a [primary source](https://en.wikipedia.org/wiki/Primary_source);
+  links to type aggregating sites and Wikipedia are _not acceptable_.
 
-As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+To update the build, run `npm run build`.
 
-<img src="./assets/images/contribution_cta.png" width="400">
+### Adding Custom Media Types
 
-#### Open an issue
+The best way to get new media types included in this library is to register
+them with the IANA. The community registration procedure is outlined in
+[RFC 6838 section 5](http://tools.ietf.org/html/rfc6838#section-5). Types
+registered with the IANA are automatically pulled into this library.
 
-If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+If that is not possible / feasible, they can be added directly here as a
+"custom" type. To do this, it is required to have a primary source that
+definitively lists the media type. If an extension is going to be listed as
+associateed with this media type, the source must definitively link the
+media type and extension as well.
 
-#### Solve an issue
-
-If you have a solution to one of the open issues, you will need to fork the repository and submit a pull request using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md).
-
-#### Join us in discussions
-
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
-
-#### And that's it!
-
-That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
-
-If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
-
-There are a few more things to know when you're getting started with this repo:
-
-1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
-
-## READMEs
-
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
-- [javascripts/README.md](javascripts/README.md)
-- [layouts/README.md](layouts/README.md)
-- [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
-- [script/README.md](script/README.md)
-- [stylesheets/README.md](stylesheets/README.md)
-- [tests/README.md](tests/README.md)
-
-## License
-
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
-
-All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
-
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+[ci-image]: https://badgen.net/github/checks/jshttp/mime-db/master?label=ci
+[ci-url]: https://github.com/jshttp/mime-db/actions?query=workflow%3Aci
+[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/mime-db/master
+[coveralls-url]: https://coveralls.io/r/jshttp/mime-db?branch=master
+[node-image]: https://badgen.net/npm/node/mime-db
+[node-url]: https://nodejs.org/en/download
+[npm-downloads-image]: https://badgen.net/npm/dm/mime-db
+[npm-url]: https://npmjs.org/package/mime-db
+[npm-version-image]: https://badgen.net/npm/v/mime-db
