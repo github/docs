@@ -5,7 +5,11 @@ PATs can grant broad access to your account. You should select only the necessar
 
 {% warning %}
 
-**Note:** Granting the `write:packages` scope on the PAT also grants the `repo` scope! If you save this PAT for use from an Action, any collaborators can configure an Actions workflow to use this PAT to get full permissions to all repositories accessable from the PAT owner's account. We recommend creating a separate account with access only to the specific repositories that want to push Docker images (see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)").
+**Note:** * By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. 
+ 
+If you save this PAT for use from an action, any collaborators can configure a GitHub Actions workflow to use this PAT to get full permissions to all repositories accessible from the PAT owner's account. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." 
+
+As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages` and other desired scopes such as the `delete: packages` scope. Or you can create a separate account with access only to specific repositories that push Docker images.
 
 {% endwarning %}
 
