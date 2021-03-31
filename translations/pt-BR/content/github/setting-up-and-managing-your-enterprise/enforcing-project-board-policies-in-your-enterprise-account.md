@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 Para obter mais informações sobre tipos de quadros de projeto, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".

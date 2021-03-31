@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 社区
 ---
 
 取消阻止用户对组织的访问后，他们将能够为组织的仓库做出贡献。

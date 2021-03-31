@@ -197,7 +197,7 @@ git commit
 
 有些 {% data variables.product.prodname_github_app %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
 
-![内容附件](/assets/images/help/writing/content-attachment.png)
+![内容附件](/assets/images/github-apps/content_reference_attachment.png)
 
 要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
 

@@ -7,6 +7,8 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

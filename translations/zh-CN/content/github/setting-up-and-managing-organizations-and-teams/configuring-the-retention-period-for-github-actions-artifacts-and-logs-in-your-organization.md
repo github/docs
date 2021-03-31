@@ -4,6 +4,10 @@ intro: '您可以为组织中的 {% data variables.product.prodname_actions %} �
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

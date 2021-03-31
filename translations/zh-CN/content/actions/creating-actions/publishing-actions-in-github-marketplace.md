@@ -11,6 +11,8 @@ versions:
 type: 'how_to'
 ---
 
+{% data reusables.actions.ae-beta %}
+
 您必须接受服务条款才能在 {% data variables.product.prodname_marketplace %} 中发布操作。
 
 ### 关于发布操作

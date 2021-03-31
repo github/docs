@@ -8,6 +8,8 @@ redirect_from:
 permissions: 'Os administradores do site de {% data variables.product.prodname_ghe_server %} que também são proprietários da organização ou conta corporativa conectada {% data variables.product.prodname_ghe_cloud %} podem habilitar {% if currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot %}{% else %}alertas de segurança{% endif %} para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre alertas para dependências vulneráveis no {% data variables.product.prodname_ghe_server %}

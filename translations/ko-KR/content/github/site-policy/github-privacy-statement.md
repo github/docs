@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: December 19, 2020
@@ -94,7 +97,7 @@ We do not intentionally collect User Personal Information that is **stored in yo
 
 ### How GitHub uses your information
 
-- We may use your information for the following purposes:
+We may use your information for the following purposes:
 - We use your [Registration Information](#registration-information) to create your account, and to provide you the Service.
 - We use your [Payment Information](#payment-information) to provide you with the Paid Account service, the Marketplace service, the Sponsors Program, or any other GitHub paid service you request.
 - We use your User Personal Information, specifically your username, to identify you on GitHub.
