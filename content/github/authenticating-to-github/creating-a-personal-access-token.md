@@ -39,9 +39,14 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
    {% endif %}
 7. Click **Generate token**.
    ![Generate token button](/assets/images/help/settings/generate_token.png)
-8. Click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.{% if currentVersion == "free-pro-team@latest" %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 
