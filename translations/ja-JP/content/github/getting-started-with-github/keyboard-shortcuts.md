@@ -36,7 +36,7 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                               |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                  |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。                                                                                           |
 
 ### ソースコード編集
 

@@ -8,7 +8,7 @@ redirect_from:
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
-intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update.'
+intro: 'GitHub 的协作开发方法取决于从您的本地仓库发布提交到 {% data variables.product.product_name %}，以供其他人查看、提取和更新。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,7 +17,7 @@ versions:
 
 ### 关于远程仓库
 
-远程 URL 是 Git 一种指示“您的代码存储位置”的绝佳方式。 That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.
+远程 URL 是 Git 一种指示“您的代码存储位置”的绝佳方式。 该 URL 可能是您在 GitHub 上的仓库，也可以是另一个用户的复刻，甚至在完全不同的服务器上。
 
 您只能推送到两类 URL 地址：
 
@@ -26,7 +26,7 @@ versions:
 
 Git 将远程 URL 与名称相关联，您的默认远程通常名为 `origin`。
 
-### Creating remote repositories
+### 创建远程仓库
 
 您可以使用 `git remote add` 命令将远程 URL 与名称匹配。 例如，在命令行中输入以下命令：
 
@@ -38,13 +38,13 @@ git remote add origin <em> &lt;REMOTE_URL> </em>
 
 您可以使用命令 `git remote set-url` 来[更改远程 URL](/github/getting-started-with-github/managing-remote-repositories)。
 
-### Choosing a URL for your remote repository
+### 选择远程仓库的 URL
 
 克隆 {% data variables.product.product_location %} 上的仓库有几种方法。
 
-When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
+当您登录到帐户查看仓库时，可以用于将项目克隆到计算机上的 URL 在仓库详细信息下方提供。
 
-For information on setting or changing your remote URL, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+有关设置或更改远程 URL 的信息，请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ### 使用 HTTPS URL 克隆
 

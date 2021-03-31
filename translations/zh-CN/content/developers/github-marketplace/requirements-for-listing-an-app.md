@@ -50,7 +50,7 @@ topics:
 
 ### 付费应用程序的要求
 
-要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 For more information about the verification process or transferring ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 有关验证流程或转让应用程序所有权的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
 如果您的应用程序已发布，并且您是经验证的发布者，则您可以使用定价计划编辑器发布新的付费计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 

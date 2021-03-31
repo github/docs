@@ -1,13 +1,13 @@
-1. Click **Restore**.
+1. 单击 **Restore（恢复）**。
 
   {% mac %}
 
-  ![Restore stashed changes button](/assets/images/help/desktop/mac-restore-stashed-changes-button.png)
+  ![恢复隐藏的更改按钮](/assets/images/help/desktop/mac-restore-stashed-changes-button.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Restore stashed changes button](/assets/images/help/desktop/windows-restore-stashed-changes-button.png)
+  ![恢复隐藏的更改按钮](/assets/images/help/desktop/windows-restore-stashed-changes-button.png)
 
   {% endwindows %}

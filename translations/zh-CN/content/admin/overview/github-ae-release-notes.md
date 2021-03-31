@@ -63,7 +63,7 @@ versions:
 - 现在支持 [OAuth 设备授权流程](/developers/apps/authorizing-oauth-apps#device-flow)。 这允许任何 CLI 客户端或开发者工具使用辅助系统进行身份验证。
 - 如果启用了 SCIM 预配，用户不能再删除他们的帐户。
 
-##### Default branch renaming
+##### 默认分支重命名
 
 企业和组织所有者现在可以设置新仓库的默认分支名称。 企业所有者还可以在所有组织中强制选择默认分支名称，或允许各个组织自行选择。 更多信息请参阅“[在您的企业中执行仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)”和“[管理组织中仓库的默认分支名称](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)”。
 
