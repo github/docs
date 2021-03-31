@@ -7,6 +7,7 @@
 
     <main class="width-full">
       {% include header %}
+      {% include deprecation-banner %}
 
       <div class="container-xl px-3 px-md-6 pt-3 pb-2">
         <header class="d-lg-flex gutter-lg mb-6">
@@ -60,7 +61,9 @@
           <div class="col-12 col-lg-{% if page.changelog %}4{% else %}6{% endif %} mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
               <h3 class="f4 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.guides %}</h3>
-              <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+              {% unless currentCategory %}
+                <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+              {% endunless %}
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.guides %}
@@ -125,18 +128,24 @@
               {% render guide-card for guideCards as guide %}
             </div>
 
-            <a href="{{ currentPath }}/guides" class="btn btn-outline float-right">Explore guides {% octicon "arrow-right" %}</a>
+            {% unless currentCategory %}
+              <a href="{{ currentPath }}/guides" class="btn btn-outline float-right">Explore guides {% octicon "arrow-right" %}</a>
+            {% endunless %}
           </div>
         </div>
       {% endif %}
 
       <div class="container-xl px-3 px-md-6 mt-6">
-        {% include all-articles %}
+        {% if currentCategory %}
+          {% include all-articles-category %}
+        {% else %}
+          {% include all-articles-product %}
+        {% endif %}
       </div>
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

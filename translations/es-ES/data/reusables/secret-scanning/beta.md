@@ -1,7 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% note %}
 
-**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} para los repositorios{% if currentVersion ver_gt "enterprise-server@2.22" %} públicos y{% endif %} privados que pertenecen a las organizaciones se encuentra acutalmente en beta y está sujeto a cambios.
+**Nota:** Las {% data variables.product.prodname_secret_scanning_caps %} para los repositorios que pertenecen a organizaciones{% if currentVersion == "free-pro-team@latest" %} privados{% endif %} se encuentran actualmente en beta y están sujetas a cambios.
 
 {% endnote %}
 

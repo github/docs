@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfiles
 ---
 
 ### Contribuciones que se cuentan

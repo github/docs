@@ -22,7 +22,7 @@ Antes de realizar la autenticación, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. A la derecha de "{% data variables.product.prodname_dotcom_the_website %}", da clic en **Iniciar sesión**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-github.png)
-4. En el recuadro de "Iniciar sesión", da clic en **Iniciar sesión utilizando tu buscador**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. En el recuadro de "Iniciar sesión", da clic en **Iniciar sesión utilizando tu buscador**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -51,7 +51,7 @@ cuenta de {% data variables.product.prodname_enterprise %}, teclea tus credencia
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. A la derecha de "GitHub.com", da clic en **Iniciar sesión**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-github.png)
-4. En el panel de inicio de sesión, haz clic en **Sign in using your browser** (Iniciar sesión usando el navegador). ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. En el panel de inicio de sesión, haz clic en **Sign in using your browser** (Iniciar sesión usando el navegador). ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 

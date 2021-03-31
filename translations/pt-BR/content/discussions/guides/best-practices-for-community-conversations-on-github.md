@@ -29,7 +29,7 @@ Você pode usar {% data variables.product.prodname_discussions %} para discutir 
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)" e "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)".
 
-{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 ### Seguir diretrizes de contribuição
 

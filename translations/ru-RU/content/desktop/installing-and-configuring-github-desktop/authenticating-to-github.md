@@ -22,7 +22,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**. ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser. ![The Sign in using your browser link](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser. ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -51,7 +51,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. To the right of "GitHub.com," click **Sign in**. ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-4. In the Sign in pane, click **Sign in using your browser**. ![The Sign in using your browser link](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. In the Sign in pane, click **Sign in using your browser**. ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/upgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

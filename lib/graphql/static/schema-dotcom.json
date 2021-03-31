@@ -1390,6 +1390,40 @@
       ]
     },
     {
+      "name": "approveVerifiableDomain",
+      "kind": "mutations",
+      "id": "approveverifiabledomain",
+      "href": "/graphql/reference/mutations#approveverifiabledomain",
+      "description": "<p>Approve a verifiable domain for notification delivery.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ApproveVerifiableDomainInput!",
+          "id": "approveverifiabledomaininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#approveverifiabledomaininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "domain",
+          "type": "VerifiableDomain",
+          "id": "verifiabledomain",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#verifiabledomain",
+          "description": "<p>The verifiable domain that was approved.</p>"
+        }
+      ]
+    },
+    {
       "name": "archiveRepository",
       "kind": "mutations",
       "id": "archiverepository",
@@ -3471,25 +3505,6 @@
       "id": "pinissue",
       "href": "/graphql/reference/mutations#pinissue",
       "description": "<p>Pin an issue to a repository.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -4590,25 +4605,6 @@
       "id": "unpinissue",
       "href": "/graphql/reference/mutations#unpinissue",
       "description": "<p>Unpin a pinned issue from a repository.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -8240,6 +8236,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -8343,6 +8344,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -9050,7 +9081,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -17058,7 +17089,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -20160,6 +20191,14 @@
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
           "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this issue is currently pinned to the repository issues list.</p>",
+          "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -29786,7 +29825,7 @@
         },
         {
           "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
+          "description": "<p>Whether the organization has verified its profile email and website.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -32374,25 +32413,6 @@
       "id": "pinnedissue",
       "href": "/graphql/reference/objects#pinnedissue",
       "description": "<p>A Pinned Issue is a issue pinned to a repository's index page.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "implements": [
         {
           "name": "Node",
@@ -32441,25 +32461,6 @@
       "id": "pinnedissueconnection",
       "href": "/graphql/reference/objects#pinnedissueconnection",
       "description": "<p>The connection type for PinnedIssue.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "fields": [
         {
           "name": "edges",
@@ -32501,25 +32502,6 @@
       "id": "pinnedissueedge",
       "href": "/graphql/reference/objects#pinnedissueedge",
       "description": "<p>An edge in a connection.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "fields": [
         {
           "name": "cursor",
@@ -35543,6 +35525,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerLatestReview",
+          "description": "<p>The latest review given from the viewer.</p>",
+          "type": "PullRequestReview",
+          "id": "pullrequestreview",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreview"
+        },
+        {
+          "name": "viewerLatestReviewRequest",
+          "description": "<p>The person who has requested the viewer for review on this pull request.</p>",
+          "type": "ReviewRequest",
+          "id": "reviewrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reviewrequest"
+        },
+        {
           "name": "viewerMergeBodyText",
           "description": "<p>The merge body text for the viewer and method.</p>",
           "type": "String!",
@@ -38526,6 +38524,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -38536,6 +38542,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -38818,6 +38832,14 @@
           "id": "ref",
           "kind": "objects",
           "href": "/graphql/reference/objects#ref"
+        },
+        {
+          "name": "tagCommit",
+          "description": "<p>The tag commit for this release.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
         },
         {
           "name": "tagName",
@@ -43967,7 +43989,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -44693,26 +44715,7 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ],
-          "isDeprecated": false,
-          "preview": {
-            "title": "Pinned issues preview",
-            "description": "This preview adds support for pinned issues.",
-            "toggled_by": "elektra-preview",
-            "toggled_on": [
-              "Repository.pinnedIssues",
-              "PinnedIssue",
-              "PinnedIssueEdge",
-              "PinnedIssueConnection",
-              "Mutation.pinIssue",
-              "Mutation.unpinIssue"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.elektra-preview+json",
-            "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-          }
+          ]
         },
         {
           "name": "primaryLanguage",
@@ -48235,6 +48238,14 @@
           "href": "/graphql/reference/objects#sponsorstieradmininfo"
         },
         {
+          "name": "closestLesserValueTier",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with a lesser cost. Returns the published tier with the\nmonthly price closest to this tier's without going over.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -48257,6 +48268,22 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "isCustomAmount",
+          "description": "<p>Whether this tier was chosen at checkout time by the sponsor rather than\ndefined ahead of time by the maintainer who manages the Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "monthlyPriceInCents",
@@ -48467,6 +48494,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "maintainer",
@@ -48997,6 +49032,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
         }
       ],
       "fields": [
@@ -49060,6 +49100,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "state",
@@ -53893,6 +53963,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isGitHubStar",
+          "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isHireable",
           "description": "<p>Whether or not the user has marked themselves as for hire.</p>",
           "type": "Boolean!",
@@ -55937,6 +56015,14 @@
       ],
       "fields": [
         {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "databaseId",
           "description": "<p>Identifies the primary key from the database.</p>",
           "type": "Int",
@@ -55978,7 +56064,7 @@
         },
         {
           "name": "isRequiredForPolicyEnforcement",
-          "description": "<p>Whether this domain is required to exist for an organization policy to be enforced.</p>",
+          "description": "<p>Whether this domain is required to exist for an organization or enterprise policy to be enforced.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -56012,6 +56098,14 @@
           "name": "tokenExpirationTime",
           "description": "<p>The time that the current verification token will expire.</p>",
           "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
@@ -57774,7 +57868,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58104,6 +58198,45 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "RequirableByPullRequest",
+      "kind": "interfaces",
+      "id": "requirablebypullrequest",
+      "href": "/graphql/reference/interfaces#requirablebypullrequest",
+      "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "fields": [
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         }
       ]
     },
@@ -62057,6 +62190,10 @@
       "description": "<p>Properties by which verifiable domain connections can be ordered.</p>",
       "values": [
         {
+          "name": "CREATED_AT",
+          "description": "<p>Order verifiable domains by their creation date.</p>"
+        },
+        {
           "name": "DOMAIN",
           "description": "<p>Order verifiable domains by the domain name.</p>"
         }
@@ -64188,6 +64325,32 @@
         {
           "name": "ownerId",
           "description": "<p>The ID of the owner to add the domain to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "ApproveVerifiableDomainInput",
+      "kind": "inputObjects",
+      "id": "approveverifiabledomaininput",
+      "href": "/graphql/reference/input-objects#approveverifiabledomaininput",
+      "description": "<p>Autogenerated input type of ApproveVerifiableDomain.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the verifiable domain to approve.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

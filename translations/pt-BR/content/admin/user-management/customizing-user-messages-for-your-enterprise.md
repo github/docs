@@ -8,6 +8,8 @@ intro: 'Você pode criar mensagens personalizadas que os usuários verão em {% 
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre mensagens de usuário
