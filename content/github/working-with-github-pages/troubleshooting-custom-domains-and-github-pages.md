@@ -39,7 +39,7 @@ If your custom domain is unsupported, you may need to change your domain to a su
 Make sure your site does not:
 - Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
 - Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
-- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
+- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`. (Note that there is an exception: If configured correctly the subdomain `www` is automatically redirected to the apex domain.)
 
 {% data reusables.pages.wildcard-dns-warning %}
 
