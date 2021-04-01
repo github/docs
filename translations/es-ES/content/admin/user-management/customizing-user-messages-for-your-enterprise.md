@@ -58,11 +58,20 @@ Puedes usar Markdown para dar formato al mensaje. Para obtener más información
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Crear un mensaje obligatorio
 
-Puedes crear un mensaje obligatorio que {% data variables.product.product_name %} mostrará a todos los usuarios la primera vez que inicien sesión después de que guardaste el mensaje. El mensaje aparece en una ventana emergente que el usuario deberá descartar antes de poder utilizar {% data variables.product.product_location %}. Los mensajes obligatorios tienen varios usos.
+Puedes crear un mensaje obligatorio que {% data variables.product.product_name %} mostrará a todos los usuarios la primera vez que inicien sesión después de que guardaste el mensaje. El mensaje aparece en una ventana emergente que el usuario deberá descartar antes de poder utilizar {% data variables.product.product_location %}.
+
+Los mensajes obligatorios tienen varios usos.
 
 - Proporcinar información de integración para los empleados nuevos
 - Decir a los usuarios cómo obtener ayuda con {% data variables.product.product_location %}
 - Garantizar que todos los usuarios lean tus condiciones de servicio para utilizar {% data variables.product.product_location %}
+
+{% note %}
+
+**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
+
+{% endnote %}
+
 
 Si incluyes cajas de verificación con lenguaje de marcado en el mensaje, todas ellas deberán seleccionarse antes de que el usuario pueda descartar el mensaje. Por ejemplo, si incluyes tus condiciones de servicio en el mensaje obligatorio, puede que necesites que cada usuario seleccione una casilla para confirmar que leyó dichas condiciones.
 

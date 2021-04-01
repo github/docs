@@ -122,7 +122,7 @@ Las palabras clave `paths-ignore` y `paths` aceptan los patrones globales que us
 
 #### Ejemplo de ignorar rutas
 
-Cada vez que un nombre de ruta coincida con `paths-ignore`, no se ejecutará el flujo de trabajo. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
 ```yaml
 on:

@@ -1,5 +1,5 @@
 ---
-title: Getting started with Git
+title: Comenzar con Git
 intro: ''
 mapTopic: true
 redirect_from:

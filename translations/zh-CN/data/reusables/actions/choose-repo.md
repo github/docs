@@ -1,1 +1,1 @@
-Choose a repository where you want to apply this project management workflow. You can use an existing repository that you have write access to, or you can create a new repository. 关于创建仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+选择要应用此项目管理工作流程的仓库。 您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。 关于创建仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”。

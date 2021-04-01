@@ -1,3 +1,13 @@
+#!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to fix known frontmatter errors by copying values from english file
+// Currently only fixing errors in: 'type', 'changelog'
+// Please double check the changes created by this script before committing.
+//
+// [end-readme]
+
 const { execSync } = require('child_process')
 const { get, set } = require('lodash')
 const fs = require('fs')
@@ -12,14 +22,6 @@ const revalidator = require('revalidator')
 
 const fixableFmProps = ['type', 'changelog', 'mapTopic', 'hidden', 'layout', 'defaultPlatform', 'showMiniToc', 'allowTitleToDifferFromFilename', 'interactive', 'beta_product']
 const fixableYmlProps = ['date']
-
-// [start-readme]
-//
-// Run this script to fix known frontmatter errors by copying values from english file
-// Currently only fixing errors in: 'type', 'changelog'
-// Please double check the changes created by this script before committing.
-//
-// [end-readme]
 
 const loadAndValidateContent = async (path, schema) => {
   let fileContents
