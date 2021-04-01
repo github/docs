@@ -60,7 +60,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 
 ### Configuring an apex domain
 
-To set up an apex domain, such as `example.com`, you must configure a _CNAME_ file  in your {% data variables.product.prodname_pages %} repository and an `ALIAS`, `ANAME`, or multiple `A` records with your DNS provider.
+To set up an apex domain, such as `example.com`, you must configure a _CNAME_ file  in your {% data variables.product.prodname_pages %} repository and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
 
 {% data reusables.pages.www-and-apex-domain-recommendation %}
 
