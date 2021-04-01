@@ -95,4 +95,4 @@ topics:
 ### 延伸阅读
 - "[按标签过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[通过标签鼓励对项目做出有益的贡献](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- "[通过标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

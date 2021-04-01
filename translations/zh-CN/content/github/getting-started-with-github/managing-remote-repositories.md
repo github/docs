@@ -22,9 +22,9 @@ versions:
   github-ae: '*'
 ---
 
-### Adding a remote repository
+### 添加远程仓库
 
-To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
+要新增远程，请在终端上存储仓库的目录中使用 `git remote add` 命令。
 
 `git remote add` 命令使用两个参数：
 * 远程命令，如 `origin`
@@ -42,11 +42,11 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+有关使用哪个 URL 的更多信息，请参阅“[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”。
 
-#### Troubleshooting: Remote origin already exists
+#### 故障排除：远程原点已存在
 
-This error means you've tried to add a remote with a name that already exists in your local repository.
+此错误消息表示您尝试添加的远程与本地仓库中的远程名称相同。
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
@@ -55,16 +55,16 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 
 要修复此问题，您可以:
 * 对新远程使用不同的名称
-* Rename the existing remote repository
-* Delete the existing remote repository
+* 重命名现有远程仓库
+* 删除现有远程仓库
 
-### Changing a remote repository's URL
+### 更改远程仓库的 URL
 
-The `git remote set-url` command changes an existing remote repository URL.
+`git remote set-url` 命令可更改现有远程仓库的 URL。
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+**提示：** 有关 HTTPS 与 SSH URL 之间的差异，请参阅“[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”
 
 {% endtip %}
 
@@ -129,7 +129,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-#### Troubleshooting: No such remote '[name]'
+#### 故障排除：没有该远程 '[name]'
 
 此错误表示您尝试更改的远程不存在：
 
@@ -140,9 +140,9 @@ $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/
 
 检查您是否正确键入了远程仓库的名称。
 
-### Renaming a remote repository
+### 重命名远程仓库
 
-Use the `git remote rename` command to rename an existing remote.
+使用 `git remote rename` 命令可重命名现有的远程。
 
 `git remote rename` 命令使用两个参数：
 * 现有的远程名称，例如 `origin`
@@ -167,7 +167,7 @@ $ git remote -v
 > destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
+#### 故障排除：无法将配置部分 'remote.[old name]' 重命名为 'remote.[new name]'
 
 此错误表示您输入旧远程名称尝试的远程不存在。
 
@@ -180,13 +180,13 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Remote [new name] already exists
+#### 故障排除：远程 [new name] 已存在
 
-此错误表示您要使用的远程名称已经存在。 To solve this, either use a different remote name, or rename the original remote.
+此错误表示您要使用的远程名称已经存在。 要解决此问题，使用不同的远程名称，或重命名原始远程。
 
-### Removing a remote repository
+### 删除远程仓库
 
-Use the `git remote rm` command to remove a remote URL from your repository.
+使用 `git remote rm` 命令可从仓库中删除远程 URL。
 
 `git remote rm` 命令使用一个参数：
 * 远程名称，例如 `destination`
@@ -217,7 +217,7 @@ $ git remote -v
 
 {% endwarning %}
 
-#### Troubleshooting: Could not remove config section 'remote.[name]'
+#### 故障排除：无法删除配置部分 'remote.[name]'
 
 此错误表示您尝试删除的远程不存在：
 

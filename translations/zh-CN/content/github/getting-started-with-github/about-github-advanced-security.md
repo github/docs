@@ -25,7 +25,7 @@ topics:
 - **{% data variables.product.prodname_secret_scanning_caps %}** - 检测已检入仓库的密码（例如密钥和令牌）。 更多信息请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 {% endif %}
 
 有关正在开发中的 {% data variables.product.prodname_advanced_security %} 功能，请参阅“[{% data variables.product.prodname_dotcom %} 公开路线图](https://github.com/github/roadmap)”。 关于所有安全功能的概述，请参阅“[关于保护仓库](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)”。

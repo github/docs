@@ -43,7 +43,7 @@ Similar to contributing guidelines, the repository maintainer may have included 
 
 ### Дополнительная литература
 
-- "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderating comments and conversations](/articles/moderating-comments-and-conversations)"
+- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
 - "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

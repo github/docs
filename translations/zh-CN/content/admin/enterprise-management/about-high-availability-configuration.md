@@ -14,6 +14,8 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### 有针对性的故障场景
 
 使用高可用性配置防护以下问题：

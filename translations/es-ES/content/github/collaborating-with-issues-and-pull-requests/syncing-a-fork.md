@@ -51,6 +51,6 @@ Antes de sincronizar una bifurcación con un repositorio ascendente, debes [conf
 
 {% tip %}
 
-**Sugerencia:**: sincronizar tu bifurcación únicamente actualiza tu copia local del repositorio. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Sugerencia:**: sincronizar tu bifurcación únicamente actualiza tu copia local del repositorio. Para actualizar tu bifurcación en {% data variables.product.product_location %}, debes [subir tus cambios](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

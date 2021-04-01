@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The {% data variables.product.prodname_unfurls %} API is currently in public beta and only available for use with GitHub Apps. Features and requirements may change at any time during this period.
+**ノート:** {% data variables.product.prodname_unfurls %} APIは現在パブリックベータであり、GitHub Appsと合わせてのみ利用できます。 この期間中、機能や要件はいつでも変更されることがあります。
 
 {% endnote %}

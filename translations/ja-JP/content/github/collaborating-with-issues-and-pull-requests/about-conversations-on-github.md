@@ -43,7 +43,7 @@ Issueあるいはプルリクエストをオープンする前に、そのリポ
 
 ### 参考リンク
 
-- [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
-- 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- [コメントと会話の管理](/articles/moderating-comments-and-conversations)
+- [健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)
+- 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」
+- [コメントと会話の管理](/communities/moderating-comments-and-conversations)
 - [{% data variables.product.prodname_dotcom %}での執筆](/articles/writing-on-github)
