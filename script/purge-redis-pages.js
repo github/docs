@@ -2,7 +2,8 @@
 
 // [start-readme]
 //
-// Run this script to manually purge the Redis rendered page cache.
+// Run this script to manually "soft purge" the Redis rendered page cache
+// by shortening the expiration window of entries.
 // This will typically only be run by Heroku during the deployment process,
 // as triggered via our Procfile's "release" phase configuration.
 //
@@ -11,7 +12,7 @@
 require('dotenv').config()
 
 const { promisify } = require('util')
-const createClient = require('../lib/redis/create-client')
+const createRedisClient = require('../lib/redis/create-client')
 
 const { REDIS_URL, HEROKU_RELEASE_VERSION, HEROKU_PRODUCTION_APP } = process.env
 const isHerokuProd = HEROKU_PRODUCTION_APP === 'true'
@@ -45,7 +46,7 @@ console.log({
 purgeRenderedPageCache()
 
 function purgeRenderedPageCache () {
-  const redisClient = createClient({
+  const redisClient = createRedisClient({
     url: REDIS_URL,
     db: pageCacheDatabaseNumber
   })
@@ -143,7 +144,7 @@ function purgeRenderedPageCache () {
     const pexpireAtPipeline = redisClient.batch()
 
     keys.forEach((key, i) => {
-      // Only operate on -1 result values or those greater than ONE_HOUR_FROM_NOW
+      // Only operate on -1 values or those later than our desired expiration timestamp
       const pttl = pttlResults[i]
       // A TTL of -1 means the entry was not configured with any TTL (expiration)
       // currently and will remain as a permanent entry unless a TTL is added

@@ -4,9 +4,9 @@
 認証を
 {% data variables.product.prodname_actions %}のワークフローで行うには:
 - パッケージレジストリの場合(`PACKAGE-REGISTRY.pkg.github.com`)は、`GITHUB_TOKEN`を利用できます。
-- For the container registry (`ghcr.io/OWNER/IMAGE-NAME`), you can use a `GITHUB_TOKEN` or a personal access token. We strongly recommend you use a `GITHUB_TOKEN` to avoid unncessary access to your repositories.
+- コンテナレジストリ（`ghcr.io/OWNER/IMAGE-NAME`）の場合は、`GITHUB_TOKEN`もしくは個人アクセストークンを利用できます。 `GITHUB_TOKEN`を利用し、リポジトリに不要なアクセスをしないようにすることを強くおすすめします。
 
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+{% data variables.product.prodname_actions %}ワークフローで使われる`GITHUB_TOKEN`に関する情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」及び「[ワークフロー内での認証](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
 
 {% else %}
 認証を

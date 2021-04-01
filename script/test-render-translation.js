@@ -1,3 +1,11 @@
+#!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
+//
+// [end-readme]
+
 const renderContent = require('../lib/render-content')
 const loadSiteData = require('../lib/site-data')
 const { loadPages } = require('../lib/pages')

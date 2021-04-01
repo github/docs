@@ -1,1 +1,1 @@
-1. Select the "Repository access" drop-down menu, then click a repository you want to have access to the secret. Repeat for every repository you want to have access to the secret. !["Repository access" drop-down menu](/assets/images/help/settings/codespaces-secret-repository-access-drop-down.png)
+1. 选择“Repository access（仓库访问）”下拉菜单，然后单击要访问该机密的仓库。 对每个您想要访问该机密的仓库重复操作。 !["仓库访问"下拉菜单](/assets/images/help/settings/codespaces-secret-repository-access-drop-down.png)

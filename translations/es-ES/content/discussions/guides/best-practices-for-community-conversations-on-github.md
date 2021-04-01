@@ -35,7 +35,7 @@ Las propuestas son útiles para debatir detalles específicos de un proyecto com
 
 Antes de que abras un debate, verifica si el repositorio tiene lineamientos de contribución. El archivo de CONTRIBUCIÓN incluye información sobre cómo el gustaría al mantenedor del repositorio que colabores con ideas para el proyecto.
 
-Para encontrar más información, visita la sección "[ Configurar tu proyecto para tener contribuciones saludables](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+Para encontrar más información, visita la sección "[ Configurar tu proyecto para tener contribuciones saludables](/communities/setting-up-your-project-for-healthy-contributions)."
 
 ### Pasos siguientes
 
@@ -43,7 +43,7 @@ Para seguir aprendiendo sobre los {% data variables.product.prodname_discussions
 
 ### Leer más
 
-- "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
-- [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderar comentarios y conversaciones](/articles/moderating-comments-and-conversations)"
+- "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
+- [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
 - "[Escribir en {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"
