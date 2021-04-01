@@ -5,6 +5,8 @@ redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
   free-pro-team: '*'
+topics:
+  - early access
 ---
 
 ### {% data variables.product.prodname_dotcom %}'s release cycle

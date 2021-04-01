@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidade
 ---
 
 ### Visualizar detalhes do histórico de edição de um comentário

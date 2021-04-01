@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 ![Propuestas ancladas](/assets/images/help/issues/pinned-issues.png)

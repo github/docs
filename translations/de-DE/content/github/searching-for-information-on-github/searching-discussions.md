@@ -1,8 +1,10 @@
 ---
 title: Searching discussions
-intro: You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.
+intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 versions:
   free-pro-team: '*'
+topics:
+  - github search
 ---
 
 {% data reusables.discussions.beta %}

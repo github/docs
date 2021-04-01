@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Accessing the monitor dashboard

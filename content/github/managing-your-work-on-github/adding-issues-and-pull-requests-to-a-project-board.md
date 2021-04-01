@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 You can add issue or pull request cards to your project board by:

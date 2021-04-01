@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_desktop %} を始める前に、Git と {% data variables.product.prodname_dotcom %} の基本を理解しておくと便利です。 詳しい情報については、次の記事を参照してください。
 
-- 「[Git について学ぶ](/github/using-git/learning-about-git)」
+- "[Using Git](/github/getting-started-with-github/using-git)"
 - 「[{% data variables.product.prodname_dotcom %} について学ぶ](/github/getting-started-with-github/learning-about-github)」
 - 「[{% data variables.product.prodname_dotcom %} を使ってみる](/github/getting-started-with-github)」
 
@@ -47,7 +47,7 @@ versions:
 
 {% mac %}
 
-{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} でのアカウントの接続または削除、デフォルトのテキストエディタやシェルの選択、Git 設定の編集、{% data variables.product.prodname_desktop %} の外観の変更、システムダイアログのカスタマイズ、{% data variables.product.prodname_desktop %} の [Preferences] ウィンドウでのプライバシー設定ができます。 詳しい情報については、「[基本的な設定](/desktop/getting-started-with-github-desktop/configuring-basic-settings)」を参照してください。
+{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} でのアカウントの接続または削除、デフォルトのテキストエディタやシェルの選択、Git 設定の編集、{% data variables.product.prodname_desktop %} の外観の変更、システムダイアログボックスのカスタマイズ、{% data variables.product.prodname_desktop %} の [Preferences] ウィンドウでのプライバシー設定ができます。 詳しい情報については、「[基本的な設定](/desktop/getting-started-with-github-desktop/configuring-basic-settings)」を参照してください。
 
   ![[Preference] ウィンドウの基本設定](/assets/images/help/desktop/mac-appearance-tab-themes.png)
 
@@ -55,7 +55,7 @@ versions:
 
 {% windows %}
 
-{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} でのアカウントの接続または削除、デフォルトのテキストエディタやシェルの選択、Git 設定の編集、{% data variables.product.prodname_desktop %} の外観の変更、システムダイアログのカスタマイズ、{% data variables.product.prodname_desktop %} の [Options] ウィンドウでのプライバシー設定ができます。 詳しい情報については、「[基本的な設定](/desktop/getting-started-with-github-desktop/configuring-basic-settings)」を参照してください。
+{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} でのアカウントの接続または削除、デフォルトのテキストエディタやシェルの選択、Git 設定の編集、{% data variables.product.prodname_desktop %} の外観の変更、システムダイアログボックスのカスタマイズ、{% data variables.product.prodname_desktop %} の [Options] ウィンドウでのプライバシー設定ができます。 詳しい情報については、「[基本的な設定](/desktop/getting-started-with-github-desktop/configuring-basic-settings)」を参照してください。
 
   ![[Options] ウィンドウの基本設定](/assets/images/help/desktop/windows-appearance-tab-themes.png)
 

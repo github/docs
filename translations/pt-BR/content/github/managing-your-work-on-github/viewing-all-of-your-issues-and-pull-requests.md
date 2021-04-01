@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Os painéis de problemas e pull requests estão disponíveis na parte superior de qualquer página. Em cada painel, é possível filtrar a lista para encontrar problemas ou pull requests que você criou, que foram atribuídos a você ou nos quais você foi mencionado. Também é possível encontrar pull requests que você deverá revisar.

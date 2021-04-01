@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### About inviting people to manage your enterprise account

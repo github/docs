@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 
@@ -52,8 +54,3 @@ versions:
     {% link_in_list /viewing-a-wikis-history-of-changes %}
     {% link_in_list /changing-access-permissions-for-wikis %}
     {% link_in_list /disabling-wikis %}
-{% topic_link_in_list /collaborating-with-your-team %}
-    {% link_in_list /about-team-discussions %}
-    {% link_in_list /creating-a-team-discussion %}
-    {% link_in_list /editing-or-deleting-a-team-discussion %}
-    {% link_in_list /pinning-a-team-discussion %}

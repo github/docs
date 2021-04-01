@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Verifique a ortografia
@@ -15,7 +17,7 @@ Erros de digitação acontecem e os nomes dos repositórios diferenciam maiúscu
 
 Para evitar o erro ao clonar, sempre copie e cole a URL clone da página do repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 
-Para atualizar o remote em um repositório existente, consulte "[Alterar o remote da URL](/articles/changing-a-remote-s-url)".
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Verifique as permissões
 

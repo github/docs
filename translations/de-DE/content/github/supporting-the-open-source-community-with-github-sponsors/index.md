@@ -6,6 +6,8 @@ redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 

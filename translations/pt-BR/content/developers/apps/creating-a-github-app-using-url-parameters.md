@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - aplicativos github
 ---
 
 
@@ -14,7 +16,7 @@ versions:
 
 Você pode adicionar parâmetros de consulta a essas URLs para pré-selecionar a configuração de um {% data variables.product.prodname_github_app %} em uma conta pessoal ou de organização:
 * **Conta de usuário:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Conta de organização:** ` {% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 A pessoa que está criando o aplicativo pode editar os valores pré-selecionados a partir da página de registro do {% data variables.product.prodname_github_app %}, antes de enviar o aplicativo. Se você não incluir os parâmetros necessários na string de consulta da URL, como, por exemplo, o `nome`, a pessoa que criar o aplicativo deverá inserir um valor antes de enviar o aplicativo.
 
@@ -80,7 +82,7 @@ Você pode selecionar permissões em uma string de consultas usando o nome da pe
 | [`estrela`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                        | Concede acesso à [API estrelada](/rest/reference/activity#starring). Pode ser: `nenhum`, `leitura` ou `gravação`.                                                                                                                                                                                                     |
 | [`Status`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                         | Concede acesso à [API de status](/rest/reference/repos#statuses). Pode ser: `nenhum`, `leitura` ou `gravação`.                                                                                                                                                                                                        |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | Concede acesso à [API de discussões de equipe](/rest/reference/teams#discussions) e à [API de comentários de discussão de equipe](/rest/reference/teams#discussion-comments). Pode ser: `none`, `read` ou `write`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | Concede acesso a alertas de segurança para dependências vulneráveis em um repositório. Consulte "[Sobre alertas de segurança para dependências vulneráveis](/articles/about-security-alerts-for-vulnerable-dependencies)" para saber mais. Can be one of: `none` or `read`.{% endif %}
+| `vulnerability_alerts`                                                                                                           | Concede acesso a alertas de segurança para dependências vulneráveis em um repositório. See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Pode ser: `none` ou `read`.{% endif %}
 | `inspecionando`                                                                                                                  | Concede acesso à lista e alterações de repositórios que um usuário assinou. Pode ser: `nenhum`, `leitura` ou `gravação`.                                                                                                                                                                                              |
 
 ### Eventos webhook do {% data variables.product.prodname_github_app %}

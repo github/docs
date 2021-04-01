@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
 versions:
   enterprise-server: '*'
+topics:
+  - empresa
 ---
 
 ### Acerca de la Seguridad de la capa de transporte

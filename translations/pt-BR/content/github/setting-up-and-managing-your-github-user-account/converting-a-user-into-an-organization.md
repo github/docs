@@ -8,6 +8,8 @@ intro: Você pode converter sua conta de usuário em uma organização. Isso per
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - contas
 ---
 
 {% warning %}

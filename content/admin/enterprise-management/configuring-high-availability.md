@@ -10,5 +10,7 @@ intro: '{% data variables.product.prodname_ghe_server %} supports a high availab
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 

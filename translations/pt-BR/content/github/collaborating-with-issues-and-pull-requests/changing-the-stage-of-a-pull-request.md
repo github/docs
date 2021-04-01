@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Marcando uma pull request como pronta para revisão

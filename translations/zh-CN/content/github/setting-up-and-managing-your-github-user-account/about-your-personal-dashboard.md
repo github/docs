@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
 ---
 
 ### 访问个人仪表板

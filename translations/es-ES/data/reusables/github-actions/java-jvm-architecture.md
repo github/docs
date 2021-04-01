@@ -5,7 +5,7 @@ La plantilla inicial de flujo de trabajo configura el `PATH` para que contenga O
 Por ejemplo, para utilizar la versión 9.0.4 del JDK para una plataforma x64, puedes utilizar la acción `setup-java` y configurar los parámetros `java-version` y `architecture` en `'9.0.4'` y `x64`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 9.0.4 for x64

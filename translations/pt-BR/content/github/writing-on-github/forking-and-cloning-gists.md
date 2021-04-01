@@ -11,7 +11,7 @@ versions:
 
 ### Bifurcar gists
 
-Cada gist indica quais bifurcações possuem atividade, o que facilita a localização de modificações interessantes feitas por colegas de trabalho ou pessoas desconhecidas.
+Cada gist indica quais bifurcações têm atividade, facilitando o processo de encontrar mudanças interessantes de outros.
 
 ![Bifurcações gist](/assets/images/help/gist/gist_forks.png)
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Quando você fecha um quadro de projeto, todas as automações de fluxo de trabalho configuradas para o quadro de projeto são pausadas por padrão. Para obter mais informações, consulte "[Fechar um quadro de projeto](/articles/closing-a-project-board)".

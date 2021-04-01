@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}

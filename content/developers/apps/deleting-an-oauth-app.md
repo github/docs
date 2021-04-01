@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% data reusables.user-settings.access_settings %}

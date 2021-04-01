@@ -9,5 +9,7 @@ redirect_from:
   - /articles/encouraging-positive-contributions-to-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 

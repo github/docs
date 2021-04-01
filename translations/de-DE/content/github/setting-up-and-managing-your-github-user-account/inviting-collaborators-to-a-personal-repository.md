@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - accounts
+  - repositorys
 ---
 
 Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffsberechtigungen gewähren. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.product_name %}](/articles/access-permissions-on-github).“

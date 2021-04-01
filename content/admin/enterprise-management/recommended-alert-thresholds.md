@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Monitoring storage

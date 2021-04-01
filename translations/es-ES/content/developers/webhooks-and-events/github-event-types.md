@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - events
 ---
 
 
@@ -51,7 +53,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +164,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Objeto de `payload` del evento
 
 Este evento devuelve un objeto de `payload` vacío.
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -204,12 +206,12 @@ Este evento devuelve un objeto de `payload` vacío.
 | `size`                     | `número`    | La cantidad de confirmaciones de la carga.                                                                                                                                                                                                                                                                                                                                           |
 | `distinct_size`            | `número`    | La cantidad de confimraciones distintas para la carga.                                                                                                                                                                                                                                                                                                                               |
 | `ref`                      | `secuencia` | Toda la [`git ref`](/rest/reference/git#refs) que se cargó. Ejemplo: `refs/heads/main`.                                                                                                                                                                                                                                                                                              |
-| `head`                     | `secuencia` | El SHA de la confirmación más reciente en `ref` después de la carga.                                                                                                                                                                                                                                                                                                                 |
+| `encabezado`               | `secuencia` | El SHA de la confirmación más reciente en `ref` después de la carga.                                                                                                                                                                                                                                                                                                                 |
 | `before`                   | `secuencia` | El SHA de la confirmación más reciente en `ref` antes de la carga.                                                                                                                                                                                                                                                                                                                   |
 | `commits`                  | `arreglo`   | Un conjunto de objetos de confirmación que describen las confirmaciones subidas. (El conjunto incluye un máximo de 20 confirmaciones. De ser encesario, puedes utilizar la [API de confirmaciones](/rest/reference/repos#commits) para recuperar confirmaciones adicionales. Este límite se aplica a los eventos cronológicos únicamente y no se aplica a las entregas de webhooks). |
 | `commits[][sha]`           | `secuencia` | El SHA de la confirmación.                                                                                                                                                                                                                                                                                                                                                           |
 | `commits[][message]`       | `secuencia` | El mensaje de la confirmación.                                                                                                                                                                                                                                                                                                                                                       |
-| `commits[][author]`        | `object`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                  |
+| `commits[][author]`        | `objeto`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                  |
 | `commits[][author][name]`  | `secuencia` | El nombre del autor de git.                                                                                                                                                                                                                                                                                                                                                          |
 | `commits[][author][email]` | `secuencia` | La dirección de correo electrónico del autor de git.                                                                                                                                                                                                                                                                                                                                 |
 | `commits[][url]`           | `url`       | URL que apunta al recurso de la API de la confirmación.                                                                                                                                                                                                                                                                                                                              |

@@ -1,5 +1,5 @@
-* Access to your organization or repository settings
-* Changes in permissions
-* Added or removed users in an organization, repository, or team
-* Users being promoted to admin
-* Changes to permissions of a {% data variables.product.prodname_github_app %}
+* Organizationもしくはリポジトリ設定へのアクセス
+* 権限の変更
+* Organization、リポジトリ、Teamへのユーザの追加もしくは削除
+* 管理者に昇格したユーザ
+* {% data variables.product.prodname_github_app %}の権限の変更

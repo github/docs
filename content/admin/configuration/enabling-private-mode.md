@@ -9,6 +9,8 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-private-mode
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 You must enable private mode if {% data variables.product.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories over `git://`. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see "[Using built-in authentication](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)."

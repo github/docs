@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Para que aparezca un evento cronológico "marcado como duplicado", el usuario que crea el comentario de referencia duplicado debe tener acceso de escritura al repositorio donde crea el comentario.

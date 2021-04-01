@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-oauth-app-access-restrictions
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Wenn {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen aktiviert sind, können Organisationsmitglieder den {% data variables.product.prodname_oauth_app %}-Zugriff auf Organisationsressourcen nicht autorisieren. Organisationsmitglieder können die Genehmigung des Inhabers für {% data variables.product.prodname_oauth_app %}s beantragen, die sie verwenden möchten, und Organisationsinhaber erhalten eine Benachrichtigung über ausstehende Anfragen.

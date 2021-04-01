@@ -4,6 +4,9 @@ intro: '您可以管理 {% data variables.product.prodname_dotcom %} 是否将�
 permissions: '拥有公共仓库管理员权限的人可以选择加入或退出 {% data variables.product.prodname_archive %}。'
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 {% data reusables.repositories.about-github-archive-program %} 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。

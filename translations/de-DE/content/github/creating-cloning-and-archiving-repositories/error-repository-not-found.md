@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 ### Schreibweise überprüfen
@@ -15,7 +17,7 @@ Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die G
 
 Um diesen Fehler beim Klonen zu verhindern, solltest Du die Klon-URL immer von der Repository-Seite kopieren und einfügen. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
-Informationen zum Aktualisieren des Remote eines bestehenden Repositorys findest Du unter „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url)“.
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Berechtigungen überprüfen
 

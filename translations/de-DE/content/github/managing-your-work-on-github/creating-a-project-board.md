@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}

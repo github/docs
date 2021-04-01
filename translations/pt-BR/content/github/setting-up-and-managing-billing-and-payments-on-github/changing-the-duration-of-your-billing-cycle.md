@@ -8,6 +8,8 @@ redirect_from:
   - /articles/changing-the-duration-of-your-billing-cycle
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 Quando você altera a duração do ciclo de cobrança, sua assinatura do {% data variables.product.prodname_dotcom %}, em conjunto com outros recursos e produtos pagos, são movidos para o novo ciclo de cobrança na próxima data de cobrança.

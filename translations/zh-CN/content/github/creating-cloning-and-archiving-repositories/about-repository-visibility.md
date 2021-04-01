@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 ### 关于仓库可见性

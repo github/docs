@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 A checklist do perfil de comunidade verifica se um projeto inclui arquivos recomendados de integridade da comunidade, como README, CODE_OF_CONDUCT, LICENSE ou CONTRIBUTING em um local compatível. Para obter mais informações, consulte "[Acessar perfil de comunidade de um projeto](/articles/accessing-a-project-s-community-profile)".

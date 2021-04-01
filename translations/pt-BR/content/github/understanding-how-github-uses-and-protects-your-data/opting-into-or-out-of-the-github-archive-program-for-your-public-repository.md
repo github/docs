@@ -4,6 +4,9 @@ intro: 'Você pode gerenciar se {% data variables.product.prodname_dotcom %} inc
 permissions: 'Pessoas com permissões de administrador para um repositório público podem entrar ou sair do {% data variables.product.prodname_archive %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} Para mais informações, consulte "[Sobre arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."

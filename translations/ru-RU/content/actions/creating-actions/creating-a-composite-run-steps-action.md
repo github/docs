@@ -5,11 +5,15 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'руководство'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -65,12 +69,12 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -122,7 +126,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

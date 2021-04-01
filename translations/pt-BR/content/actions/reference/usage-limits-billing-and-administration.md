@@ -7,10 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - cobrança
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre a cobrança do {% data variables.product.prodname_actions %}
 
@@ -18,7 +22,7 @@ versions:
 {% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)".
 {% else %}
 O uso do GitHub Actions é grátis para
-{% data variables.product.prodname_ghe_server %} que usam executores auto-hospedados.
+{% data variables.product.prodname_ghe_server %}s que usam executores auto-hospedados.
 {% endif %}
 
 ### Limites de uso
@@ -56,7 +60,7 @@ Além dos limites de uso, você deve garantir que você usa
 {% data variables.product.prodname_actions %} dentro dos [Termos de Serviço do GitHub](/articles/github-terms-of-service/). Para obter mais informações sobre termos específicos de {% data variables.product.prodname_actions %}, consulte os [Termos adicionais do produto do GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Artefato e política de retenção de registro
 
 É possível configurar o artefato e o período de retenção de registro para o seu repositório, organização ou conta corporativa.
@@ -79,7 +83,7 @@ Para obter mais informações, consulte:
 - "[Desabilitar ou limitar {% data variables.product.prodname_actions %} para a sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Aplicar as políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" para {% data variables.product.prodname_ghe_cloud %}{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Desabilitar e habilitar fluxos de trabalho
 
 Você pode habilitar e desabilitar os fluxos de trabalho individuais no seu repositório em {% data variables.product.prodname_dotcom %}.

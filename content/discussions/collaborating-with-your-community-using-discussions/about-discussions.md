@@ -50,5 +50,5 @@ You can share your feedback about {% data variables.product.prodname_discussions
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
 - "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderating comments and conversations](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

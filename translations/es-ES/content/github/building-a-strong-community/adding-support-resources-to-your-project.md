@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 Para dirigir a las personas hasta recursos de soporte específicos, puedes agregar un archivo de SOPORTE a tu raíz de repositorio, `docs` (documentos), o carpeta `.github`. Cuando alguien crea una propuesta en tu repositorio, verá un enlace en el archivo de SOPORTE de tu proyecto.

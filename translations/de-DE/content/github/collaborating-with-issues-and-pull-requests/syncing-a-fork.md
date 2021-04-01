@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst, musst Du in Git [ein Remote-Repository konfigurieren, das auf das vorgelagerte Repository verweist](/articles/configuring-a-remote-for-a-fork).
@@ -49,6 +51,6 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
 
 {% tip %}
 
-**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. Für eine Aktualisierung Ihres Forks auf {% data variables.product.product_location %} müssen Sie [Ihre Änderungen per Push übertragen](/articles/pushing-commits-to-a-remote-repository/).
+**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

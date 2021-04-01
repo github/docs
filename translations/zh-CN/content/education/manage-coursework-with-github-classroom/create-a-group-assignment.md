@@ -84,7 +84,7 @@ redirect_from:
 
 #### 选择模板仓库
 
-默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %} 有关模板仓库的更多信息，请参阅“[创建模板仓库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)”。
+默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -132,7 +132,7 @@ redirect_from:
 
 ### 后续步骤
 
-- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[管理合并冲突](https://lab.github.com/githubtraining/managing-merge-conflicts)课程。
+- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[管理合并冲突](https://lab.github.com/githubtraining/managing-merge-conflicts)课程。
 
 - 当团队完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解团队如何协作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 
@@ -140,6 +140,6 @@ redirect_from:
 
 ### 延伸阅读
 
-- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)"
+- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - {% data variables.product.prodname_education %} 社区中的[在小组作业中使用现有团队吗？](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)

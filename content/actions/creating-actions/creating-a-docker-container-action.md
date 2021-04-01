@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'tutorial'
 topics:
   - 'Action development'
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -32,9 +34,13 @@ Once you complete this project, you should understand how to build your own Dock
 You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
 
 - "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
+{% if currentVersion == "github-ae@latest" %}
+- "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+{% else %} 
 - "[Virtual environments for {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+{% endif %}
 
-Before you begin, you'll need to create a GitHub repository.
+Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
 
 1. Create a new repository on {% data variables.product.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
@@ -229,9 +235,9 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 {% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run.png)

@@ -10,8 +10,7 @@ module.exports = async function getOperations (schema) {
   for (const [requestPath, operationsAtPath] of Object.entries(schema.paths)) {
     for (const [verb, props] of Object.entries(operationsAtPath)) {
       const serverUrl = schema.servers[0].url
-        .replace('{protocol}', 'https')
-        .replace('{hostname}', 'api.github.com')
+        .replace('{protocol}', 'http(s)')
       const operation = new Operation(verb, requestPath, props, serverUrl)
       operations.push(operation)
     }

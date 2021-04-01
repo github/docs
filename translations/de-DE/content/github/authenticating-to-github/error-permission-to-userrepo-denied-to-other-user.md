@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 Um dieses Problem zu beheben, muss der Inhaber des Repositorys (`user`) Dein Konto (`other-user`) als Mitarbeiter zum Repository oder zu einem Team mit Schreibzugriff auf das Repository hinzufügen.

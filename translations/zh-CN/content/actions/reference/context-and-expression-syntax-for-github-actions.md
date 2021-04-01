@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的上下文和表达式语法
+title: GitHub Actions 的上下文和表达式语法
 shortTitle: 上下文和表达式语法
 intro: 您可以访问上下文信息并对工作流程和操作中的表达式求值。
 product: '{% data reusables.gated-features.actions %}'
@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于上下文和表达式
 
@@ -75,7 +77,7 @@ env:
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
 
-#### Determining when to use contexts
+#### 确定何时使用上下文
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 
@@ -111,7 +113,7 @@ env:
 
 `env` 上下文包含已在工作流程、作业或步骤中设置的环境变量。 有关在工作流程中设置环境变量的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)”。
 
-`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
+`env` 上下文语法允许您在工作流程文件中使用环境变量的值。 您可以在**步骤**的任何键值中使用 `env` 上下文，但 `id` 和 `uses` 键除外。 有关步骤语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
 
 如果您想要在运行器中使用环境变量的值，请使用运行器操作系统的正常方法来读取环境变量。
 
@@ -152,11 +154,12 @@ env:
 
 `runner` 上下文包含正在执行当前作业的运行器相关信息。
 
-| 属性名称                | 类型    | 描述                                                                                                                                                                                                                    |
-| ------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `字符串` | 执行作业的运行器的操作系统。 可能的值为 `Linux`、`Windows` 或 `macOS`。                                                                                                                                                                     |
-| `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                                                          |
-| `runner.tool_cache` | `字符串` | 包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 |
+| 属性名称                | 类型    | 描述                                                                                                                                                                                     |
+| ------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `字符串` | 执行作业的运行器的操作系统。 可能的值为 `Linux`、`Windows` 或 `macOS`。                                                                                                                                      |
+| `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                           |
+| `runner.tool_cache` | `字符串` | {% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。 |
+{% else %}包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 {% endif %}
 
 #### `needs` 上下文
 
@@ -186,27 +189,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -259,13 +262,13 @@ env:
 
 * 如果类型不匹配，{% data variables.product.prodname_dotcom %} 强制转换类型为数字。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为数字：
 
-  | 类型      | 结果                                                      |
-  | ------- | ------------------------------------------------------- |
-  | Null    | `0`                                                     |
-  | Boolean | `true` 返回 `1` <br /> `false` 返回 `0`               |
-  | 字符串     | 从任何合法 JSON 数字格式剖析，否则为 `NaN`。 <br /> 注：空字符串返回 `0`。 |
-  | Array   | `NaN`                                                   |
-  | Object  | `NaN`                                                   |
+  | 类型   | 结果                                                      |
+  | ---- | ------------------------------------------------------- |
+  | Null | `0`                                                     |
+  | 布尔值  | `true` 返回 `1` <br /> `false` 返回 `0`               |
+  | 字符串  | 从任何合法 JSON 数字格式剖析，否则为 `NaN`。 <br /> 注：空字符串返回 `0`。 |
+  | 数组   | `NaN`                                                   |
+  | 对象   | `NaN`                                                   |
 * 一个 `NaN` 与另一个 `NaN` 的比较不会产生 `true`。 更多信息请参阅“[NaN Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)”。
 * {% data variables.product.prodname_dotcom %} 在比较字符串时忽略大小写。
 * 对象和数组仅在为同一实例时才视为相等。
@@ -274,13 +277,13 @@ env:
 
 {% data variables.product.prodname_dotcom %} 提供一组内置的函数，可用于表达式。 有些函数抛出值到字符串以进行比较。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为字符串：
 
-| 类型      | 结果                   |
-| ------- | -------------------- |
-| Null    | `''`                 |
-| Boolean | `'true'` 或 `'false'` |
-| Number  | 十进制格式，对大数字使用指数       |
-| Array   | 数组不转换为字符串            |
-| Object  | 对象不转换为字符串            |
+| 类型   | 结果                   |
+| ---- | -------------------- |
+| Null | `''`                 |
+| 布尔值  | `'true'` 或 `'false'` |
+| 数字   | 十进制格式，对大数字使用指数       |
+| 数组   | 数组不转换为字符串            |
+| 对象   | 对象不转换为字符串            |
 
 #### contains
 
@@ -348,7 +351,7 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 `join(github.event.issue.labels.*.name, ', ')` 可能返回 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -358,13 +361,13 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 `toJSON(job)` 可能返回 `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-返回 `value` 的 JSON 对象。 您可以使用此函数提供 JSON 对象作为评估的表达式。
+返回 `value` 的 JSON 对象或 JSON 数据类型。 您可以使用此函数来提供 JSON 对象作为评估表达式或从字符串转换环境变量。
 
-##### 示例
+##### 返回 JSON 对象的示例
 
 此工作流程在一个作业中设置 JSON矩阵，并使用输出和 `fromJSON` 将其传递到下一个作业。
 
@@ -384,9 +387,30 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
     - run: build
+```
+{% endraw %}
+
+##### 返回 JSON 数据类型的示例
+
+此工作流程使用 `fromJSON` 将环境变量从字符串转换为布尔值或整数。
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - continue-on-error: ${{ fromJSON(env.continue) }}
+      timeout-minutes: ${{ fromJSON(env.time) }}
+      run: echo ...
 ```
 {% endraw %}
 

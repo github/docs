@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于保持组织的所有权连续性

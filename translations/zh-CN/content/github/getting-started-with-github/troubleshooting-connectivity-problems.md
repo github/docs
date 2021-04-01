@@ -21,7 +21,7 @@ versions:
 ### 验证码故障排除
 
 如果您无法使用验证码进行验证：
-- 确保您的浏览器中已启用 javascript。
+- 确保您的浏览器中已启用 JavaScript。
 - 确保您的浏览器受支持。 如果浏览器不受支持，请升级您的浏览器或安装支持的浏览器。 有关支持的浏览器列表，请参阅“[支持的浏览器](/articles/supported-browsers)”。
 - 确保您的网络配置没有阻止 https://octocaptcha.com/ 或 https://arkoselabs.com/。 如果您位于公司防火墙背后，请与 IT 管理员联系以允许这些域。 要验证域对这些域的访问权限，请访问 https://octocaptcha.com/test 并确保显示“Connection successfully made!（连接成功！）”文本，然后访问 https://client-demo.arkoselabs.com/github 并确保您能够加载验证码。
 - 确保您的浏览器没有可能会干扰 GitHub 的插件或扩展。 如果有，请在验证码进行验证期间暂时禁用该插件或扩展。

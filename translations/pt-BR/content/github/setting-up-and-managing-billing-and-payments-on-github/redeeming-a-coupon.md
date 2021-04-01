@@ -8,6 +8,8 @@ redirect_from:
   - /articles/redeeming-a-coupon
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 O {% data variables.product.product_name %} não poderá efetuar um reembolso se uma conta for paga antes da aplicação de um cupom. Também não poderemos transferir um cupom resgatado ou fornecer um novo cupom se você aplicar o cupom na conta errada. Verifique se você está aplicando o cupom na conta correta antes de resgatá-lo.

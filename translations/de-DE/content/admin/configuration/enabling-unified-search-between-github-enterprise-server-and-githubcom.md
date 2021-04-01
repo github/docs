@@ -10,6 +10,8 @@ redirect_from:
 permissions: 'Website-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber einer Organisation oder eines Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können vereinheitlichte Suche zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_dotcom_the_website %} aktivieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 Wenn Sie die gemeinsame Suche aktivieren, können Benutzer Suchergebnisse von öffentlichen und privaten Inhalten auf {% data variables.product.prodname_dotcom_the_website %} anzeigen, wenn sie auf {% data variables.product.product_location_enterprise %} suchen.

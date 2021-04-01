@@ -3,6 +3,8 @@ title: Deine Sponsoring-Ziele verwalten
 intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Über Sponsoring-Ziele

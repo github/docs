@@ -4,6 +4,9 @@ intro: You can manage the email address that receives updates from accounts your
 versions:
   free-pro-team: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %} 

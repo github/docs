@@ -17,6 +17,8 @@ redirect_from:
   - /articles/downgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - 결제
 ---
 
 ### Downgrading your {% data variables.product.product_name %} subscription

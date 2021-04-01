@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织所有者可以管理组织中仓库的默认标签。

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - web 挂钩
 ---
 
 
@@ -78,6 +80,12 @@ def verify_signature(payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
 end{% endif %}
 ```
+
+{% note %}
+
+**注意：**web 挂钩有效载荷可以包含 unicode 字符。 如果您的语言和服务器实现指定了字符编码，请确保您将有效负载处理为 UTF-8。
+
+{% endnote %}
 
 您的语言和服务器实现可能与此示例代码不同。 但是，需要指出一些非常重要的事情：
 

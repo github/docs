@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}A user or organization can own up to 100 OAuth apps.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}ユーザもしくはOrganizationは、最大で100個のOAuth Appsを所有できます。{% endif %}

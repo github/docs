@@ -7,6 +7,8 @@ redirect_from:
 intro: 'Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% tip %}

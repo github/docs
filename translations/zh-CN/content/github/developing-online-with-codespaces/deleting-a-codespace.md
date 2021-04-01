@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

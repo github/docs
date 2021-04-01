@@ -4,6 +4,6 @@
 
 {% else %}
 
-1. Na barra lateral esquerda, clique em **License**. ![Aba "Licença" na barra lateral de configurações da conta corporativa](/assets/images/enterprise/enterprises/license.png)
+1. Na barra lateral esquerda, clique em **License**. ![Aba "Licença" na barra lateral de configurações da conta corporativa](/assets/images/enterprise/enterprise-server/license.png)
 
 {% endif %}

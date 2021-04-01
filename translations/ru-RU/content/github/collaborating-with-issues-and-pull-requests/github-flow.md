@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### Following the GitHub flow

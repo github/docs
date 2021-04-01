@@ -7,6 +7,8 @@ redirect_from:
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 

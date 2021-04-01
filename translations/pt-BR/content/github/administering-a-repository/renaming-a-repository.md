@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Quando você renomear um repositório, todas as informações existentes, com exceção das URLs do site do projeto, serão automaticamente redirecionadas para o novo nome, incluindo:
@@ -24,7 +26,7 @@ Além do redirecionamento do tráfego da web, todas as operações `git clone`, 
 $ git remote set-url origin <em>new_url</em>
 ```
 
-Para obter mais informações, consulte "[Alterar a URL de um remote](/github/using-git/changing-a-remotes-url)."
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 

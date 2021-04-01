@@ -5,6 +5,8 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 Você pode bloquear um usuário nas configurações da organização ou em um comentário específico feito pelo usuário. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.
@@ -13,14 +15,13 @@ Ao bloquear um usuário, você pode optar por bloqueá-lo indefinidamente ou por
 
 {% tip %}
 
-**Dica:** se for bloquear um usuário por conta de uma conversa acalorada, considere [bloquear a conversa](/articles/locking-conversations) para que apenas colaboradores possam comentar.
+**Dica:** se for bloquear um usuário por conta de uma conversa acalorada, considere bloquear a conversa para que apenas colaboradores possam comentar. Para obter mais informações, consulte "[Bloquear conversas](/github/building-a-strong-community/locking-conversations)".
 
 {% endtip %}
 
 No momento que você bloqueia um usuário da organização:
 - O usuário para de inspecionar os repositórios da sua organização
 - As estrelas e atribuições de problema do usuário são removidas dos repositórios
-- As bifurcações dos repositórios da sua organização são excluídas
 - Os votos do usuário nas discussões ou comentários nos repositórios da sua organização são excluídos
 - O usuário é removido como um colaborador dos repositórios da organização
 - As contribuições do usuário para os repositórios da sua organização não são mais contabilizadas como contribuições para eles

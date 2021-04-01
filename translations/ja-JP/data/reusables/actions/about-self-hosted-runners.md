@@ -1,1 +1,1 @@
-Self-hosted runners allow you to host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.
+セルフホストランナーを使えば、独自のランナーをホストして、{% data variables.product.prodname_actions %}ワークフロー中でジョブの実行に使われる環境をカスタマイズできます。

@@ -8,9 +8,9 @@ permissions: Os proprietários das empresas podem verificar o domínio de uma co
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - enterprise
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### Sobre a verificação do domínio
 

@@ -7,6 +7,8 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - アカウント
 ---
 
 {% tip %}
@@ -16,7 +18,7 @@ versions:
 {% endtip %}
 
 1. 削除するアカウントから、残しておくアカウントに[リポジトリを委譲](/articles/how-to-transfer-a-repository)します。 Issue、プルリクエスト、ウィキも移譲されます。 リポジトリが、残しておくアカウントに存在することを確認します。
-2. 移動したリポジトリにクローンがある場合は、その[リモート URL を更新](/articles/changing-a-remote-s-url) します。
+2. 移動したリポジトリにクローンがある場合は、その[リモート URL を更新](/github/getting-started-with-github/managing-remote-repositories) します。
 3. 使わなくなる[アカウントを削除](/articles/deleting-your-user-account)します。
 
 ### 参考リンク

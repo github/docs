@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - プロフィール
 ---
 
 ### コミットの詳細の表示で想定される動き

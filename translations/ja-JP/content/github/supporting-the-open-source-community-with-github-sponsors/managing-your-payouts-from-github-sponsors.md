@@ -5,6 +5,8 @@ redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### {% data variables.product.prodname_sponsors %} からの支払いについて
@@ -13,7 +15,7 @@ versions:
 
 {% data reusables.sponsors.payout-info %}
 
-### Viewing and editing payout information
+### 支払い情報の表示と編集
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}

@@ -16,7 +16,7 @@ Repl.it 是一个支持多种编程语言的在线集成开发环境 (IDE)。 �
 
 学生第一次单击按钮访问 Repl.it 时，必须使用 {% data variables.product.product_name %} 证书登录 Repl.it。 登录后，学生将有权访问包含作业仓库中代码、在 Repl.it 上完全配置的开发环境。
 
-有关操作 Repl.it 的更多信息，请参阅 [Repl.it 快速入门指南](https://docs.repl.it/misc/quick-start#the-repl-environment)。
+有关操作 Repl.it 的更多信息，请参阅 [Repl.it 快速入门指南](https://docs.repl.it/repls/quick-start#the-repl-environment)。
 
 对于小组作业，学生可以使用 Repl.it Multiplayer 协同工作。 更多信息请参阅 [Repl.it Multiplayer](https://repl.it/site/multiplayer) 网站。
 

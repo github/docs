@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 Esta API solo está disponible para los miembros autenticados de la [organization](/rest/reference/orgs) del equipo. Los tokens de acceso de OAuth requieren el [alcance](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) `read:org`. {% data variables.product.prodname_dotcom %} genera el `slug` del equipo a partir del `name` del mismo.
@@ -16,7 +18,7 @@ Esta API solo está disponible para los miembros autenticados de la [organizatio
 
 ## Debates
 
-La API de debates de equipo te permite obtener, crear, editar y borrar las publicaciones de un debate en la página de un equipo. Puedes utilizar los debates de equipo para sostener conversaciones que no son específicas de un repositorio o proyecto. Cualquier miembro de la [organización](/rest/reference/orgs) del equipo puede crear y leer las publicaciones de debates públicos. La API de debates de equipo te permite obtener, crear, editar y borrar las publicaciones de un debate en la página de un equipo. Para aprender más sobre cómo comentar en una publicación de debate, consulta la [API de comentarios para debates de equipo](/rest/reference/teams#discussion-comments). Esta API solo está disponible para los miembros autenticados de la organization del equipo.
+La API de debates de equipo te permite obtener, crear, editar y borrar las publicaciones de un debate en la página de un equipo. Puedes utilizar los debates de equipo para sostener conversaciones que no son específicas de un repositorio o proyecto. Cualquier miembro de la [organización](/rest/reference/orgs) del equipo puede crear y leer las publicaciones de debates públicos. Para obtener más detalles, consulta la sección "[Acerca de los debates de equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)". Para aprender más sobre cómo comentar en una publicación de debate, consulta la [API de comentarios para debates de equipo](/rest/reference/teams#discussion-comments). Esta API solo está disponible para los miembros autenticados de la organization del equipo.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
@@ -24,7 +26,7 @@ La API de debates de equipo te permite obtener, crear, editar y borrar las publi
 
 ## Comentarios de debate
 
-La API de comentarios para debates de equipo te permite obtener, crear, editar y borrar los comentarios del debate en una publicación de un [debate de equipo](/rest/reference/teams#discussions). Cualquier miembro de la [organización](/rest/reference/orgs) del equipo puede crear y leer los comentarios de un debate público. La API de debates de equipo te permite obtener, crear, editar y borrar las publicaciones de un debate en la página de un equipo. Esta API solo está disponible para los miembros autenticados de la organization del equipo.
+La API de comentarios para debates de equipo te permite obtener, crear, editar y borrar los comentarios del debate en una publicación de un [debate de equipo](/rest/reference/teams#discussions). Cualquier miembro de la [organización](/rest/reference/orgs) del equipo puede crear y leer los comentarios de un debate público. Para obtener más detalles, consulta la sección "[Acerca de los debates de equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)". Esta API solo está disponible para los miembros autenticados de la organization del equipo.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}

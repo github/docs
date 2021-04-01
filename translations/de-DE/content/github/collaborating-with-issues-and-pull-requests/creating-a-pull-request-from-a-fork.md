@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Du kannst den Betreuern des vorgelagerten Repository auch die Berechtigung geben, Commits zu einem benutzereigenen Fork zu übertragen. Wenn Dein Pull Request Deinen Themen-Branch mit einem Branch im vorgelagerten Repository als Basis-Branch vergleicht, wird Dein Themen-Branch auch als Vergleichs-Branch des Pull Requests bezeichnet. Weitere Informationen über Pull-Request-Branches sowie Beispiele dazu findest du unter „[Einen Pull Request erstellen](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."

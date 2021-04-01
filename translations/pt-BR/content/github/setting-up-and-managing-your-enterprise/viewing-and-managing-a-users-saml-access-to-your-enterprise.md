@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre o acesso de SAML à sua conta corporativa
@@ -17,6 +19,8 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 ### Visualizar e revogar uma identidade vinculada
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

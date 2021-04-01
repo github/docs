@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Die Zwei-Faktor-Authentifizierung (2FA) bietet die grundlegende Authentifizierung für Organisationsmitglieder. Durch die Aktivierung der Zwei-Faktor-Authentifizierung begrenzen Organisationsadministratoren die Wahrscheinlichkeit, dass das {% data variables.product.product_name %}-Konto eines Mitglieds kompromittiert werden könnte. Weitere Informationen zur Zwei-Faktor-Authentifizierung findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication).“

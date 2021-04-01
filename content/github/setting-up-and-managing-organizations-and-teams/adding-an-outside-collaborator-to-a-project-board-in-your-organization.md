@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 An outside collaborator is a person who isn't explicitly a member of your organization, but who has permissions to a project board in your organization.

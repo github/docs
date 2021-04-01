@@ -7,9 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
-For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+必須レビューに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。
 
 プルリクエストにコメントしたり、変更を承認したり、承認に先立って改善をリクエストしたりできます。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
 

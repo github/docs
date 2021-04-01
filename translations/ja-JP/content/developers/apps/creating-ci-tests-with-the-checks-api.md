@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
 ### はじめに
 
-このガイドでは、[Github App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
+このガイドでは、[GitHub App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
 
 CI とは、ソフトウェアの開発においてコードを頻繁に共有リポジトリにコミットする手法のことです。 コードをコミットする頻度が高いほどエラーの発生が早くなり、開発者がエラーの原因を見つけようとしてデバッグする必要性も減ります。 コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 コードの記述により多くの時間をかけられるようになり、エラーのデバッグやマージコンフリクトの解決にかける時間が減るので、これは開発者にとって素晴らしいやり方です。 🙌
 
@@ -24,7 +26,7 @@ CI サーバーは、コードの文法チェッカー (スタイルフォーマ
 
 [Checks API](/rest/reference/checks) を使用すると、リポジトリでコミットされている各コードに対して自動的に実行される CI テストを設定できます。 Checks API は、プルリクエストの [**Checks**] タブにおいて、各チェックについての詳細情報をレポートします。 Checks API を使用すると、コードの特定の行に対して追加的な情報を含むアノテーションを作成できます。 アノテーションは [**Checks**] タブに表示されます。 プルリクエストの一部であるファイルに対してアノテーションを作成すると、そのアノテーションは [**Files changed**] タブにも表示されます。
 
-_チェックスイート_とは、 _チェック実行_ (個々の CI テスト) をグループ化したものです。 チェックスイートにもチェック実行にも_ステータス_が含まれており、GitHub のプルリクエストで表示できます。 ステータスを使用して、コードコミットがエラーを発生させるタイミングを決定できます。 これらのステータスを[保護されたブランチ](/rest/reference/repos#branches)で使用すると、プルリクエストを早まってマージすることを防げます。 See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+_チェックスイート_とは、 _チェック実行_ (個々の CI テスト) をグループ化したものです。 チェックスイートにもチェック実行にも_ステータス_が含まれており、GitHub のプルリクエストで表示できます。 ステータスを使用して、コードコミットがエラーを発生させるタイミングを決定できます。 これらのステータスを[保護されたブランチ](/rest/reference/repos#branches)で使用すると、プルリクエストを早まってマージすることを防げます。 詳細は「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)」を参照してください。
 
 Checks API は、新しいコードがリポジトリにプッシュされるたびに、リポジトリにインストールされている全ての GitHub App に [`check_suite` webhook イベント](/webhooks/event-payloads/#check_suite)を送信します。 Checks API イベントの全てのアクションを受信するには、アプリケーションに `checks:write` 権限が必要です。 GitHub はデフォルトのフローを使ってリポジトリの新しいコードのコミットに `check_suite` イベントを自動的に作成しますが、[チェックスイートのためのリポジトリプリファレンスの更新](/rest/reference/checks#update-repository-preferences-for-check-suites)を行っても構いません。 デフォルトのフローは以下の通りです。
 
@@ -49,7 +51,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 ### 必要な環境
 
-以下の作業に取りかかる前に、[Github Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、ある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
+[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
 
 [Ruby プログラミング言語](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) webhook ペイロード配信サービス、GitHub REST API 用の [Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)、および [Sinatra ウェブフレームワーク](http://sinatrarb.com/) を使用して、Checks API CI サーバーアプリケーションを作成します。
 
@@ -203,7 +205,7 @@ $ ruby template_server.rb
 
 ### ステップ 1.4. チェック実行を更新する
 
-`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 Github がチェック実行の作成を完了すると、`created` アクションの `check_run` webhook イベントを受信します。 このイベントは、チェックの実行を開始する合図です。
+`create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 GitHub がチェック実行の作成を完了すると、`created` アクションの `check_run` webhook イベントを受信します。 このイベントは、チェックの実行を開始する合図です。
 
 イベントハンドラーを更新し、`created` アクションを待ち受けるようにしましょう。 イベントハンドラーを更新する際、`rerequested` アクションに条件を追加できます。 誰かが [Re-run] ボタンをクリックして GitHub 上で単一のテストを再実行すると、GitHub はアプリケーションに `rerequested` チェック実行イベントを送信します。 チェック実行が `rerequested` の場合、すべてのプロセスを開始し、新しいチェック実行を作成します。
 
@@ -435,7 +437,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 ### ステップ 2.3. RuboCop を実行する
 
-これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 それではいよいよ [RuboCop 文法チェッカー](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) と [Checks API アノテーション](/rest/reference/checks#create-a-check-run)の核心に迫ります。
+これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 それではいよいよ [RuboCop 文法チェッカー](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) と [Checks API アノテーション](/rest/reference/checks#create-a-check-run)の核心に迫ります。
 
 次のコードは、RuboCop を実行し、スタイル コード エラーを JSON フォーマットで保存します。 [前のステップ](#step-22-cloning-the-repository) で追加した`clone_repository` への呼び出しの下と、チェック実行を更新するコードの上に追加して完了です。
 
@@ -447,7 +449,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 JSON フォーマットの詳細および例については、[RuboCop ドキュメント](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter)を参照してください。
+上記のコードは、リポジトリのディレクトリにある全てのファイルで RuboCop を実行します。 `--format json` のオプションは、文法チェックの結果のコピーをコンピューターで読みとることができるフォーマットで保存する便利な方法です。 JSON フォーマットの詳細および例については、[RuboCop ドキュメント](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)を参照してください。
 
 このコードは RuboCop の結果を `@report` 変数に格納するため、リポジトリのチェックアウトを安全に削除できます。 また、このコードは JSON も解析するため、`@output` 変数を使用して GitHub App のキーと変数に簡単にアクセスできます。
 
@@ -588,7 +590,7 @@ end
 
 `offense_count` が 0 の場合、CI テストは `success` となります。 エラーがある場合、このコードは結果を `neutral` に設定します。これは、コードの文法チェッカーによるエラーを厳格に強制することを防ぐためです。 ただし、文法エラーがある場合にチェックスイートが失敗になるようにしたい場合は、結果を `failure` に変更できます。
 
-エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 さらに細かく、[RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/) の各タイプに特定の警告レベルを設定することもできますが、このクイックスタートでは簡単さを優先し、すべてのエラーを `notice` のレベルに設定します。
+エラーが報告されると、上記のコードは ReboCop レポートの `files` 配列を反復処理します。 コードは各ファイルにおいてファイルパスを抽出し、アノテーションレベルを `notice` に設定します。 さらに細かく、[RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html) の各タイプに特定の警告レベルを設定することもできますが、このクイックスタートでは簡単さを優先し、すべてのエラーを `notice` のレベルに設定します。
 
 このコードはまた、`offenses` 配列の各エラーを反復処理し、違反の場所とエラー メッセージを収集します。 必要な情報を抽出後、コードは各エラーに対してアノテーションを作成し、それを `annotations` 配列に格納します。 アノテーションは同一行の開始列と終了列のみをサポートしているため、開始行と終了行の値が同じである場合にのみ `annotation` オブジェクトに `start_column` と `end_column` が追加されます。
 
@@ -718,13 +720,13 @@ $ ruby template_server.rb
 
 ここまで来たのはすごいですよ！ 👏 あなたはもう CI テストを作成しました。 このセクションでは、もう 1 つの機能を追加します。RuboCop を使用して、見つけたエラーを自動的に修正するために使用するための機能です。 すでに[前のセクション](#step-25-updating-the-check-run-with-ci-test-results)で、[Fix this] ボタンを追加しました。 ここでは、ユーザが [Fix this] ボタンをクリックしたときにトリガーされる、`requested_action` チェック実行イベントを処理するコードを追加します。
 
-RuboCop ツールには、見つけたエラーを自動的に修正する `--auto-correct` コマンドラインオプションの [機能](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) があります。 `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
+RuboCop ツールには、見つけたエラーを自動的に修正する `--auto-correct` コマンドラインオプションの [機能](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) があります。 `--auto-correct` 機能を使用すると、サーバー上のローカルファイルに更新が適用されます。 RuboCop がこの作業をやってのけた後は、その変更を GitHub にプッシュする必要があります。
 
 リポジトリにブッシュするには、アプリケーションに [Repository contents] への書き込み権限が必要です。 この権限については、[ステップ 2.2. リポジトリをクローンする](#step-22-cloning-the-repository)で既に [**Read & write**] に設定しているので、もう準備は整っています。
 
-ファイルをコミットするには、どの[ユーザ名](/articles/setting-your-username-in-git/)と[メールアドレス](/articles/setting-your-commit-email-address-in-git/)をコミットに関連付けるか Git が知っている必要があります。 `.env` ファイルにあと 2 つの環境変数を追加して、名前 (`GITHUB_APP_USER_NAME`) とメールアドレス (`GITHUB_APP_USER_EMAIL`) の設定を保存します。 アプリケーションにはあなたの名前を付けることもできます。この例では、メールアドレスは何でも構いません。 例:
+ファイルをコミットするには、どの[ユーザ名](/github/getting-started-with-github/setting-your-username-in-git/)と[メールアドレス](/articles/setting-your-commit-email-address-in-git/)をコミットに関連付けるか Git が知っている必要があります。 `.env` ファイルにあと 2 つの環境変数を追加して、名前 (`GITHUB_APP_USER_NAME`) とメールアドレス (`GITHUB_APP_USER_EMAIL`) の設定を保存します。 アプリケーションにはあなたの名前を付けることもできます。この例では、メールアドレスは何でも構いません。 例:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

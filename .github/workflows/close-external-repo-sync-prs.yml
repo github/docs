@@ -1,0 +1,65 @@
+name: Check for External Repo Sync PR
+
+# **What it does**: If someone made a repo sync pull request other than Octomerger, close it.
+# **Why we have it**: Another form of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches:
+      - main
+
+jobs:
+  invalid-repo-sync-check:
+    name: Close external Repo Sync PRs
+    if: ${{ github.repository == 'github/docs' && github.head_ref == 'repo-sync' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          script: |
+
+            const prCreator = context.payload.sender.login
+
+            // If the PR creator is the expected account, stop now
+            if (prCreator === 'Octomerger') {
+              return
+            }
+
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'employees',
+                username: prCreator
+              })
+
+              // If the PR creator is a GitHub employee, stop now
+              return
+            } catch (err) {
+              // An error will be thrown if the user is not a GitHub employee.
+              // That said, we still want to proceed anyway!
+            }
+
+            const pr = context.payload.pull_request
+            const { owner, repo } = context.repo
+
+            // Close the PR and add the invalid label
+            await github.issues.update({
+              owner: owner,
+              repo: repo,
+              issue_number: pr.number,
+              labels: ['invalid'],
+              state: 'closed'
+            })
+
+            // Comment on the PR
+            await github.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: pr.number,
+              body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+            })

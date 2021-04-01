@@ -15,7 +15,7 @@ versions:
 
 要将更改从一个分支添加到另一个分支，可以合并这些分支。 要从同一仓库中的另一个分支应用更改到您的分支，可以在 {% data variables.product.prodname_desktop %} 上将该分支合并到您的分支。 要请求将分支中的更改合并到网络中同一仓库或不同仓库中的另一个分支，可以在 {% data variables.product.prodname_desktop %} 上创建拉取请求。 更多信息请参阅“[将另一个分支合并到您的项目分支](#merging-another-branch-into-your-project-branch)”和“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 
-有些工作流程需要或受益于变基而不是合并。 通过变基，可以重新排序、编辑提交或将其压缩到一起。 更多信息请参阅“[关于 Git 变基](/articles/about-git-rebase)”和“[将您的项目分支变基到另一个分支](#rebasing-your-project-branch-onto-another-branch)”。
+有些工作流程需要或受益于变基而不是合并。 通过变基，可以重新排序、编辑提交或将其压缩到一起。 更多信息请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”和“[将您的项目分支变基到另一个分支](#rebasing-your-project-branch-onto-another-branch)”。
 
 ### 从远程拉取到您的本地分支
 

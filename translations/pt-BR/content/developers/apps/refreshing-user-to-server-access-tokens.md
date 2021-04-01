@@ -7,10 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - aplicativos github
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
 ### Sobre os tokens de acesso do usuário expirados
@@ -42,7 +44,7 @@ Esta solicitação de retorno de chamada enviará um novo token de acesso e um n
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
+  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -56,7 +58,8 @@ Você pode habilitar ou desabilitar a expiração de tokens de autorização usu
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Clique em **Editar** próximo à sua escolha {% data variables.product.prodname_github_app %}. ![Configurações para edição de um aplicativo GitHub](/assets/images/github-apps/edit-test-app.png)
-5. Na barra lateral esquerda, clique em **Recursos do Beta**. ![Opção do menu de recursos do Beta](/assets/images/github-apps/beta-features-option.png)
+5. Na barra lateral esquerda, clique em **{% if currentVersion ver_lt "enterprise-server@3.1" %} Funcionalidades {% else %} Opcionais {% endif %} de Beta**.
+  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. Ao lado de "Expiração do token do usuário para o servidor", clique em **Participar** ou **Não participar**. Esta configuração pode levar alguns segundos para ser aplicada.
 
 ### Não participar dos tokens expirados para novos aplicativos do GitHub

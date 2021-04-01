@@ -25,6 +25,6 @@ Puedes dar clic en una ejecución de prueba específica para revisar la bitácor
 
 ![Las bitácoras de resultados de las pruebas de un "flujo de trabajo de calificación automática de {% data variables.product.prodname_classroom %}" en {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las verificaciones de estado](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"

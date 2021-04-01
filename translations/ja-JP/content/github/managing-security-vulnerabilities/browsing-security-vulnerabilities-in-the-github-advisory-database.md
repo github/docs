@@ -24,7 +24,7 @@ versions:
 - High
 - Critical
 
-{% data variables.product.prodname_advisory_database %} は、CVSS バージョン 3.0 標準と上記の CVSS レベルを使用します。 {% data variables.product.product_name %} は CVSS スコアを公開しません。
+{% data variables.product.prodname_advisory_database %} は、CVSS バージョン 3.0 標準と上記の CVSS レベルを使用します。
 
 {% data reusables.repositories.github-security-lab %}
 
@@ -41,24 +41,39 @@ versions:
 {% endnote %}
 
 ### {% data variables.product.prodname_advisory_database %} を検索する
-データベースを検索し、修飾子を使用して、特定の日付、特定のエコシステム、または特定のライブラリで作成されたアドバイザリに検索を絞り込むことができます。
+
+You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                   | サンプル                                                                                                                         |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) は、NPM パッケージに影響するアドバイザリのみを表示します。      |
-| `severity:LEVEL`      | [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) は、重大度レベルが高いアドバイザリのみを表示します。           |
-| `affects:LIBRARY`     | [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) は、lodash ライブラリに影響するアドバイザリのみを表示します。 |
-| `sort:created-asc`    | [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) は、一番古いアドバイザリを最初にソートします。        |
-| `sort:created-desc`   | [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) は、一番新しいアドバイザリを最初にソートします。     |
-| `sort:updated-asc`    | [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) は、最近で最も更新されていないものを最初にソートします。   |
-| `sort:updated-desc`   | [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) は、最も直近で更新されたものを最初にソートします。    |
-| `is:withdrawn`        | [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) は、撤回されたアドバイザリのみを表示します。                 |
-| `created:YYYY-MM-DD`  | [**created:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2019-10-31) は、この日に作成されたアドバイザリのみを表示します。 |
-| `updated:YYYY-MM-DD`  | [**updated:2019-10-31**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2019-10-31) は、この日に更新されたアドバイザリのみを表示します。 |
+| 修飾子                   | サンプル                                                                                                                                                                              |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
+| `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number.                                                          |
+| `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) は、NPM パッケージに影響するアドバイザリのみを表示します。                                                           |
+| `severity:LEVEL`      | [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) は、重大度レベルが高いアドバイザリのみを表示します。                                                                |
+| `affects:LIBRARY`     | [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) は、lodash ライブラリに影響するアドバイザリのみを表示します。                                                      |
+| `cwe:ID`              | [**cwe:352**](https://github.com/advisories?query=cwe%3A352) will show only advisories with this CWE number.                                                                      |
+| `credit:USERNAME`     | [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) will show only advisories credited to the "octocat" user account.                                      |
+| `sort:created-asc`    | [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) は、一番古いアドバイザリを最初にソートします。                                                             |
+| `sort:created-desc`   | [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) は、一番新しいアドバイザリを最初にソートします。                                                          |
+| `sort:updated-asc`    | [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) は、最近で最も更新されていないものを最初にソートします。                                                        |
+| `sort:updated-desc`   | [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) は、最も直近で更新されたものを最初にソートします。                                                         |
+| `is:withdrawn`        | [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) は、撤回されたアドバイザリのみを表示します。                                                                      |
+| `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) は、この日に作成されたアドバイザリのみを表示します。                                                      |
+| `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) は、この日に更新されたアドバイザリのみを表示します。                                                      |
+
+### Viewing your vulnerable repositories
+
+For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
+
+1. Https://github.com/advisories にアクセスします。
+2. Click an advisory.
+3. At the top of the advisory page, click **Dependabot alerts**. ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user). ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
+5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
 ### 参考リンク
 

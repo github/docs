@@ -3,6 +3,8 @@ title: Using a staging environment
 intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging environments.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.

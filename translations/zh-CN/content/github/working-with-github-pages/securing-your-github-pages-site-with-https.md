@@ -6,6 +6,8 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
 versions:
   free-pro-team: '*'
+topics:
+  - 页面
 ---
 
 拥有仓库管理员权限的人可对 {% data variables.product.prodname_pages %} 站点实施 HTTPS。

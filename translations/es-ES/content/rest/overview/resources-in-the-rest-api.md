@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -129,7 +131,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -141,7 +143,7 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "f
 > HTTP/1.1 403 Forbidden
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -158,7 +160,7 @@ En este ejemplo, los valores 'vmg' and 'redcarpet' se proporcionan para los par�
 Para las solicitudes de tipo `POST`, `PATCH`, `PUT`, and `DELETE`, los parámetros que no se incluyen en la URL deben codificarse como JSON con un Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Terminal raíz
@@ -215,7 +217,7 @@ Todos los objetos de error tienen propiedades de campo y de recurso para que tu 
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `missing`                  | Un recurso no existe.                                                                                                                             |
 | `missing_field`            | No se ha configurado un campo requerido en un recurso.                                                                                            |
-| `no válida`                | El formato de un campo es inválido.  Review the documentation for more specific information.                                                      |
+| `no válida`                | El formato de un campo es inválido.  Revisa la documentación para encontrar información más específica.                                           |
 | `already_exists`           | Otro recurso tiene el mismo valor que este campo.  Esto puede suceder en recursos que deben tener claves únicas (tales como nombres de etiqueta). |
 | `unprocessable`            | Las entradas proporcionadas son inválidas.                                                                                                        |
 
@@ -236,14 +238,14 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
 
-| Verbo    | Descripción                                                                                                                                                                                                                      |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                    |
-| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                              |
-| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                  |
-| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. A `PATCH` request may accept one or more of the attributes to update the resource. |
-| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                         |
-| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                 |
+| Verbo    | Descripción                                                                                                                                                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                                |
+| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                                          |
+| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                              |
+| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. Una solicitud de `PATCH` podría aceptar uno o más de los atributos para actualizar el recurso. |
+| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                                     |
+| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                             |
 
 ### Hypermedia
 
@@ -315,6 +317,8 @@ Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prod
 
 {% endif %}
 
+Cuando utilizas el `GITHUB_TOKEN` integrado en GitHub Actions, el límite de tasa es de 1,000 solicitudes por hora por repositorio. Para las organizaciones que pertenecen a una cuenta de GitHub Enterprise Cloud, este límite será de 15,000 solicitudes por hora por repositorio.
+
 Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes no autenticadas se asocian con la dirección IP que las origina, y no con el usuario que realiza la solicitud.
 
 {% data reusables.enterprise.rate_limit %}
@@ -358,7 +362,7 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
 
@@ -403,7 +407,7 @@ Si tu aplicación activa este límite de tasa, recibirás una respuesta informat
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#abuse-rate-limits"
 > }
 ```
 

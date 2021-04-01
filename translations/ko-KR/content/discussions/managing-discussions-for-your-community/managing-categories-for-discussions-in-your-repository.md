@@ -12,9 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations.{% data reusables.discussions.repository-category-limit %}
-
-For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
 ### Default categories
 

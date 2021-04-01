@@ -11,6 +11,8 @@ versions:
 type: 'how_to'
 ---
 
+{% data reusables.actions.ae-beta %}
+
 {% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
 
 ### アクションの公開について

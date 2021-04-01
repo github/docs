@@ -6,6 +6,9 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 All members of an organization can view organization insights. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."

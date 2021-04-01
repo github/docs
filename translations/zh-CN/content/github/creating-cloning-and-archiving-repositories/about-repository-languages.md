@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data variables.product.product_name %} 使用开源 [Linguist 库](https://github.com/github/linguist)来

@@ -12,7 +12,8 @@ featuredLinks:
     - /packages/manage-packages/installing-a-package
   popular:
     - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/learn-github-packages
     - /packages/guides/configuring-apache-maven-for-use-with-github-packages
   guideCards:
     - /packages/guides/configuring-npm-for-use-with-github-packages
@@ -20,17 +21,17 @@ featuredLinks:
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
   - 
-    title: ghcr.io container names redirect to the container page
+    title: 2021年1月9日、ghcr.ioはメンテナンスモードになります
+    date: '2021-01-08'
+    href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
+  - 
+    title: ghcr.ioコンテナ名は、コンテナページにリダイレクトされます
     date: '2020-12-14'
     href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
   - 
-    title: Filter for tagged and untagged containers
+    title: タグ付きおよびタグなしコンテナのフィルター
     date: '2020-12-14'
     href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
-  - 
-    title: Packages container support is an opt-in beta
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
@@ -39,6 +40,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

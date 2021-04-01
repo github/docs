@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Statuschecks basieren auf externen Prozessen, beispielsweise Builds mit fortlaufender Integration, die bei jedem Push an ein Repository ausgeführt werden. Du kannst den Zustand *Ausstehend*, *Bestanden* oder *Nicht bestanden* des Statuschecks neben den einzelnen Commits in Deinem Pull Request sehen.

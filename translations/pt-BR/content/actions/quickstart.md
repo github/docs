@@ -7,10 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: 'quick_start'
+topics:
+  - 'Princípios básicos'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -59,16 +64,16 @@ Fazer commit do arquivo de fluxo de trabalho no repositório aciona o evento `pu
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho de **base de código Lint**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% else %}
 1. Na barra lateral esquerda, clique no trabalho **Lint de código-bsee**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job.png)
 {% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### Mais fluxos de trabalho iniciais
+### Mais modelos de fluxo de trabalho
 
-O {% data variables.product.prodname_dotcom %} fornece modelos de fluxo de trabalho pré-configurados com os quais você pode começar para automatizar ou criar fluxos de trabalho de integração contínua. Você pode pesquisar a lista completa de modelos de fluxo de trabalho no repositório de {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` e no repositório {% data variables.product.product_location %}{% endif %}.
+{% data reusables.actions.workflow-template-overview %}
 
 ### Próximas etapas
 
@@ -82,7 +87,7 @@ O fluxo de trabalho do super-linter que você acabou de adicionar é executado s
 
 ### Introdução
 
-Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a sintaxe básicas de uma nova linguagem de programação. Neste guia, você usará o GitHub Actions para imprimir "Hello, World!" dentro dos registros do fluxo de trabalho do seu repositório de {% data variables.product.prodname_dotcom %}. Tudo o que você precisa para começar é um repositório de {% data variables.product.prodname_dotcom %} em que você se sente confortável para criar e executar um fluxo de trabalho de amostra de {% data variables.product.prodname_actions %}. Sinta-se à vontade para criar um novo repositório para este Início rápido. Você pode usá-lo para testar este e futuros fluxos de trabalho de {% data variables.product.prodname_actions %}.
+Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a sintaxe básicas de uma nova linguagem de programação. Neste guia, você usará o GitHub Actions para imprimir "Hello, World!" dentro dos registros do fluxo de trabalho do seu repositório de {% data variables.product.prodname_dotcom %}. Tudo o que você precisa para começar é um repositório de {% data variables.product.prodname_dotcom %} em que você se sente confortável para criar e executar um fluxo de trabalho de amostra de {% data variables.product.prodname_actions %}. Sinta-se à vontade para criar um novo repositório para este Início rápido testar esse e fluxos de trabalhos de {% data variables.product.prodname_actions %} futuros.
 
 ### Criar o seu primeiro fluxo de trabalho
 
@@ -120,7 +125,7 @@ Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a s
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. Na barra lateral esquerda, clique no fluxo de trabalho que você deseja executar.
+1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja executar.
    ![Selecione o trabalho "say hello"](/assets/images/help/repository/say-hello-job.png)
 1. À direita, clique no menu suspenso **Executar fluxo de trabalho** e clique em **Executar fluxo de trabalho**. Opcionalmente, você pode inserir uma mensagem personalizada na entrada "Pessoa a saudar" antes de executar o fluxo de trabalho.
    ![Acionar o fluxo de trabalho manual](/assets/images/help/repository/manual-workflow-trigger.png)
@@ -129,15 +134,15 @@ Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a s
 1. Na barra lateral esquerda, clique no trabalho "say_hello".
    ![Lista de trabalhos do fluxo de trabalho](/assets/images/help/repository/workflow-job-listing.png)
 1. Nos registros do fluxo de trabalho, expanda a seção 'Run echo "Hello World!"'.
-   ![Detalhe do fluxo de trabalho(/assets/images/help/repository/workflow-log-listing.png)
+   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
 
-### Mais fluxos de trabalho iniciais
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} fornece modelos de fluxo de trabalho pré-configurados dos quais você pode partir para automatizar ou criar fluxos de trabalho de integração contínua. Você pode pesquisar a lista completa de modelos de fluxo de trabalho no repositório {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows){% else %} repositorio `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
+{% data reusables.actions.workflow-template-overview %}
 
-### Próximas etapas
+### Next steps
 
-O fluxo de trabalho hello-world que você acabou de adicionar é um exemplo simples de um fluxo de trabalho acionado manualmente. Esse é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
+The hello-world workflow you just added is a minimal example of a manually triggered workflow. Esse é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}. O seu repositório pode conter vários fluxos de trabalho que ativam diferentes tarefas com base em diferentes eventos. O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
 
 - "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para um tutorial detalhado
 - "[Guides](/actions/guides)" para casos específicos de usos e exemplos

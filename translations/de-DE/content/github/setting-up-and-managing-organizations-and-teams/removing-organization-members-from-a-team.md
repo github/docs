@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

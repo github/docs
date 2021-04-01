@@ -7,6 +7,9 @@ redirect_from:
   - /articles/githubs-ssh-key-fingerprints
 versions:
   free-pro-team: '*'
+topics:
+  - identidade
+  - gerenciamento de acesso
 ---
 
 Estas são as impressões digitais de chave pública de {% data variables.product.prodname_dotcom %}:

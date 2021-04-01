@@ -6,3 +6,4 @@ Organizations include:
 - [Nested teams that reflect your company or group's structure](/articles/about-teams) with cascading access permissions and mentions{% if currentVersion != "github-ae@latest" %}
 - The ability for organization owners to view members' [two-factor authentication (2FA) status](/articles/about-two-factor-authentication)
 - The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- The option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}{% endif %}

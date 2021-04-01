@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
 ### Introduction
 
-This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
 
@@ -49,7 +51,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ### Prerequisites
 
-Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -203,7 +205,7 @@ Great! You've told GitHub to create a check run. You can see the check run statu
 
 ### Step 1.4. Updating a check run
 
-When your `create_check_run` method runs, it asks GitHub to create a new check run. When Github finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
+When your `create_check_run` method runs, it asks GitHub to create a new check run. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
 
 You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on GitHub by clicking the "Re-run" button, GitHub sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
 
@@ -722,7 +724,7 @@ The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.htm
 
 To push to a repository, your app must have write permissions for "Repository contents." You set that permission back in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) to **Read & write**, so you're all set.
 
-In order to commit files, Git must know which [username](/articles/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
+In order to commit files, Git must know which [username](/github/getting-started-with-github/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
@@ -843,7 +845,7 @@ Here are a few common problems and some suggested solutions. If you run into any
     **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     Compare your code to the `server.rb` file to ensure you have the same code in your `initiate_check_run` and `take_requested_action` methods.

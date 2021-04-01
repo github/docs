@@ -5,6 +5,10 @@ redirect_from:
   - /articles/removing-a-billing-manager-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
+  - billing
 ---
 
 {% warning %}

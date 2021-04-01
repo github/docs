@@ -11,3 +11,9 @@ Wenn Sie einen Pull Request an das Basis-Repository aus einem geforkten Reposito
 Workflows werden standardmäßig nicht für geforkte Repositorys ausgeführt. Du musst GitHub Actions auf der Registerkarte **Actions** (Aktionen) im geforkten Repository aktivieren.
 
 {% data reusables.actions.forked-secrets %} The permissions for the `GITHUB_TOKEN` in forked repositories is read-only. Weitere Informationen findest Du unter „[Authentifizierung mit dem GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+
+{% note %}
+
+**Note:** Workflows triggered by {% data variables.product.prodname_dependabot %} pull requests are treated as though they are from a forked repository, and are also subject to these restrictions.
+
+{% endnote %}

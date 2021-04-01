@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 
@@ -51,6 +54,11 @@ versions:
     {% link_in_list /disabling-team-discussions-for-your-organization %}
     {% link_in_list /managing-scheduled-reminders-for-your-team %}
     {% link_in_list /deleting-a-team %}
+{% topic_link_in_list /collaborating-with-your-team %}
+    {% link_in_list /about-team-discussions %}
+    {% link_in_list /creating-a-team-discussion %}
+    {% link_in_list /editing-or-deleting-a-team-discussion %}
+    {% link_in_list /pinning-a-team-discussion %}
 {% topic_link_in_list /managing-access-to-your-organizations-repositories %}
     {% link_in_list /repository-permission-levels-for-an-organization %}
     {% link_in_list /setting-base-permissions-for-an-organization %}
@@ -93,7 +101,7 @@ versions:
     {% link_in_list /changing-the-visibility-of-your-organizations-dependency-insights %}
     {% link_in_list /managing-the-display-of-member-names-in-your-organization %}
     {% link_in_list /managing-updates-from-accounts-your-organization-sponsors %}
-    {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
+    {% link_in_list /managing-the-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
@@ -121,7 +129,7 @@ versions:
     {% link_in_list /about-identity-and-access-management-with-saml-single-sign-on %}
     {% link_in_list /about-scim %}
     {% link_in_list /connecting-your-identity-provider-to-your-organization %}
-    {% link_in_list /configuring-saml-single-sign-on-and-scim-using-okta %}
+    {% link_in_list /connecting-your-identity-provider-to-your-organization %}
     {% link_in_list /enabling-and-testing-saml-single-sign-on-for-your-organization %}
     {% link_in_list /preparing-to-enforce-saml-single-sign-on-in-your-organization %}
     {% link_in_list /enforcing-saml-single-sign-on-for-your-organization %}

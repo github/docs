@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### リポジトリのクローン方法
-{% data variables.product.prodname_dotcom %}上のリポジトリは、リモートリポジトリとして存在します。  他の人が所有するパブリックリポジトリをクローンできます。 自分が所有するリポジトリをクローンして、自分のコンピュータ上にローカルコピーを作成し、これら2つの場所の間で同期を行えます。
+### ローカルリポジトリについて
+{% data variables.product.prodname_dotcom %} のリポジトリはリモートリポジトリです。 {% data variables.product.prodname_desktop %} を使用してリポジトリのクローンを作成またはフォークして、コンピューター上にローカルリポジトリを作成できます。
+
+リポジトリのクローンを作成することで、アクセス権を持つ {% data variables.product.product_name %} に任意のリポジトリのローカルコピーを作成できます。 リポジトリを所有している場合、または書き込み権限がある場合は、ローカルとリモートの場所間で同期できます。 詳しい情報については、「[ブランチを同期する](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)」を参照してください。
+
+リポジトリのクローンを作成するときに、{% data variables.product.product_name %} にプッシュした変更は、元のリポジトリに影響します。 元のプロジェクトに影響を与えずに変更を加えるには、リポジトリをフォークして別のコピーを作成します。 プルリクエストを作成して、メンテナがフォークの変更を元のアップストリームリポジトリに組み込むことを提案できます。 詳しい情報については「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」を参照してください。
+
+{% data variables.product.prodname_desktop %} を使用して、書き込み権限のないリポジトリのクローンを作成しようとすると、{% data variables.product.prodname_desktop %} によってフォークを自動的に作成するように求められます。 フォークを使用して、元の上流リポジトリに貢献するか、独自のプロジェクトで独立して作業するかを選択できます。 既存のフォークはデフォルトで、上流リポジトリへの変更に貢献します。 この選択はいつでも変更できます。 詳しい情報については、「[フォークの動作を管理する](#managing-fork-behavior)」を参照してください。
 
 リポジトリを{% data variables.product.prodname_dotcom %}、または{% data variables.product.prodname_enterprise %}から直接クローンすることもできます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} から {% data variables.product.prodname_desktop %} にリポジトリをクローンする](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)」を参照してください。
 
-{% mac %}
+### リポジトリをクローンする
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Mac アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. [**Choose...**]をクリックし、Finderウインドウを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-mac.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
-{% endmac %}
-
-{% windows %}
+### リポジトリをフォークする
+書き込み権限のないリポジトリのクローンを作成すると、{% data variables.product.prodname_desktop %} がフォークを作成します。 フォークを作成またはクローンした後、{% data variables.product.prodname_desktop %} からフォークの使用方法について尋ねられます。
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Windows アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-win.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. **Choose...**をクリックし、Windows Explorerを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-win.png)
-5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-win.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
 
-{% endwindows %}
+### フォークの動作を管理する
+{% data variables.product.prodname_desktop %} で、上流リポジトリでのフォークの動作を変更できます。
 
-### リポジトリのフォーク
-書き込みアクセス権がないプロジェクトにコントリビュートするには、{% data variables.product.prodname_desktop %}を使ってそのリポジトリのフォークを作成します。 フォークに対する変更は、オリジナルのリポジトリには影響しません。 フォークに変更をコミットし、そしてオリジナルのリポジトリに対して提案する変更でプルリクエストをオープンできます。 詳しい情報については「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」を参照してください。
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
 
-1. 書き込みアクセス権を持っていないリポジトリをクローンし、変更をコミットしようとすると、{% data variables.product.prodname_desktop %}は次の警告を発します。"You don't have write access to **REPOSITORY**." **create a fork（フォークの作成）**をクリックしてください。 ![フォークの作成リンク](/assets/images/help/desktop/create-a-fork.png)
-3. **Fork this repository（このリポジトリをフォーク）**をクリックしてください。 ![このリポジトリのフォークボタン](/assets/images/help/desktop/fork-this-repo-button.png)
-4. {% data variables.product.prodname_dotcom %}上のフォークを見るには、{% data variables.product.prodname_dotcom %}の右上で自分のプロフィール画像をクリックし、**Your repositories（あなたのリポジトリ）**をクリックしてください。 ![あなたのリポジトリリンク](/assets/images/help/profile/your-repositories.png)
+### 参考リンク
+- [リモートリポジトリについて](/github/getting-started-with-github/about-remote-repositories)

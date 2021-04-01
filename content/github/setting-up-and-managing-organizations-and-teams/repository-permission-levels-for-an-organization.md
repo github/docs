@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 People with admin permissions can manage individual and team access to an organization-owned repository.
@@ -65,18 +68,18 @@ In addition to managing organization-level settings, organization owners have ad
 | View published releases | **X** | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Edit wikis | **X** | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
-| [Report abusive or spammy content](/articles/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
+| [Report abusive or spammy content](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
-| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
+| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | [Enable and disable auto-merge on a pull request](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | | | **X** | **X** | **X** |{% endif %}
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
 | Request [pull request reviews](/articles/requesting-a-pull-request-review) | | **X** | **X** | **X** | **X** |
 | Push to (write) the person or team's assigned repositories | | | **X** | **X** | **X** |
 | Edit and delete anyone's comments on commits, pull requests, and issues | | | **X** | **X** | **X** |
-| [Hide anyone's comments](/articles/managing-disruptive-comments) | | | **X** | **X** | **X** |
-| [Lock conversations](/articles/locking-conversations) | | | **X** | **X** | **X** |
+| [Hide anyone's comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments) | | | **X** | **X** | **X** |
+| [Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations) | | | **X** | **X** | **X** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **X** | **X** | **X** |
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **X** | **X** | **X** |
 | [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
@@ -87,10 +90,10 @@ In addition to managing organization-level settings, organization owners have ad
 | Create, edit, run, re-run, and cancel [GitHub Actions workflows](/actions/automating-your-workflow-with-github-actions/) | | | **X** | **X** | **X** |{% endif %}
 | Create and edit releases | | | **X** | **X** | **X** |
 | View draft releases | | | **X** | **X** | **X** |
-| Edit a repository's description | | | | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
+| Edit a repository's description | | | | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 | [View and install packages](/packages/publishing-and-managing-packages) | **X** | **X** | **X** | **X** | **X** |
 | [Publish packages](/packages/publishing-and-managing-packages/publishing-a-package) | | | **X** | **X** | **X** |
-| [Delete packages](/packages/publishing-and-managing-packages/deleting-a-package) | | |  |  | **X** | {% endif %}
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Delete and restore packages](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Delete packages](/packages/learn-github-packages/deleting-a-package){% endif %} | | |  |  | **X** | {% endif %}
 | Manage [topics](/articles/classifying-your-repository-with-topics) | | | | **X** | **X** |
 | Enable wikis and restrict wiki editors | | | | **X** | **X** |
 | Enable project boards | | | | **X** | **X** |
@@ -98,7 +101,7 @@ In addition to managing organization-level settings, organization owners have ad
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages) | | | | **X** | **X** |
 | [Push to protected branches](/articles/about-protected-branches) | | | | **X** | **X** |
 | [Create and edit repository social cards](/articles/customizing-your-repositorys-social-media-preview) | | | | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
-| Limit [interactions in a repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)| | | | **X** | **X** |{% endif %}
+| Limit [interactions in a repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)| | | | **X** | **X** |{% endif %}
 | Delete an issue (see "[Deleting an issue](/articles/deleting-an-issue)") | | | | | **X** |
 | Merge pull requests on protected branches, even if there are no approving reviews | | | | | **X** |
 | [Define code owners for a repository](/articles/about-code-owners) | | | | | **X** |
@@ -130,25 +133,31 @@ In addition to managing organization-level settings, organization owners have ad
 | [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | **X** | **X** | **X** | **X** | **X** |
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | | | **X** | **X** |{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 #### Permission requirements for security features
 
-In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features. 
+In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|{% if currentVersion == "free-pro-team@latest" %}
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for vulnerable dependencies | | | | | **X** |
-| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | 
-| Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |
-| [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository | | | | | **X** |
-| [View dependency reviews](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} 
+| Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |
+| [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
-| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
+| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |
+| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |{% endif %}{% if currentVersion == "enterprise-server@3.0" %}
 | [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
-| [Resolve, revoke or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
+| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 | [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
+[1] Repository writers and maintainers can only see alert information for their own commits.
+{% endif %}
 {% endif %}
 
 ### Further reading

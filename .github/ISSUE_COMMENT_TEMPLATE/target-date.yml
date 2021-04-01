@@ -1,0 +1,14 @@
+---
+name: Target Date Update
+about: Target date update
+body:
+  - type: input
+    attributes:
+      name: Target completion date
+      placeholder: With context if the target completion date has changed
+      inputType: text
+  - type: input
+    attributes:
+      name: 'Attribution'
+      value: '_created with :heart: by typing_ `/status`'
+      inputType: text

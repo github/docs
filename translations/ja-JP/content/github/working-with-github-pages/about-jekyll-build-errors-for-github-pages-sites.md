@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### Jekyllのビルドエラーについて
@@ -17,7 +19,7 @@ versions:
 Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
 - 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 - デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys#machine-users)」を参照してください。
-- 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CIは`gh-pages`ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
+- 公開元をビルドするようにCIサービスを設定していない。 For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
 
 {% note %}
 
@@ -44,13 +46,13 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 各コミット後にエラーメッセージを表示するように、[Travis CI](https://travis-ci.org/) などのサードパーティサービスを設定できます。
 
 1. 公開元のルートに、以下の内容で _Gemfile_ と呼ばれるファイルをまだ追加していない場合は、追加します。
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. 選択したテストサービス用にサイトのリポジトリを設定します。 例えば、[Travis CI](https://travis-ci.org/) を利用するには、以下の内容の _.travis.yml_ ファイルを、公開元のルートに追加します。
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

@@ -34,7 +34,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **参考:** コミットメッセージの入力にコマンドライン上のテキストエディタを使っている場合、コミットの説明とコミットトレーラーの`on-behalf-of:`との間に新しい改行が 2 つあることを確認してください。
 
   {% endtip %}
 
@@ -47,7 +47,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)」を参照してください。
+次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
 ### {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
 

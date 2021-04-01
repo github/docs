@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。

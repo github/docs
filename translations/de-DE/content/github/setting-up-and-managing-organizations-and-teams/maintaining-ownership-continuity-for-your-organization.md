@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ### Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation

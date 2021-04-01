@@ -7,6 +7,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise account

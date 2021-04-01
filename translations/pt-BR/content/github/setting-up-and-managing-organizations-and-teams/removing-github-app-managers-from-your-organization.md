@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Para obter mais informações sobre as permissões de gerente do {% data variables.product.prodname_github_app %}, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization#github-app-managers)".

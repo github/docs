@@ -4,6 +4,9 @@ intro: Você pode escolher os níveis de permissão exigidos pelos integrantes p
 permissions: Os proprietários da organização podem gerenciar a criação de discussões para repositórios pertencentes à organização.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.discussions.beta %}

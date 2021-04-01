@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization で 2 要素認証を義務付ける 1 週間以上前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバーと外部コラボレーター{% endif %}に通知することをおすすめします。

@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_codespaces %} が一般提供され�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

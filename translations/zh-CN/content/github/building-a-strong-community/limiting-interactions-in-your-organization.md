@@ -1,12 +1,14 @@
 ---
 title: 限制组织中的交互
-intro: '您可以临时为组织拥有的所有公共仓库中的某些用户执行一段时间有限的活动。'
+intro: 您可以临时为组织拥有的所有公共仓库中的某些用户执行一段时间有限的活动。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: 组织所有者可限制组织中的交互。
+topics:
+  - 社区
 ---
 
 ### 关于临时交互限制

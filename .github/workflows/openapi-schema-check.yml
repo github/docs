@@ -1,11 +1,19 @@
 name: OpenAPI dev mode check
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   check-schema-versions:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Para que puedas duplicar un repositorio y subirlo a tu nueva copia, o _espejo_ del repositorio, antes debes [crear el nuevo repositorio](/articles/creating-a-new-repository) en {% data variables.product.product_location %}. En estos ejemplos, `exampleuser/new-repository` o `exampleuser/mirrored` son los espejos.

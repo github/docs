@@ -4,6 +4,8 @@ intro: 'You can view details of your usage of minutes and storage for {% data va
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."

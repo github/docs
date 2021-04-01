@@ -31,7 +31,7 @@ versions:
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
   ![ブランチメニュー内の [New Branch] オプション](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
@@ -62,12 +62,11 @@ versions:
 
 {% data variables.product.product_name %} にブランチを作成する場合は、ブランチを公開して、{% data variables.product.prodname_dotcom %} でのコラボレーションに使用できるようにする必要があります。
 
-1. アプリの上部で、{% octicon "git-branch" aria-label="The branch icon" %} [**Current Branch**] をクリックし、公開するブランチをクリックします。 ![公開するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+1. アプリの上部で、{% octicon "git-branch" aria-label="The branch icon" %} [**Current Branch**] をクリックし、公開するブランチをクリックします。 ![公開するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. [**Publish branch**] をクリックします。 ![[Publish branch] ボタン](/assets/images/help/desktop/publish-branch-button.png)
 
 ### ブランチ間の切り替え
-リポジトリのどんなブランチに対しても、コミットを表示したり、コミットを行ったりすることができます。 まだコミットしていない、保存した変更がある場合は、その変更の扱いについて、ブランチを切り替える前に決める必要があります。 現在のブランチに変更をコミットする、現在のブランチに変更を stash する、または変更を新しいブランチに移動することが可能です。 変更を現在のブランチにコミットしたい場合は、ブランチを切り替える前に、「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)」の手順に従ってください。
-
+リポジトリのどんなブランチに対しても、コミットを表示したり、コミットを行ったりすることができます。 まだコミットしていない、保存した変更がある場合は、その変更の扱いについて、ブランチを切り替える前に決める必要があります。 You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
 **Tip**: **Advanced（高度）**な設定で、ブランチの切り替え時のデフォルトの動作を設定できます。 詳しい情報については、「[基本的な設定](/desktop/getting-started-with-github-desktop/configuring-basic-settings)」を参照してください。
@@ -76,17 +75,8 @@ versions:
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. 保存していて、まだコミットしていない変更がある場合は、[**Leave my changes**] または [**Bring my changes**] を選択してから、[**Switch Branch**] をクリックしてください。 ![[Switch branch] と変更オプション](/assets/images/help/desktop/stash-changes-options.png)
-
-### stash した変更を取得する
-他のブランチで stash した変更にアクセスするには、変更を stash したブランチに切り替えます。
-
-{% data reusables.desktop.current-branch-menu %}
-{% data reusables.desktop.switching-between-branches %}
-  ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-3. 左サイドバーで [**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
-4. stash した変更を削除するには、[**Discard**] をクリックします。stash した変更を利用するには、[**Restore**] をクリックします。 ![stash した変更の [Discard] または [Restore]](/assets/images/help/desktop/discard-restore-stash-buttons.png)
 
 ### ブランチの削除
 
@@ -95,7 +85,7 @@ versions:
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
   ![ブランチメニュー内の [Delete...] オプション](/assets/images/help/desktop/delete-branch-mac.png)
 
@@ -104,7 +94,7 @@ versions:
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
   ![ブランチメニュー内の [Delete...] オプション](/assets/images/help/desktop/delete-branch-win.png)
 
@@ -116,3 +106,4 @@ versions:
 - {% data variables.product.prodname_dotcom %} 用語集中の[ブランチ](/articles/github-glossary/#branch)
 - [ブランチについて](/articles/about-branches)
 - Gitのドキュメンテーション中の[ブランチの要約](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+- "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

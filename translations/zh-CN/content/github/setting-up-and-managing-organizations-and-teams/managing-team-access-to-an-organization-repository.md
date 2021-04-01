@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 团队维护员可以删除团队对仓库的访问权限。

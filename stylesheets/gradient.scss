@@ -12,8 +12,9 @@ $gradients: (
   "-blue-green": linear-gradient(-70deg, #2188ff 0%, #01a49e 100%),
   "-red-orange": linear-gradient(-70deg, #ed4e50 0%, #f06f00 100%),
   "-blue-purple": linear-gradient(-70deg, #2188ff 0%, #804eda 100%),
-  "-pink-blue": linear-gradient(-70deg, #db469f 0%, #2188ff 100%),
-  "-pink-blue-dark": linear-gradient(-70deg, #e577b4 0%, #64acff 100%)
+  "-pink-blue": linear-gradient(90deg, #D047A5 -50%, #0C69F9 150%),
+  "-pink-blue-dark": linear-gradient(-70deg, #e577b4 0%, #64acff 100%),
+  "-blue-pink": linear-gradient(-70deg, #0C69F9 0%, #D047A5 100%)
 ) !default;
 
 @mixin bg-gradient($parent, $gradient) {

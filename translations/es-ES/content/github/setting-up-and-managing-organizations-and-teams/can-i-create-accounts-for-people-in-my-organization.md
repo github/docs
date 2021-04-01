@@ -6,6 +6,9 @@ redirect_from:
 intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas de usuario personales en nombre de otra persona.'
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Dado que accedes a una organización iniciando sesión mediante tu cuenta personal, cada uno de los miembros del equipo necesita una cuenta personal. Una vez que tienes los nombres de usuario de cada persona que deseas agregar a tu organización, puedes agregarlos a los equipos.

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -138,7 +140,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-Desta vez, além do mesmo conjunto de informações públicas que recuperamos para [@defunkt][defunkt github] anteriormente, você também deverá ver as informações não públicas para o seu perfil de usuário. Por exemplo, você verá um objeto de `plano` na resposta que dá detalhes sobre o plano de {% data variables.product.product_name %} para a conta.
+Desta vez, além do mesmo conjunto de informações públicas que recuperamos para [@defunkt][defunkt github] anteriormente, você também deverá ver as informações não públicas do seu perfil de usuário. Por exemplo, você verá um objeto `plano` na resposta, que fornece detalhes sobre o plano de {% data variables.product.product_name %} para a conta.
 
 #### Usar tokens do OAuth para aplicativos
 
@@ -186,8 +188,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 As informações retornadas dessas chamadas dependerão de quais escopos o nosso token terá quando efetuarmos a autenticação:
 
-* Um token com o escopo `public_repo` [][scopes] retorna uma resposta que inclui todos os repositórios públicos aos quais temos acesso para ver no github.com.
-* Um token com o escopo `repositório` [][scopes] retorna uma resposta que inclui todos os repositórios públicos e privados aos quais temos acesso para ver no github.com.
+{% if currentVersion != "github-ae@latest" %}
+* Um token com o escopo `public_repo` [][scopes] retorna uma resposta que inclui todos os repositórios públicos que temos acesso para ver em github.com.{% endif %}
+* Um token com `repositório` [escopo][scopes] retorna uma resposta que inclui todos os repositórios {% if currentVersion ! "github-ae@latest" %}públicos{% else %}internos{% endif %} e privados aos quais temos acesso para ver em {% data variables.product.product_location %}.
 
 Conforme a [documentação][repos-api] indica, estes métodos usam um parâmetro `tipo` que pode filtrar os repositórios retornados com base no tipo de acesso que o usuário possui para o repositório. Desta forma, podemos buscar apenas repositórios de propriedade direta, repositórios da organização ou repositórios nos quais o usuário colabora por meio de uma equipe.
 
@@ -214,7 +217,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-Neste pequeno exemplo, criamos um novo repositório para o nosso blogue (a ser servido no [GitHub Pages][pages], talvez). Embora o blogue seja público, nós tornamos o repositório privado. Nesta etapa única, também vamos inicializá-lo com um LEIAME e um [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
+Neste pequeno exemplo, criamos um novo repositório privado para o nosso blogue (a ser servido no [GitHub Pages][pages], talvez). Embora o blogue {% if currentVersion != "github-ae@latest" %}seja público{% else %}é acessível a todos os integrantes da empresa{% endif %}, tornamos o repositório privado. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
 
 O repositório resultante será encontrado em `https://github.com/<your_username>/blog`. Para criar um repositório sob uma organização da qual você é proprietário, altere apenas o método API de `/user/repos` para `/orgs/<org_name>/repos`.
 
@@ -366,7 +369,6 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 [media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
-[scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

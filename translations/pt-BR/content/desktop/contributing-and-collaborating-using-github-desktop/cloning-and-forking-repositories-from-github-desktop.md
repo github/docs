@@ -8,40 +8,40 @@ versions:
   free-pro-team: '*'
 ---
 
-### Clonar repositórios
-Os repositórios no {% data variables.product.prodname_dotcom %} existem como repositórios remotos.  É possível clonar repositórios públicos pertencentes a outras pessoas. É possível clonar o seu próprio repositório para criar uma cópia loca* no seu computador e fazer a sincronia entre os dois locais.
+### Sobre repositórios locais
+Repositórios em {% data variables.product.prodname_dotcom %} são repositórios remotos. É possível clonar ou bifurcar um repositório com {% data variables.product.prodname_desktop %} para criar um repositório local no seu computador.
+
+É possível criar uma cópia local de qualquer repositório em {% data variables.product.product_name %} que que tem acesso ao clonar o repositório. Se você tem um repositório ou tem permissões de gravação, você pode fazer a sincronização entre os locais e os locais remotos. Para obter mais informações, consulte "[Sincronizando seu branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
+
+Ao clonar um repositório, todas as alterações que você fizer push em {% data variables.product.product_name %} afetarão o repositório original. Para fazer alterações sem afetar o projeto original, é possível criar uma cópia separada fazendo uma bifurcação do repositório. É possível criar uma pull request para propor que os mantenedores incorporem as alterações na sua bifurcação no repositório original ascendente. Para obter mais informações, consulte "[Sobre bifurcações](/github/collaborating-with-issues-and-pull-requests/about-forks)".
+
+Ao tentar usar {% data variables.product.prodname_desktop %} para clonar um repositório no qual você não tem acesso de gravação, {% data variables.product.prodname_desktop %} irá solicitar que você crie uma bifurcação automaticamente. Você pode optar por usar a sua bifurcação para contribuir para o repositório original a ascendente ou trabalhar de forma independente no seu próprio projeto. Todas as bifurcações existentes contribuem, por padrão, com alterações nos seus repositórios ascendentes. Você pode modificar esta escolha a qualquer momento. Para obter mais informações, consulte "[Gerenciar comportamento da bifurcação](#managing-fork-behavior)".
 
 Também é possível clonar um repositório diretamente no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Clonar um repositório do {% data variables.product.prodname_dotcom %} para o {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
-{% mac %}
+### Clonar um repositório
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Opção de menu Clone (Clonar) no app Mac](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Guias Location (Local) no menu Clone a repository (Clonar um repositório)](/assets/images/help/desktop/choose-repository-location-mac.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-4. Clique em **Choose...** (Escolher...). Em seguida, navegue pela janela Finder (Localizador) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher)](/assets/images/help/desktop/clone-choose-button-mac.png)
-5. Clique em **Clone** (Clonar). ![Botão Clone (Clonar)](/assets/images/help/desktop/clone-button-mac.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
 
-{% endmac %}
-
-{% windows %}
+### Bifurcar um repositório
+Caso você clone um repositório que não tenha acesso de gravação, {% data variables.product.prodname_desktop %} criará uma bifurcação. Depois de criar ou clonar uma bifurcação, {% data variables.product.prodname_desktop %} perguntará como você planeja usar a bifurcação.
 
 {% data reusables.desktop.choose-clone-repository %}
-  ![Opção de menu Clone (Clonar) no app Windows](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
-  ![Guias Location (Local) no menu Clone a repository (Clonar um repositório)](/assets/images/help/desktop/choose-repository-location-win.png)
 {% data reusables.desktop.cloning-repository-list %}
-  ![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-win.png)
-4. Clique em **Choose...** (Escolher...). Em seguida, navegue pelo Windows Explorer (Explorador do Windows) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher)](/assets/images/help/desktop/clone-choose-button-win.png)
-5. Clique em **Clone** (Clonar). ![Botão Clone (Clonar)](/assets/images/help/desktop/clone-button-win.png)
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+{% data reusables.desktop.fork-type-prompt %}
 
-{% endwindows %}
+### Gerenciar o comportamento da bifurcação
+Você pode alterar como uma bifurcação se comporta com o repositório ascendente em {% data variables.product.prodname_desktop %}.
 
-### Bifurcar os repositórios
-Para contribuir para um projeto em que você não tem acesso de gravação, você pode usar o {% data variables.product.prodname_desktop %} para criar uma bifurcação do repositório. As alterações na sua bifurcação não afetam o repositório original. Você pode fazer commit das alterações na sua bifurcação e, em seguida, abrir um pull request no repositório original com as alterações propostas. Para obter mais informações, consulte "[Sobre bifurcações](/github/collaborating-with-issues-and-pull-requests/about-forks)".
+{% data reusables.desktop.open-repository-settings %}
+{% data reusables.desktop.select-fork-behavior %}
 
-1. Se você clonar um repositório em que você não tem acesso de gravação e tentar fazer commit das alterações, {% data variables.product.prodname_desktop %} informará que "você não tem acesso de gravação para o **REPOSITÓRIO**. Clique em **criar uma bifurcação**. ![Criar um link debifurcação](/assets/images/help/desktop/create-a-fork.png)
-3. Clique em **Bifurcar este repositório**. ![Botão bifurcar este repositório](/assets/images/help/desktop/fork-this-repo-button.png)
-4. Para visualizar a sua bifurcação no {% data variables.product.prodname_dotcom %}, no canto superior direito do {% data variables.product.prodname_dotcom %}, clique na imagem do seu perfil e, em seguida, clique em **Seus repositórios**. ![Seu link para repositórios](/assets/images/help/profile/your-repositories.png)
+### Leia mais
+- [Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)

@@ -8,6 +8,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - páginas
 ---
 
 Las personas con permisos de administración para un repositorio pueden usar el selector de temas para agregar un tema al sitio de {% data variables.product.prodname_pages %}.
@@ -37,6 +39,6 @@ Si antes agregaste manualmente un tema de Jekyll a tu repositorio, puede que eso
 
 El tema elegido se aplicará automáticamente a los archivos markdown de tu repositorio. Para aplicar el tema a los archivos HTML de tu repositorio, debes agregar el texto preliminar de YAML que especifica un diseño para cada archivo. Para obtener más información, consulta "[Texto preliminar](https://jekyllrb.com/docs/front-matter/)" en el sitio de Jekyll.
 
-### Further reading
+### Leer más
 
 - [Temas](https://jekyllrb.com/docs/themes/) en el sitio de Jekyll

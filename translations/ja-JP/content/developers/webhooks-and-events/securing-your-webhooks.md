@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - webhook
 ---
 
 
@@ -40,7 +42,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 以下は、`X-Hub-Signature-256` ヘッダの使用例です。
+**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 The example below demonstrates using the `X-Hub-Signature-256` header.
 
 {% endnote %}
 {% endif %}
@@ -78,6 +80,12 @@ def verify_signature(payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
 end{% endif %}
 ```
+
+{% note %}
+
+**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
+
+{% endnote %}
 
 言語とサーバーの実装は、この例で使用したコードとは異なる場合があります。 ただし、次のようないくつかの非常に重要な事項があります。
 

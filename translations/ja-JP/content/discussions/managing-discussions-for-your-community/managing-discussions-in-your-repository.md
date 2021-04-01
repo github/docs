@@ -14,9 +14,9 @@ versions:
 
 Organization のオーナーは、Organization が所有するリポジトリのディスカッションを作成するために必要な権限を選択できます。 詳しい情報については、「[Organization 内のリポジトリのディスカッションの作成を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)」を参照してください。
 
-ディスカッションのメンテナとして、コミュニティリソースを作成して、プロジェクト全体の目標に沿ったディスカッションを促し、コラボレータのための親しみやすいオープンフォーラムを維持できます。 コラボレータが従う行動規範またはコントリビューションガイドラインを作成することは、協力的で生産的なフォーラムを促進するのに役立ちます。 コミュニティリソースの作成について詳しくは、「[プロジェクトに行動規範を追加する](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)」および 「[リポジトリコントリビューター向けのガイドラインを設定する](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)」を参照してください。
+ディスカッションのメンテナとして、コミュニティリソースを作成して、プロジェクト全体の目標に沿ったディスカッションを促し、コラボレータのための親しみやすいオープンフォーラムを維持できます。 コラボレータが従う行動規範またはコントリビューションガイドラインを作成することは、協力的で生産的なフォーラムを促進するのに役立ちます。 コミュニティリソースの作成について詳しくは、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[リポジトリコントリビューター向けのガイドラインを設定する](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
 
-健全なディスカッションの促進について詳しくは、「[コメントと会話のモデレーション](/github/building-a-strong-community/moderating-comments-and-conversations)」を参照してください。
+健全なディスカッションの促進について詳しくは、「[コメントと会話のモデレーション](/communities/moderating-comments-and-conversations)」を参照してください。
 
 ### 必要な環境
 
@@ -24,7 +24,7 @@ Organization のオーナーは、Organization が所有するリポジトリの
 
 ### ディスカッションのカテゴリを変更する
 
-ディスカッションを分類して、コミュニティメンバーが関連するディスカッションを見つけやすくすることができます。 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」の記事を参照してください。
+ディスカッションを分類して、コミュニティメンバーが関連するディスカッションを見つけやすくすることができます。 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」を参照してください。
 
 ディスカッションを別のカテゴリに移動することもできます。
 

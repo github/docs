@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% tip %}
@@ -23,7 +26,7 @@ Organization の名前を変更したら、古い Organization 名は他の個�
 #### 自動で行われる変更
 
 - {% data variables.product.prodname_dotcom %} ではリポジトリへの参照を自動でリダイレクトします。  Organization に既存の**リポジトリ**への Web リンクは引き続き機能します。 変更を開始してから完了するまでに数分かかることがあります。
-- ローカルリポジトリのプッシュは、古いリモートトラッキング URL へは更新なしでそのまま行えます。 ただし、Organization の名前を変更したら、既存のすべてのリモートリポジトリ URL を更新するよう推奨します。 変更後の古い Organization 名は他のいずれの個人も使用できるようになるため、新しい Organization オーナーがリポジトリへのリダイレクトエントリをオーバーライドすることがありえます。 詳しい情報については、「[リモートの URL を変更する](/articles/changing-a-remote-s-url)」を参照してください。
+- ローカルリポジトリのプッシュは、古いリモートトラッキング URL へは更新なしでそのまま行えます。 ただし、Organization の名前を変更したら、既存のすべてのリモートリポジトリ URL を更新するよう推奨します。 変更後の古い Organization 名は他のいずれの個人も使用できるようになるため、新しい Organization オーナーがリポジトリへのリダイレクトエントリをオーバーライドすることがありえます。 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 - 以前の Git コミットも、Organization 内のユーザへ正しく関連付けられます。
 
 #### 自動ではない変更
@@ -42,5 +45,4 @@ Organization の名前を変更したら、次のようになります:
 
 ### 参考リンク
 
-* 「[リモートの URL を変更する](/articles/changing-a-remote-s-url)」
 * 「[コミットが間違ったユーザにリンクされているのはなぜですか？](/articles/why-are-my-commits-linked-to-the-wrong-user)」

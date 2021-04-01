@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### 個人アカウントのプランをアップグレードする

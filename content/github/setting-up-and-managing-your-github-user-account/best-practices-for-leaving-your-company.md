@@ -5,6 +5,8 @@ redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
 ---
 
 Before you leave your company, make sure you update the following information in your user account:

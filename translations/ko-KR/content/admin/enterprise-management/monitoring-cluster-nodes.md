@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### Manually checking cluster status

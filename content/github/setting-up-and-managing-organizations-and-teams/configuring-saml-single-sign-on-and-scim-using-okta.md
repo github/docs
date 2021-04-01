@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About SAML and SCIM with Okta
@@ -64,9 +67,9 @@ After you enable SCIM, the following provisioning features are available for any
   !["Grant" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
 
   {% note %}
-  
+
   **Note**: If you don't see your organization in the list, go to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser and authenticate with your organization via SAML SSO using your administrator account on the IdP. For example, if your organization's name is `octo-org`, the URL would be `https://github.com/orgs/octo-org/sso`. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
-  
+
   {% endnote %}
 1. Click **Authorize OktaOAN**.
   !["Authorize OktaOAN" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-authorize-oktaoan.png)

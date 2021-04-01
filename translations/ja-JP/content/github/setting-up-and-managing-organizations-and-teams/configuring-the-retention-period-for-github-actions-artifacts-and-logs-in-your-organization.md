@@ -4,6 +4,10 @@ intro: 'Organization 内の {% data variables.product.prodname_actions %} アー
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

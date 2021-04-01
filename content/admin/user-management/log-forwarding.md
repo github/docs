@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](http://logstash.net/) and [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 

@@ -1,0 +1,68 @@
+date: '2021-03-02'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+sections:
+  security_fixes:
+    - '**HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed authenticated users of the instance to gain write access to unauthorized repositories via specifically crafted pull requests and REST API requests. An attacker would need to be able to fork the targeted repository, a setting that is disabled by default for organization owned private repositories. Branch protections such as required pull request reviews or status checks would prevent unauthorized commits from being merged without further review or validation. This vulnerability has been assigned CVE-2021-22861. This issue was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**HIGH:** An improper access control vulnerability was identified in the GitHub Enterprise Server GraphQL API that allowed authenticated users of the instance to modify the maintainer collaboration permission of a pull request without proper authorization. By exploiting this vulnerability, an attacker would be able to gain access to head branches of pull requests opened on repositories of which they are a maintainer. Forking is disabled by default for organization owned private repositories and would prevent this vulnerability. Additionally, branch protections such as required pull request reviews or status checks would prevent unauthorized commits from being merged without further review or validation. This vulnerability has been assigned CVE-2021-22863. This issue was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed an authenticated user with the ability to fork a repository to disclose Actions secrets for the parent repository of the fork. This vulnerability existed due to a flaw that allowed the base reference of a pull request to be updated to point to an arbitrary SHA or another pull request outside of the fork repository. By establishing this incorrect reference in a PR, the restrictions that limit the Actions secrets sent a workflow from forks could be bypassed. This vulnerability affected GitHub Enterprise Server versions 3.0.0, 3.0.0.rc2, and 3.0.0.rc1 and has been assigned CVE-2021-22862. This vulnerability was reported via the GitHub Bug Bounty program.'
+    - '**MEDIUM:** GitHub Tokens from GitHub Pages builds could end up in logs.'
+    - 'Packages have been updated to the latest security versions.'
+  bugs:
+    - 'The load-balancer health checks in some cases could cause the babeld logs to fill up with errors about the PROXY protocol.'
+    - 'The HTTP headers were not compliant with HTTP RFC standards in specific responses like 304 status for archives.'
+    - 'On instances that host Python repositories with the Dependency Graph feature enabled, the instance could become unresponsive due to the root disk filling with error logs.'
+    - 'An informational message was unintentionally logged as an error during GitHub Enterprise Backup Utilities snapshots, which resulted in unnecessary emails being sent when backups were scheduled by cron jobs that listen for output to stderr.'
+    - 'On VMWare ESX 6.7 the initial configuration could hang while creating host keys which left the instance inaccessible via SSH.'
+    - 'When GitHub Actions was enabled, disabling maintenance mode in the management console failed.'
+    - 'The Package creation setting was shown on the organization member settings page, though this feature is not yet available.'
+    - 'While enabling secret scanning on the Security & Analysis page the dialog incorrectly mentions private repositories.'
+    - 'When editing a wiki page a user could experience a 500 error when clicking the Save button.'
+    - 'An S/MIME signed commit using a certificate with multiple names in the subject alternative name would incorrectly show as "Unverified" in the commit badge.'
+    - 'User saw 500 error when executing git operations on an instance configured with LDAP authentication.'
+    - 'Suspended user was sent emails when added to a team.'
+    - 'When a repository had a large number of manifests an error `You have reached the maximum number of allowed manifest files (20) for this repository.` was shown on the Insights -> Dependency graph tab. For more information, see [Visualization limits](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Fixes users being shown the option to set up the Code Scanning CodeQL Action even if Actions was not enabled for their repository.'
+    - 'The "Prevent repository admins from changing anonymous Git read access" checkbox available in the enterprise account settings could not be successfully enabled or disabled.'
+    - 'The modal used to display a mandatory message contained no vertical scrollbar, meaning longer messages could not be viewed in full.'
+    - 'Redis would sometimes fail to start after a hard reboot or application crash.'
+    - 'Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.'
+  changes:
+    - 'Satisfy requests concurrently when multiple users are downloading the same archive, resulting in improved performance.'
+  known_issues:
+    - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.'
+    - 'Custom firewall rules are not maintained during an upgrade.'
+    - 'Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.'
+    - 'Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.'
+    - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.'
+    - 'When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/).'
+    - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
+    - 'Users can dismiss a mandatory message without checking all checkboxes.'
+    - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
+    - 'Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.'
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - 'reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.'
+    - 'Dependency graph fails to parse `yarn.lock` Javascript manifest files, resulting in HTTP 500 errors in logs.'
+    - 'Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.'
+    - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
+    - |
+      Users may experience assets such as avatars not loading, or a failure to push/pull code. This may be caused by a PID mismatch in the `haproxy-cluster-proxy` service. To determine if you have an affected instance:
+
+      **Single instance**
+
+      1. Run this in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+        ```
+        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
+        ```
+
+      2. If it shows that there is a mismatch, reboot the instance.
+
+      **Cluster or High Availability configuration**
+
+      1. Run this in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+        ```
+        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
+        ```
+
+      2. If it shows one or more nodes are affected, reboot the affected nodes.

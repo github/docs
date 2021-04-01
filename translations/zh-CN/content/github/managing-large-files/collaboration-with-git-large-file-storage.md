@@ -14,7 +14,7 @@ versions:
 
 {% tip %}
 
-**提示：**为帮助未启用 {% data variables.large_files.product_name_short %} 的用户，我们建议您设置仓库贡献者指南以介绍如何处理大文件。 例如，您可以要求贡献者不修改大文件，或者将更改上传到文件共享服务，如 [Dropbox](http://www.dropbox.com/) 或 <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>。 更多信息请参阅“[设置仓库参与者指南](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)”。
+**提示：**为帮助未启用 {% data variables.large_files.product_name_short %} 的用户，我们建议您设置仓库贡献者指南以介绍如何处理大文件。 例如，您可以要求贡献者不修改大文件，或者将更改上传到文件共享服务，如 [Dropbox](http://www.dropbox.com/) 或 <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>。 更多信息请参阅“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 
 {% endtip %}
 

@@ -3,6 +3,8 @@ title: Gerenciar seus lembretes agendados
 intro: Receba lembretes no Slack quando você ou sua equipe tiverem pull requests aguardando revisão.
 versions:
   free-pro-team: '*'
+topics:
+  - contas
 ---
 
 ### Sobre os lembretes agendados para os usuários
@@ -12,6 +14,8 @@ Os lembretes agendados são usados para garantir que os usuários se concentrem 
 Para certos eventos, você também pode habilitar alertas em tempo real para agendamentos de lembretes. Os alertas em tempo real são enviados para o seu canal do Slack assim que ocorrer um evento importante, como, por exemplo, a atribuição de uma revisão, ocorre.
 
 Você pode definir lembretes agendados para solicitações de revisão no nível da equipe para pull requests nas organizações das quais você é integrante. Antes de criar um lembrete agendado para você, um proprietário da organização deve autorizar o seu espaço de trabalho do Slack. Para obter mais informações, consulte "[Gerenciar lembretes agendados para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)".
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Criar lembretes agendados para a sua conta de usuário
 

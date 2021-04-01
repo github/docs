@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% note %}

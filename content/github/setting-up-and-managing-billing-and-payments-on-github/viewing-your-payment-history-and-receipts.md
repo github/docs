@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-your-payment-history-and-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 ### Viewing receipts for your personal account

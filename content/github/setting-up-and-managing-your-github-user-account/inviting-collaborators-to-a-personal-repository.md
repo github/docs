@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - accounts
+  - repositories
 ---
 
 Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."

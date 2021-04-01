@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 ### Acerca de los comentarios de las solicitudes de extracción
@@ -52,8 +54,8 @@ Cualquier persona que observe la solicitud de extracción o el repositorio recib
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Further reading
+### Leer más
 
 - [Crear un enlace permanente al fragmento de código](/articles/creating-a-permanent-link-to-a-code-snippet/)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

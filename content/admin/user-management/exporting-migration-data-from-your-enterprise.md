@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Preparing the {% data variables.product.prodname_ghe_server %} source instance

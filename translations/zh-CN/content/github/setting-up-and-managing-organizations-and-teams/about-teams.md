@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ![组织中的团队列表](/assets/images/help/teams/org-list-of-teams.png)
@@ -36,7 +39,7 @@ versions:
 
 每个团队都在组织中有自己的页面。 在团队的页面上，您可以查看团队成员、子团队和团队的仓库。 组织所有者和团队维护员可从团队页面访问团队设置以及更新团队的说明和头像。
 
-组织成员可以创建和参与团队讨论。 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+组织成员可以创建和参与团队讨论。 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
 
 ![列出团队成员和讨论的团队页面](/assets/images/help/organizations/team-page-discussions-tab.png)
 

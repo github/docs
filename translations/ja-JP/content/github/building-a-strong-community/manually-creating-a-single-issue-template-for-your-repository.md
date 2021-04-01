@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - コミュニティ
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -18,7 +20,7 @@ YAML frontmatter を各 Issue テンプレートに追加して、Issue のタ�
 
 YAML front matter の例は次のとおりです。
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.

@@ -6,6 +6,8 @@ redirect_from:
   - /articles/helping-new-contributors-find-your-project-with-labels
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Puedes aplicar la etiqueta `good first issue` (primera buena propuesta) a las propuestas de tu repositorio público para que las personas puedan encontrarlas cuando busquen por etiquetas. Para obtener más información acerca de buscar por etiquetas, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests/#search-by-label)".
@@ -17,7 +19,7 @@ Puedes aplicar la etiqueta `good first issue` (primera buena propuesta) a las pr
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. En la esquina superior derecha, haz clic en **Label** (etiqueta), luego escribe `good first issue` (primera buena propuesta). Haz clic en el nombre de la etiqueta para asociarla con los elementos seleccionados. ![Desplegable de la asignación de los hitos de propuestas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las etiquetas](/articles/about-labels)"
 - "[Buscar repositorios](/articles/searching-for-repositories)"

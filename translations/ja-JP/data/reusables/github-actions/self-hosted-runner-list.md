@@ -1,1 +1,1 @@
- 1. Locate the list of runners under "Self-hosted runners".
+ 1. "Self-hosted runners（セルフホストランナー）"の下で、ランナーのリストを見つけてください。

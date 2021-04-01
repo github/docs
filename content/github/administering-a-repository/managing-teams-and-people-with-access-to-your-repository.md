@@ -6,6 +6,8 @@ redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### About managing access to your repository

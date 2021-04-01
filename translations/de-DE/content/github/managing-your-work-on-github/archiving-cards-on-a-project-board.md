@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Die Automatisierung in Deinem Projektboard gilt nicht für archivierte Projektboard-Tickets. Wenn Du beispielsweise einen Issue im Archiv eines Projektboards schließt, wird das archivierte Ticket nicht automatisch in die Spalte „Done“ (Abgeschlossen) verschoben. Wenn Du ein Ticket aus dem Projektboard-Archiv wiederherstellst, befindet sich das Ticket wieder in der Spalte, aus der es archiviert wurde.

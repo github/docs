@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - profile
 ---
 
 Du kannst optional eine Beschreibung, einen Standort, eine Website und eine E-Mail-Adresse für Deine Organisation hinzufügen und wichtige Repositorys am Anfang der Seite anheften.

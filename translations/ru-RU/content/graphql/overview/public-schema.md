@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.

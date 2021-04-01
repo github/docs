@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Prerequisites

@@ -7,10 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
 ### Acerca de los tokens de acceso de usuario con caducidad
@@ -42,7 +44,7 @@ Esta solicitud de rellamada te enviará un token de acceso y un token de actuali
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
+  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -56,7 +58,8 @@ Puedes habilitar o inhabilitar los tokens de autorización de usuario a servidor
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Da clic en la opción**Editar** junto a la {% data variables.product.prodname_github_app %} que escogiste. ![Configuración para editar una GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. En la barra lateral izquierda, da clic en **Características del Beta**. ![Opción de menú de Características del Beta](/assets/images/github-apps/beta-features-option.png)
+5. En la barra lateral izquierda, da clic en **{% if currentVersion ver_lt "enterprise-server@3.1" %} Características Beta {% else %} Características Opcionales {% endif %}**.
+  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. Junto a "caducidad de token de usuario a servidor", da clic en **Unirse** o en **No unirse**. Esta característica podría tardar un par de segundos para su aplicación.
 
 ### Decidir no unirse a los tokens con caducidad para las GitHub Apps nuevas

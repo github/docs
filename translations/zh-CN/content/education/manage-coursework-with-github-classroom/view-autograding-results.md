@@ -23,7 +23,7 @@ redirect_from:
 
 您可以单击特定的测试运行来查看日志输出，如编译错误和测试失败。
 
-![{% data variables.product.prodname_actions %} 中的"{% data variables.product.prodname_classroom %}  自动评分工作流程"测试结果日志 ](/assets/images/help/classroom/autograding-actions-logs.png)
+![{% data variables.product.prodname_actions %} 中的"{% data variables.product.prodname_classroom %} 自动评分工作流程"测试结果日志 ](/assets/images/help/classroom/autograding-actions-logs.png)
 
 ### 延伸阅读
 

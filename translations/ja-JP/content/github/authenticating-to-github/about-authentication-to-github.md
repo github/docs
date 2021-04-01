@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 ### {% data variables.product.prodname_dotcom %} への認証について
@@ -45,9 +48,9 @@ IdP を使用して、ブラウザ {% if currentVersion == "github-ae@latest" %}
 
 ### コマンドラインで認証する
 
-コマンドラインから {% data variables.product.product_name %} のリポジトリにアクセスするには、HTTPS と SSH の 2 つの方法がありますが、それぞれ認証方法が異なります。 認証方法は、リポジトリのクローンを作成するときに HTTPS または SSH リモート URL を選択したかどうかに基づいて決まります。 アクセス方法の詳細については、「[使用するべきリモート URL](/github/using-git/which-remote-url-should-i-use)」を参照してください。
+コマンドラインから {% data variables.product.product_name %} のリポジトリにアクセスするには、HTTPS と SSH の 2 つの方法がありますが、それぞれ認証方法が異なります。 認証方法は、リポジトリのクローンを作成するときに HTTPS または SSH リモート URL を選択したかどうかに基づいて決まります。 For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
-* ファイアウォールまたはプロキシの内側からでも、HTTPS を介して {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。 Git を使用して {% data variables.product.product_name %} で認証するたびに[認証情報ヘルパー](/github/using-git/caching-your-github-credentials-in-git)でキャッシュしない限り、{% data variables.product.product_name %} で認証するための資格情報を入力するように求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
+* ファイアウォールまたはプロキシの内側からでも、HTTPS を介して {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。 Git を使用して {% data variables.product.product_name %} で認証するたびに[認証情報ヘルパー](/github/getting-started-with-github/caching-your-github-credentials-in-git)でキャッシュしない限り、{% data variables.product.product_name %} で認証するための資格情報を入力するように求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
 * SSH 接続はファイアウォールとプロキシから許可されない場合がありますが、SSH 経由で {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。 SSH を使用するには、ローカルマシンで SSH 公開鍵/秘密鍵ペアを生成し、公開鍵を {% data variables.product.product_name %} アカウントに追加する必要があります。 Git を使用して {% data variables.product.product_name %} で認証するたびに、[キーを保存](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)していない限り、SSH キーのパスフレーズの入力を求められます。 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 

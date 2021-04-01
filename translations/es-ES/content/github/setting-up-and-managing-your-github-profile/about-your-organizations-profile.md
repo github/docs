@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfiles
 ---
 
 Opcionalmente, puedes optar por agregar una descripción, una ubicación, un sitio web y una dirección de correo electrónico para tu organización y anclar repositorios importantes en la parte superior de la página.
@@ -19,6 +21,6 @@ Opcionalmente, puedes optar por agregar una descripción, una ubicación, un sit
 ![Muestra de la página de perfil de una organización](/assets/images/help/profile/org_profile.png)
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las organizaciones](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"

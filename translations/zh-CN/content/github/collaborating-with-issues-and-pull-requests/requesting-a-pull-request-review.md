@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 用户帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 拥有仓库查验漏洞权限的组织成员可以分配拉取请求审查。

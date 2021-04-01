@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Unternehmen
 ---
 
 Jeder Eintrag im Auditprotokoll zeigt die zutreffenden Informationen zu einem Ereignis an, beispielsweise:

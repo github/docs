@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
+topics:
+  - 仓库
 ---
 
 ### 关于更改默认分支
@@ -23,7 +25,7 @@ redirect_from:
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
 您也可以重命名默认分支。 更多信息请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
 

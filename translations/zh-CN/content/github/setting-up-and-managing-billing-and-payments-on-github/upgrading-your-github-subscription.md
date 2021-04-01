@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 ### 升级个人帐户的订阅

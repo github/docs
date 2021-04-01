@@ -6,10 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Workflow syntax
 
@@ -27,12 +29,12 @@ You can configure workflows to run when specific GitHub events occur, at a sched
 
 ### Authentication and secrets
 
-{% data variables.product.prodname_dotcom %} provides a token that you can use to authenticate on behalf of {% data variables.product.prodname_actions %}. You can also store sensitive information as a secret in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or environments{% else %} or repository{% endif %}. {% data variables.product.prodname_dotcom %} encrypts all secrets.
+{% data variables.product.prodname_dotcom %} provides a token that you can use to authenticate on behalf of {% data variables.product.prodname_actions %}. You can also store sensitive information as a secret in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repository, or environments{% else %} or repository{% endif %}. {% data variables.product.prodname_dotcom %} encrypts all secrets.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### Environments
 
 Workflow jobs can reference environments that have protection rules or environment-specific secrets.
@@ -40,12 +42,11 @@ Workflow jobs can reference environments that have protection rules or environme
 {% link_in_list /environments %}
 {% endif %}
 
-### {% data variables.product.prodname_dotcom %}-hosted runners
+### 환경 변수
 
-GitHub offers hosted virtual machines to run workflows. The virtual machine contains an environment with tools, packages, and environment variables for GitHub Actions to use.
+{% data variables.product.prodname_dotcom %} sets default environment variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom environment variables in your workflow file.
 
 {% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Administration

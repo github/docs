@@ -1,0 +1,40 @@
+---
+date: '2021-03-23'
+intro: Downloads have been disabled due to a major bug affecting multiple customers. A fix will be available in the next patch.
+sections:
+  security_fixes:
+    - '**高：**在 GitHub Enterprise Server 中发现了远程代码执行漏洞，可能在构建 GitHub Pages 站点时被利用。GitHub Pages 使用的用户控制配置选项没有受到足够的限制，因此可以覆盖导致在 GitHub Enterprise Server 实例上执行代码的环境变量。要利用此漏洞，攻击者需要获得在 GitHub Enterprise Server 实例上创建和构建 GitHub Pages 站点的权限。此漏洞影响 GitHub Enterprise Server 3.0.3 之前的所有版本，已在 3.0.3、2.22.9 和 2.21.17 中修复。此漏洞通过 GitHub Bug Bounty 计划报告，已分配 CVE-2021-22864。'
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 运行 `ghe-cluster-config-init` 可能会使集群无法操作。
+    - 当自定义预接收挂钩配置在仓库上时，解析 GUI 中的合并冲突将失败。
+    - '`launch-deplauncher` 和 `launch-recever` 在DEBUG 级别记录日志，并且用不必要的信息填充日志。'
+    - 系统可能会失去 HAProxy PID 的跟踪。
+    - 当 Actions 配置为使用 S3 存储时，操作的日志有时无法加载。
+    - Mysql-failover 警告在成功故障转移后无限期显示。
+    - '`ghe-cluster-config-init` 运行未完全考虑背景作业的退出代码，导致印检查的处理不当。'
+    - 启用 GitHub Actions 时，初始化可能会静默失败。
+    - 启用漏洞警报后，升级到 3.0 系列将失败。
+    - 与 Codespace 有关的作业在排队，导致未处理的作业累积。
+  changes:
+    - 即使有几个节点关闭，对 consul 和 nomad `bootstrap_expect` 使用相对编号也允许集群 bootstrap。
+    - 除时间外，日志还根据大小旋转。
+    - 添加 kafka lite 到 'ghe-cluster-status' 命令。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级期间不会保持。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 [GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) 或 [GitHub Premium 支持](https://premium.githubsupport.com/)。
+    - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
+    - restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。
+    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - |
+      Log rotation may fail to signal services to transition to new log files, leading to older log files continuing to be used, and eventual root disk space exhaustion.
+      To remedy and/or prevent this issue, run the following commands in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), or contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/) for assistance:
+
+      ```
+      printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+      sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+      ```

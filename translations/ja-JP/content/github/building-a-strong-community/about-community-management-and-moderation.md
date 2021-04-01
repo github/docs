@@ -3,6 +3,8 @@ title: コミュニティの管理とモデレーションについて
 intro: '{% data variables.product.prodname_dotcom %}は、リポジトリメンテナが{% data variables.product.prodname_dotcom_the_website %}のコミュニティでの行動規範を確立および実施するのに役立つツールを提供しています。'
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 ### コミュニティの管理とモデレーションについて

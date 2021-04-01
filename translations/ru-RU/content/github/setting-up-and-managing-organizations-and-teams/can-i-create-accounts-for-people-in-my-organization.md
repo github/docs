@@ -6,6 +6,9 @@ redirect_from:
 intro: 'While you can add users to an organization you''ve created, you can''t create personal user accounts on behalf of another person.'
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Because you access an organization by logging in to a personal account, each of your team members needs a personal account. Once you have user names for each person you'd like to add to your organization, you can add them to teams.

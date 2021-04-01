@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Bifurcar um repositório é semelhante a copiar um repositório, com duas grandes diferenças:

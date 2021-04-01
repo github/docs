@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - facturación
 ---
 
 ### Configurar el correo electrónico de facturación de tu cuenta personal

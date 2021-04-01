@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
+  - 通知
 ---
 
 从命令行推送提交时，您[在 Git 中设置](/articles/setting-your-commit-email-address)的电子邮件地址会与您的提交相关联。 此设置可阻止您在使用您个人电子邮件地址的命令行上推送提交。

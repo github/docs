@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Cualquiera con permisos administrativos en un repositorio puede configurar las referencias autovinculadas para vincular propuestas, solicitudes de cambios,{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} mensajes de confirmación, y descripciones de lanzamientos{% else %} y mensajes de confirmación{% endif %} a los servicios externos de terceros.

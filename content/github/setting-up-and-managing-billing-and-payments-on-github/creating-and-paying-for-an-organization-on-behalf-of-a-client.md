@@ -5,6 +5,8 @@ redirect_from:
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 ### Requirements

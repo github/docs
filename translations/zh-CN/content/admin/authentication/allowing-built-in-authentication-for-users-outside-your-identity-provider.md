@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于对您的身份提供程序覆盖范围外的用户进行内置身份验证

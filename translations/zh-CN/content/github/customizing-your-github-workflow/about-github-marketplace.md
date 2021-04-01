@@ -19,7 +19,7 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-任何人都可以在 {% data variables.product.prodname_marketplace %} 上列出免费的 {% data variables.product.prodname_github_app %} 或 {% data variables.product.prodname_oauth_app %}。 付费应用程序的发布者由 {% data variables.product.company_short %} 验证，这些应用程序的列表显示有认证的创建者徽章 {% octicon "verified" aria-label="Verified creator badge" %}。 您还将看到未验证和已验证应用程序的徽章。 这些应用程序是使用以前个别应用程序验证方法来发布的。 关于当前流程的更多信息，请参阅“[关于已验证的创建者](/developers/github-marketplace/about-verified-creators)”和“[列出应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
+任何人都可以在 {% data variables.product.prodname_marketplace %} 上列出免费的 {% data variables.product.prodname_github_app %} 或 {% data variables.product.prodname_oauth_app %}。 付费应用程序的发布者由 {% data variables.product.company_short %} 验证，这些应用程序的上架信息显示 Marketplace 徽章 {% octicon "verified" aria-label="Verified creator badge" %}。 您还将看到未验证和已验证应用程序的徽章。 这些应用程序是使用以前个别应用程序验证方法来发布的。 关于当前流程的更多信息，请参阅“[关于 GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)”和“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
 
 ### 在 {% data variables.product.prodname_marketplace %} 上创建和列出工具
 

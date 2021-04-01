@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

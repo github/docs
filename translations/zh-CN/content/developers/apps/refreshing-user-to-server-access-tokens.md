@@ -7,10 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
 ### 关于过期用户访问令牌
@@ -42,7 +44,7 @@ versions:
 {
   "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
+  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -56,7 +58,8 @@ versions:
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 单击所选 {% data variables.product.prodname_github_app %} 旁边的 **Edit（编辑）**。 ![编辑 GitHub 应用程序的设置](/assets/images/github-apps/edit-test-app.png)
-5. 在左边栏中，单击 **Beta Features（测试版功能）**。 ![测试版功能菜单选项](/assets/images/github-apps/beta-features-option.png)
+5. 在左侧栏中，单击 **{% if currentVersion ver_lt "enterprise-server@3.1" %} 测试 {% else %} 可选 {% endif %} 功能**。
+  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. 在“User-to-server token expiration（用户到服务器令牌过期）”旁边，单击 **Opt-in（选择加入）**或 **Opt-out（选择退出）**。 应用此设置可能需要几秒钟的时间。
 
 ### 为新的 GitHub 应用程序选择退出过期令牌

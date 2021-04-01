@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.
+permissions: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.'
+topics:
+  - organizations
+  - teams
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}

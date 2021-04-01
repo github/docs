@@ -7,6 +7,8 @@ redirect_from:
   - /articles/viewing-your-git-large-file-storage-usage
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}

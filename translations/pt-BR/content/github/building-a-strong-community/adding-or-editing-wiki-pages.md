@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidade
 ---
 
 ### Adicionar páginas wiki

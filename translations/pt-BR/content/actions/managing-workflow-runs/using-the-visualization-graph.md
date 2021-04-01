@@ -5,11 +5,13 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.visualization-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 可将外部协作者添加到仓库，除非组织所有者限制了邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.

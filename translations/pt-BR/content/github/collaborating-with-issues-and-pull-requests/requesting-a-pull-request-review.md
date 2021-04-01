@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Proprietários e colaboradores de um repositório pertencente a uma conta de usuário podem atribuir revisões de pull requests. Os integrantes da organização com permissões de triagem em um repositório podem atribuir uma revisão de pull request.

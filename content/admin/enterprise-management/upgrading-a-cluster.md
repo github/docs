@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 ### Upgrading with a hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %} The hotpatch installation script installs the hotpatch on every node in the cluster and restarts the services in their proper sequence to avoid downtime.

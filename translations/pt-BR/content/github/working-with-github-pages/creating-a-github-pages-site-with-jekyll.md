@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 ### Prerequisites
 
 Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
@@ -96,7 +98,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

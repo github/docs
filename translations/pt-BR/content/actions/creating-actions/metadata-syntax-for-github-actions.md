@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
@@ -246,7 +248,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 ##### `runs.steps[*].env`
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você quiser modificar a variável de ambiente armazenada no fluxo de trabalho, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa de execução composta.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você desejar modificar a variável de ambiente armazenada no fluxo de trabalho, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa de execução composta.
 
 ##### `runs.steps[*].working-directory`
 
@@ -296,7 +298,7 @@ executa:
 
 #### `runs.image`
 
-**Obrigatório ** A imagem do Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem de base do Docker, um `arquivo Docker` local no seu repositório u uma imagem pública no Docker Hub ou outro registro. Para fazer referência a um `arquivo Docker` no seu repositório, use um caminho relativo ao seu arquivo de metadados da ação. O aplicativo do `docker` executará este arquivo.
+**Obrigatório ** A imagem do Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem de base do Docker, um `arquivo Docker` local no seu repositório u uma imagem pública no Docker Hub ou outro registro. Para fazer referência a um `arquivo Docker` local no seu repositório, o arquivo precisa ser denominado `arquivo Docker` e você precisa usar um caminho relativo ao seu arquivo de metadados de ação. O aplicativo do `docker` executará este arquivo.
 
 #### `runs.env`
 

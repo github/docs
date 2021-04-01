@@ -6,6 +6,9 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization のメンバー全員が Organization のインサイトを表示できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。

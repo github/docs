@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 生效日期：2020 年 12 月 19 日
@@ -94,7 +97,7 @@ GitHub 可能会从第三方收集用户个人信息。 例如，如果您报名
 
 ### GitHub 如何使用您的信息
 
-- 我们可能将您的信息用于以下目的：
+我们可能将您的信息用于以下目的：
 - 我们使用您的[注册信息](#registration-information)创建您的帐户并为您提供服务。
 - 我们使用您的[付款信息](#payment-information)为您提供付费帐户服务、Marketplace 服务、赞助计划或您要求的任何其他 GitHub 付费服务。
 - 我们使用您的用户个人信息，特别是您的用户名，在 GitHub 上识别您的身份。

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Em um cartão, você pode clicar em qualquer responsável, marco ou etiqueta para filtrar o quadro de projeto por esse qualificador. Para limpar a pesquisa, você pode clicar no mesmo responsável, marco ou etiqueta novamente.

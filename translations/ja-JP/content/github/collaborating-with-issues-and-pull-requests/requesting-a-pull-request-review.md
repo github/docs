@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ユーザアカウントが所有しているリポジトリのオーナーとコラボレータは、プルリクエストのレビューを割り当てることができます。 リポジトリに対するトリアージ権限を持つ Organization メンバーは、プルリクエストのレビューを割り当てることができます。

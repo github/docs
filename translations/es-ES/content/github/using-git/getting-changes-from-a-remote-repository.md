@@ -69,7 +69,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 Como `pull` realiza una fusión en los cambios recuperados, debes asegurarte de que tu trabajo local esté confirmado antes de ejecutar el comando `pull`. Si se produce un [conflicto de fusión](/articles/resolving-a-merge-conflict-using-the-command-line) que no puedes resolver, o si decides abandonar la fusión, puedes usar `git merge --abort` para hacer que la rama vuelva al estado anterior antes de que extrajeras.
 
-### Further reading
+### Leer más
 
 - ["Trabajar con remotos" del libro de _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Solucionar problemas de conectividad ](/articles/troubleshooting-connectivity-problems)"{% endif %}

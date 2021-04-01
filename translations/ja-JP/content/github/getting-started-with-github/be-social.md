@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - プロフィール
+  - pull requests
+  - issues
+  - notifications
+  - アカウント
 ---
 
 個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。

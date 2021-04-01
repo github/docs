@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于组织的双重身份验证

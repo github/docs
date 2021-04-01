@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### プルリクエストのレビューについて
@@ -44,7 +46,7 @@ versions:
 
 ### 必須のレビュー
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}詳しい情報については[保護されたブランチの設定](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
 
 {% tip %}
 

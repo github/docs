@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 社区
 ---
 
 ### 关于默认社区健康文件

@@ -4,6 +4,8 @@ intro: 'You can add a README to your {% data variables.product.prodname_dotcom %
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+topics:
+  - profiles
 ---
 
 ### About your profile README

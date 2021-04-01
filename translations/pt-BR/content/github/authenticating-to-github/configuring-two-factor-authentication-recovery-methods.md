@@ -11,6 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Além de armazenar com segurança os códigos de recuperação da autenticação de dois fatores, é enfaticamente recomendável configurar um ou mais métodos adicionais de recuperação.

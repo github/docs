@@ -36,7 +36,7 @@ Using LTI helps keep your information safe and secure. LTI is an industry-standa
 - Moodle
 - Sakai
 
-Currently, {% data variables.product.prodname_classroom %} doesn't support import of roster data from Blackboard or Brightspace
+Currently, {% data variables.product.prodname_classroom %} doesn't support import of roster data from Blackboard or Brightspace.
 
 ### Generating configuration credentials for your classroom
 

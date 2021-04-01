@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: **January 29, 2021**
@@ -50,6 +53,7 @@ Since the number and names of cookies may change, the table below may be updated
 | Service Provider | Cookie Name | Description | Expiration* |
 |:---|:---|:---|:---|
 | GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session. | five minutes |
+| GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | session | 
 | GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | one year |
 | GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | one year |
 | GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks | 

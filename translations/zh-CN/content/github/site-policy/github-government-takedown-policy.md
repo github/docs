@@ -2,6 +2,9 @@
 title: GitHub 政府删除政策
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 #### 这是什么？

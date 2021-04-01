@@ -1,0 +1,1 @@
+如果您通过 Microsoft 企业协议购买 {% data variables.product.prodname_enterprise %}，可以将 Azure 订阅 ID 连接到您的企业帐户，以便启用并支付超出您的帐户金额的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 使用费用。

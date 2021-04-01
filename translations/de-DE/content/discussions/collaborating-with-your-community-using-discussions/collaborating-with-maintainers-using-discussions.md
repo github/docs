@@ -45,4 +45,4 @@ You can search for discussions and filter the list of discussions in a repositor
 ### Weiterführende Informationen
 
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"

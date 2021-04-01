@@ -4,6 +4,8 @@ intro: '{% data variables.product.product_name %} のアカウントに接続す
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -12,7 +14,7 @@ versions:
 
 {% endnote %}
 
-### {% data variables.product.prodname_vs %} の Codespaces について
+### About codespaces in {% data variables.product.prodname_vs %}
 
 {% data variables.product.prodname_vs %} で Codespaces を作成して、Windows 環境でアプリケーションを開発できます。 {% data variables.product.prodname_vs %} で Codespaces を使用すると、ソースコードの参照、ソリューションの構築、リポジトリへの変更をコミットできます。
 

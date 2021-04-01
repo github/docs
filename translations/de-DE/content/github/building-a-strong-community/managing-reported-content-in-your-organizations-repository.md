@@ -3,6 +3,8 @@ title: Gemeldete Inhalte im Repository Deiner Organisation verwalten
 intro: 'Nachdem ein Mitwirkender einen störenden Inhalt in einem Repository gemeldet hat, können die Repository-Betreuer den Bericht ansehen und verwalten.'
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können gemeldete Inhalte für das Repository anzeigen und verwalten.

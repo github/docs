@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben

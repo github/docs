@@ -5,6 +5,8 @@ permissions: People with write permissions to a repository can rename a branch i
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+topics:
+  - repositories
 ---
 
 ### About renaming branches

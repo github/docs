@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidade
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}

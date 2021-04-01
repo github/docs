@@ -1,1 +1,1 @@
-5. Under "Temporary interaction limits", to the right of the type of interaction limit you want to set, use the **Enable** drop-down menu, then click the duration you want for your interaction limit.
+5. Debajo de "Límites de interacción temporal", a la derecha del límite del tipo de interacción que quieras configurar, utiliza el menú desplegable de **Habilitar** y luego da clic en la duración que quieras utilizar para tu límite de interacción.

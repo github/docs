@@ -1,5 +1,5 @@
-Partner | Supported secret 
---- | --- 
+Partner | Supported secret
+--- | ---
 Adafruit IO | Adafruit IO Key
 Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
 Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
@@ -11,8 +11,8 @@ Azure | Azure Service Management Certificate | azure_management_certificate
 Azure | Azure SQL Connection String | azure_sql_connection_string
 Azure | Azure Storage Account Key | azure_storage_account_key
 Clojars | Clojars Deploy Token
-CloudBees CodeShip | CloudBees CodeShip Credential 
-Databricks | Databricks Access Token 
+CloudBees CodeShip | CloudBees CodeShip Credential
+Databricks | Databricks Access Token
 Datadog | Datadog API Key
 Discord | Discord Bot Token
 Doppler | Doppler Personal Token
@@ -25,15 +25,15 @@ Dynatrace | Dynatrace Access Token
 Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
-Frame.io| Frame.io Developer Token 
+Frame.io| Frame.io Developer Token
 GitHub | GitHub SSH Private Key
 GitHub | GitHub Personal Access Token
 GitHub | GitHub App Installation Access Token
-GoCardless | GoCardless Live Access Token 
+GoCardless | GoCardless Live Access Token
 GoCardless | GoCardless Sandbox Access Token
 Google Cloud | Google API Key
 Google Cloud | Google Cloud Private Key ID
-Hashicorp Terraform | Terraform Cloud / Enterprise API Token 
+Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
 Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
@@ -49,6 +49,7 @@ Proctorio | Proctorio Linkage Key
 Proctorio | Proctorio Registration Key
 Proctorio | Proctorio Secret Key
 Pulumi | Pulumi Access Token
+PyPI | PyPI API Token
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
 Shopify | Shopify App Shared Secret

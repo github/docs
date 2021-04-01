@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -12,7 +14,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-Para tornar as ações específicas de {% data variables.product.prodname_dotcom_the_website %} disponíveis para uso em fluxos de trabalho, você pode usar a ferramenta de código aberto [`actions-sync`](https://github.com/actions/actions-sync) do {% data variables.product.company_short %} para sincronizar repositórios de ações de {% data variables.product.prodname_dotcom_the_website %} para a instância corporativa. Para outras formas de acessar as ações de {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre o uso de ações de {% data variables.product.prodname_dotcom_the_website %} no {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)".
+A abordagem recomendada de habilitar o acesso a ações a partir de {% data variables.product.prodname_dotcom_the_website %} é permitir o acesso automático para todas as ações. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.prodname_ghe_server %} a {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+No entanto, se você quer ter um controle mais rigoroso sobre quais as ações permitidas na sua empresa, você pode seguir esse guia para usar a ferramenta de código aberto de {% data variables.product.company_short %}de [`actions-sync`](https://github.com/actions/actions-sync) para sincronizar repositórios de ações individuais de {% data variables.product.prodname_dotcom_the_website %} com sua instância corporativa.
 
 ### Sobre a ferramenta `actions-sync`
 
@@ -33,7 +37,7 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
 
 {% note %}
 
-**Observação:** Este exemplo usa o comando `actions-sync`, que exige acesso simultâneo à API do {% data variables.product.prodname_dotcom_the_website %} e à API da instância do {% data variables.product.prodname_ghe_server %} a partir da sua máquina. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
+**Observação:** Este exemplo usa o comando `actions-sync`, que exige acesso simultâneo à API do {% data variables.product.prodname_dotcom_the_website %} e à API da instância do {% data variables.product.prodname_ghe_server %} a partir da sua máquina. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte o README de [`actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
 
 {% endnote %}
 
@@ -58,10 +62,10 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
 
      * O exemplo acima sincroniza o repositório [`docker/build-push-action`](https://github.com/docker/build-push-action) com o repositório `synced-actions/docker-build-push-action` na instância de destino de {% data variables.product.prodname_ghe_server %}. Você deve criar a organização denominada `synced-actions` na instância da empresa antes de executar o comando acima.
      * Se você omitir `:destination_owner/destination_repository`, a ferramenta usará o proprietário original e o nome do repositório para a instância corporativa. Antes de executar o comando, você deve criar uma nova organização na sua instância que corresponde ao nome do proprietário da ação. Considere usar uma organização central para armazenar as ações sincronizadas na sua instância, já que isso significa que você não precisará criar várias novas organizações se sincronizar ações de diferentes proprietários.
-     * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
+     * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o README de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
 1. Depois que o repositório de ação é criada na instância corporativa, as pessoas da sua empresa podem usar o repositório de destino para fazer referência à ação nos fluxos de trabalho. Para o exemplo da ação mostrado acima:
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 

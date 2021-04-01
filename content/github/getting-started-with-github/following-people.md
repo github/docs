@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - profile
 ---
 
 When you follow people, you'll see their public activity in the activity view of your news feed.{% if currentVersion == "free-pro-team@latest" %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image.

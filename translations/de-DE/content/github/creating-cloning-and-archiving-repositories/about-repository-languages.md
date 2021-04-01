@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to

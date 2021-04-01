@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.product_name %}は自動的に標準的な URL からリンクを生成します。
 
-`https://github.com にアクセスしてください。`
+`Visit https://github.com`
 
 ![変換された自動リンク URL](/assets/images/help/writing/url-autolink-rendered.png)
 

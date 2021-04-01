@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。 如果要为拉取请求创建新分支，又没有仓库的写入权限，可以先对仓库复刻。 更多信息请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”和“[关于复刻](/articles/about-forks)”。

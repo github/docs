@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% data variables.product.product_name %} のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}およびWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
@@ -213,7 +215,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### デバイスフローのレート制限
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+ユーザがブラウザ上で検証コードをサブミットする場合、アプリケーションごとに1時間に50回のサブミットというレート制限があります。
 
 リクエスト間で要求される最小の時間間隔（あるいは`interval`）内で複数のアクセストークンリクエスト（`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`）を発行すると、レート制限に達し、`slow_down`のエラーレスポンスが返されます。 `slow_down`エラーレスポンスは、最後の`interval`に5秒を追加します。 詳しい情報については[デバイスフローのエラー](#errors-for-the-device-flow)を参照してください。
 

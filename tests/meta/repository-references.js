@@ -1,5 +1,5 @@
 const walkSync = require('walk-sync')
-const fs = require('fs').promises
+const readFileAsync = require('../../lib/readfile-async')
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -31,10 +31,16 @@ const ALLOW_LIST = new Set([
   'rest-api-description',
   'smimesign',
   'tweetsodium',
-  'choosealicense.com'
+  'choosealicense.com',
+  'renaming'
 ])
 
 describe('check for repository references', () => {
+  // This tests exists to make sure we don't reference private GitHub owned repositories
+  // in our open-soure repository. If this is failing, and the repo is public,
+  // feel free to add it to the list above. Or if the feature requires referencing an
+  // internal repo, add the feature to the ignore list below.
+
   const filenames = walkSync(process.cwd(), {
     directories: false,
     ignore: [
@@ -55,7 +61,7 @@ describe('check for repository references', () => {
   })
 
   test.each(filenames)('in file %s', async (filename) => {
-    const file = await fs.readFile(filename, 'utf8')
+    const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
       .filter(repoName => !ALLOW_LIST.has(repoName))

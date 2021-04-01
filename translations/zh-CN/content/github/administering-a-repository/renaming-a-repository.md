@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 重命名仓库时，除项目网站 URL 外，所有现有信息将自动重定向到新名称，包括：
@@ -24,7 +26,7 @@ versions:
 $ git remote set-url origin <em>new_url</em>
 ```
 
-更多信息请参阅“[更改远程的 URL](/github/using-git/changing-a-remotes-url)”。
+更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

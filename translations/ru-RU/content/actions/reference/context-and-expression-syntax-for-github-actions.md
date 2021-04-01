@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About contexts and expressions
 
@@ -152,11 +154,12 @@ The `steps` context contains information about the steps in the current job that
 
 The `runner` context contains information about the runner that is executing the current job.
 
-| Property name       | Тип      | Description                                                                                                                                                                                                                                                                                                                         |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `строка` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                                                                                           |
-| `runner.temp`       | `строка` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                                                                                 |
-| `runner.tool_cache` | `строка` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Property name       | Тип      | Description                                                                                                                                                                                                                                                         |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `строка` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                           |
+| `runner.temp`       | `строка` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                 |
+| `runner.tool_cache` | `строка` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." |
+{% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### `needs` context
 
@@ -186,27 +189,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -348,7 +351,7 @@ The value for `array` can be an array or a string. All values in `array` are con
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -358,13 +361,13 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 `toJSON(job)` might return `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object for `value`. You can use this function to provide a JSON object as an evaluated expression.
+Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
 
-##### Пример
+##### Example returning a JSON object
 
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
@@ -384,9 +387,30 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
     - run: build
+```
+{% endraw %}
+
+##### Example returning a JSON data type
+
+This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - continue-on-error: ${{ fromJSON(env.continue) }}
+      timeout-minutes: ${{ fromJSON(env.time) }}
+      run: echo ...
 ```
 {% endraw %}
 
