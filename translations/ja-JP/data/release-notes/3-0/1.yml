@@ -40,10 +40,11 @@ sections:
     - 'ユーザが、すべてのチェックボックスをチェックすることなく必須のメッセージを閉じることができます。'
     - '[pre-receiveフックスクリプト](/admin/policies/enforcing-policy-with-pre-receive-hooks)は一時ファイルを書くことができず、そのためにスクリプトの実行が失敗することがあります。pre-receiveフックを使うユーザは、ステージング環境でスクリプトが書き込みアクセス権を必要とするかを確認するためのテストをするべきです。'
     - 'リポジトリの[デプロイキー](/developers/overview/managing-deploy-keys)が、LFSオブジェクトを含むリポジトリで使用できません。'
-    - 'ノートブックに非UTF-8でエンコードされた文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。'
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - 'Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。'
     - '依存関係グラフがJavaScriptの`yarn.lock`マニフェストファイルのパースに失敗し、ログにHTTP 500エラーが残ります。'
     - '以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。'
+    - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
     - |
       ユーザは、アバターのようなアセットがロードされないことや、コードのプッシュ/プルの失敗を体験するかもしれません。これは、`haproxy-cluster-proxy`サービス内のPIDミスマッチによって生じることがあります。影響されたインスタンスがあるかは、以下のようにして判断します。
 

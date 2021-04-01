@@ -1,4 +1,4 @@
-1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。 The results will appear in the **Security** tab for your repository.
+1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。 结果将出现在仓库的 **Security（安全性）**选项卡中。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -10,7 +10,7 @@
     > Successfully uploaded results
     ```
 
-1. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> 标志. We recommend setting up the {% data variables.product.prodname_codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
+1. 要将 {% data variables.product.prodname_code_scanning %} 结果上传为拉取请求检查，请使用 <nobr>`--ref` 指定拉取请求</nobr> 标志. 我们建议设置 {% data variables.product.prodname_codeql_runner %}，以便它在发生 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) web 挂钩事件时运行。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -22,4 +22,4 @@
     > Successfully uploaded results
     ```
 
-For more information about viewing {% data variables.product.prodname_code_scanning %} alerts, see "[Triaging code scanning alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing code scanning alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+有关查看 {% data variables.product.prodname_code_scanning %} 警报的更多信息，请参阅“[对拉取请求中的代码扫描警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”和“[管理仓库的代码扫描警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。

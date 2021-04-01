@@ -1,17 +1,17 @@
 ---
-title: Enforcing policies for Advanced Security in your enterprise
-intro: 'Enterprise owners can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features for organizations on {% data variables.product.product_location %}.'
+title: Requerir políticas para la seguridad avanzada en tu empresa
+intro: 'Los propietarios de empresa pueden requerir políticas para adminsitrar las características de la {% data variables.product.prodname_GH_advanced_security %} en las organizaciones de {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
-  github-ae: 'next'
+  github-ae: '*'
 ---
 
-### About {% data variables.product.prodname_GH_advanced_security %}
+### Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Enforcing a policy for {% data variables.product.prodname_advanced_security %} features
+### Requerir una política para las características de la {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

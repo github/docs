@@ -35,7 +35,7 @@ Repository owners and people with write access can enable {% data variables.prod
 
 コントリビューションガイドラインを設定して、コラボレータがリポジトリについて有意義で有用な会話を行うよう促すことができます。 リポジトリの README を更新して、コラボレータが Issue やディスカッションをオープンするタイミングを伝えることもできます。
 
-プロジェクトのガイドラインの提供方法の詳細については、「[プロジェクトに行動規範を追加する](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)」および 「[健全なコントリビューションのためのプロジェクトの設定](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)」を参照してください。
+プロジェクトのガイドラインの提供方法の詳細については、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 
 ### 新しいディスカッションを作成する
 

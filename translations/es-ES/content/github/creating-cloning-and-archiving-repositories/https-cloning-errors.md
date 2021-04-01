@@ -79,4 +79,4 @@ Cuando se te solicite un nombre de usuario y contraseña, asegúrate de usar una
 
 ### Usar SSH en su lugar
 
-Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Para obtener más información, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".

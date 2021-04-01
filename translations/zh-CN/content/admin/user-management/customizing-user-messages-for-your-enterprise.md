@@ -58,11 +58,20 @@ topics:
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 创建必读消息
 
-您可以创建必读消息，保存后，{% data variables.product.product_name %} 将在所有用户首次登录时显示该消息。 该消息出现在弹出窗口中，用户必须忽略后才能使用 {% data variables.product.product_location %}。 必读消息有多种用途。
+您可以创建必读消息，保存后，{% data variables.product.product_name %} 将在所有用户首次登录时显示该消息。 该消息出现在弹出窗口中，用户必须忽略后才能使用 {% data variables.product.product_location %}。
+
+必读消息有多种用途。
 
 - 为新员工提供入职信息
 - 告诉用户如何获得 {% data variables.product.product_location %} 帮助
 - 确保所有用户阅读有关使用 {% data variables.product.product_location %} 的服务条款
+
+{% note %}
+
+**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
+
+{% endnote %}
+
 
 如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 

@@ -1,2 +1,2 @@
-{% data variables.product.product_name %} will only trigger reminders for up to five repositories per owner and 20 pull requests per repository.
+{% data variables.product.product_name %} 只会触发每个所有者最多 5 个仓库的提醒，每个仓库最多触发 20 个拉取请求。
  

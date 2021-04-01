@@ -29,7 +29,7 @@ Issue または Pull Requestレビューのコメントから新しい Issue を
 {% tip %}
 
 **参考**: プロジェクト メンテナーは次を選択できます:
-  - リポジトリ用に Issue テンプレートを作成する。 テンプレートには Issue 本文に情報を入力するよう求めるプロンプトが含まれています。 詳しい情報については「[Issue およびプルリクエストのテンプレートについて](/github/building-a-strong-community/about-issue-and-pull-request-templates)」を参照してください。
+  - リポジトリ用に Issue テンプレートを作成する。 テンプレートには Issue 本文に情報を入力するよう求めるプロンプトが含まれています。 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)を参照してください。
   - リポジトリの Issue を無効化します。 詳細は「[Issue を無効化する](/github/managing-your-work-on-github/disabling-issues)」を参照してください。 プルリクエストは無効化できず、常に使用可能です。
 
 {% endtip %}
