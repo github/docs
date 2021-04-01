@@ -16,7 +16,8 @@ const pageCache = new RedisAccessor({
   databaseNumber: pageCacheDatabaseNumber,
   prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
   // Allow for graceful failures if a Redis SET operation fails
-  allowSetFailures: true
+  allowSetFailures: true,
+  name: 'page-cache'
 })
 
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately

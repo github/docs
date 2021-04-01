@@ -3,6 +3,8 @@ title: Gerenciando como os colaboradores relatam abuso no repositório da sua or
 intro: Você pode permitir que os colaboradores relatem comportamentos disruptivos diretamente aos mantenedores do repositório.
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode gerenciar como os colaboradores relatam abuso no repositório.

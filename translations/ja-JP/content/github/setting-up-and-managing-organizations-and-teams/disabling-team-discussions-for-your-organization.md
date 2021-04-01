@@ -7,9 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
-{% data reusables.organizations.team-discussions-default %}Team ディスカッションに関する詳しい情報については「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
+{% data reusables.organizations.team-discussions-default %}Team ディスカッションに関する詳しい情報については「[Team ディスカッションについて](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)」を参照してください。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

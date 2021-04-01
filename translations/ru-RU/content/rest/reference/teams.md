@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 This API is only available to authenticated members of the team's [organization](/rest/reference/orgs). OAuth access tokens require the `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  generates the team's `slug` from the team `name`.
@@ -16,7 +18,7 @@ This API is only available to authenticated members of the team's [organization]
 
 ## Discussions
 
-The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. You can use team discussions to have conversations that are not specific to a repository or project. Any member of the team's [organization](/rest/reference/orgs) can create and read public discussion posts. For more details, see "[About team discussions](/articles/about-team-discussions/)." To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). This API is only available to authenticated members of the team's organization.
+The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. You can use team discussions to have conversations that are not specific to a repository or project. Any member of the team's [organization](/rest/reference/orgs) can create and read public discussion posts. For more details, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)." To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). This API is only available to authenticated members of the team's organization.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
@@ -24,7 +26,7 @@ The team discussions API allows you to get, create, edit, and delete discussion 
 
 ## Discussion comments
 
-The team discussion comments API allows you to get, create, edit, and delete discussion comments on a [team discussion](/rest/reference/teams#discussions) post. Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/articles/about-team-discussions/)." This API is only available to authenticated members of the team's organization.
+The team discussion comments API allows you to get, create, edit, and delete discussion comments on a [team discussion](/rest/reference/teams#discussions) post. Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)." This API is only available to authenticated members of the team's organization.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}

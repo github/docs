@@ -4,6 +4,10 @@ intro: 接続を許可される IP アドレスのリストを設定すること
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization のオーナーは、Organization に対する許可 IP アドレスを管理できます。
@@ -16,7 +20,7 @@ Organization のオーナーは、Organization に対する許可 IP アドレ�
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)」を参照してください。
+Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 For more information, see {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
 
 ### 許可 IP アドレスを追加する
 
@@ -59,4 +63,12 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ### IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
+{% if currentVersion == "github-ae@latest" %}
+
+{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+
+{% else %}
+
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+
+{% endif %}

@@ -19,8 +19,8 @@ jobs:
             try {
               await github.projects.createCard({
                 column_id: squadBoardColumnId,
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
               });
             } catch (error) {
               console.log(error);
@@ -30,8 +30,8 @@ jobs:
             try {
               await github.projects.createCard({
                 column_id: prBoardColumnId,
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
               });
             } catch (error) {
               console.log(error);

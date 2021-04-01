@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 {% data reusables.user_settings.access_settings %}

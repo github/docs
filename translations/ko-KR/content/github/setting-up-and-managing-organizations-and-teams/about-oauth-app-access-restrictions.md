@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-oauth-app-access-restrictions
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members cannot authorize {% data variables.product.prodname_oauth_app %} access to organization resources. Organization members can request owner approval for {% data variables.product.prodname_oauth_app %}s they'd like to use, and organization owners receive a notification of pending requests.

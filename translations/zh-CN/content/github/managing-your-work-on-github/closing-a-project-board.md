@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 关闭项目板时，默认情况下任何已配置的工作流程自动化都会暂停。

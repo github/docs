@@ -28,6 +28,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - корпоративный
 ---
 
 ### Configuring the default visibility of new repositories in your enterprise

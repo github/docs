@@ -4,6 +4,8 @@ intro: 'You can develop in your codespace directly in {% data variables.product.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -12,7 +14,7 @@ versions:
 
 {% endnote %}
 
-### About Codespaces in {% data variables.product.prodname_vs %}
+### About codespaces in {% data variables.product.prodname_vs %}
 
 You can create a codespace in {% data variables.product.prodname_vs %} to develop applications in a Windows environment. When you use a codespace in {% data variables.product.prodname_vs %}, you can browse source code, build solutions, and commit changes to your repository.
 

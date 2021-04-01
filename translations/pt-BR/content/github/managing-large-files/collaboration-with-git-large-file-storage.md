@@ -14,7 +14,7 @@ Se os colaboradores no seu repositório não tiverem o {% data variables.large_f
 
 {% tip %}
 
-**Dica:** para ajudar os usuários sem o {% data variables.large_files.product_name_short %} habilitado, é recomendável definir diretrizes para contribuidores do repositório que descrevam como trabalhar com arquivos grandes. Por exemplo, você pode pedir que os contribuidores não modifiquem arquivos grandes nem façam upload das alterações em um serviço de compartilhamento de arquivos, como [Dropbox](http://www.dropbox.com/) ou <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obter mais informações, consulte "[Configurar diretrizes para contribuidores de repositório](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)".
+**Dica:** para ajudar os usuários sem o {% data variables.large_files.product_name_short %} habilitado, é recomendável definir diretrizes para contribuidores do repositório que descrevam como trabalhar com arquivos grandes. Por exemplo, você pode pedir que os contribuidores não modifiquem arquivos grandes nem façam upload das alterações em um serviço de compartilhamento de arquivos, como [Dropbox](http://www.dropbox.com/) ou <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obter mais informações, consulte "[Configurar diretrizes para contribuidores de repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 {% endtip %}
 

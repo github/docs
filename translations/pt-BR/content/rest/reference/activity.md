@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 {% for operation in currentRestOperations %}
@@ -32,8 +34,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
 ```
-
-Os eventos são compatíveis com a paginação. No entanto, a opção `per_page` não é compatível. O tamanho fixo da página é de 30 itens. É possível obter até dez páginas para um total de 300 eventos. Para obter informações, consulte "[Deslocar-se com a paginação](/rest/guides/traversing-with-pagination)".
 
 Apenas eventos criados nos últimos 90 dias serão incluídos nas linhas de tempo. Eventos mais antigos que 90 dias não serão incluídos (mesmo que o número total de eventos na linha do tempo seja inferior a 300).
 

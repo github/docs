@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
@@ -28,7 +30,7 @@ versions:
 
 在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
 
-在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 将 {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为 {% data variables.product.prodname_ghe_server %} 实例的主机名称，{% endif %}将 *REPOSITORY* 替换为您要向其发布包或从中安装包的仓库的名称，并将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
+在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名{% endif %}，并且将 *OWNER* 替换为拥有该仓库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
 
 如果要与多个仓库交互，您可以将每个仓库添加到 `repository` 标记中独立的子 `repositories`，将每个仓库的 `id` 映射到 `servers` 标记中的凭据。
 
@@ -55,13 +57,13 @@ versions:
         <repository>
           <id>central</id>
           <url>https://repo1.maven.org/maven2</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
         </repository>
         <repository>
           <id>github</id>
-          <name>GitHub OWNER Apache Maven Packages</name>
-          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </repository>
       </repositories>
     </profile>
@@ -97,13 +99,13 @@ versions:
         <repository>
           <id>central</id>
           <url>https://repo1.maven.org/maven2</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>true</enabled></snapshots>
         </repository>
         <repository>
           <id>github</id>
-          <name>GitHub OWNER Apache Maven Packages</name>
-          <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
+          <url>https://maven.pkg.github.com/OWNER/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </repository>
       </repositories>
     </profile>
@@ -132,12 +134,9 @@ versions:
 
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
-1. 编辑包目录中 *pom.xml* 文件的 `distributionManagement` 元素，将 `OWNER` 替换为拥有该仓库的用户或组织帐户的名称，将 `REPOSITORY` 替换为包含项目的仓库的名称。
+1. 编辑位于包目录中的 *pom.xml* 文件的 `distributionManagement` 元素，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，将 {% endif %}`OWNER` 替换为拥有该仓库的用户或组织帐户的名称，并且将 `REPOSITORY` 替换为包含项目的仓库的名称。{% if enterpriseServerVersions contains currentVersion %}
 
-{% if enterpriseServerVersions contains currentVersion %}将 *HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名称， {% endif %}将 `OWNER` 替换为拥有仓库的用户或组织帐户的名称，并将 `REPOSITORY` 替换为包含您项目的仓库的名称。
-  {% if enterpriseServerVersions contains currentVersion %}
-  有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
-  {% endif %}
+  如果您的实例启用了子域隔离功能：{% endif %}
   ```xml
   <distributionManagement>
      <repository>
@@ -146,9 +145,8 @@ versions:
        <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```
-  {% if enterpriseServerVersions contains currentVersion %}
-  例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
+  ```{% if enterpriseServerVersions contains currentVersion %}
+  如果您的实例禁用了子域隔离：
   ```xml
   <distributionManagement>
      <repository>
@@ -157,10 +155,9 @@ versions:
        <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```
-  {% endif %}
-2. 发布包。
-
+  ```{% endif %}
+{% data reusables.package_registry.checksum-maven-plugin %}
+1. 发布包。
    ```shell
    $ mvn deploy
   ```
@@ -183,6 +180,7 @@ versions:
     </dependency>
   </dependencies>
   ```
+{% data reusables.package_registry.checksum-maven-plugin %}
 3. 安装包。
 
   ```shell
@@ -192,4 +190,4 @@ versions:
 ### 延伸阅读
 
 - "[配置 Gradle 用于 {% data variables.product.prodname_registry %}](/packages/guides/configuring-gradle-for-use-with-github-packages)"
-- “[删除包](/packages/manage-packages/deleting-a-package/)”
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

@@ -1,10 +1,13 @@
 ---
 title: プルリクエストを自動的にマージする
-intro: 'プルリクエストの自動マージを有効にすると、すべてのマージ要件が満たされたときにプルリクエストが自動的にマージされるようになり、開発速度を上げることができます。'
+intro: プルリクエストの自動マージを有効にすると、すべてのマージ要件が満たされたときにプルリクエストが自動的にマージされるようになり、開発速度を上げることができます。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### 自動マージについて

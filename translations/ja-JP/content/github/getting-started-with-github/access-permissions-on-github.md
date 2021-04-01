@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 権限
+  - アカウント
 ---
 
 ### 個人ユーザアカウント

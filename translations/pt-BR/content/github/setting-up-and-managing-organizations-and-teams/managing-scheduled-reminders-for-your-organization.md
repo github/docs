@@ -3,6 +3,9 @@ title: Gerenciar lembretes agendados para a sua organização
 intro: Você pode obter lembretes no Slack para todos os pull requests que as equipes em sua organização foram solicitadas para revisar.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre lembretes agendados para pull requests
@@ -10,6 +13,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Os proprietários da organização podem agendar um lembrete para uma ou mais equipes na sua organização, para todos os pull requests que a equipe ou equipes foram solicitadas revisar.
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Criar um lembrete agendado para uma organização
 {% data reusables.profile.access_profile %}

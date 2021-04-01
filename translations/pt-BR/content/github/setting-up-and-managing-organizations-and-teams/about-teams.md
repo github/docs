@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ![Lista de equipes em uma organização](/assets/images/help/teams/org-list-of-teams.png)
@@ -36,7 +39,7 @@ Você também pode usar a sincronização LDAP para sincronizar os integrantes e
 
 Cada equipe tem sua própria página em uma organização. Na página de uma equipe, é possível exibir integrantes da equipe, equipes secundárias e os repositórios da equipe. Os proprietários da organização e os mantenedores de equipe podem acessar as configurações da equipe, bem como atualizar a descrição e a foto de perfil da equipe na página da equipe.
 
-Os integrantes da organização podem criar e participar de discussões com a equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)".
+Os integrantes da organização podem criar e participar de discussões com a equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
 
 ![Página da equipe listando integrantes e discussões da equipe](/assets/images/help/organizations/team-page-discussions-tab.png)
 

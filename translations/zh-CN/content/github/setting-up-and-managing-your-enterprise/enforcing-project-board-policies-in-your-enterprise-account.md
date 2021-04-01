@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 有关项目板类型的更多信息，请参阅“[关于项目板](/articles/about-project-boards)”。

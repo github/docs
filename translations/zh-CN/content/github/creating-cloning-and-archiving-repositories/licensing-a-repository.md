@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 仓库
 ---
 
 ### 选择合适的许可
@@ -23,7 +25,7 @@ versions:
 
 ### 确定许可的位置
 
-大多数人将其许可文件放在仓库根目录的文件 `LICENSE.txt`（或 `LICENSE.md`）中；[下面是 Hubot 中的一个示例](https://github.com/github/hubot/blob/master/LICENSE.md)。
+大多数人将其许可文件放在仓库根目录的文件 `LICENSE.txt`（或者 `LICENSE.md` 或 `LICENSE.rst`）中；[下面是 Hubot 中的一个示例](https://github.com/github/hubot/blob/master/LICENSE.md)。
 
 有些项目在其自述文件中包含许可的相关信息。 例如，项目的自述文件可能包含一条注释，表示“此项目根据 MIT 许可的条款进行许可”。
 

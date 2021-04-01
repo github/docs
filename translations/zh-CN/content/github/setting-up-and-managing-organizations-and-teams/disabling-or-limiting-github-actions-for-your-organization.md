@@ -1,9 +1,13 @@
 ---
-title: 禁用或限制组织的 GitHub 操作
-intro: '组织所有者可禁用、启用和限制组织的 GitHub 操作。'
+title: 禁用或限制组织的 GitHub Actions
+intro: '组织所有者可禁用、启用和限制组织的 GitHub Actions。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.actions.enterprise-beta %}

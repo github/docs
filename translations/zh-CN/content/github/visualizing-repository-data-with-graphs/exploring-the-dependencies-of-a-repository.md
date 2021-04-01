@@ -1,15 +1,10 @@
 ---
 title: 探索仓库的依赖项
 intro: '使用依赖项图，您可以看到项目所依赖的包{% if currentVersion == "free-pro-team@latest" %}以及依赖它的仓库{% endif %}。 此外，您还可以看到在其依赖项中检测到的任何漏洞。'
-redirect_from:
-  - /articles/listing-the-packages-that-a-repository-depends-on
-  - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
-  - /articles/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '<=2.22'
+topics:
+  - 仓库
 ---
 
 ### 查看依赖关系图

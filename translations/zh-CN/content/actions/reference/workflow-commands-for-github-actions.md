@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的工作流程命令
+title: GitHub Actions 的工作流程命令
 shortTitle: 工作流程命令
 intro: 您可以在工作流程或操作代码中运行 shell 命令时使用工作流程命令。
 product: '{% data reusables.gated-features.actions %}'
@@ -12,16 +12,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于工作流程命令
 
 操作可以与运行器机器进行通信，以设置环境变量，其他操作使用的输出值，将调试消息添加到输出日志和其他任务。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 更多信息请参阅“[环境文件](#environment-files)”。
 {% else %}
 工作流程命令使用特定格式的 `echo` 命令。
@@ -65,26 +67,26 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 下表显示了在工作流程中可用的工具包功能：
 
-| 工具包函数                                                                                                                                                       | 等效工作流程命令                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `core.addPath`                                                                                                                                              |                               |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}可使用环境文件 `GITHUB_PATH`{% else %} `add-path` {% endif %}访问 |                               |
-|                                                                                                                                                             |                               |
-| `core.debug`                                                                                                                                                | `debug`                       |
-| `core.error`                                                                                                                                                | `error`                       |
-| `core.endGroup`                                                                                                                                             | `endgroup`                    |
-| `core.exportVariable`                                                                                                                                       |                               |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}可使用环境文件 `GITHUB_ENV`{% else %} `set-env` {% endif %} 访问  |                               |
-|                                                                                                                                                             |                               |
-| `core.getInput`                                                                                                                                             | 可使用环境变量 `INPUT_{NAME}` 访问     |
-| `core.getState`                                                                                                                                             | 可使用环境变量 `STATE_{NAME}` 访问     |
-| `core.isDebug`                                                                                                                                              | 可使用环境变量 `RUNNER_DEBUG` 访问     |
-| `core.saveState`                                                                                                                                            | `save-state`                  |
-| `core.setFailed`                                                                                                                                            | 用作 `::error` 和 `exit 1` 的快捷方式 |
-| `core.setOutput`                                                                                                                                            | `set-output`                  |
-| `core.setSecret`                                                                                                                                            | `add-mask`                    |
-| `core.startGroup`                                                                                                                                           | `组`                           |
-| `core.warning`                                                                                                                                              | `warning file`                |
+| 工具包函数                                                                                                                                                                                               | 等效工作流程命令                      |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `core.addPath`                                                                                                                                                                                      |                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}可使用环境文件 `GITHUB_PATH`{% else %} `add-path` {% endif %}访问 |                               |
+|                                                                                                                                                                                                     |                               |
+| `core.debug`                                                                                                                                                                                        | `debug`                       |
+| `core.error`                                                                                                                                                                                        | `error`                       |
+| `core.endGroup`                                                                                                                                                                                     | `endgroup`                    |
+| `core.exportVariable`                                                                                                                                                                               |                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}可使用环境文件 `GITHUB_ENV`{% else %} `set-env` {% endif %} 访问  |                               |
+|                                                                                                                                                                                                     |                               |
+| `core.getInput`                                                                                                                                                                                     | 可使用环境变量 `INPUT_{NAME}` 访问     |
+| `core.getState`                                                                                                                                                                                     | 可使用环境变量 `STATE_{NAME}` 访问     |
+| `core.isDebug`                                                                                                                                                                                      | 可使用环境变量 `RUNNER_DEBUG` 访问     |
+| `core.saveState`                                                                                                                                                                                    | `save-state`                  |
+| `core.setFailed`                                                                                                                                                                                    | 用作 `::error` 和 `exit 1` 的快捷方式 |
+| `core.setOutput`                                                                                                                                                                                    | `set-output`                  |
+| `core.setSecret`                                                                                                                                                                                    | `add-mask`                    |
+| `core.startGroup`                                                                                                                                                                                   | `组`                           |
+| `core.warning`                                                                                                                                                                                      | `warning file`                |
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### 设置环境变量
@@ -248,7 +250,7 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ## 环境文件
 
 在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。

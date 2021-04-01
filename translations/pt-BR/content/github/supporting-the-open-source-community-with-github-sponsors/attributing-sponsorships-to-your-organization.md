@@ -1,9 +1,11 @@
 ---
 title: Atribuir patrocínios à sua organização
-intro: 'Você pode atribuir os patrocínios pagos por uma das suas organizações a outra organização.'
+intro: Você pode atribuir os patrocínios pagos por uma das suas organizações a outra organização.
 versions:
   free-pro-team: '*'
 permissions: As pessoas que são proprietárias de organizações de ambas as organizações podem atribuir patrocínios de uma organização à outra organização.
+topics:
+  - sponsors
 ---
 
 1. Acesse a organização cujos patrocínios você deseja atribuir a outra organização.

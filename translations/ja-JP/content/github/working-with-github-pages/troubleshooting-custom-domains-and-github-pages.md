@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - pages
 ---
 
 ### _CNAME_ エラー
@@ -21,8 +23,8 @@ versions:
 
 - _CNAME_ ファイル名は、すべて大文字である必要があります。
 - _CNAME_ ファイルにはドメインを 1 つだけ含めることができます。 複数のドメインをサイトにポイントするには、DNSプロバイダ経由のリダイレクトを設定する必要があります。
-- _CNAME_ エントリはベアドメインである必要があります。 たとえば、`www.example.com`、`blog.example.com`、`example.com` などです。
-- _CNAME_ エントリは、{% data variables.product.product_name %} で 1 回しか使用できません。 たとえば、別のリポジトリの _CNAME_ ファイルに `example.com` が含まれている場合、自分のリポジトリの _CNAME_ ファイルに `example.com` を使用することはできません。
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. たとえば、別のリポジトリの _CNAME_ ファイルに `example.com` が含まれている場合、自分のリポジトリの _CNAME_ ファイルに `example.com` を使用することはできません。
 
 ### DNS の設定ミス
 

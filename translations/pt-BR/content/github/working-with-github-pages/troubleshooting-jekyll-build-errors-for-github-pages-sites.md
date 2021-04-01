@@ -29,6 +29,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Solucionar problemas de erros de criação

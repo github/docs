@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Os proprietários da organização podem configurar o {% data variables.product.prodname_sponsors %} para uma organização.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Ingressar no {% data variables.product.prodname_sponsors %}

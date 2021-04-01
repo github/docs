@@ -4,6 +4,10 @@ intro: 'Os proprietários da organização podem desabilitar, habilitar e limita
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

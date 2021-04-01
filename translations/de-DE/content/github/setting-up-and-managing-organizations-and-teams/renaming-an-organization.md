@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% tip %}
@@ -23,7 +26,7 @@ Nach der Änderung Deines Organisationsnamens wird Dein alter Organisationsname 
 #### Automatische Änderungen
 
 - {% data variables.product.prodname_dotcom %} leitet Referenzen auf Ihre Repositorys automatisch weiter.  Weblinks auf bestehende **Repositorys** Deiner Organisation funktionieren weiterhin. Allerdings kann diese Anpassung nach der Veranlassung der Änderung einige Minuten dauern.
-- Du kannst Deine lokalen Repositorys weiterhin mittels Push auf die bisherige Remote-Tracking-URL übertragen, ohne diese zu aktualisieren. Jedoch wird nach einer Änderung des Organisationsnamens die Aktualiserung der URLs aller vorhandenen Remote-Repositorys empfohlen. Schließlich kann Dein alter Organisationsname nach dessen Änderung von jemand anderem verwendet werden, und es ist durchaus möglich, dass Repositorys einer neuen Organisation mit gleichem Namen die Weiterleitungseinträge für Deine Repositorys überschreiben. Weitere Informationen findest Du unter „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url).“
+- Du kannst Deine lokalen Repositorys weiterhin mittels Push auf die bisherige Remote-Tracking-URL übertragen, ohne diese zu aktualisieren. Jedoch wird nach einer Änderung des Organisationsnamens die Aktualiserung der URLs aller vorhandenen Remote-Repositorys empfohlen. Schließlich kann Dein alter Organisationsname nach dessen Änderung von jemand anderem verwendet werden, und es ist durchaus möglich, dass Repositorys einer neuen Organisation mit gleichem Namen die Weiterleitungseinträge für Deine Repositorys überschreiben. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 - Bisherige Git-Commits werden den Benutzern Deiner Organisation korrekt zugeordnet.
 
 #### Änderungen, die nicht automatisch erfolgen
@@ -42,5 +45,4 @@ Nach der Änderung Deines Organisationsnamens können folgende Probleme auftrete
 
 ### Weiterführende Informationen
 
-* „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url)“
 * „[Warum sind meine Commits mit dem falschen Benutzer verknüpft?](/articles/why-are-my-commits-linked-to-the-wrong-user)“
