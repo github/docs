@@ -43,7 +43,7 @@ topics:
 
 ### 延伸阅读
 
-- "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[调解评论和对话](/articles/moderating-comments-and-conversations)"
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[调解评论和对话](/communities/moderating-comments-and-conversations)"
 - "[在 {% data variables.product.prodname_dotcom %} 上编写](/articles/writing-on-github)"

@@ -54,7 +54,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Da kannst eine Standard-Sponsorenschaltfläche für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Da kannst eine Standard-Sponsorenschaltfläche für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

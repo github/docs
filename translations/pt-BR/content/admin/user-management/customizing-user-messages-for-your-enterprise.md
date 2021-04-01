@@ -58,11 +58,20 @@ Você pode usar markdown para formatar sua mensagem. Para obter mais informaçõ
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Criar uma mensagem obrigatória
 
-Você pode criar uma mensagem obrigatória que {% data variables.product.product_name %} mostrará a todos os usuários na primeira vez que efetuarem o login depois de salvar a mensagem. A mensagem aparece em uma janela pop-up que o usuário deve ignorar antes que o usuário possa usar o {% data variables.product.product_location %}. As mensagens obrigatórias têm uma série de usos.
+Você pode criar uma mensagem obrigatória que {% data variables.product.product_name %} mostrará a todos os usuários na primeira vez que efetuarem o login depois de salvar a mensagem. A mensagem aparece em uma janela pop-up que o usuário deve ignorar antes que o usuário possa usar o {% data variables.product.product_location %}.
+
+As mensagens obrigatórias têm uma série de usos.
 
 - Fornecer informações de integração para novos funcionários
 - Contar para os usuários como obter ajuda com {% data variables.product.product_location %}
 - Garantir que todos os usuários leiam seus termos de serviço para usar {% data variables.product.product_location %}
+
+{% note %}
+
+**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
+
+{% endnote %}
+
 
 Se você incluir caixas de seleção de Markdown na mensagem, todas as caixas de seleção deverão ser selecionadas antes de o usuário poder ignorar a mensagem. Por exemplo, se você incluir seus termos de serviço na mensagem obrigatória, você poderá exigir que cada usuário marque uma caixa de seleção para confirmar que o usuário leu os termos.
 

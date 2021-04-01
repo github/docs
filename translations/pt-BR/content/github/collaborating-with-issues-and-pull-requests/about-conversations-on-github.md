@@ -43,7 +43,7 @@ Semelhante às diretrizes de contribuição, o mantenedor de repositório pode t
 
 ### Leia mais
 
-- "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderar comentários e conversas](/articles/moderating-comments-and-conversations)"
+- "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Usando modelos para encorajar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
 - "[Gravar no {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

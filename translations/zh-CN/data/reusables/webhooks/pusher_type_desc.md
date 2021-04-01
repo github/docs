@@ -1,1 +1,1 @@
-`pusher_type`|`string`| The pusher type for the event. Can be either `user` or a deploy key.
+`pusher_type`|`string`| 事件的推送器类型。 可以是`用户`或部署密钥。

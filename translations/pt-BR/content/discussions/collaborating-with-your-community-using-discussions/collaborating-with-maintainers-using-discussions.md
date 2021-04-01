@@ -45,4 +45,4 @@ Para colaborar com mantenedores usando discussões, um administrador ou mantened
 ### Leia mais
 
 - "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
