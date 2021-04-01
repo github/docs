@@ -1,6 +1,6 @@
 ---
 name: Status Update
-about: A brief status update.
+description: A brief status update.
 body:
   - type: dropdown
     attributes:
