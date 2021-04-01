@@ -49,7 +49,7 @@ An apex domain is a custom domain that does not contain a subdomain, such as `ex
 
 An apex domain is configured with an `A`, `ALIAS`, or `ANAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
-{% data reusables.pages.www-and-apex-domain-recommendation %}
+{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
 
 ### Updating custom domains when your {% data variables.product.prodname_pages %} site is disabled
 
