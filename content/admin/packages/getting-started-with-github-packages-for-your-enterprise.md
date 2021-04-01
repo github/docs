@@ -6,6 +6,8 @@ redirect_from:
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}

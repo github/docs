@@ -36,7 +36,7 @@ redirect_from:
 - Moodle
 - Sakai
 
-目前， {% data variables.product.prodname_classroom %} 不支持从 Blackboard 或 Brightspace 导入名册数据
+目前， {% data variables.product.prodname_classroom %} 不支持从 Blackboard 或 Brightspace 导入名册数据.
 
 ### 为教室生成配置凭据
 

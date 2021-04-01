@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 As verificações de status se baseiam em processos externos, como compilações de integração contínua, que são executados para cada push que você faz em um repositório. Você pode ver o estado de *pendência*, *aprovação* ou *falha* das verificações de status ao lado de commits individuais em sua pull request.

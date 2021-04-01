@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 Las personas con permisos administrativos o de propietario pueden configurar un archivo CODEOWNERS en un repositorio.

@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 Before submitting a ticket, you should:

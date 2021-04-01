@@ -4,6 +4,8 @@ intro: 'Você pode desenvolver seu código diretamente em {% data variables.prod
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% note %}
@@ -12,7 +14,7 @@ versions:
 
 {% endnote %}
 
-### Sobre os espaços de código no {% data variables.product.prodname_vs %}
+### Sobre os codespaces em {% data variables.product.prodname_vs %}
 
 Você pode criar um código no {% data variables.product.prodname_vs %} para desenvolver aplicativos em um ambiente Windows. Ao usar um código em {% data variables.product.prodname_vs %}, você pode navegar pelo código-fonte, criar soluções e fazer commit de alterações no seu repositório.
 

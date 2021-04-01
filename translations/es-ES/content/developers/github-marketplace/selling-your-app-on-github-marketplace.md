@@ -11,5 +11,7 @@ redirect_from:
   - /marketplace/selling-your-app
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 

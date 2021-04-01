@@ -14,9 +14,9 @@ versions:
 
 组织所有者可以选择为组织拥有的仓库创建讨论所需的权限。 更多信息请参阅“[管理组织中仓库的讨论创建](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)”。
 
-作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定行为守则或参与指南将有助于促进协作和富有成效的论坛。 有关创建社区资源的更多信息，请参阅“[为项目中添加行为准则](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)”和“[设置仓库参与者指南](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)”。
+作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定行为守则或参与指南将有助于促进协作和富有成效的论坛。 有关创建社区资源的更多信息，请参阅“[为项目中添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 
-有关引导健康的讨论的更多信息，请参阅“[调解评论和对话](/github/building-a-strong-community/moderating-comments-and-conversations)”。
+有关引导健康的讨论的更多信息，请参阅“[调解评论和对话](/communities/moderating-comments-and-conversations)”。
 
 ### 基本要求
 
@@ -24,7 +24,7 @@ versions:
 
 ### 更改讨论类别
 
-您可以对讨论进行分类，以帮助社区成员查找相关的讨论。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”文章。
+您可以对讨论进行分类，以帮助社区成员查找相关的讨论。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
 
 您也可以将讨论移动到另一个类别。
 

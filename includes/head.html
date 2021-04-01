@@ -11,6 +11,9 @@
   {% if page.intro %}
     <meta name="description" content="{{ page.introPlainText }}">
   {% endif %}
+  {% if page.topics %}
+    <meta name="keywords" content="{{ page.topics | join: ',' }}">
+  {% endif %}
   {% if page.hidden %}
     <meta name="robots" content="noindex" />
   {% endif %}

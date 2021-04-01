@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 ### 访问安全日志
@@ -247,7 +250,7 @@ versions:
 | `login`                                                                                                                                                                                    | 当您登录到 {% data variables.product.product_location %} 时触发。{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 
-`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | 当您重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | 当您[举报议题或拉取请求，或者举报对议题、拉取请求或提交的评论](/articles/reporting-abuse-or-spam)时触发。{% endif %} | `show_private_contributions_count` | 当您[在个人资料中公布私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
+`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | 当您重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | 当您[报告议题或拉取请求，或者报告对议题、拉取请求或提交的评论](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)时触发。{% endif %} | `show_private_contributions_count` | 当您[在个人资料中公布私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
 
 #### `user_status` 类操作
 

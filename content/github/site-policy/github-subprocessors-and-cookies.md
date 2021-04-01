@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 Effective date: **January 29, 2021**

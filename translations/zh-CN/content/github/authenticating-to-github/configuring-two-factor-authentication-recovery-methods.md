@@ -11,6 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 除了安全存储双重身份验证恢复代码之外，我们强烈建议您配置一种或多种其他恢复方法。

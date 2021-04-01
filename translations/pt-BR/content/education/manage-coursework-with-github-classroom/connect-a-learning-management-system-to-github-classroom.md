@@ -37,7 +37,7 @@ Sobre o Consórcio de Aprendizagem Global do IMS.</p>
 - Moodle
 - Sakai
 
-Atualmente, {% data variables.product.prodname_classroom %} não é compatível com a importação de dados da lista de participantes do Blackboard ou do Brightspace
+Atualmente, {% data variables.product.prodname_classroom %} não é compatível com a importação de dados da lista de participantes do Blackboard ou do Brightspace.
 
 
 

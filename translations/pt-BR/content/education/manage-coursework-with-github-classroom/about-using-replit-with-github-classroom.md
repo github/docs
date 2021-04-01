@@ -30,4 +30,4 @@ Para obter mais informações sobre o uso do Git no Repl.it, consulte o [Tutoria
 
 ### Leia mais
 
-- "[Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
