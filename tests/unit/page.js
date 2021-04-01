@@ -391,6 +391,7 @@ describe('Page class', () => {
       // Test that Liquid versioning is respected
       context.currentVersion = `enterprise-server@${latest}`
       await page.render(context)
+      expect(page.learningTracks).toHaveLength(3)
       expect(page.learningTracks.find(track => track.trackName === 'dotcom_only_track')).toBeFalsy()
       expect(page.learningTracks.find(track => track.trackName === 'enterprise_only_track')).toBeTruthy()
     })
