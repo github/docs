@@ -13,9 +13,9 @@ topics:
 
 You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)."
 
-If you rename a branch, {% data variables.product.prodname_dotcom %} will automatically redirect links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %} that contain the old branch name to the equivalent link on the renamed branch. {% data variables.product.prodname_dotcom %} will also update branch protection policies, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} will provide instructions on the repository's home page directing contributors to update their local Git environments.
+When you rename a branch on {% data variables.product.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
 
-Although {% data variables.product.prodname_dotcom %} will redirect file links on {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %}, it will not automatically redirect raw file links. In addition, {% data variables.product.prodname_dotcom %} will not perform any redirects if users perform a `git pull` for the previous branch name. 
+Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
 
 ### Renaming a branch
 
