@@ -78,7 +78,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 #### `inputs.<input_id>.deprecationMessage`
 
-**Optional** A `string` to be logged as warning if the input is set. You can notify users to not use this input parameter anymore by setting a deprecation warning for it.
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs`
 
