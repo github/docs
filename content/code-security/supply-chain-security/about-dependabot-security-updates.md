@@ -1,5 +1,6 @@
----
-title: About Dependabot security updates
+# Run::Job::steps:use:'-'
+'# Name:Deply::Build::Publish::Package.yaml.json.jpng::Repositoriy:Type:DOCKER.Gui::Release:Container'@iixixi/user/bin/repositories::Launch:
+HerokuRunWizardDependaBot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
 shortTitle: About Dependabot security updates
 redirect_from:
