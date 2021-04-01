@@ -33,7 +33,7 @@ topics:
 
 ### 确定实例类型
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+在 AWS 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

@@ -49,11 +49,21 @@ A varredura do código a cada push para o repositório, e toda vez que um pull r
 
 Se você usar o fluxo de trabalho padrão, o {% data variables.product.prodname_code_scanning %} fará a varredura do código no repositório uma vez por semana, além das varreduras acionadas pelos eventos. Para ajustar essa programação, edite o valor `CRON` no fluxo de trabalho. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)".
 
+If you scan on push, then the results appear in the **Security** tab for your repository. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository). "
+
+{% note %}
+
+**Note**: If you want {% data variables.product.prodname_code_scanning %} alerts to appear as pull request checks, you must use the `pull_request` event, described below.
+
+{% endnote %}
+
 #### Fazer a varredura de pull requests
 
 O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pull_request` para acionar uma verificação de código em pull requests direcionadas ao branch padrão. {% if currentVersion ver_gt "enterprise-server@2.21" %}O evento `pull_request` não será acionado se o pull request foi aberto através de uma bifurcação privada.{% else %}Se um pull request for de um fork privado, o evento `pull_request` só será acionado se você tiver selecionado a opção "Executar fluxos de trabalho a partir de pull requests" nas configurações do repositório. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."{% endif %}
 
 Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+
+If you scan pull requests, then the results appear as alerts in a pull request check. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
 #### Evitar varreduras desnecessárias de pull requests
 

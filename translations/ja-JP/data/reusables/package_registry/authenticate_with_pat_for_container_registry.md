@@ -1,8 +1,8 @@
 {% if currentVersion == "free-pro-team@latest" %}
 
-To authenticate to {% data variables.product.prodname_github_container_registry %} within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience.
+{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_github_container_registry %}の認証を受けるには、最善のセキュリティと体験のために`GITHUB_TOKEN`を使ってください。
 
-For guidance on updating your workflows that authenticate to `ghcr.io` with a personal access token, see "[Upgrading a workflow that accesses `ghcr.io`](/packages/guides/using-github-packages-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)."
+個人アクセストークンで`ghcr.io`の認証を受けるワークフローの更新に関するガイダンスとしては、「[`ghcr.io`にアクセスするワークフローのアップグレード](/packages/guides/using-github-packages-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)」を参照してください。
 
 {% data reusables.package_registry.github-token-security-over-pat %}
 

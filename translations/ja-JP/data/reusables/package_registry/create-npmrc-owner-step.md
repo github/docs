@@ -5,11 +5,11 @@
   @<em>OWNER</em>:registry=https://npm.pkg.github.com
   ```
 {% else %}
-  If subdomain isolation is enabled:
+  Subdomain Isolationが有効な場合:
   ```shell
   @<em>OWNER</em>:registry=https://npm.<em>HOSTNAME</em>
   ```
-  If subdomain isolation is disabled:
+  Subdomain Isolationが無効な場合:
   ```shell
   @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
   ```

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** SARIF upload supports a maximum of 1000 results per upload. Any results over this limit are ignored. If a tool generates too many results, you should update the configuration to focus on results for the most important rules or queries.
+**注：** SAIF 上传支持每次上传最多 1000 个结果。 超过此限制的任何结果均被忽略。 如果工具产生太多结果，则应更新配置，以专注于最重要的规则或查询的结果。
 
 {% endnote %}

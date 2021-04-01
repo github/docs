@@ -87,6 +87,8 @@ prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'Segurança Avançada GitHub'
 prodname_advanced_security: 'Segurança Avançada'
+#Security Center
+prodname_security_center: 'Security Center'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_vs_codespaces: 'Espaços de códigos Visual Studio'

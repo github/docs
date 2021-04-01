@@ -30,6 +30,7 @@ Before you can use Jekyll to test a site, you must:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
+3. Run `bundle install`.
 3. Run your Jekyll site locally.
   ```shell
   $ bundle exec jekyll serve

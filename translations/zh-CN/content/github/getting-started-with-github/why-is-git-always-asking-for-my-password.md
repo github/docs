@@ -18,6 +18,6 @@ versions:
 
 ### 延伸阅读
 
-- "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+- “[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”。
 - “[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”
 - “[添加 SSH 密钥到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”

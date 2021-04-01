@@ -17,12 +17,6 @@ When a match of your secret format is found in a public repository, a payload is
 
 When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for private repositories is currently in beta.
-
-{% endnote %}
-
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} program.
 
 ### The {% data variables.product.prodname_secret_scanning %} process
