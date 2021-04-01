@@ -148,6 +148,406 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   $ gem install octo-gem --version "0.1.1"
   ```
 
-### Further reading
+### "private": false
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && ncc build index.js -o dist"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^2.0.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.21.0"
+ #::Build:'Return::'#
+##:Run:
+Jobs:
+Steps:
+
+Setup::
+Command:
+Build: ((c))((R))
+Type:'{'$RubyGems]Rakefile/Gem.spec/Package.json'
+name:BITORE
+Runs-on:Nodepackage.js
+Request:
+Launch:
+Bundler:python.js
+push:@iixixi/ZachryTylerWood/.github/workflows/
+branches:[ mainbranch ]
+pull_request:
+branches:[ trunk ]
+jobs:
+automatete:tests:results:"true",
+runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
+steps:uses:actions:checkout@iixixi/iixixi
+uses: actions/checkout@v2
+name: iixixii/✨ Engineering
+To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+https://github.com/ruby/setup-ruby#versioning):
+uses: ruby/setup-ruby@v1
+uses: ruby/setup-ruby@21351ec
+with:
+ruby-version: 2.6
+name: Install dependencies
+
+# This workflow uses actions that are not certified by GitHub.
+They are provided by a third-party and are governed by
+separate terms of service, privacy policy, and support
+documentation.
+This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+name: Ruby
+
+on:
+push:
+branches: [ mainbranch ]
+pull_request:
+branches: [trunk ]
+
+jobs:
+test:
+
+runs-on: ubuntu-latest
+strategy:
+  matrix:
+    ruby-version: ['2.6', '2.7', '3.0']
+
+steps:
+-# This workflow uses actions that are not certified by GitHub.
+
+They are provided by a third-party and are governed by
+separate terms of service, privacy policy, and support
+documentation.
+This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+name: Ruby
+
+on:
+push:
+branches: [ mainbranch ]
+pull_request:
+branches: [trunk ]
+
+jobs:
+test:
+
+runs-on: ubuntu-latest
+strategy:
+  matrix:
+    ruby-version: ['2.6', '2.7', '3.0']
+
+steps:
+- uses: actions/checkout@v0
+- name: Set up Ruby
+# To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+# change this to (see https://github.com/ruby/setup-ruby#versioning):
+# uses: ruby/setup-ruby@v1
+  uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+  with:
+    ruby-version: ${{ matrix.ruby-version }}
+    bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+- name: Run tests
+  run: bundle exec rake
+- uses: actions/checkout@v0
+- name: Set up Ruby
+# To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+# change this to (see https://github.com/ruby/setup-ruby#versioning):
+# uses: ruby/setup-ruby@v1
+  uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+  with:
+    ruby-version: ${{ matrix.ruby-version }}
+    bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+- name: #run test'@Name: CI <-------bug that travis <----------Hacker used to auto repo my shit homeskillet i am <lil>Zachry Tyler Wood<li>
+#Run:: Build:
+#</script>'<'/Enterprise Administrator>'
+'<'/redirect_from>'
+'<'/content':encoded'>'<'/Install'>enterprise'/admin'/hidden'/migrating'-from'-github'-'fi'/enterprise'/administrator'/Config'.yaml.api/adk/sdk/sun.java.jdk.s.e'</content:encoded>
+'# Const':':'{'{'$RubyGems'}'{'['(item'_id')']'}'{'[Volume']'}'}'{'{'$RubyGems'}'{'['('('c')'('r')')']''}'{'['21000000']'}'
+'# Versioning:'@'v'-'0.1.3,0.6.1,.0.13.9
+'# Enterprise-server'/ae'/atom'/electron'/ci'/cli'/ZachryTylerWood'@Administrator'@'.git'::Const':'::Fix:'::All':':'
+'# github-atom/electrom/api/adk/sdk.s.e'
+
+link_with_intro/overview'
+link_with_intro/installation'
+link_with_intro/configuration'
+link_with_intro/authentication'
+link_with_intro/user-management'
+link_with_intro/policies'
+link_with_intro/enterprise-management'
+link_with_intro/github-actions'
+link_with_intro/packages'
+#link_with_intro/enterprise-support'
+
+link_with_intro/release-notes'
+Build::Return::'#
+enterprise-server: ''
+github-ae: ''::Build:''## Run::Script'
+'#Name:BITORE'
+'#Const::'Name:'BITORE'@Iixixi/Iixixi.readme.MD/contributing.MD
+
+run://#:bootstrap/Volumes/NetBSD/pkg/package.json'{WebRootU}rl}''{'{'['('('c')'('r')')']'}'}''https://repo1.maven.org/maven2::Publish::Releases:#Launch::Repository'DOCKER.Gui:type:Container'@iixixi':type:DOCKER.Gui/Container::Const::Repository'@user/repositories/test/package.json::Build::Return::'#"sdkmanager "platform-'tools'platforms'android'''28' true github GitHub OWNER Apache Maven 'Package.json/Htps://maven.pkg.git/OWNER/REPOSITORYgithub '@'ZachryTylerWood@Administrator@.git.it.gists/@iixixi/secrets/BITORE'('('c')'('r')')'8333#:run://script:'#Const::'('c')'('r')')'BITORE'://const: BITORE':Build:"'@iixixi/iixixi'##:'://Run::'#://Const::'#://Build:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e.yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='BITORE.sigs'='['volume']'['21000000']'#bundle-with'rust.ui/rakefile/.yaml.json/{${RubyGem}makefile/Gem.spec/Rakefile.ui'#run:'('('c')'('r')')'='Bundle-with::python.js #Run::''script::'#Pull_Request::Branches:mojojojojo/bitore/core/embedder/embedder'::Const:'#:request_pull::'['branches::']'['mainbranch']'@mojojojojo'#:request_push:'['branches']':'['trunk']'@iixixi/iixixi/'README.md'#://Build::'{'{'['('('c')'('r')')']'}'}':':://const:'container'type'DOCKER'::build'with:'python.js'@iPunblish::ixixi'/'iixixi'
+Publish::
+Release:
+Deploy:'
+Launch::'@'iixixi'/'iixixi'/'README'.'mD'
+Name: 'Repo'Sync'
+Deployee::'@Iixixi'/'iixixi'/'contributing'.Md''#://return:'#'
+Name: Enterprise Administrator
+redirect_from: enterprise/admin/hidden/migrating-from-github-fi//enterprise/admin
+intro:
+Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy,
+Config.yaml.api/adk/sdk/sun.java.jdk.s.e'
+'# Const::'{{$RubyGems}'{[(github_secret_token_item_id)]}''{[Volume]}}''{{$RubyGems}'{[((c)(r)]}'[21000000]'
+'# versioning:'@'v'-'0.1.3,0.6.1,.0.13.9
+'# enterprise-server/ae/atom/electron/ci/cli/ZachryTylerWood@Administrator@.git::Const:'::Fix:::All':'
+'# github-atom/electrom/api/adk/sdk.s.e'
+
+link_with_intro/overview'
+link_with_intro/installation'
+link_with_intro/configuration'
+link_with_intro/authentication'
+link_with_intro/user-management'
+link_with_intro/policies'
+link_with_intro/enterprise-management'
+link_with_intro/github-actions'
+link_with_intro/packages'
+#link_with_intro/enterprise-support'
+
+link_with_intro/release-notes'
+Build::Return::'#</script>
+'## On
+
+Run::
+Const::Name: BITORE
+Controls when the action will run.
+Runs-On: "#:Triggers::workflow"::
+On:
+#Push:
+
+Request: event Build:
+#On: but only for the tree branch
+push:
+branches: [ tree ]
+pull_request:
+branches: [ trunk ]
+
+Allows you to run this workflow manually from the Actions tab
+workflow_dispatch:
+
+A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+This workflow contains a single job called "build"
+build:
+# The type of runner that the job will run on
+runs-on: ubuntu-latest
+# Steps represent a sequence of tasks that will be executed as part of the job
+steps:
+# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+- uses: actions/checkout@v2
+# Runs a single command using the runners shell
+- name: Run a one-line script
+run: echo Hello, world!
+# Runs a set of commands using the runners shell
+- name: Run a multi-line script
+# run:
+# Echo: hello-World!
+# run::test/package.json
+# Deploy:: Release:Publish
+# Launch:: @iixixi/iixixi/README.md/contributing.MD
+# #Const::Name::TEIRAFORMA::'build script' Request::Pull::Plain'Text'::Const::Request::Pull::'Government_Legal_Letter::</Ledger/Legal/>
+"private": true,
+"main": "index.js",
+"scripts": {
+"build": "rm -rf dist && ncc build index.js -o dist"
+"dependencies": {
+"@actions/core": "^1.2.0",
+"@actions/github": "^2.0.0",
+"node-fetch": "^2.6.0"
+"devDependencies": {
+"@zeit/ncc": "^0.21.0"
+#::Build:'Return::'#
+name: Ruby
+on:
+push:
+branches: [ mainbranch ]
+pull_request
+branches: [trunk ]
+jobs:
+test:
+runs-on: ubuntu-latest
+strategy:
+matrix:
+ruby-version: ['2.6', '2.7', '3.0']
+name: Ruby
+on:
+push:
+branches: [ mainbranch ]
+pull_request:
+branches: [trunk ]
+job:
+steps: uses'-'
+test:
+runs-on: ubuntu-latest
+strategy:
+matrix:
+ruby-version: ['2.6', '2.7', '3.0']
+steps:
+- uses: actions/checkout@v0
+- name: Set up Ruby
+# To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+# change this to (see https://github.com/ruby/setup-ruby#versioning):
+# uses: ruby/setup-ruby@v1
+uses: ruby/setup-ruby@473e4d8
+with:
+ruby-version: ${{ matrix.ruby-version }}
+bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+- name: Run tests
+run: bundle exec rake
+- uses: actions/checkout@v0
+- name: Set up Ruby
+# To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+# change this to (see https://github.com/ruby/setup-ruby#versioning):
+# uses: ruby/setup-ruby@v1
+uses: ruby/setup-ruby@473e4d8
+with:
+ruby-version: ${{ matrix.ruby-version }}
+bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+- name: #run test'@name: CI <-------bug that travis <----------Hacker used to auto repo my shit homeskillet i am Zachry Tyler Wood
+
+
+#Run:: Build:
+#</script>'<'/Enterprise Administrator>'
+'<'/redirect_from>'
+'<'/content':encoded'>'<'/Install'>enterprise'/admin'/hidden'/migrating'-from'-github'-'fi'/enterprise'/administrator'/Config'.yaml.api/adk/sdk/sun.java.jdk.s.e'</content:encoded>
+'# Const':':'{'{'$RubyGems'}'{'['(item'_id')']'}'{'[Volume']'}'}'{'{'$RubyGems'}'{'['('('c')'('r')')']''}'{'['21000000']'}'
+'# Versioning:'@'v'-'0.1.3,0.6.1,.0.13.9
+'# Enterprise-server'/ae'/atom'/electron'/ci'/cli'/ZachryTylerWood'@Administrator'@'.git'::Const':'::Fix:'::All':':'
+'# github-atom/electrom/api/adk/sdk.s.e'
+link_with_intro/overview'
+link_with_intro/installation'
+link_with_intro/configuration'
+link_with_intro/authentication'
+link_with_intro/user-management'
+link_with_intro/policies'
+link_with_intro/enterprise-management'
+link_with_intro/github-actions'
+link_with_intro/packages'
+#link_with_intro/enterprise-support'
+
+link_with_intro/release-notes'
+Build::Return::'#
+enterprise-server: ''
+github-ae: ''::Build:''## Run::Script'
+'#Name:BITORE'
+'#Const::'Name:'BITORE'@Iixixi/Iixixi.readme.MD/contributing.MD
+
+run://#:bootstrap/Volumes/NetBSD/pkg/package.json'{WebRootU}rl}''{'{'['('('c')'('r')')']'}'}''https://repo1.maven.org/maven2::Publish::Releases:#Launch::Repository'DOCKER.Gui:type:Container'@iixixi':type:DOCKER.Gui/Container::Const::Repository'@user/repositories/test/package.json::Build::Return::'#"sdkmanager "platform-'tools'platforms'android'''28' true github GitHub OWNER Apache Maven 'Package.json/Htps://maven.pkg.git/OWNER/REPOSITORYgithub '@'ZachryTylerWood@Administrator@.git.it.gists/@iixixi/secrets/BITORE'('('c')'('r')')'8333#:run://script:'#Const::'('c')'('r')')'BITORE'://const: BITORE':Build:"'@iixixi/iixixi'##:'://Run::'#://Const::'#://Build:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e.yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='BITORE.sigs'='['volume']'['21000000']'#bundle-with'rust.ui/rakefile/.yaml.json/{${RubyGem}makefile/Gem.spec/Rakefile.ui'#run:'('('c')'('r')')'='Bundle-with::python.js #Run::''script::'#Pull_Request::Branches:mojojojojo/bitore/core/embedder/embedder'::Const:'#:request_pull::'['branches::']'['mainbranch']'@mojojojojo'#:request_push:'['branches']':'['trunk']'@iixixi/iixixi/'README.md'#://Build::'{'{'['('('c')'('r')')']'}'}':':://const:'container'type'DOCKER'::build'with:'python.js'@iPunblish::ixixi'/'iixixi'
+Publish::
+Release:
+Deploy:'
+Launch::'@'iixixi'/'iixixi'/'README'.'mD'
+Name: 'Repo'Sync'
+Deployee::'@Iixixi'/'iixixi'/'contributing'.Md''#://return:'#'
+Name: Enterprise Administrator
+redirect_from: enterprise/admin/hidden/migrating-from-github-fi//enterprise/admin
+intro:
+Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy,
+Config.yaml.api/adk/sdk/sun.java.jdk.s.e'
+'# Const::'{{$RubyGems}'{[(github_secret_token_item_id)]}''{[Volume]}}''{{$RubyGems}'{[((c)(r)]}'[21000000]'
+'# versioning:'@'v'-'0.1.3,0.6.1,.0.13.9
+'# enterprise-server/ae/atom/electron/ci/cli/ZachryTylerWood@Administrator@.git::Const:'::Fix:::All':'
+'# github-atom/electrom/api/adk/sdk.s.e'
+
+link_with_intro/overview'
+link_with_intro/installation'
+link_with_intro/configuration'
+link_with_intro/authentication'
+link_with_intro/user-management'
+link_with_intro/policies'
+link_with_intro/enterprise-management'
+link_with_intro/github-actions'
+link_with_intro/packages'
+#link_with_intro/enterprise-support'
+
+link_with_intro/release-notes'
+Build::Return::'#</script>
+'# Name: BITORE
+
+Controls when the action will run.
+on:
+
+Triggers the workflow on push or pull request events but only for the tree branch
+push:
+branches: [ TREE ]
+pull_request:
+branches: [ trunk ]
+
+Allows you to run this workflow manually from the Actions tab
+workflow_dispatch:
+
+A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+This workflow contains a single job called "build"
+build:
+# The type of runner that the job will run on
+runs-on: ubuntu-latest
+# Steps represent a sequence of tasks that will be executed as part of the job
+steps:
+# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+- uses: actions/checkout@v2
+# Runs a single command using the runners shell
+- name: Run a one-line script
+run: echo Hello, world!
+# Runs a set of commands using the runners shell
+# name: Run a multi-line script
+# run:.
+#Const::Name::TEIRAFORMA::'build script'
+#Reques
+#Pull
+#Branches::
+"private": false
+"main": "index.js",
+"scripts": {
+"build"
+#Const:
+#Build:
+run: bundle install
+name: Run tests
+run: bundle exec rake
+name:autoupdate branch
+on:
+push:
+branches:
+[main]
+jobs:
+autoupdate:
+name: autoupdate
+runs-on: ubuntu-18.04
+steps:uses:'-'
+-uses:
+-actions:@v-0.1.0.3.6.9
+-env:{'{'['('GITHUB_TOKEN_ITEM_ID')']'}'}'{'$'{'{'['('('c')'('r')')'}']'}'}'}'
+-[Volume]'e'.g'.[21000000]'
+-PR_FILTER: labelled
+-PR_LABELS: autoupdate
+-Pull: iixixi/✨Engineering
+-MERGE:PR'@'"iixixi✨Engineering
+-Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
+-#update::dependencies:[none]
+-#Automate:Update::sev1:tta:3sec:sev2:issue:https://github.com/github/docs-internal/issuestta:5 sec::sev3:slack: docs-engineering'@Iixixi
+-#Automate::HerokuDependaBot::Automate::Update:All:# lint Expected — Waiting for status to be reported
+-Required# staging Expected — Waiting for status to be reported
+-Required# test (content) Expected — Waiting for status to be reported
+-Required# test (graphql) Expected — Waiting for status to be reported
+-Required# test (meta) Expected — Waiting for status to be reported
+-Required# test (rendering) Expected — Waiting for status to be reported
+-Required# test (routing) Expected — Waiting for status to be reported
+-Required# test (unit) Expected — Waiting for status to be reported
+-Required
+#Return:Run
 
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
