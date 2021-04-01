@@ -10,11 +10,14 @@ redirect_from:
   - /articles/setting-up-a-custom-domain-with-pages/
   - /articles/setting-up-a-custom-domain-with-github-pages/
   - /articles/configuring-a-custom-domain-for-your-github-pages-site
+  - /github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
   - pages
 ---
 
+{% link_in_list /about-custom-domains-and-github-pages %}
+{% link_in_list /managing-a-custom-domain-for-your-github-pages-site %}
+{% link_in_list /troubleshooting-custom-domains-and-github-pages %}

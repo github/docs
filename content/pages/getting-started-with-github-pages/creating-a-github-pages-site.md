@@ -7,6 +7,7 @@ redirect_from:
   - /articles/creating-project-pages-from-the-command-line/
   - /articles/creating-project-pages-using-the-command-line/
   - /articles/creating-a-github-pages-site
+  - /github/working-with-github-pages/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

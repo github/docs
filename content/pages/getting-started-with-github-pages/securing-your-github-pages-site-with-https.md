@@ -4,6 +4,7 @@ intro: 'HTTPS adds a layer of encryption that prevents others from snooping on o
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
+  - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   free-pro-team: '*'
 topics:

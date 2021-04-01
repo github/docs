@@ -4,6 +4,7 @@ intro: 'You can add a new page or post to your Jekyll site on {% data variables.
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
+  - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

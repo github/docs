@@ -9,6 +9,7 @@ redirect_from:
   - /articles/mime-types-on-github-pages/
   - /articles/should-i-rename-usernamegithubcom-repositories-to-usernamegithubio/
   - /articles/about-github-pages
+  - /github/working-with-github-pages/about-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
@@ -27,7 +28,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
 To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
@@ -45,7 +46,7 @@ To publish a user site, you must create a repository owned by your user account 
 The source files for a project site are stored in the same repository as their project. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-If you publish your site privately, the URL for your site will be different. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+If you publish your site privately, the URL for your site will be different. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}

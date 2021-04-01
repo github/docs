@@ -5,6 +5,7 @@ redirect_from:
   - /articles/viewing-jekyll-build-error-messages/
   - /articles/generic-jekyll-build-failures/
   - /articles/about-jekyll-build-errors-for-github-pages-sites
+  - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

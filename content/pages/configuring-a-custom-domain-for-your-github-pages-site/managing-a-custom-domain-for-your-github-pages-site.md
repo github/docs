@@ -10,6 +10,7 @@ redirect_from:
   - /articles/adding-a-cname-file-to-your-repository/
   - /articles/setting-up-your-pages-site-repository/
   - /articles/managing-a-custom-domain-for-your-github-pages-site
+  - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

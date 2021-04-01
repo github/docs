@@ -17,6 +17,7 @@ redirect_from:
   - /articles/using-jekyll-plugins-with-github-pages/
   - /articles/adding-jekyll-plugins-to-a-github-pages-site/
   - /articles/about-github-pages-and-jekyll
+  - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-supported-custom-domains/
   - /articles/custom-domain-redirects-for-your-github-pages-site/
   - /articles/about-custom-domains-and-github-pages
+  - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

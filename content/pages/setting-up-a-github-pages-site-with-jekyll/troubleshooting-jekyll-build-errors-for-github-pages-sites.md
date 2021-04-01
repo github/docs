@@ -24,6 +24,7 @@ redirect_from:
   - /articles/troubleshooting-github-pages-builds/
   - /articles/troubleshooting-jekyll-builds/
   - /articles/troubleshooting-jekyll-build-errors-for-github-pages-sites
+  - /github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/custom-domain-isn-t-working/
   - /articles/troubleshooting-custom-domains/
   - /articles/troubleshooting-custom-domains-and-github-pages
+  - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

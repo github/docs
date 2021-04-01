@@ -7,6 +7,7 @@ redirect_from:
   - /articles/unpublishing-a-project-pages-site/
   - /articles/unpublishing-a-user-pages-site/
   - /articles/unpublishing-a-github-pages-site
+  - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 permissions: 'People with admin or maintainer permissions for a repository can unpublish a {% data variables.product.prodname_pages %} site.'
 versions:

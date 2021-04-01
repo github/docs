@@ -4,6 +4,7 @@ intro: 'If you use the default publishing source for your {% data variables.prod
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages/
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
+  - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 permissions: 'People with admin or maintainer permissions for a repository can configure a publishing source for a {% data variables.product.prodname_pages %} site.'
 versions:

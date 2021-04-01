@@ -4,6 +4,7 @@ intro: 'You can use Jekyll to create a {% data variables.product.prodname_pages 
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
+  - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
 permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'

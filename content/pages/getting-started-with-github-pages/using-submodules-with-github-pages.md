@@ -4,6 +4,7 @@ intro: 'You can use submodules with {% data variables.product.prodname_pages %} 
 redirect_from:
   - /articles/using-submodules-with-pages/
   - /articles/using-submodules-with-github-pages
+  - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'

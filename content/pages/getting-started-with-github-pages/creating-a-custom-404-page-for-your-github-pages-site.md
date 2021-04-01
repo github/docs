@@ -4,6 +4,7 @@ intro: You can display a custom 404 error page when people try to access nonexis
 redirect_from:
   - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
+  - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
