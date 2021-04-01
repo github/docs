@@ -338,9 +338,63 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
+{% if currentVersion == "free-pro-team@latest" %}
+### debate
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+#### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### Objeto de carga útil del webhook
+
+| Clave    | Type        | Descripción                                                                                                                                                             |
+| -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Acción` | `secuencia` | La acción realizada. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`. |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.discussion.created }}
+
+### discussion_comment
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+#### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### Objeto de carga útil del webhook
+
+| Clave        | Type        | Descripción                                                                                                   |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                              |
+| `comentario` | `objeto`    | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource. |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
+{% endif %}
+
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-### enterprise
+### empresa
 
 {% data reusables.webhooks.enterprise_short_desc %}
 
@@ -360,7 +414,7 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 
 {% endif %}
 
-### fork
+### bifurcación
 
 {% data reusables.webhooks.fork_short_desc %}
 
@@ -519,7 +573,7 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 
 {{ webhookPayloadsForCurrentVersion.issues.edited }}
 
-### label
+### etiqueta
 
 {% data reusables.webhooks.label_short_desc %}
 
@@ -570,7 +624,7 @@ Para obtener una descripción detallada de esta carga útil y de aquella para ca
 
 {% endif %}
 
-### member
+### miembro
 
 {% data reusables.webhooks.member_short_desc %}
 
@@ -637,7 +691,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {{ webhookPayloadsForCurrentVersion.meta.deleted }}
 
-### milestone
+### hito
 
 {% data reusables.webhooks.milestone_short_desc %}
 
@@ -714,7 +768,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 
-### package
+### paquete
 
 Actividad relacionada con el {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} para obtener más información, consulta la sección "[Administrar paquetes con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para aprender más sobre el {% data variables.product.prodname_registry %}.
 
@@ -946,7 +1000,7 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
-### push
+### subir
 
 {% data reusables.webhooks.push_short_desc %}
 
@@ -997,7 +1051,7 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {{ webhookPayloadsForCurrentVersion.push }}
 
-### release
+### lanzamiento
 
 {% data reusables.webhooks.release_short_desc %}
 
@@ -1174,7 +1228,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 
 {% endif %}
 
-### star
+### estrella
 
 {% data reusables.webhooks.star_short_desc %}
 
@@ -1194,7 +1248,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 
 {{ webhookPayloadsForCurrentVersion.star.created }}
 
-### status
+### estado
 
 {% data reusables.webhooks.status_short_desc %}
 
@@ -1223,7 +1277,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 
 {{ webhookPayloadsForCurrentVersion.status }}
 
-### team
+### equipo
 
 {% data reusables.webhooks.team_short_desc %}
 
@@ -1279,7 +1333,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-### user
+### usuario
 
 Cuando se aplica `created` o `deleted` a un usuario.
 
@@ -1292,7 +1346,7 @@ Cuando se aplica `created` o `deleted` a un usuario.
 
 {% endif %}
 
-### watch
+### observar
 
 {% data reusables.webhooks.watch_short_desc %}
 

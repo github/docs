@@ -338,9 +338,63 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
+{% if currentVersion == "free-pro-team@latest" %}
+### ディスカッション
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+#### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### webhook ペイロードオブジェクト
+
+| キー       | 種類       | 説明                                                                                                                                                             |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `string` | 実行されたアクション。 Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`. |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.discussion.created }}
+
+### discussion_comment
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+#### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+
+#### webhook ペイロードオブジェクト
+
+| キー       | 種類       | 説明                                                                                                            |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted` のいずれかを指定可。                                                           |
+| `コメント`   | `オブジェクト` | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource. |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
+{% endif %}
+
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-### Enterprise
+### enterprise
 
 {% data reusables.webhooks.enterprise_short_desc %}
 

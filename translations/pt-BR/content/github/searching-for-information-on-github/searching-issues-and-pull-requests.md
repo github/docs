@@ -305,7 +305,7 @@ O qualificador `archived` restringe os resultados a problemas ou pull requests e
 
 ### Pesquisar conversas bloqueadas e não bloqueadas
 
-Você pode pesquisar problema ou pull requests que têm uma conversa bloqueada usando o qualificador `is`. Para obter mais informações, consulte "[Bloquear conversas](/articles/locking-conversations)".
+Você pode pesquisar problema ou pull requests que têm uma conversa bloqueada usando o qualificador `is`. Para obter mais informações, consulte "[Bloquear conversas](/communities/moderating-comments-and-conversations/locking-conversations)".
 
 | Qualifier     | Exemplo                                                                                                                                                                                                                                                                                       |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

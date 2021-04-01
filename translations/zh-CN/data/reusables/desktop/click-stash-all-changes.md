@@ -1,13 +1,13 @@
-1. Click **Stash All Changes**.
+1. 单击 **Stash All Changes（隐藏所有更改）**。
 
   {% mac %}
 
-  ![The Stash All Changes menu item](/assets/images/help/desktop/mac-stash-all-changes.png)
+  ![隐藏所有更改菜单项](/assets/images/help/desktop/mac-stash-all-changes.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The Stash all changes menu item](/assets/images/help/desktop/windows-stash-all-changes.png)
+  ![隐藏所有更改菜单项](/assets/images/help/desktop/windows-stash-all-changes.png)
 
   {% endwindows %}

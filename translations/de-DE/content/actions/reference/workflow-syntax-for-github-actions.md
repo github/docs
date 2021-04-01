@@ -122,7 +122,7 @@ Unter den Schlüsselwörtern `paths-ignore` und `paths` kannst Du Glob-Muster nu
 
 #### Beispiel zum Ignorieren von Pfaden
 
-Immer wenn ein Pfadname zu einem Muster in `paths-ignore` passt, wird der Workflow nicht ausgeführt. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
 
 ```yaml
 on:

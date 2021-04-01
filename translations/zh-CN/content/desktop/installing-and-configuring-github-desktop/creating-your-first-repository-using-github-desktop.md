@@ -92,6 +92,6 @@ versions:
 您现已创建一个仓库，并且已将仓库发布到 {% data variables.product.product_name %}，进行了提交，并且已将更改推送到 {% data variables.product.product_name %}。 在参与创建或协作的其他项目时，可以遵循这个相同的工作流程。
 
 ### 延伸阅读
-- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
+- "[开始使用 Git](/github/getting-started-with-github/getting-started-with-git)"
 - "[了解 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

@@ -62,50 +62,50 @@ topics:
 
 `involves` 修飾子では、特定のユーザが関与するディスカッションを表示します。 修飾子は、特定のユーザが作成したディスカッション、特定のユーザをメンションしたディスカッション、特定のユーザによるコメントを含むディスカッションを返します。 `involves` 修飾子は、単一ユーザについて、`author`、`mentions`、および `commenter` を論理 OR でつなげます。
 
-| 修飾子                       | サンプル                                                                                                                                                                                                               |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.                             |
-|                           | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body. |
+| 修飾子                       | サンプル                                                                                                                                                                        |
+|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** は、@becca または @octocat が関与しているディスカッションにマッチします。       |
+|                           | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) は、本文に「beta」という単語を含まず、@becca が関与しているディスカッションにマッチします。 |
 
 ### コメントの数で検索
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
+コメント数で検索するには、不等号や範囲の修飾子とともに `comments` 修飾子を使います。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                     |
-|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) matches discussions with more than 100 comments.            |
-|                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000. |
+| 修飾子                       | サンプル                                                                                                                                   |
+|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) は、コメント数が 100 を超えるクローズしたディスカッションにマッチします。   |
+|                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions)は、500 から 1,000 までの範囲のコメント数のディスカッションにマッチします。 |
 
 ### インタラクションの数で検索
 
-You can filter discussions by the number of interactions with the `interactions` qualifier along with greater than, less than, and range qualifiers. The interactions count is the number of reactions and comments on a discussion. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
+`interactions` 修飾子を使用したインタラクションの数と、不等号や範囲の修飾子によってディスカッションをフィルタできます。 インタラクションの数は、ディスカッションに対するリアクションとコメントの数のことです。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                |
-|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches discussions with more than 2,000 interactions.   |
-|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches discussions with interactions ranging from 500 to 1,000. |
+| 修飾子                       | サンプル                                                                                                                                |
+|:------------------------- |:----------------------------------------------------------------------------------------------------------------------------------- |
+| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) は、インタラクションの数が 2,000 以上あるディスカッションにマッチします。 |
+|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) は、500～1,000 の範囲のインタラクションとのディスカッションにマッチします。       |
 
 ### リアクションの数で検索
 
-You can filter discussions by the number of reactions using the `reactions` qualifier along with greater than, less than, and range qualifiers. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
+不等号や範囲の修飾子と一緒に `reactions` 修飾子を使用して、リアクションの数でディスカッションをフィルタすることができます。 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                       |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) matches discussions with more than 500 reactions.      |
-|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches discussions with reactions ranging from 500 to 1,000. |
+| 修飾子                       | サンプル                                                                                                                     |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------ |
+| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) は、リアクションの数が 500 以上あるディスカッションにマッチします。 |
+|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) は、リアクションの数が 500～1,000 の範囲のディスカッションにマッチします。  |
 
-### Search by when a discussion was created or last updated
+### ディスカッションの作成時期または最終更新時期で検索
 
-You can filter discussions based on times of creation, or when the discussion was last updated. For discussion creation, you can use the `created` qualifier; to find out when an discussion was last updated, use the `updated` qualifier.
+作成時期または最終更新時期でディスカッションをフィルタできます。 ディスカッションの作成時期については、`created` の修飾子を使います。ディスカッションの最終更新時期で表示するには、`updated` の修飾子を使います。
 
-Both qualifiers take a date as a parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+両方の修飾子は、パラメータとして日付を使います。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                           |
-|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) matches discussions that were created after November 15, 2020.                                                              |
-| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) matches discussions with the word "weird" in the body that were updated after December 2020. |
+| 修飾子                        | サンプル                                                                                                                                                                                       |
+|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) は、2020 年 11 月 15 日以降に作成されたディスカッションにマッチします。                                              |
+| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) は、2020 年 12 月以降に更新された、本文に「weird」という単語を含むディスカッションにマッチします。 |
 
 ### 参考リンク
 

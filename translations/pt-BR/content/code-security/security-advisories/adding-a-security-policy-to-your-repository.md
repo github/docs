@@ -14,7 +14,7 @@ topics:
 
 Para dar às pessoas instruções de como relatar de maneira responsável vulnerabilidades de segurança no seu projeto, você pode adicionar um arquivo _SECURITY.md_ à pasta raiz, `docs` ou `.github` do seu repositório. Quando uma pessoa cria um problema no seu repositório, ela vê um link para a política de segurança do seu projeto.
 
-Você pode criar uma política de segurança padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Você pode criar uma política de segurança padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -41,5 +41,5 @@ Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, vo
 ### Leia mais
 
 - "[Sobre proteger seu repositório](/github/administering-a-repository/about-securing-your-repository)"
-- "[Configurar seu projeto para contribuições úteis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
+- "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

@@ -1,7 +1,7 @@
 ---
 title: コードスキャンの SARIF サポート
 shortTitle: SARIF サポート
-intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. デフォルトの {% data variables.product.prodname_codeql %} 静的分析エンジンを使用すると、結果は {% data variables.product.prodname_dotcom %} のリポジトリに自動的に表示されます。'
+intro: '{% data variables.product.prodname_dotcom %} のリポジトリにあるサードパーティの静的分析ツールからの結果を表示するには、{% data variables.product.prodname_code_scanning %} 用に SARIF 2.1.0 JSON スキーマの特定のサブセットをサポートする SARIF ファイルに結果を保存する必要があります。 デフォルトの {% data variables.product.prodname_codeql %} 静的分析エンジンを使用すると、結果は {% data variables.product.prodname_dotcom %} のリポジトリに自動的に表示されます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
@@ -20,7 +20,7 @@ topics:
 
 SARIF（Static Analysis Results Interchange Format）は、出力ファイル形式を定義する [OASIS 標準](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)です。 SARIF 標準は、静的分析ツールが結果を共有する方法を合理化するために使用されます。 {% data variables.product.prodname_code_scanning_capc %} は、SARIF 2.1.0 JSON スキーマのサブセットをサポートしています。
 
-サードパーティの静的コード分析エンジンから SARIF ファイルをアップロードするには、アップロードされたファイルが SARIF 2.1.0 バージョンを使用していることを確認する必要があります。 {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. 詳しい情報については、「[SARIF ファイルを {% data variables.product.prodname_dotcom %} にアップロードする](/code-security/secure-coding/uploading-a-sarif-file-to-github)」を参照してください。 SARIF 2.1.0 JSON スキーマの詳細については、「[`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)」を参照してください。
+サードパーティの静的コード分析エンジンから SARIF ファイルをアップロードするには、アップロードされたファイルが SARIF 2.1.0 バージョンを使用していることを確認する必要があります。 {% data variables.product.prodname_dotcom %} は SARIF ファイルを解析し、{% data variables.product.prodname_code_scanning %} エクスペリエンスの一部としてリポジトリの結果を使用してアラートを表示します。 詳しい情報については、「[SARIF ファイルを {% data variables.product.prodname_dotcom %} にアップロードする](/code-security/secure-coding/uploading-a-sarif-file-to-github)」を参照してください。 SARIF 2.1.0 JSON スキーマの詳細については、「[`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)」を参照してください。
 
 SARIF ファイルに `partialFingerprints` が含まれていない場合、{% data variables.product.prodname_actions %} を使用して SARIF ファイルをアップロードすると、`partialFingerprints` フィールドが計算されます。 For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)."
 

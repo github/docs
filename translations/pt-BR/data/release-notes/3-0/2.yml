@@ -27,8 +27,9 @@ sections:
     - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
     - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
     - 'When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/).'
-    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
+    - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
     - |
       Users may experience assets such as avatars not loading, or a failure to push/pull code. This may be caused by a PID mismatch in the `haproxy-cluster-proxy` service. To determine if you have an affected instance:
 

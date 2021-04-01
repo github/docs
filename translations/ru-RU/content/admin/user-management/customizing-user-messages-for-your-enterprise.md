@@ -58,11 +58,20 @@ You can use Markdown to format your message. For more information, see "[About w
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Creating a mandatory message
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}. Mandatory messages have a variety of uses.
+You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}.
+
+Mandatory messages have a variety of uses.
 
 - Providing onboarding information for new employees
 - Telling users how to get help with {% data variables.product.product_location %}
 - Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
+
+{% note %}
+
+**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
+
+{% endnote %}
+
 
 If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
 
