@@ -61,7 +61,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 
   新しいコードまたは変更されたコードのセキュリティの脆弱性とコーディングエラーを自動的に検出します。 潜在的な問題が強調表示され、あわせて詳細情報も確認できるため、デフォルトのブランチにマージする前にコードを修正できます。 詳しい情報については、「[コードスキャニングについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。
 
-- **検出されたシークレット**
+- **{% data variables.product.prodname_secret_scanning_caps %} アラート**
 
   {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
 

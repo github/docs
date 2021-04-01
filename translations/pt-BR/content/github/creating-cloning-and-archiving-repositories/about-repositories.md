@@ -39,5 +39,5 @@ Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras
 - "[Gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administrar um repositório](/categories/administering-a-repository)"
 - "[Visualizar dados de repositório com gráficos](/categories/visualizing-repository-data-with-graphs/)"
-- "[Sobre wikis](/articles/about-wikis)"
+- "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[Glossário do {% data variables.product.prodname_dotcom %}](/articles/github-glossary)"

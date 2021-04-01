@@ -48,7 +48,7 @@ topics:
   $ git remote set-url origin <em>new_url</em>
   ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 #### 仓库转让和组织
 

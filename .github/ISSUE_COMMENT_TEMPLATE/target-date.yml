@@ -1,6 +1,6 @@
 ---
 name: Target Date Update
-about: Target date update
+description: Target date update
 body:
   - type: input
     attributes:

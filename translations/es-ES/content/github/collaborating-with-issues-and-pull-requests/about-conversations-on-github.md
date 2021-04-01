@@ -43,7 +43,7 @@ Al igual que las pautas de contribución, el mantenedor del repositorio puede ha
 
 ### Leer más
 
-- "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
-- [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderar comentarios y conversaciones](/articles/moderating-comments-and-conversations)"
+- "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
+- [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
 - "[Escribir en {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

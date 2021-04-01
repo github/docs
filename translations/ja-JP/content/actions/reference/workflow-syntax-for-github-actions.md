@@ -122,7 +122,7 @@ on:
 
 #### パスを無視する例
 
-パス名が `paths-ignore` のパターンとマッチする場合は常に、ワークフローは実行されません。 {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
 ```yaml
 on:

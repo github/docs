@@ -10,6 +10,8 @@ topics:
   - empresa
 ---
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Crear una réplica de alta disponibilidad
 
 1. Configurar un aparato {% data variables.product.prodname_ghe_server %} nuevo en la plataforma que desees. El aparato réplica debe espejar la CPU, la RAM y los ajustes de almacenamiento del aparato principal. Recomendamos que instales el aparato réplica en un entorno separado. El hardward subyacente, el software y los componentes de red deben estar aislados de los del aparato principal. Si estás usando un proveedor de nube, utiliza una región o zona separada. Para obtener más información, consulta ["Configurar una instancia {% data variables.product.prodname_ghe_server %}"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).

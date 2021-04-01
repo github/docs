@@ -10,6 +10,8 @@ topics:
   - 企业
 ---
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### 创建高可用性副本
 
 1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。

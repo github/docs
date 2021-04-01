@@ -51,6 +51,6 @@ topics:
 
 {% tip %}
 
-**提示**：同步复刻仅更新仓库的本地副本。 To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**提示**：同步复刻仅更新仓库的本地副本。 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}

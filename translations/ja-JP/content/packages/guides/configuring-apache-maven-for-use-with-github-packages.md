@@ -30,7 +30,7 @@ versions:
 
 `servers`タグの中に、子として`server`タグを`id`付きで追加し、*USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで置き換えてください。
 
-`repositories`の中で、リポジトリの`id`をクレデンシャルを含む`server`タグに追加した`id`にマッピングして、リポジトリを設定してください。 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME*を{% data variables.product.product_location %}のホスト名で置き換え、{% endif %}*REPOSITORY*をパッケージを公開したいあるいはパッケージのインストール元にしたいリポジトリの名前で置き換え、*OWNER*をリポジトリを所有しているユーザあるいはOrganizationのアカウント名で置き換えてください。 大文字はサポートされていないため、仮に{% data variables.product.prodname_dotcom %}のユーザあるいはOrganization名が大文字を含んでいても、リポジトリオーナーには小文字を使わなければなりません。
+`repositories`の中で、リポジトリの`id`をクレデンシャルを含む`server`タグに追加した`id`にマッピングして、リポジトリを設定してください。 Replace {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}, and *OWNER* with the name of the user or organization account that owns the repository. 大文字はサポートされていないため、仮に{% data variables.product.prodname_dotcom %}のユーザあるいはOrganization名が大文字を含んでいても、リポジトリオーナーには小文字を使わなければなりません。
 
 複数のリポジトリとやりとりをしたい場合には、それぞれのリポジトリを`repositories`タグの子の個別の`repository`に追加し、それぞれの`id`を`servers` タグのクレデンシャルにマッピングできます。
 
@@ -134,12 +134,9 @@ versions:
 
 パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
 
-1. パッケージディレクトリ内にある*pom.xml*ファイルの`distributionManagement`要素を編集し、`OWNER`をリポジトリを所有しているユーザもしくはOrganizationアカウントの名前で、`REPOSITORY`をプロジェクトを含むリポジトリの名前で置き換えてください。
+1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* を{% data variables.product.product_location %}のホスト名で、{% endif %}`OWNER`をリポジトリを所有するユーザ名またはOrganizationアカウント名で、`REPOSITORY`をプロジェクトを含むリポジトリ名で置き換えます。
-  {% if enterpriseServerVersions contains currentVersion %}
-  パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
-  {% endif %}
+  If your instance has subdomain isolation enabled:{% endif %}
   ```xml
   <distributionManagement>
      <repository>
@@ -148,9 +145,8 @@ versions:
        <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```
-  {% if enterpriseServerVersions contains currentVersion %}
-  たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+  ```{% if enterpriseServerVersions contains currentVersion %}
+  If your instance has subdomain isolation disabled:
   ```xml
   <distributionManagement>
      <repository>
@@ -159,10 +155,9 @@ versions:
        <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```
-  {% endif %}
-2. パッケージを公開します。
-
+  ```{% endif %}
+{% data reusables.package_registry.checksum-maven-plugin %}
+1. パッケージを公開します。
    ```shell
    $ mvn deploy
   ```
@@ -185,6 +180,7 @@ versions:
     </dependency>
   </dependencies>
   ```
+{% data reusables.package_registry.checksum-maven-plugin %}
 3. パッケージをインストールします。
 
   ```shell

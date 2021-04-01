@@ -35,7 +35,7 @@ Puedes invitar a tu comunidad y presentarles una forma nueva de comunicarse en u
 
 Puedes configurar lineamientos de contribución para motivar a los colaboradores para que tengan conversaciones significativas y útiles que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate.
 
-Para obtener más información sobre proporcionar lineamientos para tu proyecto, consulta las secciones "[Agregar un código de conducta a tu proyecto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" y "[Configurar tu proyecto para que tegan contribuciones sanas](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
+Para obtener más información sobre proporcionar lineamientos para tu proyecto, consulta las secciones "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y "[Configurar tu proyecto para que tegan contribuciones sanas](/communities/setting-up-your-project-for-healthy-contributions)".
 
 ### Crear un debate nuevo
 

@@ -26,7 +26,7 @@ Adicionalmente a redirigir el tráfico web, todas las operaciones de `git clone`
 $ git remote set-url origin <em>new_url</em>
 ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
