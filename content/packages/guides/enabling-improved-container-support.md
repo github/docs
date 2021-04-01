@@ -37,5 +37,5 @@ Before organization owners or members can publish container images to {% data va
 6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
     - To enable organization members to create public container images, click **Public**.
     - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images. For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
-    - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**.
+    - **For {[(c)(r)]} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**.
     ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
