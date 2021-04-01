@@ -61,14 +61,14 @@ topics:
 
   自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-- **检测到的密钥**
+- **{% data variables.product.prodname_secret_scanning_caps %} 警报**
 
   {% if currentVersion == "free-pro-team@latest" %}对于私人仓库，请查看{% else %}查看{% endif %} {% data variables.product.prodname_dotcom %} 在您的代码中找到的任何机密。 应将已检入仓库的令牌或凭据视为已泄露。 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: Sincronizar tu rama
-intro: 'Conforme se suban las confirmaciones a tu proyecto en {% data variables.product.prodname_dotcom %}, podrás mantener una copia local de éste en sincornización si lo extraes del repositorio remoto.'
+intro: 'Conforme se suban las confirmaciones a tu proyecto en {% data variables.product.prodname_dotcom %}, podrás mantener una copia local de éste en sincronización si lo extraes del repositorio remoto.'
 redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
 versions:

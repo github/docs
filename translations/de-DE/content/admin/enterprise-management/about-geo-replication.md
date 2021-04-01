@@ -22,6 +22,8 @@ Damit die Geo-Replikation ordnungsgemäß funktioniert, ist Geo DNS, beispielswe
 
 Zum Senden von Anforderungen an das Replikat müssen die Daten an die primäre Instanz und an alle Replikate gesendet werden. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Von der Geo-Replikation werden einer {% data variables.product.prodname_ghe_server %}-Instanz weder Kapazitäten hinzugefügt noch werden Leistungsprobleme in Bezug auf unzureichende CPU- oder Arbeitsspeicherressourcen behoben. Wenn die primäre Appliance offline ist, können aktive Replikate keine Lese- oder Schreibanforderungen verarbeiten.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Geo-Replikationskonfiguration überwachen
 
 {% data reusables.enterprise_installation.monitoring-replicas %}

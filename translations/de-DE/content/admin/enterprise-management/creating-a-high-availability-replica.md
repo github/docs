@@ -10,6 +10,8 @@ topics:
   - Unternehmen
 ---
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Hochverfügbarkeitsreplikat erstellen
 
 1. Richten Sie eine neue {% data variables.product.prodname_ghe_server %}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.

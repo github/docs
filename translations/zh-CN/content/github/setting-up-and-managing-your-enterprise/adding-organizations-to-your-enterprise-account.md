@@ -13,7 +13,7 @@ topics:
 
 企业所有者可在企业帐户的设置中创建新组织。
 
-要将组织添加到企业帐户，必须在企业帐户设置中创建组织。 If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
+要将组织添加到企业帐户，必须在企业帐户设置中创建组织。 如果您想将现有组织转移到您的企业帐户，请联系您的 {% data variables.product.prodname_dotcom %} 销售客户代表。
 
 ### 在企业帐户中创建组织
 

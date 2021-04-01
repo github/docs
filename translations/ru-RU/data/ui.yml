@@ -133,11 +133,12 @@ product_landing:
 product_sublanding:
   start: Start
   start_path: Start path
-  learning_paths: Learning paths
+  learning_paths: '{{ allProducts[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  guides: '{{ allProducts[currentProduct].name }} guides'
   more_guides: more guides
   load_more: Load more guides
-  all_guides: All Guides
+  all_guides: 'All {{ allProducts[currentProduct].name }} guides'
   no_result: Sorry, there is no guide that match your filter.
   filters:
     type: Тип

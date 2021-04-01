@@ -1,6 +1,6 @@
 ---
 title: Uso de SSH a través del puerto HTTPS
-intro: 'Algunas veces, los firewalls se niegan a permitir conexiones SSH por completo.  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  La mayoría de las reglas del firewall deberían permitir esto, pero los servidores proxy pueden interferir.'
+intro: 'Algunas veces, los firewalls se niegan a permitir conexiones SSH por completo.  Si el utilizar el [clonado de HTTPS con almacenamiento de credenciales en el caché](/github/getting-started-with-github/caching-your-github-credentials-in-git) no es una opción, puedes intentar clonar utilizando una conexión SSH que hayas hecho a través del puerto HTTPS.  La mayoría de las reglas del firewall deberían permitir esto, pero los servidores proxy pueden interferir.'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:

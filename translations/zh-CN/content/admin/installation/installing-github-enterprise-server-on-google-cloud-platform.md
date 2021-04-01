@@ -22,11 +22,11 @@ topics:
 
 ### 确定机器类型
 
-在 Google Cloud Platform 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的机器类型。 To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+在 Google Cloud Platform 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的机器类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} 建议对 {% data variables.product.prodname_ghe_server %} 使用通用高内存设备。 更多信息请参阅 Google Compute Engine 文档中的“[设备类型](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)”。
 
 ### 选择 {% data variables.product.prodname_ghe_server %} 映像
 

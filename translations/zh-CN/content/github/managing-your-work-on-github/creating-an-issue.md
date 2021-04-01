@@ -29,7 +29,7 @@ topics:
 {% tip %}
 
 **提示**：项目维护员可选择：
-  - 为仓库创建议题模板。 模板包括议题正文中的信息提示。 更多信息请参阅“[关于议题和拉取请求模板](/github/building-a-strong-community/about-issue-and-pull-request-templates)”。
+  - 为仓库创建议题模板。 模板包括议题正文中的信息提示。 更多信息请参阅“[关于议题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”。
   - 对仓库禁用议题。 更多信息请参阅“[禁用议题](/github/managing-your-work-on-github/disabling-issues)”。 拉取请求无法禁用，始终可用。
 
 {% endtip %}
