@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.dependency-review.feature-overview %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+La revisión de dependencias te permite "desplazarte a la izquierda". Puedes utilizar la información predictiva que se te proporciona para detectar dependencias vulnerables antes de que lleguen a tu ambiente productivo. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 
 ### Revisar las dependencias en una solicitud de cambios
 

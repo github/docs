@@ -122,7 +122,7 @@ on:
 
 #### 忽略路径的示例
 
-任何时候路径名称匹配 `paths-ignore` 中的模式，则工作流程不会运行。 {% data variables.product.prodname_dotcom %} 根据路径名称评估 `paths-ignore` 中定义的模式。 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
+当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 {% data variables.product.prodname_dotcom %} 根据路径名称评估 `paths-ignore` 中定义的模式。 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
 
 ```yaml
 on:

@@ -26,7 +26,7 @@
 | Dropbox                   | Token de Acceso de Vida Corta de Dropbox            | dropbox_short_lived_access_token     |
 | Dynatrace                 | Token de Acceso de Dynatrace                        | dynatrace_access_token                 |
 | Dynatrace                 | Token Interno de Dynatrace                          | dynatrace_internal_token               |
-| Facebook                  | Facebook Access Token                               | facebook_access_token                  |
+| Facebook                  | Token de Acceso a Facebook                          | facebook_access_token                  |
 | Finicity                  | Clave de App de Finicity                            | finicity_app_key                       |
 | Frame.io                  | Token Web de JSON de Frame.io                       | frameio_jwt                              |
 | Frame.io                  | Token de Desarrollador de Frame.io                  | frameio_developer_token                |

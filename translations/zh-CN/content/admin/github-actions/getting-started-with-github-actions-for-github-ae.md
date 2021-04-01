@@ -12,7 +12,7 @@ versions:
 
 ### 管理企业中 {% data variables.product.prodname_actions %} 的访问权限
 
-您可以使用策略来管理 {% data variables.product.prodname_actions %} 的访问。 For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+您可以使用策略来管理 {% data variables.product.prodname_actions %} 的访问。 更多信息请参阅“[为企业执行 GitHub Actions 策略](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。
 
 ### 添加运行器
 

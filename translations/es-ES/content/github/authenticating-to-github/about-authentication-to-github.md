@@ -48,7 +48,7 @@ Puedes autenticarte con la API de varias formas.
 
 ### Autenticarte con la línea de comandos
 
-Puedes acceder a los repositorios en {% data variables.product.product_name %} desde la línea de comandos en dos formas, HTTPS y SSH, y ambas tienen una forma diferente para autenticarte. El método para autenticarte se determina con base en si escoges una URL remota de HTTPS o SSH cuando clonas el repositorio. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Puedes acceder a los repositorios en {% data variables.product.product_name %} desde la línea de comandos en dos formas, HTTPS y SSH, y ambas tienen una forma diferente para autenticarte. El método para autenticarte se determina con base en si escoges una URL remota de HTTPS o SSH cuando clonas el repositorio. Para obtener más información acerca de la forma en la que accedes, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
 * Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de HTTPS, aún si estás detrás de un cortafuegos o de un proxy. Cada vez que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te pedirá que ingreses tus credenciales para autenticarte con {% data variables.product.product_name %} a menos de que las guardes en caché con un [asistente de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git). {% data reusables.user_settings.password-authentication-deprecation %}
 

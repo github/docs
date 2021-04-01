@@ -14,6 +14,8 @@ High Availability設定をする際には、プライマリからレプリカア
 
 {% data variables.product.prodname_ghe_server %} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### ターゲットとなる障害のシナリオ
 
 以下に対する保護として、High Availability設定を使ってください。

@@ -1,1 +1,1 @@
-`workflow` | `object` | The workflow that generated the workflow run.
+`workflow` | `object` | 生成工作流程运行的工作流程。

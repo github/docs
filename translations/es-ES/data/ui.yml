@@ -133,11 +133,12 @@ product_landing:
 product_sublanding:
   start: Inicio
   start_path: Ruta de inicio
-  learning_paths: Ruta de aprendizaje
+  learning_paths: '{{ allProducts[currentProduct].name }} learning paths'
   learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
+  guides: '{{ allProducts[currentProduct].name }} guides'
   more_guides: más guías
   load_more: Carga más guías
-  all_guides: Todas las guías
+  all_guides: 'All {{ allProducts[currentProduct].name }} guides'
   no_result: Lo sentimos, no hay una guía que coincida con tu filtro.
   filters:
     type: Type

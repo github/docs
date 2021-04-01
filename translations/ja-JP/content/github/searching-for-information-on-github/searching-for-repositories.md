@@ -172,7 +172,7 @@ topics:
 
 ### `good first issue` ラベルや `help wanted` ラベルの付いた Issue の数で検索
 
-`help-wanted` ラベルや `good-first-issue` ラベルの付いた Issue の最低数があるリポジトリを、`help-wanted-issues:>n` 修飾子や `good-first-issues:>n` 修飾子によって検索できます。 詳細は、「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)」を参照してください。
+`help-wanted` ラベルや `good-first-issue` ラベルの付いた Issue の最低数があるリポジトリを、`help-wanted-issues:>n` 修飾子や `good-first-issues:>n` 修飾子によって検索できます。 詳細は、「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」を参照してください。
 
 | 修飾子                        | サンプル                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

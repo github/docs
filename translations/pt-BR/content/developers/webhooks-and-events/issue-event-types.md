@@ -769,7 +769,7 @@ Alguém cancelou a assinatura para receber notificações de um problema ou pull
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-Um proprietário da organização bloqueou um usuário da organização. Isso foi feito [por meio de um dos comentários de um usuário bloqueado no problema](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+Um proprietário da organização bloqueou um usuário da organização. Isso foi feito [por meio de um dos comentários de um usuário bloqueado no problema](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
 #### Disponibilidade
 

@@ -17,7 +17,7 @@ topics:
 依赖项图是存储在仓库中的清单和锁定文件的摘要。 它显示您的代码库所依赖的生态系统和软件包（其依赖项）以及依赖于您的项目的仓库和包（其从属项）。 依赖关系图中的信息用于依赖项审查和 {% data variables.product.prodname_dependabot %}。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 
 #### 依赖项审查
-通过检查拉取请求的依赖项审查，可以避免将依赖项的漏洞引入到代码库中。 如果拉取请求添加了有漏洞依赖项，或者将依赖项更改为有漏洞的版本，这将在依赖项审查中高亮显示。 您可以在合并拉取请求之前将依赖项更改为修补版本。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+通过检查拉取请求的依赖项审查，可以避免将依赖项的漏洞引入到代码库中。 如果拉取请求添加了有漏洞依赖项，或者将依赖项更改为有漏洞的版本，这将在依赖项审查中高亮显示。 您可以在合并拉取请求之前将依赖项更改为修补版本。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 
 #### {% data variables.product.prodname_dependabot_alerts %}
 检测到仓库中存在有漏洞依赖项时，{% data variables.product.prodname_dotcom %} 可创建 {% data variables.product.prodname_dependabot_alerts %}。 警报显示在仓库的 Security（安全）选项卡上。 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.prodname_dotcom %} 还根据仓库维护员的通知首选项通知他们。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
