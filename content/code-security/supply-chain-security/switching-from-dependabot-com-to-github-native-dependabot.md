@@ -1,6 +1,7 @@
 ---
 title: Switching from Dependabot.com to Github-native Dependabot
 intro: 'Dependabot.com and Dependabot Preview are being shut down on July 7th, 2021. You can easily upgrade to Github-native Dependabot by merging a pull request, and your packages will keep being updated.'
+allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
 topics:
