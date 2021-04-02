@@ -15,3 +15,4 @@ featuredLinks:
 versions: '*'
 ---
 
+/run
