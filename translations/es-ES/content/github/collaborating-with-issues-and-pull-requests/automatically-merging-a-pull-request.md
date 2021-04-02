@@ -1,10 +1,13 @@
 ---
 title: Fusionar una solicitud de cambios automáticamente
-intro: 'Puedes incrementar la velocidad de desarrollo si habilitas la fusión automática para una solicitud de cambios para que ésta se fusione automáticamente cuando todos los requisitos de fusión se cumplan.'
+intro: Puedes incrementar la velocidad de desarrollo si habilitas la fusión automática para una solicitud de cambios para que ésta se fusione automáticamente cuando todos los requisitos de fusión se cumplan.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 ### Acerca de la fusión automática

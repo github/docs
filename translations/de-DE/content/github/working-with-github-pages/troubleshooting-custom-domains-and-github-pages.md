@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Seiten
 ---
 
 ### _CNAME_-Fehler
@@ -21,8 +23,8 @@ Prüfe anschließend, ob die _CNAME_-Datei ordnungsgemäß formatiert ist.
 
 - Der Name der _CNAME_-Datei darf nur Großbuchstaben enthalten.
 - Die _CNAME_-Datei darf nur eine Domäne umfassen. Sollen mehrere Domänen auf Deine Website verweisen, lass Dir von Deinem DNS-Provider eine Weiterleitung einrichten.
-- Der _CNAME_-Eintrag muss die Bare-Domain umfassen. Beispiel: `www.example.com`,`blog.example.com` oder `example.com`.
-- Der _CNAME_-Eintrag darf nur einmalig auf {% data variables.product.product_name %} verwendet werden. Enthält beispielsweise die _CNAME_-Datei eines anderen Repositorys die Domäne `example.com`, kannst Du `example.com` nicht in die _CNAME_-Datei für Dein Repository aufnehmen.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Enthält beispielsweise die _CNAME_-Datei eines anderen Repositorys die Domäne `example.com`, kannst Du `example.com` nicht in die _CNAME_-Datei für Dein Repository aufnehmen.
 
 ### Fehlerhafte DNS-Konfiguration
 

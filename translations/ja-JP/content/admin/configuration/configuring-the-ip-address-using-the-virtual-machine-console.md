@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% note %}

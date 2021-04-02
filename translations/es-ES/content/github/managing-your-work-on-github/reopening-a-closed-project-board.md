@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Cuando cierras un tablero de proyecto, por defecto, se detiene cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto. Para obtener más información, consulta "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)".

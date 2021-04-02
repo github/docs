@@ -5,6 +5,8 @@ permissions: 拥有仓库写入权限的人可重命名仓库中的分支。 具
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+topics:
+  - 仓库
 ---
 
 ### 关于重命名分支

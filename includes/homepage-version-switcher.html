@@ -1,5 +1,5 @@
-<!-- Versions picker that only appears in the header on homepage/versioned homepages -->
-{% if page.relativePath == 'index.md' %}
+<!-- Versions picker that only appears in the header on homepage or product landing -->
+{% if page.relativePath == 'index.md' or page.layout == 'product-landing' or page.layout == 'product-sublanding' %}
 <div class="d-md-inline-block">
   <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
     <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">

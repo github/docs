@@ -10,10 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 配置工作流程事件
 
@@ -40,6 +42,8 @@ versions:
 ### 安排的事件
 
 `schedule` 事件允许您在计划的时间触发工作流程。
+
+{% data reusables.actions.schedule-delay %}
 
 #### `计划`
 
@@ -161,7 +165,9 @@ on:
 
 ### Web 挂钩事件
 
-您可以将工作流程配置为在 GitHub 上创建 web 挂钩事件时运行。 某些事件有多种触发事件的活动类型。 如果有多种活动类型触发事件，则可以指定哪些活动类型将触发工作流程运行。 更多信息请参阅“[web 挂钩](/webhooks)”。
+您可以将工作流程配置为在 {% data variables.product.product_name %} 上生成 web 挂钩事件时运行。 某些事件有多种触发事件的活动类型。 如果有多种活动类型触发事件，则可以指定哪些活动类型将触发工作流程运行。 更多信息请参阅“[web 挂钩](/webhooks)”。
+
+并非所有 web 挂钩事件都触发工作流程。 要了解可用 web 挂钩事件及其有效负载的完整列表，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。
 
 #### `check_run`
 
@@ -271,6 +277,12 @@ on:
   deployment_status
 ```
 
+{% note %}
+
+**注意：** 当部署状态设置为 `inactive` 时，不会创建 web 挂钩事件。
+
+{% endnote %}
+
 #### `复刻`
 
 每当有人复刻仓库（触发 `fork` 事件）时运行您的工作流程。 有关 REST API 的信息，请参阅“[创建复刻](/rest/reference/repos#create-a-fork)”。
@@ -343,7 +355,7 @@ jobs:
       - run: |
           echo "Comment on PR #${{ github.event.issue.number }}"
 
-  issue-commented:
+  issue_commented:
     # This job only runs for issue comments
     name: Issue comment
     if: ${{ !github.event.issue.pull_request }}
@@ -574,7 +586,7 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `pull_request_target`
 
@@ -582,13 +594,13 @@ on:
 
 {% warning %}
 
-**警告：** `pull_request_target` 事件被授予读/写仓库令牌，可以访问机密，即使从复刻触发时。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存共享与基本分支相同的范围，并且为了帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。
+**警告：** `pull_request_target` 事件被授予读/写仓库令牌，可以访问机密，即使从复刻触发时。 虽然工作流程在拉取请求的基础上下文中运行，但您应该确保不在此事件中检出、生成或运行来自拉取请求的不受信任代码。 此外，任何缓存共享与基本分支相同的范围，并且为了帮助防止缓存中毒，如果缓存内容可能已更改，则不应保存缓存。 更多信息请参阅 GitHub 安全实验室网站上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
 
 {% endwarning %}
 
-| Web 挂钩事件有效负载                                             | 活动类型                                                                                                                                                                                                                                                                                                                                                 | `GITHUB_SHA`   | `GITHUB_REF` |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | PR 基分支上的最后一次提交 | PR 基础分支      |
+| Web 挂钩事件有效负载                                                    | 活动类型                                                                                                                                                                                                                                                                                                                                                 | `GITHUB_SHA`   | `GITHUB_REF` |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | PR 基分支上的最后一次提交 | PR 基础分支      |
 
 默认情况下，工作流程仅在 `pull_request_target` 的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要让更多活动类型触发工作流程，请使用 `types` 关键词。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
@@ -606,7 +618,7 @@ on:
 
 {% note %}
 
-**注：**适用于 GitHub Actions 的 web 挂钩有效负载在 `commit` 对象中不包括 `added`、`removed` 和 `modified` 属性。 您可以使用 REST API 检索完整的提交对象。 更多信息请参阅“[获取单个提交](/rest/reference/repos#get-a-single-commit)”。
+**注：**适用于 GitHub Actions 的 web 挂钩有效负载在 `commit` 对象中不包括 `added`、`removed` 和 `modified` 属性。 您可以使用 REST API 检索完整的提交对象。 更多信息请参阅“[获取提交](/rest/reference/repos#get-a-commit)”。
 
 {% endnote %}
 
@@ -702,7 +714,7 @@ on:
     types: [started]
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `workflow_run`
 
@@ -710,9 +722,11 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Web 挂钩事件有效负载                                             | 活动类型  | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------------- | ----- | ------------ | ------------ |
-| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载                                             | 活动类型                                  | `GITHUB_SHA` | `GITHUB_REF` |
+| -------------------------------------------------------- | ------------------------------------- | ------------ | ------------ |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - `completed`<br/>- `requested` | 默认分支上的最新提交   | 默认分支         |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 如果需要从此事件中筛选分支，可以使用 `branches` 或 `branches-ignore`。
 
@@ -729,6 +743,27 @@ on:
 ```
 
 {% endif %}
+
+要根据上次工作流程运行的结果有条件地运行工作流程作业，您可以使用 [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) 或 [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) 有条件地结合上次运行的`结论`。 例如：
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    steps:
+      ...
+  on-failure:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'failure' }}{% endraw %}
+    steps:
+      ...
+```
 
 ### 使用个人访问令牌触发新工作流程
 

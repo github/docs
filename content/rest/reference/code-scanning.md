@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - api
 ---
 
 {% data reusables.code-scanning.beta %}

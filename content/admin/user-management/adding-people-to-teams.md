@@ -8,6 +8,8 @@ redirect_from:
 intro: 'Once a team has been created, organization admins can add users from {% data variables.product.product_location %} to the team and determine which repositories they have access to.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).

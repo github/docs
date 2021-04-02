@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Os proprietários das empresas podem gerenciar a sincronização de equipes para uma conta corporativa.
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre a sincronização de equipes para contas corporativas

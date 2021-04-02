@@ -7,6 +7,8 @@ redirect_from:
   - /articles/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."

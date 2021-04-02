@@ -4,6 +4,8 @@ intro: 'Solucionar problemas comuns que ocorrem ao usar {% data variables.produc
 permissions: 'Os administradores do site podem resolver problemas de {% data variables.product.prodname_actions %} e modificar configurações de {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 ### Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}

@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
+  - oauth apps
 ---
 
 ### GitHub App のインストール、OAuth App の承認が可能なユーザ

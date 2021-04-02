@@ -22,7 +22,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. À direita de "{% data variables.product.prodname_dotcom_the_website %}," clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. No painel "Entrar", clique em **Entrar usando seu navegador**. {% data variables.product.prodname_desktop %} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. No painel "Entrar", clique em **Entrar usando seu navegador**. {% data variables.product.prodname_desktop %} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -51,7 +51,7 @@ conta de {% data variables.product.prodname_enterprise %}, digite as suas creden
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. À direita do "GitHub.com", clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-4. No painel Sign in (Entrar), clique em **Sign in using your browser** (Entrar via navegador). ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. No painel Sign in (Entrar), clique em **Sign in using your browser** (Entrar via navegador). ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 

@@ -1,8 +1,10 @@
 ---
 title: Pesquisar discussões
-intro: Você pode pesquisar discussões em {% data variables.product.product_name %} e limitar os resultados usando os qualificadores de busca.
+intro: 'Você pode pesquisar discussões em {% data variables.product.product_name %} e limitar os resultados usando os qualificadores de busca.'
 versions:
   free-pro-team: '*'
+topics:
+  - pesquisa do github
 ---
 
 {% data reusables.discussions.beta %}

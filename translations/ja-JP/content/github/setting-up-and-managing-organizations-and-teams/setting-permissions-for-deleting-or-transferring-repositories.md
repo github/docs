@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 コードオーナーは、Organization 内のリポジトリについて、削除や移譲の権限を設定できます。

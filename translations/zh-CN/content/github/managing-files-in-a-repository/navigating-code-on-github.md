@@ -5,6 +5,8 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - 仓库
 ---
 
 ### 关于在 {% data variables.product.prodname_dotcom %} 上导航代码

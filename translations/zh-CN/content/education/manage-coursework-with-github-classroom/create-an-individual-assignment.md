@@ -64,7 +64,7 @@ redirect_from:
 
 #### 选择模板仓库
 
-默认情况下，新作业将为教室名册上的每个学生创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %} 有关模板仓库的更多信息，请参阅“[创建模板仓库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)”。
+默认情况下，新作业将为教室名册上的每个学生创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -112,7 +112,7 @@ redirect_from:
 
 ### 后续步骤
 
-- 在创建作业后，学生可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和学生都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门”](/github/getting-started-with-github)、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”。
+- 在创建作业后，学生可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和学生都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门”](/github/getting-started-with-github)、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”。
 
 - 当学生完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解学生的工作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
+  - notifications
 ---
 
 When you push commits from the command line, the email address that you've [set in Git](/articles/setting-your-commit-email-address) is associated with your commits. This setting blocks you from pushing commits on the command line that use your personal email address.

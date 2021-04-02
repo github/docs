@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 您可以按文件扩展名类型（例如 `.html` 或 `.js`）、无扩展名、代码所有权或点文件过滤拉取请求中的文件。

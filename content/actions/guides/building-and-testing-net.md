@@ -48,7 +48,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK ${{ matrix.dotnet }}
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v1.7.2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
@@ -246,7 +246,7 @@ jobs:
         source-url: https://nuget.pkg.github.com/<owner>/index.json
     env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build <my project>
+    - run: dotnet build --configuration Release <my project>
     - name: Create the package
     run: dotnet pack --configuration Release <my project>
     - name: Publish the package to GPR

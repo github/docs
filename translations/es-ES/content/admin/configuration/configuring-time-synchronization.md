@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-time-synchronization
 versions:
   enterprise-server: '*'
+topics:
+  - empresa
 ---
 
 ### Cambiar los servidores NTP predeterminados

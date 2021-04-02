@@ -1,12 +1,14 @@
 ---
 title: Pinning items to your profile
-intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
+intro: You can pin gists and repositories to your profile so other people can quickly see your best work.
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - profiles
 ---
 
 You can pin a public repository if you own the repository or you've made contributions to the repository. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

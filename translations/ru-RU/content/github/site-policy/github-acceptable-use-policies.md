@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content you can post, conduct on the service, and other limitations. In short, be excellent to each other._
