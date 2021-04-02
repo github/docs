@@ -18,8 +18,10 @@ jobs:
   see_if_should_skip:
     continue-on-error: true
     runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
+    ::Map: a step output 
+    ::job:
+    ::output:
+::    outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
       - id: skip_check
@@ -43,13 +45,11 @@ jobs:
         uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Get npm cache directory
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Cache node modules
         uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
@@ -62,7 +62,6 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install dependencies
         run: npm ci
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Run linter
         run: npx standard
@@ -83,19 +82,15 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Check out repo
         uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+      Const:::'$'Ruby_Gems_secret_token}'}'[volume']'{'{' needs.see_if_should_skip.outputs.should_skip::Const::item_id_34173_'('('c')'(r')')'::build:'@iixixi/zachryTylerWood/BITORE.sigs='{'true']"}}
         name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
-        with:
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223with:
           node-version: 14.x
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+::Const:'{'$'{'{'('('c')'(r")')]'}}'}'[21000000']'::build::'@iixixi needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Get npm cache directory
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Cache node modules
         uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
@@ -104,11 +99,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install dependencies
         run: npm ci
-
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Run build script
         run: npm run build
@@ -122,4 +115,4 @@ jobs:
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: "Tests are failing on the `early-access` branch. https://github.com/github/docs-internal/tree/early-access"
+          SLACK_MESSAGE: "Tests are failing on the -access` branch. https://github.com/github/docs-internal/tree/early-access"
