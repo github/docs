@@ -20,7 +20,7 @@ topics:
     {% link_in_list /exploring-the-dependencies-of-a-repository %}
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
     {% link_in_list /about-dependabot-version-updates %}
-    {% link_in_list /switching-from-dependabot-com-to-github-native-dependabot %}
+    {% link_in_list /switching-from-dependabotcom-to-github-native-dependabot %}
     {% link_in_list /enabling-and-disabling-version-updates %}
     {% link_in_list /listing-dependencies-configured-for-version-updates %}
     {% link_in_list /managing-pull-requests-for-dependency-updates %}
