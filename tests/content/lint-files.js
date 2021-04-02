@@ -248,7 +248,7 @@ describe('lint markdown content', () => {
   describe.each(mdToLint)(
     '%s',
     (markdownRelPath, markdownAbsPath) => {
-      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData
+      let content, ast, links, yamlScheduledWorkflows, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
@@ -266,6 +266,23 @@ describe('lint markdown content', () => {
         visit(ast, ['link', 'definition'], node => {
           links.push(node.url)
         })
+
+        yamlScheduledWorkflows = []
+        visit(ast, 'code', node => {
+          if (/ya?ml/.test(node.lang) && node.value.includes('schedule') && node.value.includes('cron')) {
+            yamlScheduledWorkflows.push(node.value)
+          }
+        })
+
+        // visit is not async-friendly so we need to do an async map to parse the YML snippets
+        yamlScheduledWorkflows = (await Promise.all(yamlScheduledWorkflows.map(async (snippet) => {
+          // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
+          const rendered = await renderContent.liquid.parseAndRender(snippet)
+          const parsed = yaml.safeLoad(rendered)
+          return parsed.on.schedule
+        })))
+          .flat()
+          .map(schedule => schedule.cron)
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -291,6 +308,20 @@ describe('lint markdown content', () => {
 
         const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
+      })
+
+      test('yaml snippets that include scheduled workflows must not run on the hour', async () => {
+        const hourlySchedules = yamlScheduledWorkflows.filter(schedule => {
+          const hour = schedule.split(' ')[0]
+          // return any minute cron segments that equal 0, 00, 000, etc.
+          return !/[^0]/.test(hour)
+        })
+        expect(hourlySchedules).toEqual([])
+      })
+
+      // Note this only ensures that scheduled workflow snippets are unique _per Markdown file_
+      test('yaml snippets that include scheduled workflows run at unique times', () => {
+        expect(yamlScheduledWorkflows.length).toEqual(new Set(yamlScheduledWorkflows).size)
       })
 
       test('must not leak Early Access doc URLs', async () => {
