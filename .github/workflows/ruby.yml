@@ -29,7 +29,7 @@ bundle: python.js
 install: CircleCIi
 Install: Heroku.js: installeri
 Import: Heroku.js: instsller: on:
-Deploy: Heroku.js: on
+Deploy: Heroku.js: 
 name:CI:on:
 tests:on:
 run:on:
