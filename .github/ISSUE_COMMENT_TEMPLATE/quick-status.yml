@@ -1,0 +1,25 @@
+---
+name: A Brief status Update
+description: A brief status update.
+body:
+  - type: dropdown
+    attributes:
+      label: Status
+      options:
+        - label: "GREEN \U0001F34F (All good, smooth sailing)"
+          value: 'Status: GREEN'
+        - label: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
+          value: 'Status: YELLOW'
+        - label: "RED \U0001F534 (BLOCKED)"
+          value: 'Status: RED'
+  - type: textarea
+    attributes:
+      label: Update Summary
+      placeholder:
+        Brief summary of the status and next steps. Any blockers should be
+        called out specifically.
+  - type: input
+    attributes:
+      label: 'Attribution'
+      value: '_created with :heart: by typing_ `/status`'
+      format: text

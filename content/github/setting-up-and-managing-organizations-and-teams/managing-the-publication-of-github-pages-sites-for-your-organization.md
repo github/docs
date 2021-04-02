@@ -15,10 +15,10 @@ topics:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can choose to allow organization members to create publicly published sites, privately published sites, both, or neither. Otherwise, you can choose to allow or disallow public publishing. For more information about access control for {% data variables.product.prodname_pages %} sites, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can choose to allow organization members to create publicly published sites, privately published sites, both, or neither. Otherwise, you can choose to allow or disallow public publishing. For more information about access control for {% data variables.product.prodname_pages %} sites, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
-If you disallow publication of {% data variables.product.prodname_pages %} sites, any sites that are already published will remain published. You can manually unpublish the site. For more information, see "[Unpublishing a {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/unpublishing-a-github-pages-site)."
+If you disallow publication of {% data variables.product.prodname_pages %} sites, any sites that are already published will remain published. You can manually unpublish the site. For more information, see "[Unpublishing a {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)."
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -32,4 +32,4 @@ If you disallow publication of {% data variables.product.prodname_pages %} sites
 
 ### Further reading
 
-- "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)"
+- "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)"
