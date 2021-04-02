@@ -46,6 +46,7 @@ describe('check for repository references', () => {
     ignore: [
       '.algolia-cache',
       '.git',
+      '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       'dist',
       'node_modules',
       'translations',
