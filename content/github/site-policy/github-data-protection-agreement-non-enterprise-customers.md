@@ -1,17 +1,17 @@
 ---
-title: GitHub Data Protection Addendum
-hidden: true
+title: GitHub Data Protection Agreement (Non-Enterprise Customers)
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
+  - /github/site-policy-deprecated/github-data-protection-addendum
 versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to non-enterprise customers. They also apply to enterprise customers who licensed GitHub offerings prior to January 4, 2021. Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 ## INTRODUCTION
 
-The parties agree that the GitHub Data Protection and Security Exhibit (together, the **"Data Protection Addendum"** or **“DPA”**) sets forth their obligations with respect to the processing and security of Customer Personal Data in connection with the GitHub Enterprise Cloud hosted service (the **“Service”**). GitHub makes the commitments in this DPA to all customers using the Service. Separate terms, including different privacy and security terms, govern Customer’s use of non-GitHub products.
+The parties agree that the GitHub Data Protection Agreement (Non-Enterprise Customers) (**“DPA”**) sets forth their obligations with respect to the processing of Customer Personal Data in connection with the GitHub Enterprise Cloud hosted service (the **“Service”**). GitHub makes the commitments in this DPA to all non-enterprise customers using the Service. Separate terms, including different privacy terms, govern Customer’s use of non-GitHub products.
 
 In the event of any conflict or inconsistency between the DPA and any other terms in Customer’s agreements with GitHub, the DPA shall prevail. The provisions of the DPA supersede any conflicting provisions of the GitHub Privacy Statement that otherwise may apply to processing of Customer Personal Data as defined herein. For clarity, consistent with Clause 10 of the Standard Contractual Clauses in Attachment 1, the Standard Contractual Clauses prevail over any other terms in the DPA.
 
@@ -88,21 +88,18 @@ e.  *The obligations and rights of Customer* are set out in the Agreement and th
 ### 4. Security and Audit Obligations.
 
 #### 4.1 Technical and Organizational Security Measures.
-Taking into account the state of the art, the costs of implementation, and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, GitHub will implement appropriate technical and organizational measures to ensure a level of security appropriate to the risks, such as against accidental or unlawful destruction, or loss, alteration, unauthorized disclosure or access, presented by processing the Protected Data. GitHub will regularly monitor compliance with these measures and will continue to take appropriate safeguards throughout the duration of the Agreement. Please see Section 1.1 of the GitHub Security Exhibit regarding GitHub's responsibilities in relation to security safeguards.
+Taking into account the state of the art, the costs of implementation, and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, GitHub will implement appropriate technical and organizational measures to ensure a level of security appropriate to the risks, such as against accidental or unlawful destruction, or loss, alteration, unauthorized disclosure or access, presented by processing the Protected Data. GitHub will regularly monitor compliance with these measures and will continue to take appropriate safeguards throughout the duration of the Agreement. 
 
 #### 4.2 Incident Response and Breach Notification.
-GitHub will comply with the Information Security obligations in the GitHub Security Exhibit and the Applicable Data Protection Laws, including Data Breach notification obligations. Please see Section 1.2 of the GitHub Security Exhibit regarding GitHub's responsibilities in relation to Data Breach response and notification.
+GitHub will comply with Applicable Data Protection Laws.
 
 #### 4.3 GitHub Personnel.
 GitHub represents and warrants that it will take reasonable steps to ensure that all GitHub personnel processing Protected Data have agreed to keep the Protected Data confidential and have received adequate training on compliance with this Addendum and the Applicable Data Protection Laws.
 
 #### 4.4 Records.
-GitHub will maintain complete, accurate, and up to date written records of all categories of processing activities carried out on behalf of Customer containing the information required under the Applicable Data Protection Laws. To the extent that assistance does not risk the security of GitHub or the privacy rights of individual Data Subjects, GitHub will make these records available to Customer on request as reasonably required, such as to help Customer demonstrate its compliance under the Applicable Data Protection Laws. To learn more about GitHub's requirements to provide assistance in the event of a security incident, please see Section 1.2 of the GitHub Security Exhibit.
+GitHub will maintain complete, accurate, and up to date written records of all categories of processing activities carried out on behalf of Customer containing the information required under the Applicable Data Protection Laws. To the extent that assistance does not risk the security of GitHub or the privacy rights of individual Data Subjects, GitHub will make these records available to Customer on request as reasonably required, such as to help Customer demonstrate its compliance under the Applicable Data Protection Laws. 
 
-#### 4.5 Compliance Reporting.
-GitHub will provide security compliance reporting in accordance with Section 2.3 of the GitHub Security Exhibit and privacy compliance reporting in accordance with Section 2.3 of the GitHub Security Exhibit. Customer agrees that any information and audit rights granted by the Applicable Data Protection Laws (including, where applicable, Article 28(3)(h) of the GDPR) will be satisfied by these compliance reports, and will only arise to the extent that GitHub's provision of a compliance report does not provide sufficient information, or to the extent that Customer must respond to a regulatory or Supervisory Authority audit. Section 3.1 of the GitHub Security Exhibit describes the Parties' responsibilities in relation to a regulatory or Supervisory Authority audit.
-
-#### 4.6 Assistance.
+#### 4.5 Assistance.
 GitHub will provide reasonable assistance to Customer with concerns such as data privacy impact assessments, Data Subject rights requests, consultations with Supervisory Authorities, and other similar matters, in each case solely in relation to the processing of Customer Personal Data and taking into account the nature of processing.
 
 ### 5. Use and Disclosure of Protected Data.
@@ -346,7 +343,8 @@ Attn: Privacy
 88 Colin P. Kelly Jr. Street
 San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data, as defined in the GitHub Security Exhibit, against accidental loss, destruction, or alteration; unauthorized disclosure or access; or unlawful destruction as follows: The technical and organizational measures, internal controls, and information security routines set forth in the GitHub Security Exhibit are hereby incorporated into this Appendix 2 by this reference and are binding on the data importer as if they were set forth in this Appendix 2 in their entirety.
+**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data against accidental loss, destruction, alteration, unauthorized disclosure or access or unlawful destruction. 
+
 Signature of GitHub, Inc. appears below.
 
 Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of the data importer
@@ -356,77 +354,3 @@ Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of
 Lynn Hashimoto, Head of Product & Regulatory Legal
 
 GitHub, Inc.
-
-
-## SECURITY EXHIBIT
-
-### 1. Information Security Program.
-
-#### 1.1 Security Management.
-
-Throughout the duration of the Agreement, GitHub will maintain and enforce a written information security program (**"Security Program"**) that aligns with industry recognized frameworks; includes security safeguards reasonably designed to protect the confidentiality, integrity, availability, and resilience of Customer Protected Data; is appropriate to the nature, size, and complexity of GitHub's business operations; and complies with the Applicable Data Protection Laws and other specific information security related laws and regulations that are applicable to the geographic regions in which GitHub does business.
-
-a. Security Officer. GitHub has designated a senior employee to be responsible for overseeing and carrying out its Security Program and for governance and internal communications regarding information security matters.
-
-b. Security Program Changes. GitHub will not make changes to its Security Program that adversely affect the security of any Customer Protected Data where notification is required under applicable laws and regulations.
-
-c. GitHub will maintain standard security industry practices to include, but are not limited to:
-
-- Vulnerability Management Program
-- Secure Development Training, Review and Coding Practices
-- Production Systems Logical and Physical Access Controls
-- External Technical Assessments and Audits
-- Security Policies, Standards and Standard Operating Procedures
-- Security and Privacy Awareness Training
-
-
-#### 1.2 Security Incident Management.
-Throughout the duration of the Agreement, and where applicable, GitHub will provide a Security incident management program as follows:
-
-a. Security Availability and Escalation. GitHub will maintain appropriate security contact and escalation processes on a 24-hours-per-day, 7-days-per-week basis to ensure customers and employees can submit issues to the GitHub Security team.
-
-b. Incident Response. If GitHub becomes aware of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to Customer Personal Data (each a **"Security Incident"**), GitHub will promptly and without undue delay (1) notify Customer of the Security Incident; (2) investigate the Security Incident and provide Customer with detailed information about the Security Incident; (3) take reasonable steps to mitigate the effects and to minimize any damage resulting from the Security Incident.
-
-c. Notification. Notification(s) of Security Incidents will be delivered to one or more of Customer's administrators by any means GitHub selects. It is Customer's sole responsibility to ensure Customer's administrators monitor for and respond to any notifications. Customer is solely responsible for complying with its obligations under incident notification laws applicable to Customer and fulfilling any third-party notification obligations related to any Security Incident.
-
-d. Reasonable Assistance. GitHub will make commercially reasonable efforts to assist Customer in fulfilling Customer's obligation under applicable law or regulation to notify the relevant supervisory authority and data subjects about such Security Incident.
-
-#### 1.3 Due Diligence over Subcontractors and Vendors.
-GitHub will maintain appropriate due diligence when utilizing subcontractors and vendors. GitHub will maintain vendor assessment reports and any assessment work for a minimum of three years.
-
-#### 1.4 Data Center Physical Safeguards.
-To the extent GitHub utilizes third party vendors to host production environments, GitHub will select vendors that comply with physical security controls outlined in industry standards and that issue an annual external audit report such as SOC 2 or ISO 27001 certification. All access to areas, cabinets, or racks that house telecommunications, networking devices, and other "data transmission lines" or equipment will be controlled as follows:
-
-a. access will be controlled by badge reader at one or more entrance points;
-
-b. doors used only as exit points will have only "one way" doorknobs or crash bar exit devices installed;
-
-c. all doors will be equipped with door alarm contacts;
-
-d. all exit doors will have video surveillance capability; and
-
-e. all card access and video systems will be tied in to generator or UPS backup systems.
-
-### 2. Requests for Information and Compliance Reporting.
-
-#### 2.1 Requests for Information.
-Upon Customer's written request and no more than once annually, GitHub will respond to one request for information to assess security and compliance risk-related information. The response will be provided in writing within thirty days of receipt of the request, pending needed clarifications of any request.
-
-#### 2.2 Response Contents.
-GitHub will include in its annual response relevant audit reports for production datacenter, IaaS, PaaS or private hosting providers, as deemed relevant by GitHub, in its sole discretion and based on data and services rendered.
-
-#### 2.3 GitHub Security Audit Report.
-GitHub will execute external audits to produce a SOC1, type 2, audit report and a SOC2, type 2, audit report. GitHub will continue to execute audits and issue corresponding reports for the duration of the Agreement on at least an annual basis.
-
-### 3. Cooperation with Regulatory Audits.
-Should Customer realize a regulatory audit or an audit in response to a Supervisory Authority that requires participation from GitHub, GitHub will fully cooperate with related requests by providing access to relevant knowledgeable personnel, documentation, and application software. Customer has the following responsibilities regarding any such regulatory or Supervisory Authority audits:
-
-a. Customer must ensure use of an independent third party (meaning the regulator or regulator's delegate), and that findings and data not relevant to Customer are restricted from Customer’s access.
-
-b. Notification of such audit must be written and provided to GitHub in a timely fashion, pending regulator notification, and in a manner that allows for appropriate personnel to be made available to assist. Where regulators provide no advance notice to Customer of audit or investigation, GitHub will respond in as timely a fashion as required by regulators.
-
-c. Any third party auditor must disclose to GitHub any findings and recommended actions where allowed by regulator.
-
-d. In the event of a regulatory audit, access will be permitted only during regular business hours, Pacific time.
-
-e. To the extent permitted by law, Customer must keep confidential any information gathered through any such audit of GitHub that, by its nature, should be confidential.
