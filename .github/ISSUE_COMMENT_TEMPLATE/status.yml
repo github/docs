@@ -4,7 +4,7 @@ description: A brief status update.
 body:
   - type: dropdown
     attributes:
-      name: Status
+      label: Status
       options:
         - name: "GREEN \U0001F34F (All good, smooth sailing)"
           value: 'Status: GREEN'
@@ -12,15 +12,14 @@ body:
           value: 'Status: YELLOW'
         - name: "RED \U0001F534 (BLOCKED)"
           value: 'Status: RED'
-  - type: input
+  - type: textarea
     attributes:
-      name: Update Summary
+      label: Update Summary
       placeholder:
         Brief summary of the status and next steps. Any blockers should be
         called out specifically.
-      inputType: longText
   - type: input
     attributes:
-      name: 'Attribution'
+      label: 'Attribution'
       value: '_created with :heart: by typing_ `/status`'
-      inputType: text
+      format: text
