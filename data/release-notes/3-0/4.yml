@@ -20,3 +20,5 @@ sections:
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
     - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
