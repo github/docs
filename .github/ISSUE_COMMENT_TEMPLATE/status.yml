@@ -6,11 +6,11 @@ body:
     attributes:
       label: Status
       options:
-        - name: "GREEN \U0001F34F (All good, smooth sailing)"
+        - label: "GREEN \U0001F34F (All good, smooth sailing)"
           value: 'Status: GREEN'
-        - name: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
+        - label: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
           value: 'Status: YELLOW'
-        - name: "RED \U0001F534 (BLOCKED)"
+        - label: "RED \U0001F534 (BLOCKED)"
           value: 'Status: RED'
   - type: textarea
     attributes:
