@@ -184,6 +184,7 @@ This event returns an empty `payload` object.
 ### PullRequestReviewEvent
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
+
 {% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
