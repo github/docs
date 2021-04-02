@@ -57,7 +57,6 @@ versions:
 
 {% link_in_list /extending-github %}
 
-{% link_in_list /working-with-github-pages %}
 {% link_in_list /supporting-the-open-source-community-with-github-sponsors %}
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}
