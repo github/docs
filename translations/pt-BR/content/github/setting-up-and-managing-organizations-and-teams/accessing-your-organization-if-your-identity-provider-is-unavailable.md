@@ -6,6 +6,9 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. Você pode ter salvado eles em um gerenciador de senhas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/).

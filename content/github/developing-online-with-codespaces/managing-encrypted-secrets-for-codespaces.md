@@ -1,9 +1,11 @@
 ---
 title: Managing encrypted secrets for Codespaces
-intro: You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.
+intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}

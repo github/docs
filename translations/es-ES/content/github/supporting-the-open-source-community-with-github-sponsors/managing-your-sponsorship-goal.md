@@ -3,6 +3,8 @@ title: Administrar tu meta de patrocinio
 intro: Puedes configurar una meta para tu cuenta de desarrollador u organización patrocinados para ayudar a que la comunidad entienda el impacto de patrocinarte.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Acerca de las metas de patrocinio

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Wenn Du SAML SSO in Deiner Organisation erzwingst, werden alle Mitglieder einschließlich Administratoren, die sich nicht über Deinen SAML-Identitätsanbieter (IdP) authentifiziert haben, aus der Organisation entfernt und über diese Entfernung benachrichtigt. Bots und Dienstkonten, für die beim IdP Deiner Organisation keine externen Identitäten eingerichtet sind, werden ebenfalls entfernt. Weitere Informationen zu Bots und Dienstkonten findest Du unter „[Bots und Dienstkonten mit SAML Single Sign-On verwalten](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)“. Du kannst Organisationsmitglieder wiederherstellen, sobald sie sich erfolgreich mit Single Sign-On angemeldet haben.

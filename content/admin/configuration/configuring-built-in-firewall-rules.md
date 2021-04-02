@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### About {% data variables.product.product_location %}'s firewall

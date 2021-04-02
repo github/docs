@@ -756,15 +756,15 @@ describe('static routes', () => {
 })
 
 describe('index pages', () => {
-  const nonEnterpriseOnlyPath = '/en/github/getting-started-with-github/verifying-your-email-address'
+  const nonEnterpriseOnlyPath = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
 
   test('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/github/getting-started-with-github')
+    const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account')
     expect($(`article a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
   test('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github`)
+    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/setting-up-and-managing-your-github-user-account`)
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
   })
 

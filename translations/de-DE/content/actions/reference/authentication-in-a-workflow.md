@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zum `GITHUB_TOKEN`-Geheimnis
 
@@ -38,7 +40,7 @@ Dieser Beispielworkflow verwendet die [Labeler-Aktion](https://github.com/action
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -71,7 +73,8 @@ Du kannst das `GITHUB_TOKEN` verwenden, um authentifizierte API-Aufrufe durchzuf
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n Der Commit-Hash lautete: _'{{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
@@ -91,6 +94,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 | pull requests            | Lesen/Schreiben | Lesen                              |
 | repository projects      | Lesen/Schreiben | Lesen                              |
 | statuses (Statusangaben) | Lesen/Schreiben | Lesen                              |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 Wenn Du ein Token benötigst, für das Berechtigungen erforderlich sind, die nicht im `GITHUB_TOKEN`-Geheimnis vorhanden sind, kannst Du ein persönliches Zugangstoken erstellen und als Geheimnis im Repository festlegen:
 

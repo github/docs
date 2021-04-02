@@ -11,6 +11,8 @@ module.exports = [
   "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", //actions/setup-node@v2.1.4
   "ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262", //ruby/setup-ruby@vv1.64.1
   "actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da", //actions/stale@v3.0.16
+  "alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9",
+  "andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84",
   "archive/github-actions-slack@d368c5a4ad757515a9344918f84c490b05777d94",
   "ashley-taylor/regex-property-action@93a24f845cd20790924208225cc72da8b4c6d46d",
   "crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688",
@@ -21,7 +23,6 @@ module.exports = [
   "fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289",
   "github/codeql-action/analyze@v1",
   "github/codeql-action/init@v1",
-  "ianwalter/puppeteer-container@2466ba8ecf689ccf4e5dfadeff3ac2db227b2e17",
   "juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8",
   "juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9",
   "juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512",
@@ -32,10 +33,11 @@ module.exports = [
   "peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43",
   "rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9",
   "rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e",
+  "rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e",
   "repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88",
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",
   "tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61",
-  "EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575",
+  "EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519",
   "dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58",
 ];

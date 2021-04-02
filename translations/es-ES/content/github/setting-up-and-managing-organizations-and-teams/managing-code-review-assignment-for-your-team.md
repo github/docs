@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los mantenedores de equipo y propietarios de organización pueden configurar tareas de revisión de código.

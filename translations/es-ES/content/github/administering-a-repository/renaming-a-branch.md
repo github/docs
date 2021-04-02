@@ -5,6 +5,8 @@ permissions: Las personas con permisos de escritura en un repositorio pueden ren
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+topics:
+  - repositories
 ---
 
 ### Acerca de renombrar las ramas
@@ -21,11 +23,11 @@ Si renombras una rama, {% data variables.product.prodname_dotcom %} redirecciona
 1. Teclea un nombre nuevo para la rama. ![Campo de texto para teclear un nombre de rama nuevo](/assets/images/help/branch/branch-rename-type.png)
 1. Revisa la información sobre los ambientes locales y luego da clic en **Renombrar rama**. ![Información de ambiente local y botón de "Renombrar rama"](/assets/images/help/branch/branch-rename-rename.png)
 
-### Updating a local clone after a branch name changes
+### Actualizar un clon local después de que cambie el nombre de una rama
 
-After you rename a branch in a repository on {% data variables.product.product_name %}, any collaborator with a local clone of the repository will need to update the clone.
+Después de que renombras una rama en un repositorio con {% data variables.product.product_name %}, cualquier colaborador con un clon local del repositorio necesitará actualizar dicho clon.
 
-From the local clone of the repository on a computer, run the following commands to update the name of the default branch.
+Desde el clon local del repositorio en una computadora, ejecuta los siguientes comandos para actualizar el nombre de la rama predeterminada.
 
 ```shell
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>

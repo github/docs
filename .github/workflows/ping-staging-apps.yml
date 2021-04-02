@@ -1,5 +1,9 @@
 name: Ping staging apps
 
+# **What it does**: This keeps our staging applications from automatically spinning down.
+# **Why we have it**: Staging applications can hiberate without use.
+# **Who does it impact**: Anyone with a pull request in docs-internal.
+
 on:
   schedule:
     - cron: '*/20 * * * *' # every twenty minutes

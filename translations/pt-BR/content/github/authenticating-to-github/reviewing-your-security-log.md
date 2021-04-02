@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidade
+  - gerenciamento de acesso
 ---
 
 ### Acessar o log de segurança
@@ -247,7 +250,7 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 | `login`                                                                                                                                                                                                                                     | Acionada quando você efetua o login em {% data variables.product.product_location %}.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 
-`mandatory_message_viewed`  | Acionada quando você visualiza uma mensagem obrigatória (consulte "[Personalizar mensagens de usuário](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obter detalhes) e ├{% endif %}➲ ├ `falhou_login` | Acionada quando você não efetuou o login com sucesso. | `remove_email` | Acionado quando você remove um endereço de e-mail. | `rename` | Acionado quando você renomeia a sua conta.{% if currentVersion == "free-pro-team@latest" %} | `report_content` | Acionado quando você [relata um problema ou pull request ou um comentário em um problema, pull request ou commit](/articles/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Acionado quando você [publica contribuições privadas no seu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | Acionado quando {% data variables.product.product_name %} solicita o seu [código de autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+`mandatory_message_viewed`  | Acionada quando você visualiza uma mensagem obrigatória (consulte "[Personalizar mensagens de usuário](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obter detalhes) e ├{% endif %}➲ ├ `falhou_login` | Acionada quando você não efetuou o login com sucesso. | `remove_email` | Acionado quando você remove um endereço de e-mail. | `rename` | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
 #### ações de categoria `user_status`
 

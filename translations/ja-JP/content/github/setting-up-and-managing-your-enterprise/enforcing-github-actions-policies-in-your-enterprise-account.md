@@ -7,6 +7,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### Enterprise アカウント の {% data variables.product.prodname_actions %} 権限について
@@ -17,7 +19,7 @@ versions:
 
 ### Enterprise アカウント の {% data variables.product.prodname_actions %} 権限の管理
 
-You can disable all workflows for an enterprise or set a policy that configures which actions can be used in an organization.
+Enterprise のワークフローをすべて無効にすることも、Organization でどのアクションを使用できるかを設定するポリシーを設定することもできます。
 
 {% data reusables.actions.actions-use-policy-settings %}
 

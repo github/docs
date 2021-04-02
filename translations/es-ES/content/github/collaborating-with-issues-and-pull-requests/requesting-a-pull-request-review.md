@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 Los propietarios y colaboradores de un repositorio que pertenece a una cuenta de usuario pueden asignar revisiones de solicitud de extracción. Los miembros de la organización con permisos de clasificación de un repositorio pueden asignar una revisión de solicitud de extracción.

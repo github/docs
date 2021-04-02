@@ -6,7 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### 创建高可用性副本
 

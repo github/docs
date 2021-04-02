@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - pages
 ---
 
 ### _CNAME_ errors
@@ -21,8 +23,8 @@ Then, make sure the _CNAME_ file is formatted correctly.
 
 - The _CNAME_ filename must be all uppercase.
 - The _CNAME_ file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
-- The _CNAME_ entry must be the bare domain. For example, `www.example.com`,`blog.example.com`, or `example.com`.
-- The _CNAME_ entry can only be used once on {% data variables.product.product_name %}. For example, if another repository's _CNAME_ file contains `example.com`, you cannot use `example.com` in the _CNAME_ file for your repository.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's _CNAME_ file contains `example.com`, you cannot use `example.com` in the _CNAME_ file for your repository.
 
 ### DNS misconfiguration
 
@@ -38,6 +40,8 @@ Make sure your site does not:
 - Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
 - Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
 - Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
+
+  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
 {% data reusables.pages.wildcard-dns-warning %}
 

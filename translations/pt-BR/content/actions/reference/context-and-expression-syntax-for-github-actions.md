@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre contextos e expressões
 
@@ -152,11 +154,12 @@ O contexto `steps` (etapas) contém informações sobre as etapas já executadas
 
 O contexto do `executor` contém informações sobre o executor que está executando o trabalho atual.
 
-| Nome da propriedade | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `string` | O sistema operacional do executor que está executando o trabalho. Os valores possíveis são: `Linux`, `Windows` ou `macOS`.                                                                                                                                                                                                                                                 |
-| `runner.temp`       | `string` | O caminho do diretório temporário para o executor. É certo que este diretório estará vazio no início de cada trabalho, mesmo em executores auto-hospedados.                                                                                                                                                                                                                |
-| `runner.tool_cache` | `string` | O caminho do diretório que contém algumas das ferramentas pré-instaladas para executores hospedados no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Nome da propriedade | Tipo     | Descrição                                                                                                                                                                                                                                                                                           |
+| ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `string` | O sistema operacional do executor que está executando o trabalho. Os valores possíveis são: `Linux`, `Windows` ou `macOS`.                                                                                                                                                                          |
+| `runner.temp`       | `string` | O caminho do diretório temporário para o executor. É certo que este diretório estará vazio no início de cada trabalho, mesmo em executores auto-hospedados.                                                                                                                                         |
+| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)". |
+{% else %}O caminho do diretório que contém algumas das ferramentas pré-instaladas para executores hospedados de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### Contexto `needs`
 
