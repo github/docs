@@ -1,5 +1,5 @@
 ---
-name: Status Update
+name: A Brief status Update
 description: A brief status update.
 body:
   - type: dropdown
