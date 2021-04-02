@@ -1,4 +1,4 @@
----
+----
 title: Configuring RubyGems for use with GitHub Packages
 intro: 'You can configure RubyGems to publish a package to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Ruby project with Bundler.'
 product: '{% data reusables.gated-features.packages %}'
