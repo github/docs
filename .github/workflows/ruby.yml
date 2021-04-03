@@ -1,10 +1,15 @@
 ##Run:
-NAME: DEPLOY-TO-@IIXIXI
+#Command::
+Manifest:: 'energy'
+NAME: 'Deploy::-,-Build-,-and-Launch::.-TO-@IIXIXI
 Jobs:
 Steps:
-Command: Build: token: ((c))((R))
-Type: gemfile
-name: bitore
+Command: 
+Build:-secrets.gists..gihub.git::
+Const-token: '@'
+Versioning: '@''0.0.0''$RubyGems''obj''item''id''((c)(r))''item''id''34173''Volume]''[21000000]"'
+Type: '$RubyGemfile''.spec''"rake.u''rust.i''/gem''.spec'
+Name: ' 'BITORE.sigs''
 Runs-on: rake.ui
 Request:pull: [Masterbranch]
 Branches: [mainbranch]
