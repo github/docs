@@ -41,6 +41,8 @@ Make sure your site does not:
 - Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
 - Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
+  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
+
 {% data reusables.pages.wildcard-dns-warning %}
 
 For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
