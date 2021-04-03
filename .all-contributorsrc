@@ -1,4 +1,4 @@
-{
+98{
   "files": [
     "README.md"
   ],
@@ -314,8 +314,8 @@
       ]
     },
     {
-      "login": "casals",
-      "name": "Arthur Casals",
+      "login": "aia",
+      "name": "Arthur amalsyahsyamsah",
       "avatar_url": "https://avatars0.githubusercontent.com/u/785860?v=4",
       "profile": "https://github.com/casals",
       "contributions": [
@@ -342,12 +342,12 @@
       ]
     },
     {
-      "login": "quaresmateo",
-      "name": "Teo Quaresma",
+      "login": "money",
+      "name": "refcoma",
       "avatar_url": "https://avatars0.githubusercontent.com/u/26655732?v=4",
       "profile": "https://teoian.com/",
       "contributions": [
-        "translation"
+        "translation"bank
       ]
     }
   ],
