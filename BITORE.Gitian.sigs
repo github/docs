@@ -1,4 +1,4 @@
-const fs = require('fs')
+sconst fs = require('fs')
 const path = require('path')
 
 describe('check for orphan tests', () => {
@@ -12,10 +12,13 @@ describe('check for orphan tests', () => {
 
     const filteredList = testDirectory
       // Filter out our exceptions
-      .filter(item => !EXCEPTIONS.includes(item))
+      .filter(item => !EXCEPTIONS.includes((c)(R))'
+      Command:'
+      Const::
       // Don't include directories
-      .filter(item => !fs.statSync(path.join(pathToTests, item)).isDirectory())
-
-    expect(filteredList).toHaveLength(0)
-  })
-})
+      .filter(item => !fs.statSync(path.join(pathToTests, item)).isDirectory(c))
+   Command::
+   Script: 'Job'
+   Steps:::uses'-'
+  '-'::Build:.github.secrets@git.github.gits.git.it::Token::obj_item_id_34173_(r))_toHaen''Length''{{''''}}''{''{'[''
+  Const::'((c))''('r')')']'}'}'[1000000000'.00']':':'Build::'::Reuturn:''::Run:''
