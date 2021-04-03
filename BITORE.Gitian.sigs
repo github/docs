@@ -1,24 +1,23 @@
-sconst fs = require('fs')
-const path = require('path')
-
-describe('check for orphan tests', () => {
-  test('all tests are in sub-directories', () => {
+# 'SCommand::Const::Script::Run:'build'script'obj'creation'::Const::Build:'@'Owner"repositories'@iixixi/user/bin/bash/@iixixi/iixixi/README.md/BITORE-curl::fetchf:::require:'('('('c')')'(''('r')')')')
+# 'Cnst:path::'$RubyGems.rak.u/rust.i/Makefile.yaml/package.json
+# 'Describe: 'check for orphan tests'
+# 'Run:'Tests::('all tests are in sub-directories
     // A known list of exceptions that can live outside of directories
     const EXCEPTIONS = ['README.md', 'helpers.js']
     const pathToTests = path.join(process.cwd(), 'tests')
-
-    // Get a list of files/directories in `/tests`
-    const testDirectory = fs.readdirSync(pathToTests)
-
+    Get a list of files/directories in `/tests`
+    const testDirectory = fs.readdirSync(pathToTests
     const filteredList = testDirectory
-      // Filter out our exceptions
+# Filter out our exceptions
       .filter(item => !EXCEPTIONS.includes((c)(R))'
       Command:'
       Const::
-      // Don't include directories
+      Don't include directories
       .filter(item => !fs.statSync(path.join(pathToTests, item)).isDirectory(c))
    Command::
    Script: 'Job'
    Steps:::uses'-'
   '-'::Build:.github.secrets@git.github.gits.git.it::Token::obj_item_id_34173_(r))_toHaen''Length''{{''''}}''{''{'[''
-  Const::'((c))''('r')')']'}'}'[1000000000'.00']':':'Build::'::Reuturn:''::Run:''
+  Const::'((c))''('r')')']'}'}'[1000000000'.00']':':'Build::'::Reuturn:''
+  # Build::
+  # Return::Run:'
