@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - empresa
 ---
 
 Si habilitas el desaprovisionamiento de usuarios para administrar las membrecías organizacionales en tu cuenta empresarial, podrías terminar teniendo una organización que no tiene propietarios.  Para obtener más información, consulta la sección "[Acerca del aprovisionamiento de usuarios para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".

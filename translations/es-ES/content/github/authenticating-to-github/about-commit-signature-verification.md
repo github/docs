@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidad
+  - administración de accesos
 ---
 
 ### Acerca de la verificación de firma de confirmación

@@ -7,10 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
 ### ユーザアクセストークンの期限切れについて
@@ -56,7 +58,8 @@ versions:
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 選択した{% data variables.product.prodname_github_app %}の隣の**Edit（編集）**をクリックしてください。 ![GitHub Appを編集する設定](/assets/images/github-apps/edit-test-app.png)
-5. 左のサイドバーで、**Beta Features（ベータの機能）**をクリックしてください。 ![ベータ機能のメニューオプション](/assets/images/github-apps/beta-features-option.png)
+5. 左サイトバーで、[**{% if currentVersion ver_lt "enterprise-server@3.1" %} Beta Features（ベータ版機能）{% else %} Optional Features（オプション機能）{% endif %} **] をクリックします。
+  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. 「User-to-server token expiration（ユーザからサーバーへのトークンの有効期限）」の隣の**Opt-in（オプトイン）**もしくは**Opt-out（オプトアウト）**をクリックしてください。 この設定が適用されるまで、数秒かかることがあります。
 
 ### 新しいGitHub Appでの期限切れになるトークンのオプトアウト

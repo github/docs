@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 ### Acerca de Jekyll
@@ -92,9 +94,9 @@ Puedes descargar o crear plugins Jekyll para ampliar la funcionalidad de Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Puedes habilitar plugins adicionales al agregar la gema del plugin en los ajustes de `plugins` en tu archivo *_config.yml*. Para obtener más información, consulte "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll. Para conocer la lista de los plugins soportados, consulta "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio {% data variables.product.prodname_pages %}.
+Puedes habilitar plugins adicionales al agregar la gema del plugin en los ajustes de `plugins` en tu archivo *_config.yml*. Para obtener más información, consulta "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll.
 
-Para obtener información de uso de un plugin específico, consulta la documentación del plugin.
+Para conocer la lista de los plugins soportados, consulta "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio {% data variables.product.prodname_pages %}.  Para obtener información de uso de un plugin específico, consulta la documentación del plugin.
 
 {% tip %}
 

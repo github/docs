@@ -5,6 +5,8 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 社区
 ---
 
 您可以从组织的设置中或从用户发表的特定评论中阻止用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。

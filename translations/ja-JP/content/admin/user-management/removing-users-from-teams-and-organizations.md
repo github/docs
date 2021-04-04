@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 Organizationのメンバーを削除できるのは、オーナーもしくはTeamの管理者のみです。 ユーザがTeamもしくはOrganizationから削除されても、Organizationのリポジトリ内のそのユーザのIssue、プルリクエスト、コメントはそのまま残り、ユーザのもののままです。

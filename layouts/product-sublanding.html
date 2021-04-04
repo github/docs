@@ -9,14 +9,15 @@
 
     <main class="width-full overflow-auto">
       {% include header %}
+      {% include deprecation-banner %}
 
       <div class="bg-gray">
         <div class="container-xl px-3 px-md-6 pt-3 pb-2">
           <header class="d-flex gutter mb-6">
             <div class="col-12">
-              <span class="text-mono text-gray">{% include breadcrumbs %}</span>
-              <h1 class="my-3 font-mktg">{{ page.shortTitle }}</h1>
-              <div class="lead-mktg text-gray">{{ page.intro }}</div>
+              <span class="text-mono text-gray text-uppercase">{% include breadcrumbs %}</span>
+              <h1 class="my-3 font-mktg">{% data ui.product_sublanding.guides %}</h1>
+              <div class="lead-mktg text-gray f4 description-text">{{ page.intro }}</div>
             </div>
           </header>
 
@@ -25,7 +26,7 @@
             {% assign featuredTrack = page.learningTracks[0] %}
             <ul class="list-style-none d-flex flex-nowrap overflow-x-scroll px-2 feature-track">
               <li class="px-2 d-flex flex-shrink-0">
-                <div class="d-inline-block Box p-5 bg-gradient--blue-purple text-white">
+                <div class="d-inline-block Box p-5 bg-gradient--blue-pink text-white">
                   <div class="circle text-white d-inline-flex" style="border: 2px white solid;">{% octicon "star-fill" height="24" class="v-align-middle m-2"%}</div>
                   <h3 class="font-mktg h3-mktg my-4">{{ featuredTrack.title }}</h3>
                   <div class="lead-mktg text-white f5 my-4">{{ featuredTrack.description }}</div>
@@ -39,8 +40,8 @@
                 <li class="px-2 d-flex flex-shrink-0">
                   <a href="{{ guide.href }}?learn={{ featuredTrack.trackName }}" class="d-inline-block Box p-5 bg-white border-gray no-underline">
                     <div class="d-flex flex-justify-between flex-items-center">
-                      <div class="circle bg-white text-blue border-gradient--purple-pink d-inline-flex">
-                        <span class="m-2 f2 lh-condensed-ultra text-center text-bold text-gradient--blue-purple" style="width: 24px; height: 24px;">{{ forloop.index }}</span>
+                      <div class="circle bg-white text-blue border-gradient--pink-blue-dark d-inline-flex">
+                        <span class="m-2 f2 lh-condensed-ultra text-center text-bold step-circle-text" style="width: 24px; height: 24px;">{{ forloop.index }}</span>
                       </div>
                       <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
                     </div>
@@ -56,14 +57,14 @@
 
           <div class="border-top py-6">
             <h2 class="mb-3 font-mktg">{% data ui.product_sublanding.learning_paths %}</h2>
-            <div class="lead-mktg text-gray f4">{% data ui.product_sublanding.learning_paths_desc %}</div>
+            <div class="lead-mktg text-gray f4 description-text">{% data ui.product_sublanding.learning_paths_desc %}</div>
 
             <!-- Learning tracks -->
             <div class="d-flex flex-wrap flex-items-start my-5 gutter">
               {% for track in page.learningTracks offset:1 %}
                 <div class="my-3 px-4 col-12 col-md-6 learning-track">
                   <div class="Box js-show-more-container d-flex flex-column">
-                    <div class="Box-header bg-gradient--purple-pink p-4 d-flex flex-1 flex-items-start flex-wrap">
+                    <div class="Box-header bg-gradient--blue-pink p-4 d-flex flex-1 flex-items-start flex-wrap">
                       <div class="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
                         <div class="my-xl-0 mr-xl-3">
                           <h5 class="mb-3 text-white font-mktg h3-mktg ">
@@ -81,7 +82,7 @@
                       {% for guide in track.guides %}
                         <a class="Box-row d-flex flex-items-center text-gray-dark no-underline js-show-more-item {% if forloop.index > 4 %}d-none{% endif %}" href="{{ guide.href }}?learn={{ track.trackName }}">
                           <div class="circle bg-gray d-inline-flex mr-4">
-                            <span class="m-2 f3 lh-condensed-ultra text-center text-bold text-gradient--purple-pink" style="min-width: 20px; height: 20px;">{{ forloop.index }}</span>
+                            <span class="m-2 f3 lh-condensed-ultra text-center text-bold step-circle-text" style="min-width: 20px; height: 20px;">{{ forloop.index }}</span>
                           </div>
                           <h5 class="flex-auto pr-2">{{ guide.title }}</h5>
                           <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
@@ -108,9 +109,9 @@
         </div>
       {% endif %}
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

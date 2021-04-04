@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 任何拥有仓库读取权限的人都可以在本地测试 {% data variables.product.prodname_pages %} 站点。
@@ -28,6 +30,7 @@ versions:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
+3. Run `bundle install`.
 3. 在本地运行您的 Jekyll 站点。
   ```shell
   $ bundle exec jekyll serve

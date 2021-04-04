@@ -8268,7 +8268,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -44840,6 +44840,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "maintainer",

@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - contas
 ---
 
 ### Sobre o gerenciamento do nome do brancc-padrão

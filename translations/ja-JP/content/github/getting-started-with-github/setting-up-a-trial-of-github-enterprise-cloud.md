@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - アカウント
 ---
 
 ### {% data variables.product.prodname_ghe_cloud %} のトライアルについて

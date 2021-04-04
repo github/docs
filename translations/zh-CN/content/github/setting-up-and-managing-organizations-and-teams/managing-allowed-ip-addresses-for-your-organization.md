@@ -4,6 +4,10 @@ intro: 您可以通过配置允许连接的 IP 地址列表来限制对组织资
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织所有者可以管理组织允许的 IP 地址。
@@ -16,7 +20,7 @@ versions:
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-您还可以为企业帐户中的组织配置允许的 IP 地址。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)”。
+您还可以为企业帐户中的组织配置允许的 IP 地址。 更多信息请参阅{% if currentVersion == "github-ae@latest" %}“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”。 {% else %}“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)”。{% endif %}
 
 ### 添加允许的 IP 地址
 
@@ -59,4 +63,12 @@ versions:
 
 ### 对 {% data variables.product.prodname_actions %} 使用 IP 允许列表
 
+{% if currentVersion == "github-ae@latest" %}
+
+{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+
+{% else %}
+
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+
+{% endif %}
