@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Os proprietários das empresas podem habilitar o logon único SAML para organizações em uma conta corporativa.
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre o logon único SAML para contas corporativas

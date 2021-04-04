@@ -17,6 +17,8 @@ redirect_from:
   - /articles/downgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - facturación
 ---
 
 ### Bajar de nivel tu suscripción de {% data variables.product.product_name %}

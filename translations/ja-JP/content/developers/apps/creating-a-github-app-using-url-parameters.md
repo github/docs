@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
@@ -14,7 +16,7 @@ versions:
 
 個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
 * **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Organization アカウント:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。
 
@@ -80,7 +82,7 @@ versions:
 | [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                       | [Starring API](/rest/reference/activity#starring) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                          |
 | [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                       | [Statuses API](/rest/reference/repos#statuses) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                             |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | [Team Discussions API](/rest/reference/teams#discussions) および [Team Discussion Comments API](/rest/reference/teams#discussion-comments) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | リポジトリ内の脆弱性のある依存関係に対するセキュリティアラートを受信するためのアクセス権を付与します。 詳細は「[脆弱性のある依存関係に対するセキュリティアラートについて](/articles/about-security-alerts-for-vulnerable-dependencies)」を参照。 `none`、`read` のいずれかです。{% endif %}
+| `vulnerability_alerts`                                                                                                           | リポジトリ内の脆弱性のある依存関係に対するセキュリティアラートを受信するためのアクセス権を付与します。 See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. `none`、`read` のいずれかです。{% endif %}
 | `Watch`                                                                                                                          | リストへのアクセス権を付与し、ユーザがサブスクライブするリポジトリの変更を許可します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                                               |
 
 ### {% data variables.product.prodname_github_app %} webhook イベント

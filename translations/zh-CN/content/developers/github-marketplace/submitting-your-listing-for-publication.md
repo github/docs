@@ -6,6 +6,8 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-review
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 在您的应用程序上架信息满足 {% data variables.product.prodname_marketplace %} 要求后，您可以提交该应用程序。 关于应用程序上架要求的概述，请参阅“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。

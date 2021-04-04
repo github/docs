@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-per-user-pricing
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 新しい Organization は {% data variables.product.prodname_free_team %} でパブリックなオープンソースプロジェクトを構築できます。あるいはユーザごとの価格付けがされた有料製品へ[アップグレード]({% data variables.product.pricing_url %})することもできます。

@@ -19,7 +19,9 @@ versions:
 
 ### Documentos de afiliación académica poco claros
 
-Si la imagen que cargaste no identifica claramente tu situación académica actual, solicitamos más pruebas de tu situación académica. {% data reusables.education.upload-proof-reapply %}
+Si las fechas o programación que se mencionan en tu imagen cargada no coinciden con nuestros criterios de elegibilidad, necesitaremos más pruebas de tu estado académico.
+
+Si la imagen que cargaste no identifica claramente tu estado académico o si está borrosa, necesitaremos más pruebas de tu estado académico. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -58,6 +60,7 @@ Para obtener más información, consulta:
 
 No eres apto para un {% data variables.product.prodname_student_pack %} si:
 - Estás inscrito en un programa de aprendizaje informal que no forma parte del [Programa del Campus de {% data variables.product.prodname_dotcom %}](https://education.github.com/schools) y no estás inscrito en un diploma o título que otorgue un reconocimiento de estudios.
+- Estás buscando obtener un título que se terminará en la sesión académica actual.
 - Tienes menos de 13 años.
 
 Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. Si estás estudiando en una escuela o programa intensivo de codificación, podrás inscribirte en {% data variables.product.prodname_student_pack %} si tu escuela se une al [Programa del campus de {% data variables.product.prodname_dotcom %}](https://education.github.com/schools).

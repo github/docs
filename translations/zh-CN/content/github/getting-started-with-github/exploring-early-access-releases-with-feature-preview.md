@@ -5,6 +5,8 @@ redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
   free-pro-team: '*'
+topics:
+  - 抢先体验
 ---
 
 ### {% data variables.product.prodname_dotcom %} 的发行周期

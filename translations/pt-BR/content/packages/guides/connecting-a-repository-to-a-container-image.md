@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Ao vincular um contêiner a um repositório, a página de destino do pacote mostrará informações e links do repositório, como, por exemplo, LEIAME.
+Ao vincular um contêiner a um repositório, a página de destino do pacote mostrará informações e links do repositório, como, por exemplo, README.
 
 Para conectar um repositório e uma imagem de contêiner no {% data variables.product.prodname_dotcom %}, eles devem compartilhar o mesmo proprietário no {% data variables.product.prodname_dotcom %}. Por exemplo, `my_repo` e `hello_docker` são propriedade do usuário `monalisa`:
 ```shell

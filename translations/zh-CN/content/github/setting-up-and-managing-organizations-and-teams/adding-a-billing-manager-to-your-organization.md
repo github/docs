@@ -5,6 +5,10 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
+  - 计费，帐单
 ---
 
 组织所有者团队的成员可向人们授予*帐单管理员*权限。 在个人接受其邀请成为组织的帐单管理员后，他们可邀请其他人员为帐单管理员。

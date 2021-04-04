@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 社区
 ---
 
 关闭 wiki 后，内容会被隐藏，但不会被擦除。 如果您选择稍后重新启用 wiki，之前的页面将被恢复。

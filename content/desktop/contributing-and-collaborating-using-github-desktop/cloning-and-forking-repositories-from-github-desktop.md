@@ -44,4 +44,4 @@ You can change how a fork behaves with the upstream repository in {% data variab
 {% data reusables.desktop.select-fork-behavior %}
 
 ### Further reading
-- [About remote repositories](/github/using-git/about-remote-repositories)
+- [About remote repositories](/github/getting-started-with-github/about-remote-repositories)

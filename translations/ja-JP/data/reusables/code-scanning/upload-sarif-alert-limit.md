@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** SARIF upload supports a maximum of 1000 results per upload. Any results over this limit are ignored. If a tool generates too many results, you should update the configuration to focus on results for the most important rules or queries.
+**ノート:** SARIFアップロードは、アップロードごとに1000件の結果をサポートしています。 この制限を超えた結果は無視されます。 ツールがあまりに多くの結果を生成する場合、最も重要なルールやクエリに対する結果に焦点を当てるよう、設定を更新すべきです。
 
 {% endnote %}

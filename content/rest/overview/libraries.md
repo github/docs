@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -80,7 +82,7 @@ Library name | Repository |
 
 Library name | Repository |
 |---|---|
-**GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
+**GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -107,6 +109,12 @@ Library name | Repository
 **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+
+### PowerShell
+
+Library name | Repository
+|---|---|
+**PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 

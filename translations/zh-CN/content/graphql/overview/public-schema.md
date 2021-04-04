@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 您可以直接对 GraphQL API [执行内省](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)。

@@ -50,5 +50,5 @@ Issue やプルリクエストをクローズするように、ディスカッ�
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
 - 「[ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
-- [コメントと会話の管理](/github/building-a-strong-community/moderating-comments-and-conversations)
-- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
+- [コメントと会話の管理](/communities/moderating-comments-and-conversations)
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

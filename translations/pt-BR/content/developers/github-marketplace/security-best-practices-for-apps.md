@@ -8,6 +8,8 @@ redirect_from:
 shortTitle: Práticas recomendadas de segurança
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 Se você seguir estas práticas recomendadas, elas ajudarão você a oferecer uma experiência de usuário segura.

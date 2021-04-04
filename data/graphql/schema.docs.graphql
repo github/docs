@@ -2165,7 +2165,7 @@ enum CheckConclusionState {
 """
 A check run.
 """
-type CheckRun implements Node & UniformResourceLocatable {
+type CheckRun implements Node & RequirableByPullRequest & UniformResourceLocatable {
   """
   The check run's annotations
   """
@@ -2221,6 +2221,21 @@ type CheckRun implements Node & UniformResourceLocatable {
   """
   externalId: String
   id: ID!
+
+  """
+  Whether this is required to pass before merging for a specific pull request.
+  """
+  isRequired(
+    """
+    The id of the pull request this is required for
+    """
+    pullRequestId: ID
+
+    """
+    The number of the pull request this is required for
+    """
+    pullRequestNumber: Int
+  ): Boolean!
 
   """
   The name of the check for this check run.
@@ -3204,7 +3219,9 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   additions: Int!
 
   """
-  The pull requests associated with a commit
+  The merged Pull Request that introduced the commit to the repository. If the
+  commit is not present in the default branch, additionally returns open Pull
+  Requests associated with the commit
   """
   associatedPullRequests(
     """
@@ -9650,7 +9667,7 @@ type EnterpriseRepositoryInfo implements Node {
   id: ID!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
@@ -12054,6 +12071,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
+
+  """
+  Indicates whether or not this issue is currently pinned to the repository issues list
+  """
+  isPinned: Boolean
 
   """
   Is this issue read by the viewer
@@ -16057,7 +16079,7 @@ type Mutation {
     Parameters for PinIssue
     """
     input: PinIssueInput!
-  ): PinIssuePayload @preview(toggledBy: "elektra-preview")
+  ): PinIssuePayload
 
   """
   Regenerates the identity provider recovery codes for an enterprise
@@ -16357,7 +16379,7 @@ type Mutation {
     Parameters for UnpinIssue
     """
     input: UnpinIssueInput!
-  ): UnpinIssuePayload @preview(toggledBy: "elektra-preview")
+  ): UnpinIssuePayload
 
   """
   Marks a review thread as unresolved.
@@ -20174,7 +20196,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   isSponsoringViewer: Boolean!
 
   """
-  Whether the organization has verified its profile email and website, always false on Enterprise.
+  Whether the organization has verified its profile email and website.
   """
   isVerified: Boolean!
 
@@ -21992,7 +22014,7 @@ type PinnedEvent implements Node {
 """
 A Pinned Issue is a issue pinned to a repository's index page.
 """
-type PinnedIssue implements Node @preview(toggledBy: "elektra-preview") {
+type PinnedIssue implements Node {
   """
   Identifies the primary key from the database.
   """
@@ -22018,7 +22040,7 @@ type PinnedIssue implements Node @preview(toggledBy: "elektra-preview") {
 """
 The connection type for PinnedIssue.
 """
-type PinnedIssueConnection @preview(toggledBy: "elektra-preview") {
+type PinnedIssueConnection {
   """
   A list of edges.
   """
@@ -22043,7 +22065,7 @@ type PinnedIssueConnection @preview(toggledBy: "elektra-preview") {
 """
 An edge in a connection.
 """
-type PinnedIssueEdge @preview(toggledBy: "elektra-preview") {
+type PinnedIssueEdge {
   """
   A cursor for use in pagination.
   """
@@ -24041,6 +24063,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Did the viewer author this comment.
   """
   viewerDidAuthor: Boolean!
+
+  """
+  The latest review given from the viewer.
+  """
+  viewerLatestReview: PullRequestReview
+
+  """
+  The person who has requested the viewer for review on this pull request.
+  """
+  viewerLatestReviewRequest: ReviewRequest
 
   """
   The merge body text for the viewer and method.
@@ -26861,6 +26893,11 @@ type RefUpdateRule {
   requiredStatusCheckContexts: [String]
 
   """
+  Are reviews from code owners required to update matching branches.
+  """
+  requiresCodeOwnerReviews: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -26869,6 +26906,11 @@ type RefUpdateRule {
   Are commits required to be signed.
   """
   requiresSignatures: Boolean!
+
+  """
+  Is the viewer allowed to dismiss reviews.
+  """
+  viewerAllowedToDismissReviews: Boolean!
 
   """
   Can the viewer push to the branch
@@ -27086,6 +27128,11 @@ type Release implements Node & UniformResourceLocatable {
   The Git tag the release points to
   """
   tag: Ref
+
+  """
+  The tag commit for this release.
+  """
+  tagCommit: Commit
 
   """
   The name of the release's Git tag
@@ -30501,7 +30548,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   isMirror: Boolean!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
@@ -30878,7 +30925,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): PinnedIssueConnection @preview(toggledBy: "elektra-preview")
+  ): PinnedIssueConnection
 
   """
   The primary language of the repository's code.
@@ -31610,7 +31657,7 @@ interface RepositoryInfo {
   isMirror: Boolean!
 
   """
-  Identifies if the repository is private.
+  Identifies if the repository is private or internal.
   """
   isPrivate: Boolean!
 
@@ -32591,6 +32638,26 @@ enum RequestableCheckStatusState {
 Types that can be requested reviewers.
 """
 union RequestedReviewer = Mannequin | Team | User
+
+"""
+Represents a type that can be required by a pull request for merging.
+"""
+interface RequirableByPullRequest {
+  """
+  Whether this is required to pass before merging for a specific pull request.
+  """
+  isRequired(
+    """
+    The id of the pull request this is required for
+    """
+    pullRequestId: ID
+
+    """
+    The number of the pull request this is required for
+    """
+    pullRequestNumber: Int
+  ): Boolean!
+}
 
 """
 Autogenerated input type of RerequestCheckSuite
@@ -34178,6 +34245,13 @@ type SponsorsTier implements Node {
   adminInfo: SponsorsTierAdminInfo
 
   """
+  Get a different tier for this tier's maintainer that is at the same frequency
+  as this tier but with a lesser cost. Returns the published tier with the
+  monthly price closest to this tier's without going over.
+  """
+  closestLesserValueTier: SponsorsTier
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -34192,6 +34266,17 @@ type SponsorsTier implements Node {
   """
   descriptionHTML: HTML!
   id: ID!
+
+  """
+  Whether this tier was chosen at checkout time by the sponsor rather than
+  defined ahead of time by the maintainer who manages the Sponsors listing.
+  """
+  isCustomAmount: Boolean!
+
+  """
+  Whether this tier is only for use with one-time sponsorships.
+  """
+  isOneTime: Boolean!
 
   """
   How much this tier costs per month in cents.
@@ -34339,6 +34424,11 @@ type Sponsorship implements Node {
   """
   createdAt: DateTime!
   id: ID!
+
+  """
+  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
+  """
+  isOneTimePayment: Boolean!
 
   """
   The entity that is being sponsored
@@ -34755,7 +34845,7 @@ type StatusCheckRollupContextEdge {
 """
 Represents an individual commit status context
 """
-type StatusContext implements Node {
+type StatusContext implements Node & RequirableByPullRequest {
   """
   The avatar of the OAuth application or the user that created the status
   """
@@ -34791,6 +34881,21 @@ type StatusContext implements Node {
   """
   description: String
   id: ID!
+
+  """
+  Whether this is required to pass before merging for a specific pull request.
+  """
+  isRequired(
+    """
+    The id of the pull request this is required for
+    """
+    pullRequestId: ID
+
+    """
+    The number of the pull request this is required for
+    """
+    pullRequestNumber: Int
+  ): Boolean!
 
   """
   The state of this status context.
@@ -39960,6 +40065,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
+  Whether or not this user is a member of the GitHub Stars Program.
+  """
+  isGitHubStar: Boolean!
+
+  """
   Whether or not the user has marked themselves as for hire.
   """
   isHireable: Boolean!
@@ -41109,6 +41219,11 @@ A domain that can be verified for an organization or an enterprise.
 """
 type VerifiableDomain implements Node {
   """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
   Identifies the primary key from the database.
   """
   databaseId: Int
@@ -41158,6 +41273,11 @@ type VerifiableDomain implements Node {
   The time that the current verification token will expire.
   """
   tokenExpirationTime: DateTime
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 
   """
   The current verification token for the domain.
@@ -41224,6 +41344,11 @@ input VerifiableDomainOrder {
 Properties by which verifiable domain connections can be ordered.
 """
 enum VerifiableDomainOrderField {
+  """
+  Order verifiable domains by their creation date.
+  """
+  CREATED_AT
+
   """
   Order verifiable domains by the domain name.
   """
