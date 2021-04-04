@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Nur die Ersteller von Pull Requests können Betreuern von vorgelagerten Repositorys oder Benutzern mit Push-Zugriff auf das vorgelagerte Repository die Berechtigung erteilen, in einer benutzereigenen Fork Commits an den Vergleichs-Branch ihres Pull Requests vorzunehmen. Weitere Informationen zu vorgelagerten Repositorys findest Du unter „[Informationen zu Forks](/articles/about-forks).“

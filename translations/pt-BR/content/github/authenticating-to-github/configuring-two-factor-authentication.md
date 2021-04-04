@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Você pode configurar a autenticação de dois fatores usando um aplicativo móvel{% if currentVersion == "free-pro-team@latest" %} ou por meio de mensagem de texto{% endif %}. Também é possível adicionar uma chave de segurança.

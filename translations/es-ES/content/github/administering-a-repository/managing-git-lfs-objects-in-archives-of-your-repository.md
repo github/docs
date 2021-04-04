@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Acerca de los objetos de {% data variables.large_files.product_name_short %} en los archivos

@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织所有者和具有仓库管理员权限的成员可以邀请外部协作者处理仓库。 您还可以将外部协作者邀请权限仅限于组织所有者。

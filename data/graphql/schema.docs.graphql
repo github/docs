@@ -3219,7 +3219,9 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   additions: Int!
 
   """
-  The pull requests associated with a commit
+  The merged Pull Request that introduced the commit to the repository. If the
+  commit is not present in the default branch, additionally returns open Pull
+  Requests associated with the commit
   """
   associatedPullRequests(
     """
@@ -34243,6 +34245,13 @@ type SponsorsTier implements Node {
   adminInfo: SponsorsTierAdminInfo
 
   """
+  Get a different tier for this tier's maintainer that is at the same frequency
+  as this tier but with a lesser cost. Returns the published tier with the
+  monthly price closest to this tier's without going over.
+  """
+  closestLesserValueTier: SponsorsTier
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -34257,6 +34266,12 @@ type SponsorsTier implements Node {
   """
   descriptionHTML: HTML!
   id: ID!
+
+  """
+  Whether this tier was chosen at checkout time by the sponsor rather than
+  defined ahead of time by the maintainer who manages the Sponsors listing.
+  """
+  isCustomAmount: Boolean!
 
   """
   Whether this tier is only for use with one-time sponsorships.
@@ -34409,6 +34424,11 @@ type Sponsorship implements Node {
   """
   createdAt: DateTime!
   id: ID!
+
+  """
+  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
+  """
+  isOneTimePayment: Boolean!
 
   """
   The entity that is being sponsored

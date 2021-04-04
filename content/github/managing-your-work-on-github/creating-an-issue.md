@@ -29,7 +29,7 @@ If you're using a project board to track and prioritize your work, you can conve
 {% tip %}
 
 **Tips**: Project maintainers can choose to:  
-  - Create an issue template for a repository. Templates include prompts for information in the body of an issue. For more information, see "[About issue and pull request templates](/github/building-a-strong-community/about-issue-and-pull-request-templates)."
+  - Create an issue template for a repository. Templates include prompts for information in the body of an issue. For more information, see "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
   - Disable issues for a repository. For more information, see "[Disabling issues](/github/managing-your-work-on-github/disabling-issues)." Pull requests can't be turned off and are always available.
 
 {% endtip %}

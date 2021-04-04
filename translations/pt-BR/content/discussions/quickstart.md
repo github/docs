@@ -16,7 +16,7 @@ As discussões dão um espaço para conversas mais colaborativas, conectando-se 
 
 ### Habilitar {% data variables.product.prodname_discussions %} no seu repositório
 
-Os proprietários de repositórios e pessoas com acesso de gravação podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade nos seus repositórios públicos.
+Os proprietários de repositórios e pessoas com acesso de escrita podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade nos seus repositórios públicos e privados.
 
 Ao habilitar primeiro um {% data variables.product.prodname_discussions %}, você será convidado a configurar uma mensagem de boas-vindas.
 
@@ -33,9 +33,9 @@ Você pode dar as boas-vindas à sua comunidade e apresentar uma nova forma de c
 
 ### Configurar diretrizes da comunidade para colaboradores
 
-Você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o LEIAME do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão.
+Você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão.
 
-Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
+Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
 
 ### Criar uma nova discussão
 
@@ -45,7 +45,7 @@ Qualquer pessoa com acesso a um repositório pode criar uma discussão.
 
 ### Organizar discussões em categorias relevantes
 
-Os proprietários dos repositórios e pessoas com acesso de gravação podem criar novas categorias para manter as discussões organizadas. Os colaboradores que participam e criam novas discussões podem agrupar discussões nas categorias existentes mais relevantes. As discussões também podem ser recategorizadas depois que forem criadas. Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)"
+Os proprietários dos repositórios e pessoas com acesso de gravação podem criar novas categorias para manter as discussões organizadas. Os colaboradores que participam e criam novas discussões podem agrupar discussões nas categorias existentes mais relevantes. As discussões também podem ser recategorizadas depois que forem criadas. Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 ### Promover conversas saudáveis
 

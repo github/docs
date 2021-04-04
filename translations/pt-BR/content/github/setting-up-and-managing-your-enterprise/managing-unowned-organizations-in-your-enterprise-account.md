@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 Se você habilitar o desprovisionamento de usuários para gerenciar a associação da organização na sua conta corporativa, você poderá acabar com uma organização sem proprietários. Para obter mais informações, consulte "[Sobre o provisionamento do usuário para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".

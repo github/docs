@@ -1,10 +1,13 @@
 ---
 title: Fazer merge automático de um pull request
-intro: 'Você pode aumentar a velocidade de desenvolvimento permitindo o merge automático de um pull request para que o pull request seja mesclado automaticamente quando todos os requisitos de merge forem atendidos.'
+intro: Você pode aumentar a velocidade de desenvolvimento permitindo o merge automático de um pull request para que o pull request seja mesclado automaticamente quando todos os requisitos de merge forem atendidos.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Sobre o merge automático

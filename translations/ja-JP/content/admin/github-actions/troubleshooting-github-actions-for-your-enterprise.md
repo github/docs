@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.p
 permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} の問題をトラブルシューティングし、{% data variables.product.prodname_ghe_server %} 設定を変更できます。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 ### {% data variables.product.prodname_ghe_server %} に自己署名証明書を使用する場合のセルフホストランナーの設定

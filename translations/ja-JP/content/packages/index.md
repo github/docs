@@ -21,15 +21,15 @@ featuredLinks:
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
   - 
-    title: ghcr.io maintenance mode on 2021-01-09
+    title: 2021年1月9日、ghcr.ioはメンテナンスモードになります
     date: '2021-01-08'
     href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
   - 
-    title: ghcr.io container names redirect to the container page
+    title: ghcr.ioコンテナ名は、コンテナページにリダイレクトされます
     date: '2020-12-14'
     href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
   - 
-    title: Filter for tagged and untagged containers
+    title: タグ付きおよびタグなしコンテナのフィルター
     date: '2020-12-14'
     href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
 redirect_from:
@@ -40,6 +40,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

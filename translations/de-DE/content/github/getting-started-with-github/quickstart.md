@@ -6,5 +6,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
+  - Issues (Lieferungen)
+  - notifications
+  - accounts
 ---
 

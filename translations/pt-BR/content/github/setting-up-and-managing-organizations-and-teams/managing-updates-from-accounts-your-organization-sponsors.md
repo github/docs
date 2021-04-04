@@ -4,6 +4,9 @@ intro: Você pode gerenciar o endereço de e-mail que recebe atualizações de c
 versions:
   free-pro-team: '*'
 permissions: Os proprietários da organização podem gerenciar atualizações a partir de contas que a organização patrocina.
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
