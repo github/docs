@@ -36,7 +36,8 @@ For more information about managing enterprise accounts using the GraphQL API, s
 
 Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/articles/about-organizations)."
 
-Enterprise owners can create organizations and link them to the enterprise. After you add organizations to your enterprise account, you can manage and enforce the organizations' policies. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level.
+Enterprise owners can create organizations and link them to the enterprise. After you add organizations to your enterprise account, you can manage and enforce the organizations' policies. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level.![join3](https://user-images.githubusercontent.com/74890468/113503418-f16dce80-955b-11eb-86e3-50dd2065921e.jpg)
+
 
 For more information, see "[Managing organizations in your enterprise account](/articles/managing-organizations-in-your-enterprise-account)" and "[Setting policies for organizations in your enterprise account](/articles/setting-policies-for-organizations-in-your-enterprise-account)."
 
