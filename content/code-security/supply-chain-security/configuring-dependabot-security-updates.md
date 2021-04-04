@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
 topics:
   - security
+  - MoneyMan573/docs-2
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
