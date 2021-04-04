@@ -22,6 +22,12 @@ With wikis, you can write content just like everywhere else on {% data variables
 
 You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.product.product_location %} to contribute to a wiki in {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} repository. For more information, see "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
 
+{% note %}
+
+**Note:** Crawlers such as those from search engines will not crawl the contents of wikis as they are excluded by `robots.txt` for anti-abuse reasons. While editing is not as accessible as a wiki, consider using [{% data variables.product.prodname_pages %}](https://pages.github.com/) backed by a public repository for content that can be crawled and accepting of public contributions.
+
+{% endnote %}
+
 ### Further reading
 
 - "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
