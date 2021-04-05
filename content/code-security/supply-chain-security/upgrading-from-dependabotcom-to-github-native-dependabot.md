@@ -27,9 +27,10 @@ While we built most of the Dependabot Preview features into {% data variables.pr
 In {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, you can configure all version updates using the configuration file. This file is similar to the Dependabot Preview configuration file with a few changes and improvements that will be automatically included in your upgrade pull request. 
 
 To see update logs for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} that were previously on the Dependabot.com dashboard:
-1. Navigate to your repository’s **Insights** page.
-2. Click **Dependency graph** to the left.
-3. Click **{% data variables.product.prodname_dependabot %}**.
+
+  1. Navigate to your repository’s **Insights** page.
+  2. Click **Dependency graph** to the left.
+  3. Click **{% data variables.product.prodname_dependabot %}**.
 
 For more information about version updates with {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, see "[About Dependabot version updates](/code-security/supply-chain-security/about-dependabot-version-updates)."
 
