@@ -1,6 +1,6 @@
 ---
 title: Upgrading from Dependabot.com to GitHub-native Dependabot
-intro: 'Dependabot.com and Dependabot Preview will shut down on July 7th, 2021. You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to keep being updated. 
+intro: 'Dependabot.com and Dependabot Preview will shut down on July 7th, 2021. You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to keep being updated.'
 versions:
   free-pro-team: '*'
 topics:
@@ -37,7 +37,7 @@ For more information about version updates with {% data variables.product.prodna
 
 Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires only one step: enabling version updates by merging a pull request. 
 
-To enable {% data variables.product.prodname_dependabot %} version updates, merge the pull request you will find in your repository called *Upgrade to GitHub-native Dependabot by July 7th*. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
+To enable {% data variables.product.prodname_dependabot %} version updates, merge the pull request you will find in your repository called *Upgrade to GitHub-native Dependabot*. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
 
 If you have any questions or need help migrating, you can view or open issues in the [Dependabot repository](https://github.com/dependabot/dependabot-core/issues). 
 
