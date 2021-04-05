@@ -4,11 +4,10 @@ shortTitle: Configuring in your CI
 intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 4
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -34,11 +33,17 @@ To customize the way the {% data variables.product.prodname_codeql_runner %} sca
 
 Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
 
-To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<pr-number>/head` or `refs/pull/<pr-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
+To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
 
 ```shell
-$ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/head
+$ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 ```
+
+{% note %}
+
+**Note**: If you analyze code with a third-party tool and want the results to appear as pull request checks, you must run the `upload` command and use the `--ref` flag to specify the pull request instead of the branch. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`.
+
+{% endnote %}
 
 ### Overriding automatic language detection
 
@@ -85,6 +90,8 @@ Use the `--config-file` flag of the `init` command to specify the configuration 
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
 
+{% data reusables.code-scanning.custom-configuration-file %}
+
 #### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
@@ -107,7 +114,9 @@ If the `autobuild` command can't build your code, you can run the build steps yo
 
 By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. 
+- If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
+- If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 ### {% data variables.product.prodname_codeql_runner %} command reference
 
@@ -145,7 +154,7 @@ Attempts to build the code for the compiled languages C/C++, C#, and Java. For t
 
 #### `analyze`
 
-Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_location %}.
+Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
 
 | Flag | Required | Input value |
 | ---- |:--------:| ----------- |
@@ -155,7 +164,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
 | `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_location %}. |
+| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
 | <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
@@ -166,7 +175,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 
 #### `upload`
 
-Uploads SARIF files to {% data variables.product.product_location %}.
+Uploads SARIF files to {% data variables.product.product_name %}.
 
 {% note %}
 

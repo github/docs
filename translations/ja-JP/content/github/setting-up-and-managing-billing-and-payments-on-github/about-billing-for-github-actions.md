@@ -4,6 +4,8 @@ intro: 'アカウントに含まれるストレージや利用時間 (分) を�
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.prodname_actions %}の支払いについて

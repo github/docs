@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
+  - cli
+  - 手机版
+  - 电脑版
+  - 安全
 ---
 
 {% data variables.product.prodname_dotcom %} 提供免费和付费产品。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
@@ -79,7 +85,8 @@ versions:
 - 更多安全、合规和部署控件
 - SAML 单点登录进行身份验证
 - 使用 SAML 或 SCIM 进行配置
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- 购买 {% data variables.product.prodname_GH_advanced_security %} 的选项。 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)“。{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} 还包括：
 - {% data variables.contact.enterprise_support %}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。

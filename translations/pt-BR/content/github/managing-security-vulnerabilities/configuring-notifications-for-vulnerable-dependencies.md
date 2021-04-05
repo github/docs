@@ -3,8 +3,9 @@ title: Configurar notificações para dependências vulneráveis
 shortTitle: Configurar notificações
 intro: 'Otimiza como você recebe notificações sobre {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}alertas de segurança{% endif %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
+  enterprise-server: '>=2.21 <=2.22'
+topics:
+  - segurança
 ---
 
 ### Sobre notificações para dependências vulneráveis

@@ -1,5 +1,9 @@
 name: Update GraphQL files
 
+# **What it does**: This updates our GraphQL schemas.
+# **Why we have it**: We want our GraphQL docs up to date.
+# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+
 on:
   workflow_dispatch:
   schedule:
@@ -56,7 +60,7 @@ jobs:
             If CI does not pass or other problems arise, contact #docs-engineering on slack."
           labels: automerge,autoupdate
           branch: graphql-schema-update
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:

@@ -28,6 +28,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
 ### 配置企业中新仓库的默认可见性

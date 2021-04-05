@@ -4,6 +4,10 @@ intro: Você pode restringir o acesso aos ativos da sua organização configuran
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os proprietários da organização podem gerenciar endereços IP permitidos para uma organização.
@@ -16,7 +20,7 @@ Você pode restringir o acesso a ativos da organização configurando uma lista 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)".
+Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte {% if currentVersion == "github-ae@latest" %}"[Restringir o tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)". {% else %}"[Aplicar configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
 
 ### Adicionar endereços IP permitidos
 
@@ -59,4 +63,12 @@ Você também pode configurar endereços IP permitidos para as organizações em
 
 ### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
+{% if currentVersion == "github-ae@latest" %}
+
+{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+
+{% else %}
+
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+
+{% endif %}

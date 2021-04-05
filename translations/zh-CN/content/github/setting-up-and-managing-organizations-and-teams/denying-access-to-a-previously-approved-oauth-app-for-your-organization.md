@@ -6,6 +6,9 @@ redirect_from:
   - /articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.profile.access_profile %}

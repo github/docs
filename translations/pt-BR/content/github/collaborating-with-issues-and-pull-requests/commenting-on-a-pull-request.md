@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Sobre comentários da pull request
@@ -55,5 +57,5 @@ Qualquer pessoa que inspeciona a pull request ou o repositório receberá uma no
 ### Leia mais
 
 - "[Criar um link permanente em um trecho de código](/articles/creating-a-permanent-link-to-a-code-snippet/)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Relatar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

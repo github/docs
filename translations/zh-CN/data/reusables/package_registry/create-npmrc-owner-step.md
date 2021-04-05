@@ -2,15 +2,15 @@
 
 {% if currentVersion == "free-pro-team@latest" %}
   ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.pkg.github.com
   ```
 {% else %}
   如果启用了子域隔离：
   ```shell
-  registry=https://npm.<em>HOSTNAME</em>/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.<em>HOSTNAME</em>
   ```
   如果禁用了子域隔离：
   ```shell
-  https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
   ```
 {% endif %}

@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre as variáveis de ambiente
 
@@ -40,7 +42,7 @@ Para usar o valor de uma variável de ambiente em um arquivo do fluxo de trabalh
 
 Se você usar a chave `executar` do arquivo de fluxo de trabalho para ler variáveis de ambiente de dentro do sistema operacional do executor (como mostrado no exemplo acima), a variável será substituída no sistema operacional do executor depois que a tarefa for enviada para o executor. Para outras partes de um arquivo de fluxo de trabalho, você deve usar o contexto `env` para ler variáveis de ambiente. Isso ocorre porque as chaves do fluxo de trabalho (como `se`) exigem que a variável seja substituída durante o processamento do fluxo de trabalho antes de ser enviada para o executor.
 
-Você também pode usar o {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %} arquivo de ambiente `GITHUB_ENV` {% else %} comando de fluxo de trabalho `set-env` {% endif %} para definir uma variável de ambiente que as seguintes etapas em um fluxo de trabalho podem usar. O {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}arquivo de ambiente{% else %} comando `set-env` {% endif %} pode ser usado diretamente por uma ação ou como um comando de shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
+Você também pode usar o {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`GITHUB_ENV` environment file{% else %} `set-env` fluxo de trabalho{% endif %} para definir uma variável de ambiente que as seguintes etapas em um fluxo de trabalho podem usar. O comando do {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}arquivo de ambiente{% else %} `set-env` {% endif %} pode ser usado diretamente por uma ação ou como um comando do shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
 
 ### Variáveis padrão de ambiente
 
@@ -52,6 +54,7 @@ Você também pode usar o {% if currentVersion == "free-pro-team@latest" or curr
 | `GITHUB_WORKFLOW`    | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                                                                                                           |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                                                                                                                                   |
 | `GITHUB_ACTION`      | Identificador único (`id`) da ação.                                                                                                                                                                                                                                                                                                                                                  |
 | `GITHUB_ACTIONS`     | Definido sempre como `verdadeiro` quando {% data variables.product.prodname_actions %} estiver executando o fluxo de trabalho. Você pode usar esta variável para diferenciar quando os testes estão sendo executados localmente ou por {% data variables.product.prodname_actions %}.                                                                                              |
 | `GITHUB_ACTOR`       | Nome da pessoa ou aplicativo que iniciou o fluxo de trabalho. Por exemplo, `octocat`.                                                                                                                                                                                                                                                                                                |

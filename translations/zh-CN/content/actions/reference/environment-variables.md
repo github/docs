@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于环境变量
 
@@ -40,7 +42,7 @@ jobs:
 
 如果使用工作流程文件的 `run` 键从运行器操作系统中读取环境变量（如上例所示），则在作业发送到运行器后，该变量将在运行器操作系统中被替换。 对于工作流程文件的其他部分，必须使用 `env` 上下文来读取环境变量；这是因为工作流程键（例如 `if`）需要在发送到运行器之前，在工作流程处理过程中替换变量。
 
-您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
+您也可以使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`GITHUB_ENV` 环境文件{% else %} `set-env` 工作流程命令{% endif %} 设置工作流程中的以下步骤可以使用的环境变量。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}环境文件{% else %} `set-env` 命令{% endif %}可直接由操作使用，或使用 `run` 关键字作为工作流程文件中的 shell 命令。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)”。
 
 ### 默认环境变量
 
@@ -52,6 +54,7 @@ jobs:
 | `GITHUB_WORKFLOW`    | 工作流程的名称。                                                                                                                                                                                                                          |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | 当前作业的 [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                 |
 | `GITHUB_ACTION`      | 操作唯一的标识符 (`id`)。                                                                                                                                                                                                                  |
 | `GITHUB_ACTIONS`     | 当 {% data variables.product.prodname_actions %} 运行工作流程时，始终设置为 `true`。 您可以使用此变量来区分测试是在本地运行还是通过 {% data variables.product.prodname_actions %} 运行。                                                                                   |
 | `GITHUB_ACTOR`       | 发起工作流程的个人或应用程序的名称。 例如 `octocat`。                                                                                                                                                                                                  |

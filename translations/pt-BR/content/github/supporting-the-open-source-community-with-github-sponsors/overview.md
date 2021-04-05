@@ -4,5 +4,7 @@ intro: 'Saiba mais sobre {% data variables.product.prodname_sponsors %} e como v
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 

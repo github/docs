@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 您可以通过几种方式转换旧所有者团队：

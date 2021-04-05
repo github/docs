@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
@@ -14,7 +16,7 @@ versions:
 
 您可以将查询参数添加到这些 URL 中，以便在个人或组织帐户上预选 {% data variables.product.prodname_github_app %} 的配置：
 * **用户帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **组织帐户：** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **组织帐户：** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 创建应用程序的人在提交应用程序之前，可以从 {% data variables.product.prodname_github_app %} 注册页面编辑预选值。 如果您没有在 URL 查询字符串中包含必需的参数，例如 `name`，则创建应用程序的人在提交该应用程序之前需要输入值。
 
@@ -80,7 +82,7 @@ versions:
 | [`标星`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                             | 授予对[标星 API](/rest/reference/activity#starring) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                               |
 | [`状态`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                             | 授予对[状态 API](/rest/reference/repos#statuses) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                  |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | 授予对[团队讨论 API](/rest/reference/teams#discussions) 和[团队讨论注释 API](/rest/reference/teams#discussion-comments) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | 授予接收仓库漏洞依赖项安全警报的权限。 更多信息请参阅“[关于漏洞依赖项安全警报](/articles/about-security-alerts-for-vulnerable-dependencies)”。 可以是以下项之一：`none` 或 `read`。{% endif %}
+| `vulnerability_alerts`                                                                                                           | 授予接收仓库漏洞依赖项安全警报的权限。 更多信息请参阅“[关于漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。 可以是以下项之一：`none` 或 `read`。{% endif %}
 | `关注`                                                                                                                             | 授予列出和更改用户订阅的仓库的权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                                                  |
 
 ### {% data variables.product.prodname_github_app %} web 挂钩事件
@@ -116,7 +118,7 @@ versions:
 | [`推送`](/webhooks/event-payloads/#push)                                                 | `内容`                                            | {% data reusables.webhooks.push_short_desc %}
 | [`发行版`](/webhooks/event-payloads/#release)                                             | `内容`                                            | {% data reusables.webhooks.release_short_desc %}
 | [`仓库`](/webhooks/event-payloads/#repository)                                           | `元数据`                                           | {% data reusables.webhooks.repository_short_desc %}{% if currentVersion == "free-pro-team@latest"%}
-| [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch)                 | `内容`                                            | 允许集成者使用 GitHub 操作触发自定义事件。{% endif %}
+| [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch)                 | `内容`                                            | 允许集成者使用 GitHub Actions 触发自定义事件。{% endif %}
 | [`状态`](/webhooks/event-payloads/#status)                                               | `状态`                                            | {% data reusables.webhooks.status_short_desc %}
 | [`团队`](/webhooks/event-payloads/#team)                                                 | `members`                                       | {% data reusables.webhooks.team_short_desc %}
 | [`team_add`](/webhooks/event-payloads/#team_add)                                       | `members`                                       | {% data reusables.webhooks.team_add_short_desc %}

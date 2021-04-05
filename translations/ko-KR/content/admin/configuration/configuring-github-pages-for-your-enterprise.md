@@ -11,6 +11,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### Enabling public sites for {% data variables.product.prodname_pages %}

@@ -10,6 +10,8 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->

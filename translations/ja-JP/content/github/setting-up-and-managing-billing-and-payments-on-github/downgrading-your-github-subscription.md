@@ -17,6 +17,8 @@ redirect_from:
   - /articles/downgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.product_name %}プランのダウングレード
