@@ -15,3 +15,4 @@ featuredLinks:
 versions: '*'
 ---
 
+i would love a version of the ghdocs that we could download as pdf, epub, html (as a whole site by itself) and more!
