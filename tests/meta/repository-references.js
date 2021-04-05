@@ -59,11 +59,11 @@ describe('check for repository references', () => {
       'data/early-access',
       'data/release-notes', // These include links to internal issues in Liquid comments.
       '**/*.png', // Do not check images or font files.
-      '**/*.jpg', // We could just put all of assets/* here, but that would prevent any 
+      '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
       '**/*.gif', // READMEs or other text-based files from being checked.
       '**/*.pdf',
       '**/*.ico',
-      '**/*.woff',
+      '**/*.woff'
     ]
   })
 
