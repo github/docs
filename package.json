@@ -107,6 +107,7 @@
   },
   "devDependencies": {
     "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
     "ajv": "^6.11.0",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",
