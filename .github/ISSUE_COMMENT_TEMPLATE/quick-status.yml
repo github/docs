@@ -1,12 +1,14 @@
 ---
-name: A Brief status Update
+name: A brief status update
 description: A brief status update.
 body:
   - type: dropdown
     attributes:
       label: Status
       options:
-        - label: "GREEN \U0001F34F (All good, smooth sailing)"
+        - label: 'GREY ⚪️ (Not started, paused, not currently being worked on)'
+          value: 'Status: GREY'
+        - label: 'GREEN 🟢 (All good, smooth sailing)'
           value: 'Status: GREEN'
         - label: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
           value: 'Status: YELLOW'
