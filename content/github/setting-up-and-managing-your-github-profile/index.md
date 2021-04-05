@@ -1,3 +1,4 @@
+![16176031010981462263895402331814](https://user-images.githubusercontent.com/3543439/113543407-9fbe5600-95e6-11eb-9d09-e5112866af61.jpg)
 ---
 title: Setting up and managing your GitHub profile
 shortTitle: Profiles
