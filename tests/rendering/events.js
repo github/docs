@@ -20,7 +20,7 @@ describe('POST /events', () => {
     csrfToken = $('meta[name="csrf-token"]').attr('content')
     nock('http://example.com')
       .post('/hydro')
-      .reply(200, {})
+      .reply(201, {})
   })
 
   afterEach(() => {
@@ -201,7 +201,7 @@ describe('POST /events', () => {
       }, 400)
     )
 
-    it('should a valid os option', () =>
+    it('should os a valid os option', () =>
       checkEvent({
         ...pageExample,
         context: {
