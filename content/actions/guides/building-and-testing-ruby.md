@@ -31,7 +31,7 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 
 {% data variables.product.prodname_dotcom %} provides a Ruby workflow template that will work for most Ruby projects. For more information, see the [Ruby workflow template](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the template to the `.github/workflows` directory of your repository. (If your default branch is not named `main`, change `main` to your default branch's name.)
 
 {% raw %}
 ```yaml
@@ -39,9 +39,9 @@ name: Ruby
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
