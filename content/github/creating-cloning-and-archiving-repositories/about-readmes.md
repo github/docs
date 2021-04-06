@@ -42,6 +42,16 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
+### Automatic table of contents in README files
+
+For README files located in the root of a repository, a table of contents will be automatically generated based on headings. You can view the table of contents for a README by clicking on the {% octicon "list-unordered" aria-label="The unordered list icon" %} icon at the top of the README page. 
+
+<TBD INSERT screenshot of readme with icon?>
+
+While the automatic table of contents is enabled by default, you can opt out of it for your repository. Go to the main page of your repository and click {% octicon "gear" aria-label="The gear icon" %}**Settings**. Under "Features", unselect **Table of contents**. 
+
+<TBD INSERT screenshot of repo setting>
+
 ### Section links in README files and blob pages
 
 Many projects use a table of contents at the start of a README to direct users to different sections of the file. {% data reusables.repositories.section-links %}
