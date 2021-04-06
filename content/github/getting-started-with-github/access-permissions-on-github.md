@@ -1,10 +1,10 @@
 ---
 title: Access permissions on GitHub
 redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
-  - /articles/access-permissions-on-github
+  - /articles/d2d-org-t-a-p/
+  - /articles/d2d-t-a-p/
+  - /articles/d2d-a-p/
+  - /articles/a-p-github
 intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
 versions:
   free-pro-team: '*'
