@@ -41,7 +41,7 @@ router.post('/', async function postEvents (req, res, next) {
       }
     }).catch((e) => {
       if (isDev) console.error(e)
-    });
+    })
   }
 
   return res.status(201).json(fields)
