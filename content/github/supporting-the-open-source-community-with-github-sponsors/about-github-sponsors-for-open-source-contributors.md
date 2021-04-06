@@ -1,4 +1,4 @@
----
+----
 title: About GitHub Sponsors for open source contributors
 intro: 'If you provide value to an open source project, you can become a sponsored contributor to receive payments for your work.'
 redirect_from:
