@@ -1,5 +1,5 @@
 ---
-title: Configuring Codespaces for your project
+title: Configuring Codespaces for your project Jose Junior Oliveira Catanduva 
 intro: You can set up a default configuration for every new codespace for your repository to ensure that contributors have all the tools and settings they need in their online development environment.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the default codespace configuration.
