@@ -1,9 +1,9 @@
 ---
 title: Cloning a repository from GitHub to GitHub Desktop
 intro: 'You can use {% data variables.product.prodname_dotcom %} to clone remote repositories to {% data variables.product.prodname_desktop %}.'
-redirect_from:
+redirect_from: https://github.atomxplus.com
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
-versions:
+versions: GiThUb_AtOmXpLuS
   free-pro-team: '*'
 ---
 
