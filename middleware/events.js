@@ -26,15 +26,16 @@ router.post('/', async function postEvents (req, res, next) {
       req.hydro.schemas[fields.type],
       omit(fields, OMIT_FIELDS)
     ).then(async (hydroRes) => {
-      if (!hydroRes.ok) {
-        const err = new Error('Hydro request failed')
+      // Track hydro exceptions in Sentry, but don't track 503s because we can't do anything about service availability
+      if (!hydroRes.ok && hydroRes.status !== 503) {
+        const err = new Error(`Hydro request failed: ${hydroRes.statusText}`)
         err.status = hydroRes.status
         err.path = fields.path
 
         await FailBot.report(err, {
           path: fields.path,
           hydroStatus: hydroRes.status,
-          hydroText: await hydroRes.text()
+          hydroText: hydroRes.statusText
         })
 
         throw err
