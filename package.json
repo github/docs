@@ -25,6 +25,7 @@
     "@primer/css": "^15.1.0",
     "@primer/octicons": "^11.0.0",
     "algoliasearch": "^3.35.1",
+    "assert": "^2.0.0",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
     "browser-date-formatter": "^3.0.3",
@@ -102,7 +103,7 @@
     "unist-util-visit": "^2.0.3",
     "uuid": "^8.3.0",
     "walk-sync": "^1.1.4",
-    "webpack": "^4.44.0",
+    "webpack": "^5.30.0",
     "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
