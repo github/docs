@@ -43,7 +43,7 @@ Bevor Du einen Issue oder Pull Request öffnest, überprüfe, ob für das Reposi
 
 ### Weiterführende Informationen
 
-- „[Dein Projekt für sinnvolle Beiträge einrichten](/articles/setting-up-your-project-for-healthy-contributions)“
-- „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Kommentare und Unterhaltungen moderieren](/articles/moderating-comments-and-conversations)“
+- „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
+- „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- „[Kommentare und Unterhaltungen moderieren](/communities/moderating-comments-and-conversations)“
 - „[Auf {% data variables.product.prodname_dotcom %} schreiben](/articles/writing-on-github)“

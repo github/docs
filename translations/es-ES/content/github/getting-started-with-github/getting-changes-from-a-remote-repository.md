@@ -39,14 +39,14 @@ Para cada rama `foo` en el repositorio remoto, se crea la rama de seguimiento re
 
 Usa `git fetch` para recuperar trabajo nuevo realizado por otras personas. Extraer desde un repositorio permite obtener todas las etiquetas y ramas de seguimiento remoto *sin* fusionar estos cambios en tus propias ramas.
 
-If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
+Si ya tienes un repositorio local con una URL remota configurada para el proyecto deseado, puedes tomar toda la información nueva si utilizas `git fetch *remotename*` en la terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
 # Extrae las actualizaciones realizadas en un repositorio remoto
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+De otra forma, siempre puedes agregar un remoto nuevo y luego recuperarlo. Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Fusionar cambios en tu rama local
 

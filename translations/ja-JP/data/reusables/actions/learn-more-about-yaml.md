@@ -1,1 +1,1 @@
-If you're new to YAML and want to learn more, see "[Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)."
+YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (Y分で学ぶYAML)](https://learnxinyminutes.com/docs/yaml/)」をお読みください。

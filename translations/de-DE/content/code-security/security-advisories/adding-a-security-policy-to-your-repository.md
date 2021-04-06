@@ -14,7 +14,7 @@ topics:
 
 Um Benutzern Anweisungen für das verantwortungsvolle Melden von Sicherheitslücken in Deinem Projekt zu geben, kannst Du eine _SECURITY.md_-Datei in den Root-, `docs`- oder `.github`-Ordner Deines Repositorys einfügen. Wenn jemand einen Issue in Deinem Repository erstellt, wird ihm ein Link zur Sicherheitsrichtlinie Deines Projekts angezeigt.
 
-Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -41,5 +41,5 @@ Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du 
 ### Weiterführende Informationen
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
-- „[Dein Projekt für sinnvolle Beiträge einrichten](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)“
+- „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

@@ -22,6 +22,8 @@ Se solicita un DNS geográfico, como [Amazon's Route 53 service](http://docs.aws
 
 Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todos los escritos se limita de acuerdo con la replica más lenta, aunque las geo-replicas nuevas pueden poblar la mayoría de sus datos desde geo-replicas existentes co-ubicadas, en vez de desde el primario. La replicación geográfica no le agregará capacidad a una instancia de {% data variables.product.prodname_ghe_server %} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Monitorear la configuración de una replicación geográfica
 
 {% data reusables.enterprise_installation.monitoring-replicas %}

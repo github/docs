@@ -19,7 +19,7 @@ topics:
 您可以手动下载和备份仓库：
 
 - 要将仓库的 Git 数据下载到本地计算机，您需要克隆该仓库。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
-- 还可以下载仓库的 wiki。 更多信息请参阅“[添加或删除 wiki 页面](/articles/adding-or-editing-wiki-pages)”。
+- 还可以下载仓库的 wiki。 更多信息请参阅“[添加或删除 wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)”。
 
 克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 您可以使用我们的 API 将 {% data variables.product.product_name %} 仓库的其他元素导出到您的本地计算机：
 
