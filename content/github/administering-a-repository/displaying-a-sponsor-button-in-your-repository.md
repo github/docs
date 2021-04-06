@@ -1,4 +1,4 @@
----
+----
 title: Displaying a sponsor button in your repository
 intro: You can add a sponsor button in your repository to increase the visibility of funding options for your open source project.
 redirect_from:
