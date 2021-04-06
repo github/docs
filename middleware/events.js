@@ -44,7 +44,7 @@ router.post('/', async function postEvents (req, res, next) {
     })
   }
 
-  return res.status(201).json(fields)
+  return res.status(200).json({})
 })
 
 module.exports = router
