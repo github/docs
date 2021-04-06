@@ -1,4 +1,4 @@
----
+----
 title: Git cheatsheet
 redirect_from:
   - /articles/git-cheatsheet
