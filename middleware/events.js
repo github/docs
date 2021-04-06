@@ -44,10 +44,17 @@ router.post('/', async function postEvents (req, res, next) {
       throw err
     }
 
+    if (res.headersSent) {
+      throw new Error('Cannot send http response: Hydro publish succeeded, but took too long.')
+    }
+
     return res.status(201).json(fields)
   } catch (err) {
     if (isDev) console.error(err)
-    return res.status(502).json({})
+
+    if (!res.headersSent) {
+      return res.status(502).json({})
+    }
   }
 })
 
