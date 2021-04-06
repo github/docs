@@ -1,4 +1,4 @@
-# Data
+#  Data
 
 This directory contains data files that are parsed and made available to pages in the `site.data` object.
 
