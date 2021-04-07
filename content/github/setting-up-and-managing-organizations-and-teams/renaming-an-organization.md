@@ -35,6 +35,7 @@ After changing your organization's name:
 - Links to your previous organization profile page, such as `https://{% data variables.command_line.backticks %}/previousorgname`, will return a 404 error. We recommend you update links to your organization from other sites{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profiles{% endif %}.
 - API requests that use the old organization's name will return a 404 error. We recommend you update the old organization name in your API requests.
 - There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.
+- If [SAML SSO](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on) has been configured for the organisation, users will no longer be able to authenticate against your identity provider. To resolve this, update relevant parameters in SSO settings at your identity provider. 
 
 ### Changing your organization's name
 
