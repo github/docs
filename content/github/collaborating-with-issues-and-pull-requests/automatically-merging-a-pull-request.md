@@ -14,7 +14,9 @@ topics:
 
 If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
 
-Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."
+Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}
+
+After you enable auto-merge for a pull request, if someone who does not have write permissions to the repository pushes new changes to the head branch or switches the base branch of the pull request, auto-merge will be disabled. For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.{% endif %}
 
 You can provide feedback about auto-merge by [contacting us](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback).
 
