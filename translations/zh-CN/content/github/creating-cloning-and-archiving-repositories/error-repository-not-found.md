@@ -17,7 +17,7 @@ topics:
 
 要避免此错误，克隆时，始终从仓库页面复制和粘贴克隆 URL。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
-To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
+要在现有仓库上更新远程，请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ### 检查权限
 

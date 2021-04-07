@@ -1,17 +1,17 @@
 ---
-title: Enforcing policies for Advanced Security in your enterprise
-intro: 'Enterprise owners can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features for organizations on {% data variables.product.product_location %}.'
+title: 在企业中执行高级安全策略
+intro: '企业所有者可以为 {% data variables.product.product_location %} 上的企业执行管理 {% data variables.product.prodname_GH_advanced_security %} 功能的策略。'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
   github-ae: 'next'
 ---
 
-### About {% data variables.product.prodname_GH_advanced_security %}
+### 关于 {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Enforcing a policy for {% data variables.product.prodname_advanced_security %} features
+### 执行 {% data variables.product.prodname_advanced_security %} 功能的策略
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

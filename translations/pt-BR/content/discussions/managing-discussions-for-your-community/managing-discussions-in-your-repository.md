@@ -14,9 +14,9 @@ versions:
 
 Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão para repositórios pertencentes à organização. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)".
+Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
-Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/github/building-a-strong-community/moderating-comments-and-conversations)".
+Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)".
 
 ### Pré-requisitos
 

@@ -54,6 +54,7 @@ jobs:
 | `GITHUB_WORKFLOW`    | 工作流程的名称。                                                                                                                                                                                                                          |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | 当前作业的 [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                 |
 | `GITHUB_ACTION`      | 操作唯一的标识符 (`id`)。                                                                                                                                                                                                                  |
 | `GITHUB_ACTIONS`     | 当 {% data variables.product.prodname_actions %} 运行工作流程时，始终设置为 `true`。 您可以使用此变量来区分测试是在本地运行还是通过 {% data variables.product.prodname_actions %} 运行。                                                                                   |
 | `GITHUB_ACTOR`       | 发起工作流程的个人或应用程序的名称。 例如 `octocat`。                                                                                                                                                                                                  |

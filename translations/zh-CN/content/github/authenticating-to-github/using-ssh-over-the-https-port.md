@@ -1,6 +1,6 @@
 ---
 title: 在 HTTPS 端口使用 SSH
-intro: '有时，防火墙会完全拒绝允许 SSH 连接。  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
+intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，您可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:

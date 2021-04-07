@@ -139,7 +139,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ### 步骤 4. 准备运行时环境
 
-为了保证您的信息安全，我们建议将与应用程序相关的所有密钥放在应用程序可以找到的计算机内存中，而不是直接将它们放在代码中。 一种称为 [dotenv](https://github.com/bkeepers/dotenv) 的便捷开发工具将特定于项目的环境变量从 `.env` 文件加载到 `ENV`。 切勿将 `.env` 文件检入 GitHub。 这是一个本地文件，用于存储您不希望在公共互联网上公开的敏感信息。 The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
+为了保证您的信息安全，我们建议将与应用程序相关的所有密钥放在应用程序可以找到的计算机内存中，而不是直接将它们放在代码中。 一种称为 [dotenv](https://github.com/bkeepers/dotenv) 的便捷开发工具将特定于项目的环境变量从 `.env` 文件加载到 `ENV`。 切勿将 `.env` 文件检入 GitHub。 这是一个本地文件，用于存储您不希望在公共互联网上公开的敏感信息。 为了防止这种情况，`.env` 文件已包含在仓库的 [`.gitignore`](/github/getting-started-with-github/ignoring-files/) 文件中。
 
 您在[前提条件](#prerequisites)部分下载的模板代码已经有一个名为 `.env-example` 的示例文件。 将示例文件 `.env-example` 重命名为 `.env`，或者创建 `.env-example` 文件的副本，命名为 `.env`。 您尚未安装 dotenv，但您将在本快速入门后面运行 `bundle install` 时安装它。 **注：**引用本指南步骤的快速入门可能在 `.env-example` 文件中包含其他环境变量。 有关设置这些附加环境变量的指南，请参考 GitHub 上克隆的项目的快速入门指南。
 

@@ -14,6 +14,8 @@ Quando você configura alta disponibilidade, há uma configuração automatizada
 
 O {% data variables.product.prodname_ghe_server %} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Cenários de falha
 
 Use a configuração de alta disponibilidade para proteção contra:

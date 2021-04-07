@@ -35,7 +35,7 @@ Você pode dar as boas-vindas à sua comunidade e apresentar uma nova forma de c
 
 Você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão.
 
-Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
+Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
 
 ### Criar uma nova discussão
 
