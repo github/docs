@@ -48,7 +48,9 @@ purgeRenderedPageCache()
 function purgeRenderedPageCache () {
   const redisClient = createRedisClient({
     url: REDIS_URL,
-    db: pageCacheDatabaseNumber
+    db: pageCacheDatabaseNumber,
+    // These commands ARE important, so let's make sure they are all accounted for
+    enable_offline_queue: true
   })
 
   let iteration = 0

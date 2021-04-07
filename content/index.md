@@ -25,6 +25,7 @@ children:
   - graphql
   - insights
   - communities
+  - pages
   - education
   - desktop
   - early-access
@@ -43,6 +44,11 @@ externalProducts:
     id: electron
     name: Electron
     href: 'https://electronjs.org/docs'
+    external: true
+  codeql:
+    id: codeql
+    name: 'CodeQL'
+    href: 'https://codeql.github.com/docs'
     external: true
 ---
 
