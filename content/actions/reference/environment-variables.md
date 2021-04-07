@@ -86,7 +86,7 @@ We strongly recommend that actions use environment variables to access the files
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} reserves the `GITHUB_` environment variable prefix for internal use by {% data variables.product.prodname_dotcom %}. Setting an environment variable or secret with the `GITHUB_` prefix will result in an error.
+**Note:** When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
 {% endnote %}
 
