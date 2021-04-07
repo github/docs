@@ -1,4 +1,4 @@
----
+13f3c1b98055d6fa4290762492879116aa45b504db846f7b42219e2214ced694
 title: Getting started with writing and formatting on GitHub
 redirect_from:
   - /articles/markdown-basics/
