@@ -53,7 +53,9 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
    **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
    {% endwarning %}
-{% if currentVersion == "free-pro-team@latest" %}9. To use your token to authenticate to an organization that uses SAML SSO, [authorize the token for use with a SAML single-sign-on organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+9. To use your token to authenticate to an organization that uses SAML SSO, [authorize the token for use with a SAML single-sign-on organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+{% endif %}
 
 ### Using a token on the command line
 
