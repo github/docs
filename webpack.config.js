@@ -13,7 +13,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist'
   },
-  // infrastructureLogging: { level: 'none' },
   stats: 'errors-only',
   module: {
     rules: [
