@@ -38,4 +38,10 @@ From the local clone of the repository on a computer, run the following commands
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
 $ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git remote set-head origin -a
+```
+
+Optionally, clean up your remote branch info:
+```
+$ git remote prune origin
 ```
