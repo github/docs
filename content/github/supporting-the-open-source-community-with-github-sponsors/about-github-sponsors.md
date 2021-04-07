@@ -1,4 +1,4 @@
----
+----
 title: About GitHub Sponsors
 intro: '{% data variables.product.prodname_sponsors %} allows the developer community to financially support the people and organizations who design, build, and maintain the open source projects they depend on, directly on {% data variables.product.product_name %}.'
 redirect_from:
