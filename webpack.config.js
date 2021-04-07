@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
+const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
 const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
@@ -88,7 +88,11 @@ module.exports = {
       ]
     }),
     new EnvironmentPlugin({
-      NODE_ENV: 'development' // use 'development' unless process.env.NODE_ENV is defined
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false,
+    }),
+    new ProvidePlugin({
+      process: 'process/browser',
     })
   ]
 }
