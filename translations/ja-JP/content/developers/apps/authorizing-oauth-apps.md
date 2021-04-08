@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% data variables.product.product_name %} のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}およびWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
@@ -72,13 +74,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ##### パラメータ
 
-| 名前              | 種類       | 説明                                                                                                                          |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
-| `client_secret` | `string` | **必須。** {% data variables.product.prodname_github_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
-| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                             |
-| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                 |
-| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                   |
+| 名前              | 種類       | 説明                                                                                                                         |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
+| `client_secret` | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
+| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                            |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                  |
 
 ##### レスポンス
 
@@ -117,7 +119,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**注釈:** デバイスフローは現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
 {% endif %}
@@ -265,7 +267,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 `http://localhost/path`というコールバックURLに対して、以下の`redirect_uri`が利用できます。
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### OAuthアプリケーションに複数のトークンを作成する
 

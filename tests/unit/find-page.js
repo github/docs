@@ -1,8 +1,6 @@
 const path = require('path')
 const Page = require('../../lib/page')
-const loadRedirects = require('../../lib/redirects/precompile')
 const findPage = require('../../lib/find-page')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('find page', () => {
   jest.setTimeout(1000 * 1000)
@@ -14,12 +12,15 @@ describe('find page', () => {
       languageCode: 'en'
     })
 
+    const englishPermalink = page.permalinks[0].href
+    const japanesePermalink = englishPermalink.replace('/en/', '/ja/')
+
     // add named keys
     const pageMap = {
-      [`/en/${nonEnterpriseDefaultVersion}/${page.relativePath}`]: page
+      [englishPermalink]: page
     }
 
-    const localizedPage = findPage(page.relativePath, pageMap, {}, 'ja')
+    const localizedPage = findPage(japanesePermalink, pageMap, {})
     expect(typeof localizedPage.title).toBe('string')
   })
 
@@ -30,16 +31,15 @@ describe('find page', () => {
       languageCode: 'en'
     })
 
-    const pageList = [page]
+    const englishPermalink = page.permalinks[0].href
+    const redirectToFind = '/some-old-path'
 
     // add named keys
-    const pageMap = {}
-    for (const page of pageList) {
-      pageMap[`/en/${nonEnterpriseDefaultVersion}/${page.relativePath.replace('.md', '')}`] = page
+    const pageMap = {
+      [englishPermalink]: page
     }
 
-    const redirects = await loadRedirects(pageList, pageMap)
-    const redirectedPage = findPage('some-old-path', pageMap, redirects, 'en')
+    const redirectedPage = findPage(redirectToFind, pageMap, page.buildRedirects())
     expect(typeof redirectedPage.title).toBe('string')
   })
 })

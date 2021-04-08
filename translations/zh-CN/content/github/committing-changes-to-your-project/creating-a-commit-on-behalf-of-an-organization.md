@@ -26,7 +26,17 @@ versions:
 
 ### 在命令行上使用 `on-behalf-of` 徽章创建提交
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **提示：** 如果您使用文本编辑器在命令行上输入提交消息，请确保在提交描述末尾与 `on-behalf-of:` 提交尾行之间有两个换行符。
+
+  {% endtip %}
 
 2. 在提交消息的下一行，键入 `on-behalf-of: @org <name@organization.com>`，然后键入右引号。
 
@@ -37,7 +47,7 @@ versions:
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/articles/pushing-commits-to-a-remote-repository/)”。
+在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
 
 ### 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
 

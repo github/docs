@@ -1,7 +1,7 @@
 <br/>
 
-When you're done, click **Continue** to configure automatic grading and feedback for the project.
+完了したら、 **Continue（続ける）** をクリックして、プロジェクトの自動採点とフィードバックを構成します。
 
 <div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
+  <img alt="'続ける'ボタン" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
 </div>

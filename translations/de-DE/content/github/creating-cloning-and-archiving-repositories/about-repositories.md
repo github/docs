@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Du kannst Repositorys einzeln besitzen oder die Inhaberschaft an Repositorys mit anderen Personen in einer Organisation teilen.
@@ -23,8 +25,8 @@ Jede Person und Organisation kann unbegrenzte Repositorys besitzen und eine unbe
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."
-- {% data reusables.discussions.you-can-use-discussions %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests).“
 - You can use project boards to organize and prioritize your issues and pull requests. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/github/managing-your-work-on-github/about-project-boards).“
 
@@ -37,5 +39,5 @@ You can use repositories to manage your work and collaborate with others.
 - „[Ihre Arbeit auf {% data variables.product.prodname_dotcom %} verwalten](/categories/managing-your-work-on-github/)“
 - „[Ein Repository verwalten](/categories/administering-a-repository)“
 - „[Repository-Daten mit Diagrammen visualisieren](/categories/visualizing-repository-data-with-graphs/)“
-- „[Informationen zu Wikis](/articles/about-wikis)“
+- „[Informationen zu Wikis](/communities/documenting-your-project-with-wikis/about-wikis)“
 - „[{% data variables.product.prodname_dotcom %}-Glossar](/articles/github-glossary)“

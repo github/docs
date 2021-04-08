@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### About pull request reviews
@@ -44,9 +46,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 ### Required reviews
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
-
-For more information, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
 {% tip %}
 
@@ -57,6 +57,5 @@ For more information, see "[About required reviews for pull requests](/articles/
 ### 더 읽을거리
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Enabling required reviews for pull requests](/articles/enabling-required-reviews-for-pull-requests)"
 - "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于 SAML SSO
@@ -14,7 +17,7 @@ versions:
 
 配置 SAML SSO 后，{% data variables.product.prodname_dotcom %} 组织的成员将继续登录到他们在 {% data variables.product.prodname_dotcom %} 上的用户帐户。 当成员访问组织内使用 SAML SSO 的资源时，{% data variables.product.prodname_dotcom %} 会将该成员重定向到 IdP 进行身份验证。 身份验证成功后，IdP 将该成员重定向回 {% data variables.product.prodname_dotcom %}，然后成员可以访问组织的资源。
 
-企业所有者还可以对企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
+组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[为企业帐户中的组织启用 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,6 +35,8 @@ versions:
 
 组织成员还必须具有活动的 SAML 会话才可授权 {% data variables.product.prodname_oauth_app %}。 您可以联系 {% data variables.contact.contact_support %} 选择退出此要求。 {% data variables.product.product_name %} 不建议退出此要求，因为它会使您的组织面临更高的帐户接管风险和潜在的数据丢失风险。
 
+{% data reusables.saml.saml-single-logout-not-supported %}
+
 ### 支持的 SAML 服务
 
 {% data reusables.saml.saml-supported-idps %}
@@ -42,11 +47,11 @@ versions:
 
 在启用 SAML SSO 后，可通过多种方式向组织添加新成员。 组织所有者可在 {% data variables.product.product_name %} 上或使用 API 手动邀请新成员。 更多信息请参阅“[邀请用户加入组织](/articles/inviting-users-to-join-your-organization)”和“[成员](/rest/reference/orgs#add-or-update-organization-membership)”。
 
-{% data reusables.organizations.team-synchronization %}
-
 要供应新用户而不使用组织所有者的邀请，您可以使用 URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`，将 _ORGANIZATION_ 替换为组织的名称。 例如，您可以配置 IdP，让能访问 IdP 的任何人都可单击 IdP 仪表板上的链接加入 {% data variables.product.prodname_dotcom %} 组织。
 
 如果您的 IdP 支持 SCIM，当您在 IdP 上授予访问权限时，{% data variables.product.prodname_dotcom %} 可以自动邀请成员加入您的组织。 如果您删除成员对 SAML IdP 上 {% data variables.product.prodname_dotcom %} 组织的访问权限，该成员将自动从 {% data variables.product.prodname_dotcom %} 组织删除。 更多信息请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

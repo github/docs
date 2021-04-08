@@ -1,0 +1,1 @@
+Para obtener más información, consulta la sección "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" o "[Crear una tarea grupal](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".

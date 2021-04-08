@@ -18,7 +18,7 @@ Damit Du ein {% data variables.product.prodname_student_pack %} nutzen kannst, m
 - Ein [{% data variables.product.prodname_dotcom %}-Benutzerkonto](/articles/signing-up-for-a-new-github-account) besitzen,
 - Mindestens 13 Jahre alt sein
 
-Zu den Dokumenten, die Deinen aktuellen Status als Schüler oder Student belegen, gehören ein Bild Deines Schulausweises, Deines Stundenplans und Deiner Zeugnisse sowie ein Schreiben zur Bestätigung der Mitgliedschaft oder Immatrikulation.
+Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
 Während Deiner Zeit als Student wirst Du möglicherweise dazu aufgefordert, in regelmäßigen Abständen Deinen aktuellen akademischen Status zu bestätigen.
 

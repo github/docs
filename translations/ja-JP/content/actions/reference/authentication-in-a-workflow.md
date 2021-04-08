@@ -9,12 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
-
-リポジトリに対して`write`アクセスがあるユーザなら、誰でもシークレットの作成、読み取りおよび使用ができます。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### `GITHUB_TOKEN`シークレットについて
 
@@ -40,7 +40,7 @@ versions:
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -73,26 +73,29 @@ versions:
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
 ### `GITHUB_TOKEN`の権限
 
-{% data variables.product.prodname_github_apps %} が各権限でアクセできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
+{% data variables.product.prodname_github_apps %} が各権限でアクセスできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
 
-| 権限          | アクセスタイプ   | フォークしたリポジトリからのアクセス |
-| ----------- | --------- | ------------------ |
-| actions     | 読み取り/書き込み | 読み取り               |
-| チェック        | 読み取り/書き込み | 読み取り               |
-| コンテンツ       | 読み取り/書き込み | 読み取り               |
-| デプロイメント     | 読み取り/書き込み | 読み取り               |
-| issues      | 読み取り/書き込み | 読み取り               |
-| メタデータ       | 読み取り      | 読み取り               |
-| パッケージ       | 読み取り/書き込み | 読み取り               |
-| プルリクエスト     | 読み取り/書き込み | 読み取り               |
-| リポジトリプロジェクト | 読み取り/書き込み | 読み取り               |
-| ステータス       | 読み取り/書き込み | 読み取り               |
+| 権限                  | アクセスタイプ   | フォークしたリポジトリからのアクセス |
+| ------------------- | --------- | ------------------ |
+| actions             | 読み取り/書き込み | 読み取り               |
+| checks              | 読み取り/書き込み | 読み取り               |
+| contents            | 読み取り/書き込み | 読み取り               |
+| deployments         | 読み取り/書き込み | 読み取り               |
+| issues              | 読み取り/書き込み | 読み取り               |
+| metadata            | 読み取り      | 読み取り               |
+| packages            | 読み取り/書き込み | 読み取り               |
+| pull requests       | 読み取り/書き込み | 読み取り               |
+| repository projects | 読み取り/書き込み | 読み取り               |
+| statuses            | 読み取り/書き込み | 読み取り               |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 `GITHUB_TOKEN`で利用できない権限を要求するトークンが必要な場合は、個人アクセストークンを生成して、それをリポジトリのシークレットに設定できます。
 

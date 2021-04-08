@@ -11,7 +11,7 @@ Pre-Receive-Hooks führen Tests für an ein Repository übertragenen Code durch,
 
 Falls Dein Push nicht akzeptiert wird, wird eine Fehlermeldung zum fehlgeschlagenen Pre-Receive-Hook angezeigt.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.

@@ -1,0 +1,1 @@
+1. "Settings（設定）"の下で、**Verified domains（検証済みドメイン）**をクリックしてください。 !["検証済みドメイン"タブ](/assets/images/help/enterprises/verified-domains-tab.png)

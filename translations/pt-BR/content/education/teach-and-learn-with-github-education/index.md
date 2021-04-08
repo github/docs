@@ -1,7 +1,7 @@
 ---
-title: Explore the benefits of teaching and learning with GitHub Education
-shortTitle: Teach and learn
-intro: Learn how {% data variables.product.prodname_education %} can benefit your classroom, schoolwork, or research and how to apply for free access to various developer tools from {% data variables.product.company_short %}'s partners.
+title: Explore os benefícios de ensinar e aprender com o GitHub Education
+shortTitle: Ensine e aprenda
+intro: Aprenda como {% data variables.product.prodname_education %} pode beneficiar sua sala de aula, trabalho escolar ou pesquisa e como inscrever-se para ter acesso gratuito a várias ferramentas de desenvolvedor dos parceiros de {% data variables.product.company_short %}.
 redirect_from:
   - /education/teach-and-learn-with-github-education
   - /github/teaching-and-learning-with-github-education

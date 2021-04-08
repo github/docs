@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 向 {% data variables.product.prodname_pages %} 站点添加内容。
@@ -61,6 +63,8 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+您的帖子现在应该显示在您的站点上！ 如果站点的基础 URL 是 `https://octocat.github.io`，则您的新帖子将位于 `https://octocat.github.io/YYYY/MM/DD/TITLE.html`。
 
 ### 后续步骤
 

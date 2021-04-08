@@ -5,6 +5,8 @@ redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre pagamentos do {% data variables.product.prodname_sponsors %}
@@ -13,7 +15,7 @@ Só é possível gerenciar seus pagamentos {% data variables.product.prodname_sp
 
 {% data reusables.sponsors.payout-info %}
 
-### Viewing and editing payout information
+### Visualizar e editar informações de pagamento
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}

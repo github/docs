@@ -21,7 +21,7 @@ Wenn Du Verbindungsprobleme auf Deinem Unternehmens- oder Organisationsnetzwerk 
 ### Fehlerbehebung des Captcha
 
 Wenn die Verifizierung mit dem Captcha Probleme bereitet:
-- Stelle sicher, dass in Deinem Browser JavaScript aktiviert ist.
+- Ensure JavaScript is enabled on your browser.
 - Stelle sicher, dass Dein Browser unterstützt wird. Wenn Dein Browser nicht unterstützt wird, aktualisiere ihn oder installiere einen unterstützten Browser. Eine Liste der unterstützten Browser findest Du unter „[Unterstützte Browser](/articles/supported-browsers).“
 - Stelle sicher, dass Deine Netzwerkkonfiguration weder „https://octocaptcha.com/“ noch „https://arkoselabs.com/“ blockiert. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed, then visit https://client-demo.arkoselabs.com/github and ensure you are able to load the captcha.
 - Stelle sicher, dass Dein Browser keine Plug-ins oder Erweiterungen verwendet, die mit GitHub in Konflikt stehen. Falls es solche Plug-ins oder Erweiterungen gibt, deaktiviere diese vorübergehend während der Captcha-Verifizierung.

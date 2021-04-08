@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### プルリクエストのレビューについて
@@ -38,15 +40,13 @@ versions:
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Re-requesting a review
+### レビューを再リクエストする
 
 {% data reusables.pull_requests.re-request-review %}
 
 ### 必須のレビュー
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
-
-詳しい情報については[プルリクエストのための必須のレビューについて](/articles/about-required-reviews-for-pull-requests)を参照してください。
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}詳しい情報については[保護されたブランチの設定](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
 
 {% tip %}
 
@@ -57,6 +57,5 @@ versions:
 ### 参考リンク
 
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)
-- [プルリクエストの必須レビューの有効化](/articles/enabling-required-reviews-for-pull-requests)
 - [プルリクエストレビューの表示](/articles/viewing-a-pull-request-review)
 - [リポジトリコントリビューターのためのガイドラインを定める](/articles/setting-guidelines-for-repository-contributors)

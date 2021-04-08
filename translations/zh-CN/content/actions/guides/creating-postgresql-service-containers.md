@@ -9,10 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -36,7 +42,7 @@ versions:
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
@@ -93,7 +99,7 @@ jobs:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the container job
   container-job:
@@ -123,7 +129,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -158,7 +164,7 @@ PostgreSQL 文档中的服务的主机名是您在工作流程中配置的标签
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
@@ -219,7 +225,7 @@ jobs:
 
 工作流程将 PostgreSQL 服务容器上的端口 5432 映射到 Docker 主机。 有关 `ports` 关键字的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the runner job
   runner-job:
@@ -250,7 +256,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -286,7 +292,7 @@ steps:
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({

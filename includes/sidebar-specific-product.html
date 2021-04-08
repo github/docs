@@ -13,6 +13,7 @@
   <a href="{{product.href}}" class="pl-4 pr-5 pb-1 f4">{{ product.title }}</a>
   {% endunless %}
 </li>
+<li>
 <ul class="sidebar-categories list-style-none">
   {% for category in product.categories %}
   {% capture fullPathToCategory %}{{category[1].href}}{% endcapture %}
@@ -43,11 +44,13 @@
               <a href="{{fullPathToMaptopic}}" class="pl-4 pr-5 py-2">{{ maptopic[1].title }}</a>
               <ul class="sidebar-articles my-2">
                 {% for article in maptopic[1].articles %}
+                {% unless article[1].hidden %}
                 {% capture fullPathToArticle %}{{article[1].href}}{% endcapture %}
 
                 <li class="sidebar-article {% if breadcrumbs.article.href == article[1].href %}active {% if currentPath == fullPathToArticle %}is-current-page{% endif %}{% endif %}">
                   <a href="{{fullPathToArticle}}" class="pl-6 pr-5 py-1{% if forloop.last %} pb-2{% endif %}">{{ article[1].title }}</a>
                 </li>
+                {% endunless %}
                 {% endfor %}
               </ul>
             </li>
@@ -58,10 +61,12 @@
       {% else %}
       <ul class="sidebar-articles list-style-none">
         {% for article in category[1].articles %}
+        {% unless article[1].hidden %}
         {% capture fullPathToArticle %}{{article[1].href}}{% endcapture %}
         <li class="sidebar-article {% if breadcrumbs.article.href == article[1].href %}active {% if currentPath == fullPathToArticle %}is-current-page{% endif %}{% endif %}">
           <a href="{{fullPathToArticle}}" class="pl-4 pr-5 py-1{% if forloop.last %} pb-2{% endif %}">{{ article[1].title }}</a>
         </li>
+        {% endunless %}
         {% endfor %}
       </ul>
       {% endif %}
@@ -70,3 +75,4 @@
   </li>
   {% endfor %}
 </ul>
+</li>

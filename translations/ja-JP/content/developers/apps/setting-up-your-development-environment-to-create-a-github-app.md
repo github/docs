@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
@@ -52,11 +54,11 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ローカルのマシンをインターネットに公開することなく、GitHubがwebhookを送信するのを支援するために、Smeeというツールが利用できます。 まず https://smee.io にアクセスして、**Start a new channel**をクリックしてください。 [ngrok](https://dashboard.ngrok.com/get-started)や[localtunnel](https://localtunnel.github.io/www/)のような、ローカルマシンをインターネットに公開してくれる他のツールに慣れているなら、それらを使ってもかまいません。
 
-![The Smee new channel button](/assets/images/smee-new-channel.png)
+![Smeeの新規チャンネルボタン](/assets/images/smee-new-channel.png)
 
 新しいSmeeのチャンネルを起動すると、GitHubがwebhookペイロードを送信できるユニークなドメインが作成されます。 次のステップで必要なので、このドメインを知っておく必要があります。 ユニークなドメインの例は`https://smee.io/qrfeVRbFbffd6vD`といったものです。
 
-![A Smee unique channel](/assets/images/smee-unique-domain.png)
+![Smeeのユニークなチャンネル](/assets/images/smee-unique-domain.png)
 
 次に、ターミナルに戻って以下のステップに従い、Smeeのコマンドラインインターフェース（CLI）クライアントを実行してください。
 
@@ -93,7 +95,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 まだGitHubのアカウントを持っていないなら、ここが[参加する時です](https://github.com/join)。 続行する前にメールを確認するのを忘れないようにしてください! 新しいアプリケーションを登録するには、自分のGitHubのプロフィール内の[アプリケーション設定ペー委](https://github.com/settings/apps)にアクセスし、**New GitHub App**をクリックしてください。
 
-![GitHub website, showing the **New App**](/assets/images/new-app.png)
+![**New App**を表示しているGitHubのWebサイト](/assets/images/new-app.png)
 
 表示されるフォームで、アプリケーションの詳細を入力できます。 このページのフィールドに関する一般的な情報については「[GitHub Appの作成](/apps/building-github-apps/creating-a-github-app/)」を参照してください。 このガイドについては、いくつかのフィールドに特定のデータを入力する必要があります。
 
@@ -105,21 +107,21 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 * "Homepage URL（ホームページのURL）"には、Smeeが発行したドメインを使用してください。 例:
 
-    ![Form with Smee domain filled in for homepage URL](/assets/images/homepage-url.png)
+    ![ホームページURLにSmeeのドメインが入力されたフォーム](/assets/images/homepage-url.png)
 
 * "Webhook URL（webhookのURL）"には、やはりSmeeが発行したドメインを使ってください。 例:
 
-    ![Form with Smee domain filled in for webhook URL](/assets/images/webhook-url.png)
+    ![webhookURLにSmeeのドメインが入力されたフォーム](/assets/images/webhook-url.png)
 
 * "Webhook secret（webhookのシークレット）"には、webhookのエンドポイントを保護するパスワードを作成してください。 これは、あなた（そしてこのフォームを介してGitHub）だけが知っているものにするべきです。 パブリックなインターネットから受信したペイロードで、webhookの送信者を検証するのに使われるので、このシークレットは重要です。 GitHub Appの設定ではこのwebhookのシークレットはオプションとなっており、これはほとんどの場合正しいですが、このテンプレートのアプリケーションコードを動作させるためには、webhookのシークレットは設定しなければなりません。
 
-    ![Form with webhook secret filled in](/assets/images/webhook-secret.png)
+    ![webhookのシークレットが入力されたフォーム](/assets/images/webhook-secret.png)
 
-* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 このページはデフォルト値のままにしておいてください。 このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
+* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
 
 * Permissions & Webhooks（権限とwebhook）ページの下部で、これがプライベートのアプリケーションなのか、パブリックのアプリケーションなのかを指定してください。 これは、アプリケーションを誰がインストールできるのか、すなわちあなただけなのか、誰でもできるのかを指します。 この時点では、**Only on this account（このアカウントのみ）**を選択して、アプリケーションをプライベートのままにしておいてください。
 
-    ![GitHub App privacy](/assets/images/create_app.png)
+    ![GitHub Appのプライバシー](/assets/images/create_app.png)
 
 **Create GitHub App（GitHub Appの作成）**をクリックして、アプリケーションを作成してください!
 
@@ -129,15 +131,15 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 * **アプリケーションの秘密鍵の生成。**これは後でアプリケーションを認証するために必要です。 ページをスクロールダウンして、**Generate a private key（秘密鍵の生成）**をクリックしてください。 生成されたPEMファイル（_`app-name`_-_`date`_-private-key.pemというような名前）を、また見つけられるディレクトリに保存してください。
 
-    ![The private key generation dialog](/assets/images/private_key.png)
+    ![秘密鍵の生成ダイアログ](/assets/images/private_key.png)
 
 * **GitHubがアプリケーションに割り当てたApp IDを記録してください。**これは、ランタイム環境を準備するのに必要になります。
 
-    <img src="/assets/images/app_id.png" alt="Your app's ID number" width="200px" />
+    <img src="/assets/images/app_id.png" alt="アプリケーションのID番号" width="200px" />
 
 ### ステップ 4. ランタイム環境の準備
 
-情報を保護するために、アプリケーションに関するすべてのシークレットは、直接コードに埋め込むのではなく、アプリケーションが見つけることができるコンピュータのメモリ中に置いておくことをおすすめします。 [dotenv](https://github.com/bkeepers/dotenv)という便利な開発ツールは、プロジェクトに固有の変数を`.env`ファイルから`ENV`にロードしてくれます。 `.env`ファイルは、決してGitHubにチェックインしないでください。 これは、パブリックなインターネット上にさらしたくない機密情報を保存するローカルファイルです。 そうならないようにするために、すでに`.env`はリポジトリの[`.gitignore`](/articles/ignoring-files/)に含まれています。
+情報を保護するために、アプリケーションに関するすべてのシークレットは、直接コードに埋め込むのではなく、アプリケーションが見つけることができるコンピュータのメモリ中に置いておくことをおすすめします。 [dotenv](https://github.com/bkeepers/dotenv)という便利な開発ツールは、プロジェクトに固有の変数を`.env`ファイルから`ENV`にロードしてくれます。 `.env`ファイルは、決してGitHubにチェックインしないでください。 これは、パブリックなインターネット上にさらしたくない機密情報を保存するローカルファイルです。 The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
 
 [必要な環境のセクション](#prerequisites)でダウンロードしたテンプレートコードには、`.env-example`というサンプルのファイルが用意されています。 このサンプルのファイルの名前を`.env-example`から`.env`に変更するか、`.env`というファイルを`.env-example`をコピーして作成してください。 まだdotenvはインストールしていませんが、このクイックスタートで後に`bundle install`を実行する際にインストールします。 **ノート:**このガイドのステップを参照するクイックスタートは、`.env-example`に追加の環境変数を含んでいることがあります。 それらの追加の環境変数を設定するためのガイダンスについては、GitHub上でクローンしたプロジェクトのクイックスタートガイドを参照してください。
 
@@ -150,7 +152,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 以下は`.env`ファイルの例です。
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 ...
 HkVN9...
 ...
@@ -284,15 +286,15 @@ def authenticate_app
 end
 ```
 
-The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)."
+このコードは[JSON Webトークン（JWT）](https://jwt.io/introduction)を生成し、それを（アプリケーションの秘密鍵とともに）使ってOctokitクライアントを初期化します。 GitHubは、保存されたアプリケーションの公開鍵でトークンを検証することによって、リクエストの認証を確認します。 このコードの動作についてさらに学ぶには、「[GitHub Appとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してください。
 
 ##### インストールとして認証を行う
 
-_インストレーション_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
+_インストール_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 ある人がアプリケーションを複数のリポジトリにインストールした場合でも、それらは同じアカウント内なので1つのインストールとしかカウントされません。 最後のヘルパーメソッドである`authenticate_installation`は、インストールとして認証された[Octokitクライアント](http://octokit.github.io/octokit.rb/Octokit/Client.html)を初期化します。 このOctokitクライアントは、認証されたAPI呼び出しを行うために使われます。
 
 ``` ruby
-# Instantiate an Octokit client authenticated as an installation of a
-# GitHub App to run API operations.
+# GitHub Appのインストールとして認証されたOctokitクライアントを、
+# API操作を実行するために初期化する。
 def authenticate_installation(payload)
   installation_id = payload['installation']['id']
   installation_token = @app_client.create_app_installation_access_token(installation_id)[:token]
@@ -300,40 +302,40 @@ def authenticate_installation(payload)
 end
 ```
 
-The [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
+Octokitの[`create_app_installation_access_token`](http://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method)メソッドは、インストールトークンを作成します。 このメソッドは、2つの引数を取ります。
 
-* Installation (integer): The ID of a GitHub App installation
-* Options (hash, defaults to `{}`): A customizable set of options
+* Installation (integer): GitHub AppのインストールのID
+* Options (hash、デフォルトは`{}`): カスタマイズ可能なオプションのセット
 
-Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. If you look back at [the docs](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation), you can see the response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
+いつでもGitHub Appがwebhookを受け取ると、その中には`id`付きの`installation`オブジェクトが含まれています。 GitHub Appとして認証されたクライアントを使い、このIDを`create_app_installation_access_token`メソッドに渡してインストールごとのアクセストークンを生成します。 メソッドにはオプションを渡していないので、オプションはデフォルトの空のハッシュになります。 [ドキュメント](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)を見返してみれば、`create_app_installation_access_token`のレスポンスには`token`と`expired_at`という2つのフィールドが含まれていることが分かります。 テンプレートのコードはレスポンス中のトークンを選択し、インストールクライアントを初期化します。
 
-With this method in place, each time your app receives a new webhook payload, it creates a client for the installation that triggered the event. This authentication process enables your GitHub App to work for all installations on any account.
+このメソッドを利用して、アプリケーションは新しいwebhookのペイロードを受信するたびに、そのイベントをトリガーしたインストールのためのクライアントを作成します。 この認証プロセスによって、GitHub Appは任意のアカウントのすべてのインストールで動作できます。
 
-Now you're ready to start making API calls!
+これでAPI呼び出しを発行する準備ができました!
 
 ### ステップ 6. サーバーの起動
 
-Your app doesn't _do_ anything yet, but at this point, you can get it running on the server.
+このアプリケーションはまだなにも_行い_ませんが、この時点でサーバー上で動作させることができます。
 
-Keep Smee running in the current tab in your Terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](http://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
+Smeeは、ターミナルの現在のタブで動作させ続けておいてください。 新しいタブを開き、[テンプレートアプリケーションのコードをクローンした](#prerequisites)ディレクトリに`cd`してください。 このリポジトリのRubyのコードは、[Sinatra](http://sinatrarb.com/) Webサーバーを起動します。 このコードにはいくつかの依存関係があります。 それらは以下のようにしてインストールできます。
 
 ```shell
 $ gem install bundler
 ```
 
-Followed by:
+続いて
 
 ```shell
 $ bundle install
 ```
 
-With the dependencies installed, you can start the server:
+依存関係をインストールしたら、サーバーを起動できます。
 
 ```shell
 $ ruby template_server.rb
 ```
 
-You should see a response like:
+次のようなレスポンスが返されるはずです。
 
 ```shell
 > == Sinatra (v2.0.3) has taken the stage on 3000 for development with backup from Puma
@@ -345,25 +347,25 @@ You should see a response like:
 > Use Ctrl-C to stop
 ```
 
-If you see an error, make sure you've created the `.env` file in the directory that contains `template_server.rb`.
+エラーが出た場合は、`template_server.rb`があるディレクトリに`.env`ファイルを作成したかを確かめてください。
 
-Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page:
+サーバーが動作したら、ブラウザで`http://localhost:3000`にアクセスしてテストしてください。 アプリケーションが期待どおりに動作していれば、役に立つエラーページが表示されます。
 
-<img src="/assets/images/sinatra-404.png" alt="Sinatra's 404 error page" width="500px" />
+<img src="/assets/images/sinatra-404.png" alt="Sinatraの404エラーページ" width="500px" />
 
-This is good! Even though it's an error page, it's a _Sinatra_ error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
+うまくいっています! これはエラーページではありますが、_Sinatra_のエラーページであり、期待どおりにアプリケーションがサーバーに接続されているということです。 このメッセージが表示されているのは、他に表示するものを何もアプリケーションに加えていないからです。
 
 ### ステップ 7. アカウントへのアプリケーションのインストール
 
-You can test that the server is listening to your app by triggering an event for it to receive. A simple event you can test is installing the app on your GitHub account, which should send the [`installation`](/webhooks/event-payloads/#installation) event. If the app receives it, you should see some output in the Terminal tab where you started `template_server.rb`.
+サーバーがアプリケーションを待ち受けているかは、受信するイベントをトリガーすればテストできます。 テストできるシンプルなイベントは、自分のGitHubアカウントにアプリケーションをインストールしてみることで、そうすれば[`installation`](/webhooks/event-payloads/#installation)イベントが送信されます。 アプリケーションがそれを受信すれば、`template_server.rb`を起動したターミナルのタブに、何か出力されるでしょう。
 
-To install the app, visit the [app settings page](https://github.com/settings/apps), choose your app, and click **Install App** in the sidebar. Next to your username, click **Install**.
+アプリケーションをインストールするには、[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、アプリケーションを選択し、サイドバーの**Install App（アプリケーションのインストール）**をクリックしてください。 ユーザ名の隣の** Install（インストール）**をクリックしてください。
 
-You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on _all_ of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
+アプリケーションをすべてのリポジトリにインストールするか、選択したリポジトリにインストールするかを尋ねられます。 アプリケーションを自分の_すべての_リポジトリにインストールしたいなら、それで問題ありません! テスト用にサンドボックスリポジトリを作成し、そこにアプリケーションをインストールしても良いでしょう。
 
 <img src="/assets/images/install_permissions.png" alt="アプリケーションのインストール権限" width="500px" />
 
-After you click **Install**, look at the output in your Terminal. You should see something like this:
+**Install（インストール）**をクリックして、ターミナルの出力を見てみてください。 以下のように出力されているでしょう。
 
 ```shell
 > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
@@ -374,60 +376,60 @@ After you click **Install**, look at the output in your Terminal. You should see
 > 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/1.1" 200 2 0.0019
 ```
 
-This is good news! It means your app received a notification that it was installed on your GitHub account. If you see something like this, your app is running on the server as expected. 🙌
+うまくいっています! これは、GitHubアカウントにアプリケーションがインストールされたという通知をアプリケーションが受信したということです。 このような出力があれば、アプリケーションはサーバー上で期待どおりに動作しています。 🙌
 
-If you don't see the output, make sure Smee is running correctly in another Terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in Terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas.
+この出力がなければ、別のターミナルタブでSmeeが正しく動作していることを確認してください。 Smeeを再起動しなければならない場合は、アプリケーションに`installation`を再度送信してターミナルの出力を見るために、アプリケーションを_アンインストール_してから_インストールしなおさなければ_ならないことに注意してください。 Smeeが問題ではない場合は、他の原因を[トラブルシューティング](#troubleshooting)セクションで参照してください。
 
-If you're wondering where the Terminal output above is coming from, it's written in the [app template code](#prerequisites) in `template_server.rb`.
+上記のターミナルの出力がどこから来るのか疑問に思うなら、それは`template_server.rb`中の[アプリケーションのテンプレートコード](#prerequisites)に書かれています。
 
 ### トラブルシューティング
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
-* **Q:** When I try to install the Smee command-line client, I get the following error:
+* **Q:** Smeeのコマンドラインクライアントをインストールしようとすると、以下のエラーが返されます。
 
     ```shell
     > npm: command not found
     ```
 
-    **A:** Looks like you don't have npm installed. The best way to install it is to download the Node.js package at https://nodejs.org and follow the installation instructions for your system. npm will be installed alongside Node.js.
+    **A:** npmがインストールされていないようです。 npmをインストールする最もよい方法は、https://nodejs.orgからNode.jsパッケージをダウンロードし、使っているシステムのためのインストールの指示に従うことです。 npmはNode.jsと併せてインストールされます。
 
-* **Q:** When I run the server, I get the following error:
+* **Q:** サーバーを実行すると、以下のエラーが返されます。
 
     ```shell
     > server.rb:38:in `initialize': Neither PUB key nor PRIV key: header too long (OpenSSL::PKey::RSAError)
     ```
 
-    **A:** You probably haven't set up your private key environment variable quite right. Your `GITHUB_PRIVATE_KEY` variable should look like this:
+    **A:** おそらく秘密鍵の環境変数が正しく設定セットアップされていません。 `GITHUB_PRIVATE_KEY`変数は、以下のようになっていなければなりません。
 
     ```
-    PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
     ...
     HkVN9...
     ...
     -----END RSA PRIVATE KEY-----"
     ```
 
-    Double-check that you've copied the correct public key into your `.env` file.
+    `.env`ファイルに正しい公開鍵がコピーされているかを再確認してください。
 
-* **Q:** When I run the server, it crashes with this error:
+* **Q:** サーバーを動作させると、以下のエラーでクラッシュします。
 
     ```shell
     > Octokit::Unauthorized ... 401 - Bad credentials`
     ```
 
-    **A:** You may be authenticated as a GitHub App but not as an installation. Make sure you follow all the steps under "[Authenticate as an installation](#authenticating-as-an-installation)," and use the `@installation_client` instance variable (authenticated with an installation access token) for your API operations, not the `@app_client` instance variable (authenticated with a JWT). The `@app_client` can only retrieve high-level information about your app and obtain installation access tokens. It can't do much else in the API.
+    **A:** インストールとしてではなく、GitHub Appとして認証されている可能性があります。 [インストールとして認証](#authenticating-as-an-installation)以下のすべてのステップに従ったことを確認し、API操作ではインスタンス変数の`@app_client`（JWTでの認証）ではなく、`@installation_client`を使って（インストールアクセストークンで認証を受ける）ください。 `@app_client`はアプリケーションに関する高レベルの情報だけを取得でき、インストールアクセストークンを取得できます。 それ以外のことをAPIで行うことはあまりできません。
 
-* **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm installing the app on a repository on GitHub, but I don't see any output in the Terminal window where I'm running the server.
+* **Q:** サーバーがイベントを待ち受けていません! Smeeクライアントはターミナルウィンドウで動作していて、アプリケーションをGitHubのリポジトリにインストールしていますが、サーバーを動作させているターミナルウィンドウに出力がありません。
 
-    **A:** You may not be running the Smee client, or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your [app settings page](https://github.com/settings/apps) and check the fields shown in "[Step 2. Register a new GitHub App](#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Step 1. 新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"でwebhookのペイロードをリダイレクトしたポートと一致させます。
+    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"の`smee -u <unique_channel>` コマンドで使ったドメインと一致することを確認してください。 If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
 
-* **Q:** I'm getting an `Octokit::NotFound` 404 error in my debug output:
+* **Q:** デバッグ出力に`Octokit::NotFound` 404エラーが出ます。
     ```
     2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
 
-    **A:** Ensure the variables in your `.env` file are correct. Make sure that you have not set identical variables in any other environment variable files like `bash_profile`. You can check the environment variables your app is using by adding `puts` statements to your app code and re-running the code. For example, to ensure you have the correct private key set, you could add `puts PRIVATE_KEY` to your app code:
+    **A:** `.env`ファイル内の変数が正しいことを確認してください。 `bash_profile`のような他の環境変数ファイルで同じ変数を設定していないことを確認してください。 アプリケーションが使用している環境変数は、アプリケーションのコードに`puts`文を追加して実行し直すことで確認できます。 たとえば、正しい秘密鍵が設定されているかを確認するには、アプリケーションのコードに`puts PRIVATE_KEY`を追加できます。
 
     ```
     PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
@@ -436,14 +438,14 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### おわりに
 
-After walking through this guide, you've learned the basic building blocks for developing GitHub Apps! To review, you:
+このガイドを見終えれば、GitHub Appを開発するための基本的なビルディングブロックを学んだことになります! 振り返ると、以下を行いました。
 
-* Registered a new GitHub App
-* Used Smee to receive webhook payloads
-* Ran a simple web server via Sinatra
-* Authenticated as a GitHub App
-* Authenticated as an installation
+* 新しいGitHub Appの登録
+* Smeeを使ってwebhookのペイロードを受信
+* SinatraでシンプルなWebサーバーを実行
+* GitHub Appとして認証
+* インストールとして認証
 
 ### 次のステップ
 
-You now have a GitHub App running on a server. It doesn't do anything special yet, but check out some of the ways you can customize your GitHub App template in the other [quickstart guides](/apps/quickstart-guides/).
+これでGitHub Appをサーバー上で動作させることができました。 まだこれは特別なことは何もしていませんが、他の[クイックスタートガイド](/apps/quickstart-guides/)でGitHub Appテンプレートをカスタマイズする方法を調べてみてください。

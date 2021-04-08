@@ -9,16 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-Jeder mit `write`(schreiben)-Zugriff auf ein Repository kann Geheimnisse erstellen, lesen und verwenden.
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zum `GITHUB_TOKEN`-Geheimnis
 
-{% data variables.product.prodname_dotcom %} erstellt automatisch ein `GITHUB_TOKEN`-Geheimnis für den Workflow. Du kannst den `GITHUB_TOKEN` verwenden, um Dich in einem Workflow zu authentifizieren.
+{% data variables.product.prodname_dotcom %} erstellt automatisch ein `GITHUB_TOKEN`-Geheimnis für Deinen Workflow. Du kannst den `GITHUB_TOKEN` verwenden, um Dich in einem Workflow zu authentifizieren.
 
 Wenn Du {% data variables.product.prodname_actions %} aktivierst, installiert {% data variables.product.prodname_dotcom %} eine {% data variables.product.prodname_github_app %} in Deinem Repository. Das `GITHUB_TOKEN`-Geheimnis ist ein {% data variables.product.prodname_github_app %}-Token für Installations-Zugriff. Du kannst das Installationszugriffs-Token verwenden, um Dich im Namen der auf Deinem Repository installierten {% data variables.product.prodname_github_app %} zu authentifizieren. Die Berechtigungen des Tokens sind auf das Repository beschränkt, in dem sich der Workflow befindet. Weitere Informationen findest Du unter "[Berechtigungen für das `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
@@ -28,7 +28,7 @@ Das Token ist auch im `github.token`-Kontext verfügbar. Weitere Informationen f
 
 ### Das `GITHUB_TOKEN` in einem Workflow verwenden
 
-Um das `GITHUB_TOKEN`-Geheimnis zu verwenden, musst Du es in Deiner Workflow-Datei referenzieren. Hierbei musst Du das Token ggf. als Eingabe für eine Aktion übergeben, für die dieses Token erforderlich ist, oder authentifizierte Aufrufe der {% data variables.product.prodname_dotcom %}-API ausführen.
+Um das `GITHUB_TOKEN`-Geheimnis zu verwenden, musst Du es in Deiner Workflow-Datei referenzieren. Hierbei müssen Sie das Token ggf. als Eingabe für eine Aktion übergeben, für die dieses Token erforderlich ist, oder authentifizierte {% data variables.product.prodname_dotcom %}-API-Aufrufe ausführen.
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
@@ -40,7 +40,7 @@ Dieser Beispielworkflow verwendet die [Labeler-Aktion](https://github.com/action
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -73,7 +73,8 @@ Du kannst das `GITHUB_TOKEN` verwenden, um authentifizierte API-Aufrufe durchzuf
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n Der Commit-Hash lautete: _'{{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
@@ -93,6 +94,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 | pull requests            | Lesen/Schreiben | Lesen                              |
 | repository projects      | Lesen/Schreiben | Lesen                              |
 | statuses (Statusangaben) | Lesen/Schreiben | Lesen                              |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 Wenn Du ein Token benötigst, für das Berechtigungen erforderlich sind, die nicht im `GITHUB_TOKEN`-Geheimnis vorhanden sind, kannst Du ein persönliches Zugangstoken erstellen und als Geheimnis im Repository festlegen:
 

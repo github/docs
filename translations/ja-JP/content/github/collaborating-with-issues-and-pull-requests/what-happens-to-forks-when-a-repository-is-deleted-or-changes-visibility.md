@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -56,7 +58,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-#### Changing the visibility of an internal repository
+#### 内部リポジトリの表示を変更する
 
 {% note %}
 
@@ -64,11 +66,11 @@ versions:
 
 {% endnote %}
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 内部リポジトリの表示を変更した場合、Organization またはユーザアカウントが所有するフォークはすべてプライベートのままになります。
 
-##### Deleting the internal repository
+##### 内部リポジトリを削除する
 
-If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+内部リポジトリの表示を変更してからリポジトリを削除すると、フォークは別のネットワークに引き続き存在します。
 
 {% endif %}
 
@@ -78,4 +80,4 @@ If you change the visibility of an internal repository and then delete the repos
 - [フォークについて](/articles/about-forks)
 - 「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」
 - 「[Organization のフォークポリシーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)」
-- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- 「{% if currentVersion == "free-pro-team@latest" %}[Enterprise アカウントでリポジトリ管理ポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories)」{% else %}「[Enterprise でリポジトリ管理ポリシーを施行する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}」

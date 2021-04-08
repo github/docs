@@ -1,9 +1,13 @@
 ---
-title: 禁用或限制组织的 GitHub 操作
-intro: '组织所有者可禁用、启用和限制组织的 GitHub 操作。'
+title: 禁用或限制组织的 GitHub Actions
+intro: '组织所有者可禁用、启用和限制组织的 GitHub Actions。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -34,13 +38,13 @@ versions:
 
 ### 管理组织的 {% data variables.product.prodname_actions %} 权限
 
-You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
+您可以禁用组织的所有工作流程，或者设置策略来配置哪些操作可用于组织中。
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**注：**如果您的组织由具有覆盖策略的企业管理，您可能无法管理这些设置。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %}“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)”。{% else %}“[实施企业的 {% data variables.product.prodname_actions %} 策略](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)”。{% endif %}
 
 {% endnote %}
 
@@ -48,7 +52,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select an option. ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
+1. 在 **Policies（策略）**下，选择一个选项。 ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
 1. 单击 **Save（保存）**。
 
 ### 允许特定操作运行
@@ -59,7 +63,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。 ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. 单击 **Save（保存）**。
 
 {% endif %}

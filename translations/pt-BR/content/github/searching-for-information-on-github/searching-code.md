@@ -9,9 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pesquisa do github
 ---
 
-{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} Para obter mais informações, consulte "[Sobre pesquisar no GitHub](/articles/about-searching-on-github)."
 
 Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de código. Qualificadores de pesquisa específicos para repositórios, usuários ou commits não funcionarão com a pesquisa de códigos.
 
@@ -27,7 +29,8 @@ Devido à complexidade da pesquisa de códigos, a execução das pesquisas apres
 - Apenas o _branch-padrão_ é indexado para pesquisa de código.{% if currentVersion == "free-pro-team@latest" %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}
-- Somente repositórios com menos de 500.000 arquivos são pesquisados.
+- Apenas repositórios com menos de 500.000 arquivos são pesquisáveis.{% if currentVersion == "free-pro-team@latest" %}
+- Apenas repositórios que tiveram atividade ou apareceram nos resultados de pesquisa do último ano são pesquisáveis.{% endif %}
 - Com exceção das pesquisas por [`filename`](#search-by-filename), é necessário incluir pelo menos um termo da pesquisa ao pesquisar o código-fonte. Por exemplo, pesquisar [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) não é válido, enquanto pesquisar [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) é.
 - Os resultados da pesquisa exibem no máximo dois fragmentos do mesmo arquivo, mas o arquivo pode ter mais resultados.
 - Não é possível usar os seguintes caracteres-curinga na consulta de pesquisa: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. A pesquisa simplesmente ignora esses símbolos.

@@ -13,6 +13,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Commands](#commands)
   - [Examples](#examples)
   - [Indentation](#indentation)
+  - [Scheduled workflows](#scheduled-workflows)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -145,6 +146,14 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: ${{ matrix.python }}
 ```
 
+### Scheduled workflows
+
+Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
+
+- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
+- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Use a different time for each example.
+
 ## Headers
 
 Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
@@ -276,7 +285,7 @@ Take care to distinguish between product names and product elements. For more in
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the data directory in the github/docs repository and the “Product names” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
 ## Tables
 

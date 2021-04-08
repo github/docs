@@ -1,15 +1,10 @@
 ---
 title: Explorar as dependências de um repositório
 intro: 'Ao usar o gráfico de dependência, você pode ver os pacotes dos quais o projeto depende {% if currentVersion == "free-pro-team@latest" %} e os repositórios que dependem dele{% endif %}. Além disso, você pode ver todas as vulnerabilidades detectadas nas suas dependências.'
-redirect_from:
-  - /articles/listing-the-packages-that-a-repository-depends-on
-  - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
-  - /articles/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '<=2.22'
+topics:
+  - repositories
 ---
 
 ### Viewing the dependency graph
@@ -39,12 +34,6 @@ Se foram detectadas vulnerabilidades no repositório, estas são exibidas na par
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas serão exibidas na parte superior da visualização para usuários com acesso ao
 {% data variables.product.prodname_dependabot_alerts %}.
 
-{% note %}
-
-**Observação:** {% data variables.product.prodname_ghe_server %} não preenche a vista de **Dependentes**.
-
-{% endnote %}
-
 ![Gráfico de dependências](/assets/images/help/graphs/dependencies_graph_server.png)
 
 {% note %}
@@ -57,12 +46,6 @@ Todas as dependências diretas e indiretas especificadas no manifesto do reposit
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso a alertas de segurança.
-
-{% note %}
-
-**Observação:** {% data variables.product.prodname_ghe_server %} não preenche a vista de **Dependentes**.
-
-{% endnote %}
 
 ![Gráfico de dependências](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,6 +76,24 @@ Você também pode habilitar ou desabilitar o gráfico de dependências para tod
 4. Leia a mensagem sobre a concessão de acesso somente leitura pelo {% data variables.product.product_name %} aos dados do repositório para habilitar o gráfico de dependências e, em seguida, ao lado de "Gráfico de Dependência", clique em **Habilitar**. ![Botão "Habilitar" para o gráfico de dependência](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 Você pode desabilitar o gráfico de dependências a qualquer momento clicando em **Desabilitar** ao lado de "Gráfico de dependência" na aba de análise & de Segurança &.
+
+### Alterar o pacote "Usado por"
+
+Se o gráfico de dependências estiver habilitado e o seu repositório contiver um pacote publicado em um ecossistema de pacote compatível, {% data variables.product.prodname_dotcom %} exibirá uma seção "Usado por" na barra lateral da aba do **Código** do seu repositório. Para obter mais informações sobre os ecossistemas de pacotes compatíveis, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+
+A seção "Usado por" mostra o número de referências públicas ao pacote que foi encontrado, e exibe os avatares de alguns dos proprietários dos projetos dependentes.
+
+![Seção da barra lateral "Usado por"](/assets/images/help/repository/used-by-section.png)
+
+Clicar em qualquer item desta seção irá levar você para a aba **Dependentes** do gráfico de dependências.
+
+A seção "Usado por" representa um único pacote do repositório. Se você tiver permissões de administrador em um repositório que contém vários pacotes, você poderá escolher qual pacote a seção "Usado por" representa.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Em "Configure as funcionalidades de segurança e análise", clique no menu suspenso na seção "Usados pelo contador" e escolha um pacote. ![Escolha um pacote "Usado por"](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
 ### Solução de problemas para o gráfico de dependências

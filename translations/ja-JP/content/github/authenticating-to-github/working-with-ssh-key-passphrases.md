@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 SSH キーにより、誰かがあなたのコンピュータにアクセスすると、そのキーを使用するすべてのシステムにもアクセスすることになります。 セキュリティをさらに強化するには、SSH キーにパスフレーズを追加します。 パスフレーズを安全に保存するために `ssh-agent` を使用すると、パスフレーズを再入力する必要がありません。
@@ -18,12 +20,11 @@ SSH キーにより、誰かがあなたのコンピュータにアクセスす�
 次のコマンドを入力して、鍵ペアを再生成せずに既存の秘密鍵のパスフレーズを変更できます:
 
 ```shell
-$ ssh-keygen -p
-# SSH キー作成プロセスを開始します
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 

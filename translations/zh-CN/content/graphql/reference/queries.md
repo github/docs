@@ -3,10 +3,13 @@ title: 查询
 miniTocMaxHeadingLevel: 2
 redirect_from:
   - /v4/query
+  - /v4/reference/query
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 ### 关于查询

@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 具有管理员或所有者权限的人员可以在仓库中创建 CODEOWNERS 文件。
@@ -19,11 +21,11 @@ versions:
 
 当有人打开修改代码的拉取请求时，将自动请求代码所有者进行审查。 不会自动请求代码所有者审查拉取请求草稿。 有关拉取请求草稿的更多信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)”。 不会自动请求代码所有者审查拉取请求草稿。 如果将拉取请求转换为草稿，则已订阅通知的用户不会自动取消订阅。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)”。
 
-当具有管理员或所有者权限的人员启用必需审查时，他们也可选择性要求代码所有者批准后，作者才可合并仓库中的拉取请求。 更多信息请参阅“[启用拉取请求的必需审查](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)”。
+当具有管理员或所有者权限的人员启用必需审查时，他们也可选择性要求代码所有者批准后，作者才可合并仓库中的拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果团队启用了代码审查分配，则个别审批无法满足受保护分支中代码所有者审批的要求。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 在仓库中，您可以浏览文件并将鼠标悬停在上方
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About sponsors and sponsorships
@@ -19,13 +21,13 @@ Du kannst Analysen zu Deinen aktuellen und vergangenen Sponsorings einsehen, die
 ### Letzte Sponsoring-Aktivitäten anzeigen
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-1. Klicke in der linken Seitenleiste auf **Activity** (Aktivitäten). ![Registerkarte „Activity" (Aktivitäten)](/assets/images/help/sponsors/activity-tab.png)
+{% data reusables.sponsors.activity-tab %}
 
 ### Deine Sponsoring-Daten exportieren
 
-If you have sponsors, you can export your sponsorship data. {% data variables.product.prodname_dotcom %} will send you an email with export data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsors-tab %}
-1. Klicke auf **Export all** (Alles exportieren). ![Schaltfläche „Export all" (Alles exportieren)](/assets/images/help/sponsors/export-all.png)
-1. Wähle einen Zeitrahmen und ein Format für die zu exportierenden Daten und klicke dann auf **Start export** (Export starten). ![Optionen für den Datenexport](/assets/images/help/sponsors/export-your-sponsors.png)
+{% data reusables.sponsors.activity-tab %}
+1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![Schaltfläche „Export"](/assets/images/help/sponsors/export-all.png)
+1. Choose a time frame and a format for the data you'd like to export, then click **Start export**. ![Optionen für den Datenexport](/assets/images/help/sponsors/export-your-sponsors.png)

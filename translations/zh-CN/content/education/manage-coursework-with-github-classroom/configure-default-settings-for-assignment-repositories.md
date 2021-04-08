@@ -1,50 +1,50 @@
 ---
-title: Configure default settings for assignment repositories
-shortTitle: Configure defaults for assignment repositories
-intro: You can use the Probot Settings app to configure the default settings for repositories that {% data variables.product.prodname_classroom %} creates for an assignment.
-permissions: Organization owners can configure default settings for assignment repositories by installing a {% data variables.product.prodname_github_app %} for the organization.
+title: 配置作业仓库的默认设置
+shortTitle: 配置作业仓库的默认值
+intro: 您可以使用 Probot 设置应用程序为 {% data variables.product.prodname_classroom %} 创建用于作业的仓库配置默认设置。
+permissions: 组织所有者可以通过为组织安装 {% data variables.product.prodname_github_app %} 来配置作业仓库的默认设置。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/probot-settings
 ---
 
-### About configuration of defaults for assignment repositories
+### 关于作业仓库的默认值配置
 
-{% data variables.product.prodname_classroom %} creates a repository that belongs for each student or team that accepts an assignment. The repository belongs to the organization that you use for {% data variables.product.prodname_classroom %}. Assignment repositories can be empty, or you can use a template repository. For more information, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+{% data variables.product.prodname_classroom %} 创建属于接受作业的每个学生或团队的仓库。 仓库属于您用于 {% data variables.product.prodname_classroom %} 的组织。 作业仓库可以是空的，也可以使用模板仓库。 更多信息请参阅“[从模板仓库创建作业](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)”。
 
 {% data reusables.classroom.you-may-want-to-predefine-repository-settings %}
 
-With the Probot Settings app, you can create a file named _.github/settings.yml_ in a repository that contains a list of settings for the repository, and then install a {% data variables.product.prodname_github_app %} for your organization that automatically applies the settings to the repository.
+使用 Probot 设置应用程序，您可以在包含仓库设置列表的仓库中创建名为 _.github/settings.yml_ 的文件，然后为组织安装自动将设置应用到仓库的 {% data variables.product.prodname_github_app %} 。
 
-You can include _.github/settings.yml_ in a template repository that you use for an assignment in {% data variables.product.prodname_classroom %}. When an individual or team accepts the assignment, {% data variables.product.prodname_classroom %} creates the assignment repository, and the Settings app automatically applies the settings from _.github/settings.yml_.
+您可以在模板仓库中包含用于 {% data variables.product.prodname_classroom %} 中作业的 _.github/settings.yml_。 当个人或团队接受作业时，{% data variables.product.prodname_classroom %} 会创建作业仓库，并且设置应用程序自动从 _.github/settings.yml_ 应用设置。
 
-Probot is a a project, framework, and collection of free apps to automate {% data variables.product.product_name %}. A Probot app can listen to repository events, like the creation of new commits, comments, and issues, and automatically respond to the event.
+Probot 是一个免费应用程序的项目、框架和集合，用于自动化 {% data variables.product.product_name %}。 Probot 应用程序可以侦听仓库事件，如创建新提交、注释和议题，并自动响应事件。
 
-For more information, see the [Probot website](https://probot.github.io) and the [Settings app website](https://probot.github.io/apps/settings/). For more information about {% data variables.product.prodname_github_apps %}, see "[About apps](/developers/apps/about-apps)."
+更多信息请参阅 [Probot 网站](https://probot.github.io)和[设置应用程序网站](https://probot.github.io/apps/settings/)。 有关 {% data variables.product.prodname_github_apps %} 的更多信息，请参阅“[关于应用程序](/developers/apps/about-apps)”。
 
-### Adding the Settings app to your organization
+### 将设置应用程序添加到组织
 
-After you install the Probot Settings app for your organization, the app will apply the settings that you define in _.github/settings.yml_  for any repository in your organization, including new assignment repositories that {% data variables.product.prodname_classroom %} creates.
+为组织安装 Probot 设置应用程序后，该应用程序将对组织中的任何仓库（包括 {% data variables.product.prodname_classroom %} 创建的新作业仓库）应用您在 _.github/settings.yml_ 中定义的设置。
 
-1. Navigate to the [Settings app page](https://github.com/apps/settings).
-1. Click **Install**, then click the organization that you use for  {% data variables.product.prodname_classroom %}. Provide the app full access to all repositories owned by the organization. ![Installing the Probot Settings app](/assets/images/help/classroom/probot-settings.gif)
+1. 导航到[设置应用程序页面](https://github.com/apps/settings)。
+1. 单击 **Install（安装）**，然后单击用于  {% data variables.product.prodname_classroom %} 的组织。 为应用程序提供对组织拥有的所有仓库的完全访问权限。 ![安装 Probot 设置应用程序](/assets/images/help/classroom/probot-settings.gif)
 
-### Configuring default settings for an assignment repository
+### 配置作业仓库的默认设置
 
-1. Create a template repository that contains a _.github/settings.yml_ file. For a complete list of settings, see the [README](https://github.com/probot/settings#github-settings) for the `probot/settings` repository. For more information about using a template repository for starter code in {% data variables.product.prodname_classroom %}, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+1. 创建包含 _.github/settings.yml_ 文件的模板仓库。 有关设置的完整列表，请参阅 `probot/settings` 仓库的 [README](https://github.com/probot/settings#github-settings)。 有关对 {% data variables.product.prodname_classroom %} 中的起始代码使用模板仓库的更多信息，请参阅“[从模板仓库创建作业](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)”。
 
     {% warning %}
 
-    **Warning:** Do not define `collaborators` in the _.github/settings.yml_ file for your template repository. {% data variables.product.prodname_classroom %} automatically grants teachers and teaching assistants access to assignment repositories.
+    **警告：**不要在模板仓库的 _.github/settings.yml_ 文件中定义`协作者`。 {% data variables.product.prodname_classroom %} 自动授予教师和教师助理访问作业仓库的权限。
 
     {% endwarning %}
 
-1. Create an assignment using the template repository containing _.github/settings.yml_ as the starter code. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+1. 使用包含 _.github/settings.yml_ 作为起始代码的模板仓库创建作业。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-The Probot Settings app for your organization will now apply the settings you define in _.github/settings.yml_ within the template repository to every assignment repository that {% data reusables.classroom.you-may-want-to-predefine-repository-settings %} creates for a student or team.
+组织的 Probot 设置应用程序现在会将您在模板仓库的 _.github/settings.yml_ 中定义的设置应用到 {% data reusables.classroom.you-may-want-to-predefine-repository-settings %} 为学生或团队创建的每个作业仓库。
 
 ### 延伸阅读
 
-- [Probot apps](https://probot.github.io/apps/)
-- [Probot documentation](https://probot.github.io/docs/)
+- [Probot 应用程序](https://probot.github.io/apps/)
+- [Probot 文档](https://probot.github.io/docs/)

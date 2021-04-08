@@ -1,7 +1,7 @@
 ---
-title: Get started with GitHub Classroom
+title: Primeiros passos com o GitHub Classroom
 shortTitle: Começar
-intro: Learn how to configure and use {% data variables.product.prodname_classroom %} to administer your course.
+intro: Aprenda a configurar e usar {% data variables.product.prodname_classroom %} para administrar seu curso.
 mapTopic: true
 versions:
   free-pro-team: '*'

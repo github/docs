@@ -19,4 +19,4 @@ Você pode escolher quais contribuidores estão incluídos nas métricas e criar
 
 ### Leia mais
 - "[Métricas disponíveis com {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)"
-- "[{% data variables.product.prodname_insights %} e proteção de dados para sua organização](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} e proteção de dados para sua organização</a>"

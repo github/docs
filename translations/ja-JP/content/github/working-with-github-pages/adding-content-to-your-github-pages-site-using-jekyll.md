@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを追加できます。
@@ -61,6 +63,8 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
 ### 次のステップ
 

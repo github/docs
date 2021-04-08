@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
@@ -22,15 +24,13 @@ versions:
 
 `docker` loginコマンドを使い、Dockerで{% data variables.product.prodname_registry %}の認証を受けることができます。
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 Docker レジストリを {% data variables.product.prodname_registry %} で使用する前に、{% data variables.product.product_location %} のサイト管理者がインスタンスに対し Docker のサポートとand Subdomain Isolation を有効化する必要があります。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
 
 {% endif %}
 
 ### {% data variables.product.prodname_registry %} への認証を行う
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -50,7 +50,10 @@ Docker レジストリを {% data variables.product.prodname_registry %} で使�
 {% endraw %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+{% endif %}
 {% raw %}
  ```shell
  $ docker images
@@ -65,9 +68,19 @@ $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 {% endraw %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+
+{% raw %}
+ ```shell
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
+```
+{% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+{% endif %}
+
+この例の login コマンドを使うには、`USERNAME` を {% data variables.product.product_name %} ユーザ名に、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},`HOSTNAME` を {% data variables.product.product_location %} の URL に、{% endif %}`~/TOKEN.txt` {% data variables.product.product_name %} の個人アクセストークンへのファイルパスに置き換えてください。
 
 詳しい情報については「[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)」を参照してください。
 
@@ -75,13 +88,13 @@ To use this example login command, replace `USERNAME` with your {% data variable
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing an image
+### イメージを公開する
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% note %}
 
-**Note:** Image names must only use lowercase letters.
+**注釈:** イメージ名には小文字のみを使用する必要があります。
 
 {% endnote %}
 
@@ -97,26 +110,44 @@ To use this example login command, replace `USERNAME` with your {% data variable
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. 新しいDockerイメージを初めて公開し、`monalisa`という名前にできます。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* を {% data variables.product.product_location %} のホスト名に、{% endif %}*VERSION* をビルド時のパッケージバージョンに置き換えます。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+  {% endif %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+  ```shell
+  $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
 3. パッケージ用のDockerイメージをまだ構築していないなら、イメージを構築してください。 *OWNER*をリポジトリを所有しているユーザあるいはOrganizationのアカウント名で、*REPOSITORY*をプロジェクトを含むリポジトリ名で、*IMAGE_NAME*をパッケージもしくはイメージの名前で、*VERSION*をビルド時点のパッケージバージョンで置き換え、イメージが現在のワーキングディレクトリにないなら*PATH*をイメージへのパスで置き換えてください。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* を {% data variables.product.product_location %} のホスト名に、{% endif %}イメージが現在のワーキングディレクトリにない場合は *PATH* をイメージのパスに置き換えます。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+  {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+  ```shell
+  $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
+  ```
+  {% endif %}
   {% endif %}
 4. イメージを
 {% data variables.product.prodname_registry %}.
@@ -125,9 +156,18 @@ To use this example login command, replace `USERNAME` with your {% data variable
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+  {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+  ```shell
+  $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
   {% note %}
 
@@ -137,7 +177,9 @@ To use this example login command, replace `USERNAME` with your {% data variable
 
 #### Dockerイメージのプッシュの例
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+この例では、インスタンスの Subdomain Isolation が有効化されていると仮定します。
+{% endif %}
 
 `monalisa`イメージのバージョン1.0を、イメージIDを使って`octocat/octo-app`に公開できます。
 
@@ -196,20 +238,30 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-### Downloading an image
+### イメージをダウンロードする
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+`docker pull`コマンドを使って、Dockerイメージを{% data variables.product.prodname_registry %}からインストールできます。*OWNER*をリポジトリを所有しているユーザあるいはOrganizationのアカウント名で、*REPOSITORY*をプロジェクトを含むリポジトリ名で、*IMAGE_NAME*をパッケージもしくはイメージの名前で、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME*を{% data variables.product.product_location %}のホスト名で、{% endif %}*TAG_NAME*をインストールするイメージのタグで置き換えます。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
+<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+{% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
+```shell
+$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+```
+{% endif %}
 {% endif %}
 
 {% note %}
@@ -220,4 +272,4 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ### 参考リンク
 
-- [パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package/)
+- 「{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」

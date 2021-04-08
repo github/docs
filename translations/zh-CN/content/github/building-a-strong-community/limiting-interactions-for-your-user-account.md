@@ -1,26 +1,28 @@
 ---
-title: Limiting interactions for your user account
-intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.'
+title: 限制用户帐户的交互
+intro: 您可以在用户帐户拥有的所有公共仓库中对某些用户临时限制活动一段时间。
 versions:
   free-pro-team: '*'
-permissions: Anyone can limit interactions for their own user account.
+permissions: 任何人都可以限制他们自己的用户帐户的交互。
+topics:
+  - 社区
 ---
 
-### About temporary interaction limits
+### 关于临时交互限制
 
-Limiting interactions for your user account enables temporary interaction limits for all public repositories owned by your user account. {% data reusables.community.interaction-limits-restrictions %}
+限制用户帐户的交互可对用户帐户拥有的所有公共仓库启用临时交互限制。 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your public repositories.
+{% data reusables.community.interaction-limits-duration %} 在限制期过后，用户可以在您的公共仓库中恢复正常活动。
 
 {% data reusables.community.types-of-interaction-limits %}
 
-When you enable user-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/articles/limiting-interactions-in-your-repository)."
+启用用户范围的活动限制时，无法对单个仓库启用或禁用交互限制。 有关限制单个仓库活动的更多信息，请参阅“[限制仓库中的交互](/articles/limiting-interactions-in-your-repository)”。
 
-You can also block users. For more information, see "[Blocking a user from your personal account](/github/building-a-strong-community/blocking-a-user-from-your-personal-account)."
+您还可以阻止用户。 更多信息请参阅“[阻止用户访问个人帐户](/github/building-a-strong-community/blocking-a-user-from-your-personal-account)”。
 
-### Limiting interactions for your user account
+### 限制用户帐户的交互
 
 {% data reusables.user_settings.access_settings %}
-1. In your user settings sidebar, under "Moderation settings", click **Interaction limits**. !["Interaction limits" tab in the user settings sidebar](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
+1. 在在用户设置侧边栏中的“Moderation settings（管理设置）”下，单击 **Interaction limits（交互限制）**。 ![用户设置侧边栏中的"交互限制"选项卡](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

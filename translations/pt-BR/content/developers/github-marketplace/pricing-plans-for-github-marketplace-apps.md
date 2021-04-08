@@ -6,11 +6,13 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 
 
-Os planos de preços de {% data variables.product.prodname_marketplace %} podem ser grátis, fixos ou por unidade. Os preços são definidos, exibidos e processados em dólares. Os planos pagos são restritos a anúncios verificados.
+Os planos de preços de {% data variables.product.prodname_marketplace %} podem ser grátis, fixos ou por unidade. Os preços são definidos, exibidos e processados em dólares. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 Os clientes compram seu aplicativo usando um método de pagamento anexado à sua conta de {% data variables.product.product_name %} sem precisar sair de {% data variables.product.prodname_dotcom_the_website %}. Você não precisa escrever um código para realizar transações de cobrança, mas deverá gerenciar eventos da API de {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
@@ -48,7 +50,7 @@ Os clientes podem iniciar uma avaliação gratuita para qualquer plano pago de u
 
 Os testes gratuitos têm uma duração fixa de 14 dias. Os clientes são notificados 4 dias antes do final do período de teste (no 11o dia do teste grátis) de que seu plano será atualizado. No final do teste grátis, os clientes serão inscritos automaticamente no plano que estão testando, caso não efetuem o cancelamento.
 
-Para mais informações, consulte: "[Como gerenciar novas compras e testes grátis](/developers/github-marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)".
+Para mais informações, consulte: "[Como gerenciar novas compras e testes grátis](/developers/github-marketplace/handling-new-purchases-and-free-trials/)".
 
 {% note %}
 

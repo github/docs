@@ -10,14 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### ワークフロー用のYAML構文について
 
-ワークフローファイルはYAML構文を使用し、ファイル拡張子が`.yml`または`.yaml`である必要があります。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
+ワークフローファイルはYAML構文を使用し、ファイル拡張子が`.yml`または`.yaml`である必要があります。 {% data reusables.actions.learn-more-about-yaml %}
 
 ワークフローファイルは、リポジトリの`.github/workflows`ディレクトリに保存する必要があります。
 
@@ -27,7 +29,7 @@ versions:
 
 ### `on`
 
-**必須** ワークフローをトリガーする{% data variables.product.prodname_dotcom %}イベントの名前。 指定できるのは、1つのイベント`string`、複数イベントの`array`、イベント`types`の`array`です。あるいは、ワークフローをスケジュールする、またはワークフロー実行を特定のファイルやタグ、ブランチ変更に限定するイベント設定`map`も指定できます。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
+**必須**。 ワークフローをトリガーする{% data variables.product.prodname_dotcom %}イベントの名前。 指定できるのは、1つのイベント`string`、複数イベントの`array`、イベント`types`の`array`です。あるいは、ワークフローをスケジュールする、またはワークフロー実行を特定のファイルやタグ、ブランチ変更に限定するイベント設定`map`も指定できます。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -118,9 +120,9 @@ on:
 
 `paths-ignore` および `paths` キーワードは、`*` と `**` のワイルドカード文字を使って複数のパス名と一致させる glob パターンを受け付けます。 詳しい情報については、「[フィルタパターンのチートシート](#filter-pattern-cheat-sheet)」を参照してください。
 
-#### バスを無視する例
+#### パスを無視する例
 
-パス名が `paths-ignore` のパターンとマッチする場合は常に、ワークフローは実行されません。 {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
 ```yaml
 on:
@@ -173,7 +175,7 @@ on:
 フィルタは、変更されたファイルを`paths-ignore`あるいは`paths`リストに対して評価することによって、ワークフローを実行すべきか判断します。 ファイルが変更されていない場合、ワークフローは実行されません。
 
 {% data variables.product.prodname_dotcom %}はプッシュに対してはツードットdiff、プルリクエストに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
-- **プルリクエスト：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
+- **Pull Request：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
 - **既存のブランチへのプッシュ：** ツードットdiffは、headとベースのSHAを互いに直接比較します。
 - **新しいブランチへのプッシュ：** 最も深いプッシュの先祖の親に対するツードットdiffです。
 
@@ -187,7 +189,7 @@ cron構文に関する詳しい情報については、「[ワークフローを
 
 ### `env`
 
-ワークフロー中のすべてのジョブやステップから利用できる環境変数の`map`です。 1つのジョブあるいはステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)を参照してください。
+ワークフロー中のすべてのジョブのステップから利用できる環境変数の`map`です。 1つのジョブのステップ、あるいは1つのステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -223,7 +225,7 @@ defaults:
 
 1つのワークフロー実行は、1つ以上のジョブからなります。 デフォルトでは、ジョブは並行して実行されます。 ジョブを逐次的に実行するには、`jobs.<job_id>.needs`キーワードを使用して他のジョブに対する依存関係を定義します。
 
-それぞれのジョブは、`runs-on`で指定された環境で実行されます。
+それぞれのジョブは、`runs-on`で指定されたランナー環境で実行されます。
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
@@ -249,9 +251,9 @@ jobs:
 
 ### `jobs.<job_id>.needs`
 
-このジョブの実行前に正常に完了する必要があるジョブを示します。 文字列型または文字列の配列です。 If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
+このジョブの実行前に正常に完了する必要があるジョブを示します。 文字列型または文字列の配列です。 1つのジョブが失敗した場合、失敗したジョブを続行するような条件式を使用していない限り、そのジョブを必要としている他のジョブはすべてスキップされます。
 
-#### Example requiring dependent jobs to be successful
+#### 依存対象のジョブの成功が必要になる例
 
 ```yaml
 jobs:
@@ -270,7 +272,7 @@ jobs:
 2. `job2`
 3. `job3`
 
-#### Example not requiring dependent jobs to be successful
+#### 依存対象のジョブの成功が必要ではない例
 
 ```yaml
 jobs:
@@ -282,13 +284,27 @@ jobs:
     needs: [job1, job2]
 ```
 
-In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+この例では、`job3`は条件式の`always()` を使っているので、`job1`と`job2`が成功したかどうかにかかわらず、それらのジョブが完了したら常に実行されます。 詳しい情報については「[コンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)」を参照してください。
 
 ### `jobs.<job_id>.runs-on`
 
-**必須** ジョブを実行するマシンの種類。 マシンは{% data variables.product.prodname_dotcom %}ホストランナーあるいはセルフホストランナーのいずれかです。
+**必須**。 ジョブが実行されるマシンの種類。 マシンは{% data variables.product.prodname_dotcom %}ホストランナーあるいはセルフホストランナーのいずれかです。
 
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% if currentVersion == "github-ae@latest" %}
+#### {% data variables.actions.hosted_runner %}
+
+{% data variables.actions.hosted_runner %} を使う場合、それぞれのジョブは `runs-on` で指定された仮想環境の新しいインスタンスで実行されます。
+
+##### サンプル
+
+```yaml
+runs-on: [AE-runner-for-CI]
+```
+
+詳しい情報については「[{% data variables.actions.hosted_runner %}について](/actions/using-github-hosted-runners/about-ae-hosted-runners)」を参照してください。
+
+{% else %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### {% data variables.product.prodname_dotcom %}ホストランナー
 
@@ -298,17 +314,20 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### サンプル
 
 ```yaml
-ランオン:Ubuntu-最新
+runs-on: ubuntu-latest
 ```
 
 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+{% endif %}
 
 #### セルフホストランナー
+
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
@@ -319,6 +338,39 @@ runs-on: [self-hosted, linux]
 ```
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+### `jobs.<job_id>.environment`
+
+ジョブが参照する環境。 環境を参照するジョブがランナーに送られる前に、その環境のすべて保護ルールはパスしなければなりません。 詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
+
+環境は、環境の`name`だけで、あるいは`name` and `url`を持つenvironmentオブジェクトとして渡すことができます。 デプロイメントAPIでは、このURLは`environment_url`にマップされます。 デプロイメントAPIに関する詳しい情報については「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
+
+##### 1つの環境名を使う例
+
+```yaml
+environment: staging_environment
+```
+
+##### 環境名とURLを使う例
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+URLは式でもよく、`secrets`コンテキスト以外の任意のコンテキストを使うことができます。 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+
+#### サンプル
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
 
 ### `jobs.<job_id>.outputs`
 
@@ -354,7 +406,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)」を参照してください。
+ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については[`env`](#env)及び[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -429,11 +481,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.id`
+### `jobs.<job_id>.steps[*].id`
 
 ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-### `jobs.<job_id>.steps.if`
+### `jobs.<job_id>.steps[*].if`
 
 条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
@@ -463,18 +515,18 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.name`
+### `jobs.<job_id>.steps[*].name`
 
 {% data variables.product.prodname_dotcom %}で表示されるステップの名前。
 
-### `jobs.<job_id>.steps.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
 
 Git ref、SHA、またはDockerタグ番号を指定して、使用しているアクションのバージョンを含めることを強く推奨します。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
 - リリースされたアクションバージョンのコミットSHAを使用するのが、安定性とセキュリティのうえで最も安全です。
-- 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローがまだ動作していることも確認できます。
-- アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが大きな変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが中断する場合があります。
+- 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
+- アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
 入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
@@ -484,13 +536,13 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 
 ```yaml
 steps:    
-  # 特定のコミットを参照する
-  - uses: actions/setup-node@74bc508
-  # リリースのメジャーバージョンを参照する
+  # 特定のコミットを参照
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  # リリースのメジャーバージョンを参照
   - uses: actions/setup-node@v1
-  # リリースのマイナーバージョンを参照する
+  # リリースのマイナーバージョンを参照
   - uses: actions/setup-node@v1.2
-  # ブランチを参照する
+  # ブランチを参照
   - uses: actions/setup-node@main
 ```
 
@@ -549,18 +601,33 @@ jobs:
 [Docker Hub](https://hub.docker.com/)で公開されているDockerイメージ。
 
 ```yaml
-ジョブ:
+jobs:
   my_first_job:
-    ステップ:
-      - 名前: 使用
-        私の最初のステップ: docker://alpine:3.8
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
 ```
 
-#### Dockerパブリックレジストリアクションを使用する例
+{% if currentVersion == "free-pro-team@latest" %}
+##### {% data variables.product.prodname_github_container_registry %} の使用例
 
 `docker://{host}/{image}:{tag}`
 
-パブリックレジストリのDockerイメージ。
+{% data variables.product.prodname_github_container_registry %} の Docker イメージ。
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### Dockerパブリックレジストリアクションを使用する例
+
+`docker://{host}/{image}:{tag}`
+
+パブリックレジストリのDockerイメージ。 この例では、`gcr.io` にある Google Container Registry を使用しています。
 
 ```yaml
 jobs:
@@ -570,7 +637,28 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.run`
+#### ワークフローとは異なるプライベートリポジトリ内でのアクションの使用例
+
+ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
+
+### `jobs.<job_id>.steps[*].run`
 
 オペレーティングシステムのシェルを使用してコマンドラインプログラムを実行します。 `name`を指定しない場合、ステップ名はデフォルトで`run`コマンドで指定された文字列になります。
 
@@ -606,14 +694,15 @@ jobs:
 
 `shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。
 
-| サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                   | 内部で実行されるコマンド                                    |
-| ----------------- | ------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| すべて               | `bash`        | 非Windowsプラットフォームのデフォルトシェルで、`sh`へのフォールバックがあります。 Windowsでbashシェルを指定すると、Windows用Gitに含まれるbashシェルが使用されます。                 | `bash --noprofile --norc -eo pipefail {0}`      |
-| すべて               | `pwsh`        | PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                              | `pwsh -command ". '{0}'"`                       |
-| すべて               | `python`      | Pythonのコマンドを実行します。                                                                                                   | `python {0}`                                    |
-| Linux / macOS     | `sh`          | 非Windowsプラットフォームにおいてシェルが提供されておらず、パス上で`bash`が見つからなかった場合のフォールバック動作です。                                                  | `sh -e {0}`                                     |
-| Windows           | `cmd`         | {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.cmd`を追加し、`{0}`を置き換えます。                                      | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows           | `powershell`  | これはWindowsで使われるデフォルトのシェルです。 デスクトップPowerShellです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。 | `powershell -command ". '{0}'"`.                |
+| サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
+| ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| すべて               | `bash`        | 非Windowsプラットフォームのデフォルトシェルで、`sh`へのフォールバックがあります。 Windowsでbashシェルを指定すると、Windows用Gitに含まれるbashシェルが使用されます。                                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
+| すべて               | `pwsh`        | PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                   | `pwsh -command ". '{0}'"`                       |
+| すべて               | `python`      | Pythonのコマンドを実行します。                                                                                                                                                                                        | `python {0}`                                    |
+| Linux / macOS     | `sh`          | 非Windowsプラットフォームにおいてシェルが提供されておらず、パス上で`bash`が見つからなかった場合のフォールバック動作です。                                                                                                                                       | `sh -e {0}`                                     |
+| Windows           | `cmd`         | {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.cmd`を追加し、`{0}`を置き換えます。                                                                                                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows           | `pwsh`        | これはWindowsで使われるデフォルトのシェルです。 PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。 セルフホストのWindowsランナーに_PowerShell Core_がインストールされていない場合、その代わりに_PowerShell Desktop_が使われます。 | `pwsh -command ". '{0}'"`.                      |
+| Windows           | `powershell`  | PowerShell Desktop. {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                  | `powershell -command ". '{0}'"`.                |
 
 #### bashを使用してスクリプトを実行する例
 
@@ -642,6 +731,15 @@ steps:
     shell: pwsh
 ```
 
+#### PowerShell Desktopを使用してスクリプトを実行する例
+
+```yaml
+steps:
+  - name: Display the path
+    run: echo ${env:PATH}
+    shell: powershell
+```
+
 #### Python scriptを実行する例
 
 ```yaml
@@ -657,25 +755,43 @@ steps:
 
 `command […options] {0} [..more_options]`を使用すると、テンプレート文字列に`shell`値を設定できます。 {% data variables.product.prodname_dotcom %}は、空白区切りで最初の文字列をコマンドとして解釈し、`{0}`にある一時的なスクリプトのファイル名を挿入します。
 
+例:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+使われるコマンドは（この例では`perl`）は、ランナーにインストールされていなければなりません。
+
+
+{% if currentVersion == "github-ae@latest" %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% else %}
+GitHubホストランナーに含まれるソフトウェアに関する情報については「[GitHubホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners#supported-software)」を参照してください。
+{% endif %}
+
 #### 終了コードとエラーアクションの環境設定
 
 組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
-  - `set -e o pipefail`を使用するフェイルファースト動作: `bash`のデフォルトで、組み込みの`shell`。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
+  - `set -eo pipefail`を使用したフェイルファースト動作 : `bash`及び組み込みの`shell`のデフォルト。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
   - フェイルファーストをオプトアウトし、シェルのオプションにテンプレート文字列を指定して完全に制御することもできます。 たとえば、`bash {0}`とします。
   - shライクのシェルは、スクリプトで実行された最後のコマンドの終了コードで終了します。これが、アクションのデフォルトの動作でもあります。 runnerは、この終了コードに基づいてステップのステータスを失敗/成功としてレポートします。
 
 - `powershell`/`pwsh`
   - 可能な場合のフェイルファースト動作。 `pwsh`および`powershell`の組み込みシェルの場合は、スクリプトの内容の前に`$ErrorActionPreference = 'stop'` が付加されます。
-  - ここでは、アクションステータスがスクリプトの最後の終了コードを反映するように、PowerShellスクリプトに`if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }`を付加しています。
+  - アクションステータスがスクリプトの最後の終了コードを反映するように、PowerShellスクリプトに`if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }`を付加します。
   - 必要な場合には、組み込みシェルを使用せずに、`pwsh -File {0}`や`powershell -Command "& '{0}'"`などのカスタムシェルを指定すれば、いつでもオプトアウトすることができます。
 
 - `cmd`
   - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
+  - `cmd.exe`は、実行した最後のプログラムのエラーレベルで終了し、runnerにそのエラーコードを返します。 この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
-### `jobs.<job_id>.steps.with`
+### `jobs.<job_id>.steps[*].with`
 
 アクションによって定義される入力パラメータの`map`。 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 変数の前には`INPUT_`が付けられ、大文字に変換されます。
 
@@ -695,7 +811,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 Dockerコンテナへの入力を定義する`文字列`。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。 このパラメータは、`文字列の配列`をサポートしません。
 
@@ -718,7 +834,7 @@ steps:
 1. `args`を指定せずにアクションを利用できるよう、デフォルトを使ってください。
 1. アクションが`--help`フラグやそれに類するものを備えている場合は、アクションを自己ドキュメント化するためのデフォルトとして利用してください。
 
-### `jobs.<job_id>.steps.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 `Dockerfile`中のDockerの`ENTRYPOINT`をオーバーライドします。あるいは、もしそれが指定されていなかった場合に設定します。 shellやexec形式を持つDockerの`ENTRYPOINT`命令とは異なり、`entrypoint`キーワードは実行する実行可能ファイルを定義する単一の文字列だけを受け付けます。
 
@@ -732,9 +848,9 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint`キーワードはDockerコンテナアクションで使われることを意図したものですが、入力を定義しないJavaScriptのアクションでも使うことができます。
 
-### `jobs.<job_id>.steps.env`
+### `jobs.<job_id>.steps[*].env`
 
 ランナー環境でステップが使う環境変数を設定します。 ワークフロー全体あるいはジョブのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.env`](#jobsjob_idenv)」を参照してください。
 
@@ -755,11 +871,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 ステップが失敗してもジョブが失敗にならないようにします。 `true`に設定すれば、このステップが失敗した場合にジョブが次へ進めるようになります。
 
-### `jobs.<job_id>.steps.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 プロセスがkillされるまでにステップが実行できる最大の分数。
 
@@ -769,7 +885,7 @@ steps:
 
 ### `jobs.<job_id>.strategy`
 
-strategy (戦略) によって、ジョブのビルドマトリクスが作成されます。 各ジョブを実行する環境のバリエーションを定義できます。
+strategy (戦略) によって、ジョブのビルドマトリクスが作成されます。 それぞれのジョブを実行する様々なバリエーションを定義できます。
 
 ### `jobs.<job_id>.strategy.matrix`
 
@@ -826,7 +942,9 @@ steps:
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %}ホストランナーでサポートされている設定オプションについては、「[{% data variables.product.prodname_dotcom %}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+{% if currentVersion == "github-ae@latest" %}{% data variables.actions.hosted_runner %} でサポートされている設定オプションを見つけるには、「[ソフトウェア仕様](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)」を参照してください。
+{% else %}{% data variables.product.prodname_dotcom %} ホストランナーでサポートされている設定オプションについては、「[{% data variables.product.prodname_dotcom %} の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+{% endif %}
 
 #### 組み合わせに追加の値が含まれる例
 
@@ -890,9 +1008,9 @@ strategy:
 
 {% endnote %}
 
-##### Using environment variables in a matrix
+##### マトリックスで環境変数を使用する
 
-You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+それぞれのテストの組み合わせに、`include`キーを使ってカスタムの環境変数を追加できます。 そして、後のステップでそのカスタムの環境変数を参照できます。
 
 {% data reusables.github-actions.matrix-variable-example %}
 
@@ -966,9 +1084,9 @@ jobs:
 
 ### `jobs.<job_id>.container.image`
 
-アクションを実行するコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+アクションを実行するコンテナとして使用するDockerイメージ。 この値には、Docker Hubのイメージ名もしくは{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}パブリックの{% endif %}レジストリ名が指定できます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.container.credentials`
 
@@ -1050,9 +1168,9 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+アクションを実行するサービスコンテナとして使用するDockerイメージ。 この値には、Docker Hubのイメージ名もしくは{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}パブリックの{% endif %}レジストリ名が指定できます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1116,7 +1234,7 @@ volumes:
 - `**`ゼロ個以上の任意のキャラクタにマッチします。
 - `?`: ゼロ個もしくは1個のキャラクタにマッチします。 たとえば`Octoc?t`は`Octocat`にマッチします。
 - `+`: 直前の文字の 1 つ以上に一致します。
-- `[]` 括弧内にリストされた、あるいは範囲に含まれる1つのキャラクタにマッチします。 範囲に含めることができるのは`a-z`、`A-Z`、`0-9`のみです。 たとえば`[0-9a-f]`という範囲は、任意の数字もしくは小文字にマッチします。 たとえば`[CB]at`は`Cat`あるいは`Bat`にマッチし、`[1-2]00`は`100`や`200`にマッチします。
+- `[]` 括弧内にリストされた、あるいは範囲に含まれる1つのキャラクタにマッチします。 範囲に含めることができるのは`a-z`、`A-Z`、`0-9`のみです。 たとえば、`[0-9a-z]`という範囲は任意の数字もしくは小文字にマッチします。 たとえば`[CB]at`は`Cat`あるいは`Bat`にマッチし、`[1-2]00`は`100`や`200`にマッチします。
 - `!`: パターンの先頭に置くと、肯定のパターンを否定にします。 先頭のキャラクタではない場合は、特別な意味を持ちません。
 
 YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パターンを`*`、`[`、`!`で始める場合、そのパターンをクオートで囲まなければなりません。
@@ -1134,35 +1252,35 @@ YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パタ
 
 #### ブランチやタグにマッチするパターン
 
-| パターン                                          | 説明                                                                                             | マッチの例                                                                                              |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                   | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。                                              | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                  | ワイルドカードの`**`は、ブランチ及びタグ名のスラッシュ（`/`）を含む任意のキャラクタにマッチします。                                          | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`main`<br/>-`releases/mona-the-octcat` | ブランチあるいはタグ名に完全に一致したときにマッチします。                                                                  | -`main`<br/>-`releases/mona-the-octocat`                                                     |
-| `'*'`                                         | スラッシュ（`/`）を含まないすべてのブランチ及びタグ名にマッチします。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | -`main`<br/>-`releases`                                                                      |
-| `'**'`                                        | すべてのブランチ及びタグ名にマッチします。 これは `branches`あるいは`tags`フィルタを使わない場合のデフォルトの動作です。                          | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                  | `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。                                      | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                         | `v2`で始めるブランチ及びタグ名にマッチします。                                                                      | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                         | メジャーバージョンが1もしくは2のすべてのセマンティックバージョニングタグにマッチします。                                                  | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| パターン                                                   | 説明                                                                                             | マッチの例                                                                                                                 |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `feature/*`                                            | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。                                              | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `feature/**`                                           | ワイルドカードの`**`は、ブランチ及びタグ名のスラッシュ（`/`）を含む任意のキャラクタにマッチします。                                          | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octcat` | ブランチあるいはタグ名に完全に一致したときにマッチします。                                                                  | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                  | スラッシュ（`/`）を含まないすべてのブランチ及びタグ名にマッチします。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                 | すべてのブランチ及びタグ名にマッチします。 これは `branches`あるいは`tags`フィルタを使わない場合のデフォルトの動作です。                          | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*feature'`                                           | `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。                                      | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                  | `v2`で始めるブランチ及びタグ名にマッチします。                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                  | メジャーバージョンが1もしくは2のすべてのセマンティックバージョニングブランチとタグにマッチします。                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### ファイルパスにマッチするパターン
 
 パスパターンはパス全体にマッチしなければならず、リポジトリのルートを出発点とします。
 
-| パターン                                                 | マッチの説明                                                                                                      | マッチの例                                                                                        |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `'*'`                                                | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | -`README.md`<br/>-`server.rb`                                                          |
-| `'*.jsx?'`                                           | `?`はゼロ個以上の先行するキャラクタにマッチします。                                                                                 | -`page.js`<br/>-`page.jsx`                                                             |
-| `'**'`                                               | ワイルドカードの`**`は、スラッシュ（`/`）を含む任意のキャラクタにマッチします。 これは `path`フィルタを使わない場合のデフォルトの動作です。                               | -`all/the/files.md`                                                                          |
-| `'*.js'`                                             | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 リポジトリのルートにあるすべての`.js`ファイルにマッチします。                         | -`app.js`<br/>-`index.js`                                                              |
-| `'**.js'`                                            | リポジトリ内のすべての`.js`ファイルにマッチします。                                                                                | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js`                              |
-| `docs/*`                                             | リポジトリのルートの`docs`のルートにあるすべてのファイルにマッチします。                                                                     | -`docs/README.md`<br/>-`docs/file.txt`                                                 |
-| `docs/**`                                            | リポジトリのルートの`docs`内にあるすべてのファイルにマッチします。                                                                        | -`docs/README.md`<br/>-`docs/mona/octocat.txt`                                         |
-| `docs/**/*.md`                                       | `docs`ディレクトリ内にある`.md`というサフィックスを持つファイルにマッチします。                                                               | -`docs/README.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md` |
-| `'**/docs/**'`                                       | リポジトリ内にある`docs`ディレクトリ内のすべてのファイルにマッチします、                                                                     | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`   |
-| `'**/README.md'`                                     | リポジトリ内にあるREADME.mdファイルにマッチします。                                                                              | -`README.md`<br/>-`js/README.md`                                                       |
-| `'**/*src/**'`                                       | リポジトリ内にある`src`というサフィックスを持つフォルダ内のすべてのファイルにマッチします。                                                            | -`a/src/app.js`<br/>-`my-src/code/js/app.js`                                           |
-| `'**/*-post.md'`                                     | リポジトリ内にある`-post.md`というサフィックスを持つファイルにマッチします。                                                                 | -`my-post.md`<br/>-`path/their-post.md`                                                |
-| `'**/migrate-*.sql'`                                 | リポジトリ内の`migrate-`というプレフィックスと`.sql`というサフィックスを持つファイルにマッチします。                                                  | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql`    |
-| -`*.md`<br/>-`!README.md`                      | 感嘆符（`!`）をパターンの前に置くと、そのパターンの否定になります。 あるファイルがあるパターンにマッチし、ファイル中でその後に定義されている否定パターンにマッチした場合、そのファイルは含まれません。       | -`hello.md`<br/>_マッチしない_<br/>-`README.md`<br/>-`docs/hello.md`           |
-| -`*.md`<br/>-`!README.md`<br/>-`README*` | パターンは順番にチェックされます。 先行するパターンを否定するパターンで、ファイルパスが再度含まれるようになります。                                                  | -`hello.md`<br/>-`README.md`<br/>-`README.doc`                                   |
+| パターン                                                                    | マッチの説明                                                                                                      | マッチの例                                                                                                                    |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `'*'`                                                                   | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 `*`はYAMLにおける特別なキャラクタです。 パターンを`*`で始める場合は、クオートを使わなければなりません。 | `README.md`<br/><br/>`server.rb`                                                                             |
+| `'*.jsx?'`                                                              | `?`はゼロ個以上の先行するキャラクタにマッチします。                                                                                 | `page.js`<br/><br/>`page.jsx`                                                                                |
+| `'**'`                                                                  | ワイルドカードの`**`は、スラッシュ（`/`）を含む任意のキャラクタにマッチします。 これは `path`フィルタを使わない場合のデフォルトの動作です。                               | `all/the/files.md`                                                                                                       |
+| `'*.js'`                                                                | ワイルドカードの`*`は任意のキャラクタにマッチしますが、スラッシュ（`/`）にはマッチしません。 リポジトリのルートにあるすべての`.js`ファイルにマッチします。                         | `app.js`<br/><br/>`index.js`                                                                                 |
+| `'**.js'`                                                               | リポジトリ内のすべての`.js`ファイルにマッチします。                                                                                | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
+| `docs/*`                                                                | リポジトリのルートの`docs`のルートにあるすべてのファイルにマッチします。                                                                     | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `docs/**`                                                               | リポジトリのルートの`docs`内にあるすべてのファイルにマッチします。                                                                        | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/**/*.md`                                                          | `docs`ディレクトリ内にある`.md`というサフィックスを持つファイルにマッチします。                                                               | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
+| `'**/docs/**'`                                                          | リポジトリ内にある`docs`ディレクトリ内のすべてのファイルにマッチします、                                                                     | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/README.md'`                                                        | リポジトリ内にあるREADME.mdファイルにマッチします。                                                                              | `README.md`<br/><br/>`js/README.md`                                                                          |
+| `'**/*src/**'`                                                          | リポジトリ内にある`src`というサフィックスを持つフォルダ内のすべてのファイルにマッチします。                                                            | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
+| `'**/*-post.md'`                                                        | リポジトリ内にある`-post.md`というサフィックスを持つファイルにマッチします。                                                                 | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
+| `'**/migrate-*.sql'`                                                    | リポジトリ内の`migrate-`というプレフィックスと`.sql`というサフィックスを持つファイルにマッチします。                                                  | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
+| `*.md`<br/><br/>`!README.md`                                | 感嘆符（`!`）をパターンの前に置くと、そのパターンの否定になります。 あるファイルがあるパターンにマッチし、ファイル中でその後に定義されている否定パターンにマッチした場合、そのファイルは含まれません。       | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | パターンは順番にチェックされます。 先行するパターンを否定するパターンで、ファイルパスが再度含まれるようになります。                                                  | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - アカウント
+  - notifications
 ---
 
 コミットをコマンドラインからプッシュする際には、[Git で設定した](/articles/setting-your-commit-email-address)メールアドレスがコミットに関連付けられます。 この設定により、コマンドライン上で個人のメールアドレスを使用してコミットをプッシュすることがブロックされます。

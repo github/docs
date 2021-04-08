@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - 企业
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -12,7 +14,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-要使 {% data variables.product.prodname_dotcom_the_website %} 中的特定操作可用于工作流程，您可以使用 {% data variables.product.company_short %} 的开源 [`actions-sync`](https://github.com/actions/actions-sync) 工具将操作仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到企业实例。 有关访问 {% data variables.product.prodname_dotcom_the_website %} 上操作的其他方式，请参阅“[关于 {% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)”。
+推荐的允许从 {% data variables.product.prodname_dotcom_the_website %} 访问操作的方法是启用自动访问所有操作。 通过使用 {% data variables.product.prodname_github_connect %} 将 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 集成可实现这一点。 更多信息请参阅“[启用使用 {% data variables.product.prodname_github_connect %} 自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
+
+但是，如果您想更严格地控制企业中允许的操作，您可以按照本指南使用 {% data variables.product.company_short %} 的开源 [`actions-sync`](https://github.com/actions/actions-sync) 工具将各个操作仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到企业实例。
 
 ### 关于 `actions-sync` 工具
 
@@ -61,8 +65,8 @@ versions:
      * 将 `--repo-name` 参数替换为 `--repo-name-list` 或 `--repo-name-list-file` 便可同步多个操作。 更多信息请参阅 [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync)。
 1. 在企业实例上创建操作仓库后，企业中的人员可以使用目标仓库在其工作流程中引用操作。 对于上面显示的示例操作：
 
-   ```
+   ```yaml
    uses: synced-actions/docker-build-push-action@v1
    ```
 
-   更多信息请参阅“[GitHub 操作的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses)”。
+   更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses)”。

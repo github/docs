@@ -1,21 +1,21 @@
 ---
-title: Discussions guides
+title: Guias de discussões
 shortTitle: Guias
-intro: 'Discover pathways to get started or learn best practices for participating or monitoring your community''s discussions.'
+intro: 'Descubra caminhos para começar ou aprender as práticas recomendadas para participar ou monitorar as discussões da sua comunidade.'
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Getting started with discussions
+### Introdução às discussões
 
 {% link_in_list /about-discussions %}
 {% link_in_list /best-practices-for-community-conversations-on-github %}
 {% link_in_list /finding-discussions-across-multiple-repositories %} <!--
 {% link_in_list /managing-notifications-for-discussions %} -->
 
-### Administering discussions
+### Administrando discussões
 
 {% link_in_list /granting-higher-permissions-to-top-contributors %}
 

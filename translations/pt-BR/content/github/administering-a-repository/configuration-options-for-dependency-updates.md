@@ -308,7 +308,7 @@ updates:
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %} ](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
 
 
 {% endnote %}

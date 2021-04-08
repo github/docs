@@ -12,7 +12,8 @@ featuredLinks:
     - /packages/manage-packages/installing-a-package
   popular:
     - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/learn-github-packages
     - /packages/guides/configuring-apache-maven-for-use-with-github-packages
   guideCards:
     - /packages/guides/configuring-npm-for-use-with-github-packages
@@ -20,17 +21,17 @@ featuredLinks:
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
   - 
-    title: Packages container support is an opt-in beta
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
+    title: ghcr.io maintenance mode on 2021-01-09
+    date: '2021-01-08'
+    href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
   - 
-    title: Organization admins access to containers
-    date: '2020-11-16'
-    href: https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers/
+    title: ghcr.io container names redirect to the container page
+    date: '2020-12-14'
+    href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
   - 
-    title: Packages now respects IP allow list settings
-    date: '2020-11-12'
-    href: https://github.blog/changelog/2020-11-12-packages-now-respects-ip-allow-list-settings/
+    title: Filter for tagged and untagged containers
+    date: '2020-12-14'
+    href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
@@ -39,6 +40,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

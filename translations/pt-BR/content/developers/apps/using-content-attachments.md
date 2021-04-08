@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - aplicativos github
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -77,7 +79,7 @@ Para obter mais informações sobre a criação de um token de instalação, con
 
 **Etapa 5.** Você verá o novo anexo de conteúdo aparecer no link de um pull request ou comentário de um problema:
 
-![Conteúdo anexado a uma referência em um problema](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![Conteúdo anexado a uma referência em um problema](/assets/images/github-apps/content_reference_attachment.png)
 
 ### Usar anexos de conteúdo no GraphQL
 Nós fornecemos o `node_id` no evento [`content_reference` webhook](/webhooks/event-payloads/#content_reference) para que você possa fazer referência à mutação `createContentAttachment` na API do GraphQL.
@@ -166,7 +168,7 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
     }
     ```
 
-4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Navegue até [localhost:3000](http://localhost:3000)e clique no botão **Registrar aplicativo GitHub**:
+4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Acesse `http://localhost:3000` e clique no botão **Registrar aplicativo GitHub**:
 
    ![Registrar um aplicativo GitHub do Probot](/assets/images/github-apps/github_apps_probot-registration.png)
 
@@ -175,4 +177,4 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
 7. Adicione um comentário ao problema aberto que inclui a URL que você configurou no arquivo `app.yml`.
 8. Dê uma olhada no comentário do problema e você verá uma atualização que se parece com isso:
 
-   ![Conteúdo anexado a uma referência em um problema](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![Conteúdo anexado a uma referência em um problema](/assets/images/github-apps/content_reference_attachment.png)

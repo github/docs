@@ -1,5 +1,5 @@
 ---
-title: Apply for a student developer pack
+title: 申请学生开发包
 intro: '作为学生，可以申请 {% data variables.product.prodname_student_pack %}，其中包括 {% data variables.product.prodname_dotcom %} 合作伙伴的特惠和福利。'
 redirect_from:
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
@@ -18,7 +18,7 @@ versions:
 - 拥有 [{% data variables.product.prodname_dotcom %} 用户帐户](/articles/signing-up-for-a-new-github-account)
 - 至少年满 13 岁
 
-证明您现任学生身份的文件包括学校 ID 照看、班级课程表、成绩单和归属或入学签到函。
+证明您现任学生身份的文件包括具有当前注册日期的学校 ID 照片、班级课程表、成绩单以及附属关系或入学签到函。
 
 在作为学生期间，可能会提示您定期重新验证目前的学业身份。
 

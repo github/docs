@@ -1,15 +1,10 @@
 ---
 title: Exploring the dependencies of a repository
 intro: 'Using the dependency graph, you can see the packages your project depends on{% if currentVersion == "free-pro-team@latest" %} and the repositories that depend on it{% endif %}. また、その依存関係で脆弱性が検出されると、それも表示されます。'
-redirect_from:
-  - /articles/listing-the-packages-that-a-repository-depends-on
-  - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
-  - /articles/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '<=2.22'
+topics:
+  - repositories
 ---
 
 ### 依存関係グラフの表示
@@ -37,13 +32,7 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
-{% data variables.product.prodname_dependabot_alerts %}.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
+{% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -57,12 +46,6 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,6 +76,24 @@ You can also enable or disable the dependency graph for all repositories owned b
 4. リポジトリ データへの読み取りアクセスを {% data variables.product.product_name %} に許可して依存関係グラフを有効にすることに関するメッセージを読んだうえで、[Dependency Graph] の隣にある [**Enable**] をクリックします。 ![依存関係グラフの [Enable] ボタン](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 [Security & analysis] タブで [Dependency Graph] の隣にある [**Disable**] をクリックすれば、依存関係グラフはいつでも無効にできます。
+
+### Changing the "Used by" package
+
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+
+!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+
+Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
 ### 依存関係グラフのトラブルシューティング

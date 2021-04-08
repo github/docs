@@ -5,13 +5,15 @@ redirect_from:
   - /articles/downgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorship downgrades
+### Sobre downgrades de patrocínio
 
-When you downgrade or cancel a sponsorship, the change will become effective on your next billing date. {% data reusables.sponsors.no-refunds %}
+Ao fazer o downgrade ou cancelar um patrocínio, a alteração entrará em vigor na sua próxima data de cobrança. {% data reusables.sponsors.no-refunds %}
 
 ### Fazer downgrade de um patrocínio
 

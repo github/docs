@@ -9,13 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Sobre READMEs
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+É possível adicionar um arquivo README a um repositório para comunicar informações importantes sobre o seu projeto. Um README, junto com uma licença de repositório{% if currentVersion == "free-pro-team@latest" %}, diretrizes de contribuição, e um código de conduta{% elsif enterpriseServerVersions contains currentVersion %} e diretrizes de contribuição{% endif %}, comunica as expectativas para o seu projeto e ajuda você a gerenciar contribuições.
 
-For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte {% if currentVersion == "free-pro-team@latest" %}"[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)e {% endif %}"[Configurar o seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
 
 Um README, muitas vezes, é o primeiro item que um visitante verá ao visitar seu repositório. Os arquivos README geralmente incluem informações sobre:
 - O que o projeto faz
@@ -42,7 +44,7 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 ### Links de seção nos arquivos README e páginas blob
 
-Muitos projetos usam uma tabela de conteúdo no início de um LEIAME para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
+Muitos projetos usam uma tabela de conteúdo no início de um README para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
 
 ### Links relativos e caminhos de imagem em arquivos README
 

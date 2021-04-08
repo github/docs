@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Problemas
+  - notificações
+  - contas
 ---
 
 O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia.
@@ -25,11 +30,11 @@ Por exemplo, você pode usar bifurcações para propor alterações relacionadas
 
 O software de código aberto baseia-se na ideia de que ao compartilhar códigos, podemos criar softwares melhores e mais confiáveis. Para obter mais informações, consulte "[Sobre a Iniciativa Open Source](http://opensource.org/about)" em Iniciativa Open Source.
 
-For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+Para obter mais informações sobre a aplicação dos princípios de código aberto ao trabalho de desenvolvimento da sua organização em {% data variables.product.product_location %}, consulte o white paper de {% data variables.product.prodname_dotcom %} "[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](http://choosealicense.com/)" em choosealicense.
+Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](http://choosealicense.com/)" em choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 

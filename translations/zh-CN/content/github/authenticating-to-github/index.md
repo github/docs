@@ -17,6 +17,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 2fa
+  - 身份
+  - 访问管理
+  - 用户名
+  - 设备验证
 ---
 
 

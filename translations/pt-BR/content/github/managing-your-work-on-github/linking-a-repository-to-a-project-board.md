@@ -7,13 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-{% note %}
-
-**Observação:** Para vincular um repositório à sua organização ou quadro de projeto de propriedade de usuário, o repositório precisa ter problemas habilitados. Para obter informações sobre como ver se os problemas estão desabilitados em um repositório, consulte "[Desabilitar problemas](/github/managing-your-work-on-github/disabling-issues)".
-
-{% endnote %}
 
 Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincular repositórios pertencentes a essa organização ou conta de usuário ao quadro de projeto. Para obter mais informações, consulte "[Permissões de quadro de projeto da organização](/articles/project-board-permissions-for-an-organization/)" ou "[Níveis de permissão para quadros de projetos de propriedade de usuários](/articles/permission-levels-for-user-owned-project-boards/)".
 
@@ -26,6 +23,12 @@ Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincu
 5. Clique em **Link a repository** (Vincular um repositório). ![Botão Link a repository (Vincular um repositório) na aba Linked repositories (Repositórios vinculados)](/assets/images/help/projects/link-repository-button.png)
 6. Pesquise o repositório que você deseja vincular. ![Campo de pesquisa na janela Link a repository (Vincular um repositório)](/assets/images/help/projects/search-to-link-repository.png)
 7. Clique em **Link**. Para desvincular, clique em **Unlink** (Desvincular). ![Botão Link (Vincular)](/assets/images/help/projects/link-button.png)
+
+{% note %}
+
+**Observação:** Para vincular um repositório à sua organização ou quadro de projeto de propriedade de usuário, o repositório precisa ter problemas habilitados. Ou seja, o repositório tem uma aba "Problemas" (os problemas nos repositórios bifurcados são desabilitados por padrão).  Para obter informações sobre como habilitar ou desabilitar problemas para um repositório, consulte "[Desabilitar problemas para um repositório](/github/managing-your-work-on-github/disabling-issues). "
+
+{% endnote %}
 
 ### Leia mais
 

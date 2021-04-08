@@ -1,0 +1,1 @@
+1. Teclea el nombre de usuario y dirección de correo electrónico de cada cuenta de usuario que quieras crear, posteriormente, da clic en **Generar un enlace para restablecer la contraseña**. ![Botón de generar un enlace para restablecer la contraseña](/assets/images/enterprise/site-admin-settings/generate-password-reset-link-button.png)

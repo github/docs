@@ -1,1 +1,1 @@
-1. In the list of classrooms, click the classroom you want to view. ![Classroom in list of classrooms for an organization](/assets/images/help/classroom/click-classroom-in-list.png)
+1. 在课堂列表中，单击要查看的课堂。 ![组织教室列表中的教室](/assets/images/help/classroom/click-classroom-in-list.png)

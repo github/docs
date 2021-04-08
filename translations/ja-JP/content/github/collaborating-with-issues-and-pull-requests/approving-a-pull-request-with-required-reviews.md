@@ -7,11 +7,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
-必須レビューに関する詳しい情報については[プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)を参照してください。
+必須レビューに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。
 
-プルリクエストにコメントしたり、変更を承認したり、承認に先立って改善をリクエストしたりできます。 詳しい情報については[プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)及び[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)を参照してください。
+プルリクエストにコメントしたり、変更を承認したり、承認に先立って改善をリクエストしたりできます。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
 
 {% data reusables.search.requested_reviews_search %}
 
@@ -34,6 +36,5 @@ versions:
 
 ### 参考リンク
 
-- [プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)
 - [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)

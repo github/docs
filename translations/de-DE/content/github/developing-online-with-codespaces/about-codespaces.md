@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -38,6 +40,8 @@ Jeder Entwickler kann ein oder mehrere Codespaces für jedes öffentliche Reposi
 
 {% data reusables.codespaces.about-personalization %} Weitere Informationen findest Du unter „[{% data variables.product.prodname_codespaces %} für Dein Konto personalisieren](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
 
+You can configure settings to add encrypted secrets, enable GPG verification, and allow codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}
@@ -54,4 +58,4 @@ Eine begrenzte Anzahl von Personen wird eingeladen, der Beta-Phase beizutreten. 
 
 Wenn Du bei der Verwendung von {% data variables.product.prodname_codespaces %} Probleme entdeckst, lies bitte „[Fehlerbehebung Deines Codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)."
 
-If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Community Forum](https://github.community/c/codespaces-beta/45).
+If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Codespaces Feedback](https://github.com/github/feedback/discussions/categories/codespaces-feedback) discussion.

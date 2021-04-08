@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github search
 ---
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
@@ -27,10 +29,11 @@ Aufgrund der Komplexität der Codesuche gelten bei der Durchführung der Suche E
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - Nur Dateien kleiner 384 KB sind durchsuchbar.{% else %}* Nur Dateien kleiner 5 MB sind durchsuchbar.
 - Nur die ersten 500 KB jeder Datei sind durchsuchbar.{% endif %}
-- Nur Repositorys mit weniger als 500.000 Dateien sind durchsuchbar.
-- Ihre Suchabfrage nach Code muss mindestens einen Suchbegriff enthalten. Ausgenommen hiervon sind Suchen nach [`filename`](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
+- Only repositories with fewer than 500,000 files are searchable.{% if currentVersion == "free-pro-team@latest" %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+- Deine Quellcode-Suche muss mindestens einen Suchbegriff enthalten, ausgenommen bei [`filename`-Suchen](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
 - Die Suchergebnisse können maximal zwei gefundene Fragmente der gleichen Datei anzeigen, selbst wenn die Datei mehr Treffer enthält.
-- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. Diese Zeichen werden bei der Suche ignoriert.
+- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. Diese Zeichen werden bei der Suche schlicht ignoriert.
 
 ### Suche nach Dateiinhalten oder Dateipfad
 

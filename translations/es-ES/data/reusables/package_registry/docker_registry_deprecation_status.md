@@ -1,0 +1,5 @@
+{% warning %}
+
+**Nota:** El registro de Docker de {% data variables.product.prodname_registry %} {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} ofrecerá compatibilidad mejorada para contenedores en un lanzamiento subsecuente de {% data variables.product.product_name %}.{% elsif currentVersion == "free-pro-team@latest" %} ahora ofrece una compatibilidad mejorada para los conetenedores. Para obtener más información, consulta la sección "[Acerca del Registro de Contenedores de GitHub](/packages/guides/about-github-container-registry)". Para aprender a migrar tus imágenes existentes de Docker y cualquier flujo de trabajo que las utilice, consulta las secciones "[Migrarse a {% data variables.product.prodname_github_container_registry %} para las imágenes de Docker](/packages/guides/migrating-to-github-container-registry-for-docker-images)" y "[Guías de los contenedores para el {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)".{% endif %}
+
+{% endwarning %}

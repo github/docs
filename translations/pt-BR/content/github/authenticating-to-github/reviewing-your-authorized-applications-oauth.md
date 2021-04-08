@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidade
+  - gerenciamento de acesso
 ---
 
 {% data reusables.user_settings.access_settings %}

@@ -1,74 +1,67 @@
 ---
-title: Reviewing dependency changes in a pull request
-intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+title: Revendo alterações de dependência em um pull request
+intro: 'Se um pull request tiver alterações nas dependências, você poderá ver um resumo do que alterou e se há vulnerabilidades conhecidas em qualquer uma das dependências.'
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
+
+<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
 {% note %}
 
-**Note:** Dependency review is currently in beta and subject to change.
+**Observação:** A revisão de dependências está atualmente em fase beta e sujeita a alterações.
 
 {% endnote %}
 
-### About dependency review
+### Sobre revisão de dependências
 
-If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
+{% data reusables.dependency-review.feature-overview %}
 
-Dependency review is available in:
+Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-* All public repositories.
-* Private repositories owned by organizations with an {% data variables.product.prodname_advanced_security %} license that have the dependency graph enabled. Para obter mais informações, consulte "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
-
-Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
-
-By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. {% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix them at some later date. Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
-
-Dependency review supports the same languages and package management ecosystems as the dependency graph. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
-
-### Reviewing dependencies in a pull request
+### Revisar as dependências em um pull request
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
 
-1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
+1. Se o pull request contiver muitos arquivos, use o menu suspenso **Filtro de arquivo** para recolher todos os arquivos que não registram dependências. Isso fará com que seja mais fácil focar a sua revisão nas alterações de dependência.
 
-   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png)
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
   {% note %}
 
-   **Note:** The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   **Observação:** A revisão de dependências fornece uma visão mais clara do que foi alterado em arquivos de bloqueio grandes, em que o diff de origem não é renderizado por padrão.
 
    {% endnote %}
 
-1. Check the dependencies listed in the dependency review.
+1. Verifique as dependências listadas na revisão sobre dependências.
 
-   ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
+   ![Alertas de vulnerabilidade em revisão de dependências](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 
-   Any added or changed dependencies that have vulnerabilities are listed first, ordered by severity and then by dependency name. This means that the highest severity dependencies are always at the top of a dependency review. Other dependencies are listed alphabetically by dependency name.
+   Quaisquer dependências adicionadas ou alteradas com vulnerabilidades são listadas primeiro, ordenadas por gravidade e, posteriormente, pelo nome da dependência. Isso significa que as dependências de severidade mais elevadas estão sempre na parte superior de uma revisão de dependência. Outras dependências estão listadas em ordem alfabética pelo nome das dependências.
 
-   The icon beside each dependency indicates whether the dependency has been added (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), updated (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), or removed (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) in this pull request.
+   O ícone ao lado de cada dependência indica se a dependência foi adicionada (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), atualizada (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>) ou removida (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) neste pull request.
 
-   Other information includes:
+   Outras informações incluem:
 
-   * The version, or version range, of the new, updated, or deleted dependency.
-   * For a specific version of a dependency:
-      * The age of that release of the dependency.
-      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * A versão, ou intervalo de versão, da nova dependência, atualizada ou excluída.
+   * Para uma versão específica de uma dependência:
+      * A idade daquela versão da dependência.
+      * O número de projetos que são dependentes deste software. Essa informação é tirada do gráfico de dependências. Verificar o número de dependentes pode ajudar você a evitar adicionar acidentalmente a dependência incorreta.
+      * A licença usada por esta dependência, se estas informações estiverem disponíveis. Isso é útil se você desejar evitar o código com certas licenças usadas no seu projeto.
 
-   Where a dependency has a known vulnerability, the warning message includes:
+   Quando uma dependência tem uma vulnerabilidade conhecida, a mensagem de aviso inclui:
 
-   * A brief description of the vulnerability.
-   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   * The severity of the vulnerability.
-   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * Uma breve descrição da vulnerabilidade.
+   * Vvulnerabilidades e Exposições Comuns (CVE) ou um número de identificação de {% data variables.product.prodname_security_advisories %} (GHSA). Você pode clicar nesse ID para saber mais sobre a vulnerabilidade.
+   * A gravidade da vulnerabilidade.
+   * A versão da dependência na qual a vulnerabilidade foi corrigida. Se você estiver revisando um pull request para alguém, você pode pedir ao contribuidor para atualizar a dependência para a versão corrigida ou para uma versão posterior.
 
-1. You can return to the original view of the file by clicking the source diff button.
-
-   ![The source diff button](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+{% data reusables.repositories.return-to-source-diff %}

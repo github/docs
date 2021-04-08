@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### Informationen zu Pull-Request-Reviews
@@ -44,9 +46,7 @@ Du kannst alle Reviews eines Pull Requests in der Zeitleiste der Unterhaltung an
 
 ### Erforderliche Reviews
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
-
-Weitere Informationen findest Du unter „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests).“
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
 {% tip %}
 
@@ -57,6 +57,5 @@ Weitere Informationen findest Du unter „[Informationen zu erforderlichen Revie
 ### Weiterführende Informationen
 
 - „[Vorgeschlagene Änderungen in einem Pull Request prüfen](/articles/reviewing-proposed-changes-in-a-pull-request)“
-- „[Erforderliche Reviews für Pull Requests aktivieren](/articles/enabling-required-reviews-for-pull-requests)“
 - „[Einen Pull-Request-Review anzeigen](/articles/viewing-a-pull-request-review)“
 - „[Richtlinien für Repository-Mitarbeiter festlegen](/articles/setting-guidelines-for-repository-contributors)“

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -31,6 +33,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -50,6 +53,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}

@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - oauth apps
 ---
 
 {% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授予类型](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}以及 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)（针对无法访问 web 浏览器的应用程序）{% endif %}。
@@ -72,13 +74,13 @@ versions:
 
 ##### 参数
 
-| 名称              | 类型    | 描述                                                                                                                  |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端 ID。 |
-| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端密钥。  |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                              |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                             |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                               |
+| 名称              | 类型    | 描述                                                                                                                 |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。 |
+| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端密钥。  |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                             |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                            |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                              |
 
 ##### 响应
 
@@ -265,7 +267,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### 为 OAuth 应用程序创建多个令牌
 

@@ -6,10 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+defaultPlatform: linux
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. セルフホストランナー アプリケーションが現在実行中の場合は、そのアプリケーションを停止します。{% endcapture %}
 {% capture service_non_windows_intro_shell %}ランナー マシンで、セルフホストランナー アプリケーションをインストールしたディレクトリでシェルを開きます。 以下のコマンドを使って、セルフホストランナーサービスをインストール及び管理します。{% endcapture %}
@@ -79,7 +84,7 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
 
 {% linux %}
 ```shell
-./svc.sh install
+sudo ./svc.sh start
 ```
 {% endlinux %}
 {% windows %}
@@ -99,7 +104,7 @@ Start-Service "{{ service_win_name }}"
 
 {% linux %}
 ```shell
-./svc.sh start
+sudo ./svc.sh status
 ```
 {% endlinux %}
 {% windows %}

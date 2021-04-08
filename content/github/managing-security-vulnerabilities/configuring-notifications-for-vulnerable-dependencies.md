@@ -3,8 +3,9 @@ title: Configuring notifications for vulnerable dependencies
 shortTitle: Configuring notifications
 intro: 'Optimize how you receive notifications about  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
+  enterprise-server: '>=2.21 <=2.22'
+topics:
+  - security
 ---
 
 ### About notifications for vulnerable dependencies
@@ -40,7 +41,7 @@ You can configure notification settings for yourself or your organization from t
 
 {% note %}
 
-**Note:** You can filter your {% data variables.product.company_short %} inbox notifications to show {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)."
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
 
 {% endnote %}
 

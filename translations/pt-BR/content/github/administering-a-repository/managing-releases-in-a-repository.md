@@ -13,14 +13,16 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion ver_gt "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
 ### Sobre o gerenciamento da versão
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
+Você também pode publicar uma ação a partir de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
 {% endif %}
 Você pode escolher se
 

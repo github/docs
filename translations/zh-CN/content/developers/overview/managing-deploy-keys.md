@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -43,7 +45,9 @@ versions:
 * 用户不必更改其本地 SSH 设置。
 * 不需要多个令牌（每个用户一个）；每个服务器一个令牌就足够了。
 * 令牌可随时撤销，本质上变成一次性密码。
+{% if enterpriseServerVersions contains currentVersion %}
 * 可以使用 [OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization) 轻松编写生成新令牌的脚本。
+{% endif %}
 
 ##### 缺点
 

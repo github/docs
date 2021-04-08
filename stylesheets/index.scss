@@ -47,6 +47,7 @@ $marketing-font-path: "/dist/fonts/";
 @import "search.scss";
 @import "overrides.scss";
 @import "sidebar.scss";
+@import "scroll-button.scss";
 @import "explorer.scss";
 // from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 @import "syntax-highlighting.scss";
@@ -56,5 +57,6 @@ $marketing-font-path: "/dist/fonts/";
 @import "shadows.scss";
 @import "product-landing.scss";
 @import "dev-toc.scss";
+@import "gradient.scss";
+@import "product-sublanding.scss";
 @import "release-notes.scss";
-@import "gradients.scss";
