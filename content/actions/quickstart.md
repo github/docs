@@ -27,7 +27,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
     {% raw %}
     ```yaml{:copy}
-    name: Super-Linter
+    name: dotam
 
     # Run this workflow every time a new commit pushed to your repository
     on: push
