@@ -1,8 +1,8 @@
 const languages = require('../lib/languages')
 const enterpriseServerReleases = require('../lib/enterprise-server-releases')
 const allVersions = require('../lib/all-versions')
-const allProducts = require('../lib/all-products')
-const activeProducts = Object.values(allProducts).filter(product => !product.wip && !product.hidden)
+const { productMap } = require('../lib/all-products')
+const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
 const {
   getVersionStringFromPath,
   getProductStringFromPath,
@@ -37,7 +37,7 @@ module.exports = async function contextualize (req, res, next) {
   req.context.currentVersion = getVersionStringFromPath(req.path)
   req.context.currentProduct = getProductStringFromPath(req.path)
   req.context.currentCategory = getCategoryStringFromPath(req.path)
-  req.context.allProducts = allProducts
+  req.context.productMap = productMap
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.path)
