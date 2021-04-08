@@ -98,12 +98,12 @@
             <div class="col-12 col-lg-4 mb-4 mb-lg-0">
               <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
                 <h3 class="f4 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.whats_new %}</h3>
-                <a href="https://github.blog/changelog/" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+                <a href="{{ changelogUrl }}" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
               </div>
               <ul class="list-style-none">
-                {% for link in page.changelog %}
+                {% for link in whatsNewChangelog %}
                   <li class="border-top">
-                    <a href="{{ link.href }}" class="d-block text-gray-dark Bump-link--hover py-3 no-underline">
+                    <a href="{{ link.href }}" class="d-block text-gray-dark Bump-link--hover py-3 no-underline capitalize">
                       <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
                       <time
                         class="tooltipped tooltipped-n text-gray-light text-mono mt-1"
