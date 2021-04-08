@@ -1,7 +1,8 @@
 ---
-title: Understanding how GitHub uses and protects your data
+title: How GitHub uses and protects your data
 redirect_from:
   - /categories/understanding-how-github-uses-and-protects-your-data
+  - /github/understanding-how-github-uses-and-protects-your-data
 versions:
   free-pro-team: '*'
 ---
