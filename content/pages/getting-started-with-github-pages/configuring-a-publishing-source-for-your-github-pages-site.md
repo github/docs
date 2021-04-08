@@ -1,6 +1,6 @@
 ---
 title: Configuring a publishing source for your GitHub Pages site
-intro: 'If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your{% if currentVersion ver_lt "enterprise-server@2.23" %} project{% endif %} site from a different branch or folder.'
+intro: 'If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your{% if currentVersion ver_lt "enterprise-server@3.0" %} project{% endif %} site from a different branch or folder.'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages/
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -19,18 +19,18 @@ For more information about publishing sources, see "[About {% data variables.pro
 
 ### Choosing a publishing source
 
-Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@2.23" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@2.23" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %} 
+Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@3.0" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@3.0" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 4. Optionally, use the drop-down menu to select a folder for your publishing source.
   ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 5. Click **Save**.
-  ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
-  {% else %}
+  ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png){% else %}
 3. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select a publishing source.
    ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
