@@ -24,6 +24,7 @@ topics:
 2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
 3. If the `gh-pages` branch was your publishing source, {% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
   ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}

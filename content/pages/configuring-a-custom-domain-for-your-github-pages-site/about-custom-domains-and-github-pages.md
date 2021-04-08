@@ -24,7 +24,9 @@ topics:
 | Custom subdomain | `blog.example.com` |
 | Apex domain        | `example.com` |
 
-You can set up either or both types of custom domains for your site. We recommend always using a `www` subdomain, even if you also use an apex domain. For more information, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+
+We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 After you configure a custom domain for a user or organization site, the custom domain will replace the `<user>.github.io` or `<organization>.github.io` portion of the URL for any project sites owned by the account that do not have a custom domain configured. For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
 
@@ -38,11 +40,11 @@ Subdomains are configured with a `CNAME` record through your DNS provider. For m
 
 A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
 
-`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers. Your site will also load faster because Denial of Service (DoS) attack protection can be implemented more efficiently.
+`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
 
 #### Custom subdomains
 
-A custom subdomain is a type of subdomain that doesn't use the standard `www` subdomain. Custom subdomains are mostly used when you want two distinct sections of your site. For example, you can create a site called `blog.example.com` and customize that section independently from `www.example.com`.
+A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. Custom subdomains are mostly used when you want two distinct sections of your site. For example, you can create a site called `blog.example.com` and customize that section independently from `www.example.com`.
 
 ### Using an apex domain for your {% data variables.product.prodname_pages %} site
 
