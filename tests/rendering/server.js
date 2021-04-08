@@ -215,7 +215,7 @@ describe('server', () => {
   })
 
   test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM('/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites')
+    const $ = await getDOM('/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites')
     expect($.text().includes('{{ page.title }}')).toBe(true)
   })
 

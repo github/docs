@@ -6,7 +6,7 @@ name: Repo Freeze Reminders
 
 on:
   schedule:
-    - cron: '00 11 * * *' # once per day around 11:00am UTC
+    - cron: '9 11 * * *' # once per day around 11:09am UTC
 
 env:
   FREEZE: ${{ secrets.FREEZE }}

@@ -48,7 +48,7 @@ With auto-merge, pull requests can be set to merge automatically when all merge 
 #### Developer changes
 
 - [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
-- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
 - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
 - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
 - It’s now easier and faster to [reference issues or pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), with search across multiple words after the "#".  
