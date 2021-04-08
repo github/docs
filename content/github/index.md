@@ -23,7 +23,7 @@ versions:
 {% link_in_list /managing-subscriptions-and-notifications-on-github %}
 
 <!-- Notifications v1 -->
-{% link_in_list /setting-up-and-managing-organizations-and-teams %}
+
 {% link_in_list /setting-up-and-managing-your-enterprise %}
 {% link_in_list /setting-up-and-managing-billing-and-payments-on-github %}
 

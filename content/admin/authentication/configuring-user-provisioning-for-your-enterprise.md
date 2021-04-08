@@ -28,7 +28,7 @@ The provisioning application on your IdP communicates with {% data variables.pro
 
 {% data reusables.scim.supported-idps %}
 
-When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. For more information, see "[Synchronizing a team with an identity provider group](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)."
+When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 ### Prerequisites
 
