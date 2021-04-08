@@ -13,7 +13,7 @@ By default, authorized users can access your enterprise from any IP address. Ent
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)."
+You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. Enterprise owners can contact {% data variables.contact.github_support %} to configure access restrictions for your instance.
 

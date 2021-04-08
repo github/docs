@@ -67,7 +67,7 @@ For public repositories, the dependents view shows how the repository is used by
 
 Repository administrators can enable or disable the dependency graph for private repositories.
 
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](//organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -109,7 +109,7 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 ### Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
+- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Understanding how {% data variables.product.product_name %} uses and protects your data](/github/understanding-how-github-uses-and-protects-your-data)"
 {% endif %}
