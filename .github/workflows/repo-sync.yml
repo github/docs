@@ -23,10 +23,10 @@ on:
 jobs:
   close-invalid-repo-sync:
     name: Close invalid Repo Sync PRs
-    if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
       - name: Find pull request
+        if: ${{ github.repository == 'github/docs' }}
         uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
         id: find-pull-request
         with:
@@ -35,7 +35,7 @@ jobs:
           base: main
 
       - name: Close pull request if unwanted
-        if: ${{ steps.find-pull-request.outputs.number }}
+        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
