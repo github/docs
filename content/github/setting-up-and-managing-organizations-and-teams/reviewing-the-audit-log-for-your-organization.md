@@ -142,9 +142,9 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 #### Using the REST API
 
-{% note %}
+{% note %} 
 
-**Note:** The audit log REST API is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only.
+**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. 
 
 {% endnote %}
 
@@ -154,7 +154,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
-For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
 {% endif %}
 
@@ -270,9 +270,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% note %}
 
-**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a public beta for users of {% data variables.product.prodname_ghe_cloud %} only.
-
-For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+**Note:** To access Git events in the audit log, you must use the audit log REST API. The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. For more information, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
 {% endnote %}
 
