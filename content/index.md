@@ -16,7 +16,7 @@ versions: '*'
 children:
   - github
   - admin
-  - discussions
+  - organizations
   - code-security
   - actions
   - packages
@@ -24,6 +24,7 @@ children:
   - rest
   - graphql
   - insights
+  - discussions
   - communities
   - pages
   - education
