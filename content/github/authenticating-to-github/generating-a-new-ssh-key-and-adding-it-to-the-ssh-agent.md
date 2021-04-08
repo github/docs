@@ -158,3 +158,4 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 {%- if currentVersion == "free-pro-team@latest" %}
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {%- endif %}
+git@github.com:HAWAIIBEATCH/hello-world.git
