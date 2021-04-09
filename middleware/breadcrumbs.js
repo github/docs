@@ -19,6 +19,11 @@ module.exports = async function breadcrumbs (req, res, next) {
   pathParts.shift()
 
   const productPath = path.posix.join('/', req.context.currentProduct)
+
+  if (!req.context.siteTree[req.language][req.context.currentVersion].products) {
+    return next()
+  }
+
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
   if (!product) {
