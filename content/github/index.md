@@ -1,4 +1,4 @@
----
+---@nsit
 title: GitHub.com
 redirect_from:
   - /articles/
@@ -20,8 +20,7 @@ versions:
 {% link_in_list /authenticating-to-github %}
 
 <!-- Notifications v2 beta -->
-{% link_in_list /managing-subscriptions-and-notifications-on-github %}
-
+{% link_in_list /managing-subscriptions-and-notifications-on-github %
 <!-- Notifications v1 -->
 
 {% link_in_list /setting-up-and-managing-your-enterprise %}
