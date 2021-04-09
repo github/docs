@@ -32,6 +32,7 @@ If you manually added a Jekyll theme to your repository in the past, those files
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}," click **Choose a theme** or **Change theme**.
   ![Choose a theme button](/assets/images/help/pages/choose-a-theme.png)
 4. On the top of the page, click the theme you want, then click **Select theme**.
