@@ -14,6 +14,7 @@ const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
+const prerenderInputObjects = require('./utils/prerender-input-objects')
 const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
 
 // check for required PAT
@@ -42,6 +43,7 @@ async function main () {
   const previewsJson = {}
   const upcomingChangesJson = {}
   const prerenderedObjects = {}
+  const prerenderedInputObjects = {}
 
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
@@ -77,7 +79,11 @@ async function main () {
     // because the objects page is too big to render on page load
     prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
 
-    // 5. UPDATE CHANGELOG
+    // 5. PRERENDER INPUT OBJECTS HTML
+    // because the objects page is too big to render on page load
+    prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(schemaJsonPerVersion, version)
+
+    // 6. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
       // The Changelog is only build for free-pro-team@latest
       const changelogEntry = await createChangelogEntry(
@@ -96,6 +102,7 @@ async function main () {
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
   updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+  updateStaticFile(prerenderedInputObjects, path.join(graphqlStaticDir, 'prerendered-input-objects.json'))
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')
