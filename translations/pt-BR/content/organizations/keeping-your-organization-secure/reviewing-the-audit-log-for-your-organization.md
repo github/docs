@@ -1,6 +1,6 @@
 ---
-title: Revisar o log de auditoria da organização
-intro: 'O log de auditoria permite que os administradores da organização revisem rapidamente as ações executadas pelos integrantes da organização. O painel detalha informações como o tipo de ação, o autor da ação e quando a ação foi executada.'
+title: Reviewing the audit log for your organization
+intro: 'The audit log allows organization admins to quickly review the actions performed by members of your organization. It includes details such as who performed the action, what the action was, and when it was performed.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
@@ -14,145 +14,144 @@ topics:
   - teams
 ---
 
-### Acessar o log de auditoria
+### Accessing the audit log
 
-O log de auditoria lista os eventos acionados por atividades que afetaram a sua organização nos últimos 90 dias. Somente proprietários conseguem acessar o log de auditoria da organização.
+The audit log lists events triggered by activities that affect your organization within the last 90 days. Only owners can access an organization's audit log.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 
-### Pesquisar no log de auditoria
+### Searching the audit log
 
 {% data reusables.audit_log.audit-log-search %}
 
-#### Pesquisar com base na ação
+#### Search based on the action performed
 
-Para pesquisar eventos específicos, use o qualificador `action` na consulta. As ações listadas no log de auditoria são agrupadas nas seguintes categorias:
+To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
 
-| Categoria                                                                                                                                                                                                                                                                                                                                                                                    | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| [`conta`](#account-category-actions)                                                                                                                                                                                                                                                                                                                                                         | Contém todas as atividades relacionadas à conta da sua organização.                                                                                                                                                                                                                                                                                                                                                                   |
-| [`advisory_credit`](#advisory_credit-category-actions)                                                                                                                                                                                                                                                                                                                                       | Contém todas as atividades relacionadas ao crédito de um colaborador de uma consultoria de segurança no {% data variables.product.prodname_advisory_database %}. Para obter mais informações, consulte "[Sobre consultoria de segurança de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".                                                              |
-| [`cobrança`](#billing-category-actions)                                                                                                                                                                                                                                                                                                                                                      | Contém todas as atividades relacionadas à cobrança da organização.                                                                                                                                                                                                                                                                                                                                                                    |
-| [`dependabot_alerts`](#dependabot_alerts-category-actions)                                                                                                                                                                                                                                                                                                                                   | Contém atividades de configuração do nível de organização para alertas de {% data variables.product.prodname_dependabot %} em repositórios existentes. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"                                                                                                      |
-| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions)                                                                                                                                                                                                                                                                                                               | Contém atividades de configuração do nível de organização para alertas de {% data variables.product.prodname_dependabot %} em novos repositórios criados na organização.                                                                                                                                                                                                                                                              |
-| [`dependabot_security_updates`](#dependabot_security_updates-category-actions)                                                                                                                                                                                                                                                                                                               | Contém atividades de configuração a nível da organização para {% data variables.product.prodname_dependabot_security_updates %} em repositórios existentes. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."                                                          |
-| [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions)                                                                                                                                                                                                                                                                                           | Contém atividades de configuração do nível da organização em {% data variables.product.prodname_dependabot_security_updates %} para novos repositórios criados na organização.                                                                                                                                                                                                                                                      |
-| [`dependency_graph`](#dependency_graph-category-actions)                                                                                                                                                                                                                                                                                                                                     | Contém atividades de configuração a nível da organização para gráficos de dependências nos repositórios. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".                                                                                                                                                                        |
-| [`dependency_graph_new_repos`](#dependency_graph_new_repos-category-actions)                                                                                                                                                                                                                                                                                                                 | Contém atividades de configuração no nível da organização para novos repositórios criados na organização:{% endif %}
-| [`discussion_post`](#discussion_post-category-actions)                                                                                                                                                                                                                                                                                                                                       | Contém todas as atividades relacionadas às discussões publicadas em uma página de equipe.                                                                                                                                                                                                                                                                                                                                             |
-| [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                                                                                                                                                                                                                           | Contém todas as atividades relacionadas às respostas de discussões publicadas em uma página de equipe.                                                                                                                                                                                                                                                                                                                                |
-| [`hook`](#hook-category-actions)                                                                                                                                                                                                                                                                                                                                                             | Tem todas as atividades relacionadas a webhooks.                                                                                                                                                                                                                                                                                                                                                                                      |
-| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                                                                                                                                                                                                                     | Contém todas as atividades relacionadas a solicitações de integrantes da organização para proprietários aprovarem integrações para uso na organização.                                                                                                                                                                                                                                                                                |
-| [`problema`](#issue-category-actions)                                                                                                                                                                                                                                                                                                                                                        | Contém atividades relacionadas à exclusão de um problema.                                                                                                                                                                                                                                                                                                                                                                             |{% if currentVersion == "free-pro-team@latest" %}
-| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions)                                                                                                                                                                                                                                                                                                       | Contém todas as atividades relacionadas à assinatura do Contrato de desenvolvedor do {% data variables.product.prodname_marketplace %}.                                                                                                                                                                                                                                                                                               |
-| [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                                                                                                                                                                                                                               | Contém todas as atividades relacionadas a listar aplicativos em {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-| [`members_can_create_pages`](#members_can_create_pages-category-actions)                                                                                                                                                                                                                                                                                                                     | Contém todas as atividades relacionadas ao gerenciamento da publicação de sites do {% data variables.product.prodname_pages %} para repositórios na organização. Para obter mais informações, consulte "[Gerenciar a publicação de sites de {% data variables.product.prodname_pages %} para a sua organização](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)". |{% endif %}
-| [`org`](#org-category-actions)                                                                                                                                                                                                                                                                                                                                                               | Contém atividades relacionadas à associação da organização.{% if currentVersion == "free-pro-team@latest" %}
-| [`org_credential_authorization`](#org_credential_authorization-category-actions)                                                                                                                                                                                                                                                                                                             | Contém todas as atividades relacionadas à autorização de credenciais para uso com SAML único de login.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| [`organization_label`](#organization_label-category-actions)                                                                                                                                                                                                                                                                                                                                 | Contém todas as atividades relacionadas a etiquetas padrão na sua organização.{% endif %}
-| [`oauth_application`](#oauth_application-category-actions)                                                                                                                                                                                                                                                                                                                                   | Contém todas as atividades relacionadas aos aplicativos OAuth.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-| [`pacotes`](#packages-category-actions)                                                                                                                                                                                                                                                                                                                                                      | Contém todas as atividades relacionadas a {% data variables.product.prodname_registry %}.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`payment_method`](#payment_method-category-actions)                                                                                                                                                                                                                                                                                                                                         | Contém todas as atividades relacionadas a como sua organização paga pelo GitHub.{% endif %}
-| [`profile_picture`](#profile_picture-category-actions)                                                                                                                                                                                                                                                                                                                                       | Contém todas as atividades relacionadas à imagem de perfil da organização.                                                                                                                                                                                                                                                                                                                                                            |
-| [`project`](#project-category-actions)                                                                                                                                                                                                                                                                                                                                                       | Contém todas as atividades relacionadas aos quadros de projeto.                                                                                                                                                                                                                                                                                                                                                                       |
-| [`protected_branch`](#protected_branch-category-actions)                                                                                                                                                                                                                                                                                                                                     | Contém todas as atividades relacionadas aos branches protegidos.                                                                                                                                                                                                                                                                                                                                                                      |
-| [`repo`](#repo-category-actions)                                                                                                                                                                                                                                                                                                                                                             | Contém atividades relacionadas aos repositórios pertencentes à sua organização.{% if currentVersion == "free-pro-team@latest" %}
-| [`repository_advisory`](#repository_advisory-category-actions)                                                                                                                                                                                                                                                                                                                               | Contém atividades no nível do repositório relacionadas às consultorias de segurança no {% data variables.product.prodname_advisory_database %}.  Para obter mais informações, consulte "[Sobre consultoria de segurança de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".                                                                              |
-| [`repository_content_analysis`](#repository_content_analysis-category-actions)                                                                                                                                                                                                                                                                                                               | Contém todas as atividades relacionadas a [habilitar ou desabilitar o uso de dados em um repositório privado](/articles/about-github-s-use-of-your-data).{% endif %}{% if currentVersion != "github-ae@latest" %}
-| [`repository_dependency_graph`](#repository_dependency_graph-category-actions)                                                                                                                                                                                                                                                                                                               | Contém atividades do nível de repositório relacionadas a habilitar ou desabilitar o gráfico de dependências para um                                                                                                                                                                                                                                                                                                                   |
-| repositório {% if currentVersion == "free-pro-team@latest" %}privado{% endif %}. Para obter mais informações, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph).{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} |                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions)                                                                                                                                                                                                                                                                                                                 | Contém atividades no nível do repositório relacionadas ao escaneamento do segredo. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)."                                                                                                                                                                                                                 |{% endif %}{% if currentVersion != "github-ae@latest" %}
-| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions)                                                                                                                                                                                                                                                                                                         | Contém todas as atividades relacionadas a [{% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions)                                                                                                                                                                                                                                                                                                       | Contém atividades de configuração do nível do repositório para alertas de {% data variables.product.prodname_dependabot %}.                                                                                                                                                                                                                                                                                                           |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| [`secret_scanning`](#secret_scanning-category-actions)                                                                                                                                                                                                                                                                                                                                       | Contém atividades de configuração a nível da organização para varredura de segredo em repositórios existentes. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)."                                                                                                                                                                                     |
-| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions)                                                                                                                                                                                                                                                                                                                   | Contém atividades de configuração a nível da organização para varredura de segredo de novos repositórios criados na organização.                                                                                                                                                                                                                                                                                                      |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`sponsors`](#sponsors-category-actions)                                                                                                                                                                                                                                                                                                                                                     | Contém todos os eventos relacionados a botões de patrocinadores (consulte "[Exibir um botão de patrocinador no repositório](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
-| [`equipe`](#team-category-actions)                                                                                                                                                                                                                                                                                                                                                           | Tem todas as atividades relacionadas às equipes na organização.                                                                                                                                                                                                                                                                                                                                                                       |
-| [`team_discussions`](#team_discussions-category-actions)                                                                                                                                                                                                                                                                                                                                     | Contém atividades relacionadas ao gerenciamento de discussões de equipe na organização.                                                                                                                                                                                                                                                                                                                                               |
+| Category name | Description
+|------------------|-------------------{% if currentVersion == "free-pro-team@latest" %}
+| [`account`](#account-category-actions) | Contains all activities related to your organization account.
+| [`advisory_credit`](#advisory_credit-category-actions) | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
+| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in new repositories created in the organization.
+| [`dependabot_security_updates`](#dependabot_security_updates-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+| [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
+| [`dependency_graph`](#dependency_graph-category-actions) | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+| [`dependency_graph_new_repos`](#dependency_graph_new_repos-category-actions) | Contains organization-level configuration activities for new repositories created in the organization.{% endif %}
+| [`discussion_post`](#discussion_post-category-actions) | Contains all activities related to discussions posted to a team page.
+| [`discussion_post_reply`](#discussion_post_reply-category-actions) | Contains all activities related to replies to discussions posted to a team page.
+| [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
+| [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
+| [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% if currentVersion == "free-pro-team@latest" %}
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
+| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
+| [`org`](#org-category-actions) | Contains activities related to organization membership.{% if currentVersion == "free-pro-team@latest" %}
+| [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+| [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
+| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
+| [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your organization's profile picture.
+| [`project`](#project-category-actions) | Contains all activities related to project boards.
+| [`protected_branch`](#protected_branch-category-actions) | Contains all activities related to protected branches.
+| [`repo`](#repo-category-actions) | Contains activities related to the repositories owned by your organization.{% if currentVersion == "free-pro-team@latest" %}
+| [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
+| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
+| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
 
-Você pode pesquisar conjuntos específicos de ações usando esses termos. Por exemplo:
+You can search for specific sets of actions using these terms. For example:
 
-  * `action:team` localiza todos os eventos agrupados na categoria da equipe;
-  * `-action:hook` exclui todos os eventos na categoria de webhook.
+  * `action:team` finds all events grouped within the team category.
+  * `-action:hook` excludes all events in the webhook category.
 
-Cada categoria tem um conjunto de ações associadas que você pode filtrar. Por exemplo:
+Each category has a set of associated actions that you can filter on. For example:
 
-  * `action:team.create` localiza todos os eventos em que uma equipe foi criada;
-  * `-action:hook.events_changed` exclui todos os eventos nos quais os eventos em um webhook foram alterados.
+  * `action:team.create` finds all events where a team was created.
+  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-#### Pesquisar com base na hora da ação
+#### Search based on time of action
 
-Use o qualificador `created` para filtrar eventos no log de auditoria com base na hora que elas ocorreram. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-Por exemplo:
+For example:
 
-  * `created:2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014;
-  * `created:>=2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014 ou depois dessa data;
-  * `created:<=2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014 ou antes dessa data;
-  * `created:2014-07-01..2014-07-31`  localiza todos os eventos ocorridos em julho de 2014.
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-O log de auditoria contém dados dos últimos 90 dias, mas você pode usar o qualificador `created` para pesquisar eventos mais antigos.
+The audit log contains data for the past 90 days, but you can use the `created` qualifier to search for events earlier than that.
 
-#### Pesquisar com base no local
+#### Search based on location
 
-Ao usar o qualificador `país`, você pode filtrar eventos no log de auditoria com base no país de origem. Você pode usar o código de duas letras do país ou o nome completo. Lembre-se de que os país com espaços no nome devem ser colocados entre aspas. Por exemplo:
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-  * `country:de` localiza todos os eventos ocorridos na Alemanha;
-  * `country:Mexico` localiza todos os eventos ocorridos no México;
-  * `country:"United States"` localiza todos os eventos ocorridos nos Estados Unidos.
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Exportar o log de auditoria
+### Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-### Usando a API do log de auditoria
+### Using the audit log API
 
-Você pode interagir com o log de auditoria usando a API GraphQL{% if currentVersion == "free-pro-team@latest" %} ou a API REST{% endif %}.
+You can interact with the audit log using the GraphQL API{% if currentVersion == "free-pro-team@latest" %} or the REST API{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### Usando a API GraphQL
+#### Using the GraphQL API
 
 {% endif %}
 
 {% note %}
 
-**Nota**: A API GraphQL de auditoria do log está disponível para organizações usando {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
+**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
 
 {% endnote %}
 
-Para garantir um IP seguro e manter conformidade para a sua organização, você pode usar a API GraphQL de auditoria para manter cópias dos seus dados de log de auditoria e do monitor:
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Observe que você não pode recuperar eventos Git usando a API GraphQL. Para recuperar eventos do Git, use a API REST. Para obter mais informações, consulte "[`git` ações de categoria](#git-category-actions)".
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
 {% endif %}
 
-A resposta do GraphQL pode incluir dados por até 90 a 120 dias.
+The GraphQL response can include data for up to 90 to 120 days.
 
-Por exemplo, você pode fazer uma solicitação GraphQL para ver todos os novos integrantes adicionados à organização. Para obter mais informações, consulte o " "[Log de auditoria da API do GraphQL](/graphql/reference/interfaces#auditentry/)".
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### Usando a API REST
+#### Using the REST API
 
-{% note %}
+{% note %} 
 
-**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only.
+**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. 
 
 {% endnote %}
 
-Para garantir um IP seguro e manter conformidade para a sua organização, você pode usar a API REST de auditoria para manter cópias dos seus dados de log de auditoria e monitorar:
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
-* Eventos do Git, como clonar, buscar e fazer push
+* Git events, such as cloning, fetching, and pushing
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
@@ -160,484 +159,486 @@ For more information about the audit log REST API, see "[Organizations](/rest/re
 
 {% endif %}
 
-### Ações do log de auditoria
+### Audit log actions
 
-Uma visão geral de algumas das ações mais comuns registradas como eventos no log de auditoria.
+An overview of some of the most common actions that are recorded as events in the audit log.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### ações de categoria da `conta`
+#### `account` category actions
 
-| Ação                          | Descrição                                                                                                                                                                                         |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `billing_plan_change`         | Acionada quando o [ciclo de cobrança](/articles/changing-the-duration-of-your-billing-cycle) da organização é alterado.                                                                           |
-| `plan_change`                 | Acionada quando a [assinatura](/articles/about-billing-for-github-accounts) da organização é alterada.                                                                                            |
-| `pending_plan_change`         | Acionada quando um gerente de cobrança ou proprietário da organização [cancela ou faz downgrade de uma assinatura paga](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/). |
-| `pending_subscription_change` | Acionada quando uma [avaliação gratuita do {% data variables.product.prodname_marketplace %} inicia ou expira](/articles/about-billing-for-github-marketplace/).                                  |
+| Action | Description
+|------------------|-------------------
+| `billing_plan_change` | Triggered when an organization's [billing cycle](/articles/changing-the-duration-of-your-billing-cycle) changes.
+| `plan_change` | Triggered when an organization's [subscription](/articles/about-billing-for-github-accounts) changes.
+| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/).
+| `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/articles/about-billing-for-github-marketplace/).
 
-#### ações de categoria de `advisory_credit`
+#### `advisory_credit` category actions
 
-| Ação      | Descrição                                                                                                                                                                                                                   |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aceitar` | Acionada quando alguém aceita crédito para uma consultoria de segurança. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)". |
-| `create`  | Acionada quando o administrador da consultoria de segurança adiciona alguém à seção de crédito.                                                                                                                             |
-| `recusar` | Acionada quando alguém rejeita crédito para uma consultoria de segurança.                                                                                                                                                   |
-| `destroy` | Acionada quando o administrador da consultoria de segurança remove alguém da seção de crédito.                                                                                                                              |
+| Action | Description
+|------------------|-------------------
+| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
+| `create` | Triggered when the administrator of a security advisory adds someone to the credit section.
+| `decline` | Triggered when someone declines credit for a security advisory.
+| `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
 
-#### ações de categoria de `cobrança`
+#### `billing` category actions
 
-| Ação                  | Descrição                                                                                                                                                   |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `change_billing_type` | Acionada quando a organização [altera o método de pagamento do {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method). |
-| `change_email`        | Acionada quando o [endereço de e-mail de cobrança](/articles/setting-your-billing-email) da organização é alterado.                                         |
+| Action | Description
+|------------------|-------------------
+| `change_billing_type` | Triggered when your organization [changes how it pays for {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method).
+| `change_email` | Triggered when your organization's [billing email address](/articles/setting-your-billing-email) changes.
 
-#### ações de categoria de `dependabot_alerts`
+#### `dependabot_alerts` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios {% if currentVersion == "free-pro-team@latest" %}privados {% endif %} existentes. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios {% if currentVersion == "free-pro-team@latest" %}privados {% endif %}.                                                                                                                                                                                                                                            |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
-#### ações de categoria de `dependabot_alerts_new_repos`
+#### `dependabot_alerts_new_repos` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita {% data variables.product.prodname_dependabot_alerts %} para todos os novos repositórios {% if currentVersion == "free-pro-team@latest" %}privados {% endif %}. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita {% data variables.product.prodname_dependabot_alerts %} para todos os novos repositórios {% if currentVersion == "free-pro-team@latest" %}privados{% endif %}.                                                                                                                                                                                                                                  |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
-#### ações de categoria de `dependabot_security_updates`
+#### `dependabot_security_updates` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita {% data variables.product.prodname_dependabot_security_updates %} em todos os repositórios existentes. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita {% data variables.product.prodname_dependabot_security_updates %} em todos os repositórios existentes.                                                                                                                                                                                                                                 |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.
 
-#### ações de categoria de `dependabot_security_updates_new_repos`
+#### `dependabot_security_updates_new_repos` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita {% data variables.product.prodname_dependabot_security_updates %} em todos os novos repositórios. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita {% data variables.product.prodname_dependabot_security_updates %} em todos os novos repositórios.                                                                                                                                                                                                                                 |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.
 
-#### ações de categoria de `dependency_graph`
+#### `dependency_graph` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita o gráfico de dependências em todos os repositórios existentes. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita o gráfico de dependências para todos os repositórios existentes.                                                                                                                                                                                                                               |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables the dependency graph for all existing repositories.
 
-#### ações de categoria de `dependency_graph_new_repos`
+#### `dependency_graph_new_repos` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                         |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita o gráfico de dependências em todos os novos repositórios. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita o gráfico de dependências para todos os novos repositórios.                                                                                                                                                                                                                               |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables the dependency graph for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables the dependency graph for all new repositories.
 
 {% endif %}
 
-#### ações de categoria de `discussion_post`
+#### `discussion_post` category actions
 
-| Ação      | Descrição                                                                                                                     |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `update`  | Acionada quando uma [postagem de discussão de equipe é editada](/articles/managing-disruptive-comments/#editing-a-comment).   |
-| `destroy` | Acionada quando uma [postagem de discussão de equipe é excluída](/articles/managing-disruptive-comments/#deleting-a-comment). |
+| Action | Description
+|------------------|-------------------
+| `update` | Triggered when [a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
+| `destroy` | Triggered when [a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
-#### ações de categoria de `discussion_post_reply`
+#### `discussion_post_reply` category actions
 
-| Ação      | Descrição                                                                                                                                   |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `update`  | Acionada quando a [resposta de uma postagem de discussão de equipe é editada](/articles/managing-disruptive-comments/#editing-a-comment).   |
-| `destroy` | Acionada quando a [resposta de uma postagem de discussão de equipe é excluída](/articles/managing-disruptive-comments/#deleting-a-comment). |
+| Action | Description
+|------------------|-------------------
+| `update` | Triggered when [a reply to a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
+| `destroy` | Triggered when [a reply to a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-#### Ações da categoria `empresa`
+#### `enterprise` category actions
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### ações da categoria `ambiente`
+#### `environment` category actions
 
-| Ação                    | Descrição                                                                                                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create_actions_secret` | Acionada quando um segredo é criado em um ambiente. Para obter mais informações, consulte ["Segredos do ambiente](/actions/reference/environments#environment-secrets)".     |
-| `delete`                | Acionada quando um ambiente é excluído. Para obter mais informações, consulte ["Excluir um ambiente](/actions/reference/environments#deleting-an-environment)".              |
-| `remove_actions_secret` | Acionada quando um segredo é removido de um ambiente. Para obter mais informações, consulte ["Segredos do ambiente](/actions/reference/environments#environment-secrets)".   |
-| `update_actions_secret` | Acionada quando um segredo em um ambiente é atualizado. Para obter mais informações, consulte ["Segredos do ambiente](/actions/reference/environments#environment-secrets)". |
+| Action | Description
+|------------------|-------------------
+| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/reference/environments#deleting-an-environment)."
+| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### ações da categoria `git`
+#### `git` category actions
 
 {% note %}
 
-**Observação:** Para acessar eventos Git no log de auditoria, você deve usar a API REST do log de auditoria. The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. For more information, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+**Note:** To access Git events in the audit log, you must use the audit log REST API. The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. For more information, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
 {% endnote %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
-| Ação    | Descrição                                                                |
-| ------- | ------------------------------------------------------------------------ |
-| `clone` | Acionada quando um repositório é clonado.                                |
-| `fetch` | Acionada quando alterações são obtidas de um repositório.                |
-| `push`  | Acionada quando as alterações são enviadas por push para um repositório. |
+| Action  | Description
+|---------|----------------------------
+| `clone` | Triggered when a repository is cloned.
+| `fetch` | Triggered when changes are fetched from a repository.
+| `push`  | Triggered when changes are pushed to a repository.
 
 {% endif %}
 
-#### ações de categoria de `hook`
+#### `hook` category actions
 
-| Ação             | Descrição                                                                                                 |
-| ---------------- | --------------------------------------------------------------------------------------------------------- |
-| `create`         | Acionada quando [um novo hook é adicionado](/articles/creating-webhooks) a um repositório da organização. |
-| `config_changed` | Acionada quando a configuração de um hook é alterada.                                                     |
-| `destroy`        | Acionada quando um hook é removido de um repositório.                                                     |
-| `events_changed` | Acionada quando os eventos em um hook são alterados.                                                      |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when [a new hook was added](/articles/creating-webhooks) to a repository owned by your organization.
+| `config_changed` | Triggered when an existing hook has its configuration altered.
+| `destroy` | Triggered when an existing hook was removed from a repository.
+| `events_changed` | Triggered when the events on a hook have been altered.
 
-#### ações de categoria de `integration_installation_request`
+#### `integration_installation_request` category actions
 
-| Ação     | Descrição                                                                                                                                                                                     |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create` | Acionada quando um integrante da organização pede para um proprietário da organização instalar uma integração para uso na organização.                                                        |
-| `close`  | Acionada quando uma solicitação de instalação de integração para uso na organização é aprovada ou negada pelo proprietário da organização ou cancelada pelo integrante que fez a solicitação. |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
+| `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
-#### ações de categoria de `problema`
+#### `issue` category actions
 
-| Ação      | Descrição                                                                                                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `destroy` | Acionada quando um proprietário da organização ou um usuário com permissões de administrador em um repositório exclui um problema de um repositório pertencente à organização. |
+| Action | Description
+|------------------|-------------------
+| `destroy`        | Triggered when an organization owner or someone with admin permissions in a repository deletes an issue from an organization-owned repository.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### ações de categoria de `marketplace_agreement_signature`
+#### `marketplace_agreement_signature` category actions
 
-| Ação     | Descrição                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------- |
-| `create` | Acionada quando você assina o Contrato de desenvolvedor do {% data variables.product.prodname_marketplace %}. |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
-#### ações de categoria de `marketplace_listing`
+#### `marketplace_listing` category actions
 
-| Ação      | Descrição                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------ |
-| `aprovar` | Acionada quando sua lista é aprovada para inclusão no {% data variables.product.prodname_marketplace %}.     |
-| `create`  | Acionada quando você cria uma lista para seu app no {% data variables.product.prodname_marketplace %}.       |
-| `delist`  | Acionada quando sua lista é removida do {% data variables.product.prodname_marketplace %}.                   |
-| `redraft` | Triggered when your listing is sent back to draft state.                                                     |
-| `reject`  | Acionada quando sua lista não é aprovada para inclusão no {% data variables.product.prodname_marketplace %}. |
+| Action | Description
+|------------------|-------------------
+| `approve` | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
+| `create` | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
+| `delist` | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
+| `redraft` | Triggered when your listing is sent back to draft state.
+| `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
-#### ações de categoria de `members_can_create_pages`
+#### `members_can_create_pages` category actions
 
-Para obter mais informações, consulte "[Gerenciar a publicação de sites de {% data variables.product.prodname_pages %} para a sua organização](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".
+For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
-| Ação          | Descrição                                                                                                                                                       |
-|:------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `habilitar`   | Acionada quando um proprietário da organização habilita a publicação de sites do {% data variables.product.prodname_pages %} nos repositórios da organização.   |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita a publicação de sites do {% data variables.product.prodname_pages %} nos repositórios da organização. |
+| Action | Description |
+| :- | :- |
+| `enable` | Triggered when an organization owner enables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
+| `disable` | Triggered when an organization owner disables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
 
 {% endif %}
 
-#### ações de categoria de `org`
+#### `org` category actions
 
-| Ação                                                                                                                                     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-| `advanced_security_policy_selected_member_disabled`                                                                                      | Triggered when an enterprise owner prevents {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `advanced_security_policy_selected_member_enabled`                                                                                       | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `audit_log_export`                                                                                                                       | Acionada quando um administrador da organização [cria uma exportação do log de auditoria da organização](#exporting-the-audit-log). Se a exportação incluir uma consulta, o log relacionará a consulta usada e o número de entradas do log de auditoria que correspondem à consulta.                                                                                                                                                                                                                                                     |
-| `block_user`                                                                                                                             | Acionada quando um proprietário da organização [bloqueia o acesso de um usuário aos repositórios da organização](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).                                                                                                                                                                                                                                                                                                                                 |
-| `cancel_invitation`                                                                                                                      | Acionada quando um convite para ingressar na organização é revogado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `create_actions_secret`                                                                                                                  | Acionada quando um segredo {% data variables.product.prodname_actions %} é criado na organização. Para obter mais informações, consulte "[Criar segredos criptografados para uma organização](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %}                                                                                                                                                                                                                                          |{% if currentVersion == "free-pro-team@latest"%}
-| `disable_oauth_app_restrictions`                                                                                                         | Acionada quando um proprietário [desabilita as restrições de acesso ao {% data variables.product.prodname_oauth_app %}](/articles/disabling-oauth-app-access-restrictions-for-your-organization) na organização.                                                                                                                                                                                                                                                                                                                       |
-| `disable_saml`                                                                                                                           | Acionada quando um administrador da organização desabilita o logon único SAML para uma organização.{% endif %}
-| `disable_member_team_creation_permission`                                                                                                | Acionada quando um proprietário da organização limita a criação de equipe a proprietários. Para obter mais informações, consulte "[Configurar permissões de criação de equipes na organização](/articles/setting-team-creation-permissions-in-your-organization)". |{% if currentVersion != "github-ae@latest" %}
-| `disable_two_factor_requirement`                                                                                                         | Acionada quando um proprietário desabilita uma exigência de autenticação de dois fatores para todos os integrantes{% if currentVersion == "free-pro-team@latest" %}, gerentes de cobrança{% endif %} e colaboradores externos na organização.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `enable_oauth_app_restrictions`                                                                                                          | Acionada quando um proprietário [habilita as restrições de acesso ao {% data variables.product.prodname_oauth_app %}](/articles/enabling-oauth-app-access-restrictions-for-your-organization) na organização.                                                                                                                                                                                                                                                                                                                          |
-| `enable_saml`                                                                                                                            | Acionada quando um administrador da organização [habilita o logon único SAML](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) na organização.{% endif %}
-| `enable_member_team_creation_permission`                                                                                                 | Acionada quando um proprietário da organização permite a criação de equipes pelos integrantes. Para obter mais informações, consulte "[Configurar permissões de criação de equipes na organização](/articles/setting-team-creation-permissions-in-your-organization)". |{% if currentVersion != "github-ae@latest" %}
-| `enable_two_factor_requirement`                                                                                                          | Acionada quando um proprietário exige a autenticação de dois fatores para todos os integrantes{% if currentVersion == "free-pro-team@latest" %}, gerentes de cobrança,{% endif %} e colaboradores externos em uma organização.{% endif %}
-| `invite_member`                                                                                                                          | Acionada quando [um novo usuário foi convidado a ingressar na organização](/articles/adding-organization-members-to-a-team).{% if currentVersion == "free-pro-team@latest" %}
-| `oauth_app_access_approved`                                                                                                              | Acionada quando um proprietário [concede acesso da organização a um {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).                                                                                                                                                                                                                                                                                                                                                           |
-| `oauth_app_access_denied`                                                                                                                | Acionada quando um proprietário [desabilita um acesso aprovado anteriormente ao {% data variables.product.prodname_oauth_app %}](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) na organização.                                                                                                                                                                                                                                                                                                    |
-| `oauth_app_access_requested`                                                                                                             | Acionada quando um integrante da organização solicita que um proprietário conceda um acesso de {% data variables.product.prodname_oauth_app %} à sua organização.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `register_self_hosted_runner`                                                                                                            | Acionada quando um novo executor auto-hospedado é registrado. Para obter mais informações, consulte "[Adicionar um executor auto-hospedado a uma organização](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)".                                                                                                                                                                                                                                                             |
-| `remove_actions_secret`                                                                                                                  | Acionada quando um segredo {% data variables.product.prodname_actions %} é removido.{% endif %}{% if currentVersion == "free-pro-team@latest"%}
-| `remove_billing_manager`                                                                                                                 | Acionada quando um [proprietário remove um gerente de cobrança da organização](/articles/removing-a-billing-manager-from-your-organization/) ou quando [a autenticação de dois fatores é exigida na organização](/articles/requiring-two-factor-authentication-in-your-organization) e um gerente de cobrança não usa ou desabilita a 2FA. 
-{% endif %}
-| `remove_member`                                                                                                                          | Acionada quando um proprietário [remove um integrante da organização](/articles/removing-a-member-from-your-organization/){% if currentVersion ! "github-ae@latest" %} ou quando [a autenticação de dois fatores é exigida em uma organização](/articles/requiring-two-factor-authentication-in-your-organization) e um membro da organização não usa a 2FA ou desabilita a 2FA{% endif %}. Também é acionada quando um [integrante da organização remove a si mesmo](/articles/removing-yourself-from-an-organization/) da organização. |
-| `remove_outside_collaborator`                                                                                                            | Acionada quando um proprietário remove um colaborador externo da organização{% if currentVersion ! "github-ae@latest" %} ou quando [a autenticação de dois fatores é necessária em uma organização](/articles/requiring-two-factor-authentication-in-your-organization) e um colaborador externo não usa 2FA ou desabilita a autenticação de dois fatores{% endif %}. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `remove_self_hosted_runner`                                                                                                              | Acionada quando um executor auto-hospedado é removido. Para obter mais informações, consulte "[Remover um executor de uma organização](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)."                                                                                                                                                                                                                                                                                          |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `revoke_external_identity`                                                                                                               | Acionada quando o proprietário de uma organização revoga a identidade vinculada a um integrante. Para obter mais informações, consulte "[Visualizar e gerenciar o acesso SAML de um integrante à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)".                                                                                                                                 |
-| `revoke_sso_session`                                                                                                                     | Acionada quando o proprietário de uma organização revoga a sessão SAML de um integrante. Para obter mais informações, consulte "[Visualizar e gerenciar o acesso SAML de um integrante à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)".                                                                                                                                         |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `runner_group_created`                                                                                                                   | Acionada quando um grupo de executores auto-hospedado é criado. Para obter mais informações, consulte "[Criar um grupo de executores auto-hospedados para uma organização](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)".                                                                                                                                                                                                              |
-| `runner_group_removed`                                                                                                                   | Acionada quando um grupo de executores auto-hospedados é removido. Para obter mais informações, consulte "[Remover um grupo de executores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)".                                                                                                                                                                                                                                                  |
-| `runner_group_updated`                                                                                                                   | Acionada quando a configuração de um grupo de executor auto-hospedado é alterada. Para obter mais informações, consulte "[Alterar a política de acesso de um grupo de executores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)".                                                                                                                                                                                      |
-| `runner_group_runners_added`                                                                                                             | Acionada quando um executor auto-hospedado é adicionado a um grupo. Para obter mais informações, consulte [Transferir um executor auto-hospedado para um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                                                                                                                                                                                                                                           |
-| `runner_group_runner_removed`                                                                                                            | Acionada quando a API REST é usada para remover um executor auto-hospedado de um grupo. Para obter mais informações, consulte "[Remover um executor auto-hospedado de um grupo para uma organização](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)".                                                                                                                                                                                                                                             |
-| `runner_group_runners_updated`                                                                                                           | Acionada quando a lista de integrantes do grupo de executor é atualizada. Para obter mais informações, consulte "[Definir executores auto-hospedados em um grupo para uma organização](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization).{% endif %}{% if currentVersion == "free-pro-team@latest"%}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `self_hosted_runner_updated`                                                                                                             | Acionada quando o executor é atualizado. Pode ser visto usando a API REST e a interface do usuário; não visível na exportação de JSON/CSV. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}
-| `unblock_user`                                                                                                                           | Acionada quando um proprietário da organização [desbloqueia um usuário da organização](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization).{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `update_actions_secret`                                                                                                                  | Acionada quando um segredo de {% data variables.product.prodname_actions %} é atualizado.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| `update_new_repository_default_branch_setting`                                                                                           | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."{% endif %}
-| `update_default_repository_permission`                                                                                                   | Acionada quando um proprietário altera o nível de permissão padrão do repositório para integrantes da organização.                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `update_member`                                                                                                                          | Acionada quando um proprietário altera a função de um usuário de proprietário para integrante ou de integrante para proprietário.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `update_member_repository_creation_permission`                                                                                           | Acionada quando um proprietário altera a permissão de criar repositório para integrantes da organização.{% if currentVersion == "free-pro-team@latest" %}
-| `update_saml_provider_settings`                                                                                                          | Acionada quando as configurações de um provedor de SAML da organização são atualizadas.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `update_terms_of_service`                                                                                                                | Acionada quando uma organização alterna entre Termos de serviço padrão e Termos de serviço corporativos. Para obter mais informações, consulte "[Atualizar para os Termos de serviço corporativos](/articles/upgrading-to-the-corporate-terms-of-service)".{% endif %}
+| Action | Description
+|------------------|-------------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+| `advanced_security_policy_selected_member_disabled` | Triggered when an enterprise owner prevents {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
+| `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
+| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% if currentVersion == "free-pro-team@latest"%}
+| `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.
+| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}
+| `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% if currentVersion != "github-ae@latest" %}
+| `disable_two_factor_requirement` | Triggered when an owner disables a two-factor authentication requirement for all members{% if currentVersion == "free-pro-team@latest" %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.
+| `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}
+| `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% if currentVersion != "github-ae@latest" %}
+| `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% if currentVersion == "free-pro-team@latest" %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}
+| `invite_member` | Triggered when [a new user was invited to join your organization](/articles/adding-organization-members-to-a-team).{% if currentVersion == "free-pro-team@latest" %}
+| `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).
+| `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {% data variables.product.prodname_oauth_app %}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
+| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
+| `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}{% if currentVersion == "free-pro-team@latest"%}
+| `remove_billing_manager` | Triggered when an [owner removes a billing manager from an organization](/articles/removing-a-billing-manager-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and a billing manager doesn't use 2FA or disables 2FA. |{% endif %}
+| `remove_member` | Triggered when an [owner removes a member from an organization](/articles/removing-a-member-from-your-organization/){% if currentVersion != "github-ae@latest" %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disables 2FA{% endif %}. Also triggered when an [organization member removes themselves](/articles/removing-yourself-from-an-organization/) from an organization.|
+| `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization{% if currentVersion != "github-ae@latest" %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA{% endif %}. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)." {% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
+| `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)." {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
+| `runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
+| `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+| `runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
+| `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
+| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% endif %}{% if currentVersion == "free-pro-team@latest"%}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}
+| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization).{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `update_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is updated.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `update_new_repository_default_branch_setting` | Triggered when an owner changes the name of the default branch for new repositories in the organization. For more information, see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."{% endif %}
+| `update_default_repository_permission` | Triggered when an owner changes the default repository permission level for organization members.
+| `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
+| `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% if currentVersion == "free-pro-team@latest" %}
+| `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
+| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### ações da categoria `org_credential_authorization`
+#### `org_credential_authorization` category actions
 
-| Ação           | Descrição                                                                                                                                                                                                       |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `grant`        | Acionada quando um integrante [autoriza credenciais para uso com logon único SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).                                                   |
-| `deauthorized` | Acionada quando um integrante [desautoriza credenciais para uso com logon único SAML](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).                                                |
-| `revogar`      | Acionada quando um proprietário [revoga credenciais autorizadas](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization). |
+| Action | Description
+|------------------|-------------------
+| `grant` | Triggered when a member [authorizes credentials for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).
+| `deauthorized` | Triggered when a member [deauthorizes credentials for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).
+| `revoke` | Triggered when an owner [revokes authorized credentials](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-#### ações da categoria `organization_label`
+#### `organization_label` category actions
 
-| Ação      | Descrição                                       |
-| --------- | ----------------------------------------------- |
-| `create`  | Acionada quando uma etiqueta padrão é criada.   |
-| `update`  | Acionada quando uma etiqueta padrão é editada.  |
-| `destroy` | Acionada quando uma etiqueta padrão é excluída. |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a default label is created.
+| `update` | Triggered when a default label is edited.
+| `destroy` | Triggered when a default label is deleted.
 
 {% endif %}
 
-#### ações da categoria `oauth_application`
+#### `oauth_application` category actions
 
-| Ação            | Descrição                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| `create`        | Acionada quando um {% data variables.product.prodname_oauth_app %} é criado.                             |
-| `destroy`       | Acionada quando um {% data variables.product.prodname_oauth_app %} é excluído.                           |
-| `reset_secret`  | Acionada quando um segredo do cliente de {% data variables.product.prodname_oauth_app %} é redefinido.   |
-| `revoke_tokens` | Acionada quando um token de usuário de {{% data variables.product.prodname_oauth_app %} é revogado.      |
-| `transferir`    | Acionada quando um {% data variables.product.prodname_oauth_app %} é transferido para outra organização. |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a new {% data variables.product.prodname_oauth_app %} is created.
+| `destroy` | Triggered when an existing {% data variables.product.prodname_oauth_app %} is deleted.
+| `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
+| `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
+| `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-#### Ações da categoria `pacotes`
+#### `packages` category actions
 
-| Ação                        | Descrição                                                                                                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `package_version_published` | Acionada quando uma versão do pacote é publicada.                                                                                                                                                      |
-| `package_version_deleted`   | Acionada quando uma versão específica do pacote é excluída. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)". |
-| `package_deleted`           | Acionada quando um pacote inteiro é excluído. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)".               |
-| `package_version_restored`  | Acionada quando uma versão específica do pacote é excluída. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)". |
-| `package_restored`          | Acionada quando um pacote inteiro é restaurado. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)".             |
+| Action | Description |
+|--------|-------------|
+| `package_version_published` | Triggered when a package version is published. |
+| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### ações de categoria `payment_method`
+#### `payment_method` category actions
 
-| Ação     | Descrição                                                                                                  |
-| -------- | ---------------------------------------------------------------------------------------------------------- |
-| `clear`  | Acionada quando um método de pagamento registrado é [removido](/articles/removing-a-payment-method).       |
-| `create` | Acionada quando um novo método de pagamento, como um novo cartão de crédito ou conta PayPal, é adicionado. |
-| `update` | Acionada quando um método de pagamento é atualizado.                                                       |
+| Action | Description
+|------------------|-------------------
+| `clear` | Triggered when a payment method on file is [removed](/articles/removing-a-payment-method).
+| `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
+| `update` | Triggered when an existing payment method is updated.
 
 {% endif %}
 
-#### ações de categoria `profile_picture`
-| Ação   | Descrição                                                                |
-| ------ | ------------------------------------------------------------------------ |
-| update | Acionada quando você define ou atualiza a foto de perfil da organização. |
+#### `profile_picture` category actions
+| Action | Description
+|------------------|-------------------
+| update | Triggered when you set or update your organization's profile picture.
 
-#### ações de categoria `project`
+#### `project` category actions
 
-| Ação                     | Descrição                                                                                                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create`                 | Acionada quando um quadro de projeto é criado.                                                                                                               |
-| `link`                   | Acionada quando um repositório é vinculado a um quadro de projeto.                                                                                           |
-| `rename`                 | Acionada quando um quadro de projeto é renomeado.                                                                                                            |
-| `update`                 | Acionada quando um quadro de projeto é atualizado.                                                                                                           |
-| `delete`                 | Acionada quando um quadro de projeto é excluído.                                                                                                             |
-| `unlink`                 | Acionada quando um repositório é desvinculado de um quadro de projeto.                                                                                       |
-| `update_org_permission`  | Acionada quando a permissão no nível de base para todos os integrantes da organização é alterada ou removida.                                                |
-| `update_team_permission` | Acionada quando o nível de permissão do quadro de projeto de uma equipe é alterado ou quando uma equipe é adicionada ou removida de um quadro de projeto.    |
-| `update_user_permission` | Acionada quando um integrante ou colaborador externo da organização é adicionado ou removido de um quadro de projeto ou tem seu nível de permissão alterado. |
+| Action | Description
+|--------------------|---------------------
+| `create` | Triggered when a project board is created.
+| `link` | Triggered when a repository is linked to a project board.
+| `rename` | Triggered when a project board is renamed.
+| `update` | Triggered when a project board is updated.
+| `delete` | Triggered when a project board is deleted.
+| `unlink` | Triggered when a repository is unlinked from a project board.
+| `update_org_permission` | Triggered when the base-level permission for all organization members is changed or removed. |
+| `update_team_permission` | Triggered when a team's project board permission level is changed or when a team is added or removed from a project board. |
+| `update_user_permission` | Triggered when an organization member or outside collaborator is added to or removed from a project board or has their permission level changed.|
 
-#### ações da categoria `protected_branch`
+#### `protected_branch` category actions
 
-| Ação                                                  | Descrição                                                                                                                                                                                                                                         |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`                                              | Acionada quando a proteção do branch é habilitada em um branch.                                                                                                                                                                                   |
-| `destroy`                                             | Acionada quando a proteção do branch é desabilitada em um branch.                                                                                                                                                                                 |
-| `update_admin_enforced`                               | Acionada quando a proteção do branch é exigida para os administradores do repositório.                                                                                                                                                            |
-| `update_require_code_owner_review`                    | Acionada quando a exigência da revisão do proprietário do código é atualizada em um branch.                                                                                                                                                       |
-| `dismiss_stale_reviews`                               | Acionada quando a exigência de ignorar pull requests obsoletas é atualizada em um branch.                                                                                                                                                         |
-| `update_signature_requirement_enforcement_level`      | Acionada quando a exigência de assinatura de commit obrigatória é atualizada em um branch.                                                                                                                                                        |
-| `update_pull_request_reviews_enforcement_level`       | Acionada quando a exigência de revisão de pull requests é atualizada em um branch.                                                                                                                                                                |
-| `update_required_status_checks_enforcement_level`     | Acionada quando a exigência de verificações de status obrigatórias é atualizada em um branch.                                                                                                                                                     |
-| `update_strict_required_status_checks_policy`         | Acionada quando a exigência de um branch estar atualizado antes de o merge ser alterado.                                                                                                                                                          |
-| `rejected_ref_update`                                 | Acionada quando uma tentativa de atualização do branch é rejeitada.                                                                                                                                                                               |
-| `policy_override`                                     | Acionada quando uma exigência de proteção de branch é substituída por um administrador do repositório.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| `update_allow_force_pushes_enforcement_level`         | Acionada quando o push forçado é habilitado ou desabilitado para um branch protegido.                                                                                                                                                             |
-| `update_allow_deletions_enforcement_level`            | Acionada quando a exclusão do branch é habilitada ou desabilitada para um branch protegido.                                                                                                                                                       |
-| `update_linear_history_requirement_enforcement_level` | Acionada quando o histórico de commit linear necessário está habilitado ou desabilitado em um branch protegido.                                                                                                                                   |
+| Action | Description
+|--------------------|---------------------
+| `create ` | Triggered when branch protection is enabled on a branch.
+| `destroy` | Triggered when branch protection is disabled on a branch.
+| `update_admin_enforced ` | Triggered when branch protection is enforced for repository administrators.
+| `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
+| `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
+| `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
+| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch.
+| `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
+| `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
+| `rejected_ref_update ` | Triggered when a branch update attempt is rejected.
+| `policy_override ` | Triggered when a branch protection requirement is overridden by a repository administrator.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+| `update_allow_force_pushes_enforcement_level ` | Triggered when force pushes are enabled or disabled for a protected branch.
+| `update_allow_deletions_enforcement_level ` | Triggered when branch deletion is enabled or disabled for a protected branch.
+| `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 {% endif %}
 
-#### ações de categoria `repo`
+#### `repo` category actions
 
-| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `access`                              | Acionada quando um usuário [altera a visibilidade](/github/administering-a-repository/setting-repository-visibility) de um repositório na organização.                                                                                                                                                                                                    |
-| `actions_enabled`                     | Acionada quando {% data variables.product.prodname_actions %} está habilitado para um repositório. Pode ser visto usando a interface do usuário. Este evento não é incluído quando você acessar o log de auditoria usando a API REST. Para obter mais informações, consulte "[Usar a API REST](#using-the-rest-api)".                                     |
-| `add_member`                          | Acionada quando um usuário aceita um [convite para ter acesso de colaboração em um repositório](/articles/inviting-collaborators-to-a-personal-repository).                                                                                                                                                                                               |
-| `add_topic`                           | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-| `advanced_security_disabled`          | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)". |
-| `advanced_security_enabled`           | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).".{% endif %}
-| `archived`                            | Acionada quando um administrador do repositório [arquiva um repositório](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
-| `config.disable_anonymous_git_access` | Acionada quando um [acesso de leitura anônimo do Git é desabilitado](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) em um repositório público.                                                                                                                                                       |
-| `config.enable_anonymous_git_access`  | Acionada quando um [acesso de leitura anônimo do Git é habilitado](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) em um repositório público.                                                                                                                                                         |
-| `config.lock_anonymous_git_access`    | Acionada quando a [configuração de acesso de leitura anônimo do Git de um repositório é bloqueada](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).                                                                                                                               |
-| `config.unlock_anonymous_git_access`  | Acionada quando a [configuração de acesso de leitura anônimo do Git de um repositório é desbloqueada](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
-| `create`                              | Acionada quando [um novo repositório é criado](/articles/creating-a-new-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `create_actions_secret`               | Acionada quando um segredo {% data variables.product.prodname_actions %} é criado em um repositório. Para obter mais informações, consulte "[Criar segredos criptografados para um repositório](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)".{% endif %}
-| `destroy`                             | Acionada quando [um repositório é excluído](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
-| `desabilitar`                         | Acionada quando um repositório é desabilitado (por exemplo, por [recursos financeiros insuficientes](/articles/unlocking-a-locked-account)).{% endif %}
-| `habilitar`                           | Acionada quando um repositório é reativado.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `remove_actions_secret`               | Acionada quando um segredo de {% data variables.product.prodname_actions %} é removido.{% endif %}
-| `remove_member`                       | Acionada quando um usuário é [removido de um repositório como colaborador](/articles/removing-a-collaborator-from-a-personal-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `register_self_hosted_runner`         | Acionada quando um novo executor auto-hospedado é registrado. Para obter mais informações, consulte "[Adicionar um executor auto-hospedado a um repositório](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository). ".                                                                                |
-| `remove_self_hosted_runner`           | Acionada quando um executor auto-hospedado é removido. Para obter mais informações, consulte "[Remover um executor de um repositório](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)".                                                                                                               |{% endif %}
-| `remove_topic`                        | Acionada quando um administrador do repositório remove um tópico de um repositório.                                                                                                                                                                                                                                                                       |
-| `rename`                              | Acionada quando [um repositório é renomeado](/articles/renaming-a-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `self_hosted_runner_updated`          | Acionada quando o executor é atualizado. Pode ser visto usando a API REST e a interface do usuário; não visível na exportação de JSON/CSV. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}
-| `transferir`                          | Acionada quando [um repositório é transferido](/articles/how-to-transfer-a-repository).                                                                                                                                                                                                                                                                   |
-| `transfer_start`                      | Acionada quando uma transferência de repositório está prestes a ocorrer.                                                                                                                                                                                                                                                                                  |
-| `unarchived`                          | Acionada quando um administrador do repositório desarquiva um repositório.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-| `update_actions_secret`               | Acionada quando um segredo de {% data variables.product.prodname_actions %} é atualizado.{% endif %}
+| Action | Description
+|------------------|-------------------
+| `access` | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.
+| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
+| `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
+| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+| `advanced_security_disabled` | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+| `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).".{% endif %}
+| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
+| `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
+| `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
+| `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
+| `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
+| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `create_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."{% endif %}
+| `destroy` | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
+| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}
+| `enable` | Triggered when a repository is reenabled.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}
+| `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
+| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)." {% endif %}
+| `remove_topic` | Triggered when a repository admin removes a topic from a repository.
+| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}
+| `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
+| `transfer_start` | Triggered when a repository transfer is about to occur.
+| `unarchived` | Triggered when a repository admin unarchives a repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### Ações da categoria `repository_advisory`
+#### `repository_advisory` category actions
 
-| Ação               | Descrição                                                                                                                                                                                                                                                        |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `close`            | Acionada quando alguém fecha uma consultoria de segurança. Para obter mais informações, consulte "[Sobre consultoria de segurança de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)". |
-| `cve_request`      | Acionada quando alguém solicita um número de CVE (Vulnerabilidades e Exposições Comuns) de {% data variables.product.prodname_dotcom %} para um rascunho da consultoria de segurança.                                                                            |
-| `github_broadcast` | Acionada quando {% data variables.product.prodname_dotcom %} torna uma consultoria de segurança pública em {% data variables.product.prodname_advisory_database %}.                                                                                            |
-| `github_withdraw`  | Acionada quando {% data variables.product.prodname_dotcom %} retira uma consultoria de segurança publicado com erro.                                                                                                                                             |
-| `aberto`           | Acionada quando alguém abre uma consultoria de segurança.                                                                                                                                                                                                        |
-| `publish`          | Acionada quando alguém publica uma consultoria de segurança.                                                                                                                                                                                                     |
-| `reabrir`          | Acionada quando alguém reabre como um rascunho de consultoria de segurança.                                                                                                                                                                                      |
-| `update`           | Acionada quando alguém edita um rascunho ou uma consultoria de segurança publicada.                                                                                                                                                                              |
+| Action | Description
+|------------------|-------------------
+| `close` | Triggered when someone closes a security advisory. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
+| `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
+| `github_withdraw` | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
+| `open` | Triggered when someone opens a draft security advisory.
+| `publish` | Triggered when someone publishes a security advisory.
+| `reopen` | Triggered when someone reopens as draft security advisory.
+| `update` | Triggered when someone edits a draft or published security advisory.
 
-#### ações de categoria de `repository_content_analysis`
+#### `repository_content_analysis` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `habilitar`   | Acionada quando o proprietário de uma organização ou pessoa com acesso de administrador ao repositório [habilita as configurações de uso de dados para um repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).   |
-| `desabilitar` | Acionada quando o proprietário de uma organização ou pessoa com acesso de administrador ao repositório [desabilita as configurações de uso de dados para um repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository). |
+| Action | Description
+|------------------|-------------------
+| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
+| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
 
 {% endif %}{% if currentVersion != "github-ae@latest" %}
 
-#### ações de categoria de `repository_dependency_graph`
+#### `repository_dependency_graph` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `desabilitar` | Acionada quando um proprietário ou pessoa do repositório com acesso de administrador ao repositório desabilita o gráfico de dependências de um{% if currentVersion == "free-pro-team@latest" %}repositório {% endif %}privado. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)". |
-| `habilitar`   | Acionada quando um proprietário ou pessoa do repositório com acesso de administrador ao repositório habilita o gráfico de dependências de um{% if currentVersion == "free-pro-team@latest" %}repositório {% endif %}privado.                                                                                                                                                         |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-#### ações de categoria de `repository_secret_scanning`
+#### `repository_secret_scanning` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                                          |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário ou pessoa com acesso de administrador ao repositório desabilita a varredura de segredo para um {% if currentVersion == "free-pro-team@latest" %}repositório {% endif %}privado. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
-| `habilitar`   | Acionada quando um proprietário ou pessoa com acesso de administrador ao repositório habilita a varredura de segredo secreta de um {% if currentVersion == "free-pro-team@latest" %}repositório {% endif %}privado.                                                                                                                                |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.
 
 {% endif %}{% if currentVersion != "github-ae@latest" %}
-#### ações de categoria de `repository_vulnerability_alert`
+#### `repository_vulnerability_alert` category actions
 
-| Ação       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`   | Acionada quando {% data variables.product.product_name %} cria um {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}alerta de segurança{% endif %} para um repositório que usa uma dependência vulnerável. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" |
-| `ignorar`  | Acionada quando um proprietário ou pessoa com acesso de administrador ao repositório ignorar um alerta de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}segurança{% endif %} sobre uma dependência vulnerável.                                                                                                                                                                   |
-| `resolver` | Acionada quando alguém com acesso de gravação a um repositório, faz alterações para atualizar e resolver uma vulnerabilidade na dependência de um projeto.                                                                                                                                                                                                                                                                                                                                        |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when {% data variables.product.product_name %} creates a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert about a vulnerable dependency.
+| `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" %}
-#### ações da categoria `repository_vulnerability_alerts`
+#### `repository_vulnerability_alerts` category actions
 
-| Ação                     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authorized_users_teams` | Acionada quando um proprietário da organização ou uma pessoa com permissões de administrador no repositório atualiza a lista de pessoas ou equipes autorizadas a receber {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis no repositório. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)". |
-| `desabilitar`            | Acionada quando um proprietário ou pessoa do repositório com acesso de administrador ao repositório desabilita {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                                    |
-| `habilitar`              | Acionada quando um proprietário ou pessoa do repositório com acesso de administrador ao repositório habilita {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                                      |
+| Action | Description
+|------------------|-------------------
+| `authorized_users_teams` | Triggered when an organization owner or a person with admin permissions to the repository updates the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_dependabot_alerts %}.
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-#### ações da categoria `secret_scanning`
+#### `secret_scanning` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                     |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita a varredura de segredo de todos os repositórios{% if currentVersion == "free-pro-team@latest" %} privados{% endif %} existentes. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
-| `habilitar`   | Acionada quando um proprietário da organização permite a varredura de segredo de todos os repositórios {% if currentVersion == "free-pro-team@latest" %} privados{% endif %} existentes.                                                                                                                                      |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories.
 
-#### ações da categoria `secret_scanning_new_repos`
+#### `secret_scanning_new_repos` category actions
 
-| Ação          | Descrição                                                                                                                                                                                                                                                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita a varredura de segredo para todos os repositórios {% if currentVersion == "free-pro-team@latest" %}novos e {% endif %}privados. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
-| `habilitar`   | Acionada quando um proprietário da organização permite a varredura secreta de todos os repositórios {% if currentVersion == "free-pro-team@latest" %}novos {% endif %}e privados.                                                                                                                                            |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables secret scanning for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### ações de categoria de `patrocinadores`
+#### `sponsors` category actions
 
-| Ação                                           | Descrição                                                                                                                                                                                                                                                                                                                            |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `repo_funding_link_button_toggle`              | Acionada quando você habilita ou desabilita um botão de patrocinador no repositório (consulte "[Exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                      |
-| `repo_funding_links_file_action`               | Acionada quando você altera o arquivo FUNDING no repositório (consulte "[Exibir botão de patrocinador no repositório](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                                    |
-| `sponsor_sponsorship_cancel`                   | Acionada quando você cancela um patrocínio (consulte "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                                                                                                      |
-| `sponsor_sponsorship_create`                   | Acionada quando você patrocina uma conta (veja "[Patrocinar um contribuidor de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")                                                                                                                             |
-| `sponsor_sponsorship_preference_change`        | Acionada quando você altera se recebe atualizações de e-mail de uma conta patrocinada (consulte "[Gerenciar seu patrocínio](/articles/managing-your-sponsorship)")                                                                                                                                                                   |
-| `sponsor_sponsorship_tier_change`              | Acionada quando você faz upgrade ou downgrade do patrocínio (consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                    |
-| `sponsored_developer_approve`                  | Acionada quando sua conta do {% data variables.product.prodname_sponsors %} é aprovada (consulte "[Configurar {% data variables.product.prodname_sponsors %} para a sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                           |
-| `sponsored_developer_create`                   | Acionada quando sua conta em {% data variables.product.prodname_sponsors %} é criada (consulte "[Configurar {% data variables.product.prodname_sponsors %} para a sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                             |
-| `sponsored_developer_profile_update`           | Acionada quando você edita o seu perfil de organização patrocinado (consulte "[Editar as informações do seu perfil para {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                        |
-| `sponsored_developer_request_approval`         | Acionada quando você envia o seu aplicativo para {% data variables.product.prodname_sponsors %} para aprovação (consulte "[Configurar {% data variables.product.prodname_sponsors %} para a sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")   |
-| `sponsored_developer_tier_description_update`  | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                                                                                                        |
-| sponsored_developer_update_newsletter_send | Acionada quando você envia uma atualização por e-mail aos patrocinadores (consulte "[Entrar em contato com os patrocinadores](/articles/contacting-your-sponsors)")                                                                                                                                                                  |
-| `waitlist_invite_sponsored_developer`          | Acionada quando você é convidado a juntar-se a {% data variables.product.prodname_sponsors %} na lista de espera (consulte "[Configurar {% data variables.product.prodname_sponsors %} para a sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)") |
-| `waitlist_join`                                | Acionada quando você se junta à lista de espera para tornar-se uma organização patrocinada (consulte "[Configurar {% data variables.product.prodname_sponsors %} para a sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                       |
+| Action | Description
+|------------------|-------------------
+| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
+| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")
+| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_disable` | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled
+| `sponsored_developer_redraft` | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state
+| `sponsored_developer_profile_update` | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")
+| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")
+| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/articles/contacting-your-sponsors)")
+| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
-#### ações de categoria de `equipe`
+#### `team` category actions
 
-| Ação                 | Descrição                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `add_member`         | Acionada quando um integrante de uma organização é [adicionado a uma equipe](/articles/adding-organization-members-to-a-team).                                                       |
-| `add_repository`     | Acionada quando uma equipe recebe o controle de um repositório.                                                                                                                      |
-| `change_parent_team` | Acionada quando uma equipe secundária é criada ou [a equipe principal de uma equipe secundária é alterada](/articles/moving-a-team-in-your-organization-s-hierarchy).                |
-| `change_privacy`     | Acionada quando nível de privacidade de uma equipe é alterado.                                                                                                                       |
-| `create`             | Acionada quando uma nova equipe é criada.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| Action | Description
+|------------------|-------------------
+| `add_member` | Triggered when a member of an organization is [added to a team](/articles/adding-organization-members-to-a-team).
+| `add_repository` | Triggered when a team is given control of a repository.
+| `change_parent_team` | Triggered when a child team is created or [a child team's parent is changed](/articles/moving-a-team-in-your-organization-s-hierarchy).
+| `change_privacy` | Triggered when a team's privacy level is changed.
+| `create` | Triggered when a new team is created.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`demote_maintainer` | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
+| `destroy` | Triggered when a team is deleted from the organization.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
+| `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team).
+| `remove_repository` | Triggered when a repository is no longer under a team's control.
 
+#### `team_discussions` category actions
 
-`demote_maintainer` | Acionada quando um usuário teve sua categoria rebaixada de mantenedor da equipe para integrante de equipe. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %} | `destroy` | Triggered when a team is deleted from the organization.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} `team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %} | `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team). | `remove_repository` | Acionada quando um repositório não está mais sob o controle de uma equipe.
-
-#### ações de categoria de `team_discussions`
-
-| Ação          | Descrição                                                                                                                                                                                                                                                          |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `desabilitar` | Acionada quando um proprietário da organização desabilita as discussões de equipe em uma organização. Para obter mais informações, consulte "[Desabilitar discussões de equipe para sua organização](/articles/disabling-team-discussions-for-your-organization)". |
-| `habilitar`   | Acionada quando um proprietário da organização habilita as discussões de equipe em uma organização.                                                                                                                                                                |
+| Action | Description
+|---|---|
+| `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
+| `enable` | Triggered when an organization owner enables team discussions for an organization.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest"%}
-#### Ações da categoria `fluxos de trabalho`
+#### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
 
 {% endif %}
 
-### Leia mais
+### Further reading
 
-- [Proteger sua organização](/articles/keeping-your-organization-secure)
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"

@@ -4,7 +4,7 @@ intro: 'Os proprietários da empresa podem aplicar políticas para gerenciar fun
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
-  github-ae: 'avançar'
+  github-ae: '*'
 ---
 
 ### Sobre o {% data variables.product.prodname_GH_advanced_security %}

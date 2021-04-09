@@ -1,24 +1,24 @@
 ---
-title: GitHub Advanced Security の使用状況を表示する
-intro: '{% data variables.product.prodname_GH_advanced_security %} ライセンスの使用状況を表示および管理できます。'
-permissions: Organization および Enterprise の所有者は、Organization または Enterprise の Organization の {% data variables.product.prodname_GH_advanced_security %} へのアクセスを管理できます。
+title: Viewing your GitHub Advanced Security usage
+intro: 'You can view and manage usage of your {% data variables.product.prodname_GH_advanced_security %} license.'
+permissions: Organization and enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from: /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
 
-{% data variables.product.prodname_GH_advanced_security %}の各ライセンスは、それらの機能を使用できるアカウントもしくはシートの最大数を指定します。 定期的に、使用がライセンス容量の容量内であることを確認する必要があります。 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} Enterprise ライセンスのライセンスについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)」を参照してください。
+{% data variables.product.prodname_GH_advanced_security %}の各ライセンスは、それらの機能を使用できるアカウントもしくはシートの最大数を指定します。 Periodically you should check that your use is within your license capacity. For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %} enterprise license](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."
 
-### Enterprise アカウントの {% data variables.product.prodname_GH_advanced_security %} ライセンス使用状況の表示と管理
+### Viewing and managing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
-ライセンスに含まれるシート数と、現在使用されているシート数は、[Enterprise ライセンス] ページで確認できます。
+You can check how many seats your license includes and how many of them are currently used on the "Enterprise licensing" page.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-   「{% data variables.product.prodname_GH_advanced_security %}」セクションには、現在の使用状況の詳細が表示されます。 ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png) シートが不足すると、セクションが赤色になります。 {% data variables.product.prodname_GH_advanced_security %} の使用を減らすか、シートを追加購入する必要があります。 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} Enterprise ライセンスのライセンスについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security#getting-the-most-out-of-your-github-advanced-security-enterprise-license)」を参照してください。 ![Enterprise ライセンス設定内の {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
-4. 必要に応じて、Organization ごとの使用状況の詳細な内訳を表示するには、左サイドバーで [**Billing**] をクリックします。 ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png) [{% data variables.product.prodname_GH_advanced_security %}] セクションで、各 Organization のコミッターと一意のコミッター数を確認できます。 ![{% data variables.product.prodname_GH_advanced_security %} in enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise.png)
-5. 必要に応じて、所有者である Organization の名前をクリックして、Organization のセキュリティと分析の設定を表示します。 ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
-6. [Security & analysis] 設定ページで、[{{% data variables.product.prodname_GH_advanced_security %} repositories] セクションまでスクロールして、この Organization のリポジトリごとの使用状況の詳細を確認します。 ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+   The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage. ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png) If you run out of seats, the section will be red. You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more seats. For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %} enterprise license](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security#getting-the-most-out-of-your-github-advanced-security-enterprise-license)." ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
+4. Optionally, to see a detailed breakdown of usage per organization, in the left sidebar, click **Billing**. ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png) In the "{% data variables.product.prodname_GH_advanced_security %}" section you can see the number of committers and unique committers for each organization. ![{% data variables.product.prodname_GH_advanced_security %} in enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise.png)
+5. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization. ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
+6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization. ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
 
