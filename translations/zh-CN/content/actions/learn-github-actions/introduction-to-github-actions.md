@@ -10,9 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '概述'
+type: overview
 topics:
-  - '基础'
+  - 基础
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'übersicht'
+type: overview
 topics:
-  - 'Pakete erstellen'
+  - Pakete erstellen
 ---
 
 {% data reusables.actions.enterprise-beta %}

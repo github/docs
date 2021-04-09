@@ -1,6 +1,6 @@
 ---
 title: サービスコンテナについて
-intro: 'サービスコンテナを使って、データベース、Webサービス、メモリキャッシュ、あるいはその他のツールをワークフローに接続できます。'
+intro: サービスコンテナを使って、データベース、Webサービス、メモリキャッシュ、あるいはその他のツールをワークフローに接続できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
@@ -9,10 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '概要'
+type: overview
 topics:
-  - 'コンテナ'
-  - 'Docker'
+  - コンテナ
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

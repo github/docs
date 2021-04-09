@@ -6,10 +6,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'руководство'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Xcode'
+  - CI
+  - Xcode
 ---
 
 {% data reusables.actions.enterprise-beta %}

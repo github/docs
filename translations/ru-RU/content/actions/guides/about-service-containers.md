@@ -9,10 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'обзор'
+type: overview
 topics:
-  - 'Containers'
-  - 'Докер'
+  - Containers
+  - Докер
 ---
 
 {% data reusables.actions.enterprise-beta %}

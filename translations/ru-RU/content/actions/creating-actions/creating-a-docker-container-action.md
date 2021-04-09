@@ -1,6 +1,6 @@
 ---
 title: Creating a Docker container action
-intro: 'This guide shows you the minimal steps required to build a Docker container action.'
+intro: This guide shows you the minimal steps required to build a Docker container action.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'руководство'
+type: tutorial
 topics:
-  - 'Action development'
-  - 'Докер'
+  - Action development
+  - Докер
 ---
 
 {% data reusables.actions.enterprise-beta %}

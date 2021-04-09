@@ -5,12 +5,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - 'GitLab'
-  - '迁移'
-  - 'CI'
-  - 'CD'
+  - GitLab
+  - 迁移
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

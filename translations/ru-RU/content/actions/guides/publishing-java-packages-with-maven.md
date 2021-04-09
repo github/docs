@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'руководство'
+type: tutorial
 topics:
-  - 'Упаковка'
-  - 'Publishing'
-  - 'Java'
-  - 'Maven'
+  - Упаковка
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

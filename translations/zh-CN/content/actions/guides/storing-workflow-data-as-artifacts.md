@@ -12,9 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '工作流程'
+  - 工作流程
 ---
 
 {% data reusables.actions.enterprise-beta %}

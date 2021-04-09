@@ -1,15 +1,15 @@
 ---
 title: 添加标签时评论议题
-intro: 您可以使用 {% data variables.product.prodname_actions %} 在应用特定标签时自动评论议题。
+intro: '您可以使用 {% data variables.product.prodname_actions %} 在应用特定标签时自动评论议题。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '工作流程'
-  - '项目管理'
+  - 工作流程
+  - 项目管理
 ---
 
 {% data reusables.actions.enterprise-beta %}

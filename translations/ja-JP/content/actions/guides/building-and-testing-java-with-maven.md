@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Maven'
+  - CI
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

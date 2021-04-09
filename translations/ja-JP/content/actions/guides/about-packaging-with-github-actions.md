@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '概要'
+type: overview
 topics:
-  - 'パッケージ化'
+  - パッケージ化
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,5 +1,4 @@
----
-date: '09-10-2020'
+date: '2020-10-09'
 sections:
   security_fixes:
     - 'El usuario cuyo nombre de usuario del directorio de LDAP se estandarice a una información de inicio de cuenta de GHES podría autenticarse en la cuenta existente. {% comment %} https://github.com/github/github/pull/156518, https://github.com/github/github/pull/155512 {% endcomment %}'

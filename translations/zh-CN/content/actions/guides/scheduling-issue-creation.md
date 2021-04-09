@@ -1,15 +1,15 @@
 ---
 title: 计划议题的创建
-intro: 您可以使用 {% data variables.product.prodname_actions %} 定期为日常会议或季度审查等事项创建议题。
+intro: '您可以使用 {% data variables.product.prodname_actions %} 定期为日常会议或季度审查等事项创建议题。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '工作流程'
-  - '项目管理'
+  - 工作流程
+  - 项目管理
 ---
 
 {% data reusables.actions.enterprise-beta %}

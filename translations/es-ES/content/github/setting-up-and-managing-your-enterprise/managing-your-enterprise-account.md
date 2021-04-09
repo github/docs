@@ -1,7 +1,7 @@
 ---
 title: Administrar tu cuenta de empresa
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/managing-your-enterprise-account
 versions:

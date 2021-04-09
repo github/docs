@@ -1,8 +1,7 @@
----
-date: '20-10-2020'
+date: '2020-10-20'
 sections:
   security_fixes:
-    - Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}'
   bugs:
     - |
       Se as configurações da conta de armazenamento não conseguiram validar ao configurar as ações do GitHub, a execução de `ghe-actions-teardown` foi necessária antes de fazer uma nova tentativa. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
@@ -19,11 +18,11 @@ sections:
     - |
       Em certas solicitações acima de 100 MB, o buffer de Kafka pode ser sobre-alocado. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
   known_issues:
-    - Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
-    - As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
-    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
-    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
-    - Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
-    - O GitHub Actions pode falhar ao iniciar com sucesso se estiver previamente habilitado em uma instância com versão 2.22.0 e for atualizado para 2.22.2. (atualizado 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
-    - Em uma instância nova com a configuração 2.22.2 ou após a atualização para 2.22.2, o feed de atividades no painel de uma organização não será mais atualizado. (atualizado 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
-    - Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'O GitHub Actions pode falhar ao iniciar com sucesso se estiver previamente habilitado em uma instância com versão 2.22.0 e for atualizado para 2.22.2. (atualizado 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}'
+    - 'Em uma instância nova com a configuração 2.22.2 ou após a atualização para 2.22.2, o feed de atividades no painel de uma organização não será mais atualizado. (atualizado 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}'
+    - 'Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'

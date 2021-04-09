@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-the-github-enterprise-appliance/
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
-mapTopic: verdadero
+mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'

@@ -9,9 +9,9 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: '튜토리얼'
+type: tutorial
 topics:
-  - 'Workflows'
+  - Workflows
 ---
 
 {% data reusables.actions.ae-beta %}

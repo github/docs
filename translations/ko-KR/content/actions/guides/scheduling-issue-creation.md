@@ -1,15 +1,15 @@
 ---
 title: Scheduling issue creation
-intro: You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.
+intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '튜토리얼'
+type: tutorial
 topics:
-  - 'Workflows'
-  - 'Project management'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

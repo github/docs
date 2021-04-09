@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '打包'
-  - '发布'
-  - 'Java'
-  - 'Maven'
+  - 打包
+  - 发布
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

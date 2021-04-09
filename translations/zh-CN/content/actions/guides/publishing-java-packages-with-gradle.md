@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '打包'
-  - '发布'
-  - 'Java'
-  - 'Gradle'
+  - 打包
+  - 发布
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

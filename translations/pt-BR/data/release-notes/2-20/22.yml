@@ -1,5 +1,4 @@
----
-date: '03-12-2020'
+date: '2020-12-03'
 sections:
   bugs:
     - 'O serviço de autorização foi detectado como não saudável devido a uma condição de raça no bootstrap que gerou a reinicialização do serviço. {% comment %} https://github.com/github/authzd/pull/1279 {% endcomment %}'

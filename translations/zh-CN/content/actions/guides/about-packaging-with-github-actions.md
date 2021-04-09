@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '概述'
+type: overview
 topics:
-  - '打包'
+  - 打包
 ---
 
 {% data reusables.actions.enterprise-beta %}

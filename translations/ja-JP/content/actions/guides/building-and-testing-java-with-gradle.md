@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Gradle'
+  - CI
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

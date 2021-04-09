@@ -1,7 +1,7 @@
 ---
 title: 缓存依赖项以加快工作流程
 shortTitle: 缓存依赖项
-intro: '为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。'
+intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -9,9 +9,9 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '工作流程'
+  - 工作流程
 ---
 
 {% data reusables.actions.ae-beta %}

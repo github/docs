@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '개요'
+type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

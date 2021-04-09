@@ -10,10 +10,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '튜토리얼'
+type: tutorial
 topics:
-  - 'Containers'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '引用'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}

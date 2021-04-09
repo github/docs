@@ -8,10 +8,10 @@ versions:
   github-ae: '*'
 authors:
   - potatoqualitee
-type: '教程'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Powershell'
+  - CI
+  - Powershell
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -12,10 +12,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'ワークフロー'
-  - 'CI'
+  - ワークフロー
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}

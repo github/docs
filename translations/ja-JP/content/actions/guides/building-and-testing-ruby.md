@@ -6,10 +6,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Ruby'
+  - CI
+  - Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}

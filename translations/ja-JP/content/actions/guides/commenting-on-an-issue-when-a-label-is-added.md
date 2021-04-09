@@ -1,15 +1,15 @@
 ---
 title: Commenting on an issue when a label is added
-intro: You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'ワークフロー'
-  - 'Project management'
+  - ワークフロー
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CD'
-  - 'コンテナ'
-  - 'Azure App Service'
+  - CD
+  - コンテナ
+  - Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}

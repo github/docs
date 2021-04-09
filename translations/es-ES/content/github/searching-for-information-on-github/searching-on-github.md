@@ -1,6 +1,6 @@
 ---
 title: Buscar en GitHub
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/searching-on-github
 versions:

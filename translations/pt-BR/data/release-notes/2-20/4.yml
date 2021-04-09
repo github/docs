@@ -1,5 +1,4 @@
----
-date: '25-03-2020'
+date: '2020-03-25'
 sections:
   bugs:
     - 'As solicitações de autenticação do SAML e Metadados não foram estritamente codificadas, o que fez com que alguns provedores de identidade não processem corretamente as solicitações de autenticação iniciadas pelo provedor de serviços. {% comment %} https://github.com/github/github/pull/137150, https://github.com/github/github/pull/136770, https://github.com/github/github/issues/136766 {% endcomment %}'

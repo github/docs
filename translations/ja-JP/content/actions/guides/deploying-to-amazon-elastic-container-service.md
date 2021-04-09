@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CD'
-  - 'コンテナ'
-  - 'Amazon ECS'
+  - CD
+  - コンテナ
+  - Amazon ECS
 ---
 
 {% data reusables.actions.enterprise-beta %}

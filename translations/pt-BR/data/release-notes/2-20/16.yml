@@ -1,9 +1,8 @@
----
-date: '08-09-2020'
+date: '2020-09-08'
 sections:
   bugs:
     - 'Uma verificação de saúde do serviço causou o crescimento da sessão, o que gerou um esgotamento do sistema de arquivos. {% comment %} https://github.com/github/enterprise2/pull/22480, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
-    - "A atualização que usa um hotpatch pode falhar com um erro: `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22558, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - 'A atualização que usa um hotpatch pode falhar com um erro: `''libdbi1'' was not found` {% comment %} https://github.com/github/enterprise2/pull/22558, https://github.com/github/enterprise2/pull/22552 {% endcomment %}'
   known_issues:
     - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

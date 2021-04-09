@@ -1,5 +1,4 @@
----
-date: '09-06-2020'
+date: '2020-06-09'
 sections:
   features:
     - 'Os usuários podem [gerenciar notificações](https://help.github.com/en/enterprise/2.21/user/github/managing-subscriptions-and-notifications-on-github/about-notifications) em problemas, pull requests e outros assuntos ao navegar a partir de uma notificação na web. {% comment %} https://github.com/github/enterprise-releases/issues/2135#issuecomment-633905096 {% endcomment %}'
@@ -14,13 +13,13 @@ sections:
   security_fixes:
     - 'Uma vulnerabilidade de controle de acesso imprópria foi identificada na API do GitHub Enterprise Server que permitiu que um integrante da organização aumentasse as permissões e recebesse acesso a repositórios não autorizados dentro de uma organização. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server anteriores à versão 2.21. Emitimos [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) em resposta a este problema. A vulnerabilidade foi relatada por meio do [programa Bug Bounty do GitHub](https://bounty.github.com/). {% comment %} https://developer.github.com/changes/2020-02-26-new-delete-reactions-endpoints/ {% endcomment %}'
   bugs:
-    - "Se um usuário com acesso push minimizou o comentário de outro usuário, o autor do comentário poderia minimizá-lo mesmo se não tivesse privilégios suficientes. {% comment %} https://github.com/github/github/pull/141237 {% endcomment %}"
+    - 'Se um usuário com acesso push minimizou o comentário de outro usuário, o autor do comentário poderia minimizá-lo mesmo se não tivesse privilégios suficientes. {% comment %} https://github.com/github/github/pull/141237 {% endcomment %}'
     - 'Os usuários podem acidentalmente fazer merge para mestre a partir do editor de modelos de problemas e blob. {% comment %} https://github.com/github/github/pull/134483, https://github.com/github/github/pull/134323 {% endcomment %}'
     - 'Quando um usuário exclui uma conta do GitHub, os registros do log de auditoria não mostraram corretamente os registros de remoção da organização. {% comment %} https://github.com/github/github/pull/140940 {% endcomment %}'
     - 'O avatar do gist para o usuário atual faria um link para uma URL inexistente. {% comment %} https://github.com/github/github/pull/140925 {% endcomment %}'
     - 'A aba de contagem de repositórios da organização não incluiu repositórios internos. {% comment %} https://github.com/github/github/pull/136323 {% endcomment %}'
     - 'Ao transferir um repositório, clicar no botão "Mostrar Todas as Equipes" gerou um erro 500. {% comment %} https://github.com/github/github/pull/134455 {% endcomment %}'
-    - "Os nomes de arquivos longos podem gerar um excesso de fluxo de problemas ao mostrar a etiqueta \"Alterado desde a última vista\" ou a alternância de diff de \"Mostrar enriquecido\" na vista dos arquivos diff. {% comment %} https://github.com/github/github/pull/134453 {% endcomment %}"
+    - 'Os nomes de arquivos longos podem gerar um excesso de fluxo de problemas ao mostrar a etiqueta "Alterado desde a última vista" ou a alternância de diff de "Mostrar enriquecido" na vista dos arquivos diff. {% comment %} https://github.com/github/github/pull/134453 {% endcomment %}'
     - 'Os cartões de vista virtual para equipes da organização relataram mal o tamanho do integrante. {% comment %} https://github.com/github/github/pull/133879 {% endcomment %}'
     - 'A janela pop-up de comentário do pull request teve um problema de deslocamento. {% comment %} https://github.com/github/github/pull/141157 {% endcomment %}'
     - 'Haproxy pode saturar-se, gerando lentidão nas operações do git. {% comment %} https://github.com/github/enterprise2/issues/19322 {% endcomment %}'
@@ -70,4 +69,4 @@ sections:
     - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando. (atualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - 'Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
-    - "Ocorre uma falha na configuração da permissão de um repositório para \"Triagem\" ou \"Manter\" com uma mensagem de erro."
+    - Ocorre uma falha na configuração da permissão de um repositório para "Triagem" ou "Manter" com uma mensagem de erro.

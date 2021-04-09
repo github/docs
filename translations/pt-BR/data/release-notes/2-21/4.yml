@@ -1,5 +1,4 @@
----
-date: '11-08-2020'
+date: '2020-08-11'
 sections:
   security_fixes:
     - '**CRÍTICO:** Uma vulnerabilidade de execução de código remoto foi identificada no GitHub Pages e permite que um invasor execute comandos como parte de criação de um site do GitHub Pages. Esse problema deve-se a uma dependência desatualizada e vulnerável usada no processo de criação de páginas. Para explorar essa vulnerabilidade, um invasor precisará de permissão para criar e construir um site do GitHub Pages na instância do GitHub Enterprise Server. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server. Para mitigar essa vulnerabilidade, a Kramdown foi atualizada para abordar o CVE-2020-14001. {% comment %} https://github.com/github/pages/pull/2835, https://github.com/github/pages/pull/2827 {% endcomment %}'
@@ -9,7 +8,7 @@ sections:
     - 'Um erro de configuração do Cônsul impediu que algumas tarefas de segundo plano fossem processadas em instâncias autônomas. {% comment %} https://github.com/github/enterprise2/pull/21463 {% endcomment %}'
     - 'O cálculo de alocação de memória de serviço poderia determinar uma alocação de memória incorreta ou ilimitada para um serviço resultando em desempenho de sistema pobre. {% comment %} https://github.com/github/enterprise2/pull/21689 {% endcomment %}'
     - 'A plataforma de virtualização para sistemas oVirt KVM não foi detectada corretamente, gerando problemas durante as atualizações. {% comment %} https://github.com/github/enterprise2/pull/21731, https://github.com/github/enterprise2/pull/21669 {% endcomment %}'
-    - "A mensagem de erro para autenticação inválida com uma senha via linha de comando do Git não preencheu a URL vinculada à adição do token apropriado ou chave SSH. {% comment %} https://github.com/github/github/pull/149607, https://github.com/github/github/pull/149351 {% endcomment %}"
+    - 'A mensagem de erro para autenticação inválida com uma senha via linha de comando do Git não preencheu a URL vinculada à adição do token apropriado ou chave SSH. {% comment %} https://github.com/github/github/pull/149607, https://github.com/github/github/pull/149351 {% endcomment %}'
     - 'Criar um problema em um repositório de usuário que usa o recurso de modelo do problema pode falhar com um erro de servidor interno. {% comment %} https://github.com/github/github/pull/150173, https://github.com/github/github/pull/149445 {% endcomment %}'
     - 'Ocorreu uma falha ao acessar a seção *Explorar* com um erro de servidor interno de 500. {% comment %} https://github.com/github/github/pull/150512, https://github.com/github/github/pull/150504 {% endcomment %}'
     - 'Os problemas não puderam ser classificados por *Atualizações recentes* nos repositórios migrados para uma nova instância. {% comment %} https://github.com/github/github/pull/150688, https://github.com/github/github/github/pull/149330 {% endcomment %}'
@@ -25,4 +24,4 @@ sections:
     - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'Os alertas de segurança não são relatados ao fazer envio por push em um repositório na linha de comando. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - 'Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
-    - "Ocorre uma falha na configuração da permissão de um repositório para \"Triagem\" ou \"Manter\" com uma mensagem de erro."
+    - Ocorre uma falha na configuração da permissão de um repositório para "Triagem" ou "Manter" com uma mensagem de erro.

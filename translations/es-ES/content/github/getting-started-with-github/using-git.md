@@ -1,7 +1,7 @@
 ---
 title: Utilizar GitHub
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands

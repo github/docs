@@ -1,18 +1,18 @@
 ---
 title: CircleCIからGitHub Actionsへの移行
-intro: 'GitHub ActionsとCircleCIには設定に相似点があるので、GitHub Actionsへの移行は比較的単純明快です。'
+intro: GitHub ActionsとCircleCIには設定に相似点があるので、GitHub Actionsへの移行は比較的単純明快です。
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'CircleCI'
-  - '移行'
-  - 'CI'
-  - 'CD'
+  - CircleCI
+  - 移行
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

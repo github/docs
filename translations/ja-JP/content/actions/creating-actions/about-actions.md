@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '概要'
+type: overview
 topics:
-  - 'Action 開発'
-  - '基本'
+  - Action 開発
+  - 基本
 ---
 
 {% data reusables.actions.enterprise-beta %}

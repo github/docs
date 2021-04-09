@@ -1,6 +1,6 @@
 ---
 title: 创建 Docker 容器操作
-intro: '本指南向您展示构建 Docker 容器操作所需的最少步骤。'
+intro: 本指南向您展示构建 Docker 容器操作所需的最少步骤。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '操作开发'
-  - 'Docker'
+  - 操作开发
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'обзор'
+type: overview
 topics:
-  - 'Упаковка'
+  - Упаковка
 ---
 
 {% data reusables.actions.enterprise-beta %}

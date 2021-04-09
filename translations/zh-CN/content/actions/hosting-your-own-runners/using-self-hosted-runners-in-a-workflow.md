@@ -1,6 +1,6 @@
 ---
 title: 在工作流程中使用自托管的运行器
-intro: '要在工作流程中使用自托管的运行器，您可以使用标签为作业指定运行器类型。'
+intro: 要在工作流程中使用自托管的运行器，您可以使用标签为作业指定运行器类型。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

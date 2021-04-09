@@ -1,14 +1,14 @@
 ---
 title: 複合実行ステップ アクションの作成
-intro: 'このガイドでは、複合実行ステップ アクションを構築する方法について説明します。'
+intro: このガイドでは、複合実行ステップ アクションを構築する方法について説明します。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 topics:
-  - 'Action 開発'
+  - Action 開発
 ---
 
 {% data reusables.actions.enterprise-beta %}

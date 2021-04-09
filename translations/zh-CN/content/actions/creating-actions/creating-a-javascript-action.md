@@ -1,6 +1,6 @@
 ---
 title: 创建 JavaScript 操作
-intro: '在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。'
+intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: '教程'
+type: tutorial
 topics:
-  - '操作开发'
-  - 'JavaScript'
+  - 操作开发
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
