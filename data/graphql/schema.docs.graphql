@@ -34459,6 +34459,11 @@ type Sponsorship implements Node {
   The associated sponsorship tier
   """
   tier: SponsorsTier
+
+  """
+  Identifies the date and time when the current tier was chosen for this sponsorship.
+  """
+  tierSelectedAt: DateTime
 }
 
 """
