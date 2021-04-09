@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/github/docs)
+
 ## GitHub Docs <!-- omit in toc -->
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
