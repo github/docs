@@ -844,7 +844,7 @@ end
     **答：**如果您看到以下错误，则说明您没有在 `initiate_check_run` 和/或 `take_requested_action` 方法中删除仓库的检出：
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     将您的代码与 `server.rb` 文件进行比较，以确保您的 `initiate_check_run` 和 `take_requested_action` 方法中具有相同的代码。

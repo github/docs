@@ -17,12 +17,6 @@ topics:
 
 在配置为 {% data variables.product.prodname_secret_scanning %} 的私有仓库中找到密码格式的匹配项时，仓库管理员将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
 
-{% note %}
-
-**注：**私有仓库的 {% data variables.product.prodname_secret_scanning_caps %} 目前处于测试阶段。
-
-{% endnote %}
-
 本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 计划。
 
 ### {% data variables.product.prodname_secret_scanning %} 流程

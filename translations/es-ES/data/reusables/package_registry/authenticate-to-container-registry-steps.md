@@ -1,7 +1,7 @@
 1. Crea un token de acceso personal nuevo (PAT) con los alcances adecuados para las tareas que quieres realizar. Si tu organización requiere SSO, debes hablitarlo para tu token nuevo.
   {% warning %}
 
-  **Nota:** Si seleccionas el alcance `write:packages`, deselecciona el alcance `repo` cuando crees el PAT. El agregar un PAT con el alcance `repo` en forma de secreto en tu repositorio permite que todos los colaboradores del repositorio accedan a esta credencial. Esto otorga acceso adicional innecesario cuando un PAT con el alcance `repo` se utiliza dentro de una acción. Para obtener más información acerca de las mejores prácticas de seguridad, consulta la sección "[Fortalecimiento de seguridad para las GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)".
+  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 

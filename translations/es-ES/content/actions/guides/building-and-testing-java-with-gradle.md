@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -70,7 +71,7 @@ jobs:
 Este flujo de trabajo realiza los siguientes pasos:
 
 1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
-2. El paso `setup-java` configura el JDK de Java 1.8.
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. El paso "Build with Gradle" (construir con Gradle) ejecuta el script contenedor `gradlew` para asegurar que tu código se cree, las pruebas pasen y se pueda crear un paquete.
 
 Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
@@ -91,9 +92,10 @@ Si usas diferentes comandos para construir tu proyecto, o si quieres usar una ta
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -107,10 +109,11 @@ Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotc
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -143,7 +146,11 @@ Por lo general, Gradle creará archivos de salida como JAR, EAR o WAR en el dire
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

@@ -29,7 +29,7 @@ Durante este beta, as funcionalidades de {% data variables.product.prodname_adva
 
 #### Gerenciar equipes do seu provedor de identidade (IdP)
 
-Os clientes que usam o SCIM (System para Gerenciamento de Identidade entre Domínios) agora podem sincronizar grupos de segurança no Azure Active Directory com equipes de {% data variables.product.company_short %}. Após uma equipe ser vinculada a um grupo de segurança a associação será atualizada automaticamente em {% data variables.product.product_name %} quando um usuário for adicionado ou removido do seu grupo de segurança atribuído. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)."
+Os clientes que usam o SCIM (System para Gerenciamento de Identidade entre Domínios) agora podem sincronizar grupos de segurança no Azure Active Directory com equipes de {% data variables.product.company_short %}. Após uma equipe ser vinculada a um grupo de segurança a associação será atualizada automaticamente em {% data variables.product.product_name %} quando um usuário for adicionado ou removido do seu grupo de segurança atribuído. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 #### Beta de listas de permissões de IP
 
@@ -37,7 +37,7 @@ Os proprietários de empresas e organizações agora podem usar o IP permitir li
 
 Essa funcionalidade é fornecida, além da capacidade de solicitar alterações no grupo de segurança de rede que filtram o tráfego na totalidade do inquilino de {% data variables.product.product_name %}.
 
-Para mais informações, consulte "[Restringir tráfego de rede a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)" e "[Gerenciar endereços IP permitidos para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)".
+Para mais informações, consulte "[Restringir tráfego de rede a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)" e "[Gerenciar endereços IP permitidos para sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 #### Merge automático de pull request
 
@@ -47,8 +47,8 @@ Com o merge automático, os pull requests podem ser configurados como merge auto
 
 #### Mudanças do desenvolvedor
 
-- [Os proprietários da organização agora podem desabilitar a publicação](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) de sites de {% data variables.product.prodname_pages %} de repositórios na organização. Esta ação não irá cancelar a publicação de sites existentes.
-- Os repositórios que usam {% data variables.product.prodname_pages %} agora podem [fazer a criação e implantação a partir de qualquer branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+- [Os proprietários da organização agora podem desabilitar a publicação](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) de sites de {% data variables.product.prodname_pages %} de repositórios na organização. Esta ação não irá cancelar a publicação de sites existentes.
+- Os repositórios que usam {% data variables.product.prodname_pages %} agora podem [fazer a criação e implantação a partir de qualquer branch](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
 - Ao escrever um problema ou pull request, a sintaxe da lista para itens, números, e tarefas agora será concluída automaticamente após você pressionar `return` ou `enter`.
 - Agora, você pode excluir um diretório em um repositório da página do repositório. Ao acessar diretório, um novo botão kebab ao lado do botão "Adicionar arquivo" dá a opção de excluir o diretório.
 - Agora é mais fácil e rápido [fazer referência a problemas ou pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), com pesquisa entre várias palavras após "#".
@@ -65,7 +65,7 @@ Com o merge automático, os pull requests podem ser configurados como merge auto
 
 ##### Renomeação do branch padrão
 
-Os proprietários de empresas e organizações agora podem definir o nome do branch padrão para novos repositórios. Os proprietários de empresas também podem aplicar a sua escolha do nome padrão do branch em todas as organizações ou permitir que as organizações individuais escolham suas próprias. Para mais informações consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" e "[Gerenciar o nome do branch padrão para os repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)".
+Os proprietários de empresas e organizações agora podem definir o nome do branch padrão para novos repositórios. Os proprietários de empresas também podem aplicar a sua escolha do nome padrão do branch em todas as organizações ou permitir que as organizações individuais escolham suas próprias. Para mais informações consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" e "[Gerenciar o nome do branch padrão para os repositórios na sua organização](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)".
 
 Os repositórios existentes não são afetados por essas configurações, e seu nome de branch padrão não será alterado.
 

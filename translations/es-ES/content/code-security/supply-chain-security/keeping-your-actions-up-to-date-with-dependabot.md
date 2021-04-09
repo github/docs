@@ -10,8 +10,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### Acerca de {% data variables.product.prodname_dependabot_version_updates %} para las acciones
 
 Las acciones a menudo se actualizan con correcciones de errores y con nuevas características para que los procesos automatizados sean más confiables, rápidos y seguros. Cundo habilitas las {% data variables.product.prodname_dependabot_version_updates %} para {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} te ayudará a asegurarte de que las referencias para las acciones en el archivo *workflow.yml* de un repositorio se mantengan actualizadas. El {% data variables.product.prodname_dependabot %} verifica la referencia de la acción para cada una de ellas en el archivo (habitualmente un número de versión o identificador de confirmación que se asocie con la acción) contra la última versión. Si alguna versión más reciente de la acción está disponible, el {% data variables.product.prodname_dependabot %} te enviará una solicitud de extracción que actualice la referencia en el archivo de flujo de trabajo a su última versión. Para obtener más información acerca de las {% data variables.product.prodname_dependabot_version_updates %}, consulta la sección "[Acerca del {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)". Para obtener más información acerca de configurar flujos de trabajo para las {% data variables.product.prodname_actions %}, consulta la sección "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
