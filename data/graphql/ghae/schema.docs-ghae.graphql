@@ -31523,6 +31523,11 @@ type Sponsorship implements Node {
   The entity that is being sponsored
   """
   sponsorable: Sponsorable!
+
+  """
+  Identifies the date and time when the current tier was chosen for this sponsorship.
+  """
+  tierSelectedAt: DateTime
 }
 
 """
