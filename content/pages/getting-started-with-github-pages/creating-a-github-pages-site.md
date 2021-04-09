@@ -41,7 +41,8 @@ topics:
 3. If your chosen publishing source already exists, navigate to the publishing source. If your chosen publishing source doesn't exist, create the publishing source.
 4. In the root of the publishing source, create a new file called `index.md` that contains the content you want to display on the main page of your site.
 {% data reusables.pages.configure-publishing-source %}
-{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
