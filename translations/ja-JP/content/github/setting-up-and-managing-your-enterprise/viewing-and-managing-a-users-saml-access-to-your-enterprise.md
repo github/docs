@@ -53,4 +53,4 @@ Enterprise アカウントに対する SAML シングルサインオンを有効
 
 ### 参考リンク
 
-- [組織へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)
+- [組織へのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)

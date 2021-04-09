@@ -58,7 +58,7 @@ inputs:
 
 在指定工作流程文件中某个操作的输入或者使用默认输入值时，{% data variables.product.prodname_dotcom %} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
 
-例如，如果工作流程定义了 numOctocats and octocatEyeColor 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
+例如，如果工作流程定义了 `numOctocats` 和 `octocatEyeColor` 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
 
 #### `inputs.<input_id>`
 
@@ -75,6 +75,10 @@ inputs:
 #### `inputs.<input_id>.default`
 
 **可选** 表示默认值的 `string`。 当工作流程文件中未指定输入参数时使用默认值。
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**可选** 如果使用输入参数，此 `string` 将记录为警告消息。 您可以使用此警告通知用户输入已被弃用，并提及任何其他替代方式。
 
 ### `outputs`
 

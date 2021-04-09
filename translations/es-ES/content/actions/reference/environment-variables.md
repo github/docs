@@ -22,6 +22,7 @@ versions:
 
 Para establecer variables de entorno personalizadas, debes especificar las variables en el archivo de flujo de trabajo. Puedes definir variables de ambiente para un paso, job o para todo el flujo de trabajo si utilizas las palabras clave [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), y [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env). Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -30,13 +31,14 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 Para utilizar el valor de una variable de ambiente en un archivo de flujo de trabajo, deberías utilizar el [contexto `env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). Si quieres utilizar el valor de una variable de ambiente dentro de un ejecutor, puedes utilizar el método normal del sistema operativo ejecutor para leer las variables de ambiente.
 

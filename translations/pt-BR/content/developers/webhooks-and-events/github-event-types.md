@@ -183,6 +183,20 @@ Este evento retorna um objeto de `carga` vazio.
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Objeto da `carga` do evento
+
+| Tecla          | Tipo     | Descrição                                    |
+| -------------- | -------- | -------------------------------------------- |
+| `Ação`         | `string` | A ação que foi executada. Pode ser `criado`. |
+| `pull_request` | `objeto` | The pull request the review pertains to.     |
+| `revisar`      | `objeto` | A revisão que foi afetada.                   |
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -199,6 +213,8 @@ Este evento retorna um objeto de `carga` vazio.
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### Objeto da `carga` do evento
 
 | Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                        |
 | -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

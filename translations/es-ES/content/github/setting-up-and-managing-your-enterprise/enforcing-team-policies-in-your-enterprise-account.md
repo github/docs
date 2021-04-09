@@ -15,7 +15,7 @@ topics:
 
 ### Hacer cumplir una política para los debates de equipo
 
-En todas las organizaciones que son propiedad de tu cuenta de empresa, puedes habilitar o inhabilitar los debates de equipo o permitir que los propietarios administren este parámetro a nivel de la organización. Para obtener más información, consulta [Acerca de los debates del equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)".
+En todas las organizaciones que son propiedad de tu cuenta de empresa, puedes habilitar o inhabilitar los debates de equipo o permitir que los propietarios administren este parámetro a nivel de la organización. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions/)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

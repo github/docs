@@ -93,6 +93,14 @@
   },
   "3.0": {
     "releaseDate": "2021-01-12",
-    "deprecationDate": "2022-01-20"
+    "deprecationDate": "2022-02-16"
+  },
+  "3.1": {
+    "releaseDate": "2021-04-13",
+    "deprecationDate": "2022-05-11"
+  },
+  "3.2": {
+    "releaseDate": "2021-07-06",
+    "deprecationDate": "2022-08-03"
   }
 }

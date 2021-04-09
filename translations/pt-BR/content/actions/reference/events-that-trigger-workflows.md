@@ -165,9 +165,9 @@ em:
 
 ### Eventos webhook
 
-You can configure your workflow to run when webhook events are generated on {% data variables.product.product_name %}. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
+Você pode configurar seu fluxo de trabalho para executar quando eventos de webhook forem gerados em {% data variables.product.product_name %}. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
 
-Not all webhook events trigger workflows. For the complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
+Nem todos os eventos de webhook acionam fluxos de trabalho. Para obter a lista completa de eventos de webhook disponíveis e suas cargas, consulte "[Eventos e cargas de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)".
 
 #### `check_run`
 

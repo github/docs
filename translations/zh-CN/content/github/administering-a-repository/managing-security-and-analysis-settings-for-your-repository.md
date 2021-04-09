@@ -106,4 +106,4 @@ topics:
 ### 延伸阅读
 
 - “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
-- “[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”
+- “[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”
