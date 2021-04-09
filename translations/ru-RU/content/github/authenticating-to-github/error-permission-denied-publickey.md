@@ -7,8 +7,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - ssh
 ---
 
 ### Should the `sudo` command be used with Git?
@@ -40,7 +38,7 @@ All connections, including those for remote URLs, must be made as the "git" user
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/github/getting-started-with-github/managing-remote-repositories).
+If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/articles/changing-a-remote-s-url/).
 
 You should verify your connection by typing:
 

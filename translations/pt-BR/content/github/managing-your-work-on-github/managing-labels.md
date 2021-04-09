@@ -1,6 +1,6 @@
 ---
-title: Gerenciar etiquetas
-intro: 'Você pode classificar problemas e pull requests criando, editando, aplicando e excluindo etiquetas.'
+title: Managing labels
+intro: 'You can classify issues and pull requests by creating, editing, applying, and deleting labels.'
 redirect_from:
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
@@ -21,59 +21,58 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - Pull requests
 ---
 
-### Sobre etiquetas
+### About labels
 
-Você pode gerenciar seu trabalho no {% data variables.product.product_name %} criando etiquetas para classificar problemas e pull requests. Você pode aplicar etiquetas no repositório em que foram criadas. Uma vez criada a etiqueta, você poderá usá-la em qualquer problema ou pull request desse repositório.
+You can manage your work on {% data variables.product.product_name %} by creating labels to categorize issues and pull requests. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any issue or pull request within that repository.
 
-Qualquer pessoa com acesso de leitura a um repositório pode exibir e pesquisar etiquetas do repositório. Qualquer pessoa com acesso de triagem a um repositório pode aplicar/ignorar etiquetas existentes. Para criar, editar, aplicar ou excluir uma etiqueta, é preciso ter acesso de gravação ao repositório.
+Anyone with read access to a repository can view and search the repository’s labels. To create, edit, apply, or delete a label, you must have write access to the repository.
 
-### Sobre as etiquetas padrão
+### About default labels
 
-O {% data variables.product.product_name %} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório.
+{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
-| Etiqueta           | Descrição                                                                                                                                                            |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Indica um problema inesperado ou um comportamento não intencional{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-| `documentation`    | Indica a necessidade de aprimoramentos ou adições à documentação{% endif %}
-| `duplicate`        | Indica problemas ou pull requests semelhantes                                                                                                                        |
-| `enhancement`      | Indica novas solicitações de recurso                                                                                                                                 |
-| `good first issue` | Indica um bom problema para contribuidores principiantes                                                                                                             |
-| `help wanted`      | Indica que um mantenedor deseja ajudar em um problema ou uma pull request                                                                                            |
-| `invalid`          | Indica que um problema ou uma pull request não é mais relevante                                                                                                      |
-| `question`         | Indica que um problema ou uma pull request precisa de mais informações                                                                                               |
-| `wontfix`          | Indica que o trabalho não continuará em um problema ou uma pull request                                                                                              |
+Label | Description
+---  | ---
+`bug` | Indicates an unexpected problem or unintended behavior{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
+`duplicate` | Indicates similar issues or pull requests
+`enhancement` | Indicates new feature requests
+`good first issue` | Indicates a good issue for first-time contributors
+`help wanted` | Indicates that a maintainer wants help on an issue or pull request
+`invalid` | Indicates that an issue or pull request is no longer relevant
+`question` | Indicates that an issue or pull request needs more information
+`wontfix` | Indicates that work won't continue on an issue or pull request
 
-Etiquetas padrão são incluídas em todos os novos repositórios quando criados, mas você pode editar ou excluir as etiquetas posteriormente.
+Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-Os proprietários da organização podem personalizar as etiquetas padrão para repositórios na organização. Para obter mais informações, consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)".
+Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 
-### Criar uma etiqueta
+### Creating a label
 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. À direita do campo de pesquisa, clique em **New label** (Nova etiqueta).
+4. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### Aplicar etiquetas a problemas e pull requests
+### Applying labels to issues and pull requests
 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
-4. No canto superior direito, clique em **Label** (Etiqueta) e comece a digitar o nome de uma etiqueta existente. Clique no nome da etiqueta para associá-la aos itens selecionados. ![Menu suspenso atribuição Marco Problemas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items.
+  ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
-### Editar uma etiqueta
+### Editing a label
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,15 +83,16 @@ Os proprietários da organização podem personalizar as etiquetas padrão para 
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### Excluir uma etiqueta
-Excluir uma etiqueta removerá a etiqueta dos problemas e pull requests.
+### Deleting a label
+Deleting a label will remove the label from issues and pull requests.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### Leia mais
-- "[Filtrar problemas e pull requests por etiquetas](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" ou enterpriseServerVersions contém currentVersion %}
-- "[Gerenciar etiquetas padrão para repositórios na organização](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[Incentivar contribuições úteis para o seu projeto com etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+### Further reading
+- "[About labels](/articles/about-labels)"
+- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- "[Encouraging helpful contributions to your project with labels](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

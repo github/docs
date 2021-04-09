@@ -5,9 +5,8 @@ product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_code_scanning %} para o repositório.'
 miniTocMaxHeadingLevel: 4
 versions:
-  enterprise-server: '2.22'
-topics:
-  - segurança
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -15,11 +14,11 @@ topics:
 
 ### Sobre a configuração do {% data variables.product.prodname_code_scanning %}
 
-Você pode executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %}, usando {% data variables.product.prodname_actions %}, ou a partir do seu sistema de integração contínua (CI), ao usar {% data variables.product.prodname_codeql_runner %}. Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." Para obter mais informações sobre o {% data variables.product.prodname_codeql_runner %}, consulte "[Executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
+Você pode executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_location %}, usando {% data variables.product.prodname_actions %} ou a partir do seu sistema de integração contínua (CI), usando o {% data variables.product.prodname_codeql_runner %}. Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." Para obter mais informações sobre o {% data variables.product.prodname_codeql_runner %}, consulte "[Executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
-Este artigo é sobre a execução de {% data variables.product.prodname_code_scanning %} no {% data variables.product.product_name %}.
+Este artigo é sobre executar {% data variables.product.prodname_code_scanning %} dentro de {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_dotcom %}{% endif %}.
 
-Antes de poder configurar o {% data variables.product.prodname_code_scanning %} para um repositório, você deve configurar {% data variables.product.prodname_code_scanning %} adicionando um fluxo de trabalho do {% data variables.product.prodname_actions %} ao repositório. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
+Antes de poder configurar o {% data variables.product.prodname_code_scanning %} para um repositório, você deve habilitar o {% data variables.product.prodname_code_scanning %} adicionando um fluxo de trabalho do {% data variables.product.prodname_actions %} ao repositório. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning).
 
 {% data reusables.code-scanning.edit-workflow %}
 
@@ -27,7 +26,7 @@ A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de 
 
 ### Editing a code scanning workflow
 
-O {% data variables.product.prodname_dotcom %} salva arquivos de fluxo de trabalho no diretório _.github/workflows_ do seu repositório. Você pode encontrar um fluxo de trabalho que você adicionou procurando o nome do seu arquivo. For example, the default workflow file for CodeQL code scanning is called `codeql-analysis.yml`.
+O {% data variables.product.prodname_dotcom %} salva arquivos de fluxo de trabalho no diretório _.github/workflows_ do seu repositório. You can find the workflow by searching for its file name. For example, the default workflow file for CodeQL code scanning is called `codeql-analysis.yml`.
 
 1. No seu repositório, pesquise o arquivo do fluxo de trabalho que você deseja editar.
 1. No canto superior direito da vista do arquivo, clique em {% octicon "pencil" aria-label="The edit icon" %} para abrir o editor do fluxo de trabalho. ![Edite o botão do arquivo do fluxo de trabalho](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
@@ -71,7 +70,7 @@ on:
 **Observações**
 
 * `on:pull_request:paths-ignore` e `on:pull_request:paths` definem condições que determinam se as ações no fluxo de trabalho serão executadas em um pull request. Eles não determinam quais arquivos serão analisados quando as ações _são_ executadas. Quando uma pull request contém quaisquer arquivos não correspondidos por `on:pull_request:paths-ignore` ou `on:pull_request:paths`, o fluxo de trabalho executa as ações e faz a varredura de todos os arquivos alterados no pull request, incluindo aqueles que correspondidos por `on:pull_request:paths-ignore` ou `on:pull_request:paths`, a menos que os arquivos tenham sido excluídos. Para obter informações sobre como excluir arquivos da análise, consulte "[Especificar diretórios a serem varridos](#specifying-directories-to-scan)".
-* Para arquivos do fluxo de trabalho de {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, não use as palavras-chave `paths-ignore` ou `paths` com o evento `on:push`, pois é provável que isso gere análises ausentes. Para resultados precisos, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} precisam conseguir comparar novas alterações com a análise do commit anterior.
+* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. Para resultados precisos, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} precisam conseguir comparar novas alterações com a análise do commit anterior.
 
 {% endnote %}
 
@@ -94,17 +93,15 @@ O exemplo a seguir mostra um {% data variables.product.prodname_codeql_workflow 
 ``` yaml
 on:
   push:
-    branches: [main, protected]
   pull_request:
-    branches: [main]
   schedule:
-    - cron: '40 7 * * 2'
+    - cron: '0 15 * * 0'
 ```
 
 Este fluxo de trabalho faz a varredura:
 * Cada push para o branch-padrão e o branch protegido
 * Cada pull request para o branch-padrão
-* The default branch every Tuesday at 7:40 UTC
+* O branch-padrão às 15h. todo domingo
 
 ### Especificar um sistema operacional
 
@@ -135,7 +132,7 @@ O arquivo padrão do {% data variables.product.prodname_codeql_workflow %} cont�
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-Se o seu fluxo de trabalho usar a matriz de </code>linguagem `, o {% data variables.product.prodname_codeql %} será codificado para analisar apenas as linguagens da matriz. Para alterar as linguagens que você deseja analisar, edite o valor da variável da matriz. Você pode remover uma linguagem para evitar que ele seja analisado ou adicionar uma linguagem que não estava presente no repositório quando o {% data variables.product.prodname_code_scanning %} estava configurado. Por exemplo, se o repositório inicialmente continha apenas JavaScript quando {% data variables.product.prodname_code_scanning %} foi configurado e, posteriormente, você adicionou o código Python, você precisará adicionar o <code>python` à matriz.
+Se o seu fluxo de trabalho usar a matriz de </code>linguagem `, o {% data variables.product.prodname_codeql %} será codificado para analisar apenas as linguagens da matriz. Para alterar as linguagens que você deseja analisar, edite o valor da variável da matriz. Você pode remover uma linguagem para evitar que ele seja analisado ou adicionar uma linguagem que não estava presente no repositório quando o {% data variables.product.prodname_code_scanning %} estava habilitado. Por exemplo, se o repositório inicialmente continha apenas JavaScript quando {% data variables.product.prodname_code_scanning %} foi habilitado e, posteriormente, você adicionou o código Python, você precisará adicionar o <code>python` à matriz.
 
 ```yaml
 jobs:
@@ -202,17 +199,13 @@ jobs:
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-Para adicionar uma ou mais consultas, adicione uma entrada `with: queries:` na seção `uses: github/codeql-action/init@v1` do fluxo de trabalho. Se as consultas estiverem em um repositório privado, use o parâmetro `external-repository-token` para especificar um token que tenha acesso ao repositório privado.
+Para adicionar uma ou mais consultas, adicione uma entrada `with: queries:` na seção `uses: github/codeql-action/init@v1` do fluxo de trabalho.
 
-{% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
-    # Optional. Forneça uma token para acessar repositórios privados.
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
-{% endraw %}
 
 Você também pode executar suítes de consultas adicionais especificando-os em um arquivo de configuração. Os suítes de consulta são coleções de consultas, geralmente agrupados por finalidade ou linguagem.
 
@@ -222,15 +215,12 @@ Você pode executar consultas adicionais especificando-as em um arquivo de confi
 
 Para incluir um ou mais suites de consulta, adicione uma seção `consultas` ao seu arquivo de configuração.
 
-{% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
-{% endraw %}
 
 ### Usar uma ferramenta de varredura de código de terceiros
 
@@ -244,19 +234,7 @@ No arquivo de workflow use o parâmetro `config-file` da ação `init` para espe
     config-file: ./.github/codeql/codeql-config.yml
 ```
 
-{% data reusables.code-scanning.custom-configuration-file %}
-
-Se o arquivo de configuração estiver localizado em um repositório privado externo, use o parâmetro `external-repository-token` da ação `init` para especificar um token que tenha acesso ao repositório privado.
-
-{% raw %}
-```yaml
-uses: github/codeql-action/init@v1
-with:
-  external-repository-token: ${{ secrets.ACCESS_TOKEN }}
-```
-{% endraw %}
-
-As configurações no arquivo de configuração estão escritas no formato YAML.
+O arquivo de configuração pode ser localizado no repositório local ou em um repositório remoto público. Para repositórios remotos, você pode usar a sintaxe _owner/repository/file.yml@branch_. As configurações no arquivo são escritas no formato YAML.
 
 #### Especificar consultas adicionais
 
@@ -300,7 +278,7 @@ paths-ignore:
 
 Para linguagens compiladas, se você deseja limitar {% data variables.product.prodname_code_scanning %} a diretórios específicos no seu projeto, você deverá especificar os passos de compilação adequados no fluxo de trabalho. Os comandos que você precisa usar para excluir um diretório da criação dependerão do seu sistema de criação. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
+Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
 
 #### Exemplo de arquivo de configuração
 
@@ -311,6 +289,25 @@ Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o c�
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} Para obter mais informações sobre como configurar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} para linguagens compiladas, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages)".
+
+### Acessar repositórios privados
+
+Se o seu fluxo de trabalho para {% data variables.product.prodname_code_scanning %} acessar repositórios privados no {% data variables.product.prodname_dotcom %}, você deverá configurar o Git para efetuar a autenticação com um token de acesso pessoal. Defina o segredo no ambiente do executor usando `jobs.<job_id>.steps[*].env` no seu fluxo de trabalho antes de qualquer ação do {% data variables.product.prodname_codeql %}. Para mais informações consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)" e "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+
+Por exemplo, a configuração a seguir faz com que o Git substitua todas as URLs para os repositórios de `ghost/foo`, `ghost/bar` e `ghost/baz` em {% data variables.product.prodname_dotcom_the_website %} pelas URLs que incluem o token de acesso pessoal que você armazena na variável de ambiente de `ACCESS_TOKEN`.
+
+{% raw %}
+```yaml
+steps:
+- name: Configure access to private repositories
+  env:
+    TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  run: |
+    git config --global url."https://${TOKEN}@github.com/ghost/foo".insteadOf "https://github.com/ghost/foo"
+    git config --global url."https://${TOKEN}@github.com/ghost/bar".insteadOf "https://github.com/ghost/bar"
+    git config --global url."https://${TOKEN}@github.com/ghost/baz".insteadOf "https://github.com/ghost/baz"
+```
+{% endraw %}
 
 ### {% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}.
 

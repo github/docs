@@ -4,7 +4,7 @@ redirect_from:
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
-intro: 'Documentação, guias e tópicos de ajuda para desenvolvedores de software, engenheiros e gerentes de projeto. O conteúdo abrange o uso do Git, pull requests, problemas, wikis, gists e todas as informações necessárias para aproveitar ao máximo os recursos de desenvolvimento do GitHub.'
+intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -23,13 +23,17 @@ versions:
 {% link_in_list /managing-subscriptions-and-notifications-on-github %}
 
 <!-- Notifications v1 -->
+{% link_in_list /receiving-notifications-about-activity-on-github %}
 
+{% link_in_list /setting-up-and-managing-organizations-and-teams %}
 {% link_in_list /setting-up-and-managing-your-enterprise %}
 {% link_in_list /setting-up-and-managing-billing-and-payments-on-github %}
 
 {% link_in_list /writing-on-github %}
 
 {% link_in_list /creating-cloning-and-archiving-repositories %}
+
+{% link_in_list /using-git %}
 
 {% link_in_list /committing-changes-to-your-project %}
 
@@ -38,6 +42,8 @@ versions:
 {% link_in_list /managing-your-work-on-github %}
 {% link_in_list /developing-online-with-codespaces %}
 
+{% link_in_list /building-a-strong-community %}
+
 {% link_in_list /searching-for-information-on-github %}
 
 {% link_in_list /importing-your-projects-to-github %}
@@ -45,10 +51,9 @@ versions:
 {% link_in_list /administering-a-repository %}
 
 {% link_in_list /visualizing-repository-data-with-graphs %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
 {% link_in_list /managing-security-vulnerabilities %}
-{% link_in_list /finding-security-vulnerabilities-and-errors-in-your-code %}{% endif %}
+
+{% link_in_list /finding-security-vulnerabilities-and-errors-in-your-code %}
 
 {% link_in_list /managing-files-in-a-repository %}
 
@@ -57,6 +62,7 @@ versions:
 
 {% link_in_list /extending-github %}
 
+{% link_in_list /working-with-github-pages %}
 {% link_in_list /supporting-the-open-source-community-with-github-sponsors %}
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}

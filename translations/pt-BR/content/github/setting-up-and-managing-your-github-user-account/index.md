@@ -1,18 +1,16 @@
 ---
-title: Configurar e gerenciar sua conta de usuário do GitHub
-shortTitle: Contas de usuário
+title: Setting up and managing your GitHub user account
+shortTitle: User accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - contas
 ---
 
 
-### Índice
+### Table of Contents
 
 {% topic_link_in_list /managing-user-account-settings %}
     {% link_in_list /about-your-personal-dashboard %}
@@ -25,7 +23,7 @@ topics:
     {% link_in_list /permission-levels-for-user-owned-project-boards %}
     {% link_in_list /managing-the-default-branch-name-for-your-repositories %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-user-account %}
-    {% link_in_list /managing-access-to-your-user-accounts-project-boards %}
+    {% link_in_list /managing-access-to-your-user-accounts-project-boards %}    
     {% link_in_list /integrating-jira-with-your-personal-projects %}
     {% link_in_list /best-practices-for-leaving-your-company %}
     {% link_in_list /what-does-the-available-for-hire-checkbox-do %}

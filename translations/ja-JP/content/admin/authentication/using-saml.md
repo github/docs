@@ -8,8 +8,6 @@ redirect_from:
 intro: 'SAML は認証と認可のための XML ベースの標準です。 {% data variables.product.prodname_ghe_server %} は、内部的な SAML アイデンティティプロバイダ (IdP) とサービスプロバイダ (SP) として動作できます。'
 versions:
   enterprise-server: '*'
-topics:
-  - enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -31,7 +29,7 @@ topics:
 
 `NameID`要素は、他の属性が存在する場合でも必須です。
 
-`NameID` と {% data variables.product.prodname_ghe_server %} ユーザ名の間にマッピングが作成されるため、`NameID` は永続的で一意でなければならず、ユーザのライフサイクルにおいて変更にさらされないようにする必要があります。
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 
@@ -48,7 +46,7 @@ topics:
 
 ### SAMLのメタデータ
 
-{% data variables.product.prodname_ghe_server %} インスタンスのサービスプロバイダメタデータは、`http(s)://[hostname]/saml/metadata` にあります。
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 アイデンティティプロバイダを手動で設定するなら、Assertion Consumer Service (ACS) URLは`http(s)://[hostname]/saml/consume`です。 これは`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`バインディングを利用します。
 

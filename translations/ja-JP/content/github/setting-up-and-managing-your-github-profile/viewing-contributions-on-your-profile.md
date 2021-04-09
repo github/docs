@@ -1,6 +1,6 @@
 ---
 title: プロフィールでコントリビューションを表示する
-intro: '{% data variables.product.product_name %} プロフィールには、ピン止めされたリポジトリと、{% endif %}過去 1 年間のリポジトリのコントリビューションのグラフが表示されます。'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -9,15 +9,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - プロフィール
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}コントリビューショングラフは、パブリックリポジトリからのアクティビティを示しています。 {% endif %}匿名化されたプライベートリポジトリでのアクティビティの特定の詳細と一緒に、{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}パブリックリポジトリと{% endif %}プライベートリポジトリの両方からのアクティビティを表示することも選択できます。 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
 
 {% note %}
 
-**注釈:** コミットは、コミットの作成に使用したメールアドレスが {% data variables.product.product_name %} のアカウントに接続されている場合にのみ、コントリビューショングラフに表示されます。 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)」を参照してください。
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)」を参照してください。
 
 {% endnote %}
 
@@ -27,17 +25,15 @@ topics:
 
 - リポジトリのデフォルトブランチまたは `gh-pages` ブランチにコミットすること
 - Issue を開くこと
-- ディスカッションをオープンすること
-- ディスカッションに回答すること
 - プルリクエストを提案すること
-- プルリクエストレビューを送信すること{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - リポジトリのデフォルトのブランチまたは `gh-pages` ブランチでコミットを共作{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### 人気のあるリポジトリ
 
-このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}[リポジトリをプロフィールにピン止め](/articles/pinning-repositories-to-your-profile)すると、このセクションは「固定リポジトリ」に変わります。{% endif %}
+このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![人気のあるリポジトリ](/assets/images/help/profile/profile_popular_repositories.png)
 
@@ -58,11 +54,11 @@ topics:
 #### 特定の時期からのコントリビューションを表示する
 
 - ある日の正方形をクリックすると、その 24 時間の間になされたコントリビューションが表示されます。
-- *Shift* を押しながら、別の日の四角をクリックすると、その期間中に行われたコントリビューションが表示されます。
+- *Shift* を押しながら、別の日の正方形をクリックすると、その期間中になされたコントリビューションが表示されます。
 
 {% note %}
 
-**メモ:** コントリビューションカレンダーでは 1 か月の範囲まで選ぶことができます。 より長期間を選択した場合、1 か月分のコントリビューションのみが表示されます。
+**メモ:** コントリビューションカレンダーでは 1 か月の範囲まで選ぶことができます。 もっと長い期間を選択した場合、1 か月分のコントリビューションのみが表示されます。
 
 {% endnote %}
 
@@ -90,9 +86,9 @@ topics:
 
 {% if currentVersion != "github-ae@latest" %}
 ### {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.product_location_enterprise %} からコントリビューションを表示する
-サイト管理者が
+If your site administrator has enabled
 
-{% data variables.product.prodname_unified_contributions %} を有効にしている場合は、{% data variables.product.prodname_enterprise %} のコントリビューションカウントを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信できます。 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
 {% endif %}
 
 ### 参考リンク

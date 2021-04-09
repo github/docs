@@ -11,11 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
@@ -32,10 +30,10 @@ Para efetuar a autenticação em {% data variables.product.prodname_registry %} 
 Você deve substituir:
 - `USUÁRIO` pelo o nome da sua conta de usuário em {% data variables.product.prodname_dotcom %}.
 - `TOKEN` pelo seu token de acesso pessoal.
-- `PROPRIETÁRIO` com o nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.{%if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-- `HOSTNAME` com o nome do host para {% data variables.product.product_location %}.{% endif %}
+- `PROPRIETÁRIO` com o nome da conta do usuário ou da organização que é proprietário do repositório que contém o seu projeto.{% if enterpriseServerVersions contains currentVersion %}
+- `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %}.
 
-{%if enterpriseServerVersions contains currentVersion %}Se a sua instância tiver o isolamento de subdomínio habilitado:
+Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```xml
@@ -80,39 +78,9 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ### Publicar um pacote
 
-Você pode publicar um pacote em {% data variables.product.prodname_registry %} autenticando com um arquivo *nuget.config*{% se a correnteVersion == "free-pro-team@latest" ou currentVersion ver_gt "enterprise-server@2.22" ou currentVersion == "github-ae@latest"%}, ou usando a opção de linha de comando</code> `--api-key com seu token de acesso pessoal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.</p>
-
-<p spaces-before="0">{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}</p>
-
-<h4 spaces-before="0">Publicar um pacote usando um o PAT do GitHub como sua chave da API</h4>
-
-<p spaces-before="0">Se você ainda não tem um PAT para usar na sua conta do {% data variables.product.prodname_dotcom %}, consulte "<a href="/github/authenticating-to-github/creating-a-personal-access-token">Criar um token de acesso pessoal</a>".</p>
-
-<ol start="1">
-<li><p spaces-before="0">Criar um novo projeto
-<pre><code class="shell">  dotnet new console --name OctocatApp
-`</pre></li>
-2
-Empacotar o projeto.
-  ```shell
-  dotnet pack --configuration Release
-  ```
-
-3
-
-Publique o pacote usando o seu PAT como a chave da API.
-  ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
-  ```
-</ol>
+Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
 
 {% data reusables.package_registry.viewing-packages %}
-
-{% endif %}
-
-#### Publicar um pacote usando um arquivo *nuget.config*
-
-Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Criar um novo projeto
@@ -122,8 +90,8 @@ Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` n
 3. Adicione informações específicas do seu projeto ao arquivo do seu projeto, que termina em *.csproj*.  Você deve substituir:
     - `PROPRIETÁRIO` com o nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.
     - `REPOSITÓRIO` pelo nome do repositório que contém o pacote que você deseja publicar.
-    - `1.0.0` com o número de versão do pacote.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-    - `HOSTNAME` com o nome do host para {% data variables.product.product_location %}.{% endif %}
+    - `1.0.0` com o número da versão do pacote.{% if enterpriseServerVersions contains currentVersion %}
+    - `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %} .{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -149,8 +117,6 @@ Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` n
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
-
-{% data reusables.package_registry.viewing-packages %}
 
 ### Publicar vários pacotes no mesmo repositório
 
@@ -227,4 +193,4 @@ Usar pacotes do {% data variables.product.prodname_dotcom %} no seu projeto é s
 
 ### Leia mais
 
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package/)"

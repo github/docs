@@ -10,11 +10,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
@@ -61,8 +59,6 @@ Para instalar gemas, necesitas autenticarte en el {% data variables.product.prod
   - `TOKEN` por tu token de acceso personal.
   - `OWNER` con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.{% if enterpriseServerVersions contains currentVersion %}
   - `REGISTRY-URL` con la URL para el registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.
-{% elsif currentVersion == "github-ae@latest" %}
-  - `REGISTRY-URL` con la URL para el registro de Rubygems de tu instancia, `rubygems.HOSTNAME`. Reemplaza *HOTSNAME* con el nombre de host de {% data variables.product.product_location %}.
 {% endif %}
 
 Si no tienes un archivo *~/.gemrc*, crea un nuevo archivo *~/.gemrc* usando este ejemplo.
@@ -79,7 +75,7 @@ Si no tienes un archivo *~/.gemrc*, crea un nuevo archivo *~/.gemrc* usando este
 
 ```
 
-Para autenticar con Bundler, configura Bundler para que use tu token de acceso personal, reemplazando *USERNAME* con tu nombre de usuario de {% data variables.product.prodname_dotcom %}, *TOKEN* con tu token de acceso personal y *OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. En cualquiera de los casos, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% elsif currentVersion == "github-ae@latest" %}Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia, `rubygems.HOSTNAME`. Reemplaza *HOTSNAME* con el nombre de host de {% data variables.product.product_location %}.{% endif %}
+Para autenticar con Bundler, configura Bundler para que use tu token de acceso personal, reemplazando *USERNAME* con tu nombre de usuario de {% data variables.product.prodname_dotcom %}, *TOKEN* con tu token de acceso personal y *OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
 ```shell
 $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
@@ -100,7 +96,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
   ```shell
   gem build OCTO-GEM.gemspec
   ```
-3. Publica un paquete en el {% data variables.product.prodname_registry %}, reemplazando `OWNER` con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto y `OCTO-GEM` con el nombre de tu paquete de gemas.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. En cualquiera de los casos, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% elsif currentVersion == "github-ae@latest" %}Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia, `rubygems.HOSTNAME`. Reemplaza *HOTSNAME* con el nombre de host de {% data variables.product.product_location %}.{% endif %}
+3. Publica un paquete en el {% data variables.product.prodname_registry %}, reemplazando `OWNER` con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto y `OCTO-GEM` con el nombre de tu paquete de gemas.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
   ```shell
   $ gem push --key github \
@@ -110,7 +106,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
 
 ### Publicar varios paquetes en el mismo repositorio
 
-Para publicar múltiples gemas en el mismo repositorio, puedes incluir la URL al repositorio {% data variables.product.prodname_dotcom %} en el campo `github_repo` en `gem.metadata`. Si incluyes este campo, {% data variables.product.prodname_dotcom %} empata el repositorio con base en este valor en vez de utilizar el nombre de la gema.% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Reemplaza a *HOSTNAME* con el nombre de host de {% data variables.product.product_location %}.{% endif %}
+Para publicar múltiples gemas en el mismo repositorio, puedes incluir la URL al repositorio {% data variables.product.prodname_dotcom %} en el campo `github_repo` en `gem.metadata`. Si incluyes este campo, {% data variables.product.prodname_dotcom %} empatará el repositorio con base en este valor en vez de utilizar el nombre de la gema.{% if enterpriseServerVersions contains currentVersion %} Reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
@@ -121,7 +117,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual que usas gemas de *rubygems.org*. Debes autenticar para {% data variables.product.prodname_registry %} al agregar tu usuario u organización {% data variables.product.prodname_dotcom %} como fuente en el archivo *~/.gemrc* o mediante el uso de Bundler y la edición de *Gemfile*.
 
 {% data reusables.package_registry.authenticate-step %}
-1. Para Bundler, agrega tu usuario u organización {% data variables.product.prodname_dotcom %} como fuente en tu *Gemfile* para extraer gemas de esta nueva fuente. Por ejemplo, puedes agregar un bloque nuevo de `source` al *Gemfile* que utiliza el {% data variables.product.prodname_registry %} únicamente para los paquetes que especifiques, reemplzando *GEM NAME* con el paquete que quieres instalar desde el {% data variables.product.prodname_registry %} y *OWNER* con el usuario u organización al que pertenece el repositorio que contienen la gema que quieres instalar.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. En cualquiera de los casos, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% elsif currentVersion == "github-ae@latest" %}Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia, `rubygems.HOSTNAME`. Reemplaza *HOTSNAME* con el nombre de host de {% data variables.product.product_location %}.{% endif %}
+2. Para Bundler, agrega tu usuario u organización {% data variables.product.prodname_dotcom %} como fuente en tu *Gemfile* para extraer gemas de esta nueva fuente. Por ejemplo, puedes agregar un bloque nuevo de `source` al *Gemfile* que utiliza el {% data variables.product.prodname_registry %} únicamente para los paquetes que especifiques, reemplzando *GEM NAME* con el paquete que quieres instalar desde el {% data variables.product.prodname_registry %} y *OWNER* con el usuario u organización al que pertenece el repositorio que contienen la gema que quieres instalar.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
 
   ```ruby
   source "https://rubygems.org"
@@ -150,4 +146,4 @@ Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual 
 
 ### Leer más
 
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

@@ -1,6 +1,6 @@
 ---
 title: Criar gists
-intro: 'Você pode criar dois tipos de gists: {% if currentVersion == "github-ae@latest" %}internos{% else %}públicos{% endif %} e secretos. Crie um gist {% if currentVersion == "github-ae@latest" %}interno{% else %}um público{% endif %} se você estiver pronto para compartilhar suas ideias com {% if currentVersion == "github-ae@latest" %}os integrantes corporativos{% else %}o mundo{% endif %} ou um gist secreto se você não estiver pronto.'
+intro: 'Você pode criar dois tipos de gist: público e secreto. Crie um gist público se estiver pronto para compartilhar suas ideias com o mundo; caso contrário, crie um gist secreto.'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -14,13 +14,11 @@ versions:
 
 ### Sobre gists
 
-Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e clonado. {% if currentVersion ! "github-ae@latest" %}Se você estiver conectado em {% data variables.product.product_name %} quando{% else %}Quando{% endif %} criar um gist, este será associado à sua conta e você irá vê-lo na sua lista de gists ao acessar o seu {% data variables.gists.gist_homepage %}.
+Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e clonado. Se estiver conectado ao {% data variables.product.product_name %} quando criar um gist, o gist será associado à sua conta e você o verá na lista de gists quando navegar para sua {% data variables.gists.gist_homepage %}.
 
-Os gists podem ser {% if currentVersion == "github-ae@latest" %}internos{% else %}públicos{% endif %} ou segredo. {% se a versão atual == "github-ae@latest" %} Os gists internos{% else %}Públicos{% endif %} aparecem em {% data variables.gists.discover_url %}, onde {% se a correnteVersion == "github-ae@latest" %}integrantes corporativos{% else %}pessoas{% endif %} podem pesquisar novos gistas à medida que são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho.
+Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {% data variables.gists.discover_url %}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Os gists secretos não aparecem em {% data variables.gists.discover_url %} e não são pesquisáveis. Os grupos de segredos não são privados. Se você enviar a URL de um gist de segredo para {% if currentVersion == "github-ae@latest" %}outro integrante corporativo{% else %}um amigo {% endif %}, eles poderão vê-lo. No entanto, se {% if currentVersion == "github-ae@latest" %}qualquer outro integrante corporativo{% else %}alguém que você não conhece{% endif %} descobrir a URL, eles também poderão ver o seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
-
-{% data reusables.gist.cannot-convert-public-gists-to-secret %}
+Os gists secretos não aparecem em {% data variables.gists.discover_url %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -33,7 +31,7 @@ Se o administrador do site tiver desabilitado o modo privado, você também pode
 Você receberá uma notificação quando:
 - Você for o autor de um gist.
 - Alguém mencionar você em um gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+- Você assinar um gist, clicando em **Subscribe** (Assinar) no topo de qualquer gist.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
@@ -41,7 +39,7 @@ Você pode fixar os gists no seu perfil para que outras pessoas possam vê-los f
 
 {% endif %}
 
-Você pode descobrir gists {% if currentVersion == "github-ae@latest" %}internos{% else %}públicos{% endif %} que outros criaram, acessando {% data variables.gists.gist_homepage %} e clicando em **Todos os Gists**. Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {% data variables.gists.gist_search_url %}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
+É possível descobrir gists que outras pessoas criaram acessando a {% data variables.gists.gist_homepage %} e clicando em **All Gists** (Todos os gists). Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {% data variables.gists.gist_search_url %}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
 
 Uma vez que os gists são repositórios Git, você pode exibir o histórico completo de commits deles, com diffs. Também é possível bifurcar ou clonar gists. Para obter mais informações, consulte ["Bifurcar e clonar gists"](/articles/forking-and-cloning-gists).
 
@@ -55,14 +53,12 @@ O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gist
 
 ### Criar um gist
 
-Follow the steps below to create a gist.
+Você também pode arrastar e soltar um arquivo de texto da sua área de trabalho diretamente no editor do gist.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 Você também pode criar um gist usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {% data variables.product.prodname_cli %}.
-
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 {% endnote %}
 {% endif %}
@@ -71,8 +67,14 @@ Alternatively, you can drag and drop a text file from your desktop directly into
 2. Navegue até sua {% data variables.gists.gist_homepage %}.
 3. Digite uma descrição opcional e o nome do seu gist. ![Descrição do nome do gist](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box. ![Caixa de texto do gist](/assets/images/help/gist/gist_text_box.png)
+4. Digite o texto do seu gist na caixa de texto do gist. ![Caixa de texto do gist](/assets/images/help/gist/gist_text_box.png)
 
-5. Opcionalmente, para criar {% se a correnteVersion == "github-ae@latest" %}um gist interno{% else %}um público{% endif %}, clique em {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, clique em **Criar gist {% se a correnteVersion == "github-ae@latest" %}interno{% else %}público{% endif %}**. ![Menu suspenso para selecionar a visibilidade do gist]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
+5. Siga um destes procedimentos:
+    - Para criar um gist público, clique em **Criar gist público**.
+    - Para criar um gist secreto, clique em **Criar gist secreto**. ![Botão de criação do gist](/assets/images/help/gist/gist_create_btn.png)
 
-6. Clique em **Criar Gist secreto** ou **Criar gist{% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %}**. ![Botão para criar gist](/assets/images/help/gist/create-secret-gist-button.png)
+  {% note %}
+
+  **Observação:** {% data reusables.gist.cannot-convert-public-gists-to-secret %}
+
+  {% endnote %}

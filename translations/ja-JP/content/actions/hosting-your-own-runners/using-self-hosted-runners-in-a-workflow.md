@@ -1,20 +1,17 @@
 ---
 title: ワークフローでのセルフホストランナーの利用
-intro: 'ワークフローでセルフホストランナーを使うには、ラベルを使ってジョブのためのランナーの種類を指定できます。'
+intro: ワークフローでセルフホストランナーを使うには、ラベルを使ってジョブのためのランナーの種類を指定できます。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'チュートリアル'
+type: tutorial
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 カスタム及びデフォルトラベルの作成に関する情報については「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
 
@@ -32,7 +29,7 @@ type: 'チュートリアル'
 
 * `self-hosted`: セルフホストランナーに適用されるデフォルトのラベル。
 * `linux`、`windows`、`macOS`: オペレーティングシステムに基づいて適用されます。
-* `x64`、`ARM`、または `ARM64`: ハードウェアアーキテクチャに基づいて適用されます。
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 ワークフローのYAMLを使って、これらのラベルの組み合わせに対してジョブを送信できます。 この例では、3つのラベルすべてにマッチするセルフホストランナーが、ジョブを実行する資格を持つことになります。
 
@@ -69,7 +66,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ジョブをセルフホストランナーにルーティングする際に、{% data variables.product.prodname_dotcom %}はジョブの`runs-on`ラベルにマッチするランナーを探します。
 
-1. {% data variables.product.prodname_dotcom %} は、最初にリポジトリレベル、次に組織レベル、その次に Enterprise レベルでランナーを検索します{% endif %}。
+1. {% data variables.product.prodname_dotcom %}ま、まずリポジトリレベルで、続いてOrganizationのレベルで{% if currentVersion ver_gt "enterprise-server@2.21" %}、そしてEnterpriseのレベルで{% endif %}ランナーを探します。
 2. ジョブは最初にマッチした、オンラインでアイドル状態のランナーに送信されます。
    - マッチしたすべてのランナーがビジーだった場合、ジョブはマッチしたオンラインのランナーが最も多いレベルでキューイングされます。
    - マッチしたランナーがすべてオフラインだった場合、ジョブはマッチしたオフラインのランナーが最も多いレベルでキューイングされます。

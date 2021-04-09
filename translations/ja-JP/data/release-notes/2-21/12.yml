@@ -6,7 +6,7 @@ sections:
   bugs:
     - 'baneldログに秒とマイクロ秒の間のセパレータが欠けていました。 {% comment %} https://github.com/github/babeld/pull/1005, https://github.com/github/babeld/pull/1002 {% endcomment %}'
     - 'Enterpriseアカウントの"Repository visibility change"ポリシーが"Enabled"に設定されている場合、OrganizationオーナーがOrganization内のリポジトリの可視性を変更できませんでした。 {% comment %} https://github.com/github/github/pull/160921, https://github.com/github/github/pull/160773 {% endcomment %}'
-    - '監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。{{% comment %} https://github.com/github/github/pull/162436, https://github.com/github/github/pull/161215 {% endcomment %}'
+    - '監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。{% comment %} https://github.com/github/github/pull/162436, https://github.com/github/github/pull/161215 {% endcomment %}'
   known_issues:
     - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

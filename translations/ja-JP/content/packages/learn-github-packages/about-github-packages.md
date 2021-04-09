@@ -1,6 +1,6 @@
 ---
 title: GitHub Packagesについて
-intro: '{% data variables.product.prodname_registry %}はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージを{% if currentVersion == "github-ae@latest" %}特定のユーザや社内に対し{% else %}非公開または公開でホストでき、{% endif %}パッケージをプロジェクト中で依存関係として使えるようになります。'
+intro: '{% data variables.product.prodname_registry %}はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージをプライベートもしくはパブリックでホストでき、パッケージをプロジェクト中で依存関係として使えるようになります。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -10,26 +10,31 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### {% data variables.product.prodname_registry %} について
 
-{% data variables.product.prodname_registry %}はパッケージホスティングサービスで、{% data variables.product.prodname_dotcom %}と完全に統合されています。 {% data variables.product.prodname_registry %}は、ソースコードとパッケージを一カ所にまとめ、統合された権限管理{% if currentVersion != "github-ae@latest" %}と支払い{% endif %}を提供し、{% data variables.product.product_name %}上でのソフトウェア開発を一元化できるようにします。
+{% data variables.product.prodname_registry %}はパッケージホスティングサービスで、{% data variables.product.prodname_dotcom %}と完全に統合されています。 {% data variables.product.prodname_registry %}は、ソースコードとパッケージを一カ所にまとめ、統合された権限管理と支払いを提供し、{% data variables.product.product_name %}上でのソフトウェア開発を一元化できるようにします。
 
 {% data variables.product.prodname_registry %}は、{% data variables.product.product_name %} API、{% data variables.product.prodname_actions %}、webhookと統合して、コード、CI、デプロイメントのソリューションを含むエンドツーエンドのDevOpsワークフローを作成できます。
 
 1つのリポジトリで複数のパッケージをホストし、各パッケージのREADMEを見たり、統計をダウンロードしたり、バージョン履歴を見たりすることで、各パッケージに関する詳しい情報を見ることができます。
 
-![Diagram showing packages support for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
+<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/ghes-packages-diagram.png)
+
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/guides/about-github-container-registry)」を参照してください。
 
 {% data reusables.package_registry.container-registry-beta %}
+
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% endif %}
 
@@ -48,7 +53,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 ### {% data variables.product.prodname_registry %}の支払いについて
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} 詳細は、「[{% data variables.product.prodname_registry %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)」を参照してください。
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 {% endif %}
@@ -58,16 +63,49 @@ versions:
 {% data variables.product.prodname_registry %}は、パッケージのバージョンの公開とインストールに、すでにおなじみのネイティブのパッケージツールコマンドを使います。
 #### パッケージレジストリのサポート
 
-| 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  |
-| ---------- | ----------------------------- | ------------------------------------- | ------------ |
-| JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        |
-| Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        |
-| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        |
-| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     |
-| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI |
-| なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     |
+{% if currentVersion == "free-pro-team@latest" %}
+パッケージレジストリは、`PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Gemfile は `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% else %}
+
+サイト管理者がさまざまなパッケージのタイプを有効化、無効化できるため、{% data variables.product.product_location %} でサポートされているパッケージのタイプはさまざまです。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
+
+{% data variables.product.product_location %} が Subdomain Isolation を有効化している場合、パッケージレジストリは `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Dockerfile は `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
+
+{% data variables.product.product_location %} が Subdomain Isolation を無効化している場合、パッケージレジストリは `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。 たとえば、Gemfile は `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。*HOSTNAME* は、{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えます。 |{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+| 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                             |
+| ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------------- |
+| JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
+| Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+
+{% else %}
+
+{% data variables.product.product_location %} で Subdomain Isolation を有効化している場合
+
+| 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                       |
+| ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------- |
+| JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        | `npm.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`      |
+| Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `rubygems.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
+| なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
+
+{% data variables.product.product_location %} で Subdomain Isolation を無効化している場合
+
+| 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                                 |
+| ---------- | ----------------------------- | ------------------------------------- | ------------ | --------------------------------------------------------- |
+| JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        | `HOSTNAME/_registry/npm/OWNER/REPOSITORY/IMAGE-NAME`      |
+| Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `HOSTNAME/_registry/maven/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `HOSTNAME/_registry/maven/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `HOSTNAME/_registry/nuget/OWNER/REPOSITORY/IMAGE-NAME`    |
+
 {% note %}
 
 **注釈:** Subdomain Isolation が無効化されている場合、Docker はサポートされません。
@@ -78,11 +116,11 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 
 {% endif %}
 
-{% data variables.product.prodname_registry %}でパッケージクライアントを使用するための設定に関する詳しい情報については、「[{% data variables.product.prodname_registry %}のパッケージクライアントガイド](/packages/guides/package-client-guides-for-github-packages)」を参照してください。
+For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Package client guides for {% data variables.product.prodname_registry %}](/packages/guides/package-client-guides-for-github-packages)."
 
 {% if currentVersion == "free-pro-team@latest" %}
-Dockerおよび
-{% data variables.product.prodname_github_container_registry %}に関する詳しい情報については、「[{% data variables.product.prodname_registry %}のコンテナガイド](/packages/guides/container-guides-for-github-packages)」を参照してください。
+For more information about Docker and
+{% data variables.product.prodname_github_container_registry %}, see "[Container guides for {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)."
 {% endif %}
 ### {% data variables.product.prodname_registry %} への認証を行う
 
@@ -94,16 +132,14 @@ Dockerおよび
 
 例:
 -  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントはそのリポジトリの読み取り権限を持っていなければなりません。
-- {% if currentVersion == "free-pro-team@latest" or if currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.product_name %}上のパッケージを削除するには、トークンが少なくとも`delete:packages`と`read:packages`のスコープを持っている必要があります。 repoのスコープがあるパッケージでは、`repo`スコープも必要です。{% if currentVersion ver_lt "enterprise-server@3.1" %}{% data variables.product.product_name %}上の、プライベートパッケージの特定バージョンを削除するには、トークンが`delete:packages`と`repo`スコープを持っている必要があります。 パブリックなパッケージは削除できません。{% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_name %}上の特定のバージョンを削除するには、`delete:packages`および`repo`スコープを持っている必要があります。{% endif %}詳しい情報については、 「{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」を参照してください。
+- {% data variables.product.product_name %}上の特定バージョンのプライベートパッケージを削除するには、トークンは`delete:packages`及び`repo`スコープを持っていなければなりません。 パブリックなパッケージは削除できません。 詳しい情報については「[パッケージの削除](/packages/manage-packages/deleting-a-package)」を参照してください。
 
-| スコープ                                                                                                                                                                                                                                                                                                                                                                                                                      | 説明                                                                   | リポジトリの権限   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------- |
-| `read:packages`                                                                                                                                                                                                                                                                                                                                                                                                           | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール | 読み取り       |
-| `write:packages`                                                                                                                                                                                                                                                                                                                                                                                                          | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開      | 書き込み       |
-| `delete:packages`                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                      |            |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_registry %}からパッケージを削除する {% elsif currentVersion ver_lt "enterprise-server@3.1" %}{% data variables.product.prodname_registry %}からプライベートパッケージの特定バージョンを削除する{% elsif currentVersion == "github-ae@latest" %}{% data variables.product.prodname_registry %}から特定バージョンを削除する{% endif %} |                                                                      |            |
-| 管理                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                      |            |
-| `repo`                                                                                                                                                                                                                                                                                                                                                                                                                    | パッケージのアップロードと削除 (`write:packages`または`delete:packages`と併せて)           | 書き込みまたは管理者 |
+| スコープ              | 説明                                                                             | リポジトリの権限        |
+| ----------------- | ------------------------------------------------------------------------------ | --------------- |
+| `read:packages`   | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール           | 読み取り            |
+| `write:packages`  | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開                | 書き込み            |
+| `delete:packages` | {% data variables.product.prodname_registry %}からの特定バージョンのプライベートパッケージの削除        | 管理              |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。
 
@@ -114,27 +150,7 @@ Dockerおよび
 
 ### パッケージの管理
 
-{% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %}ユーザインターフェイスか、
-REST APIを使用してパッケージを削除できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
-{% endif %}
-
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
-{% data variables.product.product_name %}ユーザインターフェイスで
-プライベートおよびパブリックパッケージを削除できます。 また、repoスコープのパッケージでは、GraphQLを使用してプライベートパッケージのバージョンを削除できます。
-{% endif %}
-
-{% if currentVersion ver_lt "enterprise-server@3.1" %}
-{% data variables.product.product_name %}ユーザインターフェイス
-またはGraphQL APIを使用して、プライベートパッケージのバージョンを削除できます。
-{% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-{% data variables.product.product_name %}ユーザインターフェイス
-またはGraphQL APIを使用して、プライベートパッケージのバージョンを削除できます。
-{% endif %}
-
-GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、 「{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」および「"[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
+You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/manage-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 

@@ -1,6 +1,6 @@
 ---
-title: リポジトリのファイルを削除する
-intro: '{% data variables.product.product_name %} のリポジトリ内にある各ファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}またはディレクトリ全体{% endif %}を削除できます。'
+title: Deleting files in a repository
+intro: 'You can delete an individual file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory{% endif %} in your repository on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -9,20 +9,18 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: '書き込み権限を持つユーザは、リポジトリ内のファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}またはディレクトリ{% endif %}を削除できます。'
-topics:
-  - repositories
+permissions: People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.
 ---
 
-### ファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}とディレクトリ{% endif %}の削除について
+### About file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} and directory{% endif %} deletion
 
-リポジトリにある個々のファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、またはディレクトリにあるすべてのファイルを含むディレクトリ全体を削除できます{% endif %}。
+You can delete an individual file in your repository{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory, including all the files in the directory{% endif %}.
 
-書き込み権限を持たないリポジトリ内のファイルまたはディレクトリ{% endif %}を削除しようとすると、プロジェクトがユーザアカウントにフォークされ、変更をコミットした後に元のリポジトリにプルリクエストを送信できるようになります。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
+If you try to delete a file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
 
-削除したファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}またはディレクトリ{% endif %}に機密データが含まれている場合、そのデータは引き続きリポジトリの Git 履歴で利用できます。 {% data variables.product.product_name %} からファイルを完全に削除するには、リポジトリの履歴からファイルを削除する必要があります。 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。
+If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。
 
-### ファイルを削除する
+### Deleting a file
 
 1. リポジトリ内で削除対象のファイルを見つけます。
 2. ページの上部で、次をクリックします。
@@ -33,11 +31,11 @@ topics:
 {% data reusables.files.propose_file_change %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### ディレクトリを削除する
+### Deleting a directory
 
-1. リポジトリ内で削除対象のディレクトリを見つけます。
-1. 右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Delete directory**] をクリックします。 ![ディレクトリを削除するボタン](/assets/images/help/repository/delete-directory-button.png)
-1. 削除するファイルを確認します。
+1. Browse to the directory in your repository that you want to delete.
+1. In the top-right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete directory**. ![Button to delete a directory](/assets/images/help/repository/delete-directory-button.png)
+1. Review the files you will delete.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

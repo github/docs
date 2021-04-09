@@ -1,14 +1,12 @@
 ---
 title: プライベートコントリビューションをプロフィールで公開または非公開にする
-intro: '{% data variables.product.product_name %} プロフィールには、過去 1 年間のリポジトリコントリビューションのグラフが表示されます。 パブリックリポジトリ{% endif %}からのアクティビティに加えて、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}プライベートおよび内部{% else %}プライベート{% endif %}リポジトリ{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}からの匿名化されたアクティビティを表示するように選択できます。'
+intro: '{% data variables.product.product_name %} プロフィールには、過去 1 年間のリポジトリコントリビューションのグラフが表示されます。 You can choose to show anonymized activity from {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}private and internal{% else %}private{% endif %} repositories{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - プロフィール
 ---
 
 プライベートコントリビューションを公開しても、あなたが作業しているプライベートリポジトリへのアクセス権がないユーザーがあなたのプライベートコントリビューションを見ることはできません。 かわりに、特定の日におけるプライベートコントリビューションの数だけを見ることができます。 パブリックコントリビューションには、詳細な情報が含まれます。 詳細は、「[プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)」を参照してください。

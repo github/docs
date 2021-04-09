@@ -11,8 +11,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
-  - repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}
@@ -27,7 +25,7 @@ topics:
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳しい情報については、% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」{% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」{% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
 
 ### リポジトリへのプッシュに対するメール通知の有効化
 
@@ -35,8 +33,8 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
 5. 最大で 2 個まで、通知の送信先にしたいメールアドレスを空白で区切って入力します。 2 つを超える数のアカウントにメールを送信させたい場合は、メールアドレスの 1 つをグループメールアドレスにしてください。 ![メールアドレスのテキストボックス](/assets/images/help/settings/email_services_addresses.png)
-1. 自分のサーバーを運用している場合は、**Approved ヘッダ**を介してメールの整合性を確認できます。 **Approved ヘッダ**は、このフィールドに入力するトークンまたはシークレットであり、メールで送信されます。 メールが `Approved` ヘッダが、送信したトークンにマッチする場合、そのメールが {% data variables.product.product_name %} からのものであると信頼できます。 ![Approved ヘッダのテキストボックスをメールで送信](/assets/images/help/settings/email_services_approved_header.png)
-7. [**Setup notifications**] をクリックします。 ![設定通知ボタン](/assets/images/help/settings/setup_notifications_settings.png)
+6. 自分のサーバーを運用している場合は、**Secret** トークンでメールの整合性を検証できます。 このトークンは `Approved` ヘッダとしてメールとともに送信されます。 `Approved`ヘッダが、あなたが送信したトークンにマッチすれば、そのメールが {% data variables.product.product_name %} からのものであると信頼できます。 ![メールのシークレットテキストボックス](/assets/images/help/settings/email_services_token.png)
+7. **Save settings（設定の保存）**をクリックしてください。 ![設定保存のボタン](/assets/images/help/settings/save_notification_settings.png)
 
 ### 参考リンク
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}

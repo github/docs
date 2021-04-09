@@ -6,8 +6,6 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
-topics:
-  - enterprise
 ---
 
 ### クラスタのステータスの手動でのチェック
@@ -46,25 +44,24 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
   {% danger %}
 
-  {{#danger}}
  **セキュリティの警告:** パスフレーズを持たない SSH キーは、ホストへの完全なアクセスを承認されていた場合、セキュリティリスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
 
   {% enddanger %}
   {% note %}
 
-  **注釈:** Ed25519 アルゴリズムをサポートしていない Linux ディストリビューションを使用している場合は、次のコマンドを使用します。
+  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
   ```shell
   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
   {% endnote %}
-2. 秘密鍵 (`id_ed25519`) を `nagios` ホームフォルダにコピーし、適切な所有権を設定します。
+2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
   ```shell
   nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 例: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
 4. `/data/user/common/authorized_keys` ファイルを変更したノード上で `ghe-cluster-config-apply` を実行し、設定を検証してクラスタ内の各ノードにコピーしてください。
 

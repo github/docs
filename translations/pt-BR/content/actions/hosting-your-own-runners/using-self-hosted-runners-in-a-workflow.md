@@ -7,14 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
 type: 'tutorial'
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Para obter informações sobre como criar etiquetas-padrão e etiquetas personalizadas, consulte "[Usando etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -32,7 +29,7 @@ Um executor auto-hospedado recebe automaticamente certas etiquetas ao ser adicio
 
 * `auto-hospedado`: Etiqueta-padrão aplicada a todos os executores auto-hospedados.
 * `Linux`, `Windows`, ou `macOS`: Aplicado, dependendo do sistema operacional.
-* `x64`, `ARM`, ou `ARM64`: Aplicado dependendo da arquitetura do hardware.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 Você pode usar o YAML do seu fluxo de trabalho para enviar trabalhos para uma combinação dessas etiquetas. Neste exemplo, um executor auto-hospedado que corresponde a todas as três etiquetas será elegível para executar a o trabalho:
 
@@ -69,7 +66,7 @@ Estas etiquetas operam cumulativamente. Portanto, as etiquetas de um executor au
 
 Ao encaminhar um trabalho para um executor auto-hospedado, {% data variables.product.prodname_dotcom %} procura um executor que corresponde às etiquetas `runs-on` do trabalho:
 
-1. {% data variables.product.prodname_dotcom %} primeiro pesquisa um executor no nível do repositório, depois no nível da organização% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} e, em seguida, no nível corporativo{% endif %}.
+1. {% data variables.product.prodname_dotcom %} primeiro procura um executor no nível do repositório, depois no nível da organização{% if currentVersion ver_gt "enterprise-server@2.21" %} e, por fim, no nível empresarial{% endif %}.
 2. Em seguida, o trabalho é enviado para o primeiro executor correspondente que está on-line e inativo.
    - Se todos os executores on-line estiverem ocupados, o trabalho será agendado no nível com o maior número de executores on-line.
    - Se todos os runners correspondentes estiverem off-line, a tarefa será listada no nível com o maior número de executores off-line correspondentes.
