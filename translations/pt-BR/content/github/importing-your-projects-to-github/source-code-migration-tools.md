@@ -41,7 +41,7 @@ Recomendamos estas ferramentas para mover alterações entre oTeam Foundation Se
 
 {% tip %}
 
-**Dica:** depois de converter com sucesso o projeto em Git, você poderá [fazer push dele para o {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/).
+**Dica:** depois de converter com sucesso o projeto em Git, você poderá [fazer push dele para o {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 

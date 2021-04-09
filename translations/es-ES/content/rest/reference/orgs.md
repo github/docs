@@ -1,12 +1,14 @@
 ---
 title: Organizaciones
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 {% for operation in currentRestOperations %}

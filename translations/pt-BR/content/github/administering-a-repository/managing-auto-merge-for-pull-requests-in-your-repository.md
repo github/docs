@@ -1,13 +1,15 @@
 ---
 title: Gerenciando merge automático para pull requests no seu repositório
-intro: "Você pode permitir ou impedir um merge automático de pull requests em seu repositório."
+intro: Você pode permitir ou impedir um merge automático de pull requests em seu repositório.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
+  github-ae: '*'
 permissions: Pessoas com permissões de mantenedor podem gerenciar merge automático para pull requests em um repositório.
+topics:
+  - repositories
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 Se você permitir um merge automático para pull requests no seu repositório, as pessoas podem configurar os pull requests individuais no repositório para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. Para obter mais informações, consulte "[Fazer merge automático de um pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".
 

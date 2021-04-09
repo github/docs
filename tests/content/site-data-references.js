@@ -2,9 +2,10 @@ const { isEqual, get, uniqWith } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
 const { loadPages } = require('../../lib/pages')
 const getDataReferences = require('../../lib/get-liquid-data-references')
-const frontmatter = require('@github-docs/frontmatter')
+const frontmatter = require('../../lib/read-frontmatter')
 const fs = require('fs').promises
 const path = require('path')
+const readFileAsync = require('../../lib/readfile-async')
 
 describe('data references', () => {
   jest.setTimeout(60 * 1000)
@@ -41,7 +42,7 @@ describe('data references', () => {
 
     await Promise.all(pages.map(async page => {
       const metadataFile = path.join('content', page.relativePath)
-      const fileContents = await fs.readFile(path.join(__dirname, '../..', metadataFile))
+      const fileContents = await readFileAsync(path.join(__dirname, '../..', metadataFile))
       const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
       const metadataRefs = getDataReferences(JSON.stringify(metadata))
       metadataRefs.forEach(key => {

@@ -5,7 +5,7 @@ The starter workflow template sets up the `PATH` to contain OpenJDK 8 for the x6
 For example, to use version 9.0.4 of the JDK for the x64 platform, you can use the `setup-java` action and configure the `java-version` and `architecture` parameters to `'9.0.4'` and `x64`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
   - name: Set up JDK 9.0.4 for x64

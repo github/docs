@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于赞助者和赞助

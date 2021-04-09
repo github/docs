@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - github 搜索
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

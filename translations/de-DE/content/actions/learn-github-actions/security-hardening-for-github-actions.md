@@ -8,7 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Sicherheit
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,11 +56,13 @@ This means that a compromise of a single action within a workflow can be very si
 
   Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
 
+  {% if currentVersion ver_lt "enterprise-server@3.1" %}
   {% warning %}
 
   **Warning:** The short version of the commit SHA is insecure and should never be used for specifying an action's Git reference. Because of how repository networks work, any user can fork the repository and push a crafted commit to it that collides with the short SHA. This causes subsequent clones at that SHA to fail because it becomes an ambiguous commit. As a result, any workflows that use the shortened SHA will immediately fail.
 
   {% endwarning %}
+  {% endif %}
 
 
 * **Audit the source code of the action**
@@ -140,4 +144,4 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `action:org.runner_group_removed`         | Triggered when an organization admin removes a self-hosted runner group.                                                                                                                                                  |
 | `action:org.runner_group_renamed`         | Triggered when an organization admin renames a self-hosted runner group.                                                                                                                                                  |
 | `action:org.runner_group_runners_added`   | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                |
-| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           | 
+| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           |

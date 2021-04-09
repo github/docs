@@ -12,25 +12,16 @@ featuredLinks:
     - /packages/manage-packages/installing-a-package
   popular:
     - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/learn-github-packages
     - /packages/guides/configuring-apache-maven-for-use-with-github-packages
   guideCards:
     - /packages/guides/configuring-npm-for-use-with-github-packages
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  -
-    title: ghcr.io container names redirect to the container page
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
-  -
-    title: Filter for tagged and untagged containers
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
-  -
-    title: Packages container support is an opt-in beta
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  label: 'packages'
+  prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
@@ -39,6 +30,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

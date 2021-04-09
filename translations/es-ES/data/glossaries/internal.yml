@@ -3,7 +3,7 @@
   term: 2-up
   description: El modo predeterminado de ver imágenes en GitHub.
 - 
-  term: alternate object database
+  term: base de datos de objetos alterna
   description: >-
     A través de mecanismos alternativos, un repositorio puede heredar parte de su base de datos de objetos de otra base de datos de objetos, que se denomina "alternativa".
 - 
@@ -11,18 +11,18 @@
   description: >-
     Imagen de máquina de Amazon. Un aparato virtual para usar con la Amazon Elastic Compute Cloud.
 - 
-  term: anonymized image URL
+  term: URL de imagen anonimizada
   description: >-
     Un proxy URL anónimo para cada imagen que oculta los detalles del navegador y la información relacionada de otros usuarios.
 - 
-  term: apex domain
+  term: dominio apex
   description: Un dominio de raíz que no contiene una parte de subdominio.
 - 
   term: API
   description: >-
     Interfaz de programación de la aplicación. Un conjunto de métodos de comunicación claramente definidos entre varios componentes de software.
 - 
-  term: API token
+  term: Token de la API
   description: >-
     Un token que se usa en lugar de una contraseña en scripts y en la línea de comando.
 - 
@@ -30,24 +30,24 @@
   description: >-
     Servicio de terceros que se integra con GitHub. Por lo general, esto se refiere a las aplicaciones OAuth o a las Apps GitHub. También se las conoce como app.
 - 
-  term: application
+  term: aplicación
   description: >-
     Servicio de terceros que se integra con GitHub. Por lo general, esto se refiere a las aplicaciones OAuth o a las Apps GitHub. También se las conoce como app.
 - 
-  term: argument
+  term: argumento
   description: 'En GraphQL, un conjunto de pares de clave-valor que se adjunta a un campo específico.'
 - 
   term: AsciiDoc
   description: >-
     Un formato de documento de texto para escribir notas, documentación, artículos, libros, libros electrónicos, diapositivas, páginas web, páginas de manual y blogs.
 - 
-  term: assets
+  term: activos
   description: 'Archivos individuales como imágenes, fotos, videos y archivos de texto.'
 - 
-  term: Atom feed
+  term: Fuente Atom
   description: Un formato XML ligero que permite una fácil sindicación del contenido web.
 - 
-  term: audit log
+  term: bitácora de auditoría
   description: >-
     En una organización, el registro de auditoría incluye detalles acerca de las actividades realizadas en la organización, como quién realizó la acción, cuál fue la acción y cuándo fue realizada.
 - 
@@ -61,14 +61,14 @@
   term: Azure
   description: Una plataforma de informática en la nube de Microsoft.
 - 
-  term: bare repository
+  term: repositorio en blanco
   description: >-
     Normalmente, un repositorio en blanco es un directorio con un nombre apropiado con un sufijo .git que no tiene una copia revisada localmente de ninguno de los archivos bajo control de revisión. Es decir, todos los archivos de control y administrativos Git que normalmente estarían presentes en el subdirectorio .git oculto están presentes directamente en el directorio del repositorio.git y ningún otro archivo está presente y revisado. Generalmente, quienes publican los repositorios públicos ponen a disposición los repositorios en blanco.
 - 
-  term: BFG repo cleaner
+  term: Limpiador para repositorio BFG
   description: BFG. Una herramienta de terceros que limpia datos del historia de tu repositorio Git.
 - 
-  term: blob object
+  term: objeto blob
   description: 'Objeto sin tipo, p. ej., los contenidos de un archivo.'
 - 
   term: bot
@@ -77,40 +77,40 @@
   term: Bundler
   description: Una manera de administrar las Ruby gems de las que depende una aplicación.
 - 
-  term: camo
+  term: camuflaje
   description: >-
     Un proxy de imagen SSL para evitar advertencias de contenido mixto en páginas seguras proporcionadas desde GitHub.
 - 
-  term: chain
+  term: cadena
   description: >-
     Una lista de objetos, donde cada objeto en la lista contiene una referencia para su sucesor (por ejemplo, el sucesor de una confirmación de cambios podría ser uno de sus padres).
 - 
-  term: CIDR notation
+  term: notación CIDR
   description: Una representación compacta de una dirección IP y su prefijo de enrutamiento asociado.
 - 
   term: CLI
   description: Interfaz de línea de comandos.
 - 
-  term: CNAME record
+  term: registro CNAME
   description: >-
     Registro de nombre canónico. Un tipo de registro de recursos en el Sistema de nombres de dominio (DNS) usado para especificar que el nombre de un dominio es un alias para otro dominio (el dominio 'canónico').
 - 
-  term: conditional request
+  term: solicitud condicional
   description: >-
     En la API REST, un método HTTP que solo se responde en ciertas circunstancias.
 - 
-  term: connection
+  term: conexión
   description: 'En GraphQL, una manera de consultar objetos relacionados como parte de la misma llamada.'
 - 
-  term: core Git
+  term: Git principal
   description: >-
     Utilidades y estructuras de datos fundamentales de Git. Expone solo herramientas de administración de código fuente limitadas.
 - 
   term: CPU
   description: Unidad de procesamiento central.
 - 
-  term: credential helper
-  description: A program that stores and fetches Git credentials.
+  term: ayudante de credenciales
+  description: Un programa que almacena y extrae credenciales Git.
 - 
   term: creole
   description: >-
@@ -123,11 +123,11 @@
   description: >-
     Gráfico acíclico dirigido. Los objetos de confirmación de cambios forman un gráfico acíclico dirigido, porque tienen padres (dirigidos) y el gráfico de objetos de confirmación de cambios es acíclico (no hay cadena que comience y termine con el mismo objeto).
 - 
-  term: dangling object
+  term: objeto inalcanzable
   description: >-
     Un objeto inaccesible que no es accesible incluso desde otros objetos inaccesibles; un objeto inalcanzable no tiene referencias a él desde ninguna referencia ni objeto en el repositorio.
 - 
-  term: data pack
+  term: paquete de datos
   description: >-
     Paquete de ancho de banda y de almancenamiento que los usuarios pueden comprar. Cada paquete de datos ofrece 50 GB de ancho de banda y 50 GB para almacenamiento.
 - 
@@ -138,28 +138,28 @@
   description: >-
     Protocolo de configuración dinámica de host (DHCP). Un servidor de cliente/protocolo que proporciona automáticamente un host de protocolo de Internet con su dirección IP y otra información de configuración relacionada, como la máscara de subred y la puerta de enlace predeterminada.
 - 
-  term: directive
+  term: directiva
   description: >-
     En GraphQL, un modo de afectar la ejecución de una consulta de la manera que el servidor lo desee.
 - 
-  term: directory
+  term: directorio
   description: La lista que obtienes con el comando "ls".
 - 
-  term: disaster recovery
+  term: recuperación de desastres
   description: >-
     También conocido como DR. Herramientas y procesos que recuperan los sistemas y la infraestructura tecnológica después de una catástrofe natural o de origen humano.
 - 
-  term: DNS provider
+  term: proveedor DNS
   description: >-
     Una empresa que le permite a los usuarios comprar y registrar un nombre de dominio único y conectar ese nombre a una dirección IP (Protocolo de Internet) indicando tu nombre de dominio a una dirección IP o a un nombre de dominio diferente.
 - 
   term: DSA
   description: Algoritmo de firma digital. Un estándar de procesamiento para las firmas digitales.
 - 
-  term: DSA key
+  term: llave DSA
   description: Claves públicas y privadas usadas en DSA.
 - 
-  term: Early Access Program
+  term: Programa de acceso temprano
   description: >-
     Un programa de GitHub al que ingresan individuos y organizaciones para recibir funciones prelanzadas.
 - 
@@ -171,7 +171,7 @@
   description: >-
     Amazon Elastic Compute Cloud. Un servicio web que ofrece capacidad de cálculo redimensionable y segura en la nube.
 - 
-  term: edge
+  term: borde
   description: 'En GraphQL, las conexiones entre nodos.'
 - 
   term: EIP
@@ -180,11 +180,11 @@
   term: ElasticSearch
   description: Un motor de búsqueda basado en Lucene.
 - 
-  term: evil merge
+  term: fusión maliciosa
   description: >-
     Un unión maliciosa es una fusión que introduce cambios que no aparecen en ningún padre.
 - 
-  term: exclude
+  term: excluir
   description: >-
     Una vez que una ruta coincide con cualquier pathspec no excluido, será ejecutada a través de todo pathspec excluido (firma especial: ! o su sinónimo ^). Si coincide, la ruta se ignora. Si no hay pathspec no excluido, la exclusión se aplica al resultado establecido como invocado sin ningún pathspec.
 - 
@@ -192,23 +192,23 @@
   description: >-
     Un estándar de autenticación abierta que refuerza y simplifica la autenticación de dos factores usando dispositivos NFC y USB especializados basado en una tecnología de seguridad similar encontrada en las tarjetas inteligentes.
 - 
-  term: field
+  term: campo
   description: 'En GraphQL, una unidad de datos que puedes recuperar de un objeto.'
 - 
-  term: file system
+  term: sistema de archivos
   description: >-
     Linus Torvalds originalmente diseñó Git para ser un sistema de archivos de espacio para usuarios, es decir, la infraestructura para mantener archivos y directorios. Esto garantizó la eficacia y la velocidad de Git.
 - 
-  term: flame war
+  term: discusión encendida
   description: Un debate fuerte y agresivo en línea entre usuarios.
 - 
-  term: fragment
+  term: fragmento
   description: 'En GraphQL, unidades reusables que te permiten crear conjuntos de campos.'
 - 
   term: GCE
   description: Google Compute Engine.
 - 
-  term: gem
+  term: gema
   description: Una herramienta de línea de comandos que puede instalar bibliotecas y administrar RubyGems.
 - 
   term: Gemfile
@@ -220,70 +220,70 @@
   term: geoJSON
   description: Un formato para codificar una variedad de estructuras de datos geográficos.
 - 
-  term: GitHub Marketplace Developer Agreement
+  term: Acuerdo de Desarrollador de GitHub Marketplace
   description: Un acuerdo que firman los usuarios cuando usan Mercado GitHub.
 - 
   term: GPG
   description: >-
     GNU Privacy Guard. Software de cifrado que puedes usar para cifrar (y descifrar) archivos que contengan datos confidenciales.
 - 
-  term: GPG key
+  term: llave GPG
   description: Una clave de cifrado usada con GPG.
 - 
   term: hash
   description: Sinónimo para nombre del objeto.
 - 
-  term: head
+  term: encabezado
   description: >-
     Una referencia con nombre para la confirmación de cambios en el extremo de una rama. Los encabezados se almacenan en un archivo en el directorio $GIT_DIR/refs/heads/, excepto cuando usan refs empaquetados.
 - 
   term: HEAD
   description: Un tipo de método en la API REST.
 - 
-  term: headers
+  term: encabezados
   description: >-
     En la API REST, un componente del mensaje requerido que define los metadatos de la tranasacción.
 - 
-  term: health check
+  term: revisión de estado
   description: >-
     Un modo de permitir un balanceador de carga para detener el tráfico que se envía a un nodo que no está respondiendo si falla una revisión configurada previamente en ese nodo.
 - 
-  term: HTTP verb
+  term: verbo HTTP
   description: Un método HTTP.
 - 
   term: Hyper-V
   description: >-
     Un producto de Microsoft que crea máquinas virtuales en sistemas x86-64 con Windows.
 - 
-  term: hypermedia
+  term: hipermedios
   description: 'En la API REST, enlaces desde un estado de recurso a otro.'
 - 
   term: icase
   description: Coincidencia que no distingue mayúsculas de minúsculas.
 - 
-  term: implementation
+  term: implementación
   description: 'En GraphQL, cómo un objeto hereda de una interfaz.'
 - 
-  term: index
+  term: índice
   description: >-
     Un conjunto de archivos con información estadística, cuyos contenidos se almacenan como objetos. El índice es una versión almacenada de tu árbol de trabajo. A decir verdad, también puede contener una segunda, e incluso una tercer versión de un árbol de trabajo, que se usan cuando se fusiona.
 - 
-  term: index entry
+  term: entrada de índice
   description: >-
     La información respecto a un archivo en particular, almacenada en el índice. Una entrada de índice puede ser no configurada, si se inició una fusión, pero aún no se finalizó (es decir, si el índice contiene varias versiones de ese archivo).
 - 
-  term: introspection
+  term: introspección
   description: >-
     También se la conoce como "introspectiva". Un modo de solicitar al esquema GraphQL información acerca de las consultas que admite.
 - 
-  term: iPython notebook
+  term: notebook iPython
   description: >-
     Una aplicación basada en la web que captura todo el proceso de cálculo: desarrollo, documentación y código de ejecución, así como también comunica los resultados.
 - 
   term: JIRA
   description: Un producto de Atlassian que hace un seguimiento de las propuestas.
 - 
-  term: Jupyter notebook
+  term: notebook Jupyter
   description: Notebook que contiene tanto elementos de texto enriquecido como de código.
 - 
   term: kernel
@@ -295,17 +295,17 @@
   term: LDAP
   description: Protocolo ligero de acceso a directorios.
 - 
-  term: linter
+  term: limpiador
   description: Un programa que verifica la calidad del código.
 - 
   term: Liquid
   description: Un lenguaje de plantillas que se usa para cargar contenido dinámico.
 - 
-  term: load balancer
+  term: balanceador de carga
   description: >-
     Un dispositivo que actúa como un proxy inverso y distribuye tráfico de aplicación o de red a través de una cantidad de servidores.
 - 
-  term: media type
+  term: tipo de medios
   description: Un identificador de dos partes para los formatos de archivo y los contenidos de formato.
 - 
   term: MediaWiki
@@ -315,18 +315,18 @@
   term: Mercurial
   description: 'Una herramienta de administración de control de código fuente con distribución y gratuita.'
 - 
-  term: metadata
+  term: metadatos
   description: Un conjunto de datos que describen y brindan información acerca de otros datos.
 - 
-  term: MIME-type
+  term: de tipo MIME
   description: >-
     Extensiones de correo de Internet multipropósitos. Una manera de identificar archivos según su naturaleza y formato.
 - 
-  term: mutations
+  term: mutaciones
   description: >-
     En GraphQL, una manera de definir las operaciones GraphQL que modifican datos en el servidor.
 - 
-  term: nameserver
+  term: servidor de nombres
   description: >-
     Un servidor en Internet especializado en manejar consultas respecto a la ubicación de varios servicios de un nombre de dominio.
 - 
@@ -334,76 +334,76 @@
   description: >-
     Transmisión de datos en proximidad. Un conjunto de protocolos de comunicación que le permite a dos dispositivos electrónicos, uno de los cuales generalmente es un dispositivo portátil como un smartphone, establecer comunicación llevándolos dentro de un cierto rango uno de otro.
 - 
-  term: node
+  term: nodo
   description: >-
     Un dispositivo electrónico activo que se conecta a una red y es capaz de crear, recibir o transmitir información en un canal de comunicaciones.
 - 
-  term: node
+  term: nodo
   description: 'En GraphQL, un término genérico para un objeto.'
 - 
   term: NTP
   description: Protocolo de tiempo de la red.
 - 
-  term: object
+  term: objeto
   description: >-
     La unidad de almacenamiento en Git. Se identifica de forma unívoca mediante el SHA-1 de sus contenidos. Por consiguiente, un objeto no se puede modificar.
 - 
-  term: object database
+  term: base de datos de objetos
   description: >-
     Almacena un conjunto de "objetos" y el nombre del objeto identifica un objeto individual. Los objetos generalmente viven en $GIT_DIR/objects/.
 - 
-  term: object identifier
+  term: identificador de objeto
   description: Sinónimo para nombre del objeto.
 - 
-  term: object name
+  term: nombre del objeto
   description: >-
     El identificador único de un objeto. El nombre del objeto generalmente se representa con una cadena hexadecimal de 40 caracteres. Coloquialmente también se lo llama SHA-1.
 - 
-  term: object type
+  term: tipo de objeto
   description: >-
     Uno de los identificadores "confirmación de cambios", "árbol", "etiqueta" o "blob" que describe el tipo de un objeto.
 - 
-  term: octopus
+  term: fusión múltiple
   description: Fusionar más de dos ramas.
 - 
-  term: onion skin
+  term: visualizar por transparencia
   description: >-
     Una manera de ver imágenes en GitHub disminuyendo la opacidad de una imagen de reemplazo superpuesta.
 - 
   term: OOM
   description: Sin memoria.
 - 
-  term: Open Stack
+  term: Plataforma abierta
   description: Una plataforma de software para informática en la nube.
 - 
   term: OpenSSH
   description: >-
     Un conjunto de utilidades a nivel de red relacionado con la seguridad basado en el protocolo Secure Shell (SSH).
 - 
-  term: ordered list
+  term: lista ordenada
   description: Una lista enumerada.
 - 
   term: Org
   description: >-
     Un sistema de texto simple para mantener las notas, mantener las listas TODO, planificar proyectos y autorizar documentos.
 - 
-  term: pack
+  term: paquete
   description: >-
     Un conjunto de objetos que han sido comprimidos en un archivo (para ahorrar espacio o para transmitirlos de forma eficiente).
 - 
-  term: pack index
+  term: índice del paquete
   description: >-
     La lista de identificadores, y otra información, de los objetos en un paquete, para ayudar a acceder de forma eficiente a los contenidos de un paquete. Los pathspec se usan en la línea de comandos de "git ls-files", "git ls-tree", "git add", "git grep", "git diff", "git checkout", y muchos otros comandos para limitar el alcance de las operaciones para algún subconjunto del árbol o del árbol de trabajo.
 - 
-  term: parameter
+  term: parámetro
   description: >-
     En la API REST, datos que son enviados en la solicitud o recibidos en la respuesta como parte de un parámetro de entrada o salida.
 - 
-  term: parent
+  term: padre
   description: >-
     Un objeto de confirmación de cambios contiene una lista (posiblemente vacía) de el/los predecesor/es lógico/s en la línea de desarrollo, es decir, sus padres.
 - 
-  term: passphrase
+  term: frase de ingreso
   description: >-
     Una secuencia de palabras u otro texto usado para controlar el acceso a un sistema del equipo, programa o datos.
 - 
@@ -416,7 +416,7 @@
   term: PEM
   description: Correo con privacidad mejorada
 - 
-  term: persistent identifier
+  term: identificador persistente
   description: >-
     También conocidos como identificadores de objetos digitales (DOI). Cadenas de caracteres y/o números únicos a nivel global que hacen referencia a un objeto digital. Los identificadores persistentes pueden ser prácticos ya que le permiten a un usuario acceder al recurso digital mediante un enlace persistente.
 - 
@@ -430,28 +430,28 @@
   term: Pod
   description: Documentación antigua simple. Un lenguaje mark-up usado por los programadores perl.
 - 
-  term: pointer file
+  term: archivo puntero
   description: Una referencia que apunta a un archivo real.
 - 
-  term: port
+  term: puerto
   description: Un punto final de comunicación en un sistema operativo.
 - 
-  term: priority question
+  term: pregunta prioritaria
   description: >-
     Preguntas para el soporte técnico de GitHub de organizaciones en el Plan Business. Las preguntas deben cumplir con los criterios establecidos por GitHub para calificar como una pregunta prioritaria.
 - 
-  term: priority response
+  term: respuesta prioritaria
   description: >-
     Respuestas del soporte técnico de GitHub para las preguntas prioritarias de organizaciones en el Plan Business.
 - 
-  term: polling
+  term: sondeo
   description: >-
     Controles automáticos regulares de otros programas o dispositivos hechos por un programa o dispositivo para ver en qué estado están.
 - 
   term: POST
   description: Un tipo de método en la API REST.
 - 
-  term: Pre-release Program
+  term: Programa de prelanzamiento
   description: >-
     Un programa de GitHub que le permite a los usuarios aplicar nuevas funciones y funcionalidad antes de ser lanzados oficialmente.
 - 
@@ -461,20 +461,20 @@
   term: QCOW2
   description: Un formato de imagen.
 - 
-  term: QR code
+  term: código QR
   description: >-
     Código de respuesta rápida. Un código de barras es la etiqueta óptica de lectura mecánica que contiene información acerca del elemento al que está conectado.
 - 
-  term: queries
+  term: consultas
   description: 'En GraphQL, una manera de preguntar por campos específico en los objetos.'
 - 
-  term: rate limit
+  term: límite de tasa
   description: El proceso por el cual una API rechaza solicitudes.
 - 
   term: RDoc
   description: Un generador de documentación incrustada para el lenguaje de programación Ruby.
 - 
-  term: reachable
+  term: accesible
   description: >-
     Se dice que todos los ancestros de una confirmación de cambios dada son "accesibles" desde esa confirmación. En términos más generales, un objeto es accesible desde otro si podemos alcanzarlos de unos a otros mediante una cadena que sigue etiquetas para lo que sea que etiqueten, confirmaciones de cambios a sus padres o árboles, y árboles a los árboles o blobs que contengan.
 - 
@@ -489,33 +489,33 @@
   description: >-
     Un "refspec" es usado por recuperar y subir para describir la asignación entre ref remoto y ref local.
 - 
-  term: relative link
+  term: enlace relativo
   description: Un enlace que es relativo para el archivo actual.
 - 
-  term: remote-tracking branch
+  term: rama de seguimiento remoto
   description: Un ref que se usa para seguir los cambios desde otro repositorio.
 - 
-  term: REST API
+  term: API de REST
   description: >-
     Una API que define un conjunto de funciones para que los programadores puedan realizar solicitudes y recibir respuestas mediante HTTP.
 - 
-  term: reStructured text
+  term: texto reestructurado
   description: Un sistema analizador y de sintaxis Markup de texto simple Lo que ves es lo que obtienes.
 - 
-  term: revision
+  term: revisión
   description: Sinónimo para confirmación de cambios.
 - 
-  term: rewind
+  term: retroceder
   description: >-
     Descartar parte del desarrollo, es decir, asignar el encabezado a una revisión anterior.
 - 
-  term: root endpoint
+  term: terminal raíz
   description: 'En la API REST, el directorio en los que todos los puntos finales están debajo.'
 - 
   term: RSA
   description: Algoritmo usado para cifrar los datos de usuario usando una clave pública y una clave privada.
 - 
-  term: RSA key
+  term: llave RSA
   description: Una clave privada basada en el algoritmo RSA.
 - 
   term: SAML
@@ -528,7 +528,7 @@
   term: Sass
   description: Un lenguaje de extensión CSS.
 - 
-  term: schema
+  term: modelo
   description: Metadatos que nos dicen cómo están estructurados nuestros datos.
 - 
   term: SCIM
@@ -541,7 +541,7 @@
   term: SCSS
   description: Un lenguaje de extensión CSS.
 - 
-  term: service account
+  term: cuenta de servicio
   description: >-
     Una cuenta de usuario especial que una aplicación o servicio usa para interactuar con el sistema operativo.
 - 
@@ -552,7 +552,7 @@
   term: shell
   description: Una interfaz de usuarios para acceder a los servicios de un sistema operativo.
 - 
-  term: shallow repository
+  term: repositorio superficial
   description: >-
     Un repositorio superficial tiene un historial incompleto y algunas de sus confirmaciones de cambios tienen padres cauterizados aparte (en otras palabras, se le pide a Git que haga como si esas confirmaciones no tuvieran padres, aunque se graban en el objeto de la confirmación). Esto, a veces, es útil cuando solo te interesa el historial reciente de un proyecto aunque el historial real grabado en el ascendente sea mucho más grande. Un repositorio superficial se crea dando la --opción de profundidad para git-clone(1) y su historial puede ser profundizado más tarde con git-fetch(1).
 - 
@@ -575,62 +575,62 @@
   description: >-
     Secure Shell (SSH) es un protocolo de red criptográfico para operar servicios de red de forma segura en una red no segura.
 - 
-  term: ssh-agent
+  term: agente ssh
   description: Un programa para retener claves privadas usadas para la autenticación de claves públicas.
 - 
-  term: SSH Key
+  term: Llave SSH
   description: >-
     Las claves SSH son una manera de identificarte en un servidor en línea, usando un mensaje cifrado. Es como si tu equipo tuviera su propia contraseña única para otro servicio. GitHub usa las claves SSH para transferir información de forma segura desde GitHub.com a tu equipo.
 - 
-  term: SSH key fingerprint
+  term: huella digital de la llave SSH
   description: >-
     Identifica y verifica el host al que te estás conectando y está basada en la clave pública del host.
 - 
   term: SSL
   description: Capa de sockets seguros.
 - 
-  term: static site generator
+  term: generador de sitio estático
   description: >-
     Un programa que genera un sitio web solo HTML usando datos sin procesar (como archivos Markdown) y plantillas.
 - 
-  term: String
+  term: Secuencia
   description: Un tipo de objeto que denota texto simple.
 - 
-  term: STL file
+  term: archivo STL
   description: >-
     STL (STereoLithography) es un formato de archivo nativo para el software CAD de estereolitografía creado por los sistemas 3D.
 - 
-  term: subdomain
+  term: subdominio
   description: >-
     Una parte personalizable y opcional del nombre de un dominio ubicada antes de la raíz o del dominio apex que se ve como el prefijo de un dominio.
 - 
-  term: submodule
+  term: submódulo
   description: >-
     Un repositorio que contiene el historial de un proyecto independiente dentro de otro repositorio (este último se denomina superproyecto).
 - 
-  term: subproject
+  term: subproyecto
   description: >-
     Un proyecto que se desarrolla y se administra fuera de tu proyecto principal.
 - 
   term: Subversion
   description: Un sistema de control de versión de código abierto.
 - 
-  term: sudo mode
+  term: modo sudo
   description: >-
     Una manera en que los usuarios ejecutan programas con los privilegios de seguridad de otro usuario. Los usuarios proporcionan su propia contraseña y son autenticados.
 - 
-  term: superproject
+  term: superproyecto
   description: >-
     Un repositorio que hace referencia a repositorios de otros proyectos en su árbol de trabajo como submódulos. El superproyecto conoce los nombres de (pero no guarda copias de) los objetos de confirmación de cambios de los submódulos contenidos.
 - 
-  term: support bundle
+  term: paquete de soporte
   description: >-
     Un archivo tar comprimido en gzip que contiene registros importantes de tu instancia de GitHub Enterprise.
 - 
-  term: swipe
+  term: deslizar
   description: Una manera de ver porciones de tu imagen de GitHub de lado a lado.
 - 
-  term: symlink
+  term: enlace simbólico
   description: >-
     Un archivo que contiene una referencia a otro archivo o directorio en la forma de una ruta absoluta o relativa y que afecta la resolución del nombre de ruta.
 - 
@@ -638,11 +638,11 @@
   description: >-
     Referencia simbólica: en lugar de contener el propio id SAH-1, es del formato ref: refs/some/thing y cuando se le hace referencia, recurrentemente se desreferencia de esta referencia.
 - 
-  term: tag
+  term: etiqueta
   description: >-
     Una ref en el espacio de nombres refs/tags/ que apunta a un objeto de un tipo arbitrario (generalmente, una etiqueta apunta ya sea a una etiqueta o a un objeto de confirmación de cambios). Una etiqueta se usa principalmente para marcar un punto en particular en la cadena de ascendencia de la confirmación.
 - 
-  term: tag object
+  term: objeto de etiqueta
   description: >-
     Un objeto que contiene una ref apuntando a otro objeto, que puede contener un mensaje como un objeto de confirmación de cambios. También puede contener una firma (PGP), en cuyo caso se llama un "objeto de etiqueta firmado".
 - 
@@ -664,35 +664,35 @@
   term: topoJSON
   description: Una extensión de GeoJSON que codifica topología.
 - 
-  term: TOTP application
+  term: aplicación TOTP
   description: >-
     Contraseña de un solo uso y duración definida. Este tipo de aplicación genera automáticamente un código de autenticación que cambia después de cierto período de tiempo.
 - 
-  term: tree
+  term: árbol
   description: >-
     Ya sea un árbol de trabajo o un objeto de árbol junto con el blob dependiente y objetos de árbol (es decir, una representación almacenada de un árbol de trabajo).
 - 
-  term: tree object
+  term: objeto de árbol
   description: >-
     Un objeto que contiene una lista de nombres de archivo y modos, junto con refs para el blob o los objetos de árbol asociados. Un árbol es equivalente a un directorio.
 - 
   term: TSV
   description: Archivos separados por tabulaciones.
 - 
-  term: two-factor authentication
+  term: autenticación bifactorial
   description: >-
     También denominada 2FA. Una capa extra de seguridad que no solo requiere de un procedimiento de inicio de sesión estándar con nombre de usuario y contraseña, si no que también de un código de autenticación que es generado por una aplicación en el smartphone del usuario o enviado como un mensaje de texto (SMS).
 - 
   term: UFW
   description: Herramienta de configuración de firewall predeterminada de Ubuntu.
 - 
-  term: unmerged index
+  term: índice sin fusionar
   description: Un índice que contiene entradas de índice no configuradas.
 - 
-  term: unordered list
+  term: lista desordenada
   description: Un lista con viñetas.
 - 
-  term: unreachable object
+  term: objeto inaccesible
   description: 'Un objeto que no es accesible desde una rama, etiqueta ni ninguna otra referencia.'
 - 
   term: URI
@@ -705,14 +705,14 @@
   term: variable
   description: 'En GraphQL, una manera de realizar consultas más dinámicas y eficaces.'
 - 
-  term: VAT ID
+  term: ID de impuestos
   description: Un número de identificación del impuesto al valor agregado para fines impositivos en la UE.
 - 
-  term: verified email address
+  term: dirección de correo electrónico verificada
   description: >-
     Una dirección de correo electrónico asociado a una cuenta personal que el usuario ha verificado que es válida con un proceso de confirmación de seguridad.
 - 
-  term: virtual machine
+  term: máquina virtual
   description: >-
     Un entorno de aplicación que se instala en software e imita al hardware dedicado. También llamado una VM.
 - 
@@ -730,16 +730,16 @@
   description: >-
     Una lista o registro de entidades a las que se les brinda un reconocimiento, acceso, movilidad, servicio o privilegio en particular. Las entidades en la lista serán aceptadas, aprobadas o reconocidas.
 - 
-  term: working directory
+  term: directorio de trabajo
   description: El directorio de archivos en el que estás trabajando actualmente.
 - 
-  term: working tree
+  term: árbol de trabajo
   description: >-
     El árbol de archivos revisados reales. El árbol de trabajo generalmente contiene los contenidos del árbol de la confirmación de cambios del HEAD, además de cualquier cambio local que hayas realizado pero aún no confirmado.
 - 
   term: WYSIWYG
   description: >-
-    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
+    Lo que ves es lo que obtienes. Unas siglas que significan que el texto en pantalla se ve exactamente como será cuando sea procesado.
 - 
   term: XenServer
   description: Una plataforma de virtualización.
@@ -748,8 +748,8 @@
   description: >-
     Un lenguaje de serialización de datos natural que comúnmente se usa para archivos de configuración.
 - 
-  term: Continuous Integration
+  term: Integración continua
   description: También abreviada como CI.
 - 
-  term: Continuous Delivery
+  term: Entrega continua
   description: También abreviada como CD.

@@ -1,10 +1,11 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers/supertest')
+const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -44,14 +45,14 @@ describe('server', () => {
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
-    expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
     expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
-    expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
+    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
@@ -59,10 +60,10 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers', async () => {
+  test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('no-store, must-revalidate')
-    expect(res.headers['surrogate-control']).toBe('max-age=86400, stale-if-error=600, stale-while-revalidate=600')
+    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['surrogate-control']).toBe('private, no-store')
     expect(res.headers['surrogate-key']).toBe('all-the-things')
   })
 
@@ -109,6 +110,13 @@ describe('server', () => {
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
+  })
+
+  test('returns a 400 when POST-ed invalid JSON', async () => {
+    const res = await post('/')
+      .send('not real JSON')
+      .set('Content-Type', 'application/json')
+    expect(res.statusCode).toBe(400)
   })
 
   test('converts Markdown in intros', async () => {
@@ -207,7 +215,7 @@ describe('server', () => {
   })
 
   test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM('/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites')
+    const $ = await getDOM('/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites')
     expect($.text().includes('{{ page.title }}')).toBe(true)
   })
 
@@ -249,8 +257,7 @@ describe('server', () => {
 
   describe('image asset paths', () => {
     const localImageBasePath = '/assets/images'
-    const s3BasePath = 'https://github-images.s3.amazonaws.com'
-    const enterpriseImageBasePath = `${s3BasePath}/enterprise`
+    const legacyImageBasePath = '/assets/enterprise'
     const latestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.latest}`
     const oldestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
 
@@ -259,19 +266,22 @@ describe('server', () => {
       expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
     })
 
-    test('github articles on GHE have images that point to S3', async () => {
+    test('github articles on GHE have images that point to local assets dir', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/user/github/authenticating-to-github/configuring-two-factor-authentication`)
-      expect($('img').first().attr('src').startsWith(enterpriseImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
     test('admin articles on latest version of GHE have images that point to local assets dir', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/using-built-in-authentication`)
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
-    test('admin articles on older GHE versions have images that point to S3', async () => {
+    test('admin articles on older GHE versions have images that point to local assets dir', async () => {
       const $ = await getDOM(`${oldestEnterprisePath}/admin/user-management/using-built-in-authentication`)
-      expect($('img').first().attr('src').startsWith(enterpriseImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
     test('links that point to /assets are not rewritten with a language code', async () => {
@@ -279,14 +289,15 @@ describe('server', () => {
       expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(true)
     })
 
-    test('github articles on GHAE have images that point to S3', async () => {
+    test('github articles on GHAE have images that point to local assets dir', async () => {
       const $ = await getDOM('/en/github-ae@latest/github/administering-a-repository/changing-the-default-branch')
-      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
-    test('admin articles on GHAE have images that point to S3', async () => {
+    test('admin articles on GHAE have images that point to local assets dir', async () => {
       const $ = await getDOM('/en/github-ae@latest/admin/user-management/managing-dormant-users')
-      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
+      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
     })
   })
 
@@ -483,8 +494,9 @@ describe('server', () => {
 
 describe('URLs by language', () => {
   // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
-  test.skip('heading IDs and links on translated pages are in English', async () => {
+  test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/github/getting-started-with-github/verifying-your-email-address')
+    expect($.res.statusCode).toBe(200)
     expect($('h3[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
     expect($('h3 a[href="#further-reading"]').length).toBe(1)
@@ -744,15 +756,15 @@ describe('static routes', () => {
 })
 
 describe('index pages', () => {
-  const nonEnterpriseOnlyPath = '/en/github/getting-started-with-github/verifying-your-email-address'
+  const nonEnterpriseOnlyPath = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
 
   test('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/github/getting-started-with-github')
+    const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account')
     expect($(`article a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
   test('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github`)
+    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/setting-up-and-managing-your-github-user-account`)
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
   })
 

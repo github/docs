@@ -4,6 +4,9 @@ intro: 'You can manage whether {% data variables.product.prodname_dotcom %} incl
 permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."

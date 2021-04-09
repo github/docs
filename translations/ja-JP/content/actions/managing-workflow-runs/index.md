@@ -1,7 +1,7 @@
 ---
 title: ワークフロー実行を管理する
 shortTitle: ワークフロー実行を管理する
-intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}review deployments, {% endif %}view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
+intro: 'ワークフローの各ステップのステータスと結果の表示、保留中のワークフローのキャンセル、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}デプロイメントのレビュー、{% endif %}支払い可能なジョブの実行分の表示、失敗したワークフローのデバッグと再実行、ログの検索とダウンロード、成果物のダウンロードを行うことができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows
@@ -13,12 +13,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
 {% link_in_list /viewing-workflow-run-history %}
 {% link_in_list /using-workflow-run-logs %}
 {% link_in_list /manually-running-a-workflow %}

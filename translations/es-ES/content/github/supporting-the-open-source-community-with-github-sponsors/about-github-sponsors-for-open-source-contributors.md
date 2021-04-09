@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Unirte a {% data variables.product.prodname_sponsors %}
@@ -32,5 +34,5 @@ Puedes configurar una meta para tus patrocinios. Para obtener más información,
 
 Para obtener más información, consulta "[Administrar tus pagos de {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors)".
 
-### Further reading
+### Leer más
 - "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

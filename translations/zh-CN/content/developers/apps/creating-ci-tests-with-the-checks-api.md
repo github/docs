@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
 ---
 
 
 ### 简介
 
-本指南将介绍 [Github 应用程序](/apps/)和[检查 API](/rest/reference/checks)，您将使用它们来构建运行测试的持续集成 (CI) 服务器。
+本指南将介绍 [GitHub 应用程序](/apps/)和[检查 API](/rest/reference/checks)，您将使用它们来构建运行测试的持续集成 (CI) 服务器。
 
 CI 是一种需要频繁提交代码到共享仓库的软件实践。 频繁提交代码能较早检测到错误，减少在查找错误来源时开发者需要调试的代码量。 频繁的代码更新也更便于从软件开发团队的不同成员合并更改。 这对开发者非常有益，他们可以将更多时间用于编写代码，而减少在调试错误或解决合并冲突上所花的时间。 🙌
 
@@ -24,7 +26,7 @@ CI 服务器托管运行 CI 测试的代码，如代码语法检查（检查样�
 
 [检查 API](/rest/reference/checks) 允许您设置针对仓库中的每个代码提交自动运行的 CI 测试。 检查 API 在拉取请求的 **Checks（检查）**选项卡中报告 GitHub 上每个检查的详细信息。 使用检查 API，您可以创建带有特定代码行附加细节的注释。 注释在 **Checks（检查）**选项卡中可见。 当您为拉取请求中的文件创建注释时，注释也会显示在 **Files changed（文件已更改）**选项卡中。
 
-_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
 
 每当有新代码推送到仓库时，检查 API 会将 [`check_suite` web 挂钩事件](/webhooks/event-payloads/#check_suite)发送到仓库中安装的所有 GitHub 应用程序。 要接收所有检查 API 事件操作，应用程序必须具有 `checks:write` 权限。 GitHub 使用默认流程自动为仓库中的新代码提交创建 `check_suite` 事件，但您可以根据需要[更新检查套件的仓库首选项](/rest/reference/checks#update-repository-preferences-for-check-suites)。 以下是默认流程的工作方式：
 
@@ -49,7 +51,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 ### 基本要求
 
-在开始之前，如果您尚未熟悉 [Github 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
+在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
 
 您将使用 [Ruby 编程语言](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) web 挂钩有效负载交付服务、用于 GitHub REST API 的 [Octokit.rb Ruby 库](http://octokit.github.io/octokit.rb/)以及 [Sinatra web 框架](http://sinatrarb.com/)来创建检查 API CI 服务器应用程序。
 
@@ -203,7 +205,7 @@ $ ruby template_server.rb
 
 ### 步骤 1.4. 更新检查运行
 
-当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 当 Github 完成创建检查运行时，您将收到带有 `created` 操作的 `check_run` web 挂钩事件。 该事件是您开始运行检查的信号。
+当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 当 GitHub 完成创建检查运行时，您将收到带有 `created` 操作的 `check_run` web 挂钩事件。 该事件是您开始运行检查的信号。
 
 您需要更新事件处理程序以查找 `created` 操作。 在更新事件处理程序时，可以为 `rerequested` 操作添加条件。 当某人通过单击“Re-run（重新运行）”按钮在 GitHub 上重新运行单个测试时，GitHub 将 `rerequested` 检查运行事件发送到您的应用程序。 当检查运行为 `rerequested` 时，您需要启动整个进程并创建新的检查运行。
 
@@ -434,7 +436,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 ### 步骤 2.3. 运行 RuboCop
 
-太好了！ 您正在克隆仓库并使用 CI 服务器创建检查运行。 现在，您将了解 [RuboCop 语法检查](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker)和[检查 API 注释](/rest/reference/checks#create-a-check-run)的实质内容。
+太好了！ 您正在克隆仓库并使用 CI 服务器创建检查运行。 现在，您将了解 [RuboCop 语法检查](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker)和[检查 API 注释](/rest/reference/checks#create-a-check-run)的实质内容。
 
 下面的代码运行 RuboCop 并以 JSON 格式保存样式代码错误。 将此代码添加到您在[上一步](#step-22-cloning-the-repository)中添加的 `clone_repository` 调用之下，更新要完成检查运行的代码之上。
 
@@ -446,7 +448,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-上面的代码在仓库目录中的所有文件上运行 RuboCop 。 选项 `--format json` 是将分析结果的副本保存为机器可解析格式的方便方法。 有关 JSON 格式的详细信息和示例，请参阅 [RuboCop 文档](https://rubocop.readthedocs.io/en/latest/formatters/#json-formatter)。
+上面的代码在仓库目录中的所有文件上运行 RuboCop 。 选项 `--format json` 是将分析结果的副本保存为机器可解析格式的方便方法。 有关 JSON 格式的详细信息和示例，请参阅 [RuboCop 文档](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)。
 
 由于此代码将 RuboCop 结果存储在 `@report` 变量中，因此可以安全地删除仓库的检出。 此代码还解析 JSON，因此您可以使用 `@output` 变量轻松访问 GitHub 应用程序中的键和值。
 
@@ -587,7 +589,7 @@ end
 
 当 `offense_count` 为零时，CI 测试为 `success`。 如果存在错误，此代码会将结论设置为 `neutral`，以防止严格执行来自代码语法检查的错误。 但如果您想确保检查套件在发现分析错误时失败，您可以将结论更改为 `failure`。
 
-当报告错误时，上面的代码将遍历 RuboCop 报告中的 `files` 数组。 对于每个文件，它会提取文件路径，并将注释级别设置为 `notice`。 您可以更进一步，为每种类型的 [RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/) 设置特定的警告级别，但本快速入门为简单起见，将所有错误都设置为 `notice` 级别。
+当报告错误时，上面的代码将遍历 RuboCop 报告中的 `files` 数组。 对于每个文件，它会提取文件路径，并将注释级别设置为 `notice`。 您可以更进一步，为每种类型的 [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html) 设置特定的警告级别，但本快速入门为简单起见，将所有错误都设置为 `notice` 级别。
 
 此代码还会遍历 `offenses` 数组中的每个错误，并收集超限和错误消息的位置。 提取所需的信息后，代码将为每个错误创建一个注释，并将其存储在 `annotations` 数组中。 由于注释只支持同一行上的开始和结束列，因此，只有在开始和结束行的值相同的情况下，才会将 `start_column` 和 `end_column` 添加到 `annotation` 对象中。
 
@@ -717,13 +719,13 @@ $ ruby template_server.rb
 
 如果您走到了这一步，为您点赞！ 👏 您已经创建了 CI 测试。 在本节中，您将添加另外一个功能，即使用 RuboCop 自动修复它发现的错误。 您在[上一节](#step-25-updating-the-check-run-with-ci-test-results)中已经添加了“Fix this（修复此问题）”按钮。 现在，您将添加代码以处理当有人单击“Fix this（修复此问题）”按钮时触发的 `requested_action` 检查运行事件。
 
-RuboCop 工具[提供](https://rubocop.readthedocs.io/en/latest/basic_usage/#auto-correcting-offenses) `--auto-correct` 命令行选项，以自动修复它发现的错误。 使用 `--auto-correct` 功能时，更新将应用于服务器上的本地文件。 在 RuboCop 发挥作用之后，您需要将更改推送到 GitHub。
+RuboCop 工具[提供](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) `--auto-correct` 命令行选项，以自动修复它发现的错误。 使用 `--auto-correct` 功能时，更新将应用于服务器上的本地文件。 在 RuboCop 发挥作用之后，您需要将更改推送到 GitHub。
 
 要推送到仓库，您的应用程序必须具备“仓库内容”的写入权限。 您在[步骤 2.2 中重新设置了该权限。 将仓库克隆](#step-22-cloning-the-repository)为**Read & write（读取和写入）**，现在所有设置就绪。
 
-要提交文件，Git 必须知道哪些[用户名](/articles/setting-your-username-in-git/)和[电子邮件](/articles/setting-your-commit-email-address-in-git/)与提交关联。 在 `.env` 文件中再添加两个变量，以存储名称 (`GITHUB_APP_USER_NAME`) 和电子邮件 (`GITHUB_APP_USER_EMAIL`) 设置。 您的名称可以是应用程序名称，电子邮件可以是您在本例中想使用的任何电子邮件地址。 例如：
+要提交文件，Git 必须知道哪些[用户名](/github/getting-started-with-github/setting-your-username-in-git/)和[电子邮件](/articles/setting-your-commit-email-address-in-git/)与提交关联。 在 `.env` 文件中再添加两个变量，以存储名称 (`GITHUB_APP_USER_NAME`) 和电子邮件 (`GITHUB_APP_USER_EMAIL`) 设置。 您的名称可以是应用程序名称，电子邮件可以是您在本例中想使用的任何电子邮件地址。 例如：
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

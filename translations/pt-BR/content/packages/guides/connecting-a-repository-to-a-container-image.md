@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Ao vincular um contêiner a um repositório, a página de destino do pacote mostrará informações e links do repositório, como, por exemplo, LEIAME.
+Ao vincular um contêiner a um repositório, a página de destino do pacote mostrará informações e links do repositório, como, por exemplo, README.
 
 Para conectar um repositório e uma imagem de contêiner no {% data variables.product.prodname_dotcom %}, eles devem compartilhar o mesmo proprietário no {% data variables.product.prodname_dotcom %}. Por exemplo, `my_repo` e `hello_docker` são propriedade do usuário `monalisa`:
 ```shell
@@ -33,11 +33,11 @@ https://github.com/monalisa/hello_docker
 1. No seu arquivo Docker, adicione esta linha, substituindo `PROPRIETÁRIO` e `REPO` pelas suas informações:
 
  ```shell
- ETIQUETA org.opencontainers.image.source https://github.com/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://github.com/<em>OWNER</em>/<em>REPO</em>
  ```
  Por exemplo, se você é o usuário de `monalisa` e proprietário de `my-repo`, você adicionaria essa linha ao seu arquivo Docker:
  ```shell
- ETIQUETA org.opencontainers.image.source https://github.com/monalisa/my-repo
+ ETIQUETA org.opencontainers.image.source=https://github.com/monalisa/my-repo
  ```
  Para obter mais informações, consulte "[ETIQUETA](https://docs.docker.com/engine/reference/builder/#label)" na documentação oficial do Docker e "[Chaves de anotação pré-definidas](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)" no repositório `opencontainers/image-spec`.
 
