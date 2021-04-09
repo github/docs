@@ -7,6 +7,7 @@ Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
+Asana | Asana Personal Access Token | asana_personal_access_token
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
@@ -37,8 +38,12 @@ GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google Cloud | Google API Key | google_api_key
 Google Cloud | Google Cloud Private Key ID | google_cloud_private_key_id
+Grafana | Grafana API Key | grafana_api_key
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token
 Hubspot | Hubspot API Key | hubspot_api_key
+Intercom | Intercom Access Token | intercom_access_token
+Lob | Lob Live API Key | lob_live_api_key
+Lob | Lob Test API Key | lob_test_api_key
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
 npm | npm Access Token | npm_access_token
@@ -51,6 +56,7 @@ Proctorio | Proctorio Registration Key | proctorio_registration_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
 PyPI | PyPI API Token | pypi_api_token
+RubyGems | RubyGems API Key | rubygems_api_key
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 SendGrid | SendGrid API Key | sendgrid_api_key

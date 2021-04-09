@@ -7,6 +7,7 @@
 | Alibaba Cloud             | Alibaba 云访问密钥机密                     | alibaba_cloud_access_key_secret      |
 | Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID                  | aws_access_key_id                      |
 | Amazon Web Services (AWS) | Amazon AWS 机密访问密钥                   | aws_secret_access_key                  |
+| Asana                     | Asana 个人访问令牌                        | asana_personal_access_token            |
 | Atlassian                 | Atlassian API 令牌                    | atlassian_api_token                    |
 | Atlassian                 | Atlassian JSON Web 令牌               | atlassian_jwt                            |
 | Azure                     | Azure DevOps 个人访问令牌                 | azure_devops_personal_access_token   |
@@ -37,8 +38,12 @@
 | GoCardless                | GoCardless Sandbox 访问令牌             | gocardless_sandbox_access_token        |
 | Google Cloud              | Google API 密钥                       | google_api_key                         |
 | Google Cloud              | Google Cloud 私钥 ID                  | google_cloud_private_key_id          |
+| Grafana                   | Grafana API 密钥                      | grafana_api_key                        |
 | Hashicorp Terraform       | Terraform Cloud / Enterprise API 令牌 | terraform_api_token                    |
 | Hubspot                   | Hubspot API 密钥                      | hubspot_api_key                        |
+| Intercom                  | Intercom 访问令牌                       | intercom_access_token                  |
+| Lob                       | Lob Live API 密钥                     | lob_live_api_key                       |
+| Lob                       | Lob Test API 密钥                     | lob_test_api_key                       |
 | Mailchimp                 | Mailchimp API 密钥                    | mailchimp_api_key                      |
 | Mailgun                   | Mailgun API 密钥                      | mailgun_api_key                        |
 | npm                       | npm 访问令牌                            | npm_access_token                       |
@@ -51,6 +56,7 @@
 | Proctorio                 | Proctorio 密钥                        | proctorio_secret_key                   |
 | Pulumi                    | Pulumi 访问令牌                         | pulumi_access_token                    |
 | PyPI                      | PyPI API 令牌                         | pypi_api_token                         |
+| RubyGems                  | RubyGems API 密钥                     | rubygems_api_key                       |
 | Samsara                   | Samsara API 令牌                      | samsara_api_token                      |
 | Samsara                   | Samsara OAuth 访问令牌                  | samsara_oauth_access_token             |
 | SendGrid                  | SendGrid API Key                    | sendgrid_api_key                       |

@@ -42,7 +42,7 @@ topics:
 ニュースフィードでは、あなたがフォローしているユーザが以下のことをした場合に更新情報が示されます:
 - リポジトリに Star を付ける。
 - 別のユーザをフォローする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- Creates a public repository.{% endif %}
+- パブリックリポジトリを作成する{% endif %}
 - あなたが Watch しているリポジトリ上で "help wanted" あるいは "good first issue" のラベルを付けた Issue あるいはプルリクエストをオープンする。
 - Watch しているリポジトリにコミットをプッシュする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - パブリックリポジトリをフォークする。{% endif %}

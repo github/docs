@@ -18,7 +18,7 @@ topics:
 * 星标
 * 关注者
 
-有关项目网站的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+有关项目网站的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 除了重定向 Web 流量以外，所有目标为之前位置的 `git clone`、`git fetch` 或 `git push` 操作都将继续正常工作，如同在新位置进行一样。 不过，为了减少混淆，我们强烈建议将任何现有的本地克隆更新为指向新仓库 URL。 您可以通过在命令行中使用 `git remote` 来执行此操作：
 
@@ -30,7 +30,7 @@ $ git remote set-url origin <em>new_url</em>
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-如果计划重命名具有 {% data variables.product.prodname_pages %} 网站的仓库，建议对网站使用自定义域。 这可确保重命名仓库不会影响网站的 URL。 更多信息请参阅“[关于自定义域和 {% data variables.product.prodname_pages %} 网站](/github/working-with-github-pages/about-custom-domains-and-github-pages)”。
+如果计划重命名具有 {% data variables.product.prodname_pages %} 网站的仓库，建议对网站使用自定义域。 这可确保重命名仓库不会影响网站的 URL。 更多信息请参阅“[关于自定义域和 {% data variables.product.prodname_pages %} 网站](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)”。
 
 {% endif %}
 

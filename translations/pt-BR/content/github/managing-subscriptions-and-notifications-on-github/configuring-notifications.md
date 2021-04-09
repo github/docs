@@ -66,7 +66,7 @@ As notificações de e-mail também permitem flexibilidade com os tipos de notif
 
 ### Sobre notificações de participação e inspeção
 
-Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
+Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver repositórios que você está inspecionando, acesse a sua [página de inspeção](https://github.com/watching). Para obter mais informações, consulte "[Gerenciando assinaturas e notificações do GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -78,7 +78,7 @@ Você pode configurar as notificações para um repositório na página do repos
 #### Sobre as notificações personalizadas
 {% data reusables.notifications-v2.custom-notifications-beta %}
 É possível personalizar notificações para um repositório. Você pode optar, por exemplo, por receber notificações somente quando atualizações para um ou mais tipos de eventos (problemas, pull request, versões, discussões) ocorrerem dentro de um repositório ou ignorar todas as notificações de um repositório.
-{% endif %} Para obter mais informações, consulte "[Visualizar suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)".
+{% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participar de conversas
 A qualquer momento que você comentar em uma conversa ou quando alguém @mencionar seu nome de usuário, você estará _participando_ de uma conversa. Por padrão, você é inscrito automaticamente em uma conversa ao participar dela. Você pode cancelar manualmente a inscrição de uma conversa que você participou, clicando em **Cancelar inscrição** no problema ou na pull request ou através da opção **Cancelar inscrição** na caixa de entrada de notificações.
@@ -248,16 +248,15 @@ Você também pode agendar quando {% data variables.product.prodname_mobile %} e
 
 1. No menu inferior, toque em **Perfil**.
 2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}.
-3. Para atualizar as suas configurações de notificação, toque em **Notificações** e, em seguida, use os atalhos para habilitar ou desabilitar os seus tipos preferidos de notificações de push.
-4. Opcionalmente, para agendar quando {% data variables.product.prodname_mobile %} enviará notificações para seu dispositivo móvel, toque em **Receber notificações**, use o **horário de trabalho personalizado**, e em seguida, escolha quando você gostaria de receber notificações de push.
+3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Opcionalmente, para agendar quando {% data variables.product.prodname_mobile %} enviará notificações de push para seu dispositivo móvel, toque em **Horas de Trabalho**, use o **horário de trabalho personalizado** e, em seguida, escolha quando você gostaria de receber notificações de push.
 
 ### Configurar as configurações de inspeção para um repositório individual com {% data variables.product.prodname_mobile %}
 
 É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por receber notificações apenas sobre {% if currentVersion == "free-pro-team@latest" %}certos tipos de eventos como problemas, pull requests, discussões (se habilitado para o repositório) e {% endif %}novas versões, ou ignorar completamente um repositório individual.
 
-1. Em {% data variables.product.prodname_mobile %}, acesse a página principal do repositório.
+1. No {% data variables.product.prodname_mobile %}, navegue até a página principal do repositório.
 2. Toque em **Inspecionar**. ![O botão de inspecionar em {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
 3. Para escolher para quais atividades você recebe notificações, toque nas suas configurações de inspeção preferenciais. ![Manu suspenso de configurações de inspeção em {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
 
 {% endif %}

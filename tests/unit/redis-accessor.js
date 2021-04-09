@@ -11,11 +11,23 @@ describe('RedisAccessor', () => {
 
   test('has expected instance properties', async () => {
     const instance = new RedisAccessor()
-    expect(Object.keys(instance).sort()).toEqual(['_allowSetFailures', '_client', '_prefix'])
+    expect(Object.keys(instance).sort()).toEqual(['_allowGetFailures', '_allowSetFailures', '_client', '_prefix'])
   })
 
   test('has expected static methods', async () => {
     expect(typeof RedisAccessor.translateSetArguments).toBe('function')
+  })
+
+  describe('#_allowGetFailures property', () => {
+    test('defaults to false', async () => {
+      const instance = new RedisAccessor()
+      expect(instance._allowGetFailures).toBe(false)
+    })
+
+    test('is expected value', async () => {
+      const instance = new RedisAccessor({ allowGetFailures: true })
+      expect(instance._allowGetFailures).toBe(true)
+    })
   })
 
   describe('#_allowSetFailures property', () => {
@@ -298,6 +310,46 @@ Error: Redis ReplyError`
       expect(instance._client.get.mock.calls[0].slice(0, 1)).toEqual(['myKey'])
 
       expect(callbackSpy).toHaveBeenCalledWith(null, 'myValue')
+    })
+
+    test('resolves to null if Redis replies with an error and `allowGetFailures` option is set to true', async () => {
+      // Temporarily override `console.error`
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
+
+      const instance = new RedisAccessor({ prefix: 'myPrefix', allowGetFailures: true })
+      instance._client.get = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
+
+      const result = await instance.get('myKey', 'myValue')
+
+      expect(result).toBe(null)
+      expect(consoleErrorSpy).toBeCalledWith(
+        `Failed to get value from Redis.
+Key: myPrefix:myKey
+Error: Redis ReplyError`
+      )
+
+      // Restore `console.error`
+      consoleErrorSpy.mockRestore()
+    })
+
+    test('rejects if Redis replies with an error and `allowGetFailures` option is not set to true', async () => {
+      // Temporarily override `console.error`
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
+
+      const instance = new RedisAccessor({ prefix: 'myPrefix' })
+      instance._client.get = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
+
+      await expect(instance.get('myKey')).rejects.toThrowError(
+        new Error(`Failed to get value from Redis.
+Key: myPrefix:myKey
+Error: Redis ReplyError`
+        )
+      )
+
+      expect(consoleErrorSpy).not.toBeCalled()
+
+      // Restore `console.error`
+      consoleErrorSpy.mockRestore()
     })
   })
 })
