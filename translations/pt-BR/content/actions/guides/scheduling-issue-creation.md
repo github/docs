@@ -66,7 +66,7 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     ```
     {% endraw %}
 4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
-   - Altere o valor de `on.schagen` para ditar quando você deseja que este fluxo de trabalho seja executado. In the example above, the workflow will run every Monday at 7:20 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
+   - Altere o valor de `on.schagen` para ditar quando você deseja que este fluxo de trabalho seja executado. No exemplo acima, o fluxo de trabalho será executado todas as segundas às 7h20 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
    - Altere o valor de `responsáveis` para a lista de nomes de usuário de {% data variables.product.prodname_dotcom %} que você deseja atribuir ao problema.
    - Altere o valor das etiquetas de `` para a lista de etiquetas que você deseja aplicar ao problema.
    - Altere o valor do `título` para o título que você deseja que o problema tenha.
@@ -77,7 +77,7 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
 
 ### Resultados esperados
 
-Based on the `schedule` parameter (for example, every Monday at 7:20 UTC), your workflow will create a new issue with the assignees, labels, title, and body that you specified. Se você definir `fixado` como `verdadeiro`, o fluxo de trabalho irá fixar o problema no repositório. Se você definir `close-previous` como verdadeiro, o fluxo de trabalho fechará o problema mais recente com etiquetas correspondentes.
+Baseado no parâmetro `agendar` (por exemplo, toda segunda-feira às 7h20 UTC), seu fluxo de trabalho criará um novo problema com os responsáveis, etiquetas, título e texto que você especificou. Se você definir `fixado` como `verdadeiro`, o fluxo de trabalho irá fixar o problema no repositório. Se você definir `close-previous` como verdadeiro, o fluxo de trabalho fechará o problema mais recente com etiquetas correspondentes.
 
 {% data reusables.actions.schedule-delay %}
 

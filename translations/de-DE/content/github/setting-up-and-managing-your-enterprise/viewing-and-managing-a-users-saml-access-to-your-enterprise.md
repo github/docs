@@ -53,4 +53,4 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 
 ### Weiterführende Informationen
 
-- „[SAML-Zugriff eines Mitglieds auf Deine Organisation ansehen und verwalten](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)"
+- „[SAML-Zugriff eines Mitglieds auf Deine Organisation ansehen und verwalten](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

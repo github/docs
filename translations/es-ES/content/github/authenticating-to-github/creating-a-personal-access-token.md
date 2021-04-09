@@ -36,8 +36,15 @@ Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas p
    ![Seleccionar los alcances del token](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. Haz clic en **Generar token**. ![Generar un botón para el token](/assets/images/help/settings/generate_token.png)
-8. Haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar el token en tu portapapeles. Por razones de seguridad, después de que navegas fuera de la página, no podrás ver el token nuevamente.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Da clic en
+{% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 

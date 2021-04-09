@@ -1,6 +1,6 @@
 ---
 title: Moderar comentários e conversas
-shortTitle: Moderation
+shortTitle: Moderação
 intro: 'A moderação de conversas cria um ambiente acolhedor na comunidade para todos os contribuidores de seu projeto, promovendo uma colaboração sadia e mitigando conflitos. Você pode colocar em prática o código de conduta da comunidade para discussões ao visualizar conteúdo denunciado, editar e excluir comentários e bloquear conversas.'
 redirect_from:
   - /articles/moderating-comments-and-conversations

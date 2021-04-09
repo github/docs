@@ -28,8 +28,21 @@ topics:
 
 ### 基本要求
 
-* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 更多信息请参阅“[从头开始创建新组织](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)”。
+* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 更多信息请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 * 您必须在企业实例上创建可以创建并写入目标组织中的仓库的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+* If you want to sync the bundled actions in the `actions` organization on {% data variables.product.product_location %}, you must be an owner of the `actions` organization.
+
+  {% note %}
+
+  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
+
+  {% endnote %}
+
+  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+
+  ```shell
+  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ```
 
 ### 示例：使用 `actions-sync` 工具
 

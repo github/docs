@@ -33,7 +33,7 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
 ### Determinar o tipo de instância
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Antes de lançar {% data variables.product.product_location %} no AWS, você deverá determinar o tipo de máquina que melhor se adequa às necessidades da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

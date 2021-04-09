@@ -35,7 +35,7 @@ Además de todos los beneficios de {% data variables.contact.enterprise_support 
 
 {% data reusables.support.signing-up-for-premium-support %}
 
-{% data reusables.support.scope-of-support %} Para obtener más información, consulta el "[Reaching {% data variables.product.prodname_ghe_server %} Support](/enterprise/admin/guides/enterprise-support/reaching-github-support)" (Obtener soporte del {% data variables.product.prodname_ghe_server %}).
+{% data reusables.support.scope-of-support %}
 
 {% data reusables.support.contacting-premium-support %}
 

@@ -29,7 +29,6 @@ module.exports = async function contextualize (req, res, next) {
   featureFlags.forEach(featureFlagName => {
     req.context.process.env[featureFlagName] = process.env[featureFlagName]
   })
-  if (process.env.AIRGAP) req.context.process.env.AIRGAP = true
 
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
@@ -64,8 +63,9 @@ module.exports = async function contextualize (req, res, next) {
       nonEnterpriseDefaultVersion
     },
     // `|| undefined` won't show at all for production
-    airgap: Boolean(process.env.AIRGAP) || undefined
+    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
   })
+  if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
 
   return next()
 }

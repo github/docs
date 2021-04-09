@@ -20,7 +20,6 @@ module.exports = [
   "cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be",
   "dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911",
   "docker://chinthakagodawita/autoupdate-action:v1",
-  "fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289",
   "github/codeql-action/analyze@v1",
   "github/codeql-action/init@v1",
   "juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8",

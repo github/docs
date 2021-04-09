@@ -9,8 +9,6 @@ topics:
   - 仓库
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### 查看由 {% data variables.product.prodname_dependabot %} 监视的依赖项
 
 启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
