@@ -30,7 +30,7 @@ children:
   - education
   - desktop
   - early-access
-externalProducts:
+externalProducts: 
   cli:
     id: cli
     name: GitHub CLI
