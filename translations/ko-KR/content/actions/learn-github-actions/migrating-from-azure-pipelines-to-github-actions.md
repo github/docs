@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '튜토리얼'
 topics:
-  - Azure Pipelines
-  - Migration
-  - CI
-  - CD
+  - 'Azure Pipelines'
+  - 'Migration'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}

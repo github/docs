@@ -9,10 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'resumen'
 topics:
-  - Contenedores
-  - Docker
+  - 'Contenedores'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -4,7 +4,7 @@ intro: Puedes administrar la configuración disponible para los administradores 
 redirect_from:
   - /enterprise/admin/user-management/repositories
   - /enterprise/admin/user-management/managing-repositories-in-your-enterprise
-mapTopic: true
+mapTopic: verdadero
 versions:
   enterprise-server: '*'
   github-ae: '*'

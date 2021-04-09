@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 topics:
-  - Travis CI
-  - 迁移
-  - CI
-  - CD
+  - 'Travis CI'
+  - '迁移'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}

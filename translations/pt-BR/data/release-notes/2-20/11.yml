@@ -1,4 +1,5 @@
-date: '2020-07-09'
+---
+date: '09-07-2020'
 sections:
   security_fixes:
     - '**MEDIUM:** foi atualizado para a versão 1.16.1 e dirigiu o CVE-2019-20372. (atualizado 2020-07-22) {% comment %} https://github.com/github/enterprise2/pull/21251 {% endcomment %}'

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/managing-your-personal-account-s-apps/
   - /articles/managing-your-organization-s-apps/
   - /articles/managing-billing-for-github-marketplace-apps
-mapTopic: true
+mapTopic: verdadero
 versions:
   free-pro-team: '*'
 topics:

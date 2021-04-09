@@ -9,12 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'チュートリアル'
 topics:
-  - パッケージ化
-  - 公開
-  - ノード
-  - JavaScript
+  - 'パッケージ化'
+  - '公開'
+  - 'ノード'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}

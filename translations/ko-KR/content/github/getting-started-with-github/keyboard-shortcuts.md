@@ -52,6 +52,7 @@ Below is a list of some of the available keyboard shortcuts.
 | <kbd>control z</kbd> or <kbd>command z</kbd>                    | Undo                                                           |
 | <kbd>control y</kbd> or <kbd>command y</kbd>                    | Redo                                                           |
 | <kbd>cmd + shift + p</kbd>                                      | Toggles between the **Edit file** and **Preview changes** tabs |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                    | Write a commit message                                         |
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 

@@ -1,18 +1,18 @@
 ---
 title: 从 CircleCI 迁移到 GitHub Actions
-intro: GitHub Actions 和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub Actions 相对简单。
+intro: 'GitHub Actions 和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub Actions 相对简单。'
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 topics:
-  - CircleCI
-  - 迁移
-  - CI
-  - CD
+  - 'CircleCI'
+  - '迁移'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'チュートリアル'
 topics:
-  - Jenkins
-  - 移行
-  - CI
-  - CD
+  - 'Jenkins'
+  - '移行'
+  - 'CI'
+  - 'CD'
 ---
 
 {% data reusables.actions.enterprise-beta %}

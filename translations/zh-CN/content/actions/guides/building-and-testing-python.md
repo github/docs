@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 topics:
-  - CI
-  - Python
+  - 'CI'
+  - 'Python'
 ---
 
 {% data reusables.actions.enterprise-beta %}

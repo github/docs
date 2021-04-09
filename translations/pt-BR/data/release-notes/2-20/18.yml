@@ -1,4 +1,5 @@
-date: '2020-10-09'
+---
+date: '09-10-2020'
 sections:
   security_fixes:
     - 'Um usuário cujo nome de usuário de diretório de LDAP padronizado em um login da conta GHES existente pode efetuar a autenticação na conta existente. {% comment %} https://github.com/github/github/pull/156518, https://github.com/github/github/pull/155512 {% endcomment %}'

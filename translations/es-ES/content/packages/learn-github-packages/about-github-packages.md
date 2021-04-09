@@ -1,6 +1,6 @@
 ---
-title: About GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects.'
+title: Acerca de GitHub Packages
+intro: '{% data variables.product.prodname_registry %} es un paquete de software que hospeda el servicio que te permite hospedar tus paquetes de software de forma privada {% if currentVersion == "github-ae@latest" %} para los usuarios específicos o internamente para tu empresa{% else %}o públicamente{% endif %} y utiliza los paquetes como dependencias en tus proyectos.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -10,164 +10,148 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About {% data variables.product.prodname_registry %}
+### Acerca de {% data variables.product.prodname_registry %}
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management and billing, so you can centralize your software development on {% data variables.product.product_name %}.
+{% data variables.product.prodname_registry %} es un servicio de alojamiento de paquetes, totalmente integrado con {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_registry %} combina tu código fuente y paquetes en un solo lugar para proporcionar una administración de permisos {% if currentVersion != "github-ae@latest" %}y facturación {% endif %}integradas, para que puedas centralizar tu desarrollo de software en {% data variables.product.product_name %}.
 
-You can integrate {% data variables.product.prodname_registry %} with {% data variables.product.product_name %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
+Puedes integrar {% data variables.product.prodname_registry %} con las API de {% data variables.product.product_name %}, {% data variables.product.prodname_actions %} y webhooks para crear un flujo de trabajo de DevOps de extremo a extremo que incluya tu código, CI y soluciones de implementación.
 
-{% data variables.product.prodname_registry %} offers different package registries for commonly used packages, such as for Node, RubyGems, Apache Maven, Gradle, and Nuget.
+Puedes alojar múltiples paquetes en un repositorio y ver más información acerca de cada paquete al ver el README del paquete, las estadísticas de descarga, el historial de la versión y mucho más.
 
-<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-
-![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/ghes-packages-diagram.png)
-
-{% endif %}
+![Diagrama ue muestra la compatibilidad de paquetes para npm, RubyGems, Apache Maven, Nuget y Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.prodname_registry %} also offers a {% data variables.product.prodname_container_registry %} designed to support the unique needs of container images. For more information, see "[About {% data variables.product.prodname_github_container_registry %}](/packages/guides/about-github-container-registry)."
+Cuando creas un flujo de trabajo de {% data variables.product.prodname_actions %}, puedes usar el `GITHUB_TOKEN` para publicar e instalar paquetes en {% data variables.product.prodname_registry %} sin la necesidad de almacenar y administrar un token de acceso personal. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_github_container_registry %}](/packages/guides/about-github-container-registry)".
 
 {% data reusables.package_registry.container-registry-beta %}
 
-![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
-
 {% endif %}
 
-#### Viewing packages
+#### Visualizar paquetes
 
-You can review the package's README, some metadata like licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
+Puedes revisar el README del paquete, algunos metadatos como los detalles de la licencia, las estadísticas de descarga, el historial de versiones y más en {% data variables.product.product_name %}. Para obtener más información, consulta "[Visualizar paquetes](/packages/manage-packages/viewing-packages)".
 
-#### About package permissions and visibility
+#### Acerca de los permisos y la visibilidad de los paquetes
 
-|  | Package registries |
-|----|----|
-| Hosting locations  | You can host multiple packages in one repository.  |
-| Permissions  | Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. |
-| Visibility | {% data reusables.package_registry.public-or-private-packages %} |
+|                          | Registros de los paquetes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ubicaciones de hospedaje | Puedes hospedar paquetes múltiples en un repositorio.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Permisos                 | {{ site.data.reusables.package_registry.public-or-private-packages }} Puedes utilizar los roles y equipos de {{ site.data.variables.product.prodname_dotcom }} para limitar quién puede instalar o publicar cada paquete, ya que los paquetes heredan los permisos del repositorio. Cualquier persona con permisos de lectura para un repositorio puede instalar un paquete como una dependencia en un proyecto, y cualquier persona con permisos de escritura puede publicar una nueva versión del paquete. |
+| Visibilidad              | {% data reusables.package_registry.public-or-private-packages %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### About billing for {% data variables.product.prodname_registry %}
+### Acerca de la facturación para {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} Para obtner más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 {% endif %}
 
-### Supported clients and formats
+### Formatos y clientes admitidos
 
-{% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-#### Support for package registries
+{% data variables.product.prodname_registry %} usa los comandos de herramientas del paquete nativo con los que ya estás familiarizado para publicar e instalar versiones del paquete.
+#### Soporte para los registros de paquetes
 
-{% if currentVersion == "free-pro-team@latest" %}
-Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+| Lenguaje   | Descripción                                                    | Formato del paquete                 | Cliente del paquete |
+| ---------- | -------------------------------------------------------------- | ----------------------------------- | ------------------- |
+| JavaScript | Gestor de paquetes Node                                        | `package.json`                      | `npm`               |
+| Ruby       | Gestor de paquetes RubyGems                                    | `Gemfile`                           | `gem`               |
+| Java       | Herramienta de administración y comprensión Apache Maven       | `pom.xml`                           | `mvn`               |
+| Java       | Herramienta de automatización de construcción Gradle para Java | `build.gradle` o `build.gradle.kts` | `gradle`            |
+| .NET       | Administración del paquete NuGet para .NET                     | `nupkg`                             | `dotnet` CLI        |
+| N/A        | Plataforma de administración del contenedor Docker             | `Dockerfile`                        | `Docker`            |
 
-{% else %}
-
-The package types supported on {% data variables.product.product_location %} may vary since your site administrator can enable or disable support for different package types. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
-
-If {% data variables.product.product_location %} has subdomain isolation enabled, then package registries will use `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Dockerfile will be hosted at `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
-
-If {% data variables.product.product_location %} has subdomain isolation disabled, then package registries will use `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL. For example, your Gemfile will be hosted at `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, replacing *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-| Language | Description | Package format | Package client | Package namespace |
-| --- | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-
-{% else %}
-
-With subdomain isolation enabled on {% data variables.product.product_location %}:
-
-| Language | Description | Package format | Package client | Package namespace |
-| --- | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` | `npm.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` | `rubygems.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| N/A | Docker container management | `Dockerfile` | `Docker` | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-
-With subdomain isolation disabled on {% data variables.product.product_location %}:
-
-| Language | Description | Package format | Package client | Package namespace |
-| --- | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` | `HOSTNAME/_registry/npm/OWNER/REPOSITORY/IMAGE-NAME`
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` | `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `HOSTNAME/_registry/maven/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `HOSTNAME/_registry/maven/OWNER/REPOSITORY/IMAGE-NAME`
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `HOSTNAME/_registry/nuget/OWNER/REPOSITORY/IMAGE-NAME`
-
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** Docker is not supported when subdomain isolation is disabled.
+**Nota:** Docker no es compatible cuando inhabilitas el aislamiento de subdominios.
 
 {% endnote %}
 
-For more information about subdomain isolation, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)."
+Para obtener más información acerca del aislamiento de subdominios, consulta la sección "[Habilitar el aislamiento de subdominios](/enterprise/admin/configuration/enabling-subdomain-isolation)".
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Package client guides for {% data variables.product.prodname_registry %}](/packages/guides/package-client-guides-for-github-packages)."
+Para obtener más información sobre cómo configurar tu cliente de paquetes para utilizarlo con el {% data variables.product.prodname_registry %}, consulta la sección "[Guías del cliente de paquetes para el {% data variables.product.prodname_registry %}](/packages/guides/package-client-guides-for-github-packages)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-For more information about Docker and {% data variables.product.prodname_github_container_registry %}, see "[Container guides for {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)."
+Para obtener más información acerca de Docker y del
+{% data variables.product.prodname_github_container_registry %}, consulta la sección "[Guías de contenedor para {% data variables.product.prodname_registry %}](/packages/guides/container-guides-for-github-packages)".
 {% endif %}
-### Authenticating to {% data variables.product.prodname_registry %}
+### Autenticarte en {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-### About scopes and permissions for package registries
+### Administrar paquetes
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
+Para instalar o publicar un paquete, debes usar un token con el ámbito adecuado, y tu cuenta de usuario debe tener los permisos pertinentes para ese repositorio.
 
-For example:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository.
-- To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)."
+Por ejemplo:
+-  Para descargar e instalar paquetes desde un repositorio, tu token debe tener el ámbito `read:packages`, y tu cuenta de usuario debe tener permisos de lectura para el repositorio.
+- {% if currentVersion == "free-pro-team@latest" or if currentVersion ver_gt "enterprise-server@3.0" %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con dicho alcance.{% elsif currentVersion ver_lt "enterprise-server@3.1" %}Para borrar una versión específica de un paquete privado en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Los paquetes públicos no se pueden borrar.{% elsif currentVersion == "github-ae@latest" %}Para borrar una versión específica de un paquete en {% data variables.product.product_name %}, tu token debe tener los alcances de `delete:packages` y `repo`.{% endif %} Para obtener más información, consulta la sección "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}".
 
-| Scope | Description | Repository permissions |
-| --- | --- | --- |
-|`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
-|`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %} | admin |
-| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
+| Ámbito                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Descripción                                                                          | Permisos de repositorio |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------------- |
+| `read:packages`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Descarga e instala paquetes de {% data variables.product.prodname_registry %}        | lectura                 |
+| `write:packages`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Carga y publica paquetes en {% data variables.product.prodname_registry %}           | escritura               |
+| `delete:packages`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                      |                         |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Borrar paquetes de {% data variables.product.prodname_registry %} {% elsif currentVersion ver_lt "enterprise-server@3.1" %} Borrar versiones específicas de paquetes privados en el {% data variables.product.prodname_registry %}{% elsif currentVersion == "github-ae@latest" %} Borrar versiones específicas de paquetes en el {% data variables.product.prodname_registry %} {% endif %} |                                                                                      |                         |
+| admin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                      |                         |
+| `repo`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Carga y borra los paquetes (junto con los `write:packages`, o los `delete:packages`) | escritura o admin       |
 
-When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
+Cuando creas un flujo de trabajo de {% data variables.product.prodname_actions %}, puedes usar el `GITHUB_TOKEN` para publicar e instalar paquetes en {% data variables.product.prodname_registry %} sin la necesidad de almacenar y administrar un token de acceso personal.
 
-For more information, see:
-- "[Using {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}](/packages/using-github-packages-with-your-projects-ecosystem/)"
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token/)"
-- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
+Para obtener más información, consulta:
+- Encuentras algo que contradice la documentación
+- "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token/)"
+- Tu paquete publicado contiene datos confidenciales, como violaciones del RGPD, claves de API o información de identificación personal
 
-### Managing packages
-
-You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
-
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
-
-### Contacting support
+### Administrar paquetes
 
 {% if currentVersion == "free-pro-team@latest" %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use the [feedback form for {% data variables.product.prodname_registry %}](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages).
+Puedes borrar un paquete en la
+interface de usuario de {% data variables.product.product_name %} o utilizando la API de REST. Para obtener más información, consulta la sección "[API del {% data variables.product.prodname_registry %}](/rest/reference/packages)".
+{% endif %}
 
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+{% if currentVersion ver_gt "enterprise-server@3.0" %}
+Puedes borrar un paquete público o privado en la
+interfaz de usuario de {% data variables.product.product_name %}. O, para los paquetes con alcance de repo, puedes borrar una versión de un paquete privado utilizando GraphQL.
+{% endif %}
 
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
+Puedes borrar una versión de un paquete privado en la
+interface de usuario de {% data variables.product.product_name %} o utilizando la API de GraphQL.
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+Puedes borrar una versión de un paquete en la
+interface de usuario de {% data variables.product.product_name %} o utilizando la API de GraphQL.
+{% endif %}
+
+Cuando usas la API de GraphQL para consultar y eliminar paquetes privados, debes usar el mismo token que usas para autenticarte en {% data variables.product.prodname_registry %}. Para obtener más información, consulta las secciones "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}" y "[Formar llamados con GraphQL](/graphql/guides/forming-calls-with-graphql)".
+
+Puedes configurar webhooks para suscribirte a eventos relacionados con paquetes, como cuando se publica o se actualiza un paquete. Para obtener más información, consulta el "[evento de webhook de `package`](/webhooks/event-payloads/#package)".
+
+### Contactar con soporte técnico
+
+{% if currentVersion == "free-pro-team@latest" %}
+Si tienes retroalimentación o solicitudes de características para
+{% data variables.product.prodname_registry %}, utiliza el [formato de retroalimentación para {% data variables.product.prodname_registry %}](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages).
+
+Contacta el {% data variables.contact.github_support %} sobre {% data variables.product.prodname_registry %} usando [nuestro formulario de contacto](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) si:
+
+* Experimentas alguna cosa que contradice la documentación
+* Encuentras errores vagos o poco claros
+* Tu paquete publicado contiene datos confidenciales, como violaciones del RGPD, claves de API o información de identificación personal
 
 {% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+Si necesitas soporte para
+{% data variables.product.prodname_registry %}, por favor, contacta a tus administradores de sistema.
 
 {% endif %}

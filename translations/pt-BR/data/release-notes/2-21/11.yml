@@ -1,8 +1,9 @@
-date: '2020-11-03'
+---
+date: '03-11-2020'
 sections:
   security_fixes:
     - '**MÉDIO:** Alto uso de CPU pode ser acionado por uma solicitação especialmente elaborada para a ponte SVN resultando em Negação de Serviço (DoS). {% comment %} https://github.com/github/slumlord/pull/1004, https://github.com/github/slumlord/pull/1000 {% endcomment %}'
-    - '**BAIXO:** A validação incorreta de token gerou uma entropia reduzida para os tokens de correspondência durante a autenticação. A análise mostra que, na prática, não há risco significativo de segurança aqui. {% comment %} https://github.com/github/github/pull/159455, https://github.com/github/github/pull/159193 {% endcomment %}'
+    - "**BAIXO:** A validação incorreta de token gerou uma entropia reduzida para os tokens de correspondência durante a autenticação. A análise mostra que, na prática, não há risco significativo de segurança aqui. {% comment %} https://github.com/github/github/pull/159455, https://github.com/github/github/pull/159193 {% endcomment %}"
     - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/23539, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23692, https://github.com/github/enterprise2/pull/23677 {% endcomment %}'
   bugs:
     - 'Editar templates de problemas com nomes de arquivos que contenham caracteres diferentes de ASCII gerariam uma falha com um "500 Internal Server Error". {% comment %} https://github.com/github/github/pull/160589, https://github.com/github/github/pull/159747 {% endcomment %}'

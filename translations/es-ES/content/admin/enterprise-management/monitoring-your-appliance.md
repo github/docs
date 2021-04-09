@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/monitoring-your-github-enterprise-appliance/
   - /enterprise/admin/installation/monitoring-your-github-enterprise-server-appliance
   - /enterprise/admin/enterprise-management/monitoring-your-appliance
-mapTopic: true
+mapTopic: verdadero
 versions:
   enterprise-server: '*'
 topics:

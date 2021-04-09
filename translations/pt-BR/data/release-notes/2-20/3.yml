@@ -1,4 +1,5 @@
-date: '2020-03-12'
+---
+date: '12-03-2020'
 sections:
   bugs:
     - 'As atualizações e as atualizações de configurações poderiam falhar se as configurações em segundo plano do trabalhador tivessem sido personalizadas. {% comment %} https://github.com/github/enterprise2/pull/19321, https://github.com/github/enterprise2/pull/19299 {% endcomment %}'

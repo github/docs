@@ -1,4 +1,5 @@
-date: '2020-06-02'
+---
+date: '02-06-2020'
 sections:
   security_fixes:
     - '**ALTO:** Uma vulnerabilidade de controle de acesso imprópria foi identificada na API do GitHub Enterprise Server que permitiu que um integrante da organização aumentasse as permissões e recebesse acesso a repositórios não autorizados dentro de uma organização. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server anteriores à versão 2.21. Emitimos [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) em resposta a este problema. A vulnerabilidade foi relatada por meio do [programa Bug Bounty do GitHub](https://bounty. ithub.com). {% comment %} https://github.com/github/github/pull/144454, https://github.com/github/github/pull/143444 {% endcomment %}'

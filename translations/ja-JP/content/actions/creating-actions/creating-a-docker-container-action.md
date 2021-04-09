@@ -1,6 +1,6 @@
 ---
 title: Docker コンテナのアクションを作成する
-intro: このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。
+intro: 'このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'チュートリアル'
 topics:
-  - Action 開発
-  - Docker
+  - 'Action 開発'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}

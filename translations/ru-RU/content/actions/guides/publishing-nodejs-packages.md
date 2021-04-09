@@ -9,12 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'руководство'
 topics:
-  - Упаковка
-  - Publishing
-  - Node
-  - JavaScript
+  - 'Упаковка'
+  - 'Publishing'
+  - 'Node'
+  - 'JavaScript'
 ---
 
 {% data reusables.actions.enterprise-beta %}

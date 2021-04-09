@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/basic-account-settings
   - /enterprise/admin/user-management/user-security
   - /enterprise/admin/user-management/managing-users-in-your-enterprise
-mapTopic: true
+mapTopic: verdadero
 versions:
   enterprise-server: '*'
   github-ae: '*'

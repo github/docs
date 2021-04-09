@@ -9,7 +9,7 @@ redirect_from:
   - /categories/paying-for-organization-accounts/articles/
   - /categories/99/articles/
   - /articles/managing-your-github-billing-settings
-mapTopic: true
+mapTopic: verdadero
 versions:
   free-pro-team: '*'
 topics:

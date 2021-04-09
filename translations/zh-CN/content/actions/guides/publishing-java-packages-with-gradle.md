@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 topics:
-  - 打包
-  - 发布
-  - Java
-  - Gradle
+  - '打包'
+  - '发布'
+  - 'Java'
+  - 'Gradle'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -85,9 +85,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
         run: gradle publish
         env:
@@ -143,9 +144,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
         run: gradle publish
         env:
@@ -209,9 +211,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish to the Maven Central Repository
         run: gradle publish
         env:

@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: '概要'
 topics:
-  - 基本
+  - '基本'
 ---
 
 {% data reusables.actions.enterprise-beta %}

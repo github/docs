@@ -16,12 +16,12 @@ versions:
 您可以使用保护规则和机密配置环境。 当工作流程引用环境时，作业在环境的所有保护规则通过之前不会开始。 在所有环境保护规则通过之前，作业也不能访问在环境中定义的机密。
 
 {% if currentVersion == "free-pro-team@latest" %}
-环境保护规则和环境机密只能在公共仓库中使用。 如果您将仓库从公开转换为私密，任何配置的保护规则或环境机密将被忽略， 并且您将无法配置任何环境。 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。
+环境保护规则和环境机密仅在企业计划上的公共仓库和私有仓库中提供。 如果您在非企业计划中将仓库从公开转换为私密，任何配置的保护规则或环境机密将被忽略， 并且您将无法配置任何环境。 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。
 {% endif %}
 
 #### 环境保护规则
 
-环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
+环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 {% if currentversion == "free-proteam@latest" or currentversion == "github-ae@next" or currentversion ver_gt "enterprise-server@3. %}您可以使用环境保护规则来要求手动批准、延迟作业或者将环境限于某些分支。{% else %}您可以使用环境保护规则要求手动批准或延迟作业。{% endif %}
 
 ##### 需要的审查者
 
@@ -59,7 +59,7 @@ versions:
 1. 为环境输入一个名称, 然后单击 **Configure environment（配置环境）**。 环境名称不区分大小写。 环境名称不能超过 255 个字符，且必须在仓库中唯一。
 1. 配置任何环境保护规则或环境机密。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
+{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@next " or currentversion ver_gt "enterprise-server@3.1" %}您也可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。{% endif %}
 
 运行引用不存在的环境的工作流程将使用引用的名称创建环境。 新创建的环境将不配置任何保护规则或机密。 可在仓库中编辑工作流程的任何人都可以通过工作流程文件创建环境，但只有仓库管理员才能配置环境。
 
@@ -83,4 +83,4 @@ versions:
 1. 在要删除的环境旁边，单击 {% octicon "trashcan" aria-label="The trashcan icon" %}。
 2. 单击 **I understand, delete this environment（我了解，删除此环境）**。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
+{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@next " or currentversion ver_gt "enterprise-server@3.1" %}您也可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}

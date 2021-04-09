@@ -1,7 +1,7 @@
 ---
-title: Authenticating to GitHub
-shortTitle: Authentication
-intro: 'Keep your account and data secure with features like {% if currentVersion != "github-ae@latest" %}two-factor authentication, {% endif %}SSH{% if currentVersion != "github-ae@latest" %},{% endif %} and commit signature verification.'
+title: Autenticar com o GitHub
+shortTitle: Autenticação
+intro: 'Mantenha sua conta e dados protegidos com recursos como {% if currentVersion != "github-ae@latest" %}autenticação de dois fatores, {% endif %}SSH{% if currentVersion ! "github-ae@latest" %},{% endif %} e verificação de assinatura do commit.'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/
@@ -17,10 +17,16 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 2fa
+  - identidade
+  - gerenciamento de acesso
+  - nomes de usuário
+  - verificação de dispositivo
 ---
 
 
-### Table of Contents
+### Índice
 
 {% topic_link_in_list /keeping-your-account-and-data-secure %}
     {% link_in_list /about-authentication-to-github %}

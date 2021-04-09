@@ -8,13 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: overview
+  github-ae: '*'
+type: '概要'
 topics:
-  - セキュリティ
+  - 'セキュリティ'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概要
 
@@ -22,9 +24,9 @@ topics:
 
 ### シークレットを使用する
 
-機密性の高い値は、平文としてワークフローファイルに保存するのではなく、シークレットとして保存してください。 [シークレット](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)は、Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリ、あるいは環境{% else %}あるいはリポジトリ{% endif %}のレベルで設定でき、機密情報を{% data variables.product.product_name %}に保存できるようになります。
+機密性の高い値は、平文としてワークフローファイルに保存するのではなく、シークレットとして保存してください。 [シークレット](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)は、Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}、リポジトリ、環境{% else %}、またはリポジトリ{% endif %}レベルで設定でき、機密情報を {% data variables.product.product_name %} に保存できます。
 
-シークレットは [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用するため、{% data variables.product.product_name %} に到達する前に暗号化されます。 これは、[UI を使用](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository)して、または [REST API](/rest/reference/actions#secrets) を介してシークレットが送信されたときに発生します。 このクライアント側の暗号化により、{% data variables.product.product_name %} のインフラストラクチャ内での偶発的なログ（例外ログやリクエストログなど）に関連するリスクを最小限に抑えることができます。 シークレットがアップロードされると、{% data variables.product.product_name %} はそれを復号化して、ワークフローランタイムに挿入できるようになります。
+シークレットは [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用するため、{% data variables.product.product_name %} に到達する前に暗号化されます。 これは、[UI を使用](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository)して、または [REST API](/rest/reference/actions#secrets) を介してシークレットが送信されたときに発生します。 This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. シークレットがアップロードされると、{% data variables.product.product_name %} はそれを復号化して、ワークフローランタイムに挿入できるようになります。
 
 偶発的な開示を防ぐために、{% data variables.product.product_name %} は、実行ログに表示されるシークレットを編集しようとするメカニズムを使用しています。 この編集は、設定されたシークレットの完全一致、および Base64 などの値の一般的なエンコーディングを検索します。 ただし、シークレットの値を変換する方法は複数あるため、この編集は保証されません。 そのため、シークレットを確実に編集し、シークレットに関連する他のリスクを制限するために実行する必要がある、特定の予防的ステップと推奨事項は次のとおりです。
 
@@ -41,7 +43,7 @@ topics:
 - **登録されたシークレットの監査とローテーション**
     - 登録されたシークレットを定期的に確認して、現在も必要であることを確認します。 不要になったものは削除してください。
     - シークレットを定期的にローテーションして、不正使用されたシークレットが有効である期間を短縮します。
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 - **シークレットへのアクセスのレビューを必須とすることを検討する**
     - 必須のレビュー担当者を使って環境のシークレットを保護できます。 レビュー担当者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。 緩急尾へのシークレットの保存、あるいは環境にレビュー担当者を必須とすることの詳細については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」及び「[環境](/actions/reference/environments)」を参照してください。
 {% endif %}
@@ -75,7 +77,7 @@ topics:
 
 ### リポジトリ間のアクセスを検討する
 
-{% data variables.product.product_name %} は、意図的に一度に単一のリポジトリに対してスコープされます。 `GITHUB_TOKEN` は、書き込みアクセスユーザと同じレベルのアクセスを許可します。書き込みアクセスを持つユーザは、ワークフローファイルを作成または変更することによってこのトークンにアクセスできるためです。 ユーザはリポジトリごとに特定の権限を持っているため、1 つのリポジトリの `GITHUB_TOKEN` に別のリポジトリへのアクセスを許可すると、慎重に実装しない場合 {% data variables.product.prodname_dotcom %} 権限モデルに影響します。 同様に、{% data variables.product.prodname_dotcom %} 認証トークンをワークフローに追加する場合は注意が必要です。これは、コラボレータに誤って広範なアクセスを付与することにより、{% data variables.product.prodname_dotcom %} アクセス許可モデルにも影響を与える可能性があるためです。
+{% data variables.product.prodname_actions %} は、意図的に一度に単一のリポジトリに対してスコープされます。 `GITHUB_TOKEN` は、書き込みアクセスユーザと同じレベルのアクセスを許可します。書き込みアクセスを持つユーザは、ワークフローファイルを作成または変更することによってこのトークンにアクセスできるためです。 ユーザはリポジトリごとに特定の権限を持っているため、1 つのリポジトリの `GITHUB_TOKEN` に別のリポジトリへのアクセスを許可すると、慎重に実装しない場合 {% data variables.product.prodname_dotcom %} 権限モデルに影響します。 同様に、{% data variables.product.prodname_dotcom %} 認証トークンをワークフローに追加する場合は注意が必要です。これは、コラボレータに誤って広範なアクセスを付与することにより、{% data variables.product.prodname_dotcom %} アクセス許可モデルにも影響を与える可能性があるためです。
 
 [{% data variables.product.prodname_dotcom %} ロードマップ](https://github.com/github/roadmap/issues/74)では、{% data variables.product.product_name %} 内のリポジトリ間アクセスを可能にするフローをサポートする計画がありますが、この機能はまだサポートされていません。 現在、権限のあるリポジトリ間のやり取りを実行する唯一の方法は、ワークフロー内に {% data variables.product.prodname_dotcom %} 認証トークンまたは SSH キーをシークレットとして配置することです。 多くの認証トークンタイプでは特定のリソースへの詳細なアクセスが許可されていないことから、意図したものよりはるかに広範なアクセスを許可できるため、間違ったトークンタイプを使用すると重大なリスクが生じます。
 
@@ -103,7 +105,7 @@ topics:
 
 そのため、{% data variables.product.product_name %} の[パブリックリポジトリにセルフホストランナーを使用することはほとんどありません](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)。これは、任意のユーザがリポジトリに対してプルリクエストを開き、環境を危険にさらす可能性があるためです。 同様に、プライベートリポジトリでセルフホストランナーを使用する場合は注意してください。リポジトリをフォークして PR を開くことができるユーザ（一般にリポジトリへの読み取りアクセス権を持つユーザ）は、シークレットへのアクセスと、リポジトリへの書き込みアクセス許可を付与する、より特権的な `GITHUB_TOKEN` を取得することを含め、セルフホストのランナー環境を危険にさらすことができるためです。
 
-セルフホストランナーがOrganizationもしくはEnterpriseのレベルで定義されているなら、{% data variables.product.product_name %}は同じランナー上で複数のリポジトリからのワークフローをスケジューリングするかもしれません。 したがって、これらの環境へのセキュリティ侵害は、大きな影響をもたらす可能性があります。 侵害の範囲を狭めるために、セルフホストランナーを個別のグループにまとめることで、境界を作ることができます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスの管理](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
+セルフホストランナーがOrganizationもしくはEnterpriseのレベルで定義されているなら、{% data variables.product.product_name %}は同じランナー上で複数のリポジトリからのワークフローをスケジューリングするかもしれません。 したがって、これらの環境へのセキュリティ侵害は、大きな影響をもたらす可能性があります。 侵害の範囲を狭めるために、セルフホストランナーを個別のグループにまとめることで、境界を作ることができます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
 次のように、セルフホストランナーマシンの環境も考慮する必要があります。
 - セルフホストランナーとして設定されたマシンにはどのような機密情報が存在するか。 たとえば、SSH 秘密鍵、API アクセストークンなどです。
@@ -115,33 +117,68 @@ topics:
 
 Organizationの管理タスクをモニタするために、監査ログを使用できます。 監査ログは、アクションの種類、実行された時刻、実行したユーザアカウントを記録します。
 
-たとえば、監査ログを使って`action:org.update_actions_secret`イベントを追跡できます。これは、Organizationのシークレットの変更を追跡します。 ![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
+たとえば、監査ログを使用して、Organization のシークレットへの変更を追跡する `org.update_actions_secret` イベントを追跡できます。 ![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 
-以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 監査ログの使用に関する詳しい情報については、「[Organization の監査ログのレビュー](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)」を参照してください。
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### Events for environments
+
+| アクション                               | 説明                                                                                                                                                              |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `environment.create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."   |
+| `environment.delete`                | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/reference/environments#deleting-an-environment)."       |
+| `environment.remove_actions_secret` | Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)." |
+| `environment.update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."   |
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+#### Events for configuration changes
+| アクション                  | 説明                                                                                                                                                                                                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `repo.actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not visible when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)." |
+{% endif %}
 
 #### シークレット管理のイベント
-| アクション                               | 説明                                                                                                                                                                           |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:org.create_actions_secret`  | Organizationの管理者が[{% data variables.product.prodname_actions %}シークレットを作成](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)したときにトリガーされます。 |
-| `action:org.remove_actions_secret`  | Organizationの管理者が{% data variables.product.prodname_actions %}シークレットを削除したときにトリガーされます。                                                                                        |
-| `action:org.update_actions_secret`  | Organizationの管理者が{% data variables.product.prodname_actions %}シークレットを更新したときにトリガーされます。                                                                                        |
-| `action:repo.create_actions_secret` | リポジトリ管理者が[{% data variables.product.prodname_actions %}シークレットを作成](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)したときにトリガーされます。            |
-| `action:repo.remove_actions_secret` | リポジトリ管理者が{% data variables.product.prodname_actions %}シークレットを削除したときにトリガーされます。                                                                                                |
-| `action:repo.update_actions_secret` | リポジトリ管理者が{% data variables.product.prodname_actions %}シークレットを更新したときにトリガーされます。                                                                                                |
+| アクション                        | 説明                                                                                                                                                                                                                                     |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.create_actions_secret`  | Organization に対して {% data variables.product.prodname_actions %} シークレットが作成されたときにトリガーされます。 詳しい情報については、「[Organization の暗号化されたシークレットを作成する](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)」を参照してください。 |
+| `org.remove_actions_secret`  | {% data variables.product.prodname_actions %} シークレットが削除されたときにトリガーされます。                                                                                                                                                                 |
+| `org.update_actions_secret`  | {% data variables.product.prodname_actions %} シークレットが更新されたときにトリガーされます。                                                                                                                                                                 |
+| `repo.create_actions_secret` | リポジトリに対して {% data variables.product.prodname_actions %} シークレットが作成されたときにトリガーされます。 詳しい情報については、「[リポジトリに対して暗号化されたシークレットを作成する](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)」を参照してください。                 |
+| `repo.remove_actions_secret` | {% data variables.product.prodname_actions %} シークレットが削除されたときにトリガーされます。                                                                                                                                                                 |
+| `repo.update_actions_secret` | {% data variables.product.prodname_actions %} シークレットが更新されたときにトリガーされます。                                                                                                                                                                 |
 
 #### セルフホストランナーのイベント
-| アクション                                     | 説明                                                                                                                                                              |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:org.register_self_hosted_runner`  | Organizationのオーナーが[新しいセルフホストランナーを登録](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)したときにトリガーされます。 |
-| `action:org.remove_self_hosted_runner`    | Organizationのオーナーが[セルフホストランナーを削除](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)したときにトリガーされます。          |
-| `action:repo.register_self_hosted_runner` | リポジトリ管理者が[新しいセルフホストランナーを登録](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)したときにトリガーされます。             |
-| `action:repo.remove_self_hosted_runner`   | リポジトリ管理者が[セルフホストランナーを削除](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)したときにトリガーされます。                      |
+| アクション                                     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% else %}                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `enterprise.register_self_hosted_runner`  | 新しいセルフホストランナーが登録されたときにトリガーされます。 詳しい情報については「[Enterpriseへのセルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)」を参照してください。                                                                                                                                                                                                                                                                                                             |
+| `enterprise.remove_self_hosted_runner`    | セルフホストランナーが削除されたときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `enterprise.runner_group_runners_updated` | ランナーグループのメンバーリストが更新されたときにトリガーされます。 詳しい情報については「[Organizationのグループ内にセルフホストランナーをセットする](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)」を参照してください。                                                                                                                                                                                                                                                                                                                           |
+| `enterprise.self_hosted_runner_updated`   | ランナーアプリケーションが更新されたときにトリガーされます。 Can be viewed using the REST API and the UI. This event is not included when you export the audit log as JSON data or a CSV file. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)" and "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."{% endif %}
+| `org.register_self_hosted_runner`         | 新しいセルフホストランナーが登録されたときにトリガーされます。 詳しい情報については、「[Organization へのセルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)」を参照してください。                                                                                                                                                                                                                                                                                                       |
+| `org.remove_self_hosted_runner`           | セルフホストランナーが削除されたときにトリガーされます。 詳しい情報については、「[Organization からランナーを削除する](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)」を参照してください。                                                                                                                                                                                                                                                                                                                    |
+| `org.runner_group_runners_updated`        | ランナーグループのメンバーリストが更新されたときにトリガーされます。 詳しい情報については「[Organizationのグループ内にセルフホストランナーをセットする](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)」を参照してください。                                                                                                                                                                                                                                                                                                                           |
+| `org.runner_group_updated`                | セルフホストランナーグループの設定が変更されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループのアクセスポリシーの変更](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。                                                                                                                                                                                                                                                                   |
+| `org.self_hosted_runner_updated`          | ランナーアプリケーションが更新されたときにトリガーされます。 REST API及びUIを使って見ることができます。JSON/CSVエクスポートで見ることはできません。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)」を参照してください。                                                                                                                                                                                                                                                                                        |
+| `repo.register_self_hosted_runner`        | 新しいセルフホストランナーが登録されたときにトリガーされます。 For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."                                                                                                                                                                                                                                                                                     |
+| `repo.remove_self_hosted_runner`          | セルフホストランナーが削除されたときにトリガーされます。 For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."                                                                                                                                                                                                                                                                                                      |
+| `repo.self_hosted_runner_updated`         | ランナーアプリケーションが更新されたときにトリガーされます。 REST API及びUIを使って見ることができます。JSON/CSVエクスポートで見ることはできません。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)」を参照してください。                                                                                                                                                                                                                                                                                        |
 
 #### セルフホストランナーグループのイベント
-| アクション                                     | 説明                                                                                                                                                                                                |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:org.runner_group_created`         | Organizationの管理者が[セルフホストランナーグループを作成](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)したときにトリガーされます。 |
-| `action:org.runner_group_removed`         | Organizationの管理者がセルフホストランナーグループを削除したときにトリガーされます。                                                                                                                                                  |
-| `action:org.runner_group_renamed`         | Organizationの管理者がセルフホストランナーグループの名前を変更したときにトリガーされます。                                                                                                                                               |
-| `action:org.runner_group_runners_added`   | Organizationの管理者が[セルフホストランナーをグループに追加](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)したときにトリガーされます。                 |
-| `action:org.runner_group_runners_removed` | Organizationの管理者がセルフホストランナーをグループから削除したときにトリガーされます。                                                                                                                                                |
+| アクション                                    | 説明                                                                                                                                                                                                                                                                     |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enterprise.runner_group_created`        | セルフホストランナーグループが作成されたときにトリガーされます。 詳しい情報については、「[Enterprise のセルフホストランナーグループを作成する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)」を参照してください。                                 |
+| `enterprise.runner_group_removed`        | セルフホストランナーグループが削除されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループの削除](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)」を参照してください。                                                                  |
+| `enterprise.runner_group_runner_removed` | セルフホストランナーをグループから削除するのにREST APIが使われたときにトリガーされます。                                                                                                                                                                                                                       |
+| `enterprise.runner_group_runners_added`  | セルフホストランナーがグループに追加されたときにトリガーされます。 詳しい情報については、「[セルフホストランナーをグループに移動する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。                                                          |
+| `enterprise.runner_group_updated`        | セルフホストランナーグループの設定が変更されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループのアクセスポリシーの変更](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。                                 |
+| `org.runner_group_created`               | セルフホストランナーグループが作成されたときにトリガーされます。 For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)." |
+| `org.runner_group_removed`               | セルフホストランナーグループが削除されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループの削除](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)」を参照してください。                                                                  |
+| `org.runner_group_runners_added`         | セルフホストランナーがグループに追加されたときにトリガーされます。 詳しい情報については、「[セルフホストランナーをグループに移動する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。                                                          |
+| `org.runner_group_runner_removed`        | セルフホストランナーをグループから削除するのにREST APIが使われたときにトリガーされます。 For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."                                     |
+
+#### ワークフローアクティビティのイベント
+
+{% data reusables.actions.actions-audit-events-workflow %}

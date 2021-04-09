@@ -1,6 +1,6 @@
 ---
 title: Base de datos de Git
-allowTitleToDifferFromFilename: true
+allowTitleToDifferFromFilename: verdadero
 redirect_from:
   - /v3/git
 versions:

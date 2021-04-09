@@ -1,7 +1,7 @@
 ---
 title: Registrarse en GitHub
 intro: ''
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /articles/signing-up-for-github
 versions:

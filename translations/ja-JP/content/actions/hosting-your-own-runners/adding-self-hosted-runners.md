@@ -1,6 +1,6 @@
 ---
 title: セルフホストランナーの追加
-intro: リポジトリ、Organization、Enterpriseにセルフホストランナーを追加できます。
+intro: 'リポジトリ、Organization、Enterpriseにセルフホストランナーを追加できます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'チュートリアル'
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

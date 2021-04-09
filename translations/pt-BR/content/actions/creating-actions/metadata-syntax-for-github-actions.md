@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: reference
+type: 'referência'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -58,7 +58,7 @@ inputs:
 
 Quando você especifica uma entrada para uma ação em um arquivo de fluxo de trabalho ou usa um valor de entrada padrão, o {% data variables.product.prodname_dotcom %} cria uma variável de ambiente para a entrada com o nome `INPUT_<VARIABLE_NAME>`. A variável de ambiente criada altera os nomes de entrada para letras maiúsculas e substitui espaços por caracteres `_`.
 
-Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEyeColor, o código da ação lê os valores das entradas usando as variáveis de ambiente `INPUT_NUMOCTOCATS` e `INPUT_OCTOCATEYECOLOR`.
+Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octocatEyeColor`, o código de ação poderia ler os valores das entradas usando as variáveis de ambiente do `INPUT_NUMTOCATS` e `INPUT_OCTOCATEYECOLOR`.
 
 #### `inputs.<input_id>`
 
@@ -75,6 +75,10 @@ Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEy
 #### `inputs.<input_id>.default`
 
 **Opcional**: uma `string` que representa o valor padrão. O valor padrão é usado quando um parâmetro de entrada não é especificado em um arquivo de fluxo de trabalho.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Opcional** Se o parâmetro de entrada for usado, esta `string` será registrada como uma mensagem de aviso. Você pode usar este aviso para notificar os usuários de que o valor de entrada está obsoleto e mencionar outras alternativas.
 
 ### `outputs (saídas)`
 
@@ -280,7 +284,7 @@ runs:
 
 #### `pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do</code>entrypoint</code> e quaisquer status que você precisar devem ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
 
 O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo.
 

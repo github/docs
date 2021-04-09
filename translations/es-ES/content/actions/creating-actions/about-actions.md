@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'resumen'
 topics:
-  - Desarrollo de las acciones
-  - Fundamentos
+  - 'Desarrollo de las acciones'
+  - 'Fundamentos'
 ---
 
 {% data reusables.actions.enterprise-beta %}

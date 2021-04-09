@@ -1,14 +1,14 @@
 ---
 title: Usar o GitHub Actions para gerenciamento de projetos
-intro: 'Você pode usar {% data variables.product.prodname_actions %} para automatizar muitas das suas tarefas de gerenciamento de projeto.'
+intro: Você pode usar {% data variables.product.prodname_actions %} para automatizar muitas das suas tarefas de gerenciamento de projeto.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'visão Geral'
 topics:
-  - Gerenciamento de projeto
+  - 'Gerenciamento de projeto'
 ---
 
 Você pode usar {% data variables.product.prodname_actions %} para automatizar suas tarefas de gerenciamento de projeto, criando fluxos de trabalho. Cada fluxo de trabalho contém uma série de tarefas que são executadas automaticamente toda vez que o fluxo de trabalho é executado. Por exemplo, você pode criar um fluxo de trabalho que é executado toda vez que um problema é criado para adicionar uma etiqueta, deixar um comentário e transferir um problema para um quadro de projeto.

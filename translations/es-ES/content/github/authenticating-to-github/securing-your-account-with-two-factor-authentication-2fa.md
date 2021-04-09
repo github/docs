@@ -5,7 +5,7 @@ redirect_from:
   - /categories/84/articles/
   - /categories/two-factor-authentication-2fa/
   - /articles/securing-your-account-with-two-factor-authentication-2fa
-mapTopic: true
+mapTopic: verdadero
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -1,7 +1,7 @@
 ---
 title: Crear y editar confirmaciones de cambios
 intro: ''
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /articles/creating-and-editing-commits
 versions:

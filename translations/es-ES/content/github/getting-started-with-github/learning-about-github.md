@@ -1,7 +1,7 @@
 ---
 title: Obtener información sobre GitHub
 intro: ''
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /articles/learning-about-github
 versions:

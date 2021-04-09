@@ -22,8 +22,8 @@ Para ofrecer planes de pago para tu app, esta debe pertenecer a una organizació
 1. Debajo de "Ajustes de desarrollador", da clic en **Verificación del publicador**. ![Opción de verificación del publicador en la barra lateral de ajustes de la organización](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Debajo de "Verificación del publicador", completa la información de la lista de verificación:
    - Asegúrate de que tu información de perfil básica está presente y es correcta. También, asegúrate de que hayas incluido la mejor dirección de correo electrónico para recibir soporte y actualizaciones de {% data variables.product.company_short %}.
-   - Asegúrate de que se encuentre habilitada la autenticación bifactorial para tu organización. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en tu organización](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
-   - Emite un dominio verificado y asegúrate que se muestre la insignia de "Verificado" en el perfil de página de tu organización. Para la información relacionada, consulta la sección "[Verificar el dominio de tu organización](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)".
+   - Asegúrate de que se encuentre habilitada la autenticación bifactorial para tu organización. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
+   - Emite un dominio verificado y asegúrate que se muestre la insignia de "Verificado" en el perfil de página de tu organización. Para la información relacionada, consulta la sección "[Verificar el dominio de tu organización](/organizations/managing-organization-settings/verifying-your-organizations-domain)".
 
   ![Lista de verificación para la verificación del publicador](/assets/images/marketplace/publisher-verification-checklist.png)
 

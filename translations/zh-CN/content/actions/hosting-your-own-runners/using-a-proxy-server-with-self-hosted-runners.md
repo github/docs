@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

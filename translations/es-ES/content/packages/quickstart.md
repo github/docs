@@ -1,7 +1,7 @@
 ---
 title: Guía de inciio rápido para GitHub Packages
 intro: 'Publica en el {% data variables.product.prodname_registry %} con {% data variables.product.prodname_actions %}.'
-allowTitleToDifferFromFilename: true
+allowTitleToDifferFromFilename: verdadero
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

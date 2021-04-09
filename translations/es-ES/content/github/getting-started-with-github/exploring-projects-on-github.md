@@ -1,7 +1,7 @@
 ---
 title: Explorar proyectos en GitHub
 intro: ''
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /categories/stars/
   - /categories/87/articles/

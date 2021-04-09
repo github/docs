@@ -1,15 +1,15 @@
 ---
 title: Adding labels to issues
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
+intro: You can use {% data variables.product.prodname_actions %} to automatically label issues.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '튜토리얼'
 topics:
-  - Workflows
-  - Project management
+  - 'Workflows'
+  - 'Project management'
 ---
 
 {% data reusables.actions.enterprise-beta %}

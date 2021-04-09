@@ -1,4 +1,5 @@
-date: '2020-02-11'
+---
+date: '11-02-2020'
 sections:
   features:
     - 'Em um branch de repositório, os administradores do repositório podem rejeitar qualquer push que contenha um commit de merge, habilitando "Exigir histórico linear" ao usar [regras de proteção de branch](https://help.github. om/en/github/adadministrtering-a-repository/enabling-branch-restrictions). {% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/ {% endcomment %}'
@@ -10,9 +11,9 @@ sections:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
     - 'Quando um integrante de uma organização tentou visualizar um repositório público nessa organização, um prompt SSO poderia corromper a exibição da página. {% comment %} https://github.com/github/github/issues/126677, https://github.com/github/github/pull/127501 {% endcomment %}'
-    - 'Ao visualizar o perfil de usuários, os links para as equipes dos usuários poderiam estar corrompidos. {% comment %} https://github.com/github/github/issues/131771, https://github.com/github/github/pull/131865 {% endcomment %}'
+    - "Ao visualizar o perfil de usuários, os links para as equipes dos usuários poderiam estar corrompidos. {% comment %} https://github.com/github/github/issues/131771, https://github.com/github/github/pull/131865 {% endcomment %}"
     - 'Usuários com a função "manter" não conseguiram editar os tópicos do repositório. {% comment %} https://github.com/github/github/pull/129503, https://github.com/github/github/issues/119456 {% endcomment %}'
-    - 'Um usuário que não é um administrador em uma organização receberá um erro 500 ao tentar acessar a página de inscrição. {% comment %} https://github. om/github/github/pull/129213, https://github.com/github/github/issues/129210, https://github.com/github/github/issues/129212 {% endcomment %}'
+    - "Um usuário que não é um administrador em uma organização receberá um erro 500 ao tentar acessar a página de inscrição. {% comment %} https://github. om/github/github/pull/129213, https://github.com/github/github/issues/129210, https://github.com/github/github/issues/129212 {% endcomment %}"
     - 'O pop-up de histórico de edição não apareceria nos comentários do gist. {% comment %} https://github.com/github/github/pull/129134, https://github.com/github/github/issues/128496 {% endcomment %}'
     - 'Foi possível registrar uma nova conta com um e-mail que já foi registrado.  {% comment %} https://github.com/github/github/pull/127905, https://github.com/github/github/issues/127858 {% endcomment %}'
     - 'Um serviço de armazenamento estava atingindo um limite de descritor de arquivos e deixando o kernel pendurado e outros serviços de log de erros. {% comment %} https://github.com/github/enterprise2/pull/18775 {% endcomment %}'

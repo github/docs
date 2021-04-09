@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'visão Geral'
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -125,7 +125,7 @@ URL de {% data variables.product.prodname_ghe_managed %}.
 Por exemplo, se o nome da sua instância for `octoghae`, você precisará permitir que o executor auto-hospedado acesse `octoghae.github.com`.
 Se você usa uma lista de endereços IP para a
 
-conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
+conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -145,7 +145,7 @@ pkg-containers.githubusercontent.com
 pkg-containers-az.githubusercontent.com
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

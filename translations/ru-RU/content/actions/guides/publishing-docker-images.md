@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'руководство'
 topics:
-  - Упаковка
-  - Publishing
-  - Докер
+  - 'Упаковка'
+  - 'Publishing'
+  - 'Докер'
 ---
 
 {% data reusables.actions.enterprise-beta %}

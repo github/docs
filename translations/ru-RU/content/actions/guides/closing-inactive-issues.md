@@ -1,15 +1,15 @@
 ---
 title: Closing inactive issues
-intro: 'You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.'
+intro: You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'руководство'
 topics:
-  - Workflows
-  - Project management
+  - 'Workflows'
+  - 'Project management'
 ---
 
 {% data reusables.actions.enterprise-beta %}

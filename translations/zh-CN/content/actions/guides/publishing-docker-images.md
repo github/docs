@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: '教程'
 topics:
-  - 打包
-  - 发布
-  - Docker
+  - '打包'
+  - '发布'
+  - 'Docker'
 ---
 
 {% data reusables.actions.enterprise-beta %}

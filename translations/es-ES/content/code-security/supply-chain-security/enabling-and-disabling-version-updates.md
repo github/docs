@@ -12,8 +12,6 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
-{% data reusables.dependabot.beta-note-no-link %}
-
 ### Acerca de las actualizaciones de versión para las dependencias
 
 Habilitarás {% data variables.product.prodname_dependabot_version_updates %} mediante la selección de un archivo de configuración de *dependabot.yml* en el directorio `.github` dentro de tu repositorio. El {% data variables.product.prodname_dependabot %} levanta entonces las solicitudes de extracción para mantener actualizadas las dependencias que configures. Para cada dependencia del administrador de paquete que quieras actualizar, debes especificar la ubicación de los archivos de manifiesto de dicho paquete, así como la periodicidad en la que quieres buscar actualizaciones para las dependencias listadas en esos archivos. Para obtener más información sobre habilitar las actualizaciones de seguridad, consulta la sección "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
@@ -117,7 +115,7 @@ updates:
       interval: "daily"
     # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # Ignore updates to packages that start 'aws'
+      # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
       # Ignore some updates to the 'express' package

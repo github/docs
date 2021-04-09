@@ -1,7 +1,7 @@
 ---
 title: Ver y comparar confirmaciones de cambios
 intro: ''
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /articles/viewing-and-comparing-commits
 versions:

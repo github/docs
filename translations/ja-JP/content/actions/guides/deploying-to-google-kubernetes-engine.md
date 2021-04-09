@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: tutorial
+type: 'チュートリアル'
 topics:
-  - CD
-  - コンテナ
-  - Google Kubernetes Engine
+  - 'CD'
+  - 'コンテナ'
+  - 'Google Kubernetes Engine'
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,6 +1,6 @@
 ---
-title: Roles in an enterprise
-intro: 'Everyone in an enterprise is a member of the enterprise. To control access to your enterprise''s settings and data, you can assign different roles to members of your enterprise.'
+title: 企业中的角色
+intro: '企业中的每个人都是企业的成员。 要控制对企业的设置和数据的访问权限，您可以为企业成员分配不同的角色。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
@@ -10,52 +10,54 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
-### About roles in an enterprise
+### 关于企业中的角色
 
-Everyone in an enterprise is a member of the enterprise. You can also assign administrative roles to members of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise.
+企业中的每个人都是企业的成员。 您还可以为企业成员分配管理角色。 每个管理员角色都映射到业务职能，并提供在企业中执行特定任务的权限。
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
-For more information about adding people to your enterprise, see "{% if currentVersion == "free-pro-team@latest" %}[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[Authentication](/admin/authentication){% endif %}".
+有关将人员添加到企业的更多信息，请参阅“{% if currentVersion == "free-pro-team@latest" %}[邀请人员管理企业](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[身份验证](/admin/authentication){% endif %}”。
 
-### Enterprise owner
+### 企业所有者
 
-Enterprise owners have complete control over the enterprise and can take every action, including:
-- Managing administrators
-- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" %} in{% endif %} the enterprise
-- Managing enterprise settings
-- Enforcing policy across organizations
-{% if currentVersion == "free-pro-team@latest" %}- Managing billing settings{% endif %}
+企业所有者可以完全控制企业，并可以采取所有操作，包括：
+- 管理管理员
+- {% if currentVersion == "free-pro-team@latest" %}添加和删除{% elsif currentVersion == "github-ae@latest" %}管理{% endif %}{% elsif currentVersion == "github-ae@latest" %}{% endif %}企业中的组织{% if currentVersion == "free-pro-team@latest" %}。
+- 管理企业设置
+- 在组织范围内强制实施政策
+{% if currentVersion == "free-pro-team@latest" %}- 管理帐单设置{% endif %}
 
-Enterprise owners cannot access organization settings or content unless they are made an organization owner or given direct access to an organization-owned repository. Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 同样，除非您将其设为企业所有者，否则企业中的组织所有者无权访问企业。
 
-You can add as many enterprise owners as you'd like to your enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 {% if currentVersion == "free-pro-team@latest" %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
 
-### Enterprise members
+### 企业成员
 
-Members of organizations owned by your enterprise are also automatically members of the enterprise. Members can collaborate in organizations and may be organization owners, but members cannot access or configure enterprise settings{% if currentVersion == "free-pro-team@latest" %}, including billing settings{% endif %}.
+您的企业所拥有组织的成员也会自动成为企业的成员。 成员可以在组织中进行协作，也可以是组织所有者，但成员无法访问或配置企业设置{% if currentVersion == "free-pro-team@latest" %}，包括计费设置{% endif %}。
 
-People in your enterprise may have different levels of access to the various organizations owned by your enterprise and to repositories within those organizations. You can view the resources that each person has access to. For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise)."
+企业中的人员可能对您的企业拥有的各种组织以及这些组织中的仓库具有不同级别的访问权限。 您可以查看每个人具有访问权限的资源。 更多信息请参阅“[查看企业中的人员](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise)”。
 
-For more information about organization-level permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+有关组织级权限的更多信息，请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
 
-People with outside collaborator access to repositories owned by your organization are also listed in your enterprise's People tab, but are not enterprise members and do not have any access to the enterprise. For more information about outside collaborators, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#outside-collaborators)."
+对组织所拥有仓库具有外部协作者访问权限的人员也会在企业的 People（人员）选项卡中列出，但他们不是企业成员，也没有对企业的任何访问权限。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization#outside-collaborators)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Billing manager
+### 帐单管理员
 
-Billing managers only have access to your enterprise's billing settings. Billing managers for your enterprise can:
-- View and manage user licenses, {% data variables.large_files.product_name_short %} packs and other billing settings
-- View a list of billing managers
-- Add or remove other billing managers
+帐单管理员只能访问企业的帐单设置。 企业的帐单管理员可以：
+- 查看和管理用户许可证、{% data variables.large_files.product_name_short %} 包以及其他计费设置
+- 查看帐单管理员列表
+- 添加或删除其他帐单管理员
 
-Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
+帐单管理员仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 帐单管理员无权访问企业中的组织或仓库，也无法添加或删除企业所有者。 帐单管理员必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。
 
-### Further reading
+### 延伸阅读
 
-- "[About enterprise accounts](/articles/about-enterprise-accounts)"
+- “[关于企业帐户](/articles/about-enterprise-accounts)”
 
 {% endif %}

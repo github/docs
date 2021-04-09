@@ -15,6 +15,8 @@ Deine Sponsoren können auswählen, ob sie per E-Mail über Deine Arbeit auf dem
 
 For sponsored developer accounts, the update will come from your user account's primary email address. Wenn Du den Datenschutz für E-Mail-Adressen für Dein Benutzerkonto aktiviert hast, wird die E-Mail stattdessen von `noreply@github.com` versendet. For sponsored organizations, the update will come from the organization's `noreply@github.com` email address. Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address).“
 
+You can also contact any one-time sponsors who contributed within the last 30 days and enabled updates.
+
 ### Deine Sponsoren kontaktieren
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

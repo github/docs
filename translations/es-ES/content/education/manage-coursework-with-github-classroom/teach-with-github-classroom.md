@@ -1,7 +1,7 @@
 ---
-title: Teach with GitHub Classroom
-intro: Learn how to set up your classroom and assignments.
-mapTopic: true
+title: Enseña con GitHub Classroom
+intro: Aprende cómo configurar tu aula y tus tareas.
+mapTopic: verdadero
 versions:
   free-pro-team: '*'
 redirect_from:

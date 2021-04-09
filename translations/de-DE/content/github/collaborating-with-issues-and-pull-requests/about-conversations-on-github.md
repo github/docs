@@ -18,7 +18,7 @@ Du kannst je nach gewünschter Art der Unterhaltung Issues, Pull Requests und Te
 
 Issues sind nützlich bei der Diskussion spezifischer Details eines Projekts, beispielsweise Fehlerberichte und geplante Verbesserungen. Weitere Informationen findest Du unter „[Informationen zu Issues](/articles/about-issues).“ Mit Pull Requests kannst Du Änderungsvorschläge direkt kommentieren. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests)“ und „[Pull Requests kommentieren](/articles/commenting-on-a-pull-request).“
 
-{% data reusables.organizations.team-discussions-purpose %} Weitere Informationen findest Du unter „[Informationen zu Teamdiskussionen](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions).“
+{% data reusables.organizations.team-discussions-purpose %} Weitere Informationen findest Du unter „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions).“
 
 ### Auf Ideen in Kommentaren reagieren
 

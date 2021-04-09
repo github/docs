@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'resumen'
 topics:
-  - Embalaje
+  - 'Embalaje'
 ---
 
 {% data reusables.actions.enterprise-beta %}

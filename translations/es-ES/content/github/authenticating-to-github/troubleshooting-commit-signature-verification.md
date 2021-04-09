@@ -4,7 +4,7 @@ intro: 'Puede que debas solucionar problemas imprevistos que surgen cuando se fi
 redirect_from:
   - /articles/troubleshooting-gpg/
   - /articles/troubleshooting-commit-signature-verification
-mapTopic: true
+mapTopic: verdadero
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

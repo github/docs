@@ -10,9 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: overview
+type: 'visão Geral'
 topics:
-  - Princípios básicos
+  - 'Princípios básicos'
 ---
 
 {% data reusables.actions.enterprise-beta %}

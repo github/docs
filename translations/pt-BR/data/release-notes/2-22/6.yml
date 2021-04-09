@@ -1,4 +1,5 @@
-date: '2020-12-17'
+---
+date: '17-12-2020'
 sections:
   security_fixes:
     - '**BAIXO:** Alto uso da CPU pode ser acionado por uma solicitação especialmente elaborada para a ponte SVN, o que resulta em em Negação de Serviço (DoS). {% comment %} https://github.com/github/slumlord/pull/1022, https://github.com/github/slumlord/pull/1017 {% endcomment %}'

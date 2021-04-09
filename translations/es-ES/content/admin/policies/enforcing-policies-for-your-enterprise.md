@@ -1,6 +1,6 @@
 ---
 title: Requerir políticas para tu empresa
-mapTopic: true
+mapTopic: verdadero
 redirect_from:
   - /enterprise/admin/policies/enforcing-policies-for-your-enterprise
 versions:

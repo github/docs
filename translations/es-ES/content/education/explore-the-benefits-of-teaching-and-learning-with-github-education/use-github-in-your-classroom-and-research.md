@@ -1,7 +1,7 @@
 ---
-title: Use GitHub in your classroom and research
-intro: 'As an educator or researcher, use {% data variables.product.prodname_dotcom %} to collaborate on your work in a classroom, student or research group, and more.'
-mapTopic: true
+title: Utiliza GitHub en tu aula y en tu investigación
+intro: 'Como educador o investigador, utiliza {% data variables.product.prodname_dotcom %} para colaborar con el trabajo en clase, con el grupo de estudiantes o de investigación, y mucho más.'
+mapTopic: verdadero
 redirect_from:
   - /education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research
   - /github/teaching-and-learning-with-github-education/using-github-in-your-classroom-and-research
