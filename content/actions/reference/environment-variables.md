@@ -84,10 +84,6 @@ We strongly recommend that actions use environment variables to access the files
 
 ### Naming conventions for environment variables
 
-{% note %}
-
-**Note:** When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
-
-{% endnote %}
+When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
 Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME` and `GITHUB_WORKSPACE` default variables are exceptions to this convention because the words "home" and "workspace" already imply a location.
