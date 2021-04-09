@@ -11,5 +11,5 @@
 - [从团队中删除组织成员](/articles/removing-organization-members-from-a-team)
 - [将组织成员升级为团队维护员](/articles/giving-team-maintainer-permissions-to-an-organization-member)
 - 删除团队的仓库访问权限{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-- [管理团队的代码审查任务](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- [管理团队的代码审查任务](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [管理拉取请求的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

@@ -183,6 +183,20 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### イベントの`payload`オブジェクト
+
+| キー             | 種類       | 説明                                       |
+| -------------- | -------- | ---------------------------------------- |
+| `action`       | `string` | 実行されたアクション. `created `になりうる。             |
+| `pull_request` | `オブジェクト` | The pull request the review pertains to. |
+| `レビュー`         | `オブジェクト` | The review that was affected.            |
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -199,6 +213,8 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### イベントの`payload`オブジェクト
 
 | キー                         | 種類        | 説明                                                                                                                                                                    |
 | -------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_sponsors %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 To join the conversation, see "[Sponsors Feedback](https://github.com/github/feedback/discussions/categories/sponsors-feedback)."

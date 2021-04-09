@@ -13,5 +13,43 @@ featuredLinks:
     - /github/getting-started-with-github/managing-remote-repositories
     - /github/working-with-github-pages
 versions: '*'
+children:
+  - github
+  - 管理员
+  - 组织
+  - code-security
+  - 操作
+  - 包
+  - developers
+  - rest
+  - graphql
+  - insights
+  - 讨论
+  - 社区
+  - 页面
+  - 教育版
+  - 电脑版
+  - early-access
+externalProducts:
+  cli:
+    id: cli
+    name: GitHub CLI
+    href: 'https://cli.github.com/manual'
+    external: true
+  atom:
+    id: atom
+    name: Atom
+    href: 'https://atom.io/docs'
+    external: true
+  electron:
+    id: electron
+    name: Electron
+    href: 'https://electronjs.org/docs'
+    external: true
+  codeql:
+    id: codeql
+    name: 'CodeQL'
+    href: 'https://codeql.github.com/docs'
+    external: true
 ---
 

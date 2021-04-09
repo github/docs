@@ -23,7 +23,7 @@ featuredLinks:
     - /actions/reference/encrypted-secrets
 changelog:
   label: 'actions'
-  prefix: 'GitHub Actions: '
+  prefix: 'GitHub Actions:'
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
