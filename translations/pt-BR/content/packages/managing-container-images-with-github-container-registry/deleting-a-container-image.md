@@ -16,12 +16,6 @@ Para excluir uma imagem do contêiner, você deve ter permissões de administrad
 
 Ao excluir pacotes públicos, esteja ciente de que você pode quebrar projetos que dependem do seu pacote.
 
-
-
-### Versões e nomes de pacotes reservados
-
-{% data reusables.package_registry.package-immutability %}
-
 ### Excluir uma versão de uma imagem de contêiner de usuário em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}

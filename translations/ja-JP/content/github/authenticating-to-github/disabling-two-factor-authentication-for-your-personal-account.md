@@ -1,18 +1,20 @@
 ---
 title: 個人アカウントの 2 要素認証を無効化する
-intro: 自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。
+intro: '自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。'
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 アカウントを保護するために 2 要素認証 (2FA) を使用することを強くお勧めします。 2FA を無効化する必要がある場合も、できるだけ速やかに再有効化することをお勧めします。
 
 {% warning %}
 
-**警告:** 2 要素認証を必要とする Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部コラボレーターが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
+**警告:** 2 要素認証を必要とする Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部のコラボレータが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 
@@ -24,7 +26,7 @@ Organization から自分を削除するには:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Click **Disable**. ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
+3. [**Disable**] をクリックします。 ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 参考リンク
 

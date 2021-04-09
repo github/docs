@@ -7,4 +7,4 @@ versions:
   free-pro-team: '*'
 ---
 
-Erlerne Fähigkeiten in den Bereichen öffentliches Reden, technisches Schreiben, Community-Leadership und Softwareentwicklung als 'Campus Expert' für {% data variables.product.prodname_dotcom %}. Weitere Informationen findest Du unter „[Campus Experts](https://education.github.com/students/experts).“
+Erlernen von Fähigkeiten in den Bereichen öffentliches Reden, technisches Schreiben, Community Leadership und Softwareentwicklung als Campus Experts für {% data variables.product.prodname_dotcom %}. Weitere Informationen findest Du unter „[Campus Experts](https://education.github.com/students/experts).“

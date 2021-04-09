@@ -58,7 +58,7 @@ versions:
 #### 复刻呢？ （或如何处理复刻？）
 GitHub 的最佳功能之一是用户能够“复刻”彼此的仓库。 这意味着什么？ 从本质上讲，这意味着用户可以将 GitHub 上的项目复制到自己的仓库中。 在许可或法律允许的情况下，用户可以对复刻进行更改，然后将其推送到主项目或只保留为自己的项目变体。 每个此类副本都是原仓库的[复刻](/articles/github-glossary/#fork)，或者说原仓库也可以称为复刻的“父仓库”。
 
-GitHub will not automatically disable forks when disabling a parent repository. 这是因为复刻属于不同的用户，并且可能进行了重大更改。 GitHub 不会对复刻进行任何独立调查。 我们希望敏感数据删除请求发送者进行这种调查，如果他们认为复刻也包含敏感数据，则应在其请求中明确包括这些复刻。
+GitHub 在禁用父仓库时不会自动禁用复刻。 这是因为复刻属于不同的用户，并且可能进行了重大更改。 GitHub 不会对复刻进行任何独立调查。 我们希望敏感数据删除请求发送者进行这种调查，如果他们认为复刻也包含敏感数据，则应在其请求中明确包括这些复刻。
 
 ### 发送敏感数据删除请求
 
@@ -76,7 +76,7 @@ GitHub will not automatically disable forks when disabling a parent repository. 
 
 ### 如果提交请求
 
-您可以通过我们的[联系表格](https://support.github.com/contact)提交删除敏感数据的申请。 请在邮件正文中包含请求的纯文本版本。 以附件形式发送请求可能导致处理延迟。
+您可以通过我们的[联系表格](https://support.github.com/contact?tags=docs-sensitive-data)提交删除敏感数据的申请。 请在邮件正文中包含请求的纯文本版本。 以附件形式发送请求可能导致处理延迟。
 
 ### 异议
 

@@ -11,7 +11,7 @@ Pre-receive フックは、コントリビューションがリポジトリま�
 
 プッシュが受け入れられない場合は、失敗した pre-receive フックに対応するエラーメッセージが表示されます。
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
@@ -21,7 +21,7 @@ Total 3 (delta 0), reused 0 (delta 0)
 remote: always_reject.sh: failed with exit status 1
 remote: error: rejecting all pushes
 To https://54.204.174.51/hodor/nope.git
-! [remote rejected] master -> master (pre-receive hook declined)
+! [remote rejected] main -> main (pre-receive hook declined)
 error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 ```
 

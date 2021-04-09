@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 GitHubは、多くの開発者に当社のプラットフォームをご愛用いただいていることを幸いに思います。 当社は、開発者の皆様に提供する体験をより良いものにしたいと願っています。  GitHubの開発者プログラム（「プログラム」）は、お客様と当社とがつながり、情報を共有し、お客様のクリエイティブな取り組みを支援していくために役立つものです。 本「プログラム」が生み出す、GitHubと開発者コミュニティとの特別な関係には、特別な規約が必要となります。 登録開発者契約（「契約」）へようこそ。
@@ -86,7 +89,7 @@ GitHubは、多くの開発者に当社のプラットフォームをご愛用�
 
 13. **所有権**
 
-  お客様は、GitHubとそのライセンサーが、API、「プレリリース資料」、その他すべてのGitHubの製品とサービス、それらの構成と組み合わせに関連するすべての情報とデータ、およびそれらの変更と派生物のすべての権利、権原、および利益を所有していることに同意するものとします。 お客様は、当社がAPI、「プレリリース資料」やその他GitHub製品やサービスに掲載したり、埋め込んだりした著作権その他の所有権の表示を削除、変更、隠蔽、難読化しないことに同意するものとします。
+  お客様は、GitHubとそのライセンサーが、API、「プレリリース資料」、その他すべてのGitHubの製品とサービス、それらの構成と組み合わせに関連するすべての情報とデータ、およびそれらの変更と派生物のすべての権利、権原、および利益を所有していることに同意するものとします。 You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
 
 14. **ユーザとしての政府機関**
 

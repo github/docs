@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-Die Verwendung von {% data variables.product.prodname_dotcom %} für Deine Projektarbeiten ist ein praktischer Weg, um mit anderen zusammenzuarbeiten und ein Portfolio aufzubauen, das Deine praktischen Erfahrungen zeigt.
+Die Verwendung von {% data variables.product.prodname_dotcom %} für Ihre Projektarbeiten ist ein praktischer Weg, um mit anderen zusammenzuarbeiten und ein Portfolio aufzubauen, das Ihre praktische Erfahrung zeigt.
 
 {% data reusables.education.about-github-education-link %}
 
-Jeder mit einem {% data variables.product.prodname_dotcom %}-Konto kann unbegrenzt in öffentlichen und privaten Repositorys mit {% data variables.product.prodname_free_user %} zusammenarbeiten. Als Schüler oder Student kannst Du auch das {% data variables.product.prodname_student_pack %} beantragen, das kostenlosen Zugriff auf Werkzeuge und Dienste bietet, die von professionellen Entwicklern verwendet werden. Weitere Informationen findest Du unter „[Ein Studentenentwicklungspaket beantragen](/articles/applying-for-a-student-developer-pack)“ und [{% data variables.product.prodname_education %}](https://education.github.com/pack).
+Jeder mit einem {% data variables.product.prodname_dotcom %}-Konto kann unbegrenzt in öffentlichen und privaten Repositorys mit {% data variables.product.prodname_free_user %} zusammenarbeiten. Als Schüler oder Student können Sie auch das {% data variables.product.prodname_student_pack %} beantragen, das kostenlosen Zugriff auf Tools und Dienste bietet, die von professionellen Entwicklern verwendet werden. Weitere Informationen findest Du unter „[Ein Studentenentwicklungspaket beantragen](/articles/applying-for-a-student-developer-pack)“ und [{% data variables.product.prodname_education %}](https://education.github.com/pack).
 
-Wenn Du Mitglied in einem FIRST Robotics Club bist, kann Dein Lehrer einen Rabatt beantragen, damit Dein Team mit {% data variables.product.prodname_team %} zusammenarbeiten kann, wodurch eine unbegrenzte Anzahl von Benutzern und privaten Repositorys kostenlos genutzt werden kann. Weitere Informationen findest Du unter „[Einen Lehrer- oder Forscherrabatt beantragen](/articles/applying-for-an-educator-or-researcher-discount).“
+Wenn Sie Mitglied in einem FIRST Robotics Club sind, kann Ihr Lehrer einen Rabatt beantragen, damit Ihr Team mit {% data variables.product.prodname_team %} zusammenarbeiten kann, wodurch eine unbegrenzte Anzahl von Benutzern und privaten Repositorys kostenlos genutzt werden kann. Weitere Informationen findest Du unter „[Einen Lehrer- oder Forscherrabatt beantragen](/articles/applying-for-an-educator-or-researcher-discount).“
 
 ### Weiterführende Informationen
 

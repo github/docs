@@ -1,11 +1,13 @@
 ---
 title: codespace のトラブルシューティング
-intro: 「microsoft/vscode」リポジトリで既知の問題を確認することで、codespace の問題をトラブルシューティングできます。
+intro: '「microsoft/vscode」リポジトリで既知の問題を確認することで、codespace の問題をトラブルシューティングできます。'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -20,8 +20,8 @@ describe('Permalink class', () => {
 
   test('derives info for non-enterprise versioned homepage', () => {
     const permalink = new Permalink('en', nonEnterpriseDefaultVersion, 'index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe('Free, Pro, and Team')
-    expect(permalink.href).toBe(`/en/${nonEnterpriseDefaultVersion}`)
+    expect(permalink.pageVersionTitle).toBe('GitHub.com')
+    expect(permalink.href).toBe('/en')
   })
 
   test('derives info for enterprise server versioned homepage', () => {
@@ -32,8 +32,8 @@ describe('Permalink class', () => {
 
   test('derives info for GitHub.com homepage', () => {
     const permalink = new Permalink('en', nonEnterpriseDefaultVersion, 'github/index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe('Free, Pro, and Team')
-    expect(permalink.href).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(permalink.pageVersionTitle).toBe('GitHub.com')
+    expect(permalink.href).toBe('/en/github')
   })
 
   test('derives info for enterprise version of GitHub.com homepage', () => {

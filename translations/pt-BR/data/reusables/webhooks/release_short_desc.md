@@ -1,1 +1,1 @@
-Activity related to a release. {% data reusables.webhooks.action_type_desc %} For more information, see the "[releases](/v3/repos/releases/)" REST API.
+Atividade relacionada a uma versão. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a APTI REST das [versões](/rest/reference/repos#releases)".

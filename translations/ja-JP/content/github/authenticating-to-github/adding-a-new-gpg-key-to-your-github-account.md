@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 新しい GPG キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:

@@ -15,5 +15,5 @@ Para a documentação completa para {% data variables.product.prodname_enterpris
 
 - Fazer alterações no {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)."
 - Coletar dados estatísticos sobre a sua instância. Para obter mais informações, consulte "[Estatísticas do administrador](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)".
-- Configurar a sincronização LDAP. Para obter mais informações, consulte "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)".{% if currentVersion ver_gt "enterprise-server@2.18" %}
-- Gerenciar sua conta corporativa. Para obter mais informações, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".{% endif %}
+- Configurar a sincronização LDAP. Para obter mais informações, consulte "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)".
+- Gerenciar sua conta corporativa. Para obter mais informações, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".

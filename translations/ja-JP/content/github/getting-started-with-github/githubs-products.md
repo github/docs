@@ -1,11 +1,19 @@
 ---
 title: GitHub の製品
+intro: '{% data variables.product.prodname_dotcom %} の商品と価格プランの概要。'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アカウント
+  - cli
+  - mobile
+  - desktop
+  - セキュリティ
 ---
 
 {% data variables.product.prodname_dotcom %}では無償版と有償版の製品をご用意しています。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
@@ -77,16 +85,18 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - 追加のセキュリティ、コンプライアンス、およびデプロイメントコントロール
 - SAML シングルサインオンでの認証
 - SAML または SCIM でのアクセスのプロビジョニング
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} には次も含まれます:
 - {% data variables.contact.enterprise_support %}。 詳細は「<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} サポート</a>」および「<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 補遺</a>」を参照してください。
 - 50,000 {% data variables.product.prodname_actions %} 分
 - 50GBの{% data variables.product.prodname_registry %}ストレージ
-- 99.95% の月次稼働時間を保証するサービスレベルアグリーメント
+- {% data variables.product.prodname_pages %} サイトのアクセス制御。 詳しい情報については、「<a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">{% data variables.product.prodname_pages %} サイトの可視性を変更する</a>」を参照してください。
+- 99.9% の月次稼働時間を保証するサービスレベルアグリーメント
 - エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「<a href="/articles/about-enterprise-accounts" class="dotcom-only">Enterprise アカウントについて</a>」を参照してください。
 
-{% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/articles/setting-up-a-trial-of-github-enterprise-cloud)」を参照してください。
+{% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する</a>」を参照してください。
 
 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)の独自インスタンスのホストに関する詳しい情報については、{% data variables.contact.contact_enterprise_sales %}に連絡してください。 {% data reusables.enterprise_installation.request-a-trial %}
 
@@ -96,7 +106,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}
+- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。{% endif %}
 - [Organization の {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
-{% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、[{% data variables.product.product_name %} の販売チーム](https://enterprise.github.com/contact)にお問い合わせください。
+{% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

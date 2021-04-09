@@ -16,12 +16,6 @@ To delete a container image, you must have admin permissions to the container im
 
 When deleting public packages, be aware that you may break projects that depend on your package.
 
-
-
-### Reserved package versions and names
-
-{% data reusables.package_registry.package-immutability %}
-
 ### Deleting a version of a user-owned container image on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}

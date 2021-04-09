@@ -7,7 +7,7 @@
         <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
       </div>
 
-      {% for link in gettingStartedLinks %}
+      {% for link in featuredLinks.gettingStarted %}
         {% include featured-link %}
       {% endfor %}
     </div>
@@ -18,7 +18,7 @@
         <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
       </div>
 
-      {% for link in popularLinks %}
+      {% for link in featuredLinks.popular %}
         {% include featured-link %}
       {% endfor %}
     </div>

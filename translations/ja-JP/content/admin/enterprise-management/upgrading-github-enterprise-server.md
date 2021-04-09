@@ -15,11 +15,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### アップグレードの準備
 
-1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳しい情報については、「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 3. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
 4. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
 
@@ -28,6 +30,32 @@ versions:
   **注釈:** メンテナンスウィンドウは、実行しようとしているアップグレードの種類によります。 ホットパッチを利用するアップグレードは、通常メンテナンスウィンドウを必要としません。 リブートが必要になることもあります。そのリブートは後で行うことができます。 MAJOR.FEATURE.PATCH というバージョン付けのスキームに従い、アップグレードパッケージを使ったパッチのリリースで生じるダウンタイムは、通常 5 分未満です。 データの移行を含むフィーチャリリースは、ストレージの性能および移行するデータの量に応じた時間がかかります。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% endnote %}
+
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### {% data variables.product.prodname_ghe_server %} 3.0 以降の最小要件について
+
+{% data variables.product.prodname_ghe_server %} 3.0 以降にアップグレードする前に、インスタンスにプロビジョニングしたハードウェアリソースを確認してください。 {% data variables.product.prodname_ghe_server %} 3.0 は、{% data variables.product.prodname_actions %} や {% data variables.product.prodname_registry %} などの新機能を導入しているため、バージョン 2.22 以前よりも多くのリソースが必要となります。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} 3.0 のリリースノート](/enterprise-server@3.0/admin/release-notes)を参照してください。
+
+次の表では、{% data variables.product.prodname_ghe_server %} 3.0 以降の要件の増加を**太字**で示しています。
+
+| ユーザライセンス               |                        vCPUs |                                  メモリ |                         アタッチされたストレージ | ルートストレージ |
+|:---------------------- | ----------------------------:| ------------------------------------:| ------------------------------------:| --------:|
+| トライアル、デモ、あるいは10人の軽量ユーザ |   **4**<br/>_2 から増加_ |   **32 GB**<br/>_16 GB から増加_ | **150 GB**<br/>_100 GB から増加_ |   200 GB |
+| 10-3000                |   **8**<br/>_4 から増加_ |   **48 GB**<br/>_32 GB から増加_ | **300 GB**<br/>_250 GB から増加_ |   200 GB |
+| 3000-5000              |  **12**<br/>_8 から増加_ |                                64 GB |                               500 GB |   200 GB |
+| 5000-8000              | **16**<br/>_12 から増加_ |                                96 GB |                               750 GB |   200 GB |
+| 8000-10000+            | **20**<br/>_16 から増加_ | **160 GB**<br/>_128 GB から増加_ |                              1000 GB |   200 GB |
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+
+{% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
 
 ### スナップショットの取得
 
@@ -49,7 +77,7 @@ versions:
 | プラットフォーム              | スナップショットの取得方法 | スナップショットドキュメンテーションのURL                                                                                                                                                                                 |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | ディスク          | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM            | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM            | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -57,7 +85,7 @@ versions:
 
 ### ホットパッチでのアップグレード
 
-{% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳しい情報については、「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+{% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 {% note %}
 
@@ -76,7 +104,7 @@ versions:
 4. 新しいホットパッチがダウンロードされたなら、Install package（パッケージのインストール）ドロップダウンメニューを使ってください。
     - すぐにインストールするなら**Now（即時）**を選択してください。
     - 後でインストールするなら、後の日付を選択してください。 ![ホットパッチインストール日のドロップダウン](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**. ![ホットパッチインストールボタン](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+5. [**Install**] をクリックします。 ![ホットパッチインストールボタン](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
 ##### 管理シェルを使ったホットパッチのインストール
 
@@ -114,13 +142,13 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 「[管理シェルを使ってホットパッチをインストールする](#installing-a-hotpatch-using-the-administrative-shell)」の指示に従ってレプリカインスタンスをアップグレードします。 Geo-replication に複数のレプリカを使用している場合は、この手順を繰り返して、各レプリカを一度に 1 つずつアップグレードする必要があります。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
 ### アップグレードパッケージでのアップグレード
 
-フィーチャシリーズ内の最新のパッチリリースへのアップグレードにはホットパッチが利用できますが、新しいフィーチャリリースへのアップグレードにはアップグレードパッケージを使わなければなりません。 たとえば `2.11.10` から `2.12.4` へのアップグレードの場合、これらは異なるフィーチャシリーズなので、アップグレードパッケージを使わなければなりません。 詳しい情報については、「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+フィーチャシリーズ内の最新のパッチリリースへのアップグレードにはホットパッチが利用できますが、新しいフィーチャリリースへのアップグレードにはアップグレードパッケージを使わなければなりません。 たとえば `2.11.10` から `2.12.4` へのアップグレードの場合、これらは異なるフィーチャシリーズなので、アップグレードパッケージを使わなければなりません。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 #### アップグレードパッケージでの単一のアプライアンスのアップグレード
 
@@ -150,7 +178,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location_enterprise %} を利用できるようにしてください。
+7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location %} を利用できるようにしてください。
 
   {% note %}
 
@@ -183,7 +211,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 「[アップグレードパッケージで単一アプライアンスをアップグレードする](#upgrading-a-single-appliance-with-an-upgrade-package)」の指示に従い、レプリカインスタンスをアップグレードします。 Geo-replication に複数のレプリカを使用している場合は、この手順を繰り返して、各レプリカを一度に 1 つずつアップグレードする必要があります。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
@@ -203,7 +231,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
    1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location_enterprise %} を使えるようにメンテナンスモードを無効化してください。
+6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
 ### 失敗したアップグレードからのリストア
 
@@ -218,3 +246,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
 #### フィーチャリリースのロールバック
 
 フィーチャリリースからロールバックするには、ルートおよびデータパーティションが整合した状態になることを保証するため、VM スナップショットからリストアしてください。 詳細は「[スナップショットを取得する](#taking-a-snapshot)」を参照してください。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 参考リンク
+
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
+{% endif %}

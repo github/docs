@@ -5,13 +5,15 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 
 以下のようなエラーが表示されます:
 
 ```shell
-$ git push -u github.master
-> fatal: 'github.master' does not appear to be a git repository
+$ git push -u github.main
+> fatal: 'github.main' does not appear to be a git repository
 > fatal: The remote end hung up unexpectedly
 
 $ git pull -u github

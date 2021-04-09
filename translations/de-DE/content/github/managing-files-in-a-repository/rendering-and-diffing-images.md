@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% note %}
@@ -16,7 +19,7 @@ versions:
 
 ### Bilder anzeigen
 
-Du kannst Bilder direkt in Deinem {% data variables.product.product_name %}-Repository suchen und aus dem Repository anzeigen:
+Sie können Bilder direkt in Ihrem {% data variables.product.product_name %}-Repository suchen und aus dem Repository anzeigen:
 
 ![Inline-Bild](/assets/images/help/images/view.png)
 

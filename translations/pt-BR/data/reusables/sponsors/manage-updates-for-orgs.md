@@ -1,0 +1,1 @@
+Você pode designar qual endereço de e-mail recebe atualizações das contas que a sua organização patrocina. Para obter mais informações, consulte "[Gerenciar atualizações de contas que a sua organização patrocina](/github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors)".

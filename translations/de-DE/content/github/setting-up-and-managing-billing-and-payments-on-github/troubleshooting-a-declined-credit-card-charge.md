@@ -1,11 +1,13 @@
 ---
 title: Fehlerbehebung bei einer abgelehnten Kreditkartenbelastung
-intro: 'Wenn die Kreditkarte abgelehnt wird, die Du für die Zahlung der Nutzung von {% data variables.product.product_name %} angegeben hast, hast Du verschiedene Möglichkeiten um sicherzustellen, dass die Zahlung erfolgt und Dein Konto nicht gesperrt wird.'
+intro: 'Wenn die Kreditkarte, die Sie für die Zahlung der Nutzung von {% data variables.product.product_name %} angegeben haben, abgelehnt wird, haben Sie verschiedene Möglichkeiten, sicherzustellen, dass die Zahlung erfolgt und Ihr Konto nicht gesperrt wird.'
 redirect_from:
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Bei einer Ablehnung Deiner Kreditkarte senden wir Dir eine E-Mail mit dem Grund der Ablehnung. Du hast dann einige Tage Zeit, das Problem zu beheben, bevor wir erneut versuchen, Deine Kreditkarte zu belasten.

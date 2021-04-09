@@ -1,11 +1,13 @@
 ---
 title: Usar a autenticação integrada
-intro: 'Quando você usa o método de autenticação padrão, todos os detalhes de autenticação ficam armazenados na {% data variables.product.product_location_enterprise %}. Se você ainda não tiver um provedor de autenticação estabelecido, como LDAP, SAML ou CAS, a autenticação integrada é o método padrão.'
+intro: 'Quando você usa o método de autenticação padrão, todos os detalhes de autenticação ficam armazenados na {% data variables.product.product_location %}. Se você ainda não tiver um provedor de autenticação estabelecido, como LDAP, SAML ou CAS, a autenticação integrada é o método padrão.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 Você pode criar mensagens personalizadas que os usuários verão nas páginas de login e logout. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)".

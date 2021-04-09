@@ -7,6 +7,7 @@ intro: Im Folgenden findest Du ein kurzes Tutorial zur Verwendung von „git reb
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 In diesem Beispiel werden mit Ausnahme von `exec` alle verfügbaren `git rebase`-Befehle vorgestellt.
@@ -123,7 +124,11 @@ Git zeigt erneut die zu bearbeitende Commit-Mitteilung an. Du kannst den Text (`
 Der gewöhnliche Befehl `git push origin` funktioniert **nicht**, da Du den Git-Verlauf geändert hast. Du musst den Befehl ändern, indem Du Deine neuesten Änderungen per erzwungenem Push-Vorgang überträgst:
 
 ```shell
-$ git push origin master --force
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
+$ git push origin main --force
 ```
 
 {% warning %}

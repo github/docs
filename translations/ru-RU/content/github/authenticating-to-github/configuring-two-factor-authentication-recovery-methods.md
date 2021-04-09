@@ -11,6 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
@@ -91,7 +93,9 @@ When you generate or retrieve an account recovery token, an event is added to yo
 
 You can generate an account recovery token and store it with a partner recovery provider.
 
-1. Sign in to your Facebook account, then return to {% data variables.product.product_name %}.
+1. Sign in to your Facebook account, then return to
+
+{% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. To generate a new token, under "Recovery tokens," click **Store new token**. ![Button for storing a new recovery token](/assets/images/help/settings/store-new-recovery-token.png)

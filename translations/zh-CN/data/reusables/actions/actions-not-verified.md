@@ -1,1 +1,1 @@
-Anyone can publish an action in {% data variables.product.prodname_marketplace %} as long as they meet the terms of service. Unlike apps, {% data variables.product.prodname_actions %} listed in {% data variables.product.prodname_marketplace %} are not verified by {% data variables.product.prodname_dotcom %}.
+任何人都可以在 {% data variables.product.prodname_marketplace %} 中发布操作。 {% data variables.product.prodname_dotcom %} 验证一些合作伙伴组织，这些组织显示为已验证的创建者。  

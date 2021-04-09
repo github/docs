@@ -12,7 +12,7 @@ export default function () {
     menu.scrollTo(0, activeMenuItemPosition)
   }
 
-  // if the active cagetory is a standalone category, do not close the other open dropdowns
+  // if the active category is a standalone category, do not close the other open dropdowns
   const activeStandaloneCategory = document.querySelectorAll('.sidebar-category.active.standalone-category')
   if (activeStandaloneCategory.length) return
 
@@ -21,6 +21,8 @@ export default function () {
   if (allOpenDetails) {
     for (const openDetail of allOpenDetails) {
       openDetail.removeAttribute('open')
+      const svgArrowElem = openDetail.querySelector('summary > div > svg')
+      svgArrowElem.remove()
     }
   }
 }

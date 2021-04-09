@@ -1,43 +1,43 @@
 ---
 title: GitHub Desktopの設定方法
-shortTitle: Setup
-intro: 'You can set up {% data variables.product.prodname_desktop %} to suit your needs and contribute to projects.'
+shortTitle: セットアップ
+intro: 'ニーズに合わせて {% data variables.product.prodname_desktop %} を設定し、プロジェクトに貢献することができます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-up-github-desktop
 versions:
   free-pro-team: '*'
 ---
 
-### Part 1: Installing {% data variables.product.prodname_desktop %}
+### パート 1: {% data variables.product.prodname_desktop %} のインストール方法
 
-You can install {% data variables.product.prodname_desktop %} on any supported operating system. For more information, see "[Supported Operating Systems](/desktop/getting-started-with-github-desktop/supported-operating-systems)."
+{% data variables.product.prodname_desktop %} は、サポートされている任意のオペレーティングシステムにインストールできます。 詳しい情報については、「[サポートされているオペレーティングシステム](/desktop/getting-started-with-github-desktop/supported-operating-systems)」を参照してください。
 
-To install {% data variables.product.prodname_desktop %}, navigate to [https://desktop.github.com/](https://desktop.github.com/) and download the appropriate version of {% data variables.product.prodname_desktop %} for your operating system. Follow the prompts to complete the installation. 詳しい情報については「[{% data variables.product.prodname_desktop %}のインストール](/desktop/getting-started-with-github-desktop/installing-github-desktop)」を参照してください。
+{% data variables.product.prodname_desktop %} をインストールするには、[https://desktop.github.com/](https://desktop.github.com/) に移動し、オペレーティングシステムに適したバージョンの {% data variables.product.prodname_desktop %} をダウンロードします。 プロンプトに従って、インストールを完了します。 詳しい情報については「[{% data variables.product.prodname_desktop %}のインストール](/desktop/getting-started-with-github-desktop/installing-github-desktop)」を参照してください。
 
-### Part 2: Configuring your account
+### パート 2: アカウントの設定
 
-If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can use {% data variables.product.prodname_desktop %} to exchange data between your local and remote repositories.
+{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にアカウントがある場合は、{% data variables.product.prodname_desktop %} を使用してローカルリポジトリとリモートリポジトリの間でデータを交換できます。
 
-#### Creating an account
-If you do not already have an account on {% data variables.product.prodname_dotcom %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)."
+#### アカウントを作成する
+{% data variables.product.prodname_dotcom %} のアカウントをまだお持ちでない場合は、「[新しい{% data variables.product.prodname_dotcom %} アカウントにサインアップする](/articles/signing-up-for-a-new-github-account/)」を参照してください。
 
-If you are part of an organization that uses {% data variables.product.prodname_enterprise %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.
+{% data variables.product.prodname_enterprise %} を使用している Organization に所属していて、アカウントを持っていない場合は、{% data variables.product.prodname_enterprise %} のサイト管理者に連絡してください。
 
 #### {% data variables.product.prodname_dotcom %} への認証を行う
-To connect to {% data variables.product.prodname_desktop %} with {% data variables.product.prodname_dotcom %}, you'll need to authenticate your account. 詳しい情報については「[{% data variables.product.prodname_desktop %}への認証を行う](/desktop/getting-started-with-github-desktop/authenticating-to-github)」を参照してください。
+{% data variables.product.prodname_dotcom %} を使用して {% data variables.product.prodname_desktop %} に接続するには、アカウントを認証する必要があります。 詳しい情報については「[{% data variables.product.prodname_desktop %}への認証を行う](/desktop/getting-started-with-github-desktop/authenticating-to-github)」を参照してください。
 
-After authenticating your account, you are ready to manage and contribute to projects with {% data variables.product.prodname_desktop %}.
+アカウントを認証すると、{% data variables.product.prodname_desktop %} を使用してプロジェクトを管理し、貢献を開始できます。
 
-### Part 3: Configuring Git
-You must have Git installed before using {% data variables.product.prodname_desktop %}. If you do not already have Git installed, you can download and install the latest version of Git from [https://git-scm.com/downloads](https://git-scm.com/downloads).
+### パート 3: Git の設定
+{% data variables.product.prodname_desktop %} を使用する前に Git をインストールしておく必要があります。 Git をまだインストールしていない場合は、[https://git-scm.com/downloads](https://git-scm.com/downloads) から最新バージョンの Git をダウンロードしてインストールできます。
 
-After you have Git installed, you'll need to configure Git for {% data variables.product.prodname_desktop %}. For more information, see "[Configuring Git for {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
+Git をインストールしたら、{% data variables.product.prodname_desktop %} 用に Git を設定する必要があります。 詳しい情報については、「[{% data variables.product.prodname_desktop %} の Git を設定する](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)」を参照してください。
 
-### Part 4: Customizing {% data variables.product.prodname_desktop %}
-You can adjust defaults and settings to tailor {% data variables.product.prodname_desktop %} to your needs.
+### パート 4: {% data variables.product.prodname_desktop %} のカスタマイズ
+デフォルトや設定を変更して、{% data variables.product.prodname_desktop %} をニーズに合わせて調整できます。
 
-#### Choosing a default text editor
-You can open a text editor from {% data variables.product.prodname_desktop %} to manipulate files and repositories. {% data variables.product.prodname_desktop %} supports a variety of text editors and integrated development environments (IDEs) for Windows and macOS. You can choose a default editor in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
+#### デフォルトのテキストエディタを選択する
+{% data variables.product.prodname_desktop %} からテキストエディタを開いて、ファイルとリポジトリを操作できます。 {% data variables.product.prodname_desktop %} は、Windows および macOS 用のさまざまなテキストエディタと統合開発環境 (IDE) をサポートしています。 {% data variables.product.prodname_desktop %} 設定でデフォルトのエディタを選択できます。 詳しい情報については、「[デフォルトエディタを設定する](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)」を参照してください。
 
-#### Choosing a theme
-{% data variables.product.prodname_desktop %} has multiple themes available to customize the look and feel of the app. You can choose a theme in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)."
+#### テーマを選択する
+{% data variables.product.prodname_desktop %} には、アプリの見た目をカスタマイズする際に利用できる複数のテーマがあります。 {% data variables.product.prodname_desktop %} 設定でテーマを選択できます。 詳しい情報については、「[{% data variables.product.prodname_desktop %} のテーマを設定する](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)」を参照してください。

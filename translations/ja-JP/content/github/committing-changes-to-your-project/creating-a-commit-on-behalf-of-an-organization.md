@@ -26,7 +26,17 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
 
 ### コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **参考:** コミットメッセージの入力にコマンドライン上のテキストエディタを使っている場合、コミットの説明とコミットトレーラーの`on-behalf-of:`との間に新しい改行が 2 つあることを確認してください。
+
+  {% endtip %}
 
 2. コミットメッセージの次の行に、`on-behalf-of: @org <name@organization.com>` と入力して、引用符で閉じます。
 
@@ -37,7 +47,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)」を参照してください。
+次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
 ### {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
 

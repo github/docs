@@ -1,1 +1,1 @@
-Your GitHub App can perform actions on behalf of a user, like creating an issue, creating a deployment, and using other supported endpoints.
+GitHub 应用程序可以代表用户执行操作，例如创建议题、创建部署和使用其他受支持的端点。

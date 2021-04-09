@@ -8,6 +8,9 @@ redirect_from:
   - /articles/dmca-takedown-policy
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 欢迎阅读 GitHub 的《千禧年数字版权法案》（通常称为 "DMCA"）指南。 本页面并非该法案的综合入门读物。 但是，如果您收到针对您在 GitHub 上所发布内容的 DMCA 删除通知，或者您是要发出此类通知的权利持有者，此页面将有助于您了解该法案以及我们遵守该法案的政策。
@@ -28,7 +31,7 @@ DMCA 通过为托管涉嫌侵权用户生成内容的互联网服务提供商建
 
 DMCA 规定了两个简单直接的程序，所有 GitHub 用户都应了解：(i) 版权持有者要求删除内容的[删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)程序；(ii) 内容被误删时用户要求恢复内容的[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)程序。
 
-DMCA [删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)供版权所有者用于要求 GitHub 删除他们认为侵权的内容。 如果您是软件设计师或开发者，可能每天都会创建版权内容。 If someone else is using your copyrighted content in an unauthorized manner on GitHub, you can send us a DMCA takedown notice to request that the infringing content be changed or removed.
+DMCA [删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)供版权所有者用于要求 GitHub 删除他们认为侵权的内容。 如果您是软件设计师或开发者，可能每天都会创建版权内容。 如果其他人以未经授权的方式在 GitHub 上使用您的版权内容，您可以向我们发送 DMCA 删除通知，要求更改或删除侵权内容。
 
 另一方面，[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)可用于纠正错误。 发送删除通知的人可能没有版权，或者没有意识到您拥有许可，或者在删除通知中犯了其他错误。 由于 GitHub 往往不知道通知是否有误，因此您可以通过 DMCA 反通知告诉我们并要求我们恢复内容。
 
@@ -45,13 +48,13 @@ DMCA 框架有点像课堂上传纸条。 版权所有者向 GitHub 提交对某
 
 2. **版权所有者发送通知。**进行调查后，版权所有者编写[删除通知](/articles/guide-to-submitting-a-dmca-takedown-notice)并将其发送到 GitHub。 如果根据法律要求，该删除通知足够详细（如[操作指南](/articles/guide-to-submitting-a-dmca-takedown-notice)中所述），我们会[将该通知发布](#d-transparency)到我们的[公共仓库](https://github.com/github/dmca)中，并将链接传送给受影响的用户。
 
-3. **GitHub Asks User to Make Changes.** If the notice alleges that the entire contents of a repository infringe, or a package infringes, we will skip to Step 6 and disable the entire repository or package expeditiously. 否则，由于 GitHub 无法禁止访问仓库中的特定文件，我们将联系创建该仓库的用户，给他们 1 个工作日左右的时间来删除或修改通知中指定的内容。 如果我们给用户进行更改的机会，我们会通知版权所有者。 Because packages are immutable, if only part of a package is infringing, GitHub would need to disable the entire package, but we permit reinstatement once the infringing portion is removed.
+3. **GitHub 要求用户进行更改。**如果通知指出仓库或包的整个内容都侵权，我们将跳到步骤 6 并迅速禁用整个仓库或包。 否则，由于 GitHub 无法禁止访问仓库中的特定文件，我们将联系创建该仓库的用户，给他们 1 个工作日左右的时间来删除或修改通知中指定的内容。 如果我们给用户进行更改的机会，我们会通知版权所有者。 由于包是不可变的，如果只有包的一部分侵权，GitHub 将需要禁用整个包，但我们允许在删除侵权部分后恢复。
 
 4. **用户向 GitHub 通知更改。**如果用户选择进行指定的更改，则*必须*在大约 1 个工作日内告知我们。 如果没有，我们将禁用仓库（如步骤 6 所述）。 如果用户通知我们已进行更改，我们将进行核实然后通知版权所有者。
 
 5. **版权所有者修改或撤回通知。**用户进行更改后，版权所有者必须进行审查，如果认为更改不充分，他们可以重申或修改其删除通知。 除非版权所有者联系我们以重申原删除通知或提交修改的通知，否则 GitHub 不会采取任何进一步行动。 如果版权所有者对更改感到满意，他们可以提交正式的撤回声明，或者什么都不做。 静默期超过两周，GitHub 将解释为默示撤回删除通知。
 
-6. **GitHub May Disable Access to the Content.** GitHub will disable a user's content if: (i) the copyright owner has alleged copyright over the user's entire repository or package (as noted in Step 3); (ii) the user has not made any changes after being given an opportunity to do so (as noted in Step 4); or (iii) the copyright owner has renewed their takedown notice after the user had a chance to make changes. 如果版权所有者选择*修改*通知，我们将回到步骤 2，将修改的通知当作新通知来重复这个流程。
+6. **GitHub 可能禁止访问内容。**在以下情况下，GitHub 将禁用用户内容：(i) 版权所有者声称对用户整个仓库或包的内容都拥有版权（如步骤 3 所述）；(ii) 用户在获得更改机会后没有进行任何更改（如步骤 4 所述）；或 (iii) 版权所有者在用户有机会进行更改后重申了删除通知。 如果版权所有者选择*修改*通知，我们将回到步骤 2，将修改的通知当作新通知来重复这个流程。
 
 7. **用户可发送反通知。**我们鼓励用户在其内容被禁用后就其选择权咨询律师。 如果用户认为其内容是由于错误或错误指认而被禁用，他们可以向我们发送[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)。 与原通知一样，我们将确保反通知足够详细（如[操作指南](/articles/guide-to-submitting-a-dmca-counter-notice)中所述）。 如果是，我们会将其[发布](#d-transparency)到我们的[公共仓库](https://github.com/github/dmca)，然后向版权所有者发送链接以传达该通知。
 
@@ -62,6 +65,8 @@ DMCA 框架有点像课堂上传纸条。 版权所有者向 GitHub 提交对某
 GitHub 的最佳功能之一是用户能够“复刻”彼此的仓库。 这意味着什么？ 从本质上讲，这意味着用户可以将 GitHub 上的项目复制到自己的仓库中。 在许可或法律允许的情况下，用户可以对复刻进行更改，然后将其推送到主项目或只保留为自己的项目变体。 每个此类副本都是原仓库的[复刻](/articles/github-glossary#fork)，或者说原仓库也可以称为复刻的“父仓库”。
 
 GitHub 在禁用父仓库时*不会*自动禁用复刻。 这是因为复刻属于不同的用户，可能进行了重大更改，也可能获得了许可或者其使用方式符合合理使用原则。 GitHub 不会对复刻进行任何独立调查。 我们希望版权所有者进行这种调查，如果他们认为复刻也侵权，则应在其删除通知中明确包括这些复刻。
+
+在极少数情况下，您可能在正被复刻的完整仓库中指称侵权。 如果您在提交通知时发现该仓库的所有现有复刻涉嫌侵权，我们将在处理通知时处理对该网络中所有复刻的有效索赔。 我们这样做是考虑到所有新建复刻都可能包含相同的内容。 此外，如果所报告的包含涉嫌侵权内容的网络大于一百 (100) 个仓库，从而很难全面审查，并且您在通知中指出：“根据您审查的代表性复刻数量，我相信所有或大多数复刻的侵权程度与父仓库相同”，则我们可能会考虑禁用整个网络。 你的宣誓声明将适用于此声明。
 
 ### C. 如果我无意中错过了更改时限怎么办？
 
@@ -96,4 +101,4 @@ GitHub 的政策是，在适当的情况下，自行决定禁用和终止可能�
 - [Opportunities for Copyright Reform](https://www.cato-unbound.org/issues/january-2013/opportunities-copyright-reform) (Cato Unbound)
 - [Fair Use Doctrine and the Digital Millennium Copyright Act: Does Fair Use Exist on the Internet Under the DMCA?](https://digitalcommons.law.scu.edu/lawreview/vol42/iss1/6/) (Santa Clara Law Review)
 
-GitHub 不一定支持这些文章中的任何观点。 我们提供链接的目的是鼓励您了解更多信息，形成自己的观点，然后联系您选举的代表（例如[美国国会](https://www.govtrack.us/congress/members)或[欧盟议会](https://www.europarl.europa.eu/meps/en/home)的官员），以求实现您认为应该进行的任何更改。 Congress</a> or [E.U. Parliament](https://www.europarl.europa.eu/meps/en/home)) to seek whatever changes you think should be made.
+GitHub 不一定支持这些文章中的任何观点。 我们提供链接的目的是鼓励您了解更多信息，形成自己的观点，然后联系您选举的代表（例如[美国国会](https://www.govtrack.us/congress/members)或[欧盟议会](https://www.europarl.europa.eu/meps/en/home)的官员），以求实现您认为应该进行的任何更改。 国会</a>或[欧盟 议会](https://www.europarl.europa.eu/meps/en/home)的官员），以求实现您认为应该进行的任何更改。

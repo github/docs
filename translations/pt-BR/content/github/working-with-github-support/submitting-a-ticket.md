@@ -5,6 +5,8 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 Se a sua conta usa um produto {% data variables.product.prodname_dotcom %} pago, você pode entrar em contato diretamente com {% data variables.contact.github_support %}. Se a sua conta usa {% data variables.product.prodname_free_user %} para contas de usuários e organizações, você pode entrar em contato com {% data variables.contact.contact_support %} para relatar problemas com a conta, de segurança e abusos. Para obter mais informações, consulte "[Sobre GitHub Support](/github/working-with-github-support/about-github-support)".

@@ -1,5 +1,5 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-1. Above the list of files, click **Create new file**. !["Create new file" button](/assets/images/help/repository/create_new_file.png)
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+1. 在文件列表上方，单击 **Create new file（创建新文件）**。 !["创建新文件"按钮](/assets/images/help/repository/create_new_file.png)
 {% else %}
-1. Above the list of files, using the **Add file** drop-down, click **Create new file**. !["Create new file" in the "Add file" dropdown](/assets/images/help/repository/create_new_file.png)
+1. 在文件列表上方，使用 **Add file（添加文件）**下拉菜单，单击 **Create new file（创建新文件）**。 !["添加文件"下拉菜单中的"创建新文件"按钮](/assets/images/help/repository/create_new_file.png)
 {% endif %}

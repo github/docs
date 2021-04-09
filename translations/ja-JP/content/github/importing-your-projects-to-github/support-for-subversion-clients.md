@@ -28,7 +28,7 @@ Subversion チェックアウトは違います。ワーキングディレクト
   $ cd <em>repo</em>
   ```
 
-4. `trunk` ブランチを取得します。 The Subversion bridge maps trunk to the Git HEAD branch.
+4. `trunk` ブランチを取得します。 Subversion ブリッジは、トランクを Git の HEAD ブランチにマップします。
   ```shell
   $ svn up trunk
   > A    trunk
@@ -47,7 +47,7 @@ Subversion チェックアウトは違います。ワーキングディレクト
 
 Subversion ブリッジを使って GitHub にブランチを作成することもできます。
 
-svn クライアントから、`trunk` を更新して「master」が最新であることを確認します。
+svn クライアントで `trunk` を更新して、デフォルトブランチが最新であることを確認します。
 ```shell
 $ svn up trunk
 > At revision 1.

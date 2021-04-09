@@ -1,11 +1,14 @@
 ---
 title: Repository umbenennen
-intro: 'Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.'
+intro: Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.
 redirect_from:
   - /articles/renaming-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Wenn Du ein Repository umbenennst, werden mit Ausnahme von Projektwebsite-URLs alle vorhandenen Informationen automatisch auf den neuen Namen umgeleitet, einschließlich:
@@ -23,7 +26,7 @@ Zusätzlich zur Umleitung des Web-Traffic werden auch alle `git clone`, `git fet
 $ git remote set-url origin <em>new_url</em>
 ```
 
-Weitere Informationen findest Du unter „[URL eines Remote-Repository ändern](/github/using-git/changing-a-remotes-url)."
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 

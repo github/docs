@@ -1,6 +1,6 @@
 ---
 title: GitHub Importer でコミット作者属性を更新する
-intro: インポートの間、コミット作者の GitHub アカウントのリポジトリのコミットにマッチングできます。
+intro: 'インポートの間、コミット作者の GitHub アカウントのリポジトリのコミットにマッチングできます。'
 redirect_from:
   - /articles/updating-commit-author-attribution-with-github-importer
 versions:

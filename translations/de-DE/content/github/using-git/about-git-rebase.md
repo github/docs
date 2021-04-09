@@ -8,6 +8,7 @@ intro: 'Mit dem Befehl „git rebase“ kannst Du eine Reihe von Commits einfach
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -106,4 +107,4 @@ Wenn man diese Informationen von oben nach unten betrachtet, wird Folgendes deut
 - [Kapitel „Git-Branching“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [Kapitel „Interaktives Rebasing“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - „[Squashing von Commits mit Rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)“
-- „[Deinen Branch synchronisieren](/desktop/contributing-to-projects/syncing-your-branch)" in der {% data variables.product.prodname_desktop %}-Dokumentation
+- „[Ihren Branch synchronisieren](/desktop/contributing-to-projects/syncing-your-branch)" in der {% data variables.product.prodname_desktop %}-Dokumentation

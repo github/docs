@@ -1,1 +1,1 @@
-Du kannst festlegen, dass Mitglieder SSH-Zertifikate verwenden müssen, um auf die Organisationsressourcen zuzugreifen{% if currentVersion ver_gt "enterprise-server@2.17" %}, außer wenn SSH in Deinem Repository deaktiviert ist{% endif %}.
+You can require that members use SSH certificates to access organization resources, unless SSH is disabled in your repository.

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Gespeicherte Antworten](/assets/images/help/settings/saved-replies.png)
@@ -16,7 +17,7 @@ Sobald Du eine gespeicherte Antwort hinzugefügt hast, kann sie sowohl in Issues
 
 Du kannst maximal 100 gespeicherte Antworten erstellen. Wenn Du die Höchstgrenze erreicht hast, kannst Du gespeicherte Antworten, die Du nicht mehr verwendest, löschen oder vorhandene gespeicherte Antworten bearbeiten.
 
-Du kannst auch die von {% data variables.product.product_name %} zur Verfügung gestellte gespeicherte Antwort „Duplicate issue“ (Doppelter Issue) verwenden, um einen Issue als Duplikat zu markieren und ihn mit einem ähnlichen Issue nachzuverfolgen.
+Sie können auch die von {% data variables.product.product_name %} zur Verfügung gestellte gespeicherte Antwort „Duplicate issue“ (Doppelter Issue) verwenden, um einen Issue als Duplikat zu markieren und ihn mit einem ähnlichen Issue nachzuverfolgen.
 
 ### Weiterführende Informationen
 

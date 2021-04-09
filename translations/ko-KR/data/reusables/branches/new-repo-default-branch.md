@@ -1,1 +1,2 @@
-When you create a repository on {% data variables.product.prodname_dotcom %} with content, the repository is initialized with a single branch, called the default branch.
+When you create a repository with content on {% data variables.product.product_location %}, {% data variables.product.product_name %} creates the repository with a single branch. This first branch in the repository is the default branch.
+

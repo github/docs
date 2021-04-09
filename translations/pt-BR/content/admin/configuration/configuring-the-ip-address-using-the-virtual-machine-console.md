@@ -6,9 +6,19 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
+
+{% note %}
+
+**Observação:** Não suportamos a inclusão de adaptadores de rede adicionais para {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 3. Escolha configurar o protocolo `IPv4` ou `IPv6`. ![Escolha entre os protocolos IPv4 ou IPv6](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
 4. Configure as opções para o protocolo escolhido. ![Menu com opções de protocolo IP](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
+
+

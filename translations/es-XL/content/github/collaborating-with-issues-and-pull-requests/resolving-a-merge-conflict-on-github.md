@@ -1,6 +1,6 @@
 ---
-title: Resolver un conflicto de fusión en GitHub
-intro: 'Puedes resolver conflictos de fusión simples que impliquen realizar cambios de líneas en GitHub, usando el editor de conflictos.'
+title: Resolving a merge conflict on GitHub
+intro: 'You can resolve simple merge conflicts that involve competing line changes on GitHub, using the conflict editor.'
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
@@ -8,50 +8,56 @@ versions:
   enterprise-server: '*'
 ---
 
-Solo puedes resolver los conflictos de fusión en {% data variables.product.product_name %} que hayan sido provocados por realizar cambios de líneas, como cuando las personas hacen cambios diferentes en la misma línea del mismo archivo en ramas diferentes de tu repositorio de Git. Para todos los demás tipos de conflictos de fusión, debes resolver el conflicto de manera local desde la línea de comando. Para obtener más información, consulta "[Resolver un conflicto de fusión en la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".
+You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
 
 {% if currentVersion != "free-pro-team@latest" %}
-Si un administrador del sitio inhabilita el editor de conflictos de fusión para las solicitudes de extracción entre repositorios, no podrás utilizar el editor de conflictos en {% data variables.product.product_name %} y deberás resolver los conflictos de fusión desde la línea de comandos. Por ejemplo, si el editor de conflictos de fusión está inhabilitado, no podrás utilizarlo en una solicitud de extracción entre una bifurcación y el repositorio ascendente.
+If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Advertencia:** Cuando resuelvas un conflcto de fusión en {% data variables.product.product_name %}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusionará en la [rama de encabezado](/github/getting-started-with-github/github-glossary#head-branch), aún si dicha rama es la rama predeterminada de tu repositorio o está protegida. Asegúrate que realmente quieras hacer una confirmación para esta rama.
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Make sure you really want to commit to this branch.
 {% else %}
-**Advertencia:** Cuando resuelves un conflicto de fusión en {% data variables.product.product_name %}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusiona en la [rama principal](/github/getting-started-with-github/github-glossary#head-branch). Asegúrate que realmente quieras hacer una confirmación para esta rama. Si la rama de encabezado es la predeterminada para tu repositorio, se te dará la opción de crear una rama nueva para que funcione como rama de encabezado para tu solicitud de extracción. Si la rama principal está protegida, no podrás fusionar tu resolución de conflictos con ella, así que se te pedirá crear una nueva rama principal. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 {% endif %}
 
 {% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
-1. En la lista de "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción con un conflicto de fusión que quieres resolver.
-1. Cerca de la parte de abajo de tu solicitud de extracción, haz clic en **Resolve conflicts** (Resolver conflictos). ![Botón para resolver conflictos de fusión](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
+1. Near the bottom of your pull request, click **Resolve conflicts**.
+![Resolve merge conflicts button](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **Sugerencias:** Si el botón **Resolve conflicts** (Resolver conflictos) está desactivado, el conflicto de fusión de tu solicitud de extracción es demasiado complejo para resolverlo en {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} o el administrador del sitio inhabilitó el editor de conflictos para las solicitudes de extracción entre repositorios{% endif %}. Debes resolver el conflicto de fusión utilizando un cliente de Git alterno, o utilizando Git en la línea de comandos. Para obtener más información, consulta "[Resolver un conflicto de fusión con la línea de comando](/articles/resolving-a-merge-conflict-using-the-command-line)".
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line)."
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
- ![Ver el ejemplo de conflicto de fusión con los marcadores de conflicto](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
-1. Si tienes más de un conflicto de fusión en tu archivo, desplázate hacia abajo hasta el siguiente conjunto de marcadores de conflicto y repite los pasos cuatro y cinco para resolver el conflicto de fusión.
-1. Una vez que hayas resuelto todos los conflictos en el archivo, haz clic en **Mark as resolved** (Marcar como resuelto). ![Dar clic en el botón de marcar como resuelto](/assets/images/help/pull_requests/mark-as-resolved-button.png)
-1. Si tienes más de un archivo con conflictos, selecciona el siguiente archivo que quieres editar del lado izquierdo de la página en "conflicting files" (archivos conflictivos) y repite los pasos cuatro a siete hasta que hayas resuelto todos los conflictos de fusión de tu solicitud de extracción. ![Seleccionar el siguiente archivo conflictivo, de ser aplicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
-1. Una vez que hayas resuelto todos tus conflictos de fusión, haz clic en **Commit merge** (Confirmar fusión). Esto fusiona toda la rama de base con tu rama de encabezado. ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
-1. Si se te solicita, revisa la rama para la que vas a confirmar. Si quieres confirmar para esta rama, haz clic en **I understand, update _BRANCH_** (Comprendo, actualizar RAMA). ![Merge conflict confirmation window](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
-1. Si se te solicita, revisa la rama para la que vas a confirmar.
+ ![View merge conflict example with conflict markers](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
+1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.
+ ![Click mark as resolved button](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+1. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
+ ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
+ ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
+1. If prompted, review the branch that you are committing to. If you want to commit to this branch, click **I understand, update _BRANCH_**.
+![Merge conflict confirmation window](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
+1. If prompted, review the branch that you are committing to. 
 
-   Si la rama principal es la rama predeterminada del repositorio, puedes escoger ya sea actualizar esta rama con los cambios que hiciste para resolver el conflicto, o crear una rama nueva y utilizarla como la rama principal de la solicitud de extracción. ![Mensaje para revisar la rama que se actualizará](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
-
-   Si eliges crear una rama nueva, ingresa un nombre para ésta.
-
-   Si la rama principal de tu solicitud de extracción está protegida, debes crear una rama nueva. No tendrás la opción para actualizar la rama protegida.
-
-   Da clic en **Crear rama y actualizar mi solicitud de extracción** o en **Entiendo, continuar actualizando la _RAMA_**. El texto del botón corresponde a la acción que estás realizando.
+   If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
+ ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
+   
+   If you choose to create a new branch, enter a name for the branch.
+   
+   If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
+   
+   Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
 {% endif %}
-1. Para fusionar tu solicitud de extracción, haz clic en **Merge pull request** (Fusionar solicitud de extracción). Para obtener más información acerca de otras opciones de fusión de solicitudes de extracción, consulta "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request/)".
+1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
-### Leer más
+### Further reading
 
-- "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/)"
+- "[About pull request merges](/articles/about-pull-request-merges)"

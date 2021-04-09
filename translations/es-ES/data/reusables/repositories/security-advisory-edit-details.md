@@ -1,0 +1,1 @@
+1. Edita el producto y versiones que se vieron afectados por la vulnerabilidad de seguridad de la que trata esta asesoría de seguridad. ![Metadatos de asesoría de seguridad](/assets/images/help/security/security-advisory-affected-product.png)

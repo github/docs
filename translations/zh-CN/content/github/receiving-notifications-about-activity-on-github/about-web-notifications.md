@@ -7,11 +7,11 @@ versions:
 
 有关*参与*和*关注*通知之间差异的更多信息，请参阅“[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)”。
 
-为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。
+为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。
 
 {% data reusables.notifications.shared_state %}
 
-From your notifications page, you can also mark notifications as read, save notifications for later, and unsubscribe from threads. 更多信息请参阅：
+在通知页面上，您还可以将通知标记为已读、保存通知供以后使用以及取消订阅帖子。 更多信息请参阅：
 
 - "[将通知标记为已读](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/marking-notifications-as-read)"
 - "[保存通知供以后查看](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/saving-notifications-for-later)"

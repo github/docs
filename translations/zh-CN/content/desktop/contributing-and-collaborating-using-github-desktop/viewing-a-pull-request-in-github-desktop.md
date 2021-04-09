@@ -1,6 +1,6 @@
 ---
-title: Viewing a pull request in GitHub Desktop
-shortTitle: Viewing a pull request
+title: 在 GitHub Desktop 中查看拉取请求
+shortTitle: 查看拉取请求
 intro: '您可以在 {% data variables.product.prodname_desktop %} 上打开的拉取请求中查看提议的更改。'
 redirect_from:
   - /desktop/contributing-to-projects/accessing-a-pull-request-locally
@@ -9,10 +9,10 @@ versions:
   free-pro-team: '*'
 ---
 
-### About pull requests in {% data variables.product.prodname_desktop %}
-You can view pull requests that you or your collaborators have proposed in {% data variables.product.prodname_desktop %}. Pull requests let you propose changes to projects, provide feedback and reviews, and merge changes into projects. 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
+### 关于 {% data variables.product.prodname_desktop %} 中的拉取请求
+您可以查看您或您的协作者在 {% data variables.product.prodname_desktop %} 中提出的拉取请求。 拉取请求可让您对项目提出更改，提供反馈和评论，并将更改合并到项目中。 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 
-When you view a pull request in {% data variables.product.prodname_desktop %}, you can see a history of commits that contributors made. You can also see which files the commits modified, added, or deleted. From {% data variables.product.prodname_desktop %}, you can open repositories in your preferred text editor to view any changes or make additional changes. After reviewing changes in a pull request, you can give feedback on {% data variables.product.prodname_dotcom %}. 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)”。
+在 {% data variables.product.prodname_desktop %} 中查看拉取请求时，您可以看到贡献者的提交历史记录。 您还可以查看修改、添加或删除了提交的文件。 从 {% data variables.product.prodname_desktop %} 可以在首选文本编辑器中打开仓库以查看任何更改或进行其他更改。 在审查拉取请求中的更改后，您可以对 {% data variables.product.prodname_dotcom %} 提供反馈。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)”。
 
 ### 在 {% data variables.product.prodname_desktop %} 中查看拉取请求
 {% data reusables.desktop.current-branch-menu %}

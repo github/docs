@@ -1,1 +1,1 @@
-You can delete OAuth Apps when you no longer use them.
+当您不再使用 OAuth 应用程序时，您可以删除它们。

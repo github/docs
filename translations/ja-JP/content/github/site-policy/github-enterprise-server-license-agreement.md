@@ -88,7 +88,7 @@ If Customer has purchased the Products from a GitHub Partner, the following prov
 
 **8. 支払い**
 
-**8.1** *Fees.* Customer agrees to pay the Fees in full, up front without deduction or setoff of any kind, in U.S. Dollars. お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**8.1** *Fees.* Customer agrees to pay the Fees in full, up front without deduction or setoff of any kind, in U.S. 設定しなければなりません。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 **8.2** *Purchasing Additional Subscription Licenses.* Customer may obtain additional Subscription Licenses under this Agreement by submitting a request through GitHub’s website or via its sales team. A new Order Form will then be generated and if Customer purchases the additional Subscription Licenses, Customer must pay the then-currently applicable Fees for them, prorated for the balance of the applicable Subscription Term. 「注文書」に特に記載されている場合を除き、お客様が「プランライセンス」を 次の「プラン契約期間」まで更新した際、GitHub は毎年 1 回、すべての「プランライセンス」に対する請求を同時に行います。
 

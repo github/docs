@@ -1,6 +1,6 @@
 ---
 title: サブスクライブしている Issue とプルリクエストをリストする
-intro: サブスクライブしている Issue とプルリクエストをすべてリストすると、関心があって最近通知を受け取っていなかった会話への移動が簡単になります。
+intro: 'サブスクライブしている Issue とプルリクエストをすべてリストすると、関心があって最近通知を受け取っていなかった会話への移動が簡単になります。'
 versions:
   enterprise-server: <2.21
 ---
@@ -9,8 +9,8 @@ versions:
 
 ### プランのリストを表示する
 
-1. 任意のページの右上で {% octicon "bell" aria-label="The notifications bell" %} をクリックします。 Web 通知を無効にしており、ベルのアイコンが表示されていない場合、<https://github.com/notifications/subscriptions> にアクセスできます。 詳細は「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。 ![未読メッセージを示す通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-2. Click **Subscriptions** ![[Subscriptions] タブ](/assets/images/help/notifications/subscriptions-tab.png)
+1. 任意のページの右上で {% octicon "bell" aria-label="The notifications bell" %} をクリックします。 Web 通知を無効にしており、ベルのアイコンが表示されていない場合、<https://github.com/notifications/subscriptions> にアクセスできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。 ![未読メッセージを示す通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
+2. [**Subscriptions**] をクリックします。 ![[Subscriptions] タブ](/assets/images/help/notifications/subscriptions-tab.png)
 
 ### Issue およびプルリクエストのサブスクライブ解除
 

@@ -1,4 +1,4 @@
-Similar to saving a file that's been edited, a commit records changes to one or more files in your branch. Git assigns each commit a unique ID, called a SHA or hash, that identifies:
+类似于保存已经编辑的文件，提交会记录对分支中一个或多个文件的更改。 Git 将为每个提交分配唯一的 ID，称为 SHA 或哈希，用于识别：
 
 - 具体的更改
 - 进行更改的时间

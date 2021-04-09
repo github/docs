@@ -103,7 +103,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
 3. Under "Contributors", use the drop-down menu and select a contributor.
-  ![Contibutors drop-down](/assets/images/help/insights/contributors-drop-down.png)
+  ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. Click **Done**.
 
 #### Removing a contributor from a custom team

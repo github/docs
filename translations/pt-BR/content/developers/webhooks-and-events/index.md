@@ -4,6 +4,10 @@ intro: 'Você pode configurar, testar e proteger os webhooks para que suas integ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - webhooks
+  - eventos
 ---
 
 ### Índice

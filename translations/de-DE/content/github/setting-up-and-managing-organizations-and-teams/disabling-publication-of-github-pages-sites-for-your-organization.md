@@ -6,13 +6,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.22'
+  github-ae: '*'
 ---
 
 ### About restrictions on publication of {% data variables.product.prodname_pages %} sites
 
 You can control whether members of your organization can publish websites from repositories in your organization using {% data variables.product.prodname_pages %}. For more information about {% data variables.product.prodname_pages %}, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
 
-{% if currentVersion != "free-pro-team@latest" %}If your site administrator has enabled Public Pages, {% endif %}{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or internal{% endif %}. Weitere Informationen findest Du unter{% if currentVersion != "free-pro-team@latest" %} „[Konfigurieren {% data variables.product.prodname_pages %} auf Deiner Appliance](/enterprise/admin/installation/configuring-github-pages-on-your-appliance#making-github-pages-publicly-accessible)" und{% endif %} „[Über die Sichtbarkeit des Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}If your site administrator has enabled Public Pages, {% endif %}{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} or internal{% endif %}. For more information, see{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" and{% endif %} "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 ### Disabling publication of {% data variables.product.prodname_pages %} sites
 

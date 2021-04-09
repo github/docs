@@ -4,6 +4,8 @@ intro: 'You can view details of your usage of storage and data transfer for {% d
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 결제
 ---
 
 ### Viewing {% data variables.product.prodname_registry %} usage for your user account
@@ -41,6 +43,8 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_registry %}", view details of usage of data transfer by each organization in your enterprise account. ![Details of usage of data transfer](/assets/images/help/billing/packages-data-enterprise.png)
+1. Under "
+{% data variables.product.prodname_registry %}", view details of usage of data transfer by each organization in your enterprise account.
+  ![Details of usage of data transfer](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - comunidade
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -17,7 +20,7 @@ Você pode adicionar o YAML frontmatter a cada modelo de problema para preencher
 
 Aqui está um exemplo de YAML front matter.
 
-```
+```yaml
 ---
 name: Rastreando problema
 about: Use este modelo para rastrear novos recursos.
@@ -28,7 +31,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Observação:** Você deve colocar caracteres reservados YAML, como `:` entre aspas. Por exemplo, `":bug: Bug"`.
+**Nota:** Se um valor da matéria frontal incluir um caractere reservado em YAML como `:`, você deverá colocar todo o valor entre aspas. Por exemplo, `":bug: Bug"` ou `":new: triagem necessária, :bug: bug"`.
 
 {% endnote %}
 
@@ -38,7 +41,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Adicionar um modelo de problema
 

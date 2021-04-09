@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 1 つのファイルを削除する
@@ -35,9 +36,9 @@ versions:
 
 ### リポジトリにある {% data variables.large_files.product_name_short %}オブジェクト
 
-{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% if currentVersion == "free-pro-team@latest" %}、{% data variables.large_files.product_name_short %} ストレージ容量に対するカウントも継続し{% endif %}ます。
+{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% if currentVersion == "free-pro-team@latest" %}、{% data variables.large_files.product_name_short %} のストレージ容量に対するカウントも継続します{% endif %}。
 
-{% data variables.large_files.product_name_short %} オブジェクトをリポジトリから削除するには、{% if currentVersion == "free-pro-team@latest" %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 詳しい情報については、「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」を参照するか、{% else %}{% data variables.product.prodname_enterprise %} 管理者に連絡してオブジェクトをアーカイブします。 アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
+リポジトリから {% data variables.large_files.product_name_short %} オブジェクトを削除するには、{% if currentVersion == "free-pro-team@latest" %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 詳しい情報については、「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」を参照するか、{% else %}{% data variables.product.prodname_enterprise %} 管理者に連絡してオブジェクトをアーカイブします。 アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
 
 {% note %}
 

@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントで Team のポリシーを施行する
-intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のチームポリシーを強制したり、各 Organization ごとのポリシーの設定を許可したりすることができます。
+intro: 'Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のチームポリシーを強制したり、各 Organization ごとのポリシーの設定を許可したりすることができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-team-settings-for-organizations-in-your-business-account/

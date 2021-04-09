@@ -1,11 +1,12 @@
 ---
 title: 返信テンプレートを使う
-intro: Issue またはプルリクエストにコメントするときは、すでに設定した 返信テンプレートを追加できます。 返信テンプレートをコメント全体にすることも、カスタマイズしたい場合はコンテンツを追加または削除することもできます。
+intro: 'Issue またはプルリクエストにコメントするときは、すでに設定した 返信テンプレートを追加できます。 返信テンプレートをコメント全体にすることも、カスタマイズしたい場合はコンテンツを追加または削除することもできます。'
 redirect_from:
   - /articles/using-saved-replies
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

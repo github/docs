@@ -1,6 +1,6 @@
 ---
 title: Fehlerbehebung bei Verbindungsproblemen
-intro: 'Wenn Du mit {% data variables.product.prodname_dotcom %} Verbindungsprobleme hast, solltest Du zunächst versuchen, das Problem zu beheben, indem Du den typischen Fehlerursachen auf den Grund gehst. Danach kannst Du das Problem mit dem {% data variables.product.prodname_debug %}-Tool diagnostizieren und dem Support einen Bericht senden.'
+intro: 'Wenn Sie mit {% data variables.product.prodname_dotcom %} Verbindungsprobleme haben, sollten Sie zunächst versuchen, das Problem zu beheben, indem Sie den typischen Fehlerursachen auf den Grund gehen. Danach können Sie das Problem mit dem {% data variables.product.prodname_debug %}-Tool diagnostizieren und dem Support einen Bericht senden.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
 versions:
@@ -21,7 +21,7 @@ Wenn Du Verbindungsprobleme auf Deinem Unternehmens- oder Organisationsnetzwerk 
 ### Fehlerbehebung des Captcha
 
 Wenn die Verifizierung mit dem Captcha Probleme bereitet:
-- Stelle sicher, dass in Deinem Browser JavaScript aktiviert ist.
+- Ensure JavaScript is enabled on your browser.
 - Stelle sicher, dass Dein Browser unterstützt wird. Wenn Dein Browser nicht unterstützt wird, aktualisiere ihn oder installiere einen unterstützten Browser. Eine Liste der unterstützten Browser findest Du unter „[Unterstützte Browser](/articles/supported-browsers).“
 - Stelle sicher, dass Deine Netzwerkkonfiguration weder „https://octocaptcha.com/“ noch „https://arkoselabs.com/“ blockiert. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed, then visit https://client-demo.arkoselabs.com/github and ensure you are able to load the captcha.
 - Stelle sicher, dass Dein Browser keine Plug-ins oder Erweiterungen verwendet, die mit GitHub in Konflikt stehen. Falls es solche Plug-ins oder Erweiterungen gibt, deaktiviere diese vorübergehend während der Captcha-Verifizierung.
@@ -36,8 +36,8 @@ Bei Zeitüberschreitungen bei der Verwendung von SSH findest Du Details unter �
 
 {% data variables.product.prodname_dotcom %} drosselt die Bandbreite nicht für einzelne Benutzer.
 
-Wenn sich die Verbindung nur zu gewissen Tageszeiten verlangsamt, wird dies ziemlich sicher durch Netzwerk-Überlastung verursacht. Da {% data variables.product.prodname_dotcom %} Netzwerk-Überlastung nicht beheben kann, solltest Du dieses Problem bei Deinem Internet-Serviceprovider eskalieren.
+Wenn sich die Verbindung nur zu gewissen Tageszeiten verlangsamt, wird dies ziemlich sicher durch Netzwerk-Überlastung verursacht. Leider kann {% data variables.product.prodname_dotcom %} Netzwerkstaus jedoch nicht beheben. Sie sollten sich daher mit diesem Problem an Ihren Internet Service Provider (ISP) wenden.
 
 ### Fehlerbehebung mit {% data variables.product.prodname_debug %}
 
-Wenn Du alle oben genannten Empfehlungen zur Fehlerbehebung befolgt hast, Dein Verbindungsproblem aber weiterhin besteht, folge den Anweisungen auf der {% data variables.product.prodname_debug %}-Website, um Tests durchzuführen und dem {% data variables.product.prodname_dotcom %}-Support einen Problembericht zu senden. Weitere Informationen findest Du unter „[{% data variables.product.prodname_debug %}](https://github-debug.com/)“.
+Wenn Sie alle oben genannten Empfehlungen zur Fehlerbehebung befolgt haben, Ihr Verbindungsproblem aber weiterhin besteht, folgen Sie den Anweisungen auf der {% data variables.product.prodname_debug %}-Website, um Tests auszuführen und dem {% data variables.product.prodname_dotcom %} Support einen Problembericht zu senden. Weitere Informationen findest Du unter „[{% data variables.product.prodname_debug %}](https://github-debug.com/)“.

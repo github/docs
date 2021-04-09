@@ -1,1 +1,1 @@
-An unguessable random string. It is used to protect against cross-site request forgery attacks.
+不可猜测的随机字符串。 它用于防止跨站请求伪造攻击。

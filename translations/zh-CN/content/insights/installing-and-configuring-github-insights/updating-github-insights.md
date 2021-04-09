@@ -6,7 +6,6 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: '对 `github/insights-releases` 仓库具有读取权限并对应用程序服务器具有管理权限的人可更新 {% data variables.product.prodname_insights %}。'
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
 ---
 

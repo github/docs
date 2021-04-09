@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 No {% data variables.product.product_name %}, é possível ver o histórico de commits de um repositório:

@@ -1,21 +1,23 @@
 ---
 title: 組み込みファイアウォールのルール設定
-intro: '{% data variables.product.product_location_enterprise %}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
+intro: '{% data variables.product.product_location %}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
-### {% data variables.product.product_location_enterprise %}のファイアウォールについて
+### {% data variables.product.product_location %}のファイアウォールについて
 
 {% data variables.product.prodname_ghe_server %} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しい情報についてはUbuntuのドキュメンテーションの"[UFW](https://help.ubuntu.com/community/UFW)"を参照してください。 {% data variables.product.prodname_ghe_server %} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。
 
 {% data variables.product.prodname_ghe_server %} をインストールすると、接続を受け入れるために必要なすべてのネットワークポートが自動的に開かれます。 不必要なすべてのポートは自動的に`deny`に設定され、デフォルトの送信ポリシーは`allow`に設定されます。 ステートフルな追跡は、任意の新しいコネクションに対して有効化されます。それらは通常、`SYN`ビットが立てられているネットワークパケットです。 詳しい情報については"[ネットワークポート](/enterprise/admin/guides/installation/network-ports)"を参照してください。
 
-UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFWのルールセットに関する詳しい情報については[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)を参照してください。
+UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFW のルールセットに関する詳しい情報については、[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213) を参照してください。
 
 ### デフォルトのファイアウォールルールの表示
 
@@ -66,7 +68,7 @@ UFW ファイアウォールは、{% data variables.product.prodname_ghe_server 
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-{% data variables.product.product_location_enterprise %}をアップグレードした後は、カスタムのファイアウォールルールを再適用しなければなりません。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
+{% data variables.product.product_location %}をアップグレードした後は、カスタムのファイアウォールルールを再適用しなければなりません。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
 
 ### デフォルトのファイアウォールルールのリストア
 

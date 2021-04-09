@@ -8,12 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
+defaultPlatform: linux
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### {% data variables.product.prodname_dotcom %}を使ったセルフホストランナーのステータスのチェック
+### {{ site.data.variables.product.prodname_dotcom }}を使ったセルフホストランナーのステータスのチェック
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 

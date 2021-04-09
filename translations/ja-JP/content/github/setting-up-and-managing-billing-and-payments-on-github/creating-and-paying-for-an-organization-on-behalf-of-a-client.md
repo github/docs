@@ -5,6 +5,8 @@ redirect_from:
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### 要件
@@ -36,7 +38,7 @@ versions:
 {% data reusables.organizations.organization-name %}
 5. [Contact email] で、クライアントの連絡先メールアドレスを入力します。 ![[Contact email] フィールド](/assets/images/help/organizations/contact-email-field.png)
 {% data reusables.dotcom_billing.owned_by_business %}
-8. Click **Next**.
+8. [**Next**] をクリックします。
 
 ### ステップ 3: Organization を年次支払いプランへ アップグレードする
 

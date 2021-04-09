@@ -13,19 +13,32 @@ versions:
 
 有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”。
 
-
 ### 管理企业帐户的 {% data variables.product.prodname_actions %} 权限
+
+You can disable all workflows for an enterprise or set a policy that configures which actions can be used in an organization.
+
+{% data reusables.actions.actions-use-policy-settings %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
+1. 单击 **Save（保存）**。
 
-### Enabling workflows for private repository forks
+### Allowing specific actions to run
+
+{% data reusables.actions.allow-specific-actions-intro %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+
+### 为私有仓库复刻启用工作流程
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configuring the private fork policy for your enterprise account
+#### 为企业帐户配置私有复刻策略
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

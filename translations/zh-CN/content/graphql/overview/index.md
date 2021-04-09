@@ -4,6 +4,7 @@ intro: '了解 {% data variables.product.prodname_dotcom %} GraphQL API、即将
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /about-the-graphql-api %}

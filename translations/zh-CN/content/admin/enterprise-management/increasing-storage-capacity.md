@@ -1,16 +1,18 @@
 ---
 title: 增加存储容量
-intro: 您可以增加或更改可供 Git 仓库、数据库、搜索索引和其他持久应用程序数据使用的存储容量。
+intro: '您可以增加或更改可供 Git 仓库、数据库、搜索索引和其他持久应用程序数据使用的存储容量。'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-随着更多的用户加入 {% data variables.product.product_location_enterprise %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
+随着更多的用户加入 {% data variables.product.product_location %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
 
 ### 要求与建议
 
@@ -20,6 +22,8 @@ versions:
 
 {% endnote %}
 
+#### 最低要求
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### 增加数据分区大小
@@ -28,7 +32,7 @@ versions:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 4. 重启设备，以检测新存储分配。
-5. 运行 `ghe-storage-extend` 命令以展开 `/data` 文件系统：
+5. 运行 `ghe-storage-extend` 命令以展开 `/data/user` 文件系统：
   ```shell
   $ ghe-storage-extend
   ```

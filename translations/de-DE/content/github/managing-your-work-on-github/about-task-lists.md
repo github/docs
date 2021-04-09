@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Aufgabenlisten werden mit anklickbaren Kontrollkästchen in Kommentaren dargestellt. Du kannst die Kontrollkästchen aktivieren oder deaktivieren, um Elemente als abgeschlossen oder nicht abgeschlossen zu kennzeichnen.

@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
 - Você deve ter uma conta do AWS que possa iniciar instâncias do EC2 e criar volumes EBS. Para obter mais informações, consulte o [site do Amazon Web Services](https://aws.amazon.com/).
-- A maioria das ações necessárias para iniciar a {% data variables.product.product_location_enterprise %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
+- A maioria das ações necessárias para iniciar a {% data variables.product.product_location %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
 
 Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
@@ -21,6 +23,9 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
  - [Usar grupos de segurança](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (para gerenciar o acesso de rede à instância)
  - [Endereços de IP elástica (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (altamente recomendável para ambientes de produção)
  - [EC2 e Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (se você pretende iniciar uma nuvem virtual privada)
+ - [Preços do AWS](https://aws.amazon.com/pricing/) (para calcular e gerenciar custos)
+
+ Este guia recomenda o princípio do menor privilégio ao configurar {% data variables.product.product_location %} no AWS. Para obter mais informações, consulte a [Documentação do Gerencimaento de acesso e Identidade (IAM) do AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
 ### Considerações de hardware
 
@@ -28,17 +33,11 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
 ### Determinar o tipo de instância
 
-Antes de iniciar a {% data variables.product.product_location_enterprise %} no AWS, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
-
-#### Tipos de instância compatíveis
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Tipos de instância recomendados
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### Selecionar a AMI do {% data variables.product.prodname_ghe_server %}
 
@@ -130,4 +129,5 @@ As instâncias primária e de réplica devem receber EIPs separados nas configur
 
 ### Leia mais
 
-- [Visão geral do sistema](/enterprise/admin/guides/installation/system-overview)
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

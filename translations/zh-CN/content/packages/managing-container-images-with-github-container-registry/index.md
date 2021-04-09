@@ -1,6 +1,6 @@
 ---
-title: Managing container images with GitHub Container Registry
-intro: 'Learn how to manage container images using a supported CLI or on {% data variables.product.prodname_dotcom %}.'
+title: 使用 GitHub Container Registry 管理容器映像
+intro: '了解如何使用受支持的 CLI 管理容器映像或在 {% data variables.product.prodname_dotcom %} 上管理。'
 versions:
   free-pro-team: '*'
 ---

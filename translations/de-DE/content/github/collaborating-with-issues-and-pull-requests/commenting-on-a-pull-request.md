@@ -9,6 +9,9 @@ intro: 'Wenn Du einen Pull Request in einem Repository geöffnet hast, können M
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### Informationen zu Pull Requests
@@ -54,5 +57,5 @@ Alle, die den Pull Request oder das Repository beobachten, erhalten eine Benachr
 ### Weiterführende Informationen
 
 - „[Einen Permalink zu einem Code-Ausschnitt erstellen](/articles/creating-a-permanent-link-to-a-code-snippet/)“
-{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

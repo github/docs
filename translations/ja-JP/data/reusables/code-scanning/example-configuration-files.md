@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the  _src_ directory (relative to the root), and to exclude the _node_modules_ directory (also relative to the root), as well as any file whose name ends in _.test.js_.
+以下の設定ファイルはデフォルトのクエリを無効化し、その代わりに実行するカスタムクエリのセットを指定します。 また、{% data variables.product.prodname_codeql %}が_src/node_modules_ディレクトリと_.test.js_で名前が終わるファイルを除く、_src_ディレクトリ（ルートに対する相対）内のファイルをスキャンするようにも設定します。 したがって、 _src/node_modules_内のファイル や、_.test.js_で名前が終わるファイルは分析から除外されます。
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -24,9 +24,9 @@ queries:
   - name: Use a query suite file (run queries from a query suite in this repo)
     uses: ./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls
 
-paths-ignore: 
-  - node_modules
-  - '**/*.test.js'
 paths:
   - src 
+paths-ignore: 
+  - src/node_modules
+  - '**/*.test.js'
 ```

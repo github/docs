@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ein SSH-Administratorbenutzer angemeldet haben. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
@@ -20,7 +22,8 @@ Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ei
 Dieses Dienstprogramm liegt im oberen Bereich jeder {% data variables.product.prodname_enterprise %}-Seite einen Banner fest. Diesen können Sie verwenden, um Ihren Benutzer eine Mitteilung zu übermitteln.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
+You can also set an announcement banner using the enterprise settings on
+{% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
 {% endif %}
 
 ```shell
@@ -63,7 +66,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-Mit diesem Dienstprogramm können Sie die Konfigurationseinstellungen von {% data variables.product.product_location_enterprise %} abrufen und ändern.
+Mit diesem Dienstprogramm können Sie die Konfigurationseinstellungen von {% data variables.product.product_location %} abrufen und ändern.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -73,17 +76,17 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Listet alle Konfigurationswerte auf
 ```
-Dadurch können Sie den UUID Ihres Knotens in `cluster.conf` ermitteln.
+Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Rate Limiting](/enterprise/{{ currentVersion }}/v3/#rate-limiting)."
+Allows you to exempt a list of users from API rate limits. For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -158,7 +161,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-Dieses Dienstprogramm listet Repositorys auf Ihrer Appliance auf, die {% data variables.product.prodname_dotcom %} Services verwenden. Hierbei handelt es sich um eine Integrationsmethode, die am 1. Oktober 2018 eingestellt wird. Benutzer auf Ihrer Appliance haben {% data variables.product.prodname_dotcom %} Services möglicherweise so eingerichtet, dass für Push-Vorgänge an bestimmte Repositorys Benachrichtigungen erstellt werden. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." Verwenden Sie das Flag `-h`, um weitere Informationen zu diesem Befehl oder zusätzliche Informationen anzuzeigen.
+Dieses Dienstprogramm listet Repositorys auf Ihrer Appliance auf, die {% data variables.product.prodname_dotcom %} Services verwenden. Hierbei handelt es sich um eine Integrationsmethode, die am 1. Oktober 2018 eingestellt wird. Benutzer auf Ihrer Appliance haben {% data variables.product.prodname_dotcom %} Services möglicherweise so eingerichtet, dass für Push-Vorgänge an bestimmte Repositorys Benachrichtigungen erstellt werden. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." Verwenden Sie das Flag `-h`, um weitere Informationen zu diesem Befehl oder zusätzliche Informationen anzuzeigen.
 
 ```shell
 ghe-legacy-github-services-report
@@ -181,7 +184,6 @@ Mit diesem Dienstprogramm können Sie den Wartungsmoduszustand der Installation 
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 Dieses Dienstprogramm zeigt die Meldung des Tages (MOTD) an, die Administratoren sehen, wenn sie über die administrative Shell auf die Instanz zugreifen. Die Ausgabe enthält einen Überblick über den Status der Instanz.
@@ -189,7 +191,6 @@ Dieses Dienstprogramm zeigt die Meldung des Tages (MOTD) an, die Administratoren
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 
@@ -212,7 +213,7 @@ Die folgenden Optionen können Sie mit dem Dienstprogramm verwenden:
 
 Mit diesem Dienstprogramm ist es nicht möglich, einen Nicht-Websiteadministrator auf einen Inhaber sämtlicher Organisationen hochzustufen. Mit [ghe-user-promote](#ghe-user-promote) können Sie ein gewöhnliches Benutzerkonto auf einen Websiteadministrator hochstufen.
 
-Einem einzelnen Benutzer in einer bestimmten Organisation Organisationsinhaberberechtigungen erteilen
+Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -396,7 +397,7 @@ Mit diesem Dienstprogramm können Sie ein benutzerdefiniertes CA-Root-Zertifikat
 
 Führen Sie dieses Dienstprogramm aus, um eine Zertifikatskette für die S/MIME-Commit-Signaturverifizierung hinzuzufügen. Weitere Informationen finden Sie unter „[Informationen zur Verifizierung einer Commit-Signatur](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)“.
 
-Führen Sie dieses Dienstprogramm aus, wenn {% data variables.product.product_location_enterprise %} keine Verbindung mit einem anderen Server herstellen kann, da Letzterer ein selbstsigniertes SSL-Zertifikat oder ein SSL-Zertifikat verwendet, wofür kein erforderliches CA-Bundle bereitgestellt wird. Eine Möglichkeit, dies zu bestätigen, besteht darin, `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` auf {% data variables.product.product_location_enterprise %} auszuführen. Wenn das SSL-Zertifikat des Remote-Servers verifiziert werden kann, sollte Ihre `SSL-Sitzung` den Rückgabecode 0 aufweisen (siehe unten).
+Führen Sie dieses Dienstprogramm aus, wenn {% data variables.product.product_location %} keine Verbindung mit einem anderen Server herstellen kann, da Letzterer ein selbstsigniertes SSL-Zertifikat oder ein SSL-Zertifikat verwendet, wofür kein erforderliches CA-Bundle bereitgestellt wird. Eine Möglichkeit, dies zu bestätigen, besteht darin, `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` auf {% data variables.product.product_location %} auszuführen. Wenn das SSL-Zertifikat des Remote-Servers verifiziert werden kann, sollte Ihre `SSL-Sitzung` den Rückgabecode 0 aufweisen (siehe unten).
 
 ```
 SSL-Session:
@@ -454,7 +455,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-Dieses Dienstprogramm gibt die Version, Plattform und den Build von {% data variables.product.product_location_enterprise %} aus.
+Dieses Dienstprogramm gibt die Version, Plattform und den Build von {% data variables.product.product_location %} aus.
 
 ```shell
 $ ghe-version
@@ -469,18 +470,21 @@ ghe-webhook-logs
 ```
 
 Um alle fehlgeschlagenen Hook-Auslieferungen vom Vortag anzuzeigen:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 Um die vollständige Hook-Nutzlast, das Ergebnis und alle Ausnahmen für die Lieferung anzuzeigen:
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-Um globale Webhook-Lieferungen anzuzeigen:
-```shell
-ghe-webhook-logs --global
 ```
 
 ### Clustering
@@ -543,8 +547,8 @@ ghe-dpages status
 ```
 
 Um einen {% data variables.product.prodname_pages %}-Speicherdienst zu evakuieren, bevor ein Cluster-Knoten evakuiert wird:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -569,16 +573,16 @@ ghe-spokes route
 
 Um Speicherdienste auf einem Cluster-Knoten zu evakuieren:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Mit diesem Dienstprogramm können Sie alle Speicherdienste evakuieren, bevor Sie einen Clusterknoten evakuieren.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

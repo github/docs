@@ -7,19 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果仓库上的协作者未安装 {% data variables.large_files.product_name_short %}，他们将无法访问原始大文件。 如果他们尝试克隆您的仓库，则只能获取指针文件，而无法访问任何实际数据。
 
 {% tip %}
 
-**提示：**为帮助未启用 {% data variables.large_files.product_name_short %} 的用户，我们建议您设置仓库贡献者指南以介绍如何处理大文件。 例如，您可以要求贡献者不修改大文件，或者将更改上传到文件共享服务，如 [Dropbox](http://www.dropbox.com/) 或 <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>。 更多信息请参阅“[设置仓库参与者指南](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)”。
+**提示：**为帮助未启用 {% data variables.large_files.product_name_short %} 的用户，我们建议您设置仓库贡献者指南以介绍如何处理大文件。 例如，您可以要求贡献者不修改大文件，或者将更改上传到文件共享服务，如 [Dropbox](http://www.dropbox.com/) 或 <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>。 更多信息请参阅“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 
 {% endtip %}
 
 ### 查看拉取请求中的大文件
 
-{% data variables.product.product_name %} 不会渲染拉取请求中的 {% data variables.large_files.product_name_short %} 对象。 Only the pointer file is shown:
+{% data variables.product.product_name %} 不会渲染拉取请求中的 {% data variables.large_files.product_name_short %} 对象。 仅显示指针文件：
 
 ![大文件的示例 PR](/assets/images/help/large_files/large_files_pr.png)
 

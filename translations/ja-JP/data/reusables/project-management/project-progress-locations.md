@@ -1,1 +1,1 @@
-プロジェクトボードの自動化が有効になっていると、プロジェクトボードの上部、プロジェクトのリストのページ、Issue サイドバー、他のプロジェクトボード上のプロジェクトの参照にプログレスバーが表示されます。
+If progress tracking is enabled, a progress bar appears above the project board, on the project listing page, in the issue sidebar, and in references to the project on other project boards.

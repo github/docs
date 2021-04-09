@@ -1,1 +1,1 @@
-1. Click **Update sponsorship**. ![Update sponsorship button](/assets/images/help/sponsors/update-sponsorship-button.png)
+1. Clique em **Atualizar patrocínio**. ![Botão de atualizar patrocínio](/assets/images/help/sponsors/update-sponsorship-button.png)

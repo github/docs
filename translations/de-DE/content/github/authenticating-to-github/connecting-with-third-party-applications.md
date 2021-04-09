@@ -1,14 +1,18 @@
 ---
 title: Mit Anwendungen von Drittanbietern verbinden
-intro: 'Du kannst Deine {% data variables.product.product_name %}-Identität zu Drittanbieter-Anwendungen verbinden, die OAuth verwenden. Wenn Du eine dieser Anwendungen autorisierst, solltest Du sicherstellen, dass es sich um eine vertrauenswürdige Anwendung handelt, und prüfen, von wem sie entwickelt wurde und auf welche Informationen sie zugreifen will.'
+intro: 'Sie können Ihre {% data variables.product.product_name %}-Identität über OAuth mit Drittanbieter-Anwendungen verbinden. Wenn Du eine dieser Anwendungen autorisierst, solltest Du sicherstellen, dass es sich um eine vertrauenswürdige Anwendung handelt, und prüfen, von wem sie entwickelt wurde und auf welche Informationen sie zugreifen will.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - identity
+  - access management
 ---
 
-Wenn eine Drittanbieter-Anwendung Dich mit Deiner {% data variables.product.product_name %}-Anmeldung identifizieren möchte, wird eine Seite mit den Kontaktdaten des Entwicklers und einer Liste der angeforderten Daten angezeigt.
+Wenn Sie eine Drittanbieter-Anwendung mit Ihrer {% data variables.product.product_name %}-Anmeldung identifizieren möchte, wird eine Seite mit den Kontaktdaten des Entwicklers und einer Liste der angeforderten Daten angezeigt.
 
 ### Den Anwendungsentwickler kontaktieren
 
@@ -31,7 +35,7 @@ Anwendungen können *Lese*- oder *Schreib*zugriff auf Deine {% data variables.pr
 
 *Scopes* sind benannte Gruppen von Berechtigungen, die eine Anwendung anfordern kann, um auf öffentliche und nicht öffentliche Daten zuzugreifen.
 
-Wenn Du eine Drittanbieter-Anwendung verwenden möchtest, die in {% data variables.product.product_name %} integriert ist, teilt diese Anwendung Dir mit, welche Art von Zugriff auf Deine Daten benötigt wird. Wenn Du der App Zugriff erteilst, kann sie Aktionen in Deinem Namen durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Wenn Sie eine Drittanbieter-Anwendung verwenden möchten, die in {% data variables.product.product_name %} integriert ist, teilt diese Anwendung Ihnen mit, welche Art von Zugriff auf Ihre Daten benötigt wird. Wenn Du der App Zugriff erteilst, kann sie Aktionen in Deinem Namen durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 
@@ -54,13 +58,13 @@ Es gibt mehrere Typen von Daten, die Anwendungen anfordern können.
 | Arten von Daten           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Commit-Status             | Du kannst einer Drittanbieter-Anwendung Zugriff gewähren, um Deinen Commit-Status zu melden. Der Zugriff auf den Commit-Status ermöglicht es Anwendungen, zu ermitteln, ob ein Build erfolgreich für einen bestimmten Commit ist. Anwendungen erhalten keinen Zugriff auf Deinen Code, aber sie <em>können</em> Statusinformationen für einen bestimmten Commit lesen und schreiben. |
-| Bereitstellungen          | Der Zugriff auf den Bereitstellungsstatus ermöglicht es Anwendungen, zu ermitteln, ob eine Bereitstellung erfolgreich ist für einen bestimmten Commit für öffentliche und private Repositorys. Anwendungen erhalten keinen Zugriff auf Deinen Code.                                                                                                                                          |
-| Gists                     | Der [Gist](https://gist.github.com)-Zugriff ermöglicht es Anwendungen, in Deine öffentlichen wie geheimen Gists zu schreiben oder sie zu lesen.                                                                                                                                                                                                                                              |
+| Bereitstellungen          | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code.                                                                                                                                                                                                             |
+| Gists                     | [Gist](https://gist.github.com) access allows applications to read or write to {% if currentVersion != "github-ae@latest" %}both your public and{% else %}both your internal and{% endif %} secret Gists.                                                                                                                                                                                    |
 | Hooks                     | Der [Webhooks](/webhooks)-Zugriff ermöglicht es Anwendungen, Hook-Konfigurationen auf von Dir verwalteten Repositorys zu lesen oder zu schreiben.                                                                                                                                                                                                                                            |
-| Benachrichtigungen        | Der Benachrichtungszugriff ermöglicht es Anwendungen, Deine {% data variables.product.product_name %}-Benachrichtigungen zu lesen, beispielsweise Kommentare zu Issues und Pull Requests. Die Anwendungen können jedoch auf keine Inhalte Deiner Repositorys zugreifen.                                                                                                                 |
+| Benachrichtigungen        | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. Die Anwendungen können jedoch auf keine Inhalte Deiner Repositorys zugreifen.                                                                                                                                                    |
 | Organisationen und Teams  | Mit dem Organisations- und Teamzugriff können Apps auf Organisations- und Teammitglieder zugreifen und sie verwalten.                                                                                                                                                                                                                                                                        |
 | Persönliche Benutzerdaten | Zu Benutzerdaten gehören die Angaben in Deinem Benutzerprofil, beispielsweise Dein Name, Deine E-Mail-Adresse und Dein Standort.                                                                                                                                                                                                                                                             |
-| Repositorys               | Repository-Informationen umfassen die Namen der Mitarbeiter, die von Dir erstellten Branches und die effektiven Dateien in Deinem Repository. Anwendungen können den Zugriff auf öffentliche oder private Repositorys auf benutzerweiter Ebene anfordern.                                                                                                                                    |
+| Repositorys               | Repository-Informationen umfassen die Namen der Mitarbeiter, die von Dir erstellten Branches und die effektiven Dateien in Deinem Repository. Applications can request access for either {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} or private repositories on a user-wide level.                                                                      |
 | Repository-Löschung       | Anwendungen können die Löschung von Repositorys anfordern, die Du verwaltest, aber sie erhalten keinen Zugriff auf Deinen Code.                                                                                                                                                                                                                                                              |
 
 ### Aktualisierte Berechtigungen anfordern

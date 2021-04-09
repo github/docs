@@ -1,1 +1,1 @@
-The [event object](#event-object-common-properties) includes properties that are common for all events. Each event object includes a `payload` property and the value is unique to each event type. The `payload` object for this event is described below.
+O [objeto de evento](#event-object-common-properties) inclui propriedades comuns para todos os eventos. Cada objeto de evento inclui uma propriedade de `carga` e o valor é único para cada tipo de evento. O objeto de `carga` para este evento está descrito abaixo.

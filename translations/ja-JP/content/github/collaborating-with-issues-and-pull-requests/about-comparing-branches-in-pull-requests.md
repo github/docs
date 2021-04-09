@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% note %}
@@ -15,8 +18,10 @@ versions:
 {% endnote %}
 
 プルリクエスト中で提案された変更は、Files changed（変更されたファイル）タブで表示できます。
-
-![プルリクエストの変更されたファイルタブ](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% if currentVersion ver_lt "github-enterprise@3.0" %}
+![プルリクエストの変更されたファイルタブ](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
+![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% endif %}
 
 コミットそのものを見るよりは、プルリクエストがマージされた際に提案された変更がファイルに現れるのを見ることができます。 Files changed（変更されたファイル）タブ内では、ファイルはアルファベット順に表示されます。 ファイルへの追加は緑で表示され、先頭に`+`サインが付きます。削除されたコンテンツは赤で表示され、先頭に`-`サインが付きます。
 
@@ -38,7 +43,7 @@ diff の見方には複数の選択肢があります。
 
 ![Diff の表示のオプションメニュー](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-大きなプルリクエスト中の変更のレビューをシンプルにするために、選択されたファイルタイプだけを表示、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}コードオーナーであるファイルを表示、表示したことのあるファイルを非表示、{% endif %}または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
+大規模なプルリクエスト中の変更のレビューを簡素化するために、選択されたファイルタイプだけを表示、CODEOWNERS であるファイルを表示、表示したことのあるファイルを非表示、または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 

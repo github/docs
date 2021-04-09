@@ -1,6 +1,6 @@
 ---
 title: Importar código-fonte para o GitHub
-intro: 'É possível importar repositórios para o GitHub com o {% if currentVersion == "free-pro-team@latest" %}Importador do GitHub, linha de comando,{% else %}linha de comando{% endif %} ou ferramentas externas de migração.'
+intro: 'Você pode importar repositórios para o GitHub usando o {% if currentVersion == "free-pro-team@latest" %}Importador do GitHub, a linha de comando,{% else %}a linha de comando{% endif %} ou ferramentas de migração externa.'
 redirect_from:
   - /articles/importing-an-external-git-repository/
   - /articles/importing-from-bitbucket/
@@ -11,5 +11,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

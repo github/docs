@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data variables.product.product_name %} unterstützt die Zuordnung von geoJSON- und topoJSON-Daten in {% data variables.product.product_name %}-Repositorys. Gib die Datei einfach wie gewohnt mit Commit frei, und verwende die Erweiterung `.geojson` oder `.topojson`. Dateien mit der Erweiterung `.json` werden auch unterstützt, aber nur wenn `type` auf `FeatureCollection`, `GeometryCollection` oder `topology` festgelegt ist. Navigiere dann zum Pfad der geoJSON-Datei auf GitHub.com.
@@ -34,7 +37,7 @@ Weitere Informationen findest Du in [Version 1.1.0 der Open-Simplestyle-Spezifik
 
 ### Deine Karte an anderer Stelle einbinden
 
-Möchtest Du Deine geoJSON-Karte an anderer Stelle als {% data variables.product.product_name %} bereitstellen? Passe einfach diese Vorlage an, und integriere sie in eine HTML-Seite, die JavaScript unterstützt (z. B. [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Möchtest Du Deine geoJSON-Karte an anderer Stelle als {% data variables.product.product_name %} bereitstellen? Passen Sie einfach diese Vorlage an, und integrieren Sie sie in eine HTML-Seite, die JavaScript unterstützt (z. B. [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>

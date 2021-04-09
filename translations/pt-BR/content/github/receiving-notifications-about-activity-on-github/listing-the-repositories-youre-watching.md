@@ -1,6 +1,6 @@
 ---
 title: Listar os repositórios que você inspeciona
-intro: 'Você pode ter uma visão geral de todos os repositórios que inspeciona, assim pode remover aqueles que não tem mais interesse em receber notificações.'
+intro: Você pode ter uma visão geral de todos os repositórios que inspeciona, assim pode remover aqueles que não tem mais interesse em receber notificações.
 versions:
   enterprise-server: <2.21
 ---

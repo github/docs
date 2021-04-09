@@ -4,15 +4,15 @@ intro: 'You can increase or change the amount of storage available for Git repos
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
-  - /enterprise/admin/enterprise-management/increasing-storage-capacity
-  - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - корпоративный
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.product.product_location_enterprise %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+As more users join {% data variables.product.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
 
 ### Requirements and recommendations
 
@@ -22,6 +22,8 @@ As more users join {% data variables.product.product_location_enterprise %}, you
 
 {% endnote %}
 
+#### Minimum requirements
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Increasing the data partition size
@@ -30,7 +32,7 @@ As more users join {% data variables.product.product_location_enterprise %}, you
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 4. Reboot the appliance to detect the new storage allocation.
-5. Run the `ghe-storage-extend` command to expand the `/data` filesystem:
+5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
   ```

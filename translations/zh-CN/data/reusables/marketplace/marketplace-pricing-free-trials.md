@@ -1,1 +1,1 @@
-You can offer your app for free for 14 days as a free trial. Free trials automatically convert to a paid subscription after 14 days, unless the customer cancels before the free trial expires. Select "Enable 14 day free trial for this plan" to offer a free trial.
+您可以为您的应用程序设置 14 天的免费试用期。 免费试用在 14 天后自动转换为付费订阅，除非客户在免费试用到期前取消。 选择“Enable 14 day free trial for this plan（为此计划启用 14 天免费试用）”以提供免费试用。

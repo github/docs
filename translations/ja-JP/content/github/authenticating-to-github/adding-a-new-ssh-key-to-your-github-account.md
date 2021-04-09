@@ -6,25 +6,28 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - ssh
 ---
 
 新しい SSH キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
 * [既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)
 * [新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-新しい SSH キーを {% data variables.product.product_name %}アカウントに追加したら、任意のローカルリポジトリで SSH を使うように再設定できます。 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)を参照してください。
+新しい SSH キーを {% data variables.product.product_name %}アカウントに追加したら、任意のローカルリポジトリで SSH を使うように再設定できます。 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)を参照してください。
 
 {% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pub ファイルの内容をクリップボードにコピーする
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
 
   {% tip %}
@@ -45,13 +48,13 @@ versions:
 
 {% windows %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pub ファルの内容をクリップボードにコピーする
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
 
   {% tip %}
@@ -72,16 +75,16 @@ versions:
 
 {% linux %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
   $ sudo apt-get install xclip
-  # xclip をダウンロードしてインストールします。 `apt-get`がなければ、それ以外のインストーラ（`yum`など）を使う必要があるかもしれません。
+  # xclip をダウンロードしてインストールします。 If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pubファイルの内容をクリップボードにコピーする
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
   {% tip %}
 

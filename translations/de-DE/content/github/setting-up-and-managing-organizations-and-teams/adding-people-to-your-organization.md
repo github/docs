@@ -1,19 +1,17 @@
 ---
 title: Personen zu Deiner Organisation hinzufügen
-intro: 'Du kannst jede beliebige Person mithilfe ihres {% data variables.product.product_name %}-Benutzernamens oder ihrer E-Mail-Adresse zu einem Mitglied Deiner Organisation machen.'
+intro: 'Sie können jede beliebige Person mithilfe ihres {% data variables.product.product_name %}-Benutzernamens oder ihrer E-Mail-Adresse zu einem Mitglied Ihrer Organisation machen.'
 redirect_from:
   - /articles/adding-people-to-your-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Organization owners can add people to an organization.'
 ---
 
-{% tip %}
-
-**Tips**:
-- Nur Organisationsinhaber können Benutzer zu einer Organisation hinzufügen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
-- Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer [die Zwei-Faktor-Authentifizierung aktivieren](/articles/securing-your-account-with-two-factor-authentication-2fa), bevor Du sie zur Organisation hinzufügen kannst.
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer [die Zwei-Faktor-Authentifizierung aktivieren](/articles/securing-your-account-with-two-factor-authentication-2fa), bevor Du sie zur Organisation hinzufügen kannst.
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

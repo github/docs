@@ -1,0 +1,569 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: '`uploadUrlTemplate` 将被删除。使用 `uploadUrl` 代替。'
+    reason: '`uploadUrlTemplate` 正在被删除，因为它不是标准的 URL，并且增加了一个额外的用户步骤。'
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: ContributionOrder.field
+    description: '`field` 将被删除。只支持一个顺序字段。'
+    reason: '`field` 将被删除。'
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Organization.pinnedRepositories
+    description: '`pinnedRepositories` 将被删除。使用 ProfileOwner.pinnedites 代替。'
+    reason: pinnedRepositories 将被删除
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: cheshire137
+  - 
+    location: RepositoryOwner.pinnedRepositories
+    description: '`pinnedRepositories` 将被删除。使用 ProfileOwner.pinnedites 代替。'
+    reason: pinnedRepositories 将被删除
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: cheshire137
+  - 
+    location: User.pinnedRepositories
+    description: '`pinnedRepositories` 将被删除。使用 ProfileOwner.pinnedites 代替。'
+    reason: pinnedRepositories 将被删除
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: cheshire137
+  - 
+    location: AssignedEvent.user
+    description: '`user` 将被删除。使用 `assignee` 字段代替。'
+    reason: 受理人现在可以作为人体模型。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: EnterpriseBillingInfo.availableSeats
+    description: '`availableSeats` 将被删除。使用 EnterpriseBillingInfo.totalAvailableLicenses 代替。'
+    reason: '`availableSeats` 将被替换为 `totalAvailableLicenses`，以便更明确地表示要返回的值'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BlakeWilliams
+  - 
+    location: EnterpriseBillingInfo.seats
+    description: '`seats` 将被删除。使用 EnterpriseBillingInfo.totalLicenses 代替。'
+    reason: '`seats` 将被替换为 `totalLicenses`，以便更明确地表示要返回的值'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: BlakeWilliams
+  - 
+    location: UnassignedEvent.user
+    description: '`user` 将被删除。使用 `assignee` 字段代替。'
+    reason: 受理人现在可以作为人体模型。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 重大
+    owner: tambling
+  - 
+    location: Organization.registryPackages
+    description: '`registryPackages` 将被删除。使用 `PackageOwner` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Organization.registryPackagesForQuery
+    description: '`registryPackagesForQuery` 将被删除。使用 `PackageSearch` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.color
+    description: '`color` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.latestVersion
+    description: '`latestVersion` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.name
+    description: '`name` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.nameWithOwner
+    description: '`nameWithOwner` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileByGuid
+    description: '`packageFileByGuid` 将被删除。使用 `Package` 对象。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileBySha256
+    description: '`packageFileBySha256` 将被删除。使用 `Package` 对象。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageType
+    description: '`packageType` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.preReleaseVersions
+    description: '`preReleaseVersions` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.registryPackageType
+    description: '`registryPackageType` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.repository
+    description: '`repository` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.statistics
+    description: '`statistics` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.tags
+    description: '`tags` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.topics
+    description: '`topics` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.version
+    description: '`version` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionByPlatform
+    description: '`versionByPlatform` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionBySha256
+    description: '`versionBySha256` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versions
+    description: '`versions` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionsByMetadatum
+    description: '`versionsByMetadatum` 将被删除。使用 `Package` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.dependencyType
+    description: '`dependencyType` 将被删除。使用 `PackageDependency` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.name
+    description: '`name` 将被删除。使用 `PackageDependency` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.version
+    description: '`version` 将被删除。使用 `PackageDependency` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.guid
+    description: '`guid` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.md5
+    description: '`md5` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.metadataUrl
+    description: '`metadataUrl` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.name
+    description: '`name` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.packageVersion
+    description: '`packageVersion` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha1
+    description: '`sha1` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha256
+    description: '`sha256` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.size
+    description: '`size` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.url
+    description: '`url` 将被删除。使用 `PackageFile` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageOwner.registryPackages
+    description: '`registryPackages` 将被删除。使用 `PackageOwner` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageSearch.registryPackagesForQuery
+    description: '`registryPackagesForQuery` 将被删除。使用 `PackageSearch` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisMonth
+    description: '`downloadsThisMonth` 将被删除。使用 `PackageStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisWeek
+    description: '`downloadsThisWeek` 将被删除。使用 `PackageStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisYear
+    description: '`downloadsThisYear` 将被删除。使用 `PackageStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsToday
+    description: '`downloadsToday` 将被删除。使用 `PackageStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsTotalCount
+    description: '`downloadsTotalCount` 将被删除。使用 `PackageStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.name
+    description: '`name` 将被删除。使用 `PackageTag` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.version
+    description: '`version` 将被删除。使用 `PackageTag` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.deleted
+    description: '`deleted` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.dependencies
+    description: '`dependencies` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.fileByName
+    description: '`fileByName` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.files
+    description: '`files` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.installationCommand
+    description: '`installationCommand` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.manifest
+    description: '`manifest` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.platform
+    description: '`platform` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.preRelease
+    description: '`preRelease` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readme
+    description: '`readme` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readmeHtml
+    description: '`readmeHtml` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.registryPackage
+    description: '`registryPackage` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.release
+    description: '`release` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.sha256
+    description: '`sha256` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.size
+    description: '`size` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.statistics
+    description: '`statistics` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.summary
+    description: '`summary` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.updatedAt
+    description: '`updatedAt` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.version
+    description: '`version` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.viewerCanEdit
+    description: '`viewerCanEdit` 将被删除。使用 `PackageVersion` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisMonth
+    description: '`downloadsThisMonth` 将被删除。使用 `PackageVersionStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisWeek
+    description: '`downloadsThisWeek` 将被删除。使用 `PackageVersionStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisYear
+    description: '`downloadsThisYear` 将被删除。使用 `PackageVersionStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsToday
+    description: '`downloadsToday` 将被删除。使用 `PackageVersionStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsTotalCount
+    description: '`downloadsTotalCount` 将被删除。使用 `PackageVersionStatistics` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Repository.registryPackages
+    description: '`registryPackages` 将被删除。使用 `PackageOwner` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Repository.registryPackagesForQuery
+    description: '`registryPackagesForQuery` 将被删除。使用 `PackageSearch` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Sponsorship.maintainer
+    description: '`maintainer` 将被删除。使用 `Sponsorship.sponsorable` 代替。'
+    reason: '`Sponsorship.maintainer` 将被删除。'
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: antn
+  - 
+    location: User.registryPackages
+    description: '`registryPackages` 将被删除。使用 `PackageOwner` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: User.registryPackagesForQuery
+    description: '`registryPackagesForQuery` 将被删除。使用 `PackageSearch` 对象代替。'
+    reason: 重命名 GitHub 包字段和对象。
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: 重大
+    owner: dinahshi
+  - 
+    location: Issue.timeline
+    description: '`timeline` 将被删除。使用 Issue.timelineItems 代替。'
+    reason: '`timeline` 将被删除'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: mikesea
+  - 
+    location: PullRequest.timeline
+    description: '`timeline` 将被删除。使用 PullRequest.timelineItems 代替。'
+    reason: '`timeline` 将被删除'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: mikesea

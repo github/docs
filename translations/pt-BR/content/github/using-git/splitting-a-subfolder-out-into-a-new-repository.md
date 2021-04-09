@@ -7,6 +7,7 @@ intro: Você pode transformar uma pasta em um repositório do Git repository em 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você criar um clone do repositório, não perderá nenhuma alteração ou histórico do Git quando dividir uma pasta e criar um repositório separado.
@@ -33,10 +34,10 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`: o branch padrão do projeto atual, como `master` ou `gh-pages`.
+    - `BRANCH-NAME`: O branch-padrão para seu projeto atual, por exemplo, `main` ou `gh-pages`.
     ```shell
-    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
-    # Filtra o branch especificado no diretório e remove os commits vazios
+    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
+    # Filter the specified branch in your directory and remove empty commits
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
     ```

@@ -1,11 +1,13 @@
 ---
 title: Exibir tráfego para um repositório
 intro: 'No gráfico de tráfego, qualquer pessoa com acesso push a um repositório pode visualizar o tráfego dele, inclusive clones completos (e não fetches), visitantes nos últimos 14 dias, sites de referência e conteúdo popular.'
-product: 'Este gráfico de informações do repositório está disponível nos repositórios públicos com {% data variables.product.prodname_free_user %} e {% data variables.product.prodname_free_team %} para organizações, e em repositórios públicos e privados com {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} e {% data variables.product.prodname_ghe_cloud %}.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Sobre gráficos do repositório](/articles/about-repository-graphs)" and "[{% data variables.product.prodname_dotcom %}''s products](/articles/github-s-products)."{% endif %}'
+product: 'Este gráfico de informações do repositório está disponível em repositórios públicos com {% data variables.product.prodname_free_user %} e {% data variables.product.prodname_free_team %} para organizações e em repositórios públicos e privados com {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} e {% data variables.product.prodname_ghe_cloud %}. {% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Sobre gráficos do repositório](/articles/about-repository-graphs)" e "[produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)."{% endif %}'
 redirect_from:
   - /articles/viewing-traffic-to-a-repository
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 A partir dos links indicados nos caminhos especificados, é possível navegar para sites de referência, exceto mecanismos de pesquisa e o {% data variables.product.product_name %} em si. O conteúdo popular tem links para o conteúdo específico que gerou o tráfego.

@@ -4,9 +4,12 @@ intro: '{% data variables.product.prodname_desktop %} erweitert und vereinfacht 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - desktop
 ---
 
-### Informationen zu {% data variables.product.prodname_desktop %}
+### Informationen zum {% data variables.product.prodname_desktop %}
 
 {% data reusables.desktop.about-github-desktop %}
 

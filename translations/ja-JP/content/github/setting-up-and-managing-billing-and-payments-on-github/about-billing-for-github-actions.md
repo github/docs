@@ -4,16 +4,22 @@ intro: 'アカウントに含まれるストレージや利用時間 (分) を�
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
 
-| 製品                                                                    | ストレージ  | 分 (月あたり) |
-| --------------------------------------------------------------------- | ------ | -------- |
+| 製品                                                               | ストレージ  | 分 (月あたり) |
+| ---------------------------------------------------------------- | ------ | -------- |
 | {% data variables.product.prodname_free_user %}                | 500 MB | 2,000    |
 | {% data variables.product.prodname_pro %}                        | 1 GB   | 3,000    |
 | Organization の {% data variables.product.prodname_free_team %} | 500 MB | 2,000    |
@@ -44,14 +50,14 @@ versions:
 | macOS        | $0.08   |
 | Windows      | $0.016  |
 
-アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、「[{% data variables.product.prodname_actions %}について](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)」を参照してください。
+アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 ### 利用時間 (分) とストレージ消費量の計算
 
 月末に、{% data variables.product.prodname_dotcom %}はアカウントに含まれている量に対して使用された分とストレージのコストを計算します。 たとえば、Organizationが{% data variables.product.prodname_team %}を使用しており、使用量に制限をしていない場合、15,000分を使用すればジョブを実行しているオペレーティングシステムによって、合計でストレージと分は56ドルの超過コストになるかもしれません。
 
 - 5,000 (3,000 Linux と 2,000 Windows) 分 = $56 ($24 + $32)。
-  - 単価$0.008で3,000 Linux分 = $24。
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 単価$0.016で2,000 Windows分 = $32。
 
 月末に、{% data variables.product.prodname_dotcom %}はデータ転送を最も近いGBに丸めます。
@@ -69,8 +75,8 @@ versions:
 
 ### 利用上限について
 
-デフォルトでは、アカウントで{% data variables.product.prodname_actions %}を使用する際の利用上限は$0です。 アカウントに含まれる金額を超えたプライベートリポジトリの分とストレージの利用を有効にしたい場合は、利用上限を増やすか、利用を無制限にすることができます。 詳しい情報については「[{% data variables.product.prodname_actions %}の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)」を参照してください。
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

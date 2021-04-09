@@ -1,1 +1,1 @@
-デフォルトでは、プロジェクトボードはプライベートに設定されており、プロジェクトボードへの読み取り、書き込み、または管理者権限を持つメンバーだけが表示できます。 パブリックなプロジェクトボードは、プロジェクトボードの URL で誰でも表示可能です。
+デフォルトでは、プロジェクトボードはプライベートに設定されており、プロジェクトボードへの読み取り、書き込み、または管理者権限を持つメンバーだけが表示できます。 {% if currentVersion == "github-ae@latest" %}An internal{% else %}A public{% endif %} project board is visible to {% if currentVersion == "github-ae@latest" %}any enterprise members{% else %}anyone{% endif %} with the project board's URL.

@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 ### 升级个人帐户的订阅
@@ -28,7 +30,9 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. 在“{% data variables.product.prodname_free_user %}”旁边，单击 **Upgrade（升级）**。 ![升级按钮](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. 在“
+{% data variables.product.prodname_free_user %}”旁边，单击 **Upgrade（升级）**。
+  ![升级按钮](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}

@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "person" aria-label="The People icon" %} **People**. ![People tab in the enterprise account sidebar](/assets/images/help/business-accounts/business-account-people-tab.png)
+1. Na barra lateral da conta corporativa, clique em {% octicon "person" aria-label="The People icon" %} **Pessoas**. ![Aba Pessoas na barra lateral da conta corporativa](/assets/images/help/business-accounts/business-account-people-tab.png)

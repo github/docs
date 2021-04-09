@@ -202,7 +202,8 @@ For more information, see "[Restricting publication of {% data variables.product
 | `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA. |{% if currentVersion == "free-pro-team@latest" %}
 | `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
 | `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
-| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/articles/unblocking-a-user-from-your-organization).{% endif %}
+| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/articles/unblocking-a-user-from-your-organization).{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+| `update_new_repository_default_branch_setting` | Triggered when an owner changes the name of the default branch for new repositories in the organization. For more information, see "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)."{% endif %}
 | `update_default_repository_permission` | Triggered when an owner changes the default repository permission level for organization members.
 | `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
 | `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% if currentVersion == "free-pro-team@latest" %}
@@ -400,7 +401,6 @@ Using the qualifier `country`, you can filter actions in the audit log based on 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 ### Using the Audit log API
 
 {% note %}
@@ -418,9 +418,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/v4/interface/auditentry/)."
-
-{% endif %}
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
 
 ### Further reading
 

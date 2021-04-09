@@ -1,0 +1,1 @@
+El inicio de sesión único (SSO) de SAML proporciona a los propietarios de las organizaciones y empresas en {% data variables.product.prodname_dotcom %} una forma de controlar y asegurar el acceso a los recursos organizacionales como los repositorios, propuestas y solicitudes de cambios.

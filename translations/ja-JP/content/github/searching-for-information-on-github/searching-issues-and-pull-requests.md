@@ -7,14 +7,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github search
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルに Issue およびプルリクエストを検索できます。あるいは、特定の Organization の Issue およびプルリクエストに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 {% tip %}
 
-**参考:**{% if currentVersion != "free-pro-team@latest" %}
-  - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location_enterprise %} で使えます。{% endif %}
+**参考:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location %} で使えます。{% endif %}
   - 検索結果を改良する検索修飾子を追加できる検索構文のリストについては、「[検索構文を理解する](/articles/understanding-the-search-syntax)」を参照してください。
   - 複数単語の検索用語は引用符で囲みます。 たとえば "In progress" というラベルを持つ Issue を検索したい場合は、`label:"in progress"` とします。 検索では、大文字と小文字は区別されません。
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -63,14 +66,11 @@ versions:
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) は、「performance」という単語があるオープン Issue にマッチします。                                        |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) は、「android」という単語があるクローズされた Issue とプルリクエストにマッチします。                                                |
 
-### リポジトリがパブリックかプライベートかで検索
+### リポジトリの可視性によるフィルタ
 
-[{% data variables.product.product_name %} のすべてにわたって検索](https://github.com/search)する場合、リポジトリがパブリックかプライベートかでフィルタリングすると便利です。 `is:public` および `is:private` を使用して、これができます。
+`is` 修飾子を使用して、Issue とプルリクエストを含むリポジトリの可視性でフィルタできます。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-| 修飾子          | サンプル                                                                                                                                                  |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) は、すべてのパブリックなリポジトリの Issue とプルリクエストにマッチします。                                        |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) は、あなたがアクセスできるプライベートなリポジトリにある「cupcake」という単語を含む Issue およびプルリクエストにマッチします。 |
+| 修飾子 | 例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) は、パブリックリポジトリ内の Issue とプルリクエストにマッチします。{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) は、内部リポジトリ内の問題とプルリクエストにマッチします。{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) は、アクセス可能なプライベートリポジトリに「cupcake」という単語を含む Issue とプルリクエストにマッチします。
 
 ### 作者で検索
 
@@ -78,13 +78,13 @@ versions:
 
 | 修飾子                       | サンプル                                                                                                                                                            |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues)は、@gjtorikian が作成した「cool」という単語がある Issue とプルリクエストにマッチします。          |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) は、@gjtorikian が作成した「cool」という単語がある Issue とプルリクエストにマッチします。         |
 |                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) は、本文に「bootstrap」という単語を含む @mdo が作成した Issue にマッチします。 |
 | <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) は、「robot」というインテグレーションアカウントが作成した Issue にマッチします。                             |
 
 ### アサインされた人で検索
 
-`assignee` 修飾子は、特定のユーザにアサインされた Issue およびプルリクエストを表示します。 アサインされた人がいる Issue およびプルリクエストは、_一切_検索できません。 [アサインされた人がいない Issue およびプルリクエスト](#search-by-missing-metadata)は、検索できます。
+`assignee` 修飾子は、特定のユーザにアサインされた Issue およびプルリクエストを表示します。 アサインされた人がいる Issue およびプルリクエストは、_一切_検索できません。 [アサインされた人がいない Issue およびプルリクエスト](#search-by-missing-metadata)は検索できます。
 
 | 修飾子                       | サンプル                                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,7 +124,7 @@ versions:
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。               |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues)は、本文に「bootstrap」という単語を含まず、@mdo が関与している Issue にマッチします。 |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### リンクされた Issue とプルリクエストを検索する
 結果を絞り込んで、クローズしているリファレンスによってプルリクエストにリンクされている、またはプルリクエストによってクローズされる可能性がある Issue にリンクされている Issue のみを表示することができます。
 
@@ -133,7 +133,8 @@ versions:
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされている Issue に一致します。                                   |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされた可能性がある Issue にリンクされていた、クローズされたプルリクエストに一致します。          |
 | `-linked:pr`    | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされていない Issue に一致します。                                 |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。 |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。 
+{% endif %}
 
 ### ラベルで検索
 
@@ -165,7 +166,7 @@ versions:
 
 ### コミットステータスで検索
 
-コミットのステータスでプルリクエストをフィルタリングできます。 [ステータス API](/v3/repos/statuses/) または CI サービスを使っている場合、特に役立ちます。
+コミットのステータスでプルリクエストをフィルタリングできます。 [ステータス API](/rest/reference/repos#statuses) または CI サービスを使っている場合、特に役立ちます。
 
 | 修飾子              | サンプル                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -205,7 +206,7 @@ versions:
 
 | 修飾子                        | サンプル                                                                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues)は、コメント数が 100 を超えるクローズした Issue にマッチします。 |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues)は、コメント数が 100 を超えるクローズした Issue にマッチします。 |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues)は、500 から 1,000 までの範囲のコメント数の Issue にマッチします。                          |
 
 ### インタラクションの数で検索
@@ -229,11 +230,11 @@ versions:
 ### ドラフトプルリクエストを検索
 ドラフトプルリクエストをフィルタリングすることができます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)を参照してください。
 
-| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
+| 修飾子        | 例 | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue)  はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
 
 ### プルリクエストレビューのステータスおよびレビュー担当者で検索
 
-You can filter pull requests based on their [review status](/articles/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+レビュー担当者およびレビューリクエストを受けた人で、[レビューステータス](/articles/about-pull-request-reviews) (_none_、_required_、_approved_、または _changes requested_) でプルリクエストをフィルタリングできます。
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -253,10 +254,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code> | [**language:c# created:<2011-01-01 state:open**](https://github.com/search?q=language%3Ac%23+created%3A%3C2011-01-01+state%3Aopen&type=Issues) matches open issues that were created before 2011 in repositories written in C#. |
-| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2013-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2013-02-01&type=Issues) matches issues with the word "weird" in the body that were updated after February 2013.            |
+| 修飾子                        | サンプル                                                                                                                                                                                                 |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**language:c# created:<2011-01-01 state:open**](https://github.com/search?q=language%3Ac%23+created%3A%3C2011-01-01+state%3Aopen&type=Issues) は、C# で記述されたリポジトリの 2011 年より前に作成されたオープンな Issue にマッチします。 |
+| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2013-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2013-02-01&type=Issues) は、2013 年 2 月以降に更新された、本文に「weird」という単語を含む Issue にマッチします。                  |
 
 ### Issue やプルリクエストがクローズされた時期で検索
 
@@ -266,10 +267,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                                         |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>closed:<em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) matches issues and pull requests in Swift that were closed after June 11, 2014.                                     |
-|                            | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012. |
+| 修飾子                        | サンプル                                                                                                                                                                                                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>closed:<em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) は、2014 年 6 月 11 日より後にクローズした Swift の Issue およびプルリクエストにマッチします。                       |
+|                            | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) は、2012 年 10 月より前にクローズされた、body に「data」という単語がある Issue およびプルリクエストにマッチします。 |
 
 ### プルリクエストがマージされた時期で検索
 
@@ -279,10 +280,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                                                       |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.                                         |
-|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014. |
+| 修飾子                        | サンプル                                                                                                                                                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) は、2011 年より前にマージされた JavaScript のリポジトリにあるプルリクエストにマッチします。                               |
+|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues)は、2014 年 5 月以降にマージされた、タイトルに「fast」という単語がある Ruby のプルリクエストにマッチします。 |
 
 ### プルリクエストがマージされているかどうかで検索
 
@@ -304,7 +305,7 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 ### 会話がロックされているかどうかで検索
 
-`is` 修飾子を使用して、ロックされている会話がある Issue またはプルリクエストを検索することができます。 詳細は「[会話をロックする](/articles/locking-conversations)」を参照してください。
+`is` 修飾子を使用して、ロックされている会話がある Issue またはプルリクエストを検索することができます。 詳細は「[会話をロックする](/communities/moderating-comments-and-conversations/locking-conversations)」を参照してください。
 
 | 修飾子           | サンプル                                                                                                                                                                                                                             |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

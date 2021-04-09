@@ -21,14 +21,16 @@ To automatically watch all team discussions for new teams you join, set your aut
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.notifications %}
-{% data reusables.user_settings.automatic_watching_box %} select **Automatically watch teams**. ![Checkbox for automatically watching teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.automatic_watching_box %} select **Automatically watch teams**.
+![Checkbox for automatically watching teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Watching a single team's discussions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
-{% data reusables.organizations.watch-team-options %} click **Watch** to open your notifications options. Then click **Watching**. ![Watch options in a drop-down menu for a specific team](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.organizations.watch-team-options %} click **Watch** to open your notifications options. Then click **Watching**.
+![Watch options in a drop-down menu for a specific team](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### Unwatching team discussions for all new teams you join
 
@@ -36,14 +38,16 @@ If you don't want to automatically receive team discussion notifications when yo
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.notifications %}
-{% data reusables.user_settings.automatic_watching_box %} unselect **Automatically watch teams**. ![Automatically watching teams setting selected by default](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.automatic_watching_box %} unselect **Automatically watch teams**.
+![Automatically watching teams setting selected by default](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Unwatching a single team's discussions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
-{% data reusables.organizations.watch-team-options %} click **Unwatch** to open your notifications options. Then click **Not watching**. ![Watch options in a drop-down menu for a specific team](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.organizations.watch-team-options %} click **Unwatch** to open your notifications options. Then click **Not watching**.
+![Watch options in a drop-down menu for a specific team](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

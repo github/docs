@@ -1,4 +1,4 @@
-With the container registry you can:
-- Store container images within your organization and user account, rather than a repository.
-- Set fine-grained permissions and visibility independent of repository permissions and visibility.
-- Access public container images anonymously.
+Com o registro do container, você pode:
+- Armazenar imagens de contêiner na sua conta de organização e usuário, em vez de um repositório.
+- Definir permissões e visibilidade refinadas e independentes das permissões e visibilidade do repositório.
+- Acessar imagens de contêineres públicos anonimamente.

@@ -15,7 +15,9 @@ versions:
 
 {% mac %}
 
-1. クローンする前に、{% data variables.product.product_location %}と{% data variables.product.prodname_desktop %}にサインインします。
+1. まず、
+
+クローンする前に、{% data variables.product.product_location %} と {% data variables.product.prodname_desktop %} にサインインします。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. [**Choose...**]をクリックし、Finderウインドウを使用してリポジトリをクローンするローカルパスに移動します。 ![URLタブにあるchooseボタン](/assets/images/help/desktop/clone-choose-button-url-mac.png)
@@ -32,7 +34,9 @@ versions:
 
 {% windows %}
 
-1. クローンする前に、{% data variables.product.product_location %}と{% data variables.product.prodname_desktop %}にサインインします。
+1. まず、
+
+クローンする前に、{% data variables.product.product_location %} と {% data variables.product.prodname_desktop %} にサインインします。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. **Choose...**をクリックし、Windows Explorerを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-url-win.png)

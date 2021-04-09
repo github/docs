@@ -1,1 +1,1 @@
-1. On the right side of the page, under "Select a tier", review the sponsorship tiers available. Then, to the right of the tier you want, click **Select**. ![Select a tier box](/assets/images/help/sponsors/select-a-tier-box.png)
+1. No lado direito da página, em "Selecione uma camada", reveja as camadas de patrocínio disponíveis. Em seguida, à direita da camada que você quer, clique em **Selecionar**. ![Selecione uma caixa de camada](/assets/images/help/sponsors/select-a-tier-box.png)

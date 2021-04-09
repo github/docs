@@ -20,7 +20,7 @@ Pessoas com permissões de administrador para {% data variables.product.prodname
 
 ### Entrar em contato com o suporte
 
-Você pode receber suporte para {% data variables.product.prodname_insights %} de {% data variables.contact.github_support %}. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Enviar um tíquete](/github/working-with-github-support/submitting-a-ticket)."{% else %}"[Entrando em contato com {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)."{% endif %}
+Você pode receber suporte para {% data variables.product.prodname_insights %} de {% data variables.contact.github_support %}. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Enviar um tíquete](/github/working-with-github-support/submitting-a-ticket)."{% else %}"[Atingir {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)".{% endif %}
 
 ### Leia mais
 

@@ -1,17 +1,19 @@
 ---
 title: プロフィールにアイテムをピン止めする
-intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}Gist および{% endif %}リポジトリを自分のプロフィールにピン止めして、他の人があなたの最も優れた作業を素早く見つけられるようにできます。'
+intro: Gist とリポジトリをプロフィールに固定して、他のユーザがあなたの最高の作品をすばやく確認できるようにすることができます。
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - プロフィール
 ---
 
 あなたが所有するか、コントリビュートしたパブリックリポジトリをピン止めできます。 フォークへのコミットはコントリビューションとして扱われないので、所有していないフォークをピン止めすることはできません。 詳細は「[プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)」を参照してください。
 
-You can pin any public gist you own.
+所有しているパブリック Gist をピン止めできます。
 
 ピン止めしたアイテムには、リポジトリが受け取った Star の数や、Gist の最初の数行など、アイテムに関する重要な情報が含まれます。 アイテムをプロフィールにピン止めすると、プロフィールで [Popular repositories] セクションが [Pinned] セクションに変わります。
 

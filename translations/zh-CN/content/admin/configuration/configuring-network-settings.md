@@ -1,5 +1,5 @@
 ---
-title: Configuring network settings
+title: 配置网络设置
 redirect_from:
   - /enterprise/admin/guides/installation/dns-hostname-subdomain-isolation-and-ssl/
   - /enterprise/admin/articles/about-dns-ssl-and-subdomain-settings/
@@ -11,5 +11,7 @@ intro: '使用网络所需的 DNS 域名服务器和主机名配置 {% data vari
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 

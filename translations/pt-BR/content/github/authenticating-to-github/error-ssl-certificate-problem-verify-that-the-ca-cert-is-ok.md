@@ -5,13 +5,15 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 
 Você receberá a seguinte mensagem de erro:
 
 ```shell
-$ git push -u github.master
-> fatal: 'github.master' não parece um repositório git 
+$ git push -u github.main
+> fatal: 'github.main' não parece um repositório git 
 > fatal: A ponta remote desligou inesperadamente
 
 $ git pull -u github

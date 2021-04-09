@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - eventos
 ---
 
 
@@ -15,7 +18,6 @@ A API de eventos pode retornar diferentes tipos de eventos acionados por ativida
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
-
 
 ### Propriedades comuns do objeto de evento
 
@@ -40,7 +42,7 @@ Os objetos de evento retornados dos pontos de extremidade da API de eventos têm
 
 #### Exemplo de objeto de evento WatchEvent
 
-Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/v3/activity/events).
+Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/rest/reference/activity#events).
 
 ```
 Status: 200 OK
@@ -51,7 +53,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +164,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Objeto da `carga` do evento
 
 Este evento retorna um objeto de `carga` vazio.
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -198,22 +200,22 @@ Este evento retorna um objeto de `carga` vazio.
 
 {% data reusables.webhooks.events_api_payload %}
 
-| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                   |
-| -------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `push_id`                  | `inteiro` | Identificador único para o push.                                                                                                                                                                                                                                                                                            |
-| `size`                     | `inteiro` | O número de commits no push.                                                                                                                                                                                                                                                                                                |
-| `distinct_size`            | `inteiro` | O número de commits distintos no push.                                                                                                                                                                                                                                                                                      |
-| `ref`                      | `string`  | O [`git ref`](/v3/git/refs/) completo que foi carregado. Exemplo: `refs/heads/master`.                                                                                                                                                                                                                                      |
-| `head`                     | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                |
-| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                              |
-| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (O array inclui um máximo de 20 commits. Se necessário, você poderá usar a [API de commits](/v3/repos/commits/) para recuperar commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook.) |
-| `commits[][sha]`           | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                            |
-| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                       |
-| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                   |
-| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                     |
-| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                       |
-| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                             |
-| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                   |
+| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                        |
+| -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `push_id`                  | `inteiro` | Identificador único para o push.                                                                                                                                                                                                                                                                                                 |
+| `size`                     | `inteiro` | O número de commits no push.                                                                                                                                                                                                                                                                                                     |
+| `distinct_size`            | `inteiro` | O número de commits distintos no push.                                                                                                                                                                                                                                                                                           |
+| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/master`.                                                                                                                                                                                                                                |
+| `head`                     | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                     |
+| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                                   |
+| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (O array inclui um máximo de 20 commits. Se necessário, você pode usar a [API de Commits](/rest/reference/repos#commits) para obter commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook.) |
+| `commits[][sha]`           | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                                 |
+| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                            |
+| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                        |
+| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                          |
+| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                            |
+| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                                  |
+| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                        |
 
 ### ReleaseEvent
 

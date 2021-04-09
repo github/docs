@@ -1,6 +1,6 @@
 ---
 title: Einen Commit rückgängig machen
-intro: 'Du kannst einen bestimmten Commit zurücksetzen, um dessen Änderungen aus deinem Branch zu entfernen.'
+intro: Du kannst einen bestimmten Commit zurücksetzen, um dessen Änderungen aus deinem Branch zu entfernen.
 redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
 versions:

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -15,6 +18,8 @@ versions:
     - **Active branches** (Aktive Branches): Die Ansicht **Active** (Aktiv) zeigt alle Branches an, zu denen in den letzten drei Monaten Commits beigetragen wurden, wobei die Branches mit den neuesten Commits zuerst angezeigt werden.
     - **Stale branches** (Alte Branches): Die Ansicht **Stale** (Alt) zeigt alle Branches an, zu denen in den letzten drei Monaten keine Commits beigetragen wurden, wobei die Branches mit den ältesten Commits zuerst angezeigt werden. Verwende diese Liste, um zu bestimmen, [welche Branches gelöscht werden sollen](/articles/creating-and-deleting-branches-within-your-repository).
     - **All branches** (Alle Branches): Die Ansicht **All** (Alle) zeigt den Standardbranch, gefolgt von allen anderen Branches, wobei die Branches mit den neuesten Commits zuerst angezeigt werden.
+
+4. Optionally, use the search field on the top right. It provides a simple, case-insensitive, sub-string search on the branch name. It does not support any additional query syntax.
 
 ![Die Branches-Seite für das Atom-Repository](/assets/images/help/branches/branches-overview-atom.png)
 

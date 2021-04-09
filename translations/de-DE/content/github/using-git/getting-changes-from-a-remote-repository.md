@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Diese Befehle sind bei der Interaktion mit einem [Remote-Repository](/articles/about-remote-repositories) sehr hilfreich. Mit `clone` und `fetch` kannst Du Remote-Code von der Remote-URL eines Repositorys auf Deinen lokalen Computer herunterladen. Der Befehl `merge` dient zum Zusammenführen der Arbeit verschiedener Benutzer mit Deiner eigenen Arbeit, und `pull` ist eine Kombination aus `fetch` und `merge`.
@@ -20,7 +21,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 # Klont ein Repository auf Deinen Computer
 ```
 
-Beim Klonen eines Repositorys stehen [mehrere unterschiedliche URLs](/articles/which-remote-url-should-i-use) zur Auswahl. Wenn Du bei {% data variables.product.prodname_dotcom %} angemeldet bist, findest Du diese URLs unter den Repository-Details:
+Beim Klonen eines Repositorys stehen [mehrere unterschiedliche URLs](/articles/which-remote-url-should-i-use) zur Auswahl. Wenn Sie bei {% data variables.product.prodname_dotcom %} angemeldet sind, finden Sie diese URLs unter den Repository-Details:
 
 ![Remote-URL-Liste](/assets/images/help/repository/remotes-url.png)
 
@@ -70,5 +71,5 @@ Da `pull` das Zusammenführen der abgerufenen Änderungen auslöst, solltest Du 
 
 ### Weiterführende Informationen
 
-- „[Mit Remote-Repositorys arbeiten“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)“{% if currentVersion == "free-pro-team@latest" %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Verbindungsprobleme beheben](/articles/troubleshooting-connectivity-problems)“{% endif %}

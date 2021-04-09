@@ -11,7 +11,7 @@ versions:
 
 {% data reusables.notifications.access_notifications %}
 1. 通知のリストで、保存したい通知を見つけます。
-1. On the right side of the notification, click
+1. 通知の右側で、をクリックします。
 {% octicon "bookmark" aria-label="The bookmark button" %}.
 ![通知を保存するボタン](/assets/images/help/notifications/save_notification.png)
 {% data reusables.notifications.saved_for_late_sidebar %}

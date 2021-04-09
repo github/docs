@@ -6,9 +6,12 @@ redirect_from:
   - /articles/approving-oauth-apps-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
-Wenn Beschränkungen für den {% data variables.product.prodname_oauth_app %}-Zugriff aktiviert sind, müssen Organisationsmitglieder [die Genehmigung von einem Organisationsinhaber anfordern](/articles/requesting-organization-approval-for-oauth-apps), bevor sie eine {% data variables.product.prodname_oauth_app %} autorisieren können, die Zugriff auf die Ressourcen der Organisation hat.
+Wenn Einschränkungen für den {% data variables.product.prodname_oauth_app %}-Zugriff aktiviert sind, müssen Organisationsmitglieder [die Genehmigung von einem Organisationsinhaber anfordern](/articles/requesting-organization-approval-for-oauth-apps), bevor sie eine {% data variables.product.prodname_oauth_app %} autorisieren können, die Zugriff auf die Ressourcen der Organisation hat.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

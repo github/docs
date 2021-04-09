@@ -3,13 +3,29 @@ title: Ein Repository erstellen
 redirect_from:
   - /create-a-repo/
   - /articles/create-a-repo
-intro: 'Um Dein Projekt auf {% data variables.product.product_location %} aufzubauen, benötigst Du ein Repository, in dem Du das Projekt speichern kannst.'
+intro: 'Um Ihr Projekt auf {% data variables.product.product_location %} aufzubauen, benötigen Sie ein Repository, in dem Sie das Projekt speichern können.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
+  - Issues (Lieferungen)
+  - notifications
+  - accounts
 ---
 
-Du kannst die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
+{% if currentVersion == "free-pro-team@latest" %}
+
+Sie können die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
@@ -17,16 +33,20 @@ Du kannst die unterschiedlichsten Projekte in {% data variables.product.product_
 
 {% endnote %}
 
+{% endif %}
+
 {% data reusables.repositories.create_new %}
 2. Gib einen kurzen, leicht merkbaren Namen für Dein Repository ein. Beispiel: „hello world“. ![Feld zum Eingeben eines Repository-Namens](/assets/images/help/repository/create-repository-name.png)
-3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. Beispiel: „Mein erstes Repository auf {% data variables.product.product_name %}“. ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
+3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. For example, "My first repository on
+{% data variables.product.product_name %}."
+  ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
 Glückwünsch! Du hast erfolgreich Dein erstes Repository erstellt und mit einer *README*-Datei initialisiert.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
@@ -42,7 +62,7 @@ Wenn Du Dein neues Repository erstellt hast, initialisiere es mit einer *README*
 
 Nun geben wir eine Änderung der *README*-Datei frei.
 
-1. Klicke in der Dateiliste Deines Repositorys auf die Datei ***README.md***. ![README-Datei in Dateiliste](/assets/images/help/repository/create-commit-open-readme.png)
+1. Klicke in der Dateiliste Deines Repositorys auf die Datei ***README.md***. ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
 2. Klicken Sie über dem Inhalt der Datei auf {% octicon "pencil" aria-label="The edit icon" %}.
 3. Gib auf der Registerkarte **Edit file** (Datei ändern) einige Informationen zu Deiner Person ein. ![Neuer Inhalt in Datei](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}

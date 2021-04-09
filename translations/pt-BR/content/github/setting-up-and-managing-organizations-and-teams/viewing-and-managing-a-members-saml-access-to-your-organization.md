@@ -8,6 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre o acesso SAML à sua organização
@@ -19,6 +22,8 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 ### Visualizar e revogar uma identidade vinculada
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -55,4 +60,4 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 ### Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Visualizar e gerenciar acesso SAML de um usuário à conta corporativa](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+- "[Visualizar e gerenciar acesso SAML de um usuário à conta corporativa](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"

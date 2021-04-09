@@ -1,0 +1,1 @@
+1. Como alternativa, se você estiver patrocinando como organização, para pagar um valor proporcional em vez de efetuar o pagamento mensal completo, em "Vence hoje", clique em **Pagar $X.XX proporcional hoje**. ![Link para valor proporcional de pagamento](/assets/images/help/sponsors/pay-prorated-amount-link.png)

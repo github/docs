@@ -1,1 +1,1 @@
-最大で25のリポジトリをOrganizationもしくはユーザが所有するプロジェクトボードにリンクできます。 リポジトリをリンクすると、**{% octicon "plus" aria-label="The Plus icon" %} Add cards（カードの追加）**を利用して{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、あるいはIssueもしくはプルリクエストのサイドバーから{% endif %}、それらのリポジトリからプロジェクトボードにIssueやプルリクエストを追加しやすくなります。
+最大で25のリポジトリをOrganizationもしくはユーザが所有するプロジェクトボードにリンクできます。 リポジトリをリンクすると、**{% octicon "plus" aria-label="The Plus icon" %} Add cards（カードの追加）**を利用して、あるいはIssueもしくはプルリクエストのサイドバーから、それらのリポジトリからプロジェクトボードにIssueやプルリクエストを追加しやすくなります。

@@ -1,6 +1,6 @@
 ---
 title: Quellcode in GitHub importieren
-intro: 'Du kannst Repositorys über {% if currentVersion == "free-pro-team@latest" %}GitHub Importer, die Befehlszeile{% else %}die Befehlszeile{% endif %} oder mit externen Migrationstools nach GitHub importieren.'
+intro: 'You can import repositories to GitHub using {% if currentVersion == "free-pro-team@latest" %}GitHub Importer, the command line,{% else %}the command line{% endif %} or external migration tools.'
 redirect_from:
   - /articles/importing-an-external-git-repository/
   - /articles/importing-from-bitbucket/
@@ -11,5 +11,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

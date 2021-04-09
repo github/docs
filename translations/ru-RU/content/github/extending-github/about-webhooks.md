@@ -9,6 +9,7 @@ intro: Webhooks provide a way for notifications to be delivered to an external w
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

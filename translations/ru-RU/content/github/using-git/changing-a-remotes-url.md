@@ -7,6 +7,7 @@ intro: The `git remote set-url` command changes an existing remote repository UR
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -50,10 +51,9 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password.
+The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user_settings.password-authentication-deprecation %}
 
-- If you have [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) enabled, you must [create a personal access token](/github/authenticating-to-github/creating-a-personal-access-token) to use instead of your GitHub password.
-- You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and password every time it talks to GitHub.
+You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 

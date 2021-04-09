@@ -6,10 +6,13 @@ redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
+リポジトリへの管理者権限を持っているユーザは誰でも、自動リンク参照を設定して、Issue、プルリクエスト{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}、コミットメッセージ、リリースの説明、{% else %}および外部のサードパーティサービスへのコミットメッセージ{% endif %}をリンクすることができます。
 
 たとえば、ユーザから報告されたチケットをZendeskで追跡している場合は、Issueを修正するために開いたプルリクエストでチケット番号を参照できます。
 

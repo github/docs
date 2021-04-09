@@ -1,6 +1,6 @@
 ---
 title: 個人リポジトリからコラボレーターを削除する
-intro: コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。
+intro: 'コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。'
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator/
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
@@ -12,6 +12,10 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アカウント
+  - repositories
 ---
 
 ### プライベートリポジトリのフォークを削除する
@@ -24,7 +28,7 @@ versions:
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. To the right of the collaborator you want to remove, click
+4. 削除するコラボレータの右側にある次をクリックします。
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
   ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

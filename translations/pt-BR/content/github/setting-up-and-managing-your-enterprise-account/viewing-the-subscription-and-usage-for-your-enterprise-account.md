@@ -18,6 +18,9 @@ As contas corporativas atualmente estão disponíveis para clientes do {% data v
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
-4. Em "User licenses" (Licenças de usuário), exiba o total de licenças, o número de licenças consumidas e a data de expiração da sua assinatura. ![Informações de assinaturas e licenças nas configurações de cobrança da empresa](/assets/images/help/business-accounts/billing-license-info.png)
-5. Para ver as informações das licenças de usuário em uso atualmente, clique em **Ver informações**.
+{% data reusables.enterprise-accounts.license-tab %}
+4. Under "User
+{% if currentVersion == "free-pro-team@latest" %}Licenses{% else %}licenses{% endif %}", view your total licenses, number of consumed licenses, and your subscription expiration date.
+  {% if currentVersion == "free-pro-team@latest" %}![License and subscription information in enterprise billing settings](/assets/images/help/business-accounts/billing-license-info.png){% else %}
+  ![Informações de assinaturas e licenças nas configurações de cobrança da empresa](/assets/images/enterprise/enterprises/enterprise-server-billing-license-info.png){% endif %}
+5. To view details of the user licenses currently in use, click **View {% if currentVersion == "free-pro-team@latest" %}details{% else %}users{% endif %}**.

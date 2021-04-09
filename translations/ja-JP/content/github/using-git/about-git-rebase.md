@@ -8,6 +8,7 @@ intro: '`git rebase` コマンドを使えば、一連のコミットを容易�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

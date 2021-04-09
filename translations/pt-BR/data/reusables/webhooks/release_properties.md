@@ -1,1 +1,1 @@
-`changes[body][from]` |`string` | The previous version of the body if the action was `edited`. `changes[name][from]` |`string` | The previous version of the name if the action was `edited`. `release`|`object` | The [release](/v3/repos/releases/#get-a-release) object.
+`alterações[body][from]` |`string` | A versão anterior do texto se a ação foi `editada`. `changes[name][from]` |`string` | A versão anterior do nome se a ação foi `editada`. `versão`|`objeto` | O objeto da [versão](/rest/reference/repos/#get-a-release).

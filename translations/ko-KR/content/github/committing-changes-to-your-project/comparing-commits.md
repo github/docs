@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can compare the state of your repository across branches, tags, commits, and dates. To compare different versions of your repository, append `/compare` to your repository's path.
@@ -26,9 +27,9 @@ Here's an example of a [comparison between two branches](https://github.com/octo
 
 ### Comparing tags
 
-Comparing release tags will show you changes to your repository since the last release. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
+Comparing release tags will show you changes to your repository since the last release. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
 
 Here's an example of a [comparison between two tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 
@@ -46,7 +47,7 @@ To learn more about other comparison options, see "[Three-dot and two-dot diff c
 
 You can compare your base repository and any forked repository. This is the view that's presented when a user performs a Pull Request to a project.
 
-To compare branches on different repositories, preface the branch names with user names. For example, by specifying `octocat:master` for `base` and `octo-org:master` for `compare`, you can compare the `master` branch of the repositories respectively owned by `octocat` and `octo-org`.
+To compare branches on different repositories, preface the branch names with user names. For example, by specifying `octocat:main` for `base` and `octo-org:main` for `compare`, you can compare the `main` branch of the repositories respectively owned by `octocat` and `octo-org`.
 
 Here's an example of a [comparison between two repositories](https://github.com/octocat/linguist/compare/master...octo-org:master).
 

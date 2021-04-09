@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Atualizar a assinatura da sua conta pessoal
@@ -28,7 +30,9 @@ Você pode atualizar sua conta pessoal do {% data variables.product.prodname_fre
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Ao lado de "{% data variables.product.prodname_free_user %}", clique em **Upgrade** (Atualizar). ![Botão Upgrade (Atualizar)](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. Ao lado de "
+{% data variables.product.prodname_free_user %}", clique em **Atualizar**.
+  ![Botão Upgrade (Atualizar)](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}

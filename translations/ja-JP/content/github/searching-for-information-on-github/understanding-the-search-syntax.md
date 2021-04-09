@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github search
 ---
 
 ### ある値より大きいまたは小さい値のクエリ
@@ -47,14 +50,14 @@ versions:
 | <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** は、2012 年 7 月 4 日以前に作成された、「cats」という単語のある Issue にマッチします。                                   |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** は、2016 年 4 月末から 2017 年 7 月 4 日の間にプッシュされた、「cats」という単語のあるリポジトリにマッチします。 |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** は、「cats」という単語を含む、2012 年 4 月 30 日より後に作成された Issue にマッチします。                                   |
-| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** は、「cats」という単語のある、2012 年 7 月 4 日より前に作成された Issue にマッチします。                                    |
+| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** は、「cats」という単語のある、2012 年 7 月 4 日より前に作成された Issue にマッチします。                                    |
 
 {% data reusables.time_date.time_format %}
 
-| クエリ                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** 2017 年 1 月 1 日午前 1 時（世界協定時`+7時間`）と 2017 年 3 月 1 日午後 3 時（世界協定時 `+7時間`）の間に作成された Issue にマッチします。 with a UTC offset of `07:00` and March 1, 2017 at 3 p.m. with a UTC offset of `07:00`. |
-| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** は、2016 年 3 月 21 日午後 2 時 11 分と 2016 年 4 月 7 日 8 時 45 分の間に作成された Issue にマッチします。                                                                                                                                    |
+| クエリ                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** 2017 年 1 月 1 日午前 1 時（世界協定時`+7時間`）と 2017 年 3 月 1 日午後 3 時（世界協定時 `+7時間`）の間に作成された Issue にマッチします。 （世界協定時`+7時間`）と 2017 年 3 月 1 日午後 3 時 （世界協定時 `+7時間`）の間に作成された Issue にマッチします。 |
+| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** は、2016 年 3 月 21 日午後 2 時 11 分と 2016 年 4 月 7 日 8 時 45 分の間に作成された Issue にマッチします。                                                                                                                       |
 
 ### 一定の検索結果の除外
 
@@ -80,7 +83,7 @@ versions:
 
 スペースなど、いくつかの英数字以外の記号は、引用符で囲ったコード検索クエリから省かれるので、結果が予想外のものになる場合があります。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### ユーザ名によるクエリ
 
 検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {% data variables.product.product_name %} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。

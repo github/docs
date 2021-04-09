@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_app %} Manifests are currently available for developers to preview. To access this API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**Observação:** Os manifestos de {% data variables.product.prodname_github_app %} estão atualmente disponíveis para pré-visualização dos desenvolvedores. Para acessar essa API durante o período de pré-visualização, você deve fornecer um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Aceitar`:
 
 ```
 application/vnd.github.fury-preview+json

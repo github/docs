@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you are a security researcher, you should directly contact maintainers to ask them to create security advisories or issue CVEs on your behalf in repositories that you don't administer.
+**Observação:** Se você é um pesquisador de segurança, você deve entrar em contato diretamente com os mantenedores para pedir que criem consultorias de segurança ou emitirem CVEs em seu nome em repositórios que você não administra.
 
 {% endnote %}

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
@@ -17,7 +19,7 @@ versions:
 
 ### Configurar o primeiro nó
 
-1. Conecte-se ao nó a ser designado como `mysql-master` no `cluster.conf`. Para obter mais informações, consulte “[Sobre o arquivo de configuração do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
+1. Conecte-se ao nó que será designado como principal no MySQL no `cluster.conf`. Para obter mais informações, consulte "[Sobre o arquivo de configuração do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 2. No navegador, acesse `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -43,9 +45,9 @@ O exemplo `cluster.conf` define um cluster com cinco nós.
 
 Os nomes dos nós podem ser qualquer nome de host válido. Cada nome é definido como nome de host e será adicionado a `/etc/hosts` em cada nó. Assim, os nós podem ser resolvidos localmente entre si.
 
-Especifique o primeiro nó de cluster configurado como MySQL master `mysql-server` e `mysql-master`.
+Especifique o primeiro nó do cluster que você configurou como principal do MySQL via `mysql-server` e `mysql-master`.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

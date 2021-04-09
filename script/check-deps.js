@@ -17,6 +17,7 @@ const path = require('path')
 const main = async () => {
   const data = await dependencyCheck({
     entries: [
+      path.posix.join(__dirname, '..', '*.js'),
       path.posix.join(__dirname, '..', '*', '*.js'),
       path.posix.join('!', __dirname, '..', 'javascripts', '*.js'),
       path.posix.join(__dirname, '..', 'script', 'graphql', '*.js')
@@ -29,9 +30,8 @@ const main = async () => {
     excludeDev: true,
     ignore: [
       '@babel/*',
+      'babel-preset-env',
       '@primer/*',
-      'instantsearch.js',
-      'querystring',
       'pa11y-ci',
       'sass',
       'babel-loader',
@@ -42,12 +42,12 @@ const main = async () => {
       'style-loader',
       'webpack-cli',
       'browser-date-formatter',
-      'html-truncate',
-      'platform-utils',
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',
-      'js-cookie'
+      'js-cookie',
+      'mdast-util-from-markdown',
+      'unist-util-visit'
     ]
   })
 

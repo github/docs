@@ -1,32 +1,33 @@
 ---
 title: Informationen zu GitHub Marketplace
-intro: '{% data variables.product.prodname_marketplace %} umfasst Tools zur Erweiterung der Funktionalität und Verbesserung Deines Workflows.'
+intro: '{% data variables.product.prodname_marketplace %} umfasst Tools zur Erweiterung der Funktionalität und Verbesserung Ihres Workflows.'
 redirect_from:
   - /articles/about-github-marketplace
 versions:
   free-pro-team: '*'
 ---
 
-Auf [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) kannst Du kostenlose wie kostenpflichtige Tools entdecken, durchsuchen und installieren, darunter [{% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/) und {% data variables.product.prodname_actions %}.
+You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
-Wenn Du ein kostenpflichtiges Tool erwirbst, bezahlst Du für Dein Tool-Abonnement mit den gleichen Abrechnungsinformationen, mit denen Du für Dein {% data variables.product.product_name %}-Abonnement bezahlst, und erhältst an Deinem regulären Abrechnungsdatum nur eine Rechnung. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
+Wenn Sie ein kostenpflichtiges Tool erwerben, bezahlen Sie für Ihr Tool-Abonnement mit den gleichen Abrechnungsinformationen, mit denen Sie für Ihr {% data variables.product.product_name %}-Abonnement bezahlen, und erhalten an Ihrem regulären Abrechnungsdatum eine Rechnung. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
 
-Unter Umständen hast Du auch die Möglichkeit, eine kostenlose 14-tägige Testversion für ausgewählte Tools zu nutzen. Du kannst während der Testphase jederzeit kündigen, und es wird Dir nichts in Rechnung gestellt, aber Du verlierst automatisch den Zugriff auf das Tool. Dein kostenpflichtiges Abonnement beginnt am Ende der 14-tägigen Testphase. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
+You may also have the option to select a free 14-day trial on some tools. Du kannst während der Testphase jederzeit kündigen, und es wird Dir nichts in Rechnung gestellt, aber Du verlierst automatisch den Zugriff auf das Tool. Dein kostenpflichtiges Abonnement beginnt am Ende der 14-tägigen Testphase. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
 
-{% data variables.product.prodname_github_app %}s und {% data variables.product.prodname_oauth_app %}s können verifiziert oder nicht verifiziert sein. Verifizierte Apps erfüllen die spezifischen Anforderungen von {% data variables.product.prodname_dotcom %} und durchlaufen eine Sicherheitsüberprüfung, bevor sie auf {% data variables.product.prodname_marketplace %} veröffentlicht werden. For more information, see "[Requirements for listing an app on GitHub Marketplace](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+### Finding tools on {% data variables.product.prodname_marketplace %}
 
-### {% data variables.product.prodname_actions %} auf {% data variables.product.prodname_marketplace %}
+You can discover, browse, and install apps and actions created by others on {% data variables.product.prodname_marketplace %}, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
 
-Du kannst {% data variables.product.prodname_actions %} entdecken, durchsuchen und installieren, die von Dritten auf {% data variables.product.prodname_marketplace %} erstellt wurden. Weitere Informationen findest Du unter „[Durchsuche {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+{% data reusables.actions.actions-not-verified %}
 
-Jeder kann eine Aktion auf {% data variables.product.prodname_marketplace %} veröffentlichen. Im Gegensatz zu einigen Apps sind {% data variables.product.prodname_actions %}, die auf {% data variables.product.prodname_marketplace %} aufgeführt sind, nie von {% data variables.product.prodname_dotcom %} verifiziert.
+Anyone can list a free {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} on {% data variables.product.prodname_marketplace %}. Publishers of paid apps are verified by {% data variables.product.company_short %} and listings for these apps are shown with a marketplace badge {% octicon "verified" aria-label="Verified creator badge" %}. You will also see badges for unverified and verified apps. These apps were published using the previous method for verifying individual apps. For more information about the current process, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
 
 ### Ein Tool auf {% data variables.product.prodname_marketplace %} erstellen und veröffentlichen
 
-For more information on creating your own tool to list on {% data variables.product.prodname_marketplace %}, see "[Apps](/apps)" and "[{% data variables.product.prodname_actions %}](/actions)."
+For more information on creating your own tool to list on {% data variables.product.prodname_marketplace %}, see "[Apps](/developers/apps)" and "[{% data variables.product.prodname_actions %}](/actions)."
 
 ### Weiterführende Informationen
 
 - „[Apps in {% data variables.product.prodname_marketplace %} kaufen und installieren](/articles/purchasing-and-installing-apps-in-github-marketplace)“
 - „[Abrechnung für Ihre {% data variables.product.prodname_marketplace %}-Apps verwalten](/articles/managing-billing-for-github-marketplace-apps)“
 - „[{% data variables.product.prodname_marketplace %}-Support](/articles/github-marketplace-support)“
+- "[Differences between GitHub Apps and OAuth Apps](/developers/apps/differences-between-github-apps-and-oauth-apps)"

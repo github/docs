@@ -1,1 +1,1 @@
-1. Gib unter „Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} account{% endif %} name" einen Namen für Dein Organisationskonto ein. ![Feld zur Eingabe eines Organisationsnamens](/assets/images/help/organizations/new-org-name.png)
+1. Under "Organization account name", type a name for your organization account. ![Feld zur Eingabe eines Organisationsnamens](/assets/images/help/organizations/new-org-name.png)

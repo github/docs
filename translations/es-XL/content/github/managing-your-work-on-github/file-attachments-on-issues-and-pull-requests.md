@@ -1,6 +1,6 @@
 ---
-title: Adjuntos de archivos en propuestas y solicitudes de extracción
-intro: 'Cuando abres una propuesta o actualizas una solicitud de extracción, puedes usar los adjuntos de propuestas para cargar imágenes de las características propuestas o capturas de pantalla de errores.'
+title: File attachments on issues and pull requests
+intro: 'When you open issue or update a pull request, you can use issue attachments to upload images of proposed features or screenshots of bugs.'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -8,34 +8,33 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-
 {% warning %}
 
-**Advertencia:** Si agregas una imagen a una solicitud de extracción o un comentario sobre una propuesta, cualquier usuario podrá ver la URL de la imagen anonimizada sin autenticación, aun si la solicitud de extracción se encuentra en un repositorio privado{% if currentVersion != "free-pro-team@latest" %} o si el modo privado se encuentra habilitado{% endif %}. Para mantener las imágenes confidenciales en privado, limítalas a una red privada o a un servidor que requiera de autenticación. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información acerca de las URL anonimizadas, consulta "[Acerca de las URL de imágenes anonimizadas](/articles/about-anonymized-image-urls)".{% endif %}
+**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if currentVersion != "free-pro-team@latest" %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
-Para adjuntar un archivo a una propuesta o una conversación de una solicitud de extracción, arrástralo y suéltalo en el cuadro de comentarios. Como alternativa, puedes dar clic en la barra al final del recuadro de comentarios para buscar, seleccionar y agregar un archivo desde tu ordenador.
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
-![Seleccionar adjuntos desde el ordenador](/assets/images/help/pull_requests/select-bar.png)
+![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Sugerencia:** Si estás usando Chrome, también puedes copiar y pegar las imágenes directamente en el cuadro.
+**Tip:** If you're using Chrome, you can also copy-and-paste images directly into the box.
 
 {% endtip %}
 
-El tamaño máximo de los archivos es de 25 MB y el tamaño máximo de las imágenes es de 10 MB.
+The maximum size for files is 25MB and the maximum size for images is 10MB.
 
-Archivos compatibles:
+We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Archivos de registro (*.log*)
-* Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
-* Archivos de texto (*.txt*)
-* PDF (*.pdf*)
+* Log files (*.log*)
+* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
+* Text files (*.txt*)
+* PDFs (*.pdf*)
 * ZIP (*.zip*, *.gz*)
 
-![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)
+![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
@@ -21,7 +23,7 @@ versions:
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### 在 {% data variables.product.product_location_enterprise %} 上启用 PROXY 协议支持
+#### 在 {% data variables.product.product_location %} 上启用 PROXY 协议支持
 
 强烈建议同时为您的设备和负载均衡器启用 PROXY 协议支持。 按照您的供应商提供的说明操作，在负载均衡器上启用 PROXY 协议。 更多信息请参阅 [PROXY 协议文档](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt)。
 
@@ -33,7 +35,7 @@ versions:
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### 在 {% data variables.product.product_location_enterprise %} 上启用 X-Forwarded-For 支持
+#### 在 {% data variables.product.product_location %} 上启用 X-Forwarded-For 支持
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 

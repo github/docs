@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Remover um único arquivo
@@ -35,9 +36,9 @@ versions:
 
 ### Objetos do {% data variables.large_files.product_name_short %} no repositório
 
-Quando você remove os arquivos do {% data variables.large_files.product_name_short %}, os objetos do {% data variables.large_files.product_name_short %} permanecem no armazenamento remoto{% if currentVersion == "free-pro-team@latest" %} e são considerados na cota de armazenamento do {% data variables.large_files.product_name_short %}{% endif %}.
+Depois de remover arquivos de {% data variables.large_files.product_name_short %}, os objetos de {% data variables.large_files.product_name_short %} ainda existem no armazenamento remoto {% if currentVersion == "free-pro-team@latest" %} e continuarão a contar para a sua cota de armazenamento de {% data variables.large_files.product_name_short %}{% endif %}.
 
-Para remover os objetos do {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}exclua e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository)".{% else %}entre em contato com o administrador do {% data variables.product.prodname_enterprise %} para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
+Para remover objetos de {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}, apague e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository)".{% else %}entre em contato com o administrador do {% data variables.product.prodname_enterprise %} para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
 
 {% note %}
 

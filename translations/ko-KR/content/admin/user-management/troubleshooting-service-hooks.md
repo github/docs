@@ -7,6 +7,9 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### Getting information on deliveries

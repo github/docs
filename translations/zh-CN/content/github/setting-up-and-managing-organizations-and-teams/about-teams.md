@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ![组织中的团队列表](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +23,9 @@ versions:
 
 ![团队提及图像](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location_enterprise %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location_enterprise %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
+您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
 {% endif %}
 
@@ -35,7 +39,7 @@ versions:
 
 每个团队都在组织中有自己的页面。 在团队的页面上，您可以查看团队成员、子团队和团队的仓库。 组织所有者和团队维护员可从团队页面访问团队设置以及更新团队的说明和头像。
 
-组织成员可以创建和参与团队讨论。 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+组织成员可以创建和参与团队讨论。 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
 
 ![列出团队成员和讨论的团队页面](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -55,11 +59,7 @@ versions:
 
 在创建团队时您可以选择父团队，或者以后在组织的层次结构中移动团队。 更多信息请参阅“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### 准备在组织中嵌套团队
 

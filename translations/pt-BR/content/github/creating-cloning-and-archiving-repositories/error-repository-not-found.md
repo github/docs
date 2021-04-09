@@ -1,11 +1,14 @@
 ---
 title: 'Erro: repositório não encontrado'
-intro: '{% if currentVersion == "free-pro-team@latest" %}Se você encontrar esse erro ao clonar um repositório, significa que o repositório não existe ou você não tem permissão para acessá-lo. Existem algumas soluções para esse erro, dependendo do motivo.{% else %}Ao encontrar esse erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou a instância do GitHub Enterprise está em modo privado. Existem algumas soluções para esse erro, dependendo do motivo.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe ou que você não tem permissão para acessá-lo.{% else %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou {% data variables.product.product_location %} está em modo privado.{% endif %} Existem algumas soluções para este erro, dependendo da causa.'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### Verifique a ortografia
@@ -14,7 +17,7 @@ Erros de digitação acontecem e os nomes dos repositórios diferenciam maiúscu
 
 Para evitar o erro ao clonar, sempre copie e cole a URL clone da página do repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 
-Para atualizar o remote em um repositório existente, consulte "[Alterar o remote da URL](/articles/changing-a-remote-s-url)".
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Verifique as permissões
 
@@ -42,12 +45,10 @@ Se o repositório pertencer a uma organização e você estiver usando uma chave
 
 Para obter mais informações, consulte [Adicionar uma nova chave SSH à sua conta GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### Verifique se sua instância está em modo privado
 
 Caso o administrador de seu site tenha habilitado o modo privado em sua instância GitHub Enterprise, clones anônimos em `git://` estarão desabilitados. Caso não consiga clonar um repositório, contate o administrador de seu site.
-
 {% endif %}
 
 ### Verifique se o repositório realmente existe

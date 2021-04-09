@@ -1,11 +1,13 @@
 ---
-title: 'Sobre o GitHub Sponsors [Patrocinadores do GitHub] para contribuidores de código aberto'
+title: Sobre o GitHub Sponsors [Patrocinadores do GitHub] para contribuidores de código aberto
 intro: 'Ao fornecer valor a um projeto de código aberto, você pode se tornar um contribuidor patrocinado para receber pagamentos pelo seu trabalho.'
 redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Ingressar no {% data variables.product.prodname_sponsors %}

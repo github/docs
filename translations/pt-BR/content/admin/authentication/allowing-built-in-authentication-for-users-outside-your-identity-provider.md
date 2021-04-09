@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre a autenticação integrada para usuários de fora do provedor de identidade
@@ -46,6 +48,6 @@ Quando aceitar o convite, o usuário poderá fazer login com seu próprio nome d
 
 ### Leia mais
 
-- /enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap
+- /enterprise/{{ page.version }}/admin/guides/user-management/using-ldap
 - [Usar SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)
 - [Usar CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)

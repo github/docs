@@ -1,6 +1,6 @@
 ---
 title: GitHub Desktopのアンインストール方法
-intro: You can uninstall GitHub Desktop from your computer at any time.
+intro: GitHub Desktop はいつでもコンピュータからアンインストールできます。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
 versions:
@@ -9,18 +9,18 @@ versions:
 
 {% mac %}
 
-1. In a Finder window, navigate to the Applications folder. ![Applications folder in the Finder window](/assets/images/help/desktop/applications-folder.png)
-2. While pressing the **Control** button on your keyboard, click **{% data variables.product.prodname_desktop %}**.
-3. **Move to Trash**を選択します。 ![The Move to Trash option](/assets/images/help/desktop/mac-move-to-trash.png)
-4. In the menu bar, use the **Finder** drop-down menu, then click **Empty Trash**. ![The Empty Trash option in the menu bar](/assets/images/help/desktop/mac-empty-trash-menu.png)
-5. ポップアップボックスの警告を読んで、**Empty Trash**をクリックします。 ![The Empty Trash button](/assets/images/help/desktop/mac-empty-trash-button.png)
+1. Finder ウィンドウで Applications フォルダに移動します。 ![Finder ウィンドウのアプリケーションフォルダ](/assets/images/help/desktop/applications-folder.png)
+2. キーボードの **Control** ボタンを押しながら、[**{% data variables.product.prodname_desktop %}**] をクリックします。
+3. **Move to Trash**を選択します。 ![[Move to Trash] オプション](/assets/images/help/desktop/mac-move-to-trash.png)
+4. メニューバーで、[**Finder**] ドロップダウンメニューを使用し、[**Empty Trash**] をクリックします。 ![メニューバーの [Empty Trash] オプション](/assets/images/help/desktop/mac-empty-trash-menu.png)
+5. ポップアップボックスの警告を読んで、**Empty Trash**をクリックします。 ![[Empty Trash] ボタン](/assets/images/help/desktop/mac-empty-trash-button.png)
 
 {% endmac %}
 
 {% windows %}
 
-1. Open Control Panel. For more information, see [Where is Control Panel?](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel) in Windows Help.
-2. Under "Programs", click **Uninstall a program**. ![The Uninstall a Program option in Control Panel](/assets/images/help/desktop/windows-uninstall-a-program.png)
-3. Right-click the entry named **{% data variables.product.prodname_desktop %}**, then click **Uninstall**. ![The Uninstall option](/assets/images/help/desktop/windows-click-uninstall.png)
+1. コントロールパネルを開きます。 詳しい情報については、Windows ヘルプにある「[コントロールパネルの場所](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel)」を参照してください。
+2. [Programs] で [**Uninstall a program**] をクリックします。 ![コントロールパネルの [Uninstall a Program] オプション](/assets/images/help/desktop/windows-uninstall-a-program.png)
+3. [**{% data variables.product.prodname_desktop %}**] という名前の項目を右クリックして、[**Uninstall**] をクリックします。 ![アンインストールオプション](/assets/images/help/desktop/windows-click-uninstall.png)
 
 {% endwindows %}

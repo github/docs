@@ -1,1 +1,1 @@
-1. Visit the [download page for {% data variables.product.prodname_desktop %}](https://desktop.github.com/).
+1. 访问 [{% data variables.product.prodname_desktop %} 的下载页面](https://desktop.github.com/)。

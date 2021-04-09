@@ -1,0 +1,1 @@
+{% data variables.product.prodname_codeql %} também executa uma criação para projetos Go para configurar o projeto. Entretanto, diferente das outras linguagens compiladas, todos os Go no repositório são extraídos, não apenas aqueles construídos. Comandos de compilação personalizados não são compatíveis com o Go.

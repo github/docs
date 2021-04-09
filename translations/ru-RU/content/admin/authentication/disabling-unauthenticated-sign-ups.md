@@ -4,10 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/disabling-sign-ups/
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
-  - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
 intro: 'If you''re using built-in authentication, you can block unauthenticated people from being able to create an account.'
 versions:
   enterprise-server: '*'
+topics:
+  - корпоративный
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

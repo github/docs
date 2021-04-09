@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 タスクリストは、コメント内でクリックできるチェックボックスと共に表示されます。 チェックボックスを選択するか選択を解除して、それらが完了したか、あるいは未完了であることをマークできます。

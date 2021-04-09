@@ -7,12 +7,13 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Pre-Receive-Hooks erstellen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. Klicken Sie auf **Add pre-receive hook** (Pre-Receive-Hook hinzufügen). ![„Add pre-receive hook“ (Pre-Receive-Hook hinzufügen)](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
@@ -25,16 +26,14 @@ versions:
 
 ### Pre-Receive-Hooks bearbeiten
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Klicken Sie neben dem Pre-Receive-Hook, den Sie bearbeiten möchten, auf {% octicon "pencil" aria-label="The edit icon" %}.![Pre-Receive bearbeiten](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### Pre-Receive-Hooks löschen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Klicken Sie neben dem Pre-Receive-Hook, den Sie löschen möchten, auf {% octicon "x" aria-label="X symbol" %}.![Pre-Receive bearbeiten](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
@@ -57,4 +56,4 @@ Ein Repository-Inhaber kann einen Hook nur dann konfigurieren, wenn der Websitea
 2. Klicken Sie auf **Repositories** (Repositorys), und wählen Sie aus, für welches Repository Sie die Pre-Receive-Hooks konfigurieren möchten. ![Repositorys](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
 4. Klicken Sie auf der linken Seitenleiste auf **Hooks & Services** (Hooks und Dienste). ![„Hooks & services“ (Hooks und Dienste)](/assets/images/enterprise/repos/hooks-services.png)
-5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll. ![Hook-Berechtigungen für das Repository](/assets/images/enterprise/repos/repo-hook-permissions.png)
+5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll. ![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)

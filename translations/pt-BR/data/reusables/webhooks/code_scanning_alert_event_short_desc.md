@@ -1,1 +1,1 @@
-Activity related to code scanning alerts in a repository. The type of activity is specified in the action property of the payload object. For more information, see “[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).”
+Atividade relacionada a alertas de varredura de código em um repositório. O tipo de atividade é especificado na propriedade ação do objeto da carga. Para obter mais informações, consulte “[Sobre a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).”

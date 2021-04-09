@@ -1,16 +1,16 @@
 ---
-title: Ver el tráfico de un repositorio
-intro: 'Cualquier persona con acceso de escritura a un repositorio puede ver su tráfico, incluidos los clones completos (no recuperaciones), los visitantes de los últimos 14 días, sitios de referencia y contenido popular en el gráfico de tráfico.'
-product: 'Esta gráfica de perspectivas del repositorio se encuentra disponible en los repositorios públicos con {% data variables.product.prodname_free_user %} y {% data variables.product.prodname_free_team %} para organizaciones, y en los repositorios privados y públicos con {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, y {% data variables.product.prodname_ghe_cloud %}.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta las secciones "[Acerca de las gráficas de los repositorios](/articles/about-repository-graphs)" y "[productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)."{% endif %}'
+title: Viewing traffic to a repository
+intro: 'Anyone with push access to a repository can view its traffic, including full clones (not fetches), visitors from the past 14 days, referring sites, and popular content in the traffic graph.'
+product: 'This repository insights graph is available in public repositories with {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_free_team %} for organizations, and in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[About repository graphs](/articles/about-repository-graphs)" and "[{% data variables.product.prodname_dotcom %}''s products](/articles/github-s-products)."{% endif %}'
 redirect_from:
   - /articles/viewing-traffic-to-a-repository
 versions:
   free-pro-team: '*'
 ---
 
-Puedes desplazarte a los sitios de referencia, excluidos los motores de búsqueda y {% data variables.product.product_name %} propiamente dicho, desde los vínculos donde se hizo la referencia a las rutas específicas. El contenido popular vincula al contenido específico que generó tráfico.
+You can navigate to referring sites, excluding search engines and {% data variables.product.product_name %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.
 
-Los sitios de referencia y el contenido popular se ordenan por vistas y visitantes únicos. Los clones completos y la información del visitante se actualizan cada hora, mientras que las secciones de los sitios de referencia y del contenido popular se actualizan diariamente. Todos los datos en el gráfico de tráfico utiliza la zona horaria UTC+0, sin importar tu ubicación.
+Referring sites and popular content are ordered by views and unique visitors. Full clones and visitor information update hourly, while referring sites and popular content sections update daily. All data in the traffic graph uses the UTC+0 timezone, regardless of your location.
 
 {% tip %}
 
@@ -18,10 +18,11 @@ Los sitios de referencia y el contenido popular se ordenan por vistas y visitant
 
 {% endtip %}
 
-![Gráficos de tráfico del repositorio con una información de herramienta](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
+![Repository traffic graphs with tooltip](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
 
-### Acceder al gráfico de tráfico
+### Accessing the traffic graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Traffic**. ![Pestaña de tráfico](/assets/images/help/graphs/traffic_tab.png)
+3. In the left sidebar, click **Traffic**.
+![Traffic tab](/assets/images/help/graphs/traffic_tab.png)

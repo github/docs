@@ -6,17 +6,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - comunidade
 ---
 
 Para direcionar pessoas a recursos de suporte específicos, é possível adicionar um arquivo SUPPORT à pasta raiz, `docs` ou `.github` do seu repositório. Quando uma pessoa cria um problema no seu repositório, ela vê um link para o arquivo SUPPORT do projeto.
 
 ![Diretrizes de suporte](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-Você pode criar recursos de suporte padrão para sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+Você pode criar recursos padrão de suporte para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 
-**Dica:** para ajudar as pessoas a encontrar diretrizes de suporte, você pode criar vínculo para o arquivo SUPPORT a partir de outros lugares no seu repositório, como o [arquivo LEIAME](/articles/about-readmes/).
+**Dica:** para ajudar as pessoas a encontrar diretrizes de suporte, você pode criar vínculo para o arquivo SUPPORT a partir de outros lugares no seu repositório, como o [arquivo README](/articles/about-readmes/).
 
 {% endtip %}
 

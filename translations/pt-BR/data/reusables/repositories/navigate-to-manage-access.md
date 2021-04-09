@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Manage access**. !["Manage access" tab](/assets/images/help/repository/manage-access-tab.png)
+1. Na barra lateral esquerda, clique em **Gerenciar acesso**. ![aba de "Gerenciar acesso"](/assets/images/help/repository/manage-access-tab.png)

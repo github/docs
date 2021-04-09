@@ -5,6 +5,8 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
 versions:
   free-pro-team: '*'
+topics:
+  - 仓库
 ---
 
 任何人都可以恢复其用户帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。
@@ -17,7 +19,7 @@ versions:
 
 仓库被删除后，可能需要一个小时才能恢复。
 
-恢复仓库不会恢复发行版附件或团队权限。 Issues that are restored will not be labeled.
+恢复仓库不会恢复发行版附件或团队权限。 已恢复的议题不会被标记。
 
 ### 恢复用户帐户所拥有的已删除仓库
 

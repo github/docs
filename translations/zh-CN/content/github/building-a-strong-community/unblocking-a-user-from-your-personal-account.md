@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - 社区
 ---
 
 取消阻止用户后，他们将能够邀请您成为其仓库的协作者。 如果他们在 GitHub 中的任意位置[@提及您](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)，您将收到通知。
@@ -22,7 +24,7 @@ versions:
 ### 从用户的个人资料页面取消阻止该用户
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. 在左侧边栏中用户的个人资料图片下，单击 **Unblock or report user（取消阻止或举报用户）**。 ![取消阻止或举报用户链接](/assets/images/help/profile/profile-unblock-or-report-user.png)
+2. 在左侧边栏中，在用户的个人资料图片下，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击  **Unblock or report user（取消阻止或报告用户）**。 ![取消阻止或举报用户链接](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. 单击 **Unblock user（取消阻止用户）**。 ![包含取消阻止用户或举报滥用选项的模态框](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

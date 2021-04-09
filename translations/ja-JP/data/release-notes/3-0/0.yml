@@ -1,0 +1,163 @@
+---
+date: '2021-02-16'
+intro: '{% data variables.product.prodname_ghe_server %} 3.0以降では最小のインフラストラクチャの要件が増加されました。詳しい情報については「[GitHub Enterprise Server 3.0以降に対する最小要件について](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。'
+sections:
+  security_fixes:
+    - '**高:** {% data variables.product.prodname_pages %}のサイトをビルドする際に利用される可能性があるリモートコード実行の脆弱性が、{% data variables.product.prodname_ghe_server %}で特定されました。{% data variables.product.prodname_pages %}が使用する下位層のパーサーのユーザが制御する設定が十分に厳密ではなく、{% data variables.product.prodname_ghe_server %}インスタンス上でコマンドを実行することができてしまいます。この脆弱性を利用するには、攻撃者は{% data variables.product.prodname_ghe_server %}インスタンス上で{% data variables.product.prodname_pages %}のサイトを作成してビルドする権限を持っていなければなりません。この脆弱性にはCVE-2020-10519が割り当てられ、[GitHub Bug Bounty Program](https://bounty.github.com)を通じて報告されました。'
+  features:
+    - 
+      heading: GitHub Actions
+      notes:
+        - |
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions)は{% data variables.product.prodname_ghe_server %} 3.0以降で一般に利用可能になりました。{% data variables.product.prodname_dotcom %}からコードをビルド、テスト、デプロイしてください。コードレビューのサブミット、ブランチ管理、Issueのトリアージ作業を好きな方法で行ってください。
+
+          このリリースには、{% data variables.product.prodname_ghe_server %}上の{% data variables.product.prodname_actions %}のベータからのいくつかの改善が含まれています。
+
+          - Enterprise、Organization、リポジトリの管理者は、{% data variables.product.prodname_dotcom_the_website %}上の{% data variables.product.prodname_actions %}へのアクセスに対するセキュリティポリシーを作成できます。
+          - Enterprise、Organization、リポジトリの管理者は、パブリックリポジトリで瀬フルホストランナーの利用を許可できます。
+          - Enterprise、Organization、リポジトリの管理者はワークフローを[プライベートリポジトリのフォークから上がってきたPull Requestに対して実行](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)することを許可できるようになりました。
+          - `workflow_run`イベントが「サポートされました](/enterprise-server@3.0/actions/reference/events-that-trigger-workflows#workflow_run)。
+          - ユーザは[ワークフローを無効化し、後日有効化](/enterprise-server@3.0/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)できるようになりました。
+          - ワークフローのログが[ユーザ体験を改善する](/enterprise-server@3.0/actions/managing-workflow-runs/using-workflow-run-logs)ために拡張されました。
+          - ユーザは、コンテナジョブとサービスでプライベートのイメージを使えるようになりました。
+          - [成果物とログの最大の保持日数がカスタマイズできるようになりました](/enterprise-server@3.0/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)。
+          - ランナーグループAPIに[labels]が含まれるようになりました(/enterprise-server@3.0/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)。
+          - 実行ステップを組み合わせてシェルスクリプトを使い、再利用可能なアクションを作成できるようになりました。
+          - [Organizationのための暗号化されたシークレット](/enterprise-server@3.0/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)によって、リポジトリ間にわたるシークレットをまとめられるようになりました。
+          - [Organizationのためのワークフローテンプレート](/enterprise-server@3.0/actions/learn-github-actions/sharing-workflows-with-your-organization)によって、Organizationに渡るベストプラクティスと一貫性がスムーズになり、推進されます。
+
+          現時点で、クラスタ設定を使用するEnterpriseでは{% data variables.product.prodname_actions %}はサポートされません。
+    - 
+      heading: GitHub Packages
+      notes:
+        - |
+          {% data variables.product.prodname_registry %}(https://github.com/features/packages)はパッケージホスティングサービスで、GitHub API、Actions、webhookとネイティブに統合されています。コード、継続的インテグレーション、デプロイメントのソリューションを含む[エンドツーエンドのDevOpsワークフロー](/enterprise/3.0/admin/packages/configuring-packages-support-for-your-enterprise)を作成してください。
+
+          サポートされるストレージのバックエンドにはAWS S3とMinIOが含まれ、将来のリリースでAzure blobもやってきます。現在のDockerサポートは、次のリリースの新しいGitHub Container Registryのベータで置き換えられることに注意してください。{% data variables.product.prodname_registry %}を有効にする前に、[プラットフォームの最小要件の更新](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューしてください。
+
+          パッケージをNuGetに公開する際に、ユーザは認証トークンをファイルに書く代わりに`--api-key`オプションを使って渡せるようになりました。詳しい情報については[GitHub Packagesで使うためのdotnet CLIの設定](/enterprise-server@3.0/packages/guides/configuring-dotnet-cli-for-use-with-github-packages#publishing-a-package)を参照してください。
+
+          現時点で、クラスタ構成を使用するEnterpriseでは{% data variables.product.prodname_registry %}はサポートされていません。
+    - 
+      heading: GitHub Mobileベータ
+      notes:
+        - |
+          [{% data variables.product.prodname_mobile %}](https://github.com/features/)ベータを利用すれば、自分のデバイスから通知をトリアージし、IssueやPull Requestを管理できるようになります。モバイルには、{% data variables.product.prodname_dotcom_the_website %}上の1つのユーザアカウントと、{% data variables.product.prodname_ghe_server %}上の1つのユーザアカウントで同時にサインインできます。
+
+          {% data variables.product.prodname_mobile %}ベータは、{% data variables.product.prodname_ghe_server %}で利用できるようになりました。[Android](https://play.google.com/store/apps/details?id=com.github.android)と[iOS](https://apps.apple.com/app/github/id1477376905)のアプリケーションでサインインして、外出先で通知をトリアージし、IssueとPull Requestを管理してください。管理者は管理コンソールを使って、あるいは`ghe-config app.mobile.enabled false`を実行して、Enterpriseのモバイルサポートを無効化できます。
+    - 
+      heading: Advanced Security Secret Scanningベータ
+      notes:
+        - |
+          [Secret Scanningベータ](https://github.com/features/security)は、コミットされた認証情報をパブリック及びプライベートのリポジトリでスキャンし、シークレットを見つけ、それらがリポジトリにコミットされたときにシークレットの提供者あるいは管理者に通知します。
+
+          {% data variables.product.prodname_GH_advanced_security %}を利用する管理者は、{% data variables.product.prodname_GH_advanced_security %} Secret Scanningを[有効化し、設定](/enterprise-server@3.0/admin/configuration/configuring-secret-scanning-for-your-appliance)できます。{% data variables.product.prodname_GH_advanced_security %} Secret Scanningを有効化する前に、[プラットフォームの最小要件の更新](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューできます。
+    - 
+      heading: Advanced Security Code Scanning
+      notes:
+        - |
+          [GitHub Advanced Security code scanning](https://github.com/features/security)は、GitHub Enterprise Serverで一般に利用可能になりました。Advanced Securityを購入したOrganizationは、この機能を使って静的解析のセキュリティテストをコードに対して行い、私たちのセマンティック解析エンジンであるCodeQLを使って脆弱性がプロダクションコードにまで及ぶことを回避できます。詳しい情報については「[アプライアンス上でのcode scanningの設定](/en/enterprise-server@3.0/admin/configuration/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)」を参照してください。
+  changes:
+    - 
+      heading: 管理に関する変更
+      notes:
+        - webhookイベントの配信システムは、スループットの向上、配信の高速化、遅延メッセージの減少のために再設計されました。{% data variables.product.prodname_ghe_server %} 3.0以降では、CPUとメモリの使用量も減少しています。
+        - OrganizationとEnterpriseのオーナーは、TeamのメンバーがTeamのメンテナに昇格したり、メンテナから降格されたときに、新しい`team.promote_maintainer`及び`team.demote_maintainer`監査ログイベントを通じて監査ログで知ることができるようになりました。詳しい情報については「[監査対象のアクション](/enterprise-server@3.0/admin/user-management/audited-actions)」を参照してください。
+        - '既存の{% data variables.product.prodname_pages %}サイトを持つリポジトリ管理者は、[以前のデフォルトブランチ名を容易に更新](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)できるようになりました。'
+        - Actions、Packages、Advanced Securityのいずれかを有効にして{% data variables.product.prodname_ghe_server %}を動作させるには、追加のハードウェアリソースが必要になります。サポートされている各プラットフォームでの最小の必要リソースに関する詳しい情報については、「[{% data variables.product.prodname_ghe_server %}インスタンスのセットアップ](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+        - 管理者は、すべてのユーザが受諾しなければならない[メッセージを公開](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise)できるようになりました。これは、新しいユーザの参加と、Organization固有の情報やポリシーを示すための役に立ちます。
+    - 
+      heading: セキュリティの変更
+      notes:
+        - Organizationのオーナーは、Organization内のリポジトリからの{% data variables.product.prodname_pages %}サイトの公開を無効化できるようになりました。Organizationの{% data variables.product.prodname_pages %}を無効化すると、メンバーは新しいPagesのサイトを作成できなくなりますが、既存のサイトの公開は取り消されません。詳しい情報については「[Organizationでの{% data variables.product.prodname_pages %}サイトの公開の無効化](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)」を参照してください。
+        - アクティブなレプリカを有効化する前に、すべてのノードでデータセンターは明示的に定義されていなければなりません。
+        - SSHフィンガープリントのすべての利用は、バージョン6.8以降のOpenSSHで使われているのと同様に、SHA256を使うように切り替えられました。これは、Webのインターフェースに適用されると共に、GraphQLのようにフィンガープリントを返すAPIにも適用されます。フィンガープリントは、OpenSSHのフォーマットに従います。
+        - SHA-1及びSHA-256の署名ヘッダ（2つのヘッダ）は、webhook上で送信されます。
+    - 
+      heading: 開発者の変更
+      notes:
+        - '{% data variables.product.prodname_ghe_server %} 3.0以降で動作しているサービスの大部分はコンテナ上に置かれるようになり、内部的にGitHubが反復を早め、高品質なリリースを行えるようにしています。'
+        - webhookイベントの配信システムは、高いスループット、高速な配信、遅延するメッセージの減少のために、再設計されました。
+    - 
+      heading: API の変更
+      notes:
+        - '管理者は、REST APIを通じてサイト全体のアナウンスのバナーを設定し、管理できるようになりました。詳しい情報については「[GitHub Enterpriseの管理](/enterprise-server@3.0/rest/reference/enterprise-admin#annoucements)」のエンドポイントを参照してください。'
+        - '新しいAPIエンドポイントを使用して、ユーザからサーバーへのトークンを、特定のリポジトリをスコープとするユーザからサーバーへのトークンと交換できるようになりました。詳しい情報については{% data variables.product.prodname_dotcom %} REST APIドキュメンテーション中の「[Apps](/enterprise-server@3.0/rest/reference/apps#create-a-scoped-access-token)」を参照してください。'
+    - 
+      heading: デフォルトブランチの名称変更
+      notes:
+        - |
+          Enterprise及びOrganizationの管理者は、新しいリポジトリのためのデフォルトブランチ名を設定できるようになりました。Enterprise管理者は、デフォルトブランチ名についての自分の選択をOrganization群全体に強制することも、個々のOrganizationが独自の選択をできるようにすることもできます。
+
+          既存のリポジトリはこれらの設定に影響されず、デフォルトブランチ名は変更されません。
+
+          {% note %}
+
+          Enterpriseレベルでデフォルトブランチの設定をしてオプトアウトしないかぎり、GHES 3.1では新しく作成されるリポジトリのデフォルトブランチは`main`に設定されます。
+
+          {% endnote %}
+
+          この変更は、デフォルトブランチの名前を変更したいプロジェクトやメンテナをサポートするためにGitHubが行っている多くの変更の中の1つです。行われている変更について詳しく学ぶには、[github/名称変更](https://github.com/github/renaming)を参照してください。
+  bugs:
+    - 
+      heading: リリース候補からの既知の問題の修正
+      notes:
+        - リリース候補1及びリリース候補2のすべての既知の問題は、以下の既知の問題のセクションにリストされているもの以外、すべて修正されました。
+    - 
+      heading: 他の問題の修正
+      notes:
+        - 3.0.0への移行とアップグレードの問題が修正されました。
+        - Backup Utilitiesのバージョン管理が、リリース候補のバージョンでも動作するようになりました。
+        - Support Bundleを生成すると、orchestratorのログにエラーが残りました。
+        - 大規模なリストアを行うと、Redisがメモリ不足になることがありました。
+        - 管理コンソールのGitHub Actionsを有効化するチェックボックスは、どの認証方式でも表示されるようになりました。
+        - GitHub Actionsは、必要なストレージも設定されている場合にのみ有効化できます。
+        - 'MSSQLのレプリケーションが設定されていないと、`ghe-repl-status`は何も出力せずに失敗することがあります。'
+        - 様々な種類のログに対するPIDの追加を含め、いくつかのログファイルのフォーマットが変更されました。これは、GitHub Enterprise Supportが問題のトラブルシューティングのためにサポートバンドルを利用する方法には影響しません。
+        - webhookの 設定APIに対するPATCHリクエストは、webhookのシークレットを消去しなくなりました。
+        - 特定の種類のpre-receiveフックが失敗しました。
+        - 'Pachages NuGetサービスは、公開時にセマンティックバージョンを正規化するようになりました。無効なセマンティックバージョン（たとえばv1.0.0.0.0.0）はNuGetクライアントでダウンロードできず、NuGetサービスがそれらのバージョンを正規化することが期待されます（たとえばv1.0.0.0.0.0 --> v1.0.0）。オリジナルの正規化されていないバージョンは、`verbatimVersion`フィールドにあります。クライアントの設定を変更する必要はありません。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.blog/2016-02-18-upload-files-to-your-repositories/)が、不正にリポジトリに直接追加されてしまいます。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - メンテナンスモードが有効化されているとき、サービスの中に引き続き"active processes"としてリストされるものがあります。特定されたサービスは、メンテナンスモード中にも実行されることが期待されるものです。この問題が生じており、不確実な場合は{% data variables.contact.contact_ent_support %}にお問い合わせください。
+    - GitHub Actionsが有効になっている場合、メンテナンスモードを解除するには '`ghe-maintenance -u`'を使ってください。
+    - '`/var/log/messages`、`/var/log/syslog`、`/var/log/user.log`への重複したロギングによって、ルートボリュームの使用率が増大します。'
+    - ユーザが、すべてのチェックボックスをチェックすることなく必須のメッセージを閉じることができます。
+    - '[pre-receiveフックスクリプト](/admin/policies/enforcing-policy-with-pre-receive-hooks)は一時ファイルを書くことができず、そのためにスクリプトの実行が失敗することがあります。pre-receiveフックを使うユーザは、ステージング環境でスクリプトが書き込みアクセス権を必要とするかを確認するためのテストをするべきです。'
+    - リポジトリの[デプロイキー](/developers/overview/managing-deploy-keys)が、LFSオブジェクトを含むリポジトリで使用できません。
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。
+    - 依存関係グラフがPythonの`setup.py`マニフェストファイルのパースに失敗し、HTTP 500エラーがログに残されます。これが重複されるロギングの問題と組み合わさると、ルートボリュームの使用率が増大します。
+    - レース条件によって依存関係グラフデータベースの移行が失敗したように見えることがあります。
+    - 以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。
+    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+  deprecations:
+    - 
+      heading: GitHub Enterprise Server 2.19の非推奨化
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.19は、2020 年11月12日に非推奨となりました**。これは、この日以降は重大なセキュリティの問題に対してであってもパッチリリースが行われなくなるということです。より優れたパフォーマンス、改善されたセキュリティ、新しい機能のために、[{% data variables.product.prodname_ghe_server %}の最新バージョンへのアップグレード](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/)をできるだけ早く行ってください。'
+    - 
+      heading: 旧来のGitHub App webhookイベントの非推奨化
+      notes:
+        - '{% data variables.product.prodname_ghe_server %} 2.21.0から、2つの旧来のGitHub Appsに関連するwebhookイベントが非推奨となり、{% data variables.product.prodname_ghe_server %} 3.2.0で削除されます。非推奨となったイベントの`integration_installation`と`integration_installation_repositories`には、サポートされることになる同等のイベントがあります。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)にあります。'
+    - 
+      heading: 旧来のGitHub Appsのエンドポイントの非推奨化
+      notes:
+        - '{% data variables.product.prodname_ghe_server %} 2.21.0から、インストールアクセストークンを作成するための旧来のGitHub Appsのエンドポイントが非推奨となり、{% data variables.product.prodname_ghe_server %} 3.2.0で削除されます。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)にあります。'
+    - 
+      heading: OAuth Application APIの非推奨化
+      notes:
+        - GitHubは、パスパラメータとして`access_token`を含むOAuthのアプリケーションエンドポイントをサポートしなくなりました。`access_token`をリクエストのボディに移すことにより、OAuth Appsのためのトークンをセキュアに管理できるようにする、新しいエンドポイントが導入されます。非推奨にはなりましたが、これらのエンドポイントはこのバージョンではまだ利用可能です。これらのエンドポイントは、{% data variables.product.prodname_ghe_server %} 3.4で削除しようとしています。詳細については[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)を参照してください。
+    - 
+      heading: Semioticのサポートの非推奨化
+      notes:
+        - サービスは、広く使われていなかったPull Requestのビューの"Find by Symbol"体験をサポートしました。
+    - 
+      heading: ワークフローコマンドの非推奨化
+      notes:
+        - '{% data variables.product.prodname_actions %}の`set-env`及び`add-path`ワークフローコマンドは非推奨になりました。詳しい情報については[changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)を参照してください。'
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.0は、[バックアップとディザスタリカバリ](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance)のために、最低でも[GitHub Enterprise Backup Utilities 3.0.0](https://github.com/github/backup-utils)を必要とします。'

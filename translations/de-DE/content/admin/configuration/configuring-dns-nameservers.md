@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
-Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variables.product.product_location_enterprise %} auflösen.
+Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variables.product.product_location %} auflösen.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -28,7 +30,7 @@ Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variabl
   ```
 3. Fügen Sie die `nameserver`-Einträge an, und speichern Sie die Datei anschließend.
 4. Speichern Sie nach dem Verifizieren Ihrer Änderungen die Datei.
-5. Geben Sie Folgendes ein, um {% data variables.product.product_location_enterprise %} Ihre neuen Nameservereinträge hinzuzufügen:
+5. Geben Sie Folgendes ein, um {% data variables.product.product_location %} Ihre neuen Nameservereinträge hinzuzufügen:
   ```shell
   $ sudo service resolvconf restart
   ```

@@ -1,6 +1,6 @@
 ---
-title: Tastenkürzel
-intro: 'Auf nahezu allen Seiten auf {% data variables.product.product_name %} gibt es Tastenkürzel, um Aktionen schneller durchführen zu können.'
+title: Keyboard shortcuts
+intro: 'Nearly every page on {% data variables.product.product_name %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -9,184 +9,190 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-### Informationen zu Tastenkürzeln
+### About keyboard shortcuts
 
-Wird <kbd>?</kbd> in {% data variables.product.product_name %} eingegeben, öffnet sich ein Dialogfeld, das die für die jeweilige Seite verfügbaren Tastenkürzel auflistet. Mit diesen Tastenkürzeln kannst Du Aktionen auf der gesamten Website durchführen, ohne Deine Maus zur Navigation verwenden zu müssen.
+Typing <kbd>?</kbd> in {% data variables.product.product_name %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
-Im Folgenden findest Du eine Liste mit einigen der verfügbaren Tastenkürzel.
+Below is a list of some of the available keyboard shortcuts.
 
-### Seitenweite Tastenkürzel
+### Site wide shortcuts
 
-| Tastenkürzel                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> oder <kbd>/</kbd> | Hiermit fokussierst Du die Suchleiste. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“                                                                                                                                                                                |
-| <kbd>g</kbd> <kbd>n</kbd>      | Gehe zu Deinen Benachrichtigungen. Weitere Informationen findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
-| <kbd>esc</kbd>                 | Wenn auf eine Benutzer-, Issue- oder Pull-Request-Hovercard (Informationskarte) konzentriert, schließt das Kürzel die Hovercard und konzentriert sich erneut auf das Element, in dem sich die Hovercard befindet                                                                                                                                                                   |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+|<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
-### Repositorys
+### Repositories
 
-| Tastenkürzel              | Beschreibung                                                                                                                                                               |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>g</kbd> <kbd>c</kbd> | Hiermit wechselst Du zur Registerkarte **Code**                                                                                                                            |
-| <kbd>g</kbd> <kbd>i</kbd> | Hiermit wechselst Du zur Registerkarte **Issues**. Weitere Informationen findest Du unter „[Informationen zu Issues](/articles/about-issues).“                             |
-| <kbd>g</kbd> <kbd>p</kbd> | Hiermit wechselst Du zur Registerkarte **Pull Requests**. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests).“        |
-| <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."                                 |
-| <kbd>g</kbd> <kbd>b</kbd> | Hiermit wechselst Du zur Registerkarte **Projects** (Projekte). Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“ |
-| <kbd>g</kbd> <kbd>w</kbd> | Hiermit wechselst Du zur Registerkarte **Wiki**. Weitere Informationen findest Du unter „[Informationen zu Wikis](/articles/about-wikis).“                                 |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
+|<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+|<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
+|<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
+|<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/articles/about-wikis)."
 
-### Quellcodebearbeitung
+### Source code editing
 
-| Tastenkürzel                                                                                | Beschreibung                                                                                                        |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <kbd>e</kbd>                                                                                | Öffne Quellcode-Datei in der Registerkarte **Edit file** (Datei anpassen)                                           |
-| <kbd>Steuertaste + f</kbd> oder <kbd>Befehlstaste + f</kbd>                                 | Suchen im Datei-Editor                                                                                              |
-| <kbd>Steuertaste + g</kbd> oder <kbd>Befehlstaste + g</kbd>                                 | Suchen nach dem nächsten Eintrag                                                                                    |
-| <kbd>Umschalttaste + Steuertaste+g</kbd> oder <kbd>Umschalttaste + Befehlstaste+g</kbd>     | Suchen nach dem vorherigen Eintrag                                                                                  |
-| <kbd>Umschalttaste + Steuertaste+f</kbd> oder <kbd>Befehlstaste + f</kbd>                   | Ersetze den Eintrag                                                                                                 |
-| <kbd>Umschalttaste + Steuertaste + r</kbd> oder <kbd>Umschalttaste + Befehlstaste + f</kbd> | Ersetze alle Einträge                                                                                               |
-| <kbd>Alt+g</kbd>                                                                            | Springe zur entsprechenden Zeile                                                                                    |
-| <kbd>Steuertaste + z</kbd> oder <kbd>Befehlstaste + z</kbd>                                 | Mache die Aktion rückgängig                                                                                         |
-| <kbd>Steuertaste + y</kbd> oder <kbd>Befehlstaste + y</kbd>                                 | Wiederhole Sie die Aktion                                                                                           |
-| <kbd>Befehlstaste + Umschalttaste + p</kbd>                                                 | Umschalten zwischen den Registerkarten **Edit file** (Datei bearbeiten) und **Preview changes** (Änderungsvorschau) |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>e</kbd> | Open source code file in the **Edit file** tab
+|<kbd>control f</kbd> or <kbd>command f</kbd> | Start searching in file editor
+|<kbd>control g</kbd> or <kbd>command g</kbd> | Find next
+|<kbd>shift control g</kbd> or <kbd>shift command g</kbd> | Find previous
+|<kbd>shift control f</kbd> or <kbd>command option f</kbd> | Replace
+|<kbd>shift control r</kbd> or <kbd>shift command option f</kbd> | Replace all
+|<kbd>alt g</kbd> | Jump to line
+|<kbd>control z</kbd> or <kbd>command z</kbd> | Undo
+|<kbd>control y</kbd> or <kbd>command y</kbd> | Redo
+|<kbd>cmd + shift + p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
 
-Weitere Tastenkürzel findest Du in der [CodeMirror-Dokumentation](https://codemirror.net/doc/manual.html#commands).
+For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
-### Quellcodedurchsuchung
+### Source code browsing
 
-| Tastenkürzel | Beschreibung                                                                                                                                                                             |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>t</kbd> | Hiermit wird die Dateisuche aktiviert                                                                                                                                                    |
-| <kbd>l</kbd> | Springe zu einer Zeile in Deinem Code                                                                                                                                                    |
-| <kbd>w</kbd> | Wechsle zu einem neuen Branch oder Tag                                                                                                                                                   |
-| <kbd>y</kbd> | Erweitere eine URL auf ihre kanonische Form. Weitere Informationen findest Du unter „[Permalinks zu Dateien abrufen](/articles/getting-permanent-links-to-files)“                        |
-| <kbd>i</kbd> | Zeige Kommentare zu Diffs an oder blende sie aus. Weitere Informationen findest Du unter „[Kommentare zum Diff eines Pull Requests](/articles/commenting-on-the-diff-of-a-pull-request)“ |
-| <kbd>b</kbd> | Öffne die Blame-Ansicht. Weitere Informationen findest Du unter „[Änderungen in einer Datei verfolgen](/articles/tracing-changes-in-a-file)“                                             |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>t</kbd> | Activates the file finder
+|<kbd>l</kbd> | Jump to a line in your code
+|<kbd>w</kbd> | Switch to a new branch or tag
+|<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
+|<kbd>i</kbd> | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)."
+|<kbd>b</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
 
-### Kommentare
+### Comments
 
-| Tastenkürzel                                                                                    | Beschreibung                                                                                                                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Steuertaste + b</kbd> oder <kbd>Befehlstaste + b</kbd>                                     | Hiermit wird die Markdown-Formatierung für den Fettdruck von Text eingefügt.                                                                                                                                                                                                           |
-| <kbd>Steuertaste + i</kbd> oder <kbd>Befehlstaste + i</kbd>                                     | Hiermit wird die Markdown-Formatierung für die Kursivsetzung von Text eingefügt.                                                                                                                                                                                                       |
-| <kbd>Steuertaste + k</kbd> oder <kbd>Befehlstaste + k</kbd>                                     | Hiermit wird die Markdown-Formatierung zum Erstellen eines Links eingefügt.                                                                                                                                                                                                            |
-| <kbd>Steuertaste + Umschalttaste + p</kbd> oder <kbd>Befehlstaste + Umschalttaste + p</kbd>     | Hiermit wird zwischen den Kommentar-Registerkarten **Write** (Schreiben) und **Preview** (Vorschau) umgeschaltet                                                                                                                                                                       |
-| <kbd>Steuertaste + Eingabetaste</kbd>                                                           | Hiermit wird ein Kommentar abgesendet.                                                                                                                                                                                                                                                 |
-| <kbd>Steuertaste + .</kbd> und dann <kbd>Steuertaste + [Nummer der gespeicherten Antwort]</kbd> | Hiermit wird das Menü für gespeicherte Antworten geöffnet und im Kommentarfeld automatisch eine gespeicherte Antwort eingetragen. Weitere Informationen finden Sie unter „[Informationen zu gespeicherten Antworten](/articles/about-saved-replies)“.{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>Steuertaste + g</kbd> oder <kbd>Befehlstaste + g</kbd>                                     | Hiermit wird ein Vorschlag eingefügt. Weitere Informationen findest Du unter „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“ |{% endif %}
-| <kbd>r</kbd>                                                                                    | Hiermit wird der ausgewählte Text in Deiner Antwort zitiert. Weitere Informationen findest Du unter „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax#quoting-text).“                                                                     |
+| Keyboard shortcut | Description
+|-----------|------------
+| <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
+| <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
+| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
+| <kbd>control shift p</kbd> or <kbd>command shift p</kbd>| Toggles between the **Write** and **Preview** comment tabs
+| <kbd>control enter</kbd> | Submits a comment
+| <kbd>control .</kbd> and then <kbd>control [saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
+|<kbd>control g</kbd> or <kbd>command g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+| <kbd>r</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
-### Issue- und Pull-Request-Listen
+### Issue and pull request lists
 
-| Tastenkürzel                                                | Beschreibung                                                                                                                                                                                                                                                             |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>c</kbd>                                                | Hiermit wird ein Issue erstellt.                                                                                                                                                                                                                                         |
-| <kbd>Steuertaste + /</kbd> oder <kbd>Befehlstaste + /</kbd> | Hiermit wird der Fokus Deines Cursors auf die Suchleiste mit den Issues oder mit den Pull Requests gelegt. Weitere Informationen findest Du unter „[Issues und Pull Requests mit der Suchfunktion filtern](/articles/using-search-to-filter-issues-and-pull-requests).“| |
-| <kbd>u</kbd>                                                | Hiermit wird nach Autor gefiltert.                                                                                                                                                                                                                                       |
-| <kbd>l</kbd>                                                | Hiermit wird nach Kennzeichnungen gefiltert oder werden diese bearbeitet. Weitere Informationen findest Du unter „[Issues und Pull Requests nach Kennzeichnungen filtern](/articles/filtering-issues-and-pull-requests-by-labels).“                                      |
-| <kbd>Alt</kbd> und klicken                                  | Hiermit werden Kennzeichnungen beim Filtern nach Kennzeichnungen ausgeschlossen. Weitere Informationen findest Du unter „[Issues und Pull Requests nach Kennzeichnungen filtern](/articles/filtering-issues-and-pull-requests-by-labels).“                               |
-| <kbd>m</kbd>                                                | Hiermit wird nach Meilensteinen gefiltert oder werden diese bearbeitet. Weitere Informationen findest Du unter „[Issues und Pull Requests nach Meilensteinen filtern](/articles/filtering-issues-and-pull-requests-by-milestone).“                                       |
-| <kbd>a</kbd>                                                | Hiermit wird nach Bearbeitern gefiltert oder werden diese bearbeitet. Weitere Informationen findest Du unter „[Issues und Pull Requests nach Bearbeitern filtern](/articles/filtering-issues-and-pull-requests-by-assignees).“                                           |
-| <kbd>o</kbd> oder <kbd>Eingabetaste</kbd>                   | Hiermit wird ein Issue geöffnet.                                                                                                                                                                                                                                         |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>c</kbd> | Create an issue
+| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)."||
+|<kbd>u</kbd> | Filter by author
+|<kbd>l</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
+| <kbd>alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
+|<kbd>m</kbd> | Filter by or edit milestones. For more information, see "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)."
+|<kbd>a</kbd> | Filter by or edit assignee. For more information, see "[Filtering issues and pull requests by assignees](/articles/filtering-issues-and-pull-requests-by-assignees)."
+|<kbd>o</kbd> or <kbd>enter</kbd> | Open issue
 
-### Issues und Pull Requests
-| Tastenkürzel                                                                              | Beschreibung                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>q</kbd>                                                                              | Hiermit wird ein Reviewer angefordert. Weitere Informationen findest Du unter „[Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review/).“                                                                                                |
-| <kbd>m</kbd>                                                                              | Hiermit wird ein Meilenstein festgelegt. Weitere Informationen findest Du unter „[Meilensteine mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests/).“                                                   |
-| <kbd>l</kbd>                                                                              | Hiermit wird eine Kennzeichnung angewendet. Weitere Informationen findest Du unter „[Kennzeichnungen auf Issues und Pull Requests anwenden](/articles/applying-labels-to-issues-and-pull-requests/).“                                                        |
-| <kbd>a</kbd>                                                                              | Hiermit wird ein Bearbeiter festgelegt. Weitere Informationen findest Du unter „[Issues und Pull Requests anderen {% data variables.product.company_short %}-Benutzern zuweisen](/articles/assigning-issues-and-pull-requests-to-other-github-users/).“ |
-| <kbd>Befehlstaste + Umschalttaste+p</kbd> oder <kbd>Steuertaste + Umschalttaste + p</kbd> | Hiermit wird zwischen den Registerkarten **Write** (Schreiben) und **Preview** (Vorschau) umgeschaltet.                                                                                                                                                      |
+### Issues and pull requests
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>q</kbd> | Request a reviewer. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review/)."
+|<kbd>m</kbd> | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."
+|<kbd>l</kbd> | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."
+|<kbd>a</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
+|<kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Toggles between the **Write** and **Preview** tabs
 
-### Änderungen in Pull Requests
+### Changes in pull requests
 
-| Tastenkürzel                                            | Beschreibung                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>c</kbd>                                            | Hiermit wird die Liste der Commits im Pull Request geöffnet.                                                                                                                                                                                                                                                                                                                             |
-| <kbd>t</kbd>                                            | Hiermit wird die Liste der geänderten Dateien im Pull Request geöffnet.                                                                                                                                                                                                                                                                                                                  |
-| <kbd>j</kbd>                                            | Hiermit verschiebt sich die Auswahl in der Liste nach unten                                                                                                                                                                                                                                                                                                                              |
-| <kbd>k</kbd>                                            | Hiermit verschiebt sich die Auswahl in der Liste nach oben                                                                                                                                                                                                                                                                                                                               |
-| <kbd>Befehlstaste + Umschalttaste + Eingabetaste </kbd> | Hiermit fügst Du einen einzelnen Kommentar zu einer Pull-Request-Diff hinzu                                                                                                                                                                                                                                                                                                              |
-| <kbd>Alt</kbd> und klicken                              | Umschalten zwischen Reduzieren und Erweitern aller veralteten Review-Kommentare in einem Pull Request durch das Drücken von `alt` und klicken auf **Show outdated** (zeige veraltete) oder **Hide outdated** (blende veraltete aus).|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| Klicke, dann <kbd>Shift</kbd> und klicke                | Kommentiere mehrere Zeilen eines Pull-Requests, indem Du auf eine Zeilennummer klickst, <kbd>shift</kbd> gedrückt hältst und dann auf eine andere Zeilennummer klickst. Weitere Informationen findest Du unter „[Einen Pull Request kommentieren](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>c</kbd> | Open the list of commits in the pull request
+|<kbd>t</kbd> | Open the list of changed files in the pull request
+|<kbd>j</kbd> | Move selection down in the list
+|<kbd>k</kbd> | Move selection up in the list
+| <kbd>cmd + shift + enter </kbd> | Add a single comment on a pull request diff |
+| <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
-### Projektboards
+### Project boards
 
-#### Spalte verschieben
+#### Moving a column
 
-| Tastenkürzel                                                                                                                  | Beschreibung                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| <kbd>Eingabetaste</kbd> oder <kbd>Leertaste</kbd>                                                                             | Hiermit wird die fokussierte Spalte verschoben.                     |
-| <kbd>Esc</kbd>                                                                                                                | Hiermit wird die ausgeführte Verschiebung abgebrochen.              |
-| <kbd>Eingabetaste</kbd>                                                                                                       | Hiermit wird die ausgeführte Verschiebung abgeschlossen.            |
-| <kbd>←</kbd> oder <kbd>h</kbd>                                                                                                | Hiermit wird die Spalte nach links verschoben.                      |
-| <kbd>Befehlstaste + ←</kbd> oder <kbd>Befehlstaste + h</kbd> oder <kbd>Befehlstaste + ←</kbd> oder <kbd>Steuertaste + h</kbd> | Hiermit wird die Spalte an die äußerste linke Position verschoben.  |
-| <kbd>→</kbd> oder <kbd>l</kbd>                                                                                                | Hiermit wird die Spalte nach rechts verschoben.                     |
-| <kbd>Befehlstaste + →</kbd> oder <kbd>Befehlstaste + l</kbd> oder <kbd>Befehlstaste + →</kbd> oder <kbd>Steuertaste + l</kbd> | Hiermit wird die Spalte an die äußerste rechte Position verschoben. |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>enter</kbd> or <kbd>space</kbd> | Start moving the focused column
+|<kbd>escape</kbd> | Cancel the move in progress
+|<kbd>enter</kbd> | Complete the move in progress
+|<kbd>←</kbd> or <kbd>h</kbd> | Move column to the left
+|<kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd> | Move column to the leftmost position
+|<kbd>→</kbd> or <kbd>l</kbd> | Move column to the right
+|<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move column to the rightmost position
 
-#### Karte verschieben
+#### Moving a card
 
-| Tastenkürzel                                                                                                                                                                                 | Beschreibung                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| <kbd>Eingabetaste</kbd> oder <kbd>Leertaste</kbd>                                                                                                                                            | Hiermit wird die fokussierte Karte verschoben.                                             |
-| <kbd>Esc</kbd>                                                                                                                                                                               | Hiermit wird die ausgeführte Verschiebung abgebrochen.                                     |
-| <kbd>Eingabetaste</kbd>                                                                                                                                                                      | Hiermit wird die ausgeführte Verschiebung abgeschlossen.                                   |
-| <kbd>↓</kbd> oder <kbd>j</kbd>                                                                                                                                                               | Hiermit wird die Karte nach unten verschoben.                                              |
-| <kbd>Befehlstaste + ↓</kbd> oder <kbd>Befehlstaste + j</kbd> oder <kbd>Befehlstaste + ↓</kbd> oder <kbd>Steuertaste + j</kbd>                                                                | Hiermit wird die Karte in den unteren Bereich der Spalte verschoben.                       |
-| <kbd>↑</kbd> oder <kbd>k</kbd>                                                                                                                                                               | Hiermit wird die Karte nach oben verschoben.                                               |
-| <kbd>Befehlstaste + ↑</kbd> oder <kbd>Befehlstaste + k</kbd> oder <kbd>Befehlstaste + ↑</kbd> oder <kbd>Steuertaste  + k</kbd>                                                               | Hiermit wird die Karte in den oberen Bereich der Spalte verschoben.                        |
-| <kbd>←</kbd> oder <kbd>h</kbd>                                                                                                                                                               | Hiermit wird die Karte in den unteren Bereich der Spalte auf der linken Seite verschoben.  |
-| <kbd>Umschalttaste +  ←</kbd> oder <kbd>Umschalttaste + h</kbd>                                                                                                                              | Hiermit wird die Karte in den oberen Bereich der Spalte auf der linken Seite verschoben.   |
-| <kbd>Befehlstaste + ←</kbd> oder <kbd>Befehlstaste + h</kbd> oder <kbd>Befehlstaste + ←</kbd> oder <kbd>Steuertaste + h</kbd>                                                                | Hiermit wird die Karte in den unteren Bereich der Spalte ganz links verschoben.            |
-| <kbd>Befehlstaste + Umschalttaste + ←</kbd> oder <kbd>Befehlstaste + Umschalttaste + h</kbd> oder <kbd>Steuertaste + Umschalttaste + ←</kbd> oder <kbd>Steuertaste + Umschalttaste + h</kbd> | Hiermit wird die Karte in den oberen Bereich der Spalte ganz links verschoben.             |
-| <kbd>→</kbd>                                                                                                                                                                                 | Hiermit wird die Karte in den unteren Bereich der Spalte auf der rechten Seite verschoben. |
-| <kbd>Umschalttaste + →</kbd> oder <kbd>Umschalttaste + l</kbd>                                                                                                                               | Hiermit wird die Karte in den oberen Bereich der Spalte auf der rechten Seite verschoben.  |
-| <kbd>Befehlstaste + →</kbd> oder <kbd>Befehlstaste + l</kbd> oder <kbd>Befehlstaste + →</kbd> oder <kbd>Steuertaste + l</kbd>                                                                | Hiermit wird die Karte in den unteren Bereich der Spalte ganz rechts verschoben.           |
-| <kbd>Befehlstaste + Umschalttaste + →</kbd> oder <kbd>Befehlstaste + Umschalttaste + l</kbd> oder <kbd>Steuertaste + Umschalttaste + →</kbd> oder <kbd>Steuertaste + Umschalttaste + l</kbd> | Hiermit wird die Karte in den unteren Bereich der Spalte ganz rechts verschoben.           |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>enter</kbd> or <kbd>space</kbd> | Start moving the focused card
+|<kbd>escape</kbd> | Cancel the move in progress
+|<kbd>enter</kbd> | Complete the move in progress
+|<kbd>↓</kbd> or <kbd>j</kbd> | Move card down
+|<kbd>command + ↓</kbd> or <kbd>command + j</kbd> or <kbd>control + ↓</kbd> or <kbd>control + j</kbd> | Move card to the bottom of the column
+|<kbd>↑</kbd> or <kbd>k</kbd> | Move card up
+|<kbd>command + ↑</kbd> or <kbd>command + k</kbd> or <kbd>control + ↑</kbd> or <kbd>control + k</kbd> | Move card to the top of the column
+|<kbd>←</kbd> or <kbd>h</kbd> | Move card to the bottom of the column on the left
+|<kbd>shift + ←</kbd> or <kbd>shift + h</kbd> | Move card to the top of the column on the left
+|<kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd> | Move card to the bottom of the leftmost column
+|<kbd>command + shift + ←</kbd> or <kbd>command + shift + h</kbd> or <kbd>control + shift + ←</kbd> or <kbd>control + shift + h</kbd> | Move card to the top of the leftmost column
+|<kbd>→</kbd> | Move card to the bottom of the column on the right
+|<kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Move card to the top of the column on the right
+|<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move card to the bottom of the rightmost column
+|<kbd>command + shift + →</kbd> or <kbd>command + shift + l</kbd> or <kbd>control + shift + →</kbd> or <kbd>control + shift + l</kbd> | Move card to the bottom of the rightmost column
 
 #### Previewing a card
 
-| Tastenkürzel   | Beschreibung                |
-| -------------- | --------------------------- |
-| <kbd>esc</kbd> | Close the card preview pane |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>esc</kbd> | Close the card preview pane
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### {% data variables.product.prodname_actions %}
 
-| Tastenkürzel                                            | Beschreibung                                                                |
-| ------------------------------------------------------- | --------------------------------------------------------------------------- |
-| <kbd>command space </kbd> oder <kbd>control space</kbd> | Hiermit erhältst Du im Workflow-Editor Vorschläge für Deine Workflow-Datei. |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file.
+|<kbd>g</kbd> <kbd>f</kbd> | Go to the workflow file
+|<kbd>shift + t</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
+|<kbd>shift + f</kbd> or <kbd>F</kbd> | Toggle fullscreen logs
+|<kbd>esc</kbd> | Exit fullscreen logs
 
 {% endif %}
 
-### Benachrichtigungen
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| Tastenkürzel                 | Beschreibung            |
-| ---------------------------- | ----------------------- |
-| <kbd>e</kbd>                 | Als erledigt markieren  |
-| <kbd>Umschalttaste + u</kbd> | Als ungelesen markieren |
-| <kbd>Umschalttaste + i</kbd> | Als gelesen markieren   |
-| <kbd>Umschalttaste + m</kbd> | Kündigen                |
+### Notifications
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>e</kbd> | Mark as done
+| <kbd>shift + u</kbd>| Mark as unread
+| <kbd>shift + i</kbd>| Mark as read
+| <kbd>shift + m</kbd> | Unsubscribe
 
 {% else %}
 
-| Tastenkürzel                                     | Beschreibung                             |
-| ------------------------------------------------ | ---------------------------------------- |
-| <kbd>e</kbd> oder <kbd>I</kbd> oder <kbd>y</kbd> | Als gelesen markieren                    |
-| <kbd>Umschalttaste + m</kbd>                     | Hiermit wird der Thread stummgeschaltet. |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>e</kbd> or <kbd>I</kbd> or <kbd>y</kbd> | Mark as read
+|<kbd>shift + m</kbd> | Mute thread
 {% endif %}
 
-### Netzwerkdiagramm
+### Network graph
 
-| Tastenkürzel                                                    | Beschreibung                                 |
-| --------------------------------------------------------------- | -------------------------------------------- |
-| <kbd>←</kbd> oder <kbd>h</kbd>                                  | Hiermit wird nach links gescrollt.           |
-| <kbd>→</kbd> oder <kbd>l</kbd>                                  | Hiermit wird nach rechts gescrollt.          |
-| <kbd>↑</kbd> oder <kbd>k</kbd>                                  | Hiermit wird nach oben gescrollt.            |
-| <kbd>↓</kbd> oder <kbd>j</kbd>                                  | Hiermit wird nach unten gescrollt.           |
-| <kbd>Umschalttaste +  ←</kbd> oder <kbd>Umschalttaste + h</kbd> | Hiermit wird komplett nach links gescrollt.  |
-| <kbd>Umschalttaste + →</kbd> oder <kbd>Umschalttaste + l</kbd>  | Hiermit wird komplett nach rechts gescrollt. |
-| <kbd>Umschalttaste+↑</kbd> oder <kbd>Umschalttaste+k</kbd>      | Hiermit wird komplett nach oben gescrollt.   |
-| <kbd>Umschalttaste+↓</kbd> oder <kbd>Umschalttaste+j</kbd>      | Hiermit wird komplett nach unten gescrollt.  |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>←</kbd> or <kbd>h</kbd> | Scroll left
+|<kbd>→</kbd> or <kbd>l</kbd> | Scroll right
+|<kbd>↑</kbd> or <kbd>k</kbd> | Scroll up
+|<kbd>↓</kbd> or <kbd>j</kbd> | Scroll down
+|<kbd>shift + ←</kbd> or <kbd>shift + h</kbd> | Scroll all the way left
+|<kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Scroll all the way right
+|<kbd>shift + ↑</kbd> or <kbd>shift + k</kbd> | Scroll all the way up
+|<kbd>shift + ↓</kbd> or <kbd>shift + j</kbd> | Scroll all the way down

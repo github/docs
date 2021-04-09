@@ -6,13 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - ssh
 ---
 
 Ao executar SSH ou comandos do Git remotos, o tempo limite da conexão pode expirar:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
-> OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
 > ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out
@@ -23,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### Usar HTTPS
 
-Geralmente, a solução mais simples é simplesmente evitar SSH por completo. A maioria dos firewalls e proxies permite tráfego HTTPS sem problemas. Para aproveitar isso, altere [a URL remota](/articles/which-remote-url-should-i-use) que você está usando:
+Geralmente, a solução mais simples é simplesmente evitar SSH por completo. A maioria dos firewalls e proxies permite tráfego HTTPS sem problemas. Para aproveitar isso, altere [a URL remota](/github/getting-started-with-github/about-remote-repositories) que você está usando:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

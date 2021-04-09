@@ -1,15 +1,16 @@
 ---
 title: 将 Jira 与个人项目集成
-intro: 您可以将 Jira Cloud 与您的用户帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。
+intro: '您可以将 Jira Cloud 与您的用户帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。'
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_app %}**。 ![左侧边栏中的 { site.data.variables.product.prodname_oauth_app }} 选项卡](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_app %}**。 ![左侧边栏中的 {% data variables.product.prodname_oauth_app %} 选项卡](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. 单击 **Register a new application（注册新应用程序）**。
 4. 在 **Application name（应用程序名称）**下输入 "Jira"。
 5. 在 **Homepage URL（主页 URL）**下，输入 Jira 实例的完整 URL。

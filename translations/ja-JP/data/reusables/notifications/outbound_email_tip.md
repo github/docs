@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" %}
-  {% tip %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% note %}
 
-  {% data variables.product.product_location_enterprise %}上でアウトバウンドメールのサポートが有効化されている場合にのみ、メール通知を受信することになります。 詳しい情報については、サイト管理者にお問い合わせください。
+**ノート**: メール通知は、{% data variables.product.product_location %}でアウトバウンドメールサポートが有効化されている場合にのみ受信できます。 詳しい情報については、サイト管理者にお問い合わせください。
 
-  {% endtip %}
+{% endnote %}
 {% endif %}

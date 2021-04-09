@@ -12,7 +12,7 @@ versions:
 
 O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar uma pull request para atualização de segurança. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança. Para obter mais informações, consulte "[Habilitar e desabilitar as atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)" e "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
 ### Opções de configuração para *dependabot.yml*
 
@@ -37,13 +37,14 @@ O arquivo *dependabot.yml* deve começar com `versão: 2` seguido por uma série
 | [`schedule.time`](#scheduletime)                                           |             | Hora do dia para procurar atualizações (hh:mm)               |
 | [`schedule.timezone`](#scheduletimezone)                                   |             | Fuso horário para hora do dia (identificador de zona)        |
 | [`target-branch`](#target-branch)                                          |             | Branch para criar pull requests contra                       |
+| [`vendor`](#vendor)                                                        |             | Atualizar dependências de vendor ou armazenadas em cache     |
 | [`versioning-strategy`](#versioning-strategy)                              |             | Como atualizar os requisitos da versão do manifesto          |
 
 Estas opções se encaixam, geralmente, nas seguintes categorias.
 
 - Opções de configuração essenciais que você deve incluir em todas as configurações: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Opções para personalizar o agendamento da atualização: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Opções para controlar quais dependências são atualizadas: [`allow`](#allow), [`ignore`](#ignore).
+- Opções para controlar quais dependências são atualizadas: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - Opções para adicionar metadata a pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Opções para alterar o comportamento dos pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
@@ -55,13 +56,13 @@ Além disso, a opção [`open-pull-requests-limite`](#open-pull-requests-limit) 
 
 As atualizações de segurança são geradas para manifestos de pacote vulneráveis apenas no branch padrão. Quando as opções de configuração são definidas para o mesmo branch (verdadeiro a menos que você use `target-branch`) e especifica um `package-ecosystem` e o `directory` para o manifesto vulnerável, as pull requests para atualizações de segurança usam opções relevantes.
 
-Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Obrigatório** Você adiciona um elemento `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio de cada um desses gerentes de pacotes.
+**Obrigatório** Você adiciona um elemento de `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio para cada um desses gerenciadores de pacotes. Se você quiser habilitar o vendoring para um gerente de pacotes com o qual é compatível, as dependências do vendor devem estar localizadas no diretório necessário. Para obter mais informações, consulte o [`vendor`](#vendor) abaixo.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -289,25 +290,26 @@ Você pode usar a opção `ignore` para personalizar quais dependências são at
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Personalizando as dependências para manter com "ignore"
+# Customizing the dependencies to maintain with `ignore`
 
-versão: 2
-atualizações:
+version: 2
+updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Para Express, ignore todas as atualizações para a versão 4 e 5
-        versões: ["4.x", "5.x"]
-        # Para Loadash, ignore todas as atualizações
-      - dependency-name: "loadash"
+        # For Express, ignore all updates for version 4 and 5
+        versions: ["4.x", "5.x"]
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-O {% data variables.product.prodname_dependabot_version_updates %} não pode executar atualizações de versão para quaisquer dependências no manifesto que contém dependências do Git privadas ou registros Git privados, mesmo se você adicionar as dependências privadas à opção de `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
+**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %} ](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+
 
 {% endnote %}
 
@@ -539,6 +541,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use a opção `vendor` para dizer {% data variables.product.prodname_dependabot %} para dependências de vendor ao atualizá-las.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot %} atualiza apenas as dependências de vendor localizadas em diretórios específicos em um repositório.
+
+| Gerenciador de pacotes | Caminho de arquivo necessário para dependências delegadas                                                         | Mais informações                                                             |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `bundler`              | As dependências devem estar no diretório _vendor/cache_.</br>Outros caminhos de arquivo não são compatíveis.      | [documentação de `bundle cache`](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`                | Nenhuma exigência de caminho (as dependências geralmente estão localizadas no diretório do _vendor_ do diretório) | [documentação de `go mod vendor`](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

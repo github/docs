@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Informationen zur integrierten Authentifizierung für Benutzer außerhalb Ihres Identity Providers
@@ -45,6 +47,6 @@ Wenn ein Benutzer die Einladung akzeptiert, kann er sich anstatt über den IdP m
 
 ### Weiterführende Informationen
 
-- „[LDAP verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap)“
+- „[LDAP verwenden](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)“
 - „[SAML verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)“
 - „[CAS verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)“

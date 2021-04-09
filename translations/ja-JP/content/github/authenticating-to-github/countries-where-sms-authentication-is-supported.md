@@ -5,6 +5,8 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 お住まいの国でテキストメッセージによる 2 要素認証がサポートされていない場合、TOTP モバイルアプリケーションにより認証を設定できます。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。

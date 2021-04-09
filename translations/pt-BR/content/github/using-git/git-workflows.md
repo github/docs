@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode adotar o método de fluxo {% data variables.product.prodname_dotcom %} para padronizar o funcionamento e a colaboração da sua equipe no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Fluxo do GitHub](/github/collaborating-with-issues-and-pull-requests/github-flow)" e "[Entender o fluxo de GitHub](http://guides.github.com/overviews/flow/)" nos guias do {% data variables.product.prodname_dotcom %}.

@@ -1,6 +1,6 @@
 ---
-title: GitHub ActionsでのGitHub Packagesの利用
-intro: '{% data variables.product.prodname_actions %}でのワークフローを、自動的にパッケージを{% data variables.product.prodname_registry %}に公開もしくは{% data variables.product.prodname_registry %}からインストールするように設定できます。'
+title: Using GitHub Packages with GitHub Actions
+intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
@@ -11,41 +11,43 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### {% data variables.product.prodname_actions %}との{% data variables.product.prodname_registry %}について
+### About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} 詳しい情報については「[{% data variables.product.prodname_actions %}について](/github/automating-your-workflow-with-github-actions/about-github-actions)」を参照してください。
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
 
-ワークフローの一部としてパッケージの公開やインストールを行うことで、リポジトリのCI及びCDの機能を拡張できます。
+You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### {% data variables.product.prodname_github_container_registry %} への認証を行う
+#### Authenticating to {% data variables.product.prodname_github_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
-{% data variables.product.prodname_registry %}の認証をうけるのに個人アクセストークンを使う代わりに、{% data variables.product.prodname_actions %}を有効化した際にリポジトリ用に自動的に{% data variables.product.prodname_dotcom %}が作成する`GITHUB_TOKEN`を使ってください。 For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
 
 {% endif %}
 
 #### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. この`GITHUB_TOKEN`は、現在のリポジトリに対する`read:packages`及び`write:packages`スコープを持ちます。 フォークの場合、このトークンは親のリポジトリへの`read:packages`スコープも持ちます。
+{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. The `GITHUB_TOKEN` has `read:packages` and `write:packages` scopes to the current repository. For forks, the token also has the `read:packages` scope for the parent repository.
 
-{% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}コンテキストを使って、ワークフロー中でこの`GITHUB_TOKEN`を参照できます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
-### アクションを使ったパッケージの公開
+### Publishing a package using an action
 
-{% data variables.product.prodname_actions %}を使い、継続的インテグレーション（CI）ワークフローの一部としてパッケージを公開できます。 たとえば、開発者がデフォルトブランチにコードを公開するたびにワークフローでCIテストが実行されるようにワークフローを構成することができます。 それらのテストをパスすれば、ワークフローは新しいパッケージバージョンを{% data variables.product.prodname_registry %}に公開します。 このワークフローは、コードが品質基準を満たしている場合にのみ新しいパッケージバージョンの作成を自動化します、
+You can publish packages as part of your continuous integration (CI) flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to the default branch, the workflow runs CI tests. If those tests pass, the workflow publishes a new package version to {% data variables.product.prodname_registry %}. This workflow automates the creation of new package versions only if the code meets your quality standards.
 
 {% data reusables.package_registry.actions-configuration %}
 
-### アクションを使ったパッケージのインストール
+### Installing a package using an action
 
-{% data variables.product.prodname_actions %}を使い、CIフローの一部としてパッケージをインストールできます。 たとえば、開発者がコードをプルリクエストにプッシュすると、いつでもワークフローが{% data variables.product.prodname_registry %}によってホストされているパッケージをダウンロードしてインストールすることで、依存関係を解決するようにワークフローを設定できます。 そして、ワークフローはその依存関係を必要とするCIテストを実行できます。
+You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-{% data variables.product.prodname_actions %}を通じて{% data variables.product.prodname_registry %}がホストしているパッケージをインストールするには、`GITHUB_TOKEN`を使う事によって最小限の設定もしくは追加の認証が必要です。 アクションがパッケージをインストールする場合、データ転送も無料です。 詳しい情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)」を参照してください。
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-`GITHUB_TOKEN`は、アクションが実行されるリポジトリ以外のプライベートリポジトリからパッケージをインストールすることはできません。  You cannot currently use `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.
+`GITHUB_TOKEN` cannot install packages from any private repository besides the repository where the action runs.  You cannot currently use `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.
 {% endif %}
 
 {% data reusables.package_registry.actions-configuration %}

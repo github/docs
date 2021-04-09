@@ -1,1 +1,1 @@
-A user forks a repository. For more information, see the "[forks](/v3/repos/forks/)" REST API.
+Um usuário bifurca um repositório. Para obter mais informações, consulte a API REST de [bifurcações](/rest/reference/repos#forks)".

@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
 - EC2 インスタンスを起動してEBS ボリュームを作成できる AWS アカウントを所有している必要があります。 詳細は [Amazon Web Services のウェブサイト](https://aws.amazon.com/)を参照してください。
-- {% data variables.product.product_location_enterprise %}の起動に必要なほとんどのアクションは、AWSマネジメントコンソールを使っても行えます。 とはいえ、初期のセットアップのためにAWSコマンドラインインターフェース（CLI）をインストールすることをおすすめします。 AWS CLIの使用例は以下にあります。 詳しい情報については、Amazonのガイド"[AWSマネジメントコンソールの操作](https://docs.aws.amazon.com/ja_jp/awsconsolehelpdocs/latest/gsg/getting-started.html)"及び"[AWS Command Line Interfaceとは](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-chap-welcome.html)"を参照してください。
+- {% data variables.product.product_location %}の起動に必要なほとんどのアクションは、AWSマネジメントコンソールを使っても行えます。 とはいえ、初期のセットアップのためにAWSコマンドラインインターフェース（CLI）をインストールすることをおすすめします。 AWS CLIの使用例は以下にあります。 詳しい情報については、Amazonのガイド"[AWSマネジメントコンソールの操作](https://docs.aws.amazon.com/ja_jp/awsconsolehelpdocs/latest/gsg/getting-started.html)"及び"[AWS Command Line Interfaceとは](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-chap-welcome.html)"を参照してください。
 
 本ガイドは、読者が以下のAWSの概念に馴染んでいることを前提としています。
 
@@ -21,6 +23,9 @@ versions:
  - [セキュリティグループの利用](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-network-security.html)（インスタンスへのネットワークアクセスの管理用）
  - [Elastic IPアドレス](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)（プロダクション環境では強く推奨）
  - [Amazon EC2 と Amazon Virtual Private Cloud](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-vpc.html)（Virtual Private Cloud内での起動を計画しているなら）
+ - [AWS の価格](https://aws.amazon.com/pricing/)（コストの計算と管理）
+
+ このガイドでは、AWS で {% data variables.product.product_location %} を設定する際に最小権限の原則を推奨しています。 詳細については、[AWS ID およびアクセス管理 (IAM)のドキュメント](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)を参照してください。
 
 ### ハードウェアについて
 
@@ -28,17 +33,11 @@ versions:
 
 ### インスタンスタイプの決定
 
-AWSで{% data variables.product.product_location_enterprise %}を起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
-
-#### サポートされているインスタンスタイプ
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 推奨されるインスタンスタイプ
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### {% data variables.product.prodname_ghe_server %} AMI を選択する
 
@@ -130,4 +129,5 @@ aws ec2 run-instances \
 
 ### 参考リンク
 
-- "[システムの概要](/enterprise/admin/guides/installation/system-overview)"
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

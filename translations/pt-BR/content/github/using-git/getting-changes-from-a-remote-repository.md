@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Esses comandos são muito úteis ao interagir com [um repositório remote](/articles/about-remote-repositories). `clone` e `fetch` baixam códigos remote de uma URL remota do repositório para seu computador, `merge` é usado para mesclar o trabalho de diferentes pessoas com o seu e `pull` é uma combinação de `fetch` e `merge`.
@@ -20,7 +21,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 # Clona um repositório em seu computador
 ```
 
-Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, essas URLs estarão disponíveis abaixo dos detalhes do repositório:
+Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, esses URLs estarão disponíveis abaixo dos detalhes do repositório:
 
 ![Lista de URLs remotas](/assets/images/help/repository/remotes-url.png)
 
@@ -70,5 +71,5 @@ Você deve garantir que fez commit de seu trabalho local antes de executar o com
 
 ### Leia mais
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
+- ["Trabalhar com remotos" do livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Solucionar problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}

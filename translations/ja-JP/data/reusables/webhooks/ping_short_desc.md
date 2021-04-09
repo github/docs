@@ -1,1 +1,1 @@
-新しいwebhookが作成されると、シンプルな`ping`イベントが送信され、webhookが正しくセットアップされたことを知らせます。 このイベントは保存されないので、[Events API](/v3/activity/events/)を通じて取り出すことはできません。 [Ping a repository webhook](/v3/repos/hooks/#ping-a-repository-webhook)エンドポイントを呼べば、`ping`をもう一度トリガーできます。
+新しいwebhookが作成されると、シンプルな`ping`イベントが送信され、webhookが正しくセットアップされたことを知らせます。 This event isn't stored so it isn't retrievable via the [Events API](/rest/reference/activity#ping-a-repository-webhook) endpoint.
