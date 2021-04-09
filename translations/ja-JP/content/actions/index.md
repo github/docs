@@ -22,18 +22,8 @@ featuredLinks:
     - /actions/reference/environment-variables
     - /actions/reference/encrypted-secrets
 changelog:
-  - 
-    title: 環境、環境の保護ルール、環境のシークレット（ベータ）
-    date: '2020-12-15'
-    href: https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/
-  - 
-    title: ワークフローの視覚化
-    date: '2020-12-08'
-    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
-  - 
-    title: 11月16日に set-env コマンドと add-path コマンドを削除します
-    date: '2020-11-09'
-    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+  label: 'actions'
+  prefix: 'GitHub Actions: '
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
