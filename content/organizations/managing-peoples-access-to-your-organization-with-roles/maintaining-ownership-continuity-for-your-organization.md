@@ -6,6 +6,7 @@ redirect_from:
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
   free-pro-team: '*'
