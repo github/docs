@@ -20,18 +20,8 @@ featuredLinks:
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  - 
-    title: 2021年1月9日、ghcr.ioはメンテナンスモードになります
-    date: '2021-01-08'
-    href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
-  - 
-    title: ghcr.ioコンテナ名は、コンテナページにリダイレクトされます
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
-  - 
-    title: タグ付きおよびタグなしコンテナのフィルター
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
+  label: 'packages'
+  prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
